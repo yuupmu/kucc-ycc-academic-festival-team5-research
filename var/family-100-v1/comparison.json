@@ -1,0 +1,480 @@
+{
+  "summary": {
+    "A-solo": {
+      "correct": 43,
+      "sufficient": 17,
+      "grounded_correct": 16,
+      "questions": 0,
+      "windows": 0,
+      "writer_packets_checked": 0,
+      "calls": 5,
+      "tokens": 2873,
+      "topics": 0,
+      "complete_policy_cards": 0,
+      "known_wrong": 1,
+      "missing_wrong": 56,
+      "task_scores": {
+        "title": 7,
+        "suffix": 8,
+        "mask": 10,
+        "upload": 4,
+        "print": 14
+      },
+      "round_scores": [],
+      "round_tokens": []
+    },
+    "A-self": {
+      "correct": 57,
+      "sufficient": 83,
+      "grounded_correct": 56,
+      "questions": 15,
+      "windows": 12,
+      "writer_packets_checked": 27,
+      "calls": 47,
+      "tokens": 54337,
+      "topics": 12,
+      "complete_policy_cards": 12,
+      "known_wrong": 27,
+      "missing_wrong": 16,
+      "task_scores": {
+        "title": 7,
+        "suffix": 8,
+        "mask": 10,
+        "upload": 12,
+        "print": 20
+      },
+      "round_scores": [
+        51,
+        51,
+        57
+      ],
+      "round_tokens": [
+        24107,
+        42258,
+        54337
+      ]
+    },
+    "A-abc": {
+      "correct": 65,
+      "sufficient": 97,
+      "grounded_correct": 65,
+      "questions": 39,
+      "windows": 15,
+      "writer_packets_checked": 28,
+      "calls": 78,
+      "tokens": 84630,
+      "topics": 15,
+      "complete_policy_cards": 15,
+      "known_wrong": 32,
+      "missing_wrong": 3,
+      "task_scores": {
+        "title": 7,
+        "suffix": 8,
+        "mask": 10,
+        "upload": 20,
+        "print": 20
+      },
+      "round_scores": [
+        65,
+        60,
+        65
+      ],
+      "round_tokens": [
+        27883,
+        55821,
+        84630
+      ],
+      "same_or_complementary": {
+        "three_same": 7,
+        "partly_overlapping": 7,
+        "two_same": 1
+      },
+      "first_round_overlap": {
+        "title": "three_same",
+        "suffix": "partly_overlapping",
+        "mask": "partly_overlapping",
+        "upload": "partly_overlapping",
+        "print": "partly_overlapping"
+      },
+      "later_new_topics": 0,
+      "unshared_new_topics_by_slot": {
+        "observer-A": 0,
+        "observer-B": 1,
+        "observer-C": 5
+      },
+      "first_round_question_topics_by_retained_slot": {
+        "A": 7,
+        "B": 10,
+        "C": 11,
+        "AB": 10,
+        "AC": 14,
+        "BC": 15,
+        "ABC": 15
+      }
+    },
+    "B-solo": {
+      "correct": 38,
+      "sufficient": 17,
+      "grounded_correct": 12,
+      "questions": 0,
+      "windows": 0,
+      "writer_packets_checked": 0,
+      "calls": 5,
+      "tokens": 1691,
+      "topics": 0,
+      "complete_policy_cards": 0,
+      "known_wrong": 5,
+      "missing_wrong": 57,
+      "task_scores": {
+        "title": 0,
+        "suffix": 9,
+        "mask": 3,
+        "upload": 12,
+        "print": 14
+      },
+      "round_scores": [],
+      "round_tokens": []
+    },
+    "B-self": {
+      "correct": 45,
+      "sufficient": 83,
+      "grounded_correct": 39,
+      "questions": 34,
+      "windows": 15,
+      "writer_packets_checked": 25,
+      "calls": 45,
+      "tokens": 33858,
+      "topics": 14,
+      "complete_policy_cards": 13,
+      "known_wrong": 44,
+      "missing_wrong": 11,
+      "task_scores": {
+        "title": 0,
+        "suffix": 9,
+        "mask": 3,
+        "upload": 19,
+        "print": 14
+      },
+      "round_scores": [
+        45,
+        45,
+        45
+      ],
+      "round_tokens": [
+        9061,
+        21474,
+        33858
+      ]
+    },
+    "B-abc": {
+      "correct": 54,
+      "sufficient": 87,
+      "grounded_correct": 43,
+      "questions": 41,
+      "windows": 15,
+      "writer_packets_checked": 22,
+      "calls": 73,
+      "tokens": 59976,
+      "topics": 13,
+      "complete_policy_cards": 13,
+      "known_wrong": 44,
+      "missing_wrong": 2,
+      "task_scores": {
+        "title": 9,
+        "suffix": 9,
+        "mask": 3,
+        "upload": 19,
+        "print": 14
+      },
+      "round_scores": [
+        45,
+        54,
+        54
+      ],
+      "round_tokens": [
+        13634,
+        32523,
+        59976
+      ],
+      "same_or_complementary": {
+        "three_same": 7,
+        "partly_overlapping": 8
+      },
+      "first_round_overlap": {
+        "title": "three_same",
+        "suffix": "partly_overlapping",
+        "mask": "partly_overlapping",
+        "upload": "partly_overlapping",
+        "print": "three_same"
+      },
+      "later_new_topics": 1,
+      "unshared_new_topics_by_slot": {
+        "observer-A": 0,
+        "observer-B": 3,
+        "observer-C": 1
+      },
+      "first_round_question_topics_by_retained_slot": {
+        "A": 9,
+        "B": 11,
+        "C": 10,
+        "AB": 11,
+        "AC": 10,
+        "BC": 12,
+        "ABC": 12
+      }
+    },
+    "C-solo": {
+      "correct": 0,
+      "sufficient": 17,
+      "grounded_correct": 0,
+      "questions": 0,
+      "windows": 0,
+      "writer_packets_checked": 0,
+      "calls": 5,
+      "tokens": 1232,
+      "topics": 0,
+      "complete_policy_cards": 0,
+      "known_wrong": 17,
+      "missing_wrong": 83,
+      "task_scores": {
+        "title": 0,
+        "suffix": 0,
+        "mask": 0,
+        "upload": 0,
+        "print": 0
+      },
+      "round_scores": [],
+      "round_tokens": []
+    },
+    "C-self": {
+      "correct": 31,
+      "sufficient": 66,
+      "grounded_correct": 31,
+      "questions": 17,
+      "windows": 13,
+      "writer_packets_checked": 20,
+      "calls": 41,
+      "tokens": 27639,
+      "topics": 11,
+      "complete_policy_cards": 11,
+      "known_wrong": 35,
+      "missing_wrong": 34,
+      "task_scores": {
+        "title": 0,
+        "suffix": 6,
+        "mask": 1,
+        "upload": 4,
+        "print": 20
+      },
+      "round_scores": [
+        31,
+        31,
+        31
+      ],
+      "round_tokens": [
+        7051,
+        15726,
+        27639
+      ]
+    },
+    "C-abc": {
+      "correct": 21,
+      "sufficient": 100,
+      "grounded_correct": 21,
+      "questions": 30,
+      "windows": 14,
+      "writer_packets_checked": 23,
+      "calls": 80,
+      "tokens": 71564,
+      "topics": 17,
+      "complete_policy_cards": 17,
+      "known_wrong": 79,
+      "missing_wrong": 0,
+      "task_scores": {
+        "title": 0,
+        "suffix": 0,
+        "mask": 0,
+        "upload": 8,
+        "print": 13
+      },
+      "round_scores": [
+        13,
+        21,
+        21
+      ],
+      "round_tokens": [
+        18792,
+        43136,
+        71564
+      ],
+      "same_or_complementary": {
+        "two_same": 1,
+        "zero_or_one_policy_asker": 5,
+        "partly_overlapping": 4,
+        "three_same": 5
+      },
+      "first_round_overlap": {
+        "title": "two_same",
+        "suffix": "zero_or_one_policy_asker",
+        "mask": "partly_overlapping",
+        "upload": "partly_overlapping",
+        "print": "partly_overlapping"
+      },
+      "later_new_topics": 0,
+      "unshared_new_topics_by_slot": {
+        "observer-A": 1,
+        "observer-B": 1,
+        "observer-C": 4
+      },
+      "first_round_question_topics_by_retained_slot": {
+        "A": 12,
+        "B": 10,
+        "C": 8,
+        "AB": 13,
+        "AC": 16,
+        "BC": 16,
+        "ABC": 17
+      }
+    },
+    "mixed": {
+      "correct": 57,
+      "sufficient": 100,
+      "grounded_correct": 57,
+      "questions": 44,
+      "windows": 15,
+      "writer_packets_checked": 32,
+      "calls": 82,
+      "tokens": 110164,
+      "topics": 17,
+      "complete_policy_cards": 17,
+      "known_wrong": 43,
+      "missing_wrong": 0,
+      "task_scores": {
+        "title": 7,
+        "suffix": 8,
+        "mask": 10,
+        "upload": 12,
+        "print": 20
+      },
+      "round_scores": [
+        51,
+        51,
+        57
+      ],
+      "round_tokens": [
+        29064,
+        65106,
+        110164
+      ],
+      "same_or_complementary": {
+        "partly_overlapping": 14,
+        "three_same": 1
+      },
+      "first_round_overlap": {
+        "title": "partly_overlapping",
+        "suffix": "partly_overlapping",
+        "mask": "partly_overlapping",
+        "upload": "partly_overlapping",
+        "print": "partly_overlapping"
+      },
+      "later_new_topics": 0,
+      "unshared_new_topics_by_slot": {
+        "observer-A": 2,
+        "observer-B": 4,
+        "observer-C": 2
+      },
+      "first_round_question_topics_by_retained_slot": {
+        "A": 8,
+        "B": 12,
+        "C": 11,
+        "AB": 15,
+        "AC": 13,
+        "BC": 15,
+        "ABC": 17
+      }
+    }
+  },
+  "paired": {
+    "A-self -> A-abc": {
+      "improved": [
+        "upload-06",
+        "upload-07",
+        "upload-08",
+        "upload-09",
+        "upload-10",
+        "upload-11",
+        "upload-12",
+        "upload-13"
+      ],
+      "regressed": []
+    },
+    "B-self -> B-abc": {
+      "improved": [
+        "title-01",
+        "title-02",
+        "title-03",
+        "title-04",
+        "title-12",
+        "title-13",
+        "title-14",
+        "title-15",
+        "title-20"
+      ],
+      "regressed": []
+    },
+    "C-self -> C-abc": {
+      "improved": [
+        "upload-06",
+        "upload-07",
+        "upload-08",
+        "upload-09",
+        "upload-10",
+        "upload-11",
+        "upload-12",
+        "upload-13"
+      ],
+      "regressed": [
+        "suffix-01",
+        "suffix-02",
+        "suffix-03",
+        "suffix-04",
+        "suffix-18",
+        "suffix-20",
+        "mask-15",
+        "upload-01",
+        "upload-02",
+        "upload-03",
+        "upload-04",
+        "print-08",
+        "print-09",
+        "print-10",
+        "print-11",
+        "print-12",
+        "print-13",
+        "print-14"
+      ]
+    },
+    "A-abc -> mixed": {
+      "improved": [],
+      "regressed": [
+        "upload-06",
+        "upload-07",
+        "upload-08",
+        "upload-09",
+        "upload-10",
+        "upload-11",
+        "upload-12",
+        "upload-13"
+      ]
+    },
+    "A-self -> mixed": {
+      "improved": [],
+      "regressed": []
+    }
+  },
+  "model_paths": {
+    "A": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "B": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+    "C": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf"
+  }
+}

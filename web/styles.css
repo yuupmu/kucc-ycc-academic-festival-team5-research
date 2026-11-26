@@ -20,6 +20,7 @@ button:hover:not(:disabled) { background: #f5f5f5; border-color: #888; }
 button:disabled, textarea:disabled { color: #888; border-color: #e2e2e2; cursor: default; }
 :focus-visible { outline: 2px solid #666; outline-offset: 2px; }
 .monitors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.monitors[hidden] { display: none; }
 fieldset { min-width: 0; margin: 0; padding: 14px; border: 1px solid #ddd; }
 legend { font-size: 13px; padding: 0 5px; }
 fieldset label + label { margin-top: 12px; }
@@ -28,7 +29,7 @@ fieldset label + label { margin-top: 12px; }
 .rules-calendar { margin: 14px 0 0; font-size: 12px; }
 #grading-rules td:first-child { white-space: nowrap; }
 .task-picker { max-width: 420px; margin-bottom: 18px; }
-#allocation-rules { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; font-size: 13px; line-height: 1.7; margin: 0; }
+#allocation-rules, #basic-rules { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; font-size: 13px; line-height: 1.7; margin: 0; }
 .section-heading { margin-bottom: 16px; }
 .section-heading h2 { margin: 0; }
 .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }

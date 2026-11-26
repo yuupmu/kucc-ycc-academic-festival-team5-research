@@ -15,7 +15,7 @@ from backend.openai_client import OpenAIClient, APIError
 from backend.live_schemas import MAIN_RULES, MONITOR_RULES
 from test_backend import ROOT, config, ANSWERS, wait_for
 
-FAKE_KEY = 'sk-test_only_not_a_real_key_12345'
+FAKE_KEY = 'sk-' + 'test-fixture-' * 4
 
 
 class FakeProvider:

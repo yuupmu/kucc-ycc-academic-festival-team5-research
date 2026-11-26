@@ -1,0 +1,300 @@
+{
+  "sentence_verification": {
+    "sealed_outputs": "59a0603b6b36786a52c9473d2f14444355b53d212b282d23b9c1c12a5799671b",
+    "source_results": "c9114a4a2584b6e98e7cc2b28370e02474eaf22a260e9385ef8ade15b4216ec8",
+    "reached_goal": false,
+    "stages": {
+      "include/initial": {
+        "behavior_at_15_16_17": [
+          "NotImplementedError",
+          "NotImplementedError",
+          "NotImplementedError"
+        ],
+        "received_policy_at_16": true,
+        "matches_received_on_20": 4,
+        "matches_received_on_38": 3,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 4
+      },
+      "include/after-reply": {
+        "behavior_at_15_16_17": [
+          "NotImplementedError",
+          "NotImplementedError",
+          "NotImplementedError"
+        ],
+        "received_policy_at_16": true,
+        "matches_received_on_20": 4,
+        "matches_received_on_38": 3,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 4
+      },
+      "exclude/initial": {
+        "behavior_at_15_16_17": [
+          "NotImplementedError",
+          "NotImplementedError",
+          "NotImplementedError"
+        ],
+        "received_policy_at_16": false,
+        "matches_received_on_20": 4,
+        "matches_received_on_38": 3,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 4
+      },
+      "exclude/after-reply": {
+        "behavior_at_15_16_17": [
+          "NotImplementedError",
+          "NotImplementedError",
+          "NotImplementedError"
+        ],
+        "received_policy_at_16": false,
+        "matches_received_on_20": 4,
+        "matches_received_on_38": 3,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 4
+      },
+      "unmentioned/initial": {
+        "behavior_at_15_16_17": [
+          "NotImplementedError",
+          "NotImplementedError",
+          "NotImplementedError"
+        ],
+        "received_policy_at_16": "NotImplementedError",
+        "matches_received_on_20": 5,
+        "matches_received_on_38": 4,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 4
+      },
+      "unmentioned/after-reply": {
+        "behavior_at_15_16_17": [
+          "NotImplementedError",
+          "NotImplementedError",
+          "NotImplementedError"
+        ],
+        "received_policy_at_16": "NotImplementedError",
+        "matches_received_on_20": 5,
+        "matches_received_on_38": 4,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 4
+      }
+    },
+    "questions": {
+      "include": "0바이트 빈 파일은 거부하시나요?",
+      "exclude": "0바이트 빈 파일과 정확히 16바이트인 파일은 거부하시는지 확인 부탁드립니다.",
+      "unmentioned": "0바이트 빈 파일은 거부하시나요?"
+    },
+    "owner_replies": {
+      "include": "0바이트 빈 파일은 거부합니다.",
+      "exclude": "0바이트 빈 파일도, 정확히 16바이트인 파일도 거부합니다.",
+      "unmentioned": "0바이트 빈 파일은 거부합니다."
+    },
+    "differences": {
+      "direct_answers": [],
+      "before_after_follow": [],
+      "final_vs_direct_exclude": [],
+      "changed_lines": []
+    },
+    "costs": {
+      "by_stage": {
+        "include/initial": {
+          "calls": 10,
+          "prompt_tokens": 4875,
+          "completion_tokens": 222,
+          "total_tokens": 5097
+        },
+        "include/after-reply": {
+          "calls": 8,
+          "prompt_tokens": 4110,
+          "completion_tokens": 152,
+          "total_tokens": 4262
+        },
+        "exclude/initial": {
+          "calls": 10,
+          "prompt_tokens": 4875,
+          "completion_tokens": 234,
+          "total_tokens": 5109
+        },
+        "exclude/after-reply": {
+          "calls": 8,
+          "prompt_tokens": 4293,
+          "completion_tokens": 154,
+          "total_tokens": 4447
+        },
+        "unmentioned/initial": {
+          "calls": 10,
+          "prompt_tokens": 4757,
+          "completion_tokens": 218,
+          "total_tokens": 4975
+        },
+        "unmentioned/after-reply": {
+          "calls": 8,
+          "prompt_tokens": 3983,
+          "completion_tokens": 156,
+          "total_tokens": 4139
+        }
+      },
+      "unique": {
+        "calls": 52,
+        "prompt_tokens": 25477,
+        "completion_tokens": 1040,
+        "total_tokens": 26517
+      },
+      "roles": {
+        "entailment": 24,
+        "clarify": 3,
+        "interpret": 24,
+        "scope": 1
+      }
+    }
+  },
+  "retained_writer": {
+    "sealed_outputs": "7dcb00644910b1e36f43f665cab620e3f4d2f086738b31c5648c650886546287",
+    "source_results": "ef0de2c5449c65f53a3fcc332e0050deca1ee5179fe493378d1b61a65d75bc7c",
+    "reached_goal": false,
+    "stages": {
+      "include/initial": {
+        "behavior_at_15_16_17": [
+          true,
+          true,
+          false
+        ],
+        "received_policy_at_16": true,
+        "matches_received_on_20": 20,
+        "matches_received_on_38": 38,
+        "matches_received_everywhere": true,
+        "official_inclusive_20": 20
+      },
+      "exclude/initial": {
+        "behavior_at_15_16_17": [
+          true,
+          false,
+          false
+        ],
+        "received_policy_at_16": false,
+        "matches_received_on_20": 20,
+        "matches_received_on_38": 38,
+        "matches_received_everywhere": true,
+        "official_inclusive_20": 19
+      },
+      "unmentioned/initial": {
+        "behavior_at_15_16_17": [
+          "NotImplementedError",
+          true,
+          false
+        ],
+        "received_policy_at_16": "NotImplementedError",
+        "matches_received_on_20": 12,
+        "matches_received_on_38": 22,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 13
+      },
+      "unmentioned/after-reply": {
+        "behavior_at_15_16_17": [
+          true,
+          true,
+          false
+        ],
+        "received_policy_at_16": "NotImplementedError",
+        "matches_received_on_20": 19,
+        "matches_received_on_38": 37,
+        "matches_received_everywhere": false,
+        "official_inclusive_20": 20
+      }
+    },
+    "questions": {
+      "include": null,
+      "exclude": null,
+      "unmentioned": "0 바이트보다 크고 16 바이트보다 작은 파일 크기는 허용하시겠습니까?"
+    },
+    "owner_replies": {
+      "unmentioned": "네, 0바이트보다 크고 16바이트보다 작은 파일은 허용합니다."
+    },
+    "differences": {
+      "direct_answers": [
+        16
+      ],
+      "before_after_follow": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "final_vs_direct_exclude": [
+        16
+      ],
+      "changed_lines": [
+        "--- ",
+        "+++ ",
+        "@@ -16 +16 @@",
+        "-    raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+        "+    return True"
+      ]
+    },
+    "costs": {
+      "by_stage": {
+        "include/initial": {
+          "calls": 4,
+          "prompt_tokens": 2493,
+          "completion_tokens": 397,
+          "total_tokens": 2890
+        },
+        "exclude/initial": {
+          "calls": 4,
+          "prompt_tokens": 2475,
+          "completion_tokens": 376,
+          "total_tokens": 2851
+        },
+        "unmentioned/initial": {
+          "calls": 5,
+          "prompt_tokens": 2636,
+          "completion_tokens": 358,
+          "total_tokens": 2994
+        },
+        "unmentioned/after-reply": {
+          "calls": 3,
+          "prompt_tokens": 1880,
+          "completion_tokens": 251,
+          "total_tokens": 2131
+        }
+      },
+      "unique": {
+        "calls": 14,
+        "prompt_tokens": 8068,
+        "completion_tokens": 1286,
+        "total_tokens": 9354
+      },
+      "roles": {
+        "outstanding-policy": 4,
+        "main-predicates": 4,
+        "main-behavior": 4,
+        "scope": 1,
+        "clarify": 1
+      }
+    },
+    "reuse": {
+      "experiments/mixed-upload-issue-20261126/round-1/new/calls": {
+        "calls": 2,
+        "tokens": 1662
+      },
+      "new local inference in retained writer": {
+        "calls": 11,
+        "tokens": 6936
+      },
+      "experiments/mixed-upload-three-answers-20261126/calls": {
+        "calls": 1,
+        "tokens": 756
+      }
+    }
+  },
+  "counterfactual": "The precommitted exclusion reply was never sent in the omission arm of either variant. The correct actual-evidence behavior at equality remained abstention. The separate hypothetical final-exclusion endpoint in each original results.json remains archived."
+}

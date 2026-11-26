@@ -1,0 +1,109 @@
+{
+  "handoff": "66924b00ba829411f4ff419db360506732cf1e37fc814b23820c670e406619b0",
+  "digest": "e9d17f88c299851483f44f58eb45cd47216f013ff3fd1fe931a1a04fddb2f715",
+  "agenda": {
+    "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+    "code": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        raise NotImplementedError(\"빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 합니다.\")\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+    "editing_base": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        raise NotImplementedError(\"빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 합니다.\")\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+    "sent_questions": {
+      "Q1": "파일 크기의 상한 값을 정해달라.",
+      "Q2": "저장소 담당자가 빈 파일(0 바이트)을 허용하는지 확인해주세요. 그리고 파일 크기의 상한 값도 확인해주세요. 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError를 발생시키는 것은 적절하지 않습니다. 상한 값과 빈 파일 허용 여부를 명확히 해야 합니다.",
+      "Q3": "상한 크기 값과 정확히 상한인 파일의 허용 여부는 저장소 담당자에게 확인할 수 있나요?"
+    },
+    "review": [
+      "코드의 불일치: 0 바이트 파일 처리 및 상한 값 처리 방식이 저장소 담당자의 요구사항과 일치하지 않습니다.  `NotImplementedError`를 발생시키는 대신, 저장소 담당자의 확인을 받아야 합니다. 파일 크기 상한 값에 대한 명확한 정의가 필요합니다.",
+      "code에는 상한 값과 정확히 상한인 파일의 허용 여부를 처리하는 부분이 미정 경로로 처리되어 있습니다. 이것은 지정된 정책과 모순됩니다. 또한, 상한 값이 정의되지 않았습니다."
+    ],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:12:4",
+        "@pending:8:8"
+      ],
+      "findings": {
+        "R1": [
+          "S1",
+          "S2"
+        ],
+        "R2": [
+          "S1",
+          "S2"
+        ]
+      },
+      "aliases": {
+        "S1": "@pending:12:4",
+        "S2": "@pending:8:8"
+      },
+      "calls": [
+        "db58850968ab300dc4ea554c8fef460bb6fc45dc00e2410425154507dfc4eac5"
+      ],
+      "reopened": {}
+    },
+    "slots": {
+      "MAX_SIZE_BYTES": {
+        "key": "MAX_SIZE_BYTES",
+        "kind": "quantity",
+        "origin": "Q1",
+        "question": "파일 크기의 상한 바이트 수를 정해달라."
+      },
+      "ALLOW_EMPTY_FILE": {
+        "key": "ALLOW_EMPTY_FILE",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "빈 파일 (0 바이트) 을 허용하는지 확인해주세요."
+      },
+      "ALLOW_EXACT_MAX": {
+        "key": "ALLOW_EXACT_MAX",
+        "kind": "decision",
+        "origin": "Q3",
+        "question": "정확히 상한 크기에 해당하는 파일을 허용하는지 확인해주세요."
+      }
+    },
+    "public": {
+      "P1": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요.",
+      "P2": "size_bytes는 정수 바이트 수이며 0은 빈 파일입니다.",
+      "P3": "음수 입력은 잘못된 크기이므로 거부합니다.",
+      "P4": "담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다.",
+      "P5": "허용하면 True, 거부하면 False를 반환합니다.",
+      "P6": "상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다.",
+      "P7": "파일 내용이나 확장자는 입력에 없습니다."
+    },
+    "rules": [
+      {
+        "when": "size_bytes == 0",
+        "then": "ALLOW_EMPTY_FILE",
+        "source": "Q2"
+      },
+      {
+        "when": "size_bytes == MAX_SIZE_BYTES",
+        "then": "ALLOW_EXACT_MAX",
+        "source": "Q3"
+      },
+      {
+        "when": "size_bytes < 0",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "0 < size_bytes < MAX_SIZE_BYTES",
+        "then": "True",
+        "source": "P4"
+      },
+      {
+        "when": "size_bytes > MAX_SIZE_BYTES",
+        "then": "False",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "size_bytes"
+    ],
+    "mode": "integer",
+    "calls": [
+      "9a5d7dd595397b6f4af5e74d104c6a5722d240b3d0fcc398b1540b84f9633afa",
+      "559c885bff06b3e9823fd0538551aea751fddc1a0362150d70bb8f9351887b52",
+      "ac5d0ca1dd602eefad41cf63497de4238bf312ac9165a4361f2cff72bf692f7e",
+      "db58850968ab300dc4ea554c8fef460bb6fc45dc00e2410425154507dfc4eac5"
+    ]
+  }
+}

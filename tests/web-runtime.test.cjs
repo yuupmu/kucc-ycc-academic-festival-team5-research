@@ -21,15 +21,56 @@ function setup(saved) {
       append(option){this.options.push(option);}, replaceChildren(){this.options=[];},
       setCustomValidity(message){this.validationMessage=message;}, reportValidity(){return true;}, querySelectorAll(){return [];} });
   }
-  const context = {document:{createElement(tag){return {tagName:tag.toUpperCase(),value:'',textContent:''};},getElementById(id){assert.ok(elements.has(id), 'missing ID: ' + id); return elements.get(id);}},
+  const context = {document:{createTextNode(text){return {textContent:text};},createElement(tag){
+    return {tagName:tag.toUpperCase(),value:'',textContent:'',children:[], listeners:{},
+      append(...nodes){this.children.push(...nodes);},addEventListener(event,fn){this.listeners[event]=fn;}};
+  },getElementById(id){assert.ok(elements.has(id), 'missing ID: ' + id); return elements.get(id);}},
     localStorage:{getItem(){return saved ? JSON.stringify(saved) : null;}}, location:{protocol:'file:'}};
   vm.createContext(context);
-  vm.runInContext(script + '\nglobalThis.probe = {readConfiguration,restoreConfiguration,commonMonitorPrompt,showConnection,validInputs,pendingSelection,executionDisplay,diagnosticText,setRuntime(state, connected) {currentRun=state; online=true; apiConnected=connected; selectedRequest=state.requests[0]?.id; controls();}};', context);
+  vm.runInContext(script + '\nglobalThis.probe = {readConfiguration,restoreConfiguration,commonMonitorPrompt,showConnection,validInputs,pendingSelection,executionDisplay,diagnosticText,renderReviewHistory,setRuntime(state, connected) {currentRun=state; online=true; apiConnected=connected; selectedRequest=state.requests[0]?.id; controls();}};', context);
   return {probe:context.probe, elements};
 }
 
+function enableMonitors(elements) {
+  const architecture = elements.get('architecture');
+  architecture.value = 'main-agent-with-three-observers';
+  architecture.listeners.change();
+}
+
+test('review history shows full prose, its answer and the verified version', () => {
+  const {probe, elements} = setup();
+  const entry = {id:'abc', monitor_id:2, version:1, reason:'정각에도 허용합니까?', requests:[], checks:[], request_ids:['r1']};
+  const state = {status:'running', requests:[{id:'r1', answer:{text:'정각에는 거부합니다.'}, verified_version:4}], review_log:[entry]};
+  probe.renderReviewHistory(state);
+  let row = elements.get('review-entries').options[0];
+  assert.match(row.textContent, /메인 전달 대기.*정각에도 허용합니까/);
+  assert.ok(row.children.some(n => n.tagName === 'BUTTON'));
+  assert.ok(row.children.some(n => /정각에는 거부합니다.*v4 검사 통과/.test(n.textContent)));
+  entry.delivered_version = 3;
+  state.status = 'completed';
+  probe.renderReviewHistory(state);
+  row = elements.get('review-entries').options[0];
+  assert.match(row.textContent, /메인 v3에 전달/);
+  assert.ok(!row.children.some(n => n.tagName === 'BUTTON'));
+  probe.renderReviewHistory({requests:[]});
+  assert.ok(elements.get('review-history').hidden);
+});
+
+test('fresh baseline uses a small model, basic task and no observers', () => {
+  const {probe,elements} = setup();
+  const config = probe.readConfiguration();
+  assert.equal(config.architecture, 'main-only');
+  assert.equal(config.monitors.length, 0);
+  assert.equal(config.mainAgent.model, 'gpt-4o-mini');
+  assert.equal(config.task_id, 'cancellation_basic');
+  assert.ok(elements.get('instructions-1').disabled);
+  assert.equal(JSON.stringify(setup(config).probe.readConfiguration()), JSON.stringify(config));
+});
+
 test('default instructions include common judgment prompt for all three monitors', () => {
-  const {probe} = setup();
+  const {probe,elements} = setup();
+  enableMonitors(elements);
+  assert.equal(probe.readConfiguration().monitors.length, 3);
   for (const m of probe.readConfiguration().monitors) assert.ok(m.instructions.includes(probe.commonMonitorPrompt));
 });
 
@@ -68,7 +109,7 @@ test('rules toggle is initially closed and excluded from agent configuration', (
 
 test('task selection changes defaults, preserves custom prompts and saves the task', () => {
   const {probe, elements} = setup();
-  assert.equal(probe.readConfiguration().task_id, 'cancellation');
+  assert.equal(probe.readConfiguration().task_id, 'cancellation_basic');
   const task = elements.get('task-id');
   task.value = 'allocation'; task.listeners.change();
   assert.equal(probe.readConfiguration().task_id, 'allocation');
@@ -83,7 +124,9 @@ test('task selection changes defaults, preserves custom prompts and saves the ta
   assert.equal(elements.get('cancellation-rules').hidden, false);
 });
 test('old saved prompts migrate once and edited version 3 prompts stay verbatim', () => {
-  const initial = setup().probe.readConfiguration();
+  const legacy = setup();
+  enableMonitors(legacy.elements);
+  const initial = legacy.probe.readConfiguration();
   initial.version = 2;
   initial.mainAgent.prompt = '  메인 원문\n  ';
   initial.monitors.forEach(m => {m.instructions='  직접 입력\n관점 ' + m.id;});
@@ -100,6 +143,7 @@ test('old saved prompts migrate once and edited version 3 prompts stay verbatim'
 
 test('supported account model IDs are selectable independently, including Luna and GPT-4o', () => {
   const {probe,elements}=setup();
+  enableMonitors(elements);
   const models=['gpt-6-luna','gpt-4o','gpt-4o-mini','gpt-4o-2024-11-20','gpt-5.4','gpt-5.4-mini'];
   probe.showConnection({connected:true,models});
   const ids=['main-model','model-1','model-2','model-3'];
@@ -142,6 +186,7 @@ test('new pending questions replace the locked answered selection without steali
   assert.equal(probe.pendingSelection(requests,'old'),'new');
   assert.equal(probe.pendingSelection(requests,'third'),'third');
   assert.equal(probe.pendingSelection([requests[0]],'old'),'old');
+  assert.equal(probe.pendingSelection([requests[0],{id:'clarify',status:'needs_example'}],'old'),'clarify');
 });
 
 

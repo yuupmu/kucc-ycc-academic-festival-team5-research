@@ -1,0 +1,206 @@
+"""P4. Fork a blind first review, consolidate its questions and trace replies into the authored files."""
+import argparse
+import ast
+from pathlib import Path
+
+from backend import project_syntax
+from backend.structured_output import array, obj
+from experiments import festival_protocol as base
+from experiments.local_transport import local_server, locked_output, read, recorded, save
+from experiments.project_review import freeze, publish
+
+
+INTAKE = ('당신은 감시자 C입니다. 세 감시자의 메모를 읽고, 코드를 모르는 운영 담당자에게 직접 묻는 질문을 정리하세요. '
+          '공개 설명에서 아직 정하지 않아 답에 따라 결과가 달라지는 정책을 찾으세요. 서로 다른 결정당 한 문장, 중요한 것부터 '
+          '최대 세 개입니다. 여러 메모가 같은 주제면 묶고, 관련 메모를 근거로 아직 필요한 결정 자체를 구체적으로 물으세요. '
+          '정책 내용을 제시하거나 추측하지 마세요. 구현 여부나 변수명, 이미 정해진 사항을 묻지 마세요. '
+          '각 question은 담당자가 평소 말로 답할 수 있는 직접 질문으로 쓰고 물음표로 끝내세요.')
+EDIT = ('당신은 메인 개발자입니다. 프로젝트 파일의 기존 설명·주석·가정에는 운영 결정을 내릴 권한이 없습니다. '
+        '공개 요구와 실제 담당자 답변을 읽고, 실행되는 동작에 반영하세요. '
+        '각 답변 문장별로 적용할 파일과 실제 실행 줄 하나를 bindings에 적으세요. 미정이거나 더 물어야 하는 부분은 open입니다. '
+        '이미 구현된 내용은 present, 이번에 동작을 바꾸면 changed입니다. 줄은 files에서 그대로 인용하세요. '
+        'files에는 최소한의 완전한 실행 코드만 쓰세요. 긴 설명, 문서 문자열, 마크다운이나 JSON 바깥 괄호를 넣지 마세요. '
+        '결정을 모르는 입력에서 관행을 지어내지 말고 그 경로만 명시적으로 보류하세요. '
+        '확인된 모든 경우는 작동해야 합니다. 미결정이 있으면 complete는 false입니다.')
+RETRY = ' 앞선 시도와 독립적으로 공개 원문과 담당자 답부터 다시 읽고, 이를 만족하는 짧은 실행 파일을 새로 작성하세요.'
+
+
+def author_schema(files, facts):
+    binding = obj({'reply': {'type': 'string', 'enum': facts}, 'status': {'type': 'string', 'enum': ['changed', 'present', 'open']},
+                   'file': {'type': 'string', 'enum': list(files)}, 'line': base.TEXT})
+    return obj({'bindings': array(binding, 0, len(facts)), **base.author_schema(files)['properties']})
+
+
+def executable(path, code):
+    if path.endswith(('.py', '.pyw')):
+        try:
+            tree = ast.parse(code)
+        except (SyntaxError, ValueError, RecursionError):
+            return set()
+        lines = code.splitlines()
+        statements = [s for s in ast.walk(tree) if isinstance(s, ast.stmt) and not isinstance(s, ast.Pass)
+                      and not (isinstance(s, ast.Expr) and isinstance(s.value, ast.Constant) and isinstance(s.value.value, str))]
+        return {lines[s.lineno - 1].strip() for s in statements}
+    return {s.strip() for s in code.splitlines() if s.strip()}
+
+
+def revision_view(name, code, starter):
+    """Retain the public starter and show executable lines without newly invented docstrings in the draft."""
+    if not name.endswith(('.py', '.pyw')):
+        return code
+    try:
+        tree = ast.parse(code)
+    except (SyntaxError, ValueError, RecursionError):
+        return code
+    lines = code.splitlines(keepends=True)
+    hidden = set()
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Module, ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)) and node.body:
+            first = node.body[0]
+            if ast.get_docstring(node, clean=False) is not None and ast.get_source_segment(code, first) not in starter:
+                hidden.update(range(first.lineno - 1, first.end_lineno))
+    return ''.join(line for index, line in enumerate(lines) if index not in hidden)
+
+
+def apply_reply(previous, facts, result):
+    if result is None:
+        return previous, None, ['invalid_output']
+    edits = [dict(file=p, first=1, last=len(code.splitlines()), text=result['files'][p])
+             for p, code in previous.items() if result['files'][p] != code]
+    files, _, syntax, error = project_syntax.transaction(previous, edits, {}, base.replace_files)
+    problems = ['syntax'] if error or 'invalid' in syntax['verified'].values() else []
+    if sorted(facts) != sorted(b['reply'] for b in result['bindings']):
+        problems.append('missing_or_duplicate_reply')
+    for b in result['bindings']:
+        if b['status'] == 'open':
+            continue
+        name, line = b['file'], b['line'].strip()
+        old_lines = executable(name, previous[name])
+        new_lines = executable(name, files[name])
+        if not line or line not in new_lines:
+            problems.append('missing_executable_line')
+        if b['status'] == 'changed' and line in old_lines:
+            problems.append('claimed_change_on_unchanged_line')
+    return files, syntax, problems
+
+
+def stage(parent, out, text=None, source='human', port=18768, audit=False, previous_calls=None):
+    design = read(parent / 'design.json')
+    first, raw_review = base.record_version(parent, design, 'p3', 1, None, [], 0, audit=True)
+    personal = out / 'p4'
+    calls_dir = out / 'calls'
+    def keep(path, value):
+        if audit:
+            if base.core.digest(read(path)) != base.core.digest(value):
+                raise ValueError('P4 원문·호출 재현이 다릅니다.')
+        else:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            freeze(path, value)
+    def reuse(path, role, system, user, seed, limit, port, fmt, model):
+        for origin in [parent / 'calls', *([previous_calls] if previous_calls else [])]:
+            existing = origin / path.name
+            if existing.exists() and not path.exists():
+                freeze(path, read(existing))
+        return recorded(path, role, system, user, seed, limit, port, fmt, model)
+    request = dict(out=out, design=design, port=port, audit=audit, invoke=reuse)
+    keep(out / 'design.json', {**design, 'arms': ['p4'], 'versions': 2, 'protocol': 'festival-human-review-p4-v2',
+                                'parent_draft': first['sha256'], 'parent_review': raw_review['calls'],
+                                'refinement_sha256': base.core.digest([INTAKE, EDIT, RETRY, author_schema({'f': ''}, ['r'])])})
+    for key in raw_review['calls']:
+        keep(calls_dir / (key + '.json'), read(parent / 'calls' / (key + '.json')))
+    notes = {}
+    for member in raw_review['reviewers']:
+        for i, q in enumerate((member['response'] or {}).get('questions', []), 1):
+            notes[member['role'] + str(i)] = q
+    questions, calls = [], list(raw_review['calls'])
+    if notes:
+        schema = obj({'questions': array(obj({'basis': {'type': 'string', 'enum': list(notes)}, 'question': base.TEXT}), 0, base.QUESTION_LIMIT)})
+        key, decision = base.call_model(role='C-intake', system=INTAKE, packet={'공개 요구사항': design['project']['brief'], '감시 메모': notes},
+                                        schema=schema, seed=design['seed'] + 50, limit=base.REVIEW_LIMIT, **request)
+        calls.append(key)
+        seen = set()
+        for row in (decision or {}).get('questions', []):
+            question = row['question'].strip()
+            normalized = base.text_key(question)
+            if normalized and normalized not in seen:
+                seen.add(normalized)
+                questions.append({'question': question, 'proposed_by': list(dict.fromkeys([row['basis'][0], 'C'])), 'basis': row['basis']})
+    incoming = out / 'reply.json'
+    if text is not None:
+        if not questions or source not in ('human', 'delegated_policy_card'):
+            raise ValueError('이 회차에는 답변을 접수할 수 없습니다.')
+        keep(incoming, dict(arm='p4', version=1, text=base.core.natural_reply(text), source=source, questions=questions))
+    reply = read(incoming) if incoming.exists() else None
+    if reply and (reply['questions'] != questions or reply['source'] not in ('human', 'delegated_policy_card') or
+                  reply['arm'] != 'p4' or reply['version'] != 1):
+        raise ValueError('P4 응답이 이 질문에 연결되지 않습니다.')
+    if reply:
+        base.core.natural_reply(reply['text'])
+    first_status = 'awaiting_human' if questions else 'running'
+    keep(personal / 'v1' / 'snapshot.json', first)
+    keep(personal / 'v1' / 'review.json', dict(calls=calls, questions=questions, reviewers=raw_review['reviewers'], status=first_status))
+    def state(n, status):
+        value = dict(arms={'p4': {'version': n, 'status': status}}, answers=[reply] if reply else [])
+        if audit:
+            if read(out / 'state.json') != value:
+                raise ValueError('P4 실행 상태가 다릅니다.')
+        else:
+            save(out / 'state.json', value)
+        return value
+    if questions and not reply:
+        return state(1, first_status)
+    facts = list(dict.fromkeys(s.strip() for s in (reply['text'].splitlines() if reply else []) if s.strip()))
+    schema = author_schema(first['files'], facts) if facts else obj({'bindings': array(base.TEXT, 0, 0), **base.author_schema(first['files'])['properties']})
+    starter = design['project']['files']
+    packet = {'공개 요구사항': design['project']['brief'], '공개 초기 파일': starter,
+              '직전 작성본의 구현': {p: revision_view(p, code, starter[p]) for p, code in first['files'].items()},
+              '실제 담당자 답변 원문': facts}
+    calls, attempts = [], []
+    for attempt in range(2):
+        key, author = base.call_model(role='main-author', system=EDIT + (RETRY if attempt else ''), packet=packet, schema=schema,
+                                     seed=design['seed'] + 1000 + attempt, limit=base.AUTHOR_LIMIT, **request)
+        files, syntax, issues = apply_reply(first['files'], facts, author)
+        calls.append(key)
+        attempts.append(dict(key=key, issues=issues, bindings=(author or {}).get('bindings', [])))
+        if not issues:
+            break
+    replies = [reply['text']] if reply else []
+    packet = {'공개 요구사항': design['project']['brief'], '담당자 답변 원문': replies, '프로젝트 파일': files}
+    reviews = []
+    for i, role in enumerate(base.SLOTS):
+        key, review = base.call_model(role=role, system=base.WATCH + ' ' + base.VIEWS[i] + ' ' + base.CHECK + base.GROUNDED,
+                                      packet=packet, schema=base.review_schema(True), seed=design['seed']+1001+i,
+                                      limit=base.REVIEW_LIMIT, **request)
+        calls.append(key)
+        reviews.append((role, review))
+    remaining, withheld = base.collect_questions(reviews, base.core.sources(design['project']['brief'], [reply] if reply else []))
+    ready = (author and author['complete'] and not issues and all(b['status'] != 'open' for b in author['bindings'])
+             and all(r and not r['needs_code_fix'] for _, r in reviews) and not remaining and not withheld)
+    status = 'invalid_output' if not author or any(r is None for _, r in reviews) else 'reviewed_complete' if ready else 'open_limit'
+    snap = dict(version=2, files=files, sha256=base.core.digest(files), received=[1] if reply else [], author_call=attempts[-1]['key'],
+                author_complete=bool(author and author['complete']), syntax=syntax, attempts=attempts)
+    keep(personal / 'v2' / 'snapshot.json', snap)
+    keep(personal / 'v2' / 'review.json', dict(calls=calls, questions=remaining, withheld=withheld, reviewers=reviews, status=status))
+    if audit:
+        target = out / 'submissions/p4'
+        exported = {p.relative_to(target).as_posix(): p.read_bytes() for p in target.rglob('*') if p.is_file()}
+        if exported != {p: s.encode() for p, s in files.items()}:
+            raise ValueError('P4 최종 코드가 다릅니다.')
+    else:
+        publish(out, 'p4', files)
+    return state(2, status)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('parent', type=Path, help='기존 P3의 공개 명세·최초 코드·독립 감시 의견을 재사용합니다.')
+    parser.add_argument('out', type=Path)
+    parser.add_argument('--answer-file', type=Path)
+    parser.add_argument('--port', type=int, default=18768)
+    args = parser.parse_args()
+    with locked_output(args.out), local_server(args.port, read(args.parent / 'design.json')['model']):
+        result = stage(args.parent, args.out, args.answer_file.read_text() if args.answer_file else None, port=args.port)
+        print(result['arms'])
+        if result['arms']['p4']['status'] == 'awaiting_human':
+            for item in read(args.out / 'p4/v1/review.json')['questions']:
+                print(' •', item['question'])

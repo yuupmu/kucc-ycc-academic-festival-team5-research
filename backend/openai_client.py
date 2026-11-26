@@ -74,6 +74,8 @@ class OpenAIClient:
         return self.models
 
     def invoke(self, envelope, instruction, schema):
+        from .allocation_repair import model_view
+        envelope = model_view(envelope)
         response = self._request('responses', {
             'model': envelope['model'], 'store': False, 'max_output_tokens': 10000,
             'input': [{'role': 'developer', 'content': instruction},

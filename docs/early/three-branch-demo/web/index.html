@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>멀티에이전트 실험</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="branch-runner.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>멀티에이전트 실험</h1>
+      <span class="muted">화면 뼈대 · 모델 및 채점 미연결</span>
+    </header>
+
+    <section aria-labelledby="settings-title">
+      <h2 id="settings-title">실험 설정</h2>
+      <form id="settings">
+        <div class="fields">
+          <label>과제<input value="예약 취소 판정 · 100문항" readonly></label>
+          <label>작업 모델<select id="worker-model"><option>GPT-6.1 Sol</option></select></label>
+        </div>
+        <p class="structure">작업 A·B·C → 감시 1 / 감시 2 / 감시 3 → 결과 통합</p>
+        <div class="branches">
+          <fieldset class="monitor-config">
+            <legend>감시 에이전트 1</legend>
+            <label>컨셉 이름<input id="concept-1" value="개입 판단의 태도" required maxlength="80"></label>
+            <label>모델<select id="model-1"><option>GPT-6.1 Sol</option><option>GPT-6 Luna</option></select></label>
+            <label>페르소나·판단 지침<textarea id="instructions-1" rows="5" required maxlength="12000" placeholder="이 에이전트가 무엇을 보고 언제 질문할지 입력하세요.">판단의 위험, 되돌릴 수 있는 범위, 사용자 의도를 함께 검토한다. 확정이 필요한 정책만 인간에게 질문하고 독립적인 작업은 계속 진행하게 한다.</textarea></label>
+          </fieldset>
+          <fieldset class="monitor-config">
+            <legend>감시 에이전트 2</legend>
+            <label>컨셉 이름<input id="concept-2" value="집중하는 근거" required maxlength="80"></label>
+            <label>모델<select id="model-2"><option>GPT-6.1 Sol</option><option>GPT-6 Luna</option></select></label>
+            <label>페르소나·판단 지침<textarea id="instructions-2" rows="5" required maxlength="12000" placeholder="이 에이전트가 무엇을 보고 언제 질문할지 입력하세요.">문서와 테스트의 근거, 원래 목표, 작업 간 의존성을 검토한다. 직접 검증 가능한 문제는 확인하고 인간만 결정할 정보가 없을 때 질문한다.</textarea></label>
+          </fieldset>
+          <fieldset class="monitor-config">
+            <legend>감시 에이전트 3</legend>
+            <label>컨셉 이름<input id="concept-3" value="인간에게 필요한 기여" required maxlength="80"></label>
+            <label>모델<select id="model-3"><option>GPT-6.1 Sol</option><option>GPT-6 Luna</option></select></label>
+            <label>페르소나·판단 지침<textarea id="instructions-3" rows="5" required maxlength="12000" placeholder="이 에이전트가 무엇을 보고 언제 질문할지 입력하세요.">문서에 없는 현장 맥락, 가치 우선순위, 실제 사용 경험을 구분한다. 인간에게 필요한 기여를 구체적으로 요청하고 불필요한 승인 요청을 줄인다.</textarea></label>
+          </fieldset>
+        </div>
+        <p class="muted">감시자마다 별도 지침·상태·질문·응답을 가집니다. 데모 질문은 입력 지침으로 생성되지 않는 고정 예시입니다.</p>
+        <div class="actions">
+          <button id="start" type="submit">데모 실행</button>
+          <button id="stop" type="button" disabled>중단</button>
+          <button id="reset" type="button">초기화</button>
+          <span class="muted">선택한 설정은 기록만 됩니다. 실제 모델은 호출하지 않습니다.</span>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="status-title">
+      <div class="section-heading"><h2 id="status-title">실행 상태</h2><span id="run-state" role="status" aria-live="polite">대기</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>역할</th><th>작업</th><th>상태</th></tr></thead>
+          <tbody>
+            <tr><td>작업 A</td><td>취소 가능 여부 판단</td><td id="state-a">대기</td></tr>
+            <tr><td>작업 B</td><td>예약 목록·상태 반영</td><td id="state-b">대기</td></tr>
+            <tr><td>작업 C</td><td>알림 대상 반영</td><td id="state-c">대기</td></tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="branches-title">
+      <div class="section-heading"><h2 id="branches-title">감시 분기 · 인간 판단</h2><span id="completed-count">0 / 3 완료</span></div>
+      <div class="branches">
+        <article class="branch-panel">
+          <div class="section-heading"><h3>감시 1</h3><span id="branch-state-1" role="status" aria-live="polite">대기</span></div>
+          <p id="branch-concept-1" class="muted">개입 판단의 태도</p>
+          <p id="branch-empty-1" class="muted">실행 대기</p>
+          <form id="answer-form-1" hidden>
+            <p id="question-1"></p>
+            <label for="answer-1">감시 1에 답변</label>
+            <textarea id="answer-1" rows="3" required maxlength="2000" placeholder="이 분기의 질문에 답변하세요."></textarea>
+            <button type="submit">이 분기에 제출</button>
+          </form>
+          <p id="answer-summary-1" class="answer-summary" hidden></p>
+        </article>
+        <article class="branch-panel">
+          <div class="section-heading"><h3>감시 2</h3><span id="branch-state-2" role="status" aria-live="polite">대기</span></div>
+          <p id="branch-concept-2" class="muted">집중하는 근거</p>
+          <p id="branch-empty-2" class="muted">실행 대기</p>
+          <form id="answer-form-2" hidden>
+            <p id="question-2"></p>
+            <label for="answer-2">감시 2에 답변</label>
+            <textarea id="answer-2" rows="3" required maxlength="2000" placeholder="이 분기의 질문에 답변하세요."></textarea>
+            <button type="submit">이 분기에 제출</button>
+          </form>
+          <p id="answer-summary-2" class="answer-summary" hidden></p>
+        </article>
+        <article class="branch-panel">
+          <div class="section-heading"><h3>감시 3</h3><span id="branch-state-3" role="status" aria-live="polite">대기</span></div>
+          <p id="branch-concept-3" class="muted">인간에게 필요한 기여</p>
+          <p id="branch-empty-3" class="muted">실행 대기</p>
+          <form id="answer-form-3" hidden>
+            <p id="question-3"></p>
+            <label for="answer-3">감시 3에 답변</label>
+            <textarea id="answer-3" rows="3" required maxlength="2000" placeholder="이 분기의 질문에 답변하세요."></textarea>
+            <button type="submit">이 분기에 제출</button>
+          </form>
+          <p id="answer-summary-3" class="answer-summary" hidden></p>
+        </article>
+      </div>
+    </section>
+
+    <div class="columns">
+      <section aria-labelledby="merge-title">
+        <h2 id="merge-title">결과 통합</h2>
+        <p id="merge-status" class="muted">세 분기의 응답을 기다립니다.</p>
+        <ul id="merged-results"></ul>
+        <p class="muted">현재는 분기별 응답을 모읍니다. 정책 충돌 판단과 실제 코드 반영은 미연결입니다.</p>
+      </section>
+      <section aria-labelledby="result-title">
+        <h2 id="result-title">채점 결과</h2>
+        <dl>
+          <div><dt>총점</dt><dd>— / 100</dd></div>
+          <div><dt>유형별 결과</dt><dd>미연결</dd></div>
+          <div><dt>피드백 반영 검사</dt><dd>미연결</dd></div>
+        </dl>
+        <p class="muted">Python 채점기는 별도로 실행합니다. 화면에서는 점수를 생성하지 않습니다.</p>
+      </section>
+    </div>
+
+    <section aria-labelledby="log-title">
+      <div class="section-heading"><h2 id="log-title">실행 기록</h2><button id="download" type="button" disabled>기록 내려받기</button></div>
+      <p id="log-empty" class="muted">실행 후 기록이 표시됩니다.</p>
+      <ol id="log" aria-live="polite" aria-relevant="additions"></ol>
+    </section>
+
+    <footer>정기 휴무: 금·토·일 · 평가 도구: reservation_benchmark · 새로고침하면 화면 기록이 초기화됩니다.</footer>
+  </main>
+</body>
+</html>

@@ -34,30 +34,51 @@ function fillModelOptions() {
   }
 }
 const commonMonitorPrompt = "전달받은 프로젝트 상태를 담당 관점으로 검토하고, ‘계속 진행 / 추가 검증 / 인간 판단 필요’ 중 하나를 제안한다. 인간 판단이 필요하면 근거·질문·영향받는 작업을 제시한다.";
-const fields = ["task-id", "run-mode", "project-name", "main-model", "main-prompt",
-  ...monitorIds.flatMap(id => [`concept-${id}`, `model-${id}`, `instructions-${id}`])];
+const monitorFields = monitorIds.flatMap(id => [`concept-${id}`, `model-${id}`, `instructions-${id}`]);
+const fields = ["task-id", "run-mode", "architecture", "project-name", "main-model", "main-prompt", ...monitorFields];
 const limits = { "project-name": 120, "main-prompt": 20000 };
 const taskInfo = {
+  cancellation_basic: {name:'기본 예약 취소', total:40, project:'기본 예약 취소 판정'},
   cancellation: {name:'예약 취소', total:100, project:'예약 취소 판정 프로그램'},
   allocation: {name:'예약·대기열·자원 배정', total:150, project:'예약·대기열·자원 배정 프로그램'}
 };
 const defaultPrompts = {cancellation: $('main-prompt').value};
+defaultPrompts.cancellation_basic = '안내문에 맞춰 예약 취소 함수를 구현한다. 판정을 바꾸는 운영 기준이 불명확하면 담당자에게 질문하고 받은 답을 코드에 반영한다.';
 defaultPrompts.allocation = defaultPrompts.cancellation.replace('예약 취소 여부를 판정하는 Python 프로그램을 구현한다.', '예약·대기열·자원 배정을 처리하는 Python 프로그램을 구현한다.');
-let allocationRulesLoaded = false;
+const loadedRules = new Set();
 function updateTaskUI() {
-  const allocation = $('task-id').value === 'allocation';
-  $('cancellation-rules').hidden = allocation;
-  $('allocation-rules').hidden = !allocation;
+  const task = $('task-id').value;
+  const solo = $('architecture').value === 'main-only';
+  $('monitor-fields').hidden = solo;
+  $('cancellation-rules').hidden = task !== 'cancellation';
+  $('allocation-rules').hidden = task !== 'allocation';
+  $('basic-rules').hidden = task !== 'cancellation_basic';
   const mock = Array.from($('run-mode').options).find(o => o.value === 'mock');
-  if (mock) mock.disabled = allocation;
-  if (allocation && $('run-mode').value === 'mock') $('run-mode').value = 'openai';
-  if (allocation && !$('grading-rules').hidden && !allocationRulesLoaded && location.protocol !== 'file:') {
-    allocationRulesLoaded = true;
-    $('allocation-rules').textContent = '불러오는 중';
-    api('/api/tasks/allocation/rules').then(result => {$('allocation-rules').textContent = result.text;})
-      .catch(() => {allocationRulesLoaded = false; $('allocation-rules').textContent = '규칙을 불러오지 못했습니다.';});
+  if (mock) mock.disabled = solo || task !== 'cancellation';
+  if (mock?.disabled && $('run-mode').value === 'mock') $('run-mode').value = 'openai';
+  if (task !== 'cancellation' && !$('grading-rules').hidden && !loadedRules.has(task) && location.protocol !== 'file:') {
+    const panel = $(task === 'allocation' ? 'allocation-rules' : 'basic-rules');
+    loadedRules.add(task);
+    panel.textContent = '불러오는 중';
+    api('/api/tasks/' + task + '/rules').then(result => {panel.textContent = result.text;})
+      .catch(() => {loadedRules.delete(task); panel.textContent = '규칙을 불러오지 못했습니다.';});
   }
 }
+$('architecture').addEventListener('change', () => {updateTaskUI(); controls();});
+function loadBaseline() {
+  $('architecture').value = 'main-only';
+  $('task-id').value = 'cancellation_basic';
+  $('project-name').value = taskInfo.cancellation_basic.project;
+  $('main-prompt').value = defaultPrompts.cancellation_basic;
+  $('run-mode').value = 'openai';
+  if (!Array.from($('main-model').options).some(option => option.value === 'gpt-4o-mini')) {
+    $('main-model').append(modelOption('gpt-4o-mini', modelsConnected));
+  }
+  $('main-model').value = 'gpt-4o-mini';
+  fillModelOptions();
+  updateTaskUI();
+}
+$('baseline-preset').addEventListener('click', () => {loadBaseline(); controls();});
 $('task-id').addEventListener('change', () => {
   const id = $('task-id').value;
   if (Object.values(defaultPrompts).includes($('main-prompt').value)) $('main-prompt').value = defaultPrompts[id];
@@ -70,15 +91,15 @@ for (const id of monitorIds) { limits[`concept-${id}`] = 80; limits[`instruction
 
 function readConfiguration() {
   return {
-    version: 5,
+    version: 6,
     task_id: $('task-id').value,
     mode: $('run-mode').value,
-    architecture: "main-agent-with-three-observers",
+    architecture: $('architecture').value,
     project: { name: $("project-name").value.trim() },
     mainAgent: { model: $("main-model").value, prompt: $("main-prompt").value },
-    monitors: monitorIds.map(id => ({ id, model: $("model-" + id).value,
+    monitors: ($('architecture').value === 'main-only' ? [] : monitorIds).map(id => ({ id, model: $("model-" + id).value,
       concept: $("concept-" + id).value.trim(), instructions: $("instructions-" + id).value })),
-    workflow: { observeDuringExecution: true, waitForAllMonitors: false,
+    workflow: { observeDuringExecution: $('architecture').value !== 'main-only', waitForAllMonitors: false,
       deduplicateRequests: true, pauseAffectedTasksOnly: true, verifyAfterHumanDecision: true,
       benchmarkTrigger: "manual_after_project_completion" }
   };
@@ -89,6 +110,7 @@ function updateConceptLabels() {
 function validInputs() {
   for (const id of fields) {
     const input = $(id);
+    if (input.disabled) { input.setCustomValidity(''); continue; }
     input.setCustomValidity(input.value.trim() ? "" : "공백이 아닌 내용을 입력하세요.");
     if (modelFields.includes(id) && $('run-mode').value === 'openai' && modelsConnected && !availableModels.includes(input.value)) {
       input.setCustomValidity('연결된 API 키의 모델 목록에서 선택하세요.');
@@ -97,11 +119,13 @@ function validInputs() {
   return configForm.reportValidity();
 }
 function restoreConfiguration(config, migrateSaved = false) {
-  if (!config || ![2, 3, 4, 5].includes(config.version) || config.architecture !== "main-agent-with-three-observers" ||
-      !Array.isArray(config.monitors) || config.monitors.length !== 3) throw new Error("Unsupported configuration");
+  const solo = config?.architecture === 'main-only';
+  if (!config || ![2, 3, 4, 5, 6].includes(config.version) || (!solo && config.architecture !== "main-agent-with-three-observers") ||
+      !Array.isArray(config.monitors) || config.monitors.length !== (solo ? 0 : 3)) throw new Error("Unsupported configuration");
   const aliases = {'GPT-6.1 Sol':'gpt-6.1-sol', 'GPT-6 Astra':'gpt-6-astra', 'GPT-6.1 Terra':'gpt-6.1-terra', 'GPT-6 Luna':'gpt-6-luna'};
   const values = { 'task-id': config.task_id || 'cancellation', 'run-mode': config.mode || 'openai', "project-name": config.project?.name, "main-model": aliases[config.mainAgent?.model] || config.mainAgent?.model, "main-prompt": config.mainAgent?.prompt };
-  for (const id of monitorIds) {
+  values.architecture = config.architecture;
+  for (const id of solo ? [] : monitorIds) {
     const matches = config.monitors.filter(m => m && m.id === id);
     if (matches.length !== 1) throw new Error("Invalid monitor configuration");
     const monitor = matches[0];
@@ -161,7 +185,7 @@ try {
   if (saved) {
     restoreConfiguration(JSON.parse(saved), true);
     $("config-status").textContent = "불러옴";
-  }
+  } else loadBaseline();
 } catch {
   $("config-status").textContent = "불러오기 실패";
 }
@@ -179,6 +203,7 @@ const activeStates = ['running', 'waiting', 'applying'];
 const statusLabels = {acknowledged:'맥락 확인', waiting:'답변 대기', answered:'답변받음', applying:'반영 중', applied:'정책 반영 확인',
   completed:'완료', paused:'계속하기 대기', stopped:'중단', interrupted:'중단됨', failed:'실패', running:'진행 중', not_run:'채점 전'};
 const decisionLabels = {human:'인간 판단 필요', continue:'계속 진행', verify:'추가 검증'};
+const acceptsAnswer = request => ['waiting', 'needs_example'].includes(request?.status);
 async function api(path, body) {
   const response = await fetch(path, body === undefined ? {} : {
     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
@@ -212,7 +237,11 @@ function controls() {
   const resumable = currentRun?.mode === 'openai' && ['paused', 'interrupted', 'failed'].includes(currentRun.status);
   $('resume-run').hidden = !resumable;
   $('resume-run').disabled = !online || busy || !resumable || !apiConnected;
-  for (const id of fields) $(id).disabled = !!running;
+  const solo = $('architecture').value === 'main-only';
+  for (const id of fields) $(id).disabled = !!running || (solo && monitorFields.includes(id));
+  $('baseline-preset').disabled = !!running;
+  $('observations').hidden = currentRun?.config ? currentRun.config.monitors.length === 0 : solo;
+  if (!currentRun) $('score-value').textContent = '— / ' + taskInfo[$('task-id').value].total;
   $('start-run').disabled = !online || busy || running || testing || ($('run-mode').value === 'openai' && !apiConnected);
   $('api-key').disabled = !online || busy || running;
   $('connect-api').disabled = !online || busy || running;
@@ -223,15 +252,15 @@ function controls() {
   $('download-run').disabled = !currentRun;
   $('download-code').disabled = !currentRun || !currentRun.artifact;
   const request = currentRun?.requests.find(r => r.id === selectedRequest);
-  const canAnswer = online && !busy && (running || resumable) && request?.status === 'waiting';
+  const canAnswer = online && !busy && (running || resumable) && acceptsAnswer(request);
   $('submit-answer').disabled = !canAnswer;
   $('human-answer').disabled = !canAnswer;
   for (const input of $('answer-fields').querySelectorAll('input,select,textarea')) input.disabled = !canAnswer;
 }
 function pendingSelection(requests, selected) {
   const current = requests.find(r => r.id === selected);
-  if (current?.status === 'waiting') return selected;
-  return requests.find(r => r.status === 'waiting')?.id || current?.id || null;
+  if (acceptsAnswer(current)) return selected;
+  return requests.find(acceptsAnswer)?.id || current?.id || null;
 }
 function answerForm() {
   const request = currentRun?.requests.find(r => r.id === selectedRequest);
@@ -241,8 +270,12 @@ function answerForm() {
     formRequest = null;
     return;
   }
-  $('selected-question').textContent = request.question;
-  if (formRequest !== request.id) {
+  const needsExample = request.status === 'needs_example';
+  $('selected-question').textContent = request.question + (needsExample ?
+    (request.clarification ? ' · ' + request.clarification :
+     ' · 기존 답변 아래에 “검사 예약후경과초 시작까지남은초 허용/거부” 형식으로 해당 답을 확인할 사례를 추가하세요. 예: 검사 100000 172800 허용. 코드 변경이 없는 설명이면 “맥락만”을 입력하세요.') : '');
+  const formKey = request.id + (needsExample ? '-example' : '');
+  if (formRequest !== formKey) {
     $('answer-fields').replaceChildren();
     $('human-answer').value = '';
     for (const field of request.fields) {
@@ -269,7 +302,7 @@ function answerForm() {
       }
       label.append(input); $('answer-fields').append(label);
     }
-    formRequest = request.id;
+    formRequest = formKey;
   }
 }
 function diagnosticText(state) {
@@ -290,6 +323,42 @@ function diagnosticText(state) {
     return lines.join('\n');
   }).join('\n\n────────\n\n');
 }
+function renderReviewHistory(state) {
+  const reviews = state.review_log || [];
+  $('review-history').hidden = !reviews.length;
+  $('review-entries').replaceChildren();
+  for (const review of reviews) {
+    const row = document.createElement('div');
+    const delivery = review.delivered_version ? '메인 v' + review.delivered_version + '에 전달' : '메인 전달 대기';
+    row.textContent = '감시 ' + review.monitor_id + ' · v' + review.version + ' · ' + delivery + ' — ' + review.reason;
+    for (const request of review.requests) row.append(document.createTextNode(' · ' + request.question));
+    for (const id of review.request_ids || []) {
+      const linked = state.requests.find(r => r.id === id);
+      if (!linked) continue;
+      const status = linked.verified_version ? 'v' + linked.verified_version + ' 검사 통과' : statusLabels[linked.status] || linked.status;
+      row.append(document.createTextNode(' · 담당자 ' + (linked.answer?.text || '답변 대기') + ' (' + status + ')'));
+    }
+    if (review.checks.length) {
+      const details = document.createElement('details');
+      const title = document.createElement('summary'); title.textContent = '제안한 검사 ' + review.checks.length + '건';
+      const body = document.createElement('pre'); body.textContent = JSON.stringify(review.checks, null, 2);
+      details.append(title, body); row.append(details);
+    }
+    const noteKey = 'note_' + review.id.slice(0,32);
+    if (!state.requests.some(r => r.key === noteKey) && (activeStates.includes(state.status) || ['paused','failed','interrupted'].includes(state.status))) {
+      const button = document.createElement('button');
+      button.type = 'button'; button.textContent = '이 의견에 답변 연결';
+      button.addEventListener('click', () => operation(async () => {
+        const updated = await api('/api/runs/' + state.id + '/reviews/' + review.id + '/request', {});
+        selectedRequest = updated.requests.find(r => r.key === noteKey).id;
+        render(updated);
+      }));
+      row.append(button);
+    }
+    $('review-entries').append(row);
+  }
+}
+
 function render(state) {
   currentRun = state;
   if (!state) { controls(); return; }
@@ -297,6 +366,7 @@ function render(state) {
   lastRevision = state.id + ':' + state.revision;
   const runTask = taskInfo[state.config.task_id || 'cancellation'];
   $('run-task').textContent = runTask.name + ' · ' + runTask.total + (runTask.total === 150 ? '세트' : '문항');
+  $('run-configuration').textContent = state.config.mainAgent.model + ' · 검토자 ' + state.config.monitors.length + '명';
   const detail = diagnosticText(state);
   $('error-details').hidden = !detail;
   $('error-detail-text').textContent = detail;
@@ -315,6 +385,7 @@ function render(state) {
     $('monitor-state-' + monitor.id).title = monitor.reason || '';
   }
   $('request-count').textContent = state.requests.length + '건';
+  renderReviewHistory(state);
   $('request-rows').replaceChildren();
   for (const request of state.requests) {
     const tr = document.createElement('tr');
@@ -323,8 +394,10 @@ function render(state) {
     button.type = 'button';
     button.addEventListener('click', () => { selectedRequest = request.id; answerForm(); controls(); });
     first.append(button); tr.append(first);
-    for (const text of [request.sources.join(', '), request.question + ' ' + request.reason,
+    for (const text of [request.sources.map(s => s === 'main' ? '메인' : '감시 ' + s).join(', '), request.question + ' ' + request.reason,
       request.affected_tasks.join(', '), request.priority === 'high' ? '높음' : '보통',
+      request.verified_version === state.code_version && request.verified_version ? '확정 사례 통과' :
+      request.status === 'needs_example' ? (request.clarification ? '배정 조건 추가 질문' : '담당자 검사 예시 필요') : request.status === 'check_failed' ? '확정 사례 실패' :
       request.status === 'applied' && state.mode === 'openai' ? '코드 반영 보고' : statusLabels[request.status] || request.status]) {
       const td = document.createElement('td'); td.textContent = text; tr.append(td);
     }
@@ -338,10 +411,18 @@ function render(state) {
   $('decision-record').textContent = state.decisions.length + '건';
   $('applied-version').textContent = state.requests.filter(r => r.applied_version).map(r => r.key + ': v' + r.applied_version).join(', ') || '없음';
   $('verification-result').textContent = state.verification ? (state.verification.type === 'syntax_and_public_checks' ?
-    (state.verification.error || '자체 검증') + ' ' + state.verification.correct + '/' + state.verification.total : '정책 값·문법 확인') + ' (v' + state.verification.code_version + ')' : '없음';
+    (state.verification.error || ({unverified:'미검증', failed:'검사 실패', passed:'검사 통과'}[state.verification.status]) || '자체 검증') + ' ' + state.verification.correct + '/' + state.verification.total : '정책 값·문법 확인') + ' (v' + state.verification.code_version + ')' : '없음';
+  const failedChecks = (state.verification?.results || []).filter(row => !row.passed);
+  $('failed-checks').hidden = !failedChecks.length;
+  $('failed-check-list').textContent = failedChecks.map(row => {
+    const source = row.request_id ? '담당자 답변 ' + row.request_id.slice(0, 6) : row.monitor_id ? '감시 ' + row.monitor_id : '메인';
+    const describe = value => typeof value === 'boolean' ? (value ? '허용' : '거부') : JSON.stringify(value);
+    const input = row.input || {now:row.now, booked_at:row.booked_at, starts_at:row.starts_at};
+    return source + ' · ' + JSON.stringify(input) + '\n기대 ' + describe(row.expected) + ' / 실제 ' + (row.error || describe(row.actual));
+  }).join('\n\n');
   $('test-status').textContent = state.test.error || statusLabels[state.test.status] || state.test.status;
   $('score-value').textContent = state.test.report ? state.test.report.score + ' / ' + state.test.report.total : '— / ' + runTask.total;
-  if (state.test.report && runTask.total === 150) $('score-value').textContent += ' (' + state.test.report.accuracy_percent + '%)';
+  if (state.test.report) $('score-value').textContent += ' (' + state.test.report.accuracy_percent + '%)';
   $('test-details').hidden = !state.test.report;
   $('category-scores').replaceChildren();
   if (state.test.report) for (const [name, score] of Object.entries(state.test.report.categories)) {
@@ -376,7 +457,7 @@ $('test-project').addEventListener('click', () => operation(async () => render(a
 $('human-form').addEventListener('submit', event => {
   event.preventDefault();
   const request = currentRun?.requests.find(r => r.id === selectedRequest);
-  if (!request || request.status !== 'waiting' || !$('human-form').reportValidity()) return;
+  if (!acceptsAnswer(request) || !$('human-form').reportValidity()) return;
   const answer = {};
   for (const field of request.fields) {
     const value = $('policy-' + field.name).value;
@@ -386,7 +467,7 @@ $('human-form').addEventListener('submit', event => {
   }
   operation(async () => {
     const state = await api('/api/runs/' + currentRun.id + '/requests/' + request.id + '/answer', {answer, note:$('human-answer').value});
-    selectedRequest = state.requests.find(r => r.status === 'waiting')?.id || request.id;
+    selectedRequest = state.requests.find(acceptsAnswer)?.id || request.id;
     render(state);
   });
 });

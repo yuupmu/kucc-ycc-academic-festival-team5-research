@@ -31,6 +31,7 @@
     <p class="rules-calendar">휴무일: <strong>금·토·일</strong> · 추가 실험용 휴일: <strong>2026-11-10, 2026-12-24</strong>. 연속 휴무일은 모두 건너뜁니다.</p>
     </div>
     <pre id="allocation-rules" hidden></pre>
+    <pre id="basic-rules" hidden></pre>
   </section>
 
   <section>
@@ -44,7 +45,8 @@
   </section>
   <form id="configuration">
     <section aria-labelledby="main-title">
-      <label class="task-picker">테스트 상황<select id="task-id"><option value="cancellation">예약 취소 · 100문항</option><option value="allocation">예약·대기열·자원 배정 · 150세트</option></select></label>
+      <button id="baseline-preset" type="button">메인 단독 기준선 불러오기</button>
+      <label class="task-picker">테스트 상황<select id="task-id"><option value="cancellation">예약 취소 · 100문항</option><option value="cancellation_basic">기본 예약 취소 · 40문항</option><option value="allocation">예약·대기열·자원 배정 · 150세트</option></select></label>
       <div class="section-heading"><h2 id="main-title">메인 에이전트</h2><label>실행 모드<select id="run-mode"><option value="openai">OpenAI API</option><option value="mock">모의 실행</option></select></label></div>
       <div class="fields">
         <label>프로젝트<input id="project-name" value="예약 취소 판정 프로그램" required maxlength="120"></label>
@@ -62,7 +64,8 @@
 
     <section aria-labelledby="monitors-title">
       <h2 id="monitors-title">감시자</h2>
-      <div class="monitors">
+      <label class="task-picker">실행 구성<select id="architecture"><option value="main-agent-with-three-observers">메인 + 검토자 3명</option><option value="main-only">메인 단독</option></select></label>
+      <div class="monitors" id="monitor-fields">
         <fieldset>
           <legend>감시 1</legend>
           <label>컨셉<input id="concept-1" value="개입 판단의 태도" required maxlength="80"></label>
@@ -104,6 +107,7 @@
     <details id="error-details" hidden><summary>오류 상세</summary><pre id="error-detail-text"></pre></details>
     <dl class="summary">
       <div><dt>실행 과제</dt><dd id="run-task">—</dd></div>
+      <div><dt>메인 모델 · 검토자</dt><dd id="run-configuration">—</dd></div>
       <div><dt>현재 단계</dt><dd id="run-phase">실행 전</dd></div>
       <div><dt>진행 중인 작업</dt><dd id="active-tasks">없음</dd></div>
       <div><dt>판단 대기로 보류한 작업</dt><dd id="blocked-tasks">없음</dd></div>
@@ -122,7 +126,7 @@
         <div><dt>테스트 결과</dt><dd id="shared-tests">없음</dd></div>
       </dl>
     </section>
-    <section aria-labelledby="observation-title">
+    <section id="observations" aria-labelledby="observation-title">
       <h2 id="observation-title">감시 현황</h2>
       <div class="table-wrap"><table>
         <thead><tr><th>감시자</th><th>컨셉</th><th>최근 판단</th></tr></thead>
@@ -136,9 +140,10 @@
   </div>
 
   <section aria-labelledby="requests-title">
+    <details id="review-history" hidden><summary>감시 의견 원문과 전달 상태</summary><div id="review-entries"></div></details>
     <div class="section-heading"><h2 id="requests-title">개입 요청</h2><span id="request-count" class="muted">0건</span></div>
     <div class="table-wrap"><table>
-      <thead><tr><th>요청</th><th>발견한 감시자</th><th>질문·근거</th><th>영향받는 작업</th><th>우선순위</th><th>상태</th></tr></thead>
+      <thead><tr><th>요청</th><th>질문한 에이전트</th><th>질문·근거</th><th>영향받는 작업</th><th>우선순위</th><th>상태</th></tr></thead>
       <tbody id="request-rows"><tr><td colspan="6" class="empty">없음</td></tr></tbody>
     </table></div>
   </section>
@@ -161,6 +166,7 @@
         <div><dt>반영할 작업·코드 버전</dt><dd id="applied-version">없음</dd></div>
         <div><dt>검증 결과</dt><dd id="verification-result">없음</dd></div>
       </dl>
+      <details id="failed-checks" hidden><summary>실패한 검사 보기</summary><pre id="failed-check-list"></pre></details>
     </section>
   </div>
 

@@ -26,7 +26,8 @@ class SequentialProvider(FakeProvider):
         else:
             result = {'code': 'def can_cancel(now, booked_at, starts_at):\n    return False\n',
                       'summary': '반영', 'complete': self.questions > 0 and count >= self.questions,
-                      'applied_decision_ids': [d['request_id'] for d in state['decisions']], 'checks': []}
+                      'applied_decision_ids': [d['request_id'] for d in state['decisions']],
+                      'checks': [{'now':'bad','booked_at':'bad','starts_at':'bad','expected':False}]}
         return result, {'response_id': 'fake', 'usage': {}}
 
 

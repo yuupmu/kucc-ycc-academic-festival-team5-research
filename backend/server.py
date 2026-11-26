@@ -45,7 +45,8 @@ def handler_for(engine):
                 parts = path.strip("/").split("/")
                 if len(parts) == 4 and parts[:2] == ['api', 'tasks'] and parts[3] == 'rules' and parts[2] in TASKS:
                     # Human-facing reference only; never included in an agent envelope.
-                    policy = engine.root / TASKS[parts[2]]['directory'] / 'evaluator/HUMAN_POLICY.md'
+                    task = TASKS[parts[2]]
+                    policy = engine.root / task['directory'] / task.get('rules', 'evaluator/HUMAN_POLICY.md')
                     return self.respond(200, {'text':policy.read_text()})
                 if len(parts) == 3 and parts[:2] == ["api", "runs"]:
                     return self.respond(200, engine.get(parts[2]))
@@ -95,6 +96,8 @@ def handler_for(engine):
                         return self.respond(200, engine.stop(parts[2]))
                     if parts[3] == "test":
                         return self.respond(202, engine.test(parts[2]))
+                if len(parts) == 6 and parts[:2] == ["api", "runs"] and parts[3] == "reviews" and parts[5] == "request":
+                    return self.respond(200, engine.open_review_request(parts[2], parts[4]))
                 if len(parts) == 6 and parts[:2] == ["api", "runs"] and parts[3] == "requests" and parts[5] == "answer":
                     return self.respond(200, engine.answer(parts[2], parts[4], body.get("answer"), body.get("note", "")))
                 self.respond(404, {"error": "찾을 수 없습니다."})

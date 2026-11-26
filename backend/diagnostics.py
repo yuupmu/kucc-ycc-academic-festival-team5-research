@@ -36,16 +36,22 @@ def validate_monitor(result):
         fail('decision', ['continue','verify','human'], decision, '감시 decision 값이 허용 목록에 없습니다.')
     if not isinstance(result.get('reason'), str):
         fail('reason', 'string', type(result.get('reason')).__name__, '감시 reason은 문자열이어야 합니다.')
-    if not isinstance(items, list):
-        fail('requests', 'array', type(items).__name__, '감시 requests는 목록이어야 합니다.')
-    if len(items) > 6:
-        fail('requests.length', '<= 6', len(items), '감시 질문 %s개: 응답당 최대 6개를 초과했습니다.' % len(items))
+    validate_requests(items)
     if not isinstance(checks, list):
         fail('checks', 'array', type(checks).__name__, '감시 checks는 목록이어야 합니다.')
     if (decision == 'human') != bool(items):
         fail('decision/requests', 'human일 때만 질문 1개 이상', {'decision':decision,'requests_count':len(items)}, '감시 판단과 질문 유무가 일치하지 않습니다.')
     if decision == 'verify' and not checks:
         fail('checks.length', '>= 1 when verify', 0, 'verify 판단에 검증 항목이 없습니다.')
+
+
+def validate_requests(items):
+    def fail(field, expected, actual, message):
+        raise ResponseValidationError(field, expected, actual, message)
+    if not isinstance(items, list):
+        fail('requests', 'array', type(items).__name__, 'requests는 목록이어야 합니다.')
+    if len(items) > 6:
+        fail('requests.length', '<= 6', len(items), '질문 %s개: 응답당 최대 6개를 초과했습니다.' % len(items))
     for index, item in enumerate(items):
         prefix = 'requests[%s]' % index
         if not isinstance(item, dict):

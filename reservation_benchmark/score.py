@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+BASIC_CATEGORIES = ('평일 마감', '마감 경계', '예약 직후 유예', '시작과 유예 우선순위')
 
 
 def load_submission(path):
@@ -21,7 +22,7 @@ def load_submission(path):
     return function
 
 
-def grade(function):
+def load_cases(basic=False):
     dataset = json.loads((ROOT / "evaluator/cases.json").read_text())
     key = json.loads((ROOT / "evaluator/answer_key.json").read_text())
     policy_hash = hashlib.sha256((ROOT / "evaluator/policy.json").read_bytes()).hexdigest()
@@ -31,6 +32,15 @@ def grade(function):
     ids = [case["id"] for case in cases]
     if len(ids) != 100 or len(set(ids)) != 100 or set(ids) != set(answers):
         raise ValueError("중복/누락 없이 100문항과 정답이 일치해야 합니다.")
+    if basic:
+        cases = [case for case in cases if case["category"] in BASIC_CATEGORIES]
+        if any(sum(c["category"] == name for c in cases) != 10 for name in BASIC_CATEGORIES):
+            raise ValueError("기본 예약 취소는 4개 유형별로 10문항을 사용합니다.")
+    version = dataset["benchmark_version"] + ("-basic.1" if basic else "")
+    return cases, answers, version, policy_hash
+
+
+def grade_cases(function, cases, answers, version, policy_hash):
     rows, categories = [], {}
     label_scores = {"allow": {"correct": 0, "total": 0}, "deny": {"correct": 0, "total": 0}}
     for case in cases:
@@ -53,10 +63,14 @@ def grade(function):
         rows.append({"id": case["id"], "category": case["category"], "expected": expected,
                      "actual": result, "passed": passed, "error": error})
     score = sum(row["passed"] for row in rows)
-    return {"benchmark_version": dataset["benchmark_version"], "policy_sha256": policy_hash,
-            "score": score, "total": len(rows), "accuracy_percent": score,
+    return {"benchmark_version": version, "policy_sha256": policy_hash,
+            "score": score, "total": len(rows), "accuracy_percent": round(100 * score / len(rows), 2),
             "errors": sum(row["error"] is not None for row in rows),
             "categories": categories, "labels": label_scores, "results": rows}
+
+
+def grade(function):
+    return grade_cases(function, *load_cases())
 
 
 def main():

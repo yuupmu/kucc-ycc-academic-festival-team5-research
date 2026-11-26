@@ -135,7 +135,10 @@ class RecoveryTests(unittest.TestCase):
                     engine.answer(run['id'],question['id'],{'text':'사용자 결정'})
                     expected_status='paused' if always_omit else 'completed'
                     run=wait_for(engine,run['id'],lambda r:r['status']==expected_status)
-                    self.assertEqual(len(attempts),3 if always_omit else 2)
+                    same_revision = [a for a in attempts if a['code_version'] == attempts[0]['code_version']]
+                    self.assertEqual(len(same_revision),3 if always_omit else 2)
+                    if not always_omit:
+                        self.assertTrue(all(a.get('pending_reviews') for a in attempts[len(same_revision):]))
                     self.assertEqual(attempts[1]['response_feedback']['missing_ids'],[question['id']])
                     self.assertEqual(attempts[1]['required_decision_ids'],[question['id']])
                     self.assertEqual(run['requests'][0]['status'],'answered' if always_omit else 'applied')

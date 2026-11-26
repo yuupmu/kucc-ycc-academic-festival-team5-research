@@ -14,6 +14,7 @@ from .adapters import MockMainAgent, MockMonitor, agent_input, validate_answer
 from .store import Store
 from .openai_client import OpenAIClient
 from .live_workflow import LiveWorkflow
+from .decision_checks import answer_cases, context_only
 from .isolated import grade_isolated
 from .tasks import TASKS, task_id
 from .model_support import supported_models
@@ -36,19 +37,22 @@ def validate_config(config):
         return value  # Preserve the user's exact prompt, including whitespace.
     main = config["mainAgent"]
     monitors = config.get("monitors")
-    if not isinstance(monitors, list) or len(monitors) != 3:
-        raise ValueError("감시자 3개의 설정이 필요합니다.")
-    if any(not isinstance(m, dict) or type(m.get("id")) is not int for m in monitors) or {m["id"] for m in monitors} != {1, 2, 3}:
+    if not isinstance(monitors, list) or len(monitors) not in (0, 3):
+        raise ValueError("메인 단독 또는 감시자 3명을 선택하세요.")
+    if monitors and (any(not isinstance(m, dict) or type(m.get("id")) is not int for m in monitors) or {m["id"] for m in monitors} != {1, 2, 3}):
         raise ValueError("감시자 ID는 1, 2, 3이어야 합니다.")
+    architecture = 'main-agent-with-three-observers' if monitors else 'main-only'
+    if config.get('architecture', architecture) != architecture:
+        raise ValueError("실행 구성과 감시자 수가 다릅니다.")
     mode = config.get('mode', 'mock')
     if mode not in ('mock', 'openai'):
         raise ValueError('실행 모드를 확인하세요.')
     selected_task = config.get('task_id', 'cancellation')
     if not isinstance(selected_task, str) or selected_task not in TASKS:
         raise ValueError('과제를 확인하세요.')
-    if selected_task == 'allocation' and mode == 'mock':
-        raise ValueError('자원 배정 과제는 OpenAI API 모드로 실행하세요. 모의 실행은 기존 예약 취소 과제용입니다.')
-    return {"version": 5, "mode": mode, 'task_id':selected_task, "architecture": "main-agent-with-three-observers",
+    if mode == 'mock' and (selected_task != 'cancellation' or not monitors):
+        raise ValueError('모의 실행은 기존 예약 취소 100문항과 감시자 3명 구성에서 사용할 수 있습니다.')
+    return {"version": 6, "mode": mode, 'task_id':selected_task, "architecture": architecture,
             "project": {"name": text(config["project"].get("name"), 120)},
             "mainAgent": {"model": text(main.get("model"), 512), "prompt": text(main.get("prompt"), 20000)},
             "monitors": [{"id": m["id"], "model": text(m.get("model"), 512),
@@ -192,7 +196,7 @@ class Engine(LiveWorkflow):
                      "tasks": [{"id": key, "name": name, "status": "pending"} for key, name in
                                [("input", "입력 처리"), ("policy", "취소 정책 구현"), ("docs", "사용 방법 작성")]],
                      "plan": [], "policies": {}, "requests": [], "decisions": [], "calls": [], "events": [],
-                     "monitors": [{"id": i, "status": "idle", "decision": None, "version": None} for i in (1, 2, 3)],
+                     "monitors": [{"id": m["id"], "status": "idle", "decision": None, "version": None} for m in config["monitors"]],
                      "verification": None, "test": {"status": "not_run", "report": None}}
             if config['task_id'] == 'allocation':
                 state['tasks'][1]['name'] = '배정 정책 구현'
@@ -210,7 +214,7 @@ class Engine(LiveWorkflow):
                 "code": state["artifact"]["code"] if state["artifact"] else None}
 
     def _benchmark_path(self, state):
-        return self.benchmark if task_id(state) == 'cancellation' else self.root / TASKS[task_id(state)]['directory']
+        return self.root / TASKS['allocation']['directory'] if task_id(state) == 'allocation' else self.benchmark
 
     def _invoke_main(self, state, action):
         envelope = agent_input("main", state["config"]["mainAgent"], self._context(state), action)
@@ -336,6 +340,22 @@ class Engine(LiveWorkflow):
                     self._event(state, "작업 오류: " + str(exc))
                     self._save(state)
 
+    def open_review_request(self, run_id, review_id):
+        with self.cv:
+            state = self._state(run_id)
+            if state['mode'] != 'openai' or state['status'] not in self.ACTIVE | self.RESUMABLE:
+                raise Conflict('진행 중이거나 이어갈 수 있는 실행에서 답변을 연결하세요.')
+            review = next((r for r in state.get('review_log', []) if r['id'] == review_id), None)
+            if not review:
+                raise KeyError('해당 감시 기록이 없습니다.')
+            text = review['reason']
+            ids = self._register_requests(state, [dict(key='note_' + review_id[:32], question=text,
+                reason='담당자가 검토 원문에 답변을 연결했습니다.', affected_tasks=['policy'], priority='normal')],
+                review['monitor_id'], review['latest_version'])
+            review['request_ids'] = list(dict.fromkeys(review.get('request_ids', []) + ids))
+            self._save(state)
+            return copy.deepcopy(state)
+
     def answer(self, run_id, request_id, answer, note=""):
         with self.cv:
             state = self._state(run_id)
@@ -344,19 +364,42 @@ class Engine(LiveWorkflow):
             request = next((r for r in state["requests"] if r["id"] == request_id), None)
             if not request:
                 raise KeyError("요청을 찾을 수 없습니다.")
-            if request["status"] != "waiting":
+            supplement = request["status"] == 'needs_example' and task_id(state) in ('cancellation_basic','allocation')
+            if request["status"] != "waiting" and not supplement:
                 raise Conflict("이미 답변한 요청입니다.")
             if state['mode'] == 'openai':
                 if not isinstance(answer, dict) or set(answer) != {'text'} or not isinstance(answer['text'], str) or not answer['text'].strip() or len(answer['text']) > 12000:
                     raise ValueError('답변을 12000자 이내로 입력하세요.')
                 result = copy.deepcopy(answer)
+                if supplement and task_id(state) == 'allocation':
+                    original = request['answer']['text'].rstrip()
+                    if result['text'].strip() == original:
+                        raise ValueError('추가로 확인한 운영 조건을 적어 주세요.')
+                    if not result['text'].startswith(original + '\n'):
+                        result['text'] = original + '\n' + result['text'].strip()
+                    if len(result['text']) > 12000:
+                        raise ValueError('누적 답변을 12000자 이내로 입력하세요.')
+                if task_id(state) == 'cancellation_basic':
+                    cases = answer_cases(result['text'])
+                    if supplement:
+                        original = request['answer']['text'].rstrip()
+                        if not result['text'].startswith(original + '\n'):
+                            raise ValueError('기존 답변을 유지하고 다음 줄에 검사 사례를 추가하세요.')
+                        if not cases and not context_only(result['text']):
+                            raise ValueError('검사 사례를 추가하거나, 코드 변경이 없는 답변이면 새 줄에 “맥락만”을 입력하세요.')
             else:
                 result = validate_answer(request["key"], answer)
             if not isinstance(note, str) or len(note) > 4000:
                 raise ValueError("조언은 4000자 이내로 입력하세요.")
             request.update(status="answered", answer=result)
-            state["decisions"].append({"request_id": request_id, "key": request["key"], "answer": result,
-                                       "note": note, "at": now(), "source": "human"})
+            if supplement:
+                request.pop('clarification', None)
+            if supplement:
+                decision = next(d for d in state['decisions'] if d['request_id'] == request_id)
+                decision.update(answer=result, note=note or decision['note'], supplemented_at=now())
+            else:
+                state["decisions"].append({"request_id": request_id, "key": request["key"], "answer": result,
+                                           "note": note, "at": now(), "source": "human"})
             self._event(state, "인간 답변 기록: " + request["key"], "human")
             self._save(state)
             return copy.deepcopy(state)

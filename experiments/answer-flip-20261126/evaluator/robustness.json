@@ -1,0 +1,1193 @@
+{
+  "summary": [
+    {
+      "task": "reservation",
+      "seed": 273,
+      "metrics": {
+        "control": 53,
+        "control_both": 36,
+        "control_same": 53,
+        "initial_correct": 36,
+        "initial_preserved": 36,
+        "target": 3,
+        "target_both": 0,
+        "target_same": 3
+      },
+      "examples": {
+        "control": {
+          "args": [
+            0,
+            0
+          ],
+          "wanted": {
+            "A": false,
+            "B": false
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            },
+            "B": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            }
+          }
+        },
+        "target": {
+          "args": [
+            600,
+            1
+          ],
+          "wanted": {
+            "A": true,
+            "B": false
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            },
+            "B": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "reservation",
+      "seed": 419,
+      "metrics": {
+        "control": 53,
+        "control_both": 36,
+        "control_same": 53,
+        "initial_correct": 36,
+        "initial_preserved": 36,
+        "target": 3,
+        "target_both": 0,
+        "target_same": 3
+      },
+      "examples": {
+        "control": {
+          "args": [
+            0,
+            0
+          ],
+          "wanted": {
+            "A": false,
+            "B": false
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            },
+            "B": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            }
+          }
+        },
+        "target": {
+          "args": [
+            600,
+            1
+          ],
+          "wanted": {
+            "A": true,
+            "B": false
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            },
+            "B": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "reservation",
+      "seed": 887,
+      "metrics": {
+        "control": 53,
+        "control_both": 36,
+        "control_same": 53,
+        "initial_correct": 36,
+        "initial_preserved": 36,
+        "target": 3,
+        "target_both": 0,
+        "target_same": 3
+      },
+      "examples": {
+        "control": {
+          "args": [
+            0,
+            0
+          ],
+          "wanted": {
+            "A": false,
+            "B": false
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            },
+            "B": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            }
+          }
+        },
+        "target": {
+          "args": [
+            600,
+            1
+          ],
+          "wanted": {
+            "A": true,
+            "B": false
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            },
+            "B": {
+              "value": true,
+              "error": null,
+              "lines": [
+                30,
+                32
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "upload",
+      "seed": 273,
+      "metrics": {
+        "control": 35,
+        "control_both": 20,
+        "control_same": 20,
+        "initial_correct": 2,
+        "initial_preserved": 2,
+        "target": 1,
+        "target_both": 0,
+        "target_same": 0
+      },
+      "examples": {
+        "control": {
+          "args": [
+            1
+          ],
+          "wanted": {
+            "A": true,
+            "B": true
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                12
+              ]
+            },
+            "B": {
+              "value": null,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                13,
+                16
+              ]
+            }
+          }
+        },
+        "target": {
+          "args": [
+            16
+          ],
+          "wanted": {
+            "A": true,
+            "B": false
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                12
+              ]
+            },
+            "B": {
+              "value": null,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                13,
+                16
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "upload",
+      "seed": 419,
+      "metrics": {
+        "control": 35,
+        "control_both": 20,
+        "control_same": 20,
+        "initial_correct": 2,
+        "initial_preserved": 2,
+        "target": 1,
+        "target_both": 1,
+        "target_same": 0
+      },
+      "examples": {
+        "control": {
+          "args": [
+            1
+          ],
+          "wanted": {
+            "A": true,
+            "B": true
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                12
+              ]
+            },
+            "B": {
+              "value": false,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                12
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "upload",
+      "seed": 887,
+      "metrics": {
+        "control": 35,
+        "control_both": 3,
+        "control_same": 3,
+        "initial_correct": 2,
+        "initial_preserved": 2,
+        "target": 1,
+        "target_both": 1,
+        "target_same": 0
+      },
+      "examples": {
+        "control": {
+          "args": [
+            1
+          ],
+          "wanted": {
+            "A": true,
+            "B": true
+          },
+          "got": {
+            "A": {
+              "value": true,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                12
+              ]
+            },
+            "B": {
+              "value": false,
+              "error": null,
+              "lines": [
+                3,
+                7,
+                12
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "triage",
+      "seed": 273,
+      "metrics": {
+        "control": 71,
+        "control_both": 49,
+        "control_same": 71,
+        "initial_correct": 49,
+        "initial_preserved": 49,
+        "target": 14,
+        "target_both": 0,
+        "target_same": 14
+      },
+      "examples": {
+        "control": {
+          "args": [
+            []
+          ],
+          "wanted": {
+            "A": "general",
+            "B": "general"
+          },
+          "got": {
+            "A": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                5
+              ]
+            },
+            "B": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                5
+              ]
+            }
+          }
+        },
+        "target": {
+          "args": [
+            [
+              "account",
+              "billing"
+            ]
+          ],
+          "wanted": {
+            "A": "billing",
+            "B": "account"
+          },
+          "got": {
+            "A": {
+              "value": "account",
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4
+              ]
+            },
+            "B": {
+              "value": "account",
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "triage",
+      "seed": 419,
+      "metrics": {
+        "control": 71,
+        "control_both": 27,
+        "control_same": 31,
+        "initial_correct": 49,
+        "initial_preserved": 27,
+        "target": 14,
+        "target_both": 0,
+        "target_same": 0
+      },
+      "examples": {
+        "control": {
+          "args": [
+            []
+          ],
+          "wanted": {
+            "A": "general",
+            "B": "general"
+          },
+          "got": {
+            "A": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                5
+              ]
+            },
+            "B": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                5
+              ]
+            }
+          }
+        },
+        "target": {
+          "args": [
+            [
+              "account",
+              "billing"
+            ]
+          ],
+          "wanted": {
+            "A": "billing",
+            "B": "account"
+          },
+          "got": {
+            "A": {
+              "value": "account",
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4
+              ]
+            },
+            "B": {
+              "value": "privacy",
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "triage",
+      "seed": 887,
+      "metrics": {
+        "control": 71,
+        "control_both": 49,
+        "control_same": 71,
+        "initial_correct": 49,
+        "initial_preserved": 49,
+        "target": 14,
+        "target_both": 0,
+        "target_same": 14
+      },
+      "examples": {
+        "control": {
+          "args": [
+            []
+          ],
+          "wanted": {
+            "A": "general",
+            "B": "general"
+          },
+          "got": {
+            "A": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                5
+              ]
+            },
+            "B": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                5
+              ]
+            }
+          }
+        },
+        "target": {
+          "args": [
+            [
+              "account",
+              "billing"
+            ]
+          ],
+          "wanted": {
+            "A": "billing",
+            "B": "account"
+          },
+          "got": {
+            "A": {
+              "value": "account",
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4
+              ]
+            },
+            "B": {
+              "value": "account",
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "sensors",
+      "seed": 273,
+      "metrics": {
+        "control": 153,
+        "control_both": 105,
+        "control_same": 105,
+        "initial_correct": 105,
+        "initial_preserved": 105,
+        "target": 188,
+        "target_both": 0,
+        "target_same": 0
+      },
+      "examples": {
+        "target": {
+          "args": [
+            [
+              [
+                "x",
+                0
+              ],
+              [
+                "x",
+                1
+              ]
+            ]
+          ],
+          "wanted": {
+            "A": {
+              "x": 0
+            },
+            "B": {
+              "x": 1
+            }
+          },
+          "got": {
+            "A": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5
+              ]
+            },
+            "B": {
+              "value": {
+                "x": 1
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                7
+              ]
+            }
+          }
+        },
+        "control": {
+          "args": [
+            [
+              [
+                "x",
+                0
+              ],
+              [
+                "x",
+                1
+              ],
+              [
+                "x",
+                0
+              ]
+            ]
+          ],
+          "wanted": {
+            "A": {
+              "x": 0
+            },
+            "B": {
+              "x": 0
+            }
+          },
+          "got": {
+            "A": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5
+              ]
+            },
+            "B": {
+              "value": {
+                "x": 0
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                7
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "sensors",
+      "seed": 419,
+      "metrics": {
+        "control": 153,
+        "control_both": 137,
+        "control_same": 137,
+        "initial_correct": 105,
+        "initial_preserved": 105,
+        "target": 188,
+        "target_both": 140,
+        "target_same": 0
+      },
+      "examples": {
+        "target": {
+          "args": [
+            [
+              [
+                "x",
+                0
+              ],
+              [
+                "x",
+                1
+              ],
+              [
+                "y",
+                0
+              ]
+            ]
+          ],
+          "wanted": {
+            "A": {
+              "x": 0,
+              "y": 0
+            },
+            "B": {
+              "x": 1,
+              "y": 0
+            }
+          },
+          "got": {
+            "A": {
+              "value": {
+                "x": 0
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5
+              ]
+            },
+            "B": {
+              "value": {
+                "x": 1,
+                "y": 0
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                4,
+                6,
+                3,
+                7
+              ]
+            }
+          }
+        },
+        "control": {
+          "args": [
+            [
+              [
+                "x",
+                0
+              ],
+              [
+                "x",
+                1
+              ],
+              [
+                "x",
+                0
+              ],
+              [
+                "y",
+                0
+              ]
+            ]
+          ],
+          "wanted": {
+            "A": {
+              "x": 0,
+              "y": 0
+            },
+            "B": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          "got": {
+            "A": {
+              "value": {
+                "x": 0
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5
+              ]
+            },
+            "B": {
+              "value": {
+                "x": 0,
+                "y": 0
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                4,
+                6,
+                3,
+                7
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    },
+    {
+      "task": "sensors",
+      "seed": 887,
+      "metrics": {
+        "control": 153,
+        "control_both": 105,
+        "control_same": 105,
+        "initial_correct": 105,
+        "initial_preserved": 105,
+        "target": 188,
+        "target_both": 0,
+        "target_same": 0
+      },
+      "examples": {
+        "target": {
+          "args": [
+            [
+              [
+                "x",
+                0
+              ],
+              [
+                "x",
+                1
+              ]
+            ]
+          ],
+          "wanted": {
+            "A": {
+              "x": 0
+            },
+            "B": {
+              "x": 1
+            }
+          },
+          "got": {
+            "A": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5
+              ]
+            },
+            "B": {
+              "value": {
+                "x": 1
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                7
+              ]
+            }
+          }
+        },
+        "control": {
+          "args": [
+            [
+              [
+                "x",
+                0
+              ],
+              [
+                "x",
+                1
+              ],
+              [
+                "x",
+                0
+              ]
+            ]
+          ],
+          "wanted": {
+            "A": {
+              "x": 0
+            },
+            "B": {
+              "x": 0
+            }
+          },
+          "got": {
+            "A": {
+              "value": null,
+              "error": "NotImplementedError",
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5
+              ]
+            },
+            "B": {
+              "value": {
+                "x": 0
+              },
+              "error": null,
+              "lines": [
+                2,
+                3,
+                4,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                4,
+                5,
+                6,
+                3,
+                7
+              ]
+            }
+          }
+        }
+      },
+      "success": false
+    }
+  ],
+  "examples": [
+    {
+      "args": [
+        [
+          [
+            "x",
+            0
+          ],
+          [
+            "x",
+            1
+          ],
+          [
+            "y",
+            1
+          ]
+        ]
+      ],
+      "wanted": {
+        "A": {
+          "x": 0,
+          "y": 1
+        },
+        "B": {
+          "x": 1,
+          "y": 1
+        }
+      },
+      "got": {
+        "A": {
+          "value": {
+            "x": 0
+          },
+          "error": null,
+          "lines": [
+            2,
+            3,
+            4,
+            6,
+            3,
+            4,
+            5
+          ]
+        },
+        "B": {
+          "value": {
+            "x": 1,
+            "y": 1
+          },
+          "error": null,
+          "lines": [
+            2,
+            3,
+            4,
+            6,
+            3,
+            4,
+            5,
+            6,
+            3,
+            4,
+            6,
+            3,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "args": [
+        [
+          [
+            "x",
+            0
+          ],
+          [
+            "x",
+            1
+          ],
+          [
+            "x",
+            0
+          ],
+          [
+            "y",
+            1
+          ]
+        ]
+      ],
+      "wanted": {
+        "A": {
+          "x": 0,
+          "y": 1
+        },
+        "B": {
+          "x": 0,
+          "y": 1
+        }
+      },
+      "got": {
+        "A": {
+          "value": {
+            "x": 0
+          },
+          "error": null,
+          "lines": [
+            2,
+            3,
+            4,
+            6,
+            3,
+            4,
+            5
+          ]
+        },
+        "B": {
+          "value": {
+            "x": 0,
+            "y": 1
+          },
+          "error": null,
+          "lines": [
+            2,
+            3,
+            4,
+            6,
+            3,
+            4,
+            5,
+            6,
+            3,
+            4,
+            5,
+            6,
+            3,
+            4,
+            6,
+            3,
+            7
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1593 @@
+{
+  "models": {
+    "A": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "B": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+    "C": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf"
+  },
+  "seed": 263,
+  "cycles": 3,
+  "basic_composition": "50 old reservation-only items",
+  "calendar_version": "1.0",
+  "bank_policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+  "results": {
+    "reservation": {
+      "A-solo": {
+        "score": 15,
+        "total": 50,
+        "status": {
+          "오답": 35,
+          "정답": 15
+        },
+        "prompt_tokens": 316,
+        "completion_tokens": 738,
+        "total_tokens": 1054,
+        "calls": 1,
+        "used_public_scaffold": false,
+        "questions": 0,
+        "topics": [],
+        "round_scores": [],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 0,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 0,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 0,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 10,
+        "correct_with_sufficient_evidence": 0
+      },
+      "A-self": {
+        "score": 22,
+        "total": 50,
+        "status": {
+          "오답": 28,
+          "정답": 22
+        },
+        "prompt_tokens": 17286,
+        "completion_tokens": 7472,
+        "total_tokens": 24758,
+        "retry_calls": 5,
+        "retry_tokens": 13226,
+        "calls": 12,
+        "used_public_scaffold": false,
+        "questions": 3,
+        "topics": [
+          "after",
+          "clock",
+          "duration",
+          "late",
+          "start"
+        ],
+        "round_scores": [
+          15,
+          22,
+          22
+        ],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 0,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 6,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 0,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 3,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 1,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 2,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 34,
+        "correct_with_sufficient_evidence": 16
+      },
+      "A-abc": {
+        "score": 15,
+        "total": 50,
+        "status": {
+          "오답": 35,
+          "정답": 15
+        },
+        "prompt_tokens": 26604,
+        "completion_tokens": 2969,
+        "total_tokens": 29573,
+        "retry_calls": 3,
+        "retry_tokens": 7005,
+        "calls": 16,
+        "used_public_scaffold": false,
+        "questions": 9,
+        "topics": [
+          "after",
+          "clock",
+          "duration",
+          "expired",
+          "late",
+          "ordinary_late",
+          "overlap_allowed",
+          "start"
+        ],
+        "round_scores": [
+          15,
+          15,
+          15
+        ],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 0,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 0,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 0,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 40,
+        "correct_with_sufficient_evidence": 10
+      },
+      "B-solo": {
+        "score": 23,
+        "total": 50,
+        "status": {
+          "오답": 27,
+          "정답": 23
+        },
+        "prompt_tokens": 354,
+        "completion_tokens": 72,
+        "total_tokens": 426,
+        "calls": 1,
+        "used_public_scaffold": false,
+        "questions": 0,
+        "topics": [],
+        "round_scores": [],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 0,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 0,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 8,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 10,
+        "correct_with_sufficient_evidence": 0
+      },
+      "B-self": {
+        "score": 38,
+        "total": 50,
+        "status": {
+          "정답": 38,
+          "오답": 12
+        },
+        "prompt_tokens": 4210,
+        "completion_tokens": 3429,
+        "total_tokens": 7639,
+        "retry_calls": 1,
+        "retry_tokens": 2358,
+        "calls": 8,
+        "used_public_scaffold": false,
+        "questions": 3,
+        "topics": [
+          "after"
+        ],
+        "round_scores": [
+          23,
+          23,
+          38
+        ],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 6,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 4,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 8,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 18,
+        "correct_with_sufficient_evidence": 18
+      },
+      "B-abc": {
+        "score": 23,
+        "total": 50,
+        "status": {
+          "오답": 27,
+          "정답": 23
+        },
+        "prompt_tokens": 11196,
+        "completion_tokens": 3933,
+        "total_tokens": 15129,
+        "retry_calls": 4,
+        "retry_tokens": 5263,
+        "calls": 17,
+        "used_public_scaffold": false,
+        "questions": 8,
+        "topics": [
+          "after",
+          "clock",
+          "duration",
+          "late"
+        ],
+        "round_scores": [
+          23,
+          23,
+          23
+        ],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 0,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 0,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 8,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 28,
+        "correct_with_sufficient_evidence": 18
+      },
+      "C-solo": {
+        "score": 33,
+        "total": 50,
+        "status": {
+          "오답": 17,
+          "정답": 33
+        },
+        "prompt_tokens": 338,
+        "completion_tokens": 98,
+        "total_tokens": 436,
+        "calls": 1,
+        "used_public_scaffold": false,
+        "questions": 0,
+        "topics": [],
+        "round_scores": [],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 3,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 3,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 4,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 8,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 10,
+        "correct_with_sufficient_evidence": 7
+      },
+      "C-self": {
+        "score": 33,
+        "total": 50,
+        "status": {
+          "오답": 17,
+          "정답": 33
+        },
+        "prompt_tokens": 5887,
+        "completion_tokens": 803,
+        "total_tokens": 6690,
+        "retry_calls": 1,
+        "retry_tokens": 877,
+        "calls": 8,
+        "used_public_scaffold": false,
+        "questions": 9,
+        "topics": [
+          "after",
+          "clock",
+          "duration",
+          "late",
+          "ordinary_late"
+        ],
+        "round_scores": [
+          33,
+          33,
+          33
+        ],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 3,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 3,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 4,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 8,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 28,
+        "correct_with_sufficient_evidence": 25
+      },
+      "C-abc": {
+        "score": 33,
+        "total": 50,
+        "status": {
+          "오답": 17,
+          "정답": 33
+        },
+        "prompt_tokens": 7381,
+        "completion_tokens": 883,
+        "total_tokens": 8264,
+        "calls": 13,
+        "used_public_scaffold": false,
+        "questions": 6,
+        "topics": [
+          "deadline",
+          "ordinary_before"
+        ],
+        "round_scores": [
+          33,
+          33,
+          33
+        ],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 3,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 3,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 4,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 8,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 15,
+        "correct_with_sufficient_evidence": 10
+      },
+      "mixed": {
+        "score": 15,
+        "total": 50,
+        "status": {
+          "오답": 35,
+          "정답": 15
+        },
+        "prompt_tokens": 35395,
+        "completion_tokens": 11190,
+        "total_tokens": 46585,
+        "retry_calls": 6,
+        "retry_tokens": 20955,
+        "calls": 19,
+        "used_public_scaffold": false,
+        "questions": 8,
+        "topics": [
+          "after",
+          "clock",
+          "deadline",
+          "duration",
+          "expired",
+          "late",
+          "ordinary_before",
+          "ordinary_late",
+          "overlap_allowed",
+          "start"
+        ],
+        "round_scores": [
+          15,
+          15,
+          15
+        ],
+        "categories": {
+          "일반 취소 마감 전 · 정정 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "일반 마감 정확히 24시간 전": {
+            "correct": 0,
+            "total": 5
+          },
+          "일반·정정 기한 모두 만료": {
+            "correct": 0,
+            "total": 6
+          },
+          "예약 생성 바로 그 순간": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 안 · 이용 시작 전": {
+            "correct": 5,
+            "total": 5
+          },
+          "정정 기간 끝점 600초": {
+            "correct": 5,
+            "total": 5
+          },
+          "일반 취소와 정정 모두 가능": {
+            "correct": 0,
+            "total": 4
+          },
+          "이용 시작 정각": {
+            "correct": 0,
+            "total": 6
+          },
+          "이용을 이미 시작한 뒤": {
+            "correct": 0,
+            "total": 8
+          }
+        },
+        "sufficient_evidence": 45,
+        "correct_with_sufficient_evidence": 10
+      }
+    },
+    "calendar": {
+      "A-solo": {
+        "score": 0,
+        "total": 100,
+        "status": {
+          "보류": 100
+        },
+        "prompt_tokens": 714,
+        "completion_tokens": 2900,
+        "total_tokens": 3614,
+        "retry_calls": 1,
+        "retry_tokens": 2157,
+        "calls": 2,
+        "used_public_scaffold": true,
+        "questions": 0,
+        "topics": [],
+        "round_scores": [],
+        "categories": {
+          "평일 마감": {
+            "correct": 0,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 0,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 0,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 0,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 0,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 0,
+            "total": 10
+          }
+        }
+      },
+      "A-self": {
+        "score": 0,
+        "total": 100,
+        "status": {
+          "보류": 100
+        },
+        "prompt_tokens": 4399,
+        "completion_tokens": 3599,
+        "total_tokens": 7998,
+        "retry_calls": 2,
+        "retry_tokens": 3006,
+        "calls": 8,
+        "used_public_scaffold": true,
+        "questions": 2,
+        "topics": [
+          "clock",
+          "deadline",
+          "duration",
+          "late"
+        ],
+        "round_scores": [
+          0,
+          0,
+          0
+        ],
+        "categories": {
+          "평일 마감": {
+            "correct": 0,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 0,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 0,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 0,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 0,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 0,
+            "total": 10
+          }
+        }
+      },
+      "A-abc": {
+        "score": 55,
+        "total": 100,
+        "status": {
+          "오답": 45,
+          "정답": 55
+        },
+        "prompt_tokens": 14801,
+        "completion_tokens": 7745,
+        "total_tokens": 22546,
+        "retry_calls": 4,
+        "retry_tokens": 9874,
+        "calls": 17,
+        "used_public_scaffold": true,
+        "questions": 6,
+        "topics": [
+          "after",
+          "clock",
+          "deadline",
+          "duration",
+          "future_booking",
+          "late"
+        ],
+        "round_scores": [
+          55,
+          55,
+          55
+        ],
+        "categories": {
+          "평일 마감": {
+            "correct": 5,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 5,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 5,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 5,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 5,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 10,
+            "total": 10
+          }
+        }
+      },
+      "B-solo": {
+        "score": 49,
+        "total": 100,
+        "status": {
+          "정답": 49,
+          "오답": 51
+        },
+        "prompt_tokens": 394,
+        "completion_tokens": 82,
+        "total_tokens": 476,
+        "calls": 1,
+        "used_public_scaffold": false,
+        "questions": 0,
+        "topics": [],
+        "round_scores": [],
+        "categories": {
+          "평일 마감": {
+            "correct": 5,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 5,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 5,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 5,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 9,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 0,
+            "total": 10
+          }
+        }
+      },
+      "B-self": {
+        "score": 49,
+        "total": 100,
+        "status": {
+          "정답": 49,
+          "오답": 51
+        },
+        "prompt_tokens": 5604,
+        "completion_tokens": 687,
+        "total_tokens": 6291,
+        "retry_calls": 2,
+        "retry_tokens": 1605,
+        "calls": 9,
+        "used_public_scaffold": false,
+        "questions": 3,
+        "topics": [
+          "after"
+        ],
+        "round_scores": [
+          49,
+          55,
+          49
+        ],
+        "categories": {
+          "평일 마감": {
+            "correct": 5,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 5,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 5,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 5,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 9,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 0,
+            "total": 10
+          }
+        }
+      },
+      "B-abc": {
+        "score": 55,
+        "total": 100,
+        "status": {
+          "정답": 55,
+          "오답": 45
+        },
+        "prompt_tokens": 12604,
+        "completion_tokens": 4230,
+        "total_tokens": 16834,
+        "retry_calls": 2,
+        "retry_tokens": 3578,
+        "calls": 15,
+        "used_public_scaffold": false,
+        "questions": 8,
+        "topics": [
+          "after",
+          "clock",
+          "deadline",
+          "duration",
+          "late",
+          "past",
+          "start"
+        ],
+        "round_scores": [
+          55,
+          55,
+          55
+        ],
+        "categories": {
+          "평일 마감": {
+            "correct": 5,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 5,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 5,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 5,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 10,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 5,
+            "total": 10
+          }
+        }
+      },
+      "C-solo": {
+        "score": 0,
+        "total": 100,
+        "status": {
+          "보류": 100
+        },
+        "prompt_tokens": 381,
+        "completion_tokens": 53,
+        "total_tokens": 434,
+        "calls": 1,
+        "used_public_scaffold": false,
+        "questions": 0,
+        "topics": [],
+        "round_scores": [],
+        "categories": {
+          "평일 마감": {
+            "correct": 0,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 0,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 0,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 0,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 0,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 0,
+            "total": 10
+          }
+        }
+      },
+      "C-self": {
+        "score": 0,
+        "total": 100,
+        "status": {
+          "보류": 100
+        },
+        "prompt_tokens": 8456,
+        "completion_tokens": 2513,
+        "total_tokens": 10969,
+        "retry_calls": 3,
+        "retry_tokens": 3783,
+        "calls": 10,
+        "used_public_scaffold": false,
+        "questions": 9,
+        "topics": [
+          "inputs",
+          "zone"
+        ],
+        "round_scores": [
+          0,
+          0,
+          0
+        ],
+        "categories": {
+          "평일 마감": {
+            "correct": 0,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 0,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 0,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 0,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 0,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 0,
+            "total": 10
+          }
+        }
+      },
+      "C-abc": {
+        "score": 55,
+        "total": 100,
+        "status": {
+          "오답": 45,
+          "정답": 55
+        },
+        "prompt_tokens": 7756,
+        "completion_tokens": 834,
+        "total_tokens": 8590,
+        "retry_calls": 1,
+        "retry_tokens": 775,
+        "calls": 14,
+        "used_public_scaffold": false,
+        "questions": 7,
+        "topics": [
+          "invalid_booking"
+        ],
+        "round_scores": [
+          0,
+          55,
+          55
+        ],
+        "categories": {
+          "평일 마감": {
+            "correct": 5,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 5,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 5,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 5,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 5,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 5,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 10,
+            "total": 10
+          }
+        }
+      },
+      "mixed": {
+        "score": 10,
+        "total": 100,
+        "status": {
+          "실행 오류": 90,
+          "정답": 10
+        },
+        "prompt_tokens": 16440,
+        "completion_tokens": 5781,
+        "total_tokens": 22221,
+        "retry_calls": 4,
+        "retry_tokens": 7182,
+        "calls": 17,
+        "used_public_scaffold": true,
+        "questions": 9,
+        "topics": [
+          "before",
+          "boundary",
+          "clock",
+          "deadline",
+          "duration",
+          "holiday_shift",
+          "late",
+          "past",
+          "weekdays"
+        ],
+        "round_scores": [
+          10,
+          10,
+          10
+        ],
+        "categories": {
+          "평일 마감": {
+            "correct": 0,
+            "total": 10
+          },
+          "마감 경계": {
+            "correct": 0,
+            "total": 10
+          },
+          "금요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "토요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "일요일 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "추가 휴일": {
+            "correct": 0,
+            "total": 10
+          },
+          "연속 휴무": {
+            "correct": 0,
+            "total": 10
+          },
+          "예약 직후 유예": {
+            "correct": 0,
+            "total": 10
+          },
+          "시작과 유예 우선순위": {
+            "correct": 5,
+            "total": 10
+          },
+          "잘못된 시간 순서": {
+            "correct": 5,
+            "total": 10
+          }
+        }
+      }
+    }
+  },
+  "paired": {
+    "reservation": {
+      "A-self -> A-abc": {
+        "gained": [
+          "R28",
+          "R29",
+          "R30",
+          "R31",
+          "R32"
+        ],
+        "lost": [
+          "R12",
+          "R13",
+          "R14",
+          "R15",
+          "R16",
+          "R17",
+          "R33",
+          "R34",
+          "R35",
+          "R42",
+          "R48",
+          "R50"
+        ]
+      },
+      "B-self -> B-abc": {
+        "gained": [],
+        "lost": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R33",
+          "R34",
+          "R35",
+          "R36"
+        ]
+      },
+      "C-self -> C-abc": {
+        "gained": [],
+        "lost": []
+      },
+      "A-self -> mixed": {
+        "gained": [
+          "R28",
+          "R29",
+          "R30",
+          "R31",
+          "R32"
+        ],
+        "lost": [
+          "R12",
+          "R13",
+          "R14",
+          "R15",
+          "R16",
+          "R17",
+          "R33",
+          "R34",
+          "R35",
+          "R42",
+          "R48",
+          "R50"
+        ]
+      },
+      "A-abc -> mixed": {
+        "gained": [],
+        "lost": []
+      }
+    },
+    "calendar": {
+      "A-self -> A-abc": {
+        "gained": [
+          "C002",
+          "C004",
+          "C006",
+          "C008",
+          "C010",
+          "C012",
+          "C014",
+          "C016",
+          "C018",
+          "C020",
+          "C022",
+          "C024",
+          "C026",
+          "C028",
+          "C030",
+          "C032",
+          "C034",
+          "C036",
+          "C038",
+          "C040",
+          "C042",
+          "C044",
+          "C046",
+          "C048",
+          "C050",
+          "C052",
+          "C054",
+          "C056",
+          "C058",
+          "C060",
+          "C062",
+          "C064",
+          "C066",
+          "C068",
+          "C070",
+          "C072",
+          "C074",
+          "C076",
+          "C078",
+          "C080",
+          "C082",
+          "C084",
+          "C086",
+          "C088",
+          "C090",
+          "C091",
+          "C092",
+          "C093",
+          "C094",
+          "C095",
+          "C096",
+          "C097",
+          "C098",
+          "C099",
+          "C100"
+        ],
+        "lost": []
+      },
+      "B-self -> B-abc": {
+        "gained": [
+          "C082",
+          "C092",
+          "C094",
+          "C096",
+          "C098",
+          "C100"
+        ],
+        "lost": []
+      },
+      "C-self -> C-abc": {
+        "gained": [
+          "C002",
+          "C004",
+          "C006",
+          "C008",
+          "C010",
+          "C012",
+          "C014",
+          "C016",
+          "C018",
+          "C020",
+          "C022",
+          "C024",
+          "C026",
+          "C028",
+          "C030",
+          "C032",
+          "C034",
+          "C036",
+          "C038",
+          "C040",
+          "C042",
+          "C044",
+          "C046",
+          "C048",
+          "C050",
+          "C052",
+          "C054",
+          "C056",
+          "C058",
+          "C060",
+          "C062",
+          "C064",
+          "C066",
+          "C068",
+          "C070",
+          "C072",
+          "C074",
+          "C076",
+          "C078",
+          "C080",
+          "C082",
+          "C084",
+          "C086",
+          "C088",
+          "C090",
+          "C091",
+          "C092",
+          "C093",
+          "C094",
+          "C095",
+          "C096",
+          "C097",
+          "C098",
+          "C099",
+          "C100"
+        ],
+        "lost": []
+      },
+      "A-self -> mixed": {
+        "gained": [
+          "C082",
+          "C084",
+          "C086",
+          "C088",
+          "C090",
+          "C092",
+          "C094",
+          "C096",
+          "C098",
+          "C100"
+        ],
+        "lost": []
+      },
+      "A-abc -> mixed": {
+        "gained": [],
+        "lost": [
+          "C002",
+          "C004",
+          "C006",
+          "C008",
+          "C010",
+          "C012",
+          "C014",
+          "C016",
+          "C018",
+          "C020",
+          "C022",
+          "C024",
+          "C026",
+          "C028",
+          "C030",
+          "C032",
+          "C034",
+          "C036",
+          "C038",
+          "C040",
+          "C042",
+          "C044",
+          "C046",
+          "C048",
+          "C050",
+          "C052",
+          "C054",
+          "C056",
+          "C058",
+          "C060",
+          "C062",
+          "C064",
+          "C066",
+          "C068",
+          "C070",
+          "C072",
+          "C074",
+          "C076",
+          "C078",
+          "C080",
+          "C091",
+          "C093",
+          "C095",
+          "C097",
+          "C099"
+        ]
+      }
+    }
+  }
+}
