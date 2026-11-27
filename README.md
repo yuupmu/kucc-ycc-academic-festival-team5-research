@@ -4,6 +4,7 @@
 
 | 찾아볼 내용 | 자료 |
 |---|---|
+| **전체 실험 결과 한눈에 보기** | [벤치마크 종합 결과표 · 문항별 채점 · 회신과 제출 코드](docs/reports/benchmark-results.md) |
 | 11월 27일 추가 벤치마크 | [서평 카드 반대 회신, 독립 감시자 1명·3명 실험](experiments/festival-validation-20261127/README.md) · [15분 발표 구성안](docs/reports/festival-talk-20261127/발표_구성_및_추가_벤치마크.md) · [정책 회신과 실제 반환값](docs/reports/festival-talk-20261127/정책판정_재집계.json) |
 | 연구 방향을 바꾼 이유와 단계별 구조 | [파이프라인 변천사와 현재 흐름도](docs/파이프라인.md) |
 | 발표용 종합보고서 | [Markdown](docs/pdf/학술제_감시자가_찾은_규칙은_코드에_남았나.md) · [PDF](docs/pdf/학술제_감시자가_찾은_규칙은_코드에_남았나.pdf) |
