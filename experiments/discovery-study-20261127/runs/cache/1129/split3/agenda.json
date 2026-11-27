@@ -1,0 +1,91 @@
+{
+  "handoff": "29631070b9b78f46eddb8457e871d6670f19c50431ab446a920271b5d3f5637e",
+  "digest": "43c9034206233519b4ad7a8792129f69410227f4909b7ae60738426631229a58",
+  "agenda": {
+    "brief": "이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요. 고정 표시만 있으면 항목을 유지합니다. 만료 표시만 있으면 유지하지 않습니다. True는 유지, False는 삭제입니다.",
+    "code": "def keep_cached(pinned: bool, expired: bool) -> bool:\n    \"\"\"\n    이미지 캐시 항목을 유지할지 정하는 함수입니다.\n    \n    규칙:\n    - 고정 표시 (pinned) 만 있으면 항목을 유지합니다.\n    - 만료 표시 (expired) 만 있으면 유지하지 않습니다.\n    - 두 표시가 모두 있으면 고정 우선으로 유지합니다.\n    \n    Args:\n        pinned (bool): 고정 표시 여부 (True: 고정됨, False: 고정 안됨)\n        expired (bool): 만료 표시 여부 (True: 만료됨, False: 만료 안됨)\n    \n    Returns:\n        bool: True (유지), False (삭제)\n    \"\"\"\n    # 고정 표시가 있으면 유지합니다.\n    if pinned:\n        return True\n    \n    # 고정 표시가 없으면, 만료 표시가 있으면 삭제합니다.\n    if expired:\n        return False\n    \n    # 만료 표시도 없으면 유지합니다.\n    return True\n",
+    "editing_base": "def keep_cached(pinned: bool, expired: bool) -> bool:\n    \"\"\"\n    이미지 캐시 항목을 유지할지 정하는 함수입니다.\n    \n    규칙:\n    - 고정 표시 (pinned) 만 있으면 항목을 유지합니다.\n    - 만료 표시 (expired) 만 있으면 유지하지 않습니다.\n    - 두 표시가 모두 있으면 고정 우선으로 유지합니다.\n    \n    Args:\n        pinned (bool): 고정 표시 여부 (True: 고정됨, False: 고정 안됨)\n        expired (bool): 만료 표시 여부 (True: 만료됨, False: 만료 안됨)\n    \n    Returns:\n        bool: True (유지), False (삭제)\n    \"\"\"\n    # 고정 표시가 있으면 유지합니다.\n    if pinned:\n        return True\n    \n    # 고정 표시가 없으면, 만료 표시가 있으면 삭제합니다.\n    if expired:\n        raise NotImplementedError(\"is_pinned_only\")\n    \n    # 만료 표시도 없으면 유지합니다.\n    return True\n",
+    "original_questions": {
+      "Q1": "현재 `keep_cached` 함수의 로직은 '고정 표시만 있으면 유지하고, 만료 표시만 있으면 삭제하며, 두 표시가 모두 있을 경우 고정 우선으로 유지'하는 것으로 구현되어 있습니다. 하지만 요청된 규칙 설명에서 '두 표시가 모두 있으면 고정 우선으로 유지합니다'라는 문구가 명시되어 있지 않습니다. 이 로직이 의도된 대로 동작하는지, 아니면 '두 표시가 모두 있을 경우'에 대한 별도의 규칙이 누락되었는지 담당자에게 확인해 주세요.",
+      "Q2": "두 표시가 모두 있는 경우 (pinned=True, expired=True) 를 고정 우선으로 유지하는 로직이 명확히 구현되어 있지만, '만료 표시만 있으면 유지하지 않습니다'라는 문장과의 논리적 충돌이 없는지, 특히 만료되었으나 고정된 항목이 실제로 삭제되지 않는 것이 의도된 것인지 담당자에게 확인을 요청하고 싶습니다."
+    },
+    "sent_questions": {
+      "Q1": "현재 `keep_cached` 함수의 로직은 '고정 표시만 있으면 유지하고, 만료 표시만 있으면 삭제하며, 두 표시가 모두 있을 경우 고정 우선으로 유지'하는 것으로 구현되어 있습니다. 하지만 요청된 규칙 설명에서 '두 표시가 모두 있으면 고정 우선으로 유지합니다'라는 문구가 명시되어 있지 않습니다. 이 로직이 의도된 대로 동작하는지, 아니면 '두 표시가 모두 있을 경우'에 대한 별도의 규칙이 누락되었는지 담당자에게 확인해 주세요.",
+      "Q2": "두 표시가 모두 있는 경우 (pinned=True, expired=True) 를 고정 우선으로 유지하는 로직이 명확히 구현되어 있지만, '만료 표시만 있으면 유지하지 않습니다'라는 문장과의 논리적 충돌이 없는지, 특히 만료되었으나 고정된 항목이 실제로 삭제되지 않는 것이 의도된 것인지 담당자에게 확인을 요청하고 싶습니다."
+    },
+    "review": [],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:23:8"
+      ],
+      "findings": {},
+      "calls": [],
+      "reopened": {
+        "@pending:23:8": "is_pinned_only"
+      }
+    },
+    "slots": {
+      "is_pinned_only": {
+        "key": "is_pinned_only",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "고정 표시만 있으면 항목을 유지하고, 만료 표시만 있으면 삭제하며, 두 표시가 모두 있을 경우 고정 우선으로 유지하는 로직이 의도된 대로 동작하는지 확인해 주세요."
+      },
+      "is_expired_only": {
+        "key": "is_expired_only",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "만료 표시만 있으면 항목을 유지하지 않는다는 규칙과, 만료되었으나 고정된 항목이 실제로 삭제되지 않는다는 로직이 논리적 충돌이 없는지 확인해 주세요."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요.",
+      "P2": "고정 표시만 있으면 항목을 유지합니다.",
+      "P3": "만료 표시만 있으면 유지하지 않습니다.",
+      "P4": "True는 유지, False는 삭제입니다."
+    },
+    "rules": [
+      {
+        "when": "not pinned and expired",
+        "then": "is_pinned_only",
+        "source": "Q1"
+      },
+      {
+        "when": "pinned and expired",
+        "then": "is_expired_only",
+        "source": "Q2"
+      },
+      {
+        "when": "pinned and not expired",
+        "then": "True",
+        "source": "P1"
+      },
+      {
+        "when": "not pinned and not expired",
+        "then": "False",
+        "source": "P1"
+      },
+      {
+        "when": "pinned",
+        "then": "True",
+        "source": "P4"
+      },
+      {
+        "when": "not pinned",
+        "then": "False",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "pinned",
+      "expired"
+    ],
+    "mode": "flags",
+    "calls": [
+      "8ade72d994f65b86f595e445b514e5d3015ddf9d8b14f99452253f5f634918b3",
+      "53ffb8e6146a3b783c9516c1bdfae1e14ae9506b853ae3184636eae25fd246d6"
+    ]
+  }
+}

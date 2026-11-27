@@ -1,0 +1,100 @@
+{
+  "text": "{\"slots\": [{\"key\": \"check_alarm_condition\", \"kind\": \"decision\", \"origin\": \"Q1\", \"question\": \"요청하신 조건에 따르면 온도가 2 도보다 낮거나 8 도보다 높을 때 경보가 울린다는 설명과 일치하는지 확인하고 싶습니다.\"}]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 71,
+    "prompt_tokens": 393,
+    "total_tokens": 464,
+    "prompt_tokens_details": {
+      "cached_tokens": 205
+    }
+  },
+  "server_timings": {
+    "cache_n": 205,
+    "prompt_n": 188,
+    "prompt_ms": 289.948,
+    "prompt_per_token_ms": 1.5422765957446807,
+    "prompt_per_second": 648.3921254845696,
+    "predicted_n": 71,
+    "predicted_ms": 1194.667,
+    "predicted_per_token_ms": 17.06667142857143,
+    "predicted_per_second": 58.593733651302
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.49,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자에게 보낼 실제 질문들을 읽고 각각 독립적으로 답할 수 있는 결정의 목록을 만드세요.\n질문이 겹치면 합치고, 한 문장에서 값과 그 값에서 취할 행동을 함께 물었다면 둘로 나누세요. 공개 명세가 이미 정한 행동이나 코드 지적은 항목에 넣지 마세요.\n각 항목에는 파이썬 변수로 쓸 영문 key, 수치 자체를 물으면 quantity, 특정 상황에서 실행할지 물으면 decision,\n그 항목을 포함한 원래 질문 번호 origin, 그 한 가지를 다시 물을 한국어 의문문 question을 쓰세요. question은 담당자에게 그대로 전달됩니다.\n원래 질문이 이미 한 가지면 보존하세요. 묶인 질문에서는 해당 부분만 독립된 한 문장으로 적으세요.\ndecision 질문은 함수가 True를 반환하는 행동을 할지 묻는 긍정형으로 쓰세요. 답변과 기본값을 미리 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"백신 보관 냉장고의 온도 경보를 울릴지 정하는 raise_alarm(temp_c: int) -> bool 함수를 작성하세요. 입력은 섭씨 온도의 정수값입니다. 온도가 2도보다 낮거나 8도보다 높으면 경보를 울립니다. 2도보다 높고 8도보다 낮으면 울리지 않습니다. True는 경보, False는 경보 없음입니다.\",\"sent_questions\":{\"Q1\":\"요청하신 조건에 따르면 온도가 2 도보다 낮거나 8 도보다 높을 때 경보가 울린다는 설명과 일치하는지 확인하고 싶습니다. 현재 코드는 `temp_c <= 2` 또는 `temp_c >= 8`일 때 경보가 울린다고 구현되어 있는데, 이는 요청사항과 정확히 일치하는지 다시 한번 확인하고 싶습니다.\"}}"
+      }
+    ],
+    "seed": 1139,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "quantity",
+                      "decision"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "Q1"
+                    ]
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "kind",
+                  "origin",
+                  "question"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "slots"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "decision-items"
+}

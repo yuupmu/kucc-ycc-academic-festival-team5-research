@@ -1,0 +1,102 @@
+{
+  "text": "{\"slots\": [{\"key\": \"boundary_hour_6\", \"kind\": \"decision\", \"origin\": \"Q1\", \"question\": \"현재 시가 6 시인 경우, light_on 함수는 True 를 반환해야 하는지 확인해 주세요.\"}, {\"key\": \"boundary_hour_18\", \"kind\": \"decision\", \"origin\": \"Q1\", \"question\": \"현재 시가 18 시인 경우, light_on 함수는 True 를 반환해야 하는지 확인해 주세요.\"}, {\"key\": \"boundary_hour_6_implementation\", \"kind\": \"decision\", \"origin\": \"Q2\", \"question\": \"현재 시가 6 시일 때 light_on 함수가 True 를 반환하는 코드가 구현되어 있는지 확인해 주세요.\"}, {\"key\": \"boundary_hour_18_implementation\", \"kind\": \"decision\", \"origin\": \"Q2\", \"question\": \"현재 시가 18 시일 때 light_on 함수가 True 를 반환하는 코드가 구현되어 있는지 확인해 주세요.\"}, {\"key\": \"boundary_hour_6_definition\", \"kind\": \"decision\", \"origin\": \"Q3\", \"question\": \"현재 시가 6 시인 경우 light_on 함수가 True 를 반환하는지 명확히 정의해 주세요.\"}, {\"key\": \"boundary_hour_18_definition\", \"kind\": \"decision\", \"origin\": \"Q3\", \"question\": \"현재 시가 18 시인 경우 light_on 함수가 True 를 반환하는지 명확히 정의해 주세요.\"}]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 325,
+    "prompt_tokens": 524,
+    "total_tokens": 849,
+    "prompt_tokens_details": {
+      "cached_tokens": 205
+    }
+  },
+  "server_timings": {
+    "cache_n": 205,
+    "prompt_n": 319,
+    "prompt_ms": 452.727,
+    "prompt_per_token_ms": 1.4192068965517242,
+    "prompt_per_second": 704.6188983647982,
+    "predicted_n": 325,
+    "predicted_ms": 5222.523,
+    "predicted_per_token_ms": 16.118898148148148,
+    "predicted_per_second": 62.03898001023643
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 5.68,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자에게 보낼 실제 질문들을 읽고 각각 독립적으로 답할 수 있는 결정의 목록을 만드세요.\n질문이 겹치면 합치고, 한 문장에서 값과 그 값에서 취할 행동을 함께 물었다면 둘로 나누세요. 공개 명세가 이미 정한 행동이나 코드 지적은 항목에 넣지 마세요.\n각 항목에는 파이썬 변수로 쓸 영문 key, 수치 자체를 물으면 quantity, 특정 상황에서 실행할지 물으면 decision,\n그 항목을 포함한 원래 질문 번호 origin, 그 한 가지를 다시 물을 한국어 의문문 question을 쓰세요. question은 담당자에게 그대로 전달됩니다.\n원래 질문이 이미 한 가지면 보존하세요. 묶인 질문에서는 해당 부분만 독립된 한 문장으로 적으세요.\ndecision 질문은 함수가 True를 반환하는 행동을 할지 묻는 긍정형으로 쓰세요. 답변과 기본값을 미리 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.\",\"sent_questions\":{\"Q1\":\"현재 시(hour)가 6 시인 경우, 조명은 켜져야 하는지 꺼져야 하는지 명확히 해야 할 것 같습니다. 요청에서는 '6 시보다 이르거나 18 시보다 늦으면 켭니다'라고 되어 있으나, 6 시 자체는 '이르다'가 아닌 '늦다'에 해당하므로 켜져야 하는지 확인이 필요합니다.\",\"Q2\":\"현재 코드는 '6 시보다 이르거나 18 시보다 늦으면 켭니다'라는 요구사항을 정확히 구현하고 있는지 확인하고 싶습니다. 특히 6 시와 18 시를 포함하는 경계 조건이 올바르게 처리되었는지 담당자에게 질문드립니다.\",\"Q3\":\"현재 시 (hour) 가 6 시와 18 시를 포함하는 경우 (예: hour=6, hour=18) 에 대해 조명이 켜져 있는지/꺼져 있는지 명확히 정의해 주시면 감사하겠습니다.\"}}"
+      }
+    ],
+    "seed": 1133,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "quantity",
+                      "decision"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "Q1",
+                      "Q2",
+                      "Q3"
+                    ]
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "kind",
+                  "origin",
+                  "question"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "slots"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "decision-items"
+}

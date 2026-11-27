@@ -1,0 +1,115 @@
+{
+  "handoff": "60c9d1c037406b739c2b0419ccbf7af24dff2c50b0b49c449a9c22a15dda453f",
+  "digest": "8f7fb703877cf94738725bd5cfcd68885f74013a505c32fd96befa69f70c3cbb",
+  "agenda": {
+    "brief": "게임 효과음을 재생할지 정하는 play_sound(headphones: bool, silent_mode: bool) -> bool 함수를 작성하세요. 이어폰 연결 신호만 있으면 효과음을 재생합니다. 무음 모드만 켜져 있으면 재생하지 않습니다. True는 재생, False는 재생 안 함입니다.",
+    "code": "def play_sound(headphones: bool, silent_mode: bool) -> bool:\n    \"\"\"\n    게임 효과음을 재생할지 여부를 결정하는 함수입니다.\n    \n    조건:\n    1. 이어폰이 연결되어 있어야 함 (headphones == True)\n    2. 무음 모드가 켜져 있지 않아야 함 (silent_mode == False)\n    \n    반환값:\n    - 조건을 모두 만족할 경우: True (효과음 재생)\n    - 조건 중 하나라도 만족하지 않을 경우: False (효과음 재생 안 함)\n    \"\"\"\n    if headphones and not silent_mode:\n        return True\n    else:\n        return False\n\n# 미정 경로 처리\n# 현재 제공된 정보에 따라 다른 구현 경로가 필요할 경우 NotImplementedError 를 사용해야 합니다.\n# 하지만 주어진 조건은 명확하므로, 위 함수가 모든 경우를 처리합니다.\n\n# 예외 처리 (필요시)\n# if headphones is not a boolean or silent_mode is not a boolean:\n#     raise TypeError(\"headphones and silent_mode must be boolean\")\n\n# 테스트용 주석 (실행하지 않음)\n# assert play_sound(True, False) == True\n# assert play_sound(False, False) == False\n# assert play_sound(True, True) == False\n# assert play_sound(False, True) == False",
+    "editing_base": "def play_sound(headphones: bool, silent_mode: bool) -> bool:\n    \"\"\"\n    게임 효과음을 재생할지 여부를 결정하는 함수입니다.\n    \n    조건:\n    1. 이어폰이 연결되어 있어야 함 (headphones == True)\n    2. 무음 모드가 켜져 있지 않아야 함 (silent_mode == False)\n    \n    반환값:\n    - 조건을 모두 만족할 경우: True (효과음 재생)\n    - 조건 중 하나라도 만족하지 않을 경우: False (효과음 재생 안 함)\n    \"\"\"\n    if headphones and not silent_mode:\n        raise NotImplementedError(\"play_sound_condition_1\")\n    else:\n        return False\n\n# 미정 경로 처리\n# 현재 제공된 정보에 따라 다른 구현 경로가 필요할 경우 NotImplementedError 를 사용해야 합니다.\n# 하지만 주어진 조건은 명확하므로, 위 함수가 모든 경우를 처리합니다.\n\n# 예외 처리 (필요시)\n# if headphones is not a boolean or silent_mode is not a boolean:\n#     raise TypeError(\"headphones and silent_mode must be boolean\")\n\n# 테스트용 주석 (실행하지 않음)\n# assert play_sound(True, False) == True\n# assert play_sound(False, False) == False\n# assert play_sound(True, True) == False\n# assert play_sound(False, True) == False",
+    "original_questions": {
+      "Q1": "현재 코드는 '이어폰 연결 신호만 있으면'과 '무음 모드만 켜져 있으면'이라는 두 가지 조건을 모두 만족할 때만 효과음을 재생하도록 구현되어 있습니다. 하지만 요구사항 설명에서 '이어폰 연결 신호만 있으면'이라는 표현은 이어폰이 연결되어 있고 무음 모드가 꺼져 있는 경우를 의미하는지, 아니면 이어폰이 연결되어 있으면 무음 모드 여부와 관계없이 재생하는지 명확하지 않습니다. 두 가지 해석 중 어떤 것이 의도된 정책인지 담당자에게 확인 부탁드립니다.",
+      "Q2": "현재 코드는 'headphones' 가 True 이고 'silent_mode' 가 False 인 경우에만 효과음을 재생하도록 구현되어 있습니다. 하지만 요구사항 설명에서 '이어폰 연결 신호만 있으면'과 '무음 모드만 켜져 있으면'이라는 표현이, 이어폰이 연결되어 있지 않아도 무음 모드가 꺼져 있으면 재생해야 하는지, 아니면 두 조건이 모두 충족되어야 하는지에 대한 의의가 명확하지 않습니다. 두 정책 (두 조건 모두 충족 vs 하나라도 충족) 을 고려하여 어떤 것이 맞는지 담당자에게 확인해 주세요.",
+      "Q3": "주어진 코드와 설명은 이어폰 연결과 무음 모드 조건을 정확히 반영하고 있어 명확합니다. 추가적인 질문이 없으므로 빈 배열을 반환합니다."
+    },
+    "sent_questions": {
+      "Q1": "현재 코드는 '이어폰 연결 신호만 있으면'과 '무음 모드만 켜져 있으면'이라는 두 가지 조건을 모두 만족할 때만 효과음을 재생하도록 구현되어 있습니다. 하지만 요구사항 설명에서 '이어폰 연결 신호만 있으면'이라는 표현은 이어폰이 연결되어 있고 무음 모드가 꺼져 있는 경우를 의미하는지, 아니면 이어폰이 연결되어 있으면 무음 모드 여부와 관계없이 재생하는지 명확하지 않습니다. 두 가지 해석 중 어떤 것이 의도된 정책인지 담당자에게 확인 부탁드립니다.",
+      "Q2": "현재 코드는 'headphones' 가 True 이고 'silent_mode' 가 False 인 경우에만 효과음을 재생하도록 구현되어 있습니다. 하지만 요구사항 설명에서 '이어폰 연결 신호만 있으면'과 '무음 모드만 켜져 있으면'이라는 표현이, 이어폰이 연결되어 있지 않아도 무음 모드가 꺼져 있으면 재생해야 하는지, 아니면 두 조건이 모두 충족되어야 하는지에 대한 의의가 명확하지 않습니다. 두 정책 (두 조건 모두 충족 vs 하나라도 충족) 을 고려하여 어떤 것이 맞는지 담당자에게 확인해 주세요.",
+      "Q3": "주어진 코드와 설명은 이어폰 연결과 무음 모드 조건을 정확히 반영하고 있어 명확합니다. 추가적인 질문이 없으므로 빈 배열을 반환합니다."
+    },
+    "review": [],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:14:8"
+      ],
+      "findings": {},
+      "calls": [],
+      "reopened": {
+        "@pending:14:8": "play_sound_condition_1"
+      }
+    },
+    "slots": {
+      "play_sound_condition_1": {
+        "key": "play_sound_condition_1",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 코드는 이어폰이 연결되어 있고 무음 모드가 꺼져 있는 경우에만 효과음을 재생하도록 구현되어 있습니다. 요구사항에서 '이어폰 연결 신호만 있으면'이라는 표현이 이어폰이 연결되어 있으면 무음 모드 여부와 관계없이 재생하는 것을 의미하는지 확인해 주세요."
+      },
+      "play_sound_condition_2": {
+        "key": "play_sound_condition_2",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "현재 코드는 이어폰이 연결되어 있고 무음 모드가 꺼져 있는 경우에만 효과음을 재생하도록 구현되어 있습니다. 요구사항에서 '이어폰 연결 신호만 있으면'과 '무음 모드만 켜져 있으면'이라는 표현이 이어폰이 연결되어 있지 않아도 무음 모드가 꺼져 있으면 재생해야 하는지 확인해 주세요."
+      },
+      "play_sound_condition_3": {
+        "key": "play_sound_condition_3",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "현재 코드는 이어폰이 연결되어 있고 무음 모드가 꺼져 있는 경우에만 효과음을 재생하도록 구현되어 있습니다. 요구사항에서 '이어폰 연결 신호만 있으면'과 '무음 모드만 켜져 있으면'이라는 표현이 두 조건이 모두 충족되어야만 재생하는 것을 의미하는지 확인해 주세요."
+      },
+      "play_sound_condition_4": {
+        "key": "play_sound_condition_4",
+        "kind": "decision",
+        "origin": "Q3",
+        "question": "현재 코드가 이어폰 연결과 무음 모드 조건을 정확히 반영하고 있어 명확합니다. 추가적인 질문이 없으므로 빈 배열을 반환합니다."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "게임 효과음을 재생할지 정하는 play_sound(headphones: bool, silent_mode: bool) -> bool 함수를 작성하세요.",
+      "P2": "이어폰 연결 신호만 있으면 효과음을 재생합니다.",
+      "P3": "무음 모드만 켜져 있으면 재생하지 않습니다.",
+      "P4": "True는 재생, False는 재생 안 함입니다."
+    },
+    "rules": [
+      {
+        "when": "headphones",
+        "then": "play_sound_condition_1",
+        "source": "Q1"
+      },
+      {
+        "when": "silent_mode",
+        "then": "play_sound_condition_2",
+        "source": "Q2"
+      },
+      {
+        "when": "headphones and silent_mode",
+        "then": "play_sound_condition_3",
+        "source": "Q2"
+      },
+      {
+        "when": "headphones and not silent_mode",
+        "then": "play_sound_condition_4",
+        "source": "Q3"
+      },
+      {
+        "when": "headphones",
+        "then": "True",
+        "source": "P2"
+      },
+      {
+        "when": "silent_mode",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "headphones and silent_mode",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "headphones and not silent_mode",
+        "then": "True",
+        "source": "P2"
+      }
+    ],
+    "names": [
+      "headphones",
+      "silent_mode"
+    ],
+    "mode": "flags",
+    "calls": [
+      "5451cf3a284f6bbb4e1280056bff6eeb4c7e9bcc09e848651f56bb1989808db1",
+      "8ffcaff4ae391709bd18feda0c4e348f99a572e6638c0baa8b03336a7eef22b5"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "handoff": "15e4b45ca4e5f63f83dddde5ee8f9f698da2e0f70af66b5d4811a0cee134ae8f",
+  "digest": "6bed2e6b210028121e3f358644db49a211f1c37f1d5c9f59fc19b1c2349668b9",
+  "agenda": {
+    "brief": "이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요. 고정 표시만 있으면 항목을 유지합니다. 만료 표시만 있으면 유지하지 않습니다. True는 유지, False는 삭제입니다.",
+    "code": "def keep_cached(pinned: bool, expired: bool) -> bool:\n    \"\"\"\n    이미지 캐시 항목을 유지할지 정하는 함수입니다.\n    \n    규칙:\n    - 고정 표시 (pinned) 만 있으면 항목을 유지합니다.\n    - 만료 표시 (expired) 만 있으면 유지하지 않습니다.\n    - 두 조건이 모두 참인 경우: 고정 표시 우선으로 유지합니다.\n    - 두 조건이 모두 거짓인 경우: 삭제합니다.\n    \n    Args:\n        pinned (bool): 고정 표시 여부 (True: 고정됨, False: 고정 안됨)\n        expired (bool): 만료 표시 여부 (True: 만료됨, False: 만료 안됨)\n    \n    Returns:\n        bool: True (유지), False (삭제)\n    \"\"\"\n    # 고정 표시가 있으면 유지합니다.\n    # 만료 표시가 있으면 유지하지 않습니다.\n    # 고정 표시가 있으면 우선순위가 높으므로, pinned 이 True 라면 항상 유지합니다.\n    if pinned:\n        return True\n    # 고정 표시가 없으면, 만료 표시가 있으면 삭제합니다.\n    return not expired\n",
+    "editing_base": "def keep_cached(pinned: bool, expired: bool) -> bool:\n    \"\"\"\n    이미지 캐시 항목을 유지할지 정하는 함수입니다.\n    \n    규칙:\n    - 고정 표시 (pinned) 만 있으면 항목을 유지합니다.\n    - 만료 표시 (expired) 만 있으면 유지하지 않습니다.\n    - 두 조건이 모두 참인 경우: 고정 표시 우선으로 유지합니다.\n    - 두 조건이 모두 거짓인 경우: 삭제합니다.\n    \n    Args:\n        pinned (bool): 고정 표시 여부 (True: 고정됨, False: 고정 안됨)\n        expired (bool): 만료 표시 여부 (True: 만료됨, False: 만료 안됨)\n    \n    Returns:\n        bool: True (유지), False (삭제)\n    \"\"\"\n    # 고정 표시가 있으면 유지합니다.\n    # 만료 표시가 있으면 유지하지 않습니다.\n    # 고정 표시가 있으면 우선순위가 높으므로, pinned 이 True 라면 항상 유지합니다.\n    if pinned:\n        return True\n    # 고정 표시가 없으면, 만료 표시가 있으면 삭제합니다.\n    return not expired\n",
+    "original_questions": {
+      "Q1": "두 조건 (pinned=True, expired=True) 이 모두 참인 경우, 고정 표시 우선으로 유지한다는 요구사항과 코드 로직이 일치하는지 확인하고 싶습니다.",
+      "Q2": "두 조건 (pinned=True, expired=True) 이 모두 참인 경우, 고정 표시 우선으로 유지하는 로직이 구현되어 있습니다. 하지만 '만료 표시만 있으면 유지하지 않습니다'라는 규칙과 '두 조건이 모두 참인 경우'의 명시적 예외 조항이 충돌할 수 있는 상황을 확인하기 위해, 기존 로직이 의도한 대로 작동하는지 담당자에게 질문드립니다: 'pinned=True, expired=True'인 경우 `return True`로 처리하는 것이 맞는지, 아니면 만료 상태가 더 우선시되어 `return False`로 처리해야 하는지 명확히 해주세요."
+    },
+    "sent_questions": {
+      "keep_cached_pinned_expired_both_true": "'pinned=True, expired=True'인 경우 `return True`로 처리하는 것이 맞는지, 아니면 만료 상태가 더 우선시되어 `return False`로 처리해야 하는지 명확히 해주세요."
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "keep_cached_pinned_expired_both_true": {
+        "key": "keep_cached_pinned_expired_both_true",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "'pinned=True, expired=True'인 경우 `return True`로 처리하는 것이 맞는지, 아니면 만료 상태가 더 우선시되어 `return False`로 처리해야 하는지 명확히 해주세요.",
+        "merged_from": [
+          {
+            "key": "keep_cached_pinned_expired_both_true",
+            "kind": "decision",
+            "origin": "Q1",
+            "question": "pinned=True 이고 expired=True 인 경우, 고정 표시 우선 로직에 따라 항목을 유지하는 것이 맞습니다."
+          },
+          {
+            "key": "keep_cached_pinned_expired_both_true_explicit_rule",
+            "kind": "decision",
+            "origin": "Q2",
+            "question": "pinned=True 이고 expired=True 인 경우, 만료 표시 우선 로직에 따라 항목을 삭제하는 것이 맞습니다."
+          }
+        ]
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요.",
+      "P2": "고정 표시만 있으면 항목을 유지합니다.",
+      "P3": "만료 표시만 있으면 유지하지 않습니다.",
+      "P4": "True는 유지, False는 삭제입니다."
+    },
+    "rules": [
+      {
+        "when": "pinned and expired",
+        "then": "keep_cached_pinned_expired_both_true",
+        "source": "Q1"
+      }
+    ],
+    "names": [
+      "pinned",
+      "expired"
+    ],
+    "mode": "flags",
+    "calls": [
+      "24a1b622ad59c9736c511d1be7d4d301ce648d21a25fecf3c288a7a2c88ea11c",
+      "e8bd2a3b56d00e567b8282b2fa91ad96eb29deaafb2bcca74d1a20813f42d767",
+      "2cdad393f3f2c45587530f1ce8e108008aa7db040292c9d76354f550d3a33ae9"
+    ]
+  }
+}

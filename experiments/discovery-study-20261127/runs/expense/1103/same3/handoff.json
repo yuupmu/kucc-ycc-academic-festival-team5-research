@@ -1,0 +1,12 @@
+{
+  "brief": "동아리 지출 요청을 승인 처리할지 정하는 mark_approved(lead_ok: bool, treasurer_ok: bool) -> bool 함수를 작성하세요. 회장과 총무가 모두 승인하면 승인 처리합니다. 회장도 총무도 승인하지 않으면 승인 처리하지 않습니다. True는 승인 처리, False는 미처리입니다.",
+  "code": "def mark_approved(lead_ok: bool, treasurer_ok: bool) -> bool:\n    \"\"\"\n    동아리 지출 요청 승인 처리 함수\n    \n    조건: 회장도 총무도 승인해야만 True 반환\n    \n    Args:\n        lead_ok (bool): 회장이 승인했는지 여부\n        treasurer_ok (bool): 총무가 승인했는지 여부\n    \n    Returns:\n        bool: 승인 처리 여부 (True: 승인, False: 미처리)\n    \"\"\"\n    return lead_ok and treasurer_ok",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "6bb0e17e8396ec2c69b2823e589ce49cc364855412a23408067f668343f961bf",
+    "35e1c8533c77a58d7e056d323f7369c403223ece8b8d2c14bd170349fa63d592",
+    "ee6d2a5df327e8dd9bcb963fd3407df735ba1a28a75beadd5ddc1c86f6996995",
+    "8345bdd5e7b09c795c96d74b2be01d029f5f106dcbfa8a4ddb3312aecc64e791"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "handoff": "e6ea9e1988c36a120d5924a2bb46163cb3acd7dbe30d014bf3e43860f6f376e8",
+  "digest": "526a05180a79827d9b6cd2b5962f90880c10b31fc5ff24a6d3b822d0fdc0e828",
+  "agenda": {
+    "brief": "동아리 세미나실 대여 신청을 승인할지 정하는 approve_room(people: int) -> bool 함수를 작성하세요. 입력은 신청 인원입니다. 인원이 3명 미만이거나 15명 초과이면 승인하지 않습니다. 3명 초과이고 15명 미만이면 승인합니다. True는 승인, False는 미승인입니다.",
+    "code": "def approve_room(people: int) -> bool:\n    \"\"\"\n    동아리 세미나실 대여 신청 승인 여부를 판단합니다.\n    \n    규칙:\n    - 인원이 3 명 미만이면 승인하지 않음 (False)\n    - 인원이 15 명 초과이면 승인하지 않음 (False)\n    - 3 명 초과이고 15 명 미만이면 승인함 (True)\n    \n    Args:\n        people (int): 신청 인원\n    \n    Returns:\n        bool: 승인 여부\n    \"\"\"\n    if people < 3 or people > 15:\n        return False\n    return True\n",
+    "editing_base": "def approve_room(people: int) -> bool:\n    \"\"\"\n    동아리 세미나실 대여 신청 승인 여부를 판단합니다.\n    \n    규칙:\n    - 인원이 3 명 미만이면 승인하지 않음 (False)\n    - 인원이 15 명 초과이면 승인하지 않음 (False)\n    - 3 명 초과이고 15 명 미만이면 승인함 (True)\n    \n    Args:\n        people (int): 신청 인원\n    \n    Returns:\n        bool: 승인 여부\n    \"\"\"\n    if people < 3 or people > 15:\n        return False\n    return True\n",
+    "original_questions": {
+      "Q1": "인원 수에 대해 3 명 미만과 15 명 초과를 구분하는 기준이 명확하지 않습니다. 3 명, 4 명, 5 명, ..., 14 명, 15 명, 16 명, 17 명을 어떻게 처리해야 하는지, 특히 3 명과 15 명은 승인하는지 아닌지 명확히 해주세요.",
+      "Q2": "인원 3 명과 15 명에 대한 경계 조건 (3 명이나 15 명인 경우) 이 승인되는지 명확히 정의할 수 있을까요?",
+      "Q3": "3 명과 15 명에 대한 처리가 명확하지 않습니다. '3 명 미만'과 '15 명 초과'는 제외되지만, 정확히 3 명이나 15 명일 때 승인 여부를 결정해야 합니다. 3 명과 15 명은 승인해야 할까요?"
+    },
+    "sent_questions": {
+      "Q1": "인원 수에 대해 3 명 미만과 15 명 초과를 구분하는 기준이 명확하지 않습니다. 3 명, 4 명, 5 명, ..., 14 명, 15 명, 16 명, 17 명을 어떻게 처리해야 하는지, 특히 3 명과 15 명은 승인하는지 아닌지 명확히 해주세요.",
+      "Q2": "인원 3 명과 15 명에 대한 경계 조건 (3 명이나 15 명인 경우) 이 승인되는지 명확히 정의할 수 있을까요?",
+      "Q3": "3 명과 15 명에 대한 처리가 명확하지 않습니다. '3 명 미만'과 '15 명 초과'는 제외되지만, 정확히 3 명이나 15 명일 때 승인 여부를 결정해야 합니다. 3 명과 15 명은 승인해야 할까요?"
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "min_people_approval": {
+        "key": "min_people_approval",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "인원이 정확히 3 명일 때 승인 여부를 결정하는 함수가 True 를 반환하는지 확인해주세요."
+      },
+      "max_people_approval": {
+        "key": "max_people_approval",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "인원이 정확히 15 명일 때 승인 여부를 결정하는 함수가 True 를 반환하는지 확인해주세요."
+      },
+      "min_people_rejection": {
+        "key": "min_people_rejection",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "인원이 정확히 3 명 미만일 때 승인 여부를 결정하는 함수가 False 를 반환하는지 확인해주세요."
+      },
+      "max_people_rejection": {
+        "key": "max_people_rejection",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "인원이 정확히 15 명 초과일 때 승인 여부를 결정하는 함수가 False 를 반환하는지 확인해주세요."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "동아리 세미나실 대여 신청을 승인할지 정하는 approve_room(people: int) -> bool 함수를 작성하세요.",
+      "P2": "입력은 신청 인원입니다.",
+      "P3": "인원이 3명 미만이거나 15명 초과이면 승인하지 않습니다.",
+      "P4": "3명 초과이고 15명 미만이면 승인합니다.",
+      "P5": "True는 승인, False는 미승인입니다."
+    },
+    "rules": [
+      {
+        "when": "people == 3",
+        "then": "min_people_approval",
+        "source": "Q1"
+      },
+      {
+        "when": "people == 15",
+        "then": "max_people_approval",
+        "source": "Q1"
+      },
+      {
+        "when": "people < 3",
+        "then": "min_people_rejection",
+        "source": "Q1"
+      },
+      {
+        "when": "people > 15",
+        "then": "max_people_rejection",
+        "source": "Q1"
+      },
+      {
+        "when": "people < 3",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "people > 15",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "3 < people < 15",
+        "then": "True",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "people"
+    ],
+    "mode": "integer",
+    "calls": [
+      "eaebc11dc3500ccf0667252be1ba326ffb85d506861bf99dbfa7d652474f18ac",
+      "9656df11dc0ed82ea85115f4db811c0b7b58550c6b30ec7b32103742996533c0"
+    ]
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "text": "{\"decision_conditions\": {\"test_range_2_6\": \"guests >= 2\", \"verify_code_accuracy\": \"guests >= 2\", \"check_special_cases\": \"guests >= 2\"}, \"public_rules\": [{\"when\": \"guests >= 2\", \"then\": \"True\", \"source\": \"P3\"}, {\"when\": \"guests < 2\", \"then\": \"False\", \"source\": \"P4\"}, {\"when\": \"guests >= 6\", \"then\": \"False\", \"source\": \"P4\"}, {\"when\": \"guests < 6\", \"then\": \"True\", \"source\": \"P3\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 141,
+    "prompt_tokens": 519,
+    "total_tokens": 660,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 392,
+    "prompt_ms": 578.441,
+    "prompt_per_token_ms": 1.4756147959183674,
+    "prompt_per_second": 677.6836358418576,
+    "predicted_n": 141,
+    "predicted_ms": 2321.648,
+    "predicted_per_token_ms": 16.5832,
+    "predicted_per_second": 60.30199237782816
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.91,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"식당에서 세트 메뉴를 제공할지 정하는 offer_set_menu(guests: int) -> bool 함수를 작성하세요.\",\"P2\":\"입력은 1 이상의 손님 수입니다.\",\"P3\":\"손님이 2명 이상 6명 이하이면 세트 메뉴를 제공합니다.\",\"P4\":\"2명 미만이거나 6명 초과이면 제공하지 않습니다.\",\"P5\":\"True는 제공, False는 제공 안 함입니다.\"},\"decisions\":{\"test_range_2_6\":{\"key\":\"test_range_2_6\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"손님이 2 명 이상 6 명 이하인 경우 세트 메뉴를 제공하는지 확인하는 테스트 케이스가 포함되어 있는가?\"},\"verify_code_accuracy\":{\"key\":\"verify_code_accuracy\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"현재 코드가 2 명 이상 6 명 이하일 때 세트 메뉴를 제공하는 요구사항에 정확히 부합하고 있는가?\"},\"check_special_cases\":{\"key\":\"check_special_cases\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"특정 요일이나 메뉴 변경 등 추가 확인이 필요한 특수 상황이 없는지 확인하는가?\"}},\"input_conditions\":[\"guests == 1\",\"guests < 1\",\"guests > 1\",\"guests <= 1\",\"guests >= 1\",\"guests == 2\",\"guests < 2\",\"guests > 2\",\"guests <= 2\",\"guests >= 2\",\"guests == 6\",\"guests < 6\",\"guests > 6\",\"guests <= 6\",\"guests >= 6\",\"1 < guests < 2\",\"1 < guests < 6\",\"2 < guests < 1\",\"2 < guests < 6\",\"6 < guests < 1\",\"6 < guests < 2\"]}"
+      }
+    ],
+    "seed": 1127,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "test_range_2_6": {
+                  "type": "string",
+                  "enum": [
+                    "guests == 1",
+                    "guests < 1",
+                    "guests > 1",
+                    "guests <= 1",
+                    "guests >= 1",
+                    "guests == 2",
+                    "guests < 2",
+                    "guests > 2",
+                    "guests <= 2",
+                    "guests >= 2",
+                    "guests == 6",
+                    "guests < 6",
+                    "guests > 6",
+                    "guests <= 6",
+                    "guests >= 6",
+                    "1 < guests < 2",
+                    "1 < guests < 6",
+                    "2 < guests < 1",
+                    "2 < guests < 6",
+                    "6 < guests < 1",
+                    "6 < guests < 2"
+                  ]
+                },
+                "verify_code_accuracy": {
+                  "type": "string",
+                  "enum": [
+                    "guests == 1",
+                    "guests < 1",
+                    "guests > 1",
+                    "guests <= 1",
+                    "guests >= 1",
+                    "guests == 2",
+                    "guests < 2",
+                    "guests > 2",
+                    "guests <= 2",
+                    "guests >= 2",
+                    "guests == 6",
+                    "guests < 6",
+                    "guests > 6",
+                    "guests <= 6",
+                    "guests >= 6",
+                    "1 < guests < 2",
+                    "1 < guests < 6",
+                    "2 < guests < 1",
+                    "2 < guests < 6",
+                    "6 < guests < 1",
+                    "6 < guests < 2"
+                  ]
+                },
+                "check_special_cases": {
+                  "type": "string",
+                  "enum": [
+                    "guests == 1",
+                    "guests < 1",
+                    "guests > 1",
+                    "guests <= 1",
+                    "guests >= 1",
+                    "guests == 2",
+                    "guests < 2",
+                    "guests > 2",
+                    "guests <= 2",
+                    "guests >= 2",
+                    "guests == 6",
+                    "guests < 6",
+                    "guests > 6",
+                    "guests <= 6",
+                    "guests >= 6",
+                    "1 < guests < 2",
+                    "1 < guests < 6",
+                    "2 < guests < 1",
+                    "2 < guests < 6",
+                    "6 < guests < 1",
+                    "6 < guests < 2"
+                  ]
+                }
+              },
+              "required": [
+                "test_range_2_6",
+                "verify_code_accuracy",
+                "check_special_cases"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "guests == 1",
+                      "guests < 1",
+                      "guests > 1",
+                      "guests <= 1",
+                      "guests >= 1",
+                      "guests == 2",
+                      "guests < 2",
+                      "guests > 2",
+                      "guests <= 2",
+                      "guests >= 2",
+                      "guests == 6",
+                      "guests < 6",
+                      "guests > 6",
+                      "guests <= 6",
+                      "guests >= 6",
+                      "1 < guests < 2",
+                      "1 < guests < 6",
+                      "2 < guests < 1",
+                      "2 < guests < 6",
+                      "6 < guests < 1",
+                      "6 < guests < 2"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4",
+                      "P5"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

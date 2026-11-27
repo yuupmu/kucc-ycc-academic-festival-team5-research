@@ -1,0 +1,174 @@
+{
+  "text": "{\n  \"decision_conditions\": {\n    \"Q1_both_true\": \"focus and save_data\",\n    \"Q1_both_false\": \"not focus and not save_data\",\n    \"Q2_conflict\": \"focus and save_data\",\n    \"Q3_both_false\": \"not focus and not save_data\"\n  },\n  \"public_rules\": [\n    {\n      \"when\": \"focus\",\n      \"then\": \"True\",\n      \"source\": \"P4\"\n    },\n    {\n      \"when\": \"not focus\",\n      \"then\": \"False\",\n      \"source\": \"P4\"\n    },\n    {\n      \"when\": \"save_data\",\n      \"then\": \"False\",\n      \"source\": \"P3\"\n    },\n    {\n      \"when\": \"not save_data\",\n      \"then\": \"True\",\n      \"source\": \"P3\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 212,
+    "prompt_tokens": 424,
+    "total_tokens": 636,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 297,
+    "prompt_ms": 451.683,
+    "prompt_per_token_ms": 1.5208181818181818,
+    "prompt_per_second": 657.540797417658,
+    "predicted_n": 212,
+    "predicted_ms": 3402.797,
+    "predicted_per_token_ms": 16.127,
+    "predicted_per_second": 62.007812984436036
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.87,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요.\",\"P2\":\"집중 보기 신호만 들어오면 큰 표지를 사용합니다.\",\"P3\":\"데이터 절약 신호만 들어오면 작은 표지를 사용합니다.\",\"P4\":\"True는 큰 표지, False는 작은 표지입니다.\"},\"decisions\":{\"Q1_both_true\":{\"key\":\"Q1_both_true\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"두 신호가 모두 True인 경우 큰 표지를 사용해야 합니다.\"},\"Q1_both_false\":{\"key\":\"Q1_both_false\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"두 신호가 모두 False인 경우 작은 표지를 사용해야 합니다.\"},\"Q2_conflict\":{\"key\":\"Q2_conflict\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"집중 보기 신호와 데이터 절약 신호가 동시에 True인 경우 큰 표지를 사용해야 합니다.\"},\"Q3_both_false\":{\"key\":\"Q3_both_false\",\"kind\":\"decision\",\"origin\":\"Q3\",\"question\":\"두 신호가 모두 False인 경우 작은 표지를 사용해야 합니다.\"}},\"input_conditions\":[\"not focus and not save_data\",\"not focus and save_data\",\"focus and not save_data\",\"focus and save_data\",\"focus\",\"save_data\",\"not focus\",\"not save_data\"]}"
+      }
+    ],
+    "seed": 951,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "Q1_both_true": {
+                  "type": "string",
+                  "enum": [
+                    "not focus and not save_data",
+                    "not focus and save_data",
+                    "focus and not save_data",
+                    "focus and save_data",
+                    "focus",
+                    "save_data",
+                    "not focus",
+                    "not save_data"
+                  ]
+                },
+                "Q1_both_false": {
+                  "type": "string",
+                  "enum": [
+                    "not focus and not save_data",
+                    "not focus and save_data",
+                    "focus and not save_data",
+                    "focus and save_data",
+                    "focus",
+                    "save_data",
+                    "not focus",
+                    "not save_data"
+                  ]
+                },
+                "Q2_conflict": {
+                  "type": "string",
+                  "enum": [
+                    "not focus and not save_data",
+                    "not focus and save_data",
+                    "focus and not save_data",
+                    "focus and save_data",
+                    "focus",
+                    "save_data",
+                    "not focus",
+                    "not save_data"
+                  ]
+                },
+                "Q3_both_false": {
+                  "type": "string",
+                  "enum": [
+                    "not focus and not save_data",
+                    "not focus and save_data",
+                    "focus and not save_data",
+                    "focus and save_data",
+                    "focus",
+                    "save_data",
+                    "not focus",
+                    "not save_data"
+                  ]
+                }
+              },
+              "required": [
+                "Q1_both_true",
+                "Q1_both_false",
+                "Q2_conflict",
+                "Q3_both_false"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "not focus and not save_data",
+                      "not focus and save_data",
+                      "focus and not save_data",
+                      "focus and save_data",
+                      "focus",
+                      "save_data",
+                      "not focus",
+                      "not save_data"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

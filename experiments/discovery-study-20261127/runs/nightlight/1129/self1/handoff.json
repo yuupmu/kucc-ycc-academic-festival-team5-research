@@ -1,0 +1,10 @@
+{
+  "brief": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.",
+  "code": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시에 따라 공용 복도 조명이 켜져 있는지 반환합니다.\n    \n    조건:\n    - 0시 ~ 5시 (6시보다 이르거나): 조명을 켭니다 (True)\n    - 6시 ~ 17시 (6시보다 늦고 18시보다 이르면): 조명을 끕니다 (False)\n    - 18시 ~ 23시 (18시보다 늦으면): 조명을 켭니다 (True)\n    \n    Args:\n        hour (int): 현재 시간 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있으면 True, 꺼져 있으면 False\n    \"\"\"\n    # 6시보다 이르거나 (0 <= hour < 6) 또는 18시보다 늦거나 (hour >= 18) 인 경우 True\n    # 6시보다 늦고 18시보다 이르면 (6 <= hour < 18) 인 경우 False\n    if 0 <= hour < 6 or hour >= 18:\n        return True\n    else:\n        return False\n\n# 테스트 코드 (주석 처리된 상태)\n# assert light_on(0) == True\n# assert light_on(5) == True\n# assert light_on(6) == False\n# assert light_on(17) == False\n# assert light_on(18) == True\n# assert light_on(23) == True\n\n# 미정 경로 처리\n# 특정 시간 입력 시 예외가 발생하거나 논리적 오류가 의심되는 경우\n# raise NotImplementedError(\"시간 범위를 벗어남: 0 <= hour <= 23 이어야 합니다.\")",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "49c6672219ade86003142a0f3f34eb2444749921552e567d56afb61a58ff0024",
+    "12b1cd39954d4c8d3827783a0d4ea10c2facc42eba3ac336d14c8deef060f9d1"
+  ]
+}

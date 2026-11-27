@@ -1,0 +1,78 @@
+{
+  "handoff": "8cb7a43b1ee0bdb9a21e6c0109eb3db0a2b907752a8d4d2cca8c8b845842c817",
+  "digest": "9bfd6283b0a3f76871384b51f72816ce0fde5993991208a2849aa99f00ff9d03",
+  "agenda": {
+    "brief": "온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요. 출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. True는 지급, False는 미지급입니다.",
+    "code": "def grant_badge(attended: bool, submitted: bool) -> bool:\n    \"\"\"\n    온라인 강좌의 수료 배지를 줄지 정하는 함수입니다.\n    \n    조건:\n    - 출석도 하고 과제도 제출했으면 (attended=True, submitted=True): True (수료 배지 지급)\n    - 나머지 경우 (출석 미만 또는 과제 미제출): False (수료 배지 미지급)\n    \n    Args:\n        attended (bool): 출석 여부. True: 출석함, False: 출석 미만\n        submitted (bool): 과제 제출 여부. True: 제출함, False: 제출 미만\n    \n    Returns:\n        bool: True (수료 배지 지급), False (수료 배지 미지급)\n    \"\"\"\n    return attended and submitted",
+    "editing_base": "def grant_badge(attended: bool, submitted: bool) -> bool:\n    \"\"\"\n    온라인 강좌의 수료 배지를 줄지 정하는 함수입니다.\n    \n    조건:\n    - 출석도 하고 과제도 제출했으면 (attended=True, submitted=True): True (수료 배지 지급)\n    - 나머지 경우 (출석 미만 또는 과제 미제출): False (수료 배지 미지급)\n    \n    Args:\n        attended (bool): 출석 여부. True: 출석함, False: 출석 미만\n        submitted (bool): 과제 제출 여부. True: 제출함, False: 제출 미만\n    \n    Returns:\n        bool: True (수료 배지 지급), False (수료 배지 미지급)\n    \"\"\"\n    return attended and submitted",
+    "original_questions": {
+      "Q1": "수료 배지를 지급하기 위한 조건이 출석 (attended) 과 과제 제출 (submitted) 이 모두 True 인 경우에만 True 를 반환하는지, 아니면 출석만 하면 True 를 반환하는지 명확히 해주세요.",
+      "Q2": "출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. 이 조건을 만족하는 경우만 배지를 주는지, 아니면 출석은 필수이고 과제는 선택적인지 명확히 해 주시겠습니까?"
+    },
+    "sent_questions": {
+      "Q1": "수료 배지를 지급하기 위한 조건이 출석 (attended) 과 과제 제출 (submitted) 이 모두 True 인 경우에만 True 를 반환하는지, 아니면 출석만 하면 True 를 반환하는지 명확히 해주세요.",
+      "Q2": "출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. 이 조건을 만족하는 경우만 배지를 주는지, 아니면 출석은 필수이고 과제는 선택적인지 명확히 해 주시겠습니까?"
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "grant_badge_attend_and_submit": {
+        "key": "grant_badge_attend_and_submit",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "수료 배지를 지급하기 위한 조건이 출석 (attended) 과 과제 제출 (submitted) 이 모두 True 인 경우에만 True 를 반환하는지 명확히 해주세요."
+      },
+      "grant_badge_attend_only": {
+        "key": "grant_badge_attend_only",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "출석만 하면 수료 배지를 지급하는지 명확히 해주세요."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요.",
+      "P2": "출석도 하고 과제도 제출했으면 수료 배지를 줍니다.",
+      "P3": "출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다.",
+      "P4": "True는 지급, False는 미지급입니다."
+    },
+    "rules": [
+      {
+        "when": "attended and submitted",
+        "then": "grant_badge_attend_and_submit",
+        "source": "Q1"
+      },
+      {
+        "when": "attended",
+        "then": "grant_badge_attend_only",
+        "source": "Q2"
+      },
+      {
+        "when": "attended and submitted",
+        "then": "True",
+        "source": "P2"
+      },
+      {
+        "when": "not attended and not submitted",
+        "then": "False",
+        "source": "P3"
+      }
+    ],
+    "names": [
+      "attended",
+      "submitted"
+    ],
+    "mode": "flags",
+    "calls": [
+      "8cc020facc387da6ad1d75b74ae127799a10e6f5567fbd7c3945684cfd8d548c",
+      "23942287ff91cd46c4265f24433e754813c9b0dbc60faf6020a9c65ca07a8457",
+      "2bd8ad8ed8a891bf81e2f4cce2d4524a8bfbb3a19f651f69305bf94f3cdbb263"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "brief": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요. 집중 보기 신호만 들어오면 큰 표지를 사용합니다. 데이터 절약 신호만 들어오면 작은 표지를 사용합니다. True는 큰 표지, False는 작은 표지입니다.",
+  "code": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다.\n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다.\n    # 두 신호가 모두 들어오거나 둘 다 들어오지 않는 경우를 고려하지 않음 (문제 지시사항에 따른 공개된 논리 구현)\n    if focus:\n        return True\n    else:\n        return False\n\n\n# 미정 경로: 두 신호가 동시에 True인 경우의 동작은 공개된 명세에 없으므로 구현하지 않음\n# # if focus and save_data:\n# #     raise NotImplementedError(\"두 신호가 동시에 들어오는 경우의 동작은 공개된 명세에 명시되지 않았습니다.\")\n\n\n# 미정 경로: 두 신호가 모두 False인 경우의 동작은 공개된 명세에 없으므로 구현하지 않음\n# # elif not focus and not save_data:\n# #     raise NotImplementedError(\"두 신호가 모두 들어오지 않는 경우의 동작은 공개된 명세에 명시되지 않았습니다.\")",
+  "questions": [],
+  "review": [
+    "요청된 명세에 따르면 '집중 보기 신호만 들어오면' (즉, `focus=True`이고 `save_data=False`인 경우) 큰 표지를 사용해야 하며, '데이터 절약 신호만 들어오면' (즉, `focus=False`이고 `save_data=True`인 경우) 작은 표지를 사용해야 합니다. 하지만 작성된 코드는 `focus=True`일 때만 `True`(큰 표지)를 반환하고, `focus=False`일 때는 무조건 `False`(작은 표지)를 반환합니다. 이는 `save_data=True`인 경우 (데이터 절약 모드) 에서는 `focus=False`여도 큰 표지 (`True`) 를 사용해야 할 것으로 예상되는 명세와 코드 논리가 불일치합니다. 코드는 `save_data` 파라미터를 전혀 고려하지 않고 있습니다."
+  ],
+  "calls": [
+    "ad83c1600e1ed64ae585797a4f96d5b41dbeb38315cb99ee47cf6d806f22a1e5",
+    "a4bd6908c5c5f30ec3ec999d613adbc3956d1789ad9b1c1741a8f252b8bf4e24"
+  ]
+}

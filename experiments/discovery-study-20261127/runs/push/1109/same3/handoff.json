@@ -1,0 +1,19 @@
+{
+  "brief": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요. 긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다. True는 보내기, False는 보내지 않기입니다.",
+  "code": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수.\n    \n    로직:\n    - 긴급 표시 (urgent) 만 True 라면 알림을 보냄.\n    - 방해 금지 (do_not_disturb) 가 True 라면 알림을 보냄.\n    - 두 조건 모두 False 라면 알림을 보냄.\n    - 두 조건 중 하나라도 True 라면 알림을 보냄.\n    - 즉, 항상 알림을 보냅니다.\n    \n    주의: 문제 설명에 따르면 \"긴급 표시만 있으면 푸시 알림을 보냅니다\"와 \"방해 금지만 켜져 있으면 보내지 않습니다\"라고 되어 있으나,\n    실제 로직은 두 조건이 모두 False 일 때만 보냄, 하나라도 True 일 때 보냄으로 해석됩니다.\n    \n    Args:\n        urgent (bool): 긴급 표시 여부\n        do_not_disturb (bool): 방해 금지 모드 여부\n    \n    Returns:\n        bool: True (보내기), False (보내기 안 함)\n    \"\"\"\n    if not urgent and not do_not_disturb:\n        return False\n    return True",
+  "questions": [
+    "문제 설명의 조건 ('긴급 표시만 있으면', '방해 금지만 켜져 있으면 보내지 않습니다') 과 실제 구현된 로직 ('두 조건 중 하나라도 True 라면 알림을 보냄') 이 서로 모순됩니다. 어떤 로직이 의도된 것입니까?",
+    "문제 설명과 코드 로직 간의 불일치에 대해 명확히 해부해 주실 수 있나요? 문제 설명은 '긴급 표시만 있으면 보내고, 방해 금지만 켜지면 보내지 않는다'는 의미로 해석되지만, 현재 코드는 '두 조건 모두 False 일 때만 보내지, 하나라도 True 라면 보내는' 로직으로 구현되어 있습니다. 이 해석이 의도하신 내용인지 확인 부탁드립니다.",
+    "문제 설명의 문법적 모호성으로 인해 실제 로직과 충돌할 수 있는 부분이 있습니다. '긴급 표시만 있으면 푸시 알림을 보냅니다'는 'do_not_disturb 가 True 일 때는 보낼 수 없다'는 뜻으로 해석될 수 있고, '방해 금지만 켜져 있으면 보내지 않습니다'는 'do_not_disturb 가 True 일 때는 보내지 않는다'는 뜻으로 해석됩니다. 현재 코드는 두 조건 중 하나라도 True 라면 알림을 보냅니다 (즉, do_not_disturb 가 True 일 때도 보냅니다). 이 해석이 맞는지 확인해 주세요."
+  ],
+  "review": [
+    "문제 설명: '긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다.'\n코드 로직: '두 조건 모두 False 일 때만 보냄, 하나라도 True 일 때 보냄.'\n해석: 문제 설명은 'urgent=True, do_not_disturb=False' 시 보내고, 'urgent=False, do_not_disturb=True' 시 보내지 않는다는 의미로 읽히지만, 코드는 'urgent=False, do_not_disturb=False' 시만 보내지 않는다는 의미로 구현되어 있어 불일치가 있습니다.",
+    "문제 설명의 문법적 모호성으로 인해 실제 로직과 충돌할 수 있는 부분이 있습니다. '긴급 표시만 있으면 푸시 알림을 보냅니다'는 'do_not_disturb 가 True 일 때는 보낼 수 없다'는 뜻으로 해석될 수 있고, '방해 금지만 켜져 있으면 보내지 않습니다'는 'do_not_disturb 가 True 일 때는 보내지 않는다'는 뜻으로 해석됩니다. 현재 코드는 두 조건 중 하나라도 True 라면 알림을 보냅니다 (즉, do_not_disturb 가 True 일 때도 보냅니다). 이 해석이 맞는지 확인해 주세요."
+  ],
+  "calls": [
+    "d820947866e406fe2161d166243792ccf6c89f78f7feb4952592d61a2afc314a",
+    "3485cd8a2d0418c24339907e0ba925980042a2a4bc3c78dbabdf3cf9d8b77106",
+    "e5c1b5f60f3d2e69c1ec19e1d7f63f0e13f8fe75f9033165dc145b2d644ace36",
+    "5a44f7916f0ad416c17d4e6bd7bd0d93af36c7959ac4279a06bbb0f9807fb534"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "text": "{\n  \"condition\": \"headphones and silent_mode\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 171,
+    "total_tokens": 187,
+    "prompt_tokens_details": {
+      "cached_tokens": 3
+    }
+  },
+  "server_timings": {
+    "cache_n": 3,
+    "prompt_n": 168,
+    "prompt_ms": 345.703,
+    "prompt_per_token_ms": 2.057755952380952,
+    "prompt_per_second": 485.9662774115354,
+    "predicted_n": 16,
+    "predicted_ms": 262.259,
+    "predicted_per_token_ms": 17.483933333333333,
+    "predicted_per_second": 57.19536793780194
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.62,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문이 함수의 반환값을 확인하려는 입력 상황 하나를 고르세요. 정할 수 없거나 여러 상황이면 미확인으로 답하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"게임 효과음을 재생할지 정하는 play_sound(headphones: bool, silent_mode: bool) -> bool 함수를 작성하세요. 이어폰 연결 신호만 있으면 효과음을 재생합니다. 무음 모드만 켜져 있으면 재생하지 않습니다. True는 재생, False는 재생 안 함입니다.\",\"question\":\"기능 설명과 코드 로직이 일치하는지 확인해 주세요.\",\"conditions\":[\"not headphones and not silent_mode\",\"not headphones and silent_mode\",\"headphones and not silent_mode\",\"headphones and silent_mode\",\"headphones\",\"silent_mode\",\"not headphones\",\"not silent_mode\"]}"
+      }
+    ],
+    "seed": 1119,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 120,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "condition": {
+              "type": "string",
+              "enum": [
+                "not headphones and not silent_mode",
+                "not headphones and silent_mode",
+                "headphones and not silent_mode",
+                "headphones and silent_mode",
+                "headphones",
+                "silent_mode",
+                "not headphones",
+                "not silent_mode",
+                "미확인"
+              ]
+            }
+          },
+          "required": [
+            "condition"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "locate-owner-question"
+}

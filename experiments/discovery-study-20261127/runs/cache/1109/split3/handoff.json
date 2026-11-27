@@ -1,0 +1,16 @@
+{
+  "brief": "이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요. 고정 표시만 있으면 항목을 유지합니다. 만료 표시만 있으면 유지하지 않습니다. True는 유지, False는 삭제입니다.",
+  "code": "def keep_cached(pinned: bool, expired: bool) -> bool:\n    \"\"\"\n    이미지 캐시 항목을 유지할지 정하는 함수입니다.\n    \n    Args:\n        pinned (bool): 고정 표시 여부. True일 경우 항목을 유지합니다.\n        expired (bool): 만료 표시 여부. True일 경우 항목을 삭제합니다.\n    \n    Returns:\n        bool: True는 항목을 유지 (캐시), False는 삭제 (미리 삭제) 합니다.\n    \n    Logic:\n    - 고정 표시 (pinned) 만 있으면 항목을 유지합니다.\n    - 만료 표시 (expired) 만 있으면 항목을 삭제합니다.\n    - 두 조건이 모두 True인 경우: 고정 표시 우선으로 유지합니다.\n    - 두 조건이 모두 False인 경우: 삭제합니다.\n    \"\"\"\n    if pinned:\n        return True\n    return not expired\n",
+  "questions": [
+    "두 조건 (pinned=True, expired=True) 이 모두 참인 경우, 고정 표시 (pinned) 가 우선으로 적용되어 항목을 유지 (True) 하도록 구현하셨지만, 논리적으로 '만료 표시만 있으면 삭제한다'는 규칙과 충돌하는지 확인하고 싶네요. 현재 코드는 pinned 가 True 라면 무조건 True 를 반환하므로, expired 가 True 라도 pinned 가 우선이라 삭제되지 않습니다. 이 우선순위 규칙이 의도된 것인가요? 아니면 expired 가 True 라면 무조건 삭제해야 하는지 명확히 해주시겠어요.",
+    "두 조건 (pinned, expired) 이 모두 True인 경우, 현재 코드는 고정 표시 (pinned) 가 우선으로 유지하는 로직을 따르고 있습니다. 하지만 요구사항 설명에서 '두 조건이 모두 True인 경우'에 대한 구체적인 우선순위 규칙이 명시되어 있지 않은 점을 확인하고 싶습니다. 만약 '만료 (expired) 가 우선'이거나 '둘 다 True일 때는 삭제'라는 다른 규칙이 있다면 코드를 수정해야 할 것 같습니다.",
+    "두 조건이 모두 True인 경우 (고정 표시와 만료 표시가 모두 걸린 경우) 고정 표시 우선으로 유지하는 로직이 맞는지 확인하고 싶습니다."
+  ],
+  "review": [],
+  "calls": [
+    "ea1f3e70e54c13e739015d7c90d7097d6130ebe362b4b99864a0dbc78ad5d5ba",
+    "519019e3b83677322c72ad7d2b195358be7ed5896263aecbd74303ff9c7ea963",
+    "7e27e6c49369628f09b34b94a5591f367c363f0a57e758fc020c94ef279a0112",
+    "e2327723ab288b27971e7e555c16219466a2b1f61cdd662f16e8f28bb84348eb"
+  ]
+}

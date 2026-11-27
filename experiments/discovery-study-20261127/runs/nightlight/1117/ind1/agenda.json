@@ -1,0 +1,65 @@
+{
+  "handoff": "29729612221bc506b2fbacb10f643f52c196ed0b7eaa14bbfc43f661b7ad4826",
+  "digest": "8b239c8bb040863884c9c3bfefa07f15bf4dd83d00a79f17d0d1464211008070",
+  "agenda": {
+    "brief": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.",
+    "code": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시(hour)에 따라 조명이 켜져 있는지 반환합니다.\n    \n    조건:\n    - 0 시 ~ 5 시 (6 시보다 이르거나): True\n    - 6 시 ~ 17 시 (6 시보다 늦고 18 시보다 이르면): False\n    - 18 시 ~ 23 시 (18 시보다 늦으면): True\n    \n    Args:\n        hour (int): 현재 시 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있는지 여부\n    \"\"\"\n    if 0 <= hour <= 5 or 18 <= hour <= 23:\n        return True\n    else:\n        return False\n\n\n# 테스트 코드\nif __name__ == \"__main__\":\n    test_cases = [\n        (0, True),\n        (5, True),\n        (6, False),\n        (17, False),\n        (18, True),\n        (23, True),\n    ]\n    \n    for hour, expected in test_cases:\n        result = light_on(hour)\n        assert result == expected, f\"hour={hour}에서 예상값(expected={expected})과 실제값(result={result})이 일치하지 않습니다.\"\n    \n    print(\"모든 테스트 케이스가 통과했습니다.\")",
+    "editing_base": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시(hour)에 따라 조명이 켜져 있는지 반환합니다.\n    \n    조건:\n    - 0 시 ~ 5 시 (6 시보다 이르거나): True\n    - 6 시 ~ 17 시 (6 시보다 늦고 18 시보다 이르면): False\n    - 18 시 ~ 23 시 (18 시보다 늦으면): True\n    \n    Args:\n        hour (int): 현재 시 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있는지 여부\n    \"\"\"\n    if 0 <= hour <= 5 or 18 <= hour <= 23:\n        return True\n    else:\n        return False\n\n\n# 테스트 코드\nif __name__ == \"__main__\":\n    test_cases = [\n        (0, True),\n        (5, True),\n        (6, False),\n        (17, False),\n        (18, True),\n        (23, True),\n    ]\n    \n    for hour, expected in test_cases:\n        result = light_on(hour)\n        assert result == expected, f\"hour={hour}에서 예상값(expected={expected})과 실제값(result={result})이 일치하지 않습니다.\"\n    \n    print(\"모든 테스트 케이스가 통과했습니다.\")",
+    "original_questions": {
+      "Q1": "현재 시가 6 시인 경우, '6 시보다 이르거나'라는 조건에 포함되므로 조명을 켜야 하지만, '6 시보다 늦고 18 시보다 이르면'이라는 조건에 포함되지 않아 조명을 끄는 것으로 해석됩니다. 두 조건 간의 경계점인 6 시와 18 시에 대한 논리적 우선순위를 명확히 해주세요."
+    },
+    "sent_questions": {
+      "Q1": "현재 시가 6 시인 경우, '6 시보다 이르거나'라는 조건에 포함되므로 조명을 켜야 하지만, '6 시보다 늦고 18 시보다 이르면'이라는 조건에 포함되지 않아 조명을 끄는 것으로 해석됩니다. 두 조건 간의 경계점인 6 시와 18 시에 대한 논리적 우선순위를 명확히 해주세요."
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "light_on_condition_6am": {
+        "key": "light_on_condition_6am",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 시간이 6 시일 때 light_on 함수는 True 를 반환해야 하는가?"
+      },
+      "light_on_condition_6pm": {
+        "key": "light_on_condition_6pm",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 시간이 18 시일 때 light_on 함수는 True 를 반환해야 하는가?"
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요.",
+      "P2": "입력은 0부터 23까지의 현재 시(hour)입니다.",
+      "P3": "6시보다 이르거나 18시보다 늦으면 조명을 켭니다.",
+      "P4": "6시보다 늦고 18시보다 이르면 켜지 않습니다.",
+      "P5": "True는 켜기, False는 끄기입니다."
+    },
+    "rules": [
+      {
+        "when": "hour == 6",
+        "then": "light_on_condition_6am",
+        "source": "Q1"
+      },
+      {
+        "when": "hour == 18",
+        "then": "light_on_condition_6pm",
+        "source": "Q1"
+      }
+    ],
+    "names": [
+      "hour"
+    ],
+    "mode": "integer",
+    "calls": [
+      "0ebda8fcc24a7ffe1070aee308c005f71fe86de037e7229882be0a62c8f61980",
+      "fa989ddbfe3be77ea4ff699decae0df1040a17505acc292057b0773171cc3e04"
+    ]
+  }
+}

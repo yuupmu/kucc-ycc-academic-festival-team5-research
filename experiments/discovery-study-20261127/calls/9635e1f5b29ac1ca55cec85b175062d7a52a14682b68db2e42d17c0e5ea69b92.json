@@ -1,0 +1,76 @@
+{
+  "text": "{\"questions\": [], \"issue\": \"\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 10,
+    "prompt_tokens": 644,
+    "total_tokens": 654,
+    "prompt_tokens_details": {
+      "cached_tokens": 88
+    }
+  },
+  "server_timings": {
+    "cache_n": 88,
+    "prompt_n": 556,
+    "prompt_ms": 789.523,
+    "prompt_per_token_ms": 1.4200053956834533,
+    "prompt_per_second": 704.2226762234919,
+    "predicted_n": 10,
+    "predicted_ms": 169.56,
+    "predicted_per_token_ms": 18.84,
+    "predicted_per_second": 53.07855626326964
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.97,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신이 방금 작성한 초안을 스스로 검토하세요. 결과를 정하는 누락된 정책 및 조건 간 상호작용과 우선순위 및 경계 입력과 예외를 검사하세요. 가능한 두 정책의 결과가 갈리는 상황을 찾아 담당자에게 자연어로 물으세요. 질문이 없으면 빈 배열. 이미 확정한 요구와 코드의 불일치만 issue에 적고 없으면 빈 문자열."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요. 출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. True는 지급, False는 미지급입니다.\",\"code\":\"def grant_badge(attended: bool, submitted: bool) -> bool:\\n    \\\"\\\"\\\"\\n    온라인 강좌의 수료 배지를 줄지 정하는 함수입니다.\\n    \\n    조건:\\n    - 출석도 하고 (attended=True) 과제도 제출했으면 (submitted=True) 수료 배지를 줍니다.\\n    - 그 외의 경우 (출석 미달 또는 과제 미제출) 배지는 주지 않습니다.\\n    \\n    Args:\\n        attended (bool): 출석 여부. True: 출석함, False: 출석하지 않음\\n        submitted (bool): 과제 제출 여부. True: 제출함, False: 제출하지 않음\\n    \\n    Returns:\\n        bool: True -> 배지 지급, False -> 배지 미지급\\n    \\\"\\\"\\\"\\n    if attended and submitted:\\n        return True\\n    else:\\n        return False\\n\\n\\n# 테스트 코드 (예시)\\nif __name__ == \\\"__main__\\\":\\n    # 모든 조건 충족: True\\n    assert grant_badge(True, True) == True\\n    # 출석만: False\\n    assert grant_badge(True, False) == False\\n    # 과제만: False\\n    assert grant_badge(False, True) == False\\n    # 모두 안 함: False\\n    assert grant_badge(False, False) == False\\n    print(\\\"모든 테스트 통과\\\")\",\"dialogue\":[],\"draft_context\":{\"instruction\":\"공개된 내용으로 구현한 전체 파이썬 소스를 code에 쓰세요. 근거 있는 경로는 구현하고 미정인 경로만 raise NotImplementedError로 남기세요. 정책을 추측하지 마세요.\",\"original_request\":{\"brief\":\"온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요. 출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. True는 지급, False는 미지급입니다.\",\"files\":{\"solution.py\":\"def grant_badge(attended: bool, submitted: bool) -> bool:\\n    raise NotImplementedError\\n\"}}}}"
+      }
+    ],
+    "seed": 1133,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "questions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 0,
+              "maxItems": 3
+            },
+            "issue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "questions",
+            "issue"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-review"
+}

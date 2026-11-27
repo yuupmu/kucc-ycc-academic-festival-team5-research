@@ -1,0 +1,71 @@
+{
+  "text": "{\n  \"same\": true,\n  \"question\": \"고정 표시와 만료 표시가 모두 있는 경우, 해당 항목을 유지하는 함수가 반환하는 값이 True 인가?\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 44,
+    "prompt_tokens": 539,
+    "total_tokens": 583,
+    "prompt_tokens_details": {
+      "cached_tokens": 92
+    }
+  },
+  "server_timings": {
+    "cache_n": 92,
+    "prompt_n": 447,
+    "prompt_ms": 619.305,
+    "prompt_per_token_ms": 1.385469798657718,
+    "prompt_per_second": 721.7768304793276,
+    "predicted_n": 44,
+    "predicted_ms": 686.536,
+    "predicted_per_token_ms": 15.965953488372092,
+    "predicted_per_second": 62.63327778878311
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.32,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "같은 입력 조건에 연결된 질문들을 원문과 대조하세요. 모든 질문이 그 입력에서 이 함수의 단일 반환값을 정하는 동일한 운영 결정일 때만 same을 true로 하세요. 서로 다른 조건이나 독립적으로 답할 수 있는 결정이면 false입니다. 같은 결정이면 해당 입력에서 함수가 True를 반환하는 행동을 해야 하는지 담당자에게 물을 자연스러운 한국어 질문 하나를 쓰세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요. 고정 표시만 있으면 항목을 유지합니다. 만료 표시만 있으면 유지하지 않습니다. True는 유지, False는 삭제입니다.\",\"condition\":\"pinned and expired\",\"items\":[{\"question\":\"고정 표시와 만료 표시가 모두 있는 경우, 해당 항목을 유지하는 함수가 반환하는 값이 True 인가?\",\"original\":\"두 조건이 모두 만족될 경우 (고정 표시 있음, 만료 표시 있음) 고정 표시 우선으로 유지한다는 문서를 확인했습니다. 현재 코드도 `if pinned: return True` 로 이를 구현하고 있어 일치합니다. 하지만, 만료 표시만 있으면 유지하지 않는다는 규칙 (pinned=False, expired=True 일 때 False 를 반환) 과 고정 표시가 없을 때만 만료 표시를 기준으로 한다는 논리가 명확히 구분되어 있네요. 질문이 없습니다.\"},{\"question\":\"고정 표시가 있고 만료 표시가 있는 경우, 만료 표시가 있어도 해당 항목을 유지하는 함수가 반환하는 값이 True 인가?\",\"original\":\"'고정 표시만 있으면 항목을 유지합니다'라는 문장에서는 '만료 표시' 여부와 상관없이 고정 표시가 있으면 유지해야 함을 명시하고 있으나, '두 조건이 모두 만족될 경우 (고정 표시 있음, 만료 표시 있음), 고정 표시 우선으로 유지합니다'라는 설명과 구현된 `if pinned: return True` 로직은 일치합니다. 그러나 '만료 표시만 있으면 유지하지 않습니다'라는 규칙은 `pinned=False`인 경우에만 적용되므로, 만료 표시가 있고 고정 표시가 없는 경우만 삭제되는 것이 맞습니다. 현재 코드는 이 논리를 정확히 구현하고 있습니다. 혹시 '고정 표시만 있으면'이라는 표현에서 '만료 표시가 없는 경우'를 전제로 한 것인지, 아니면 '만료 표시가 있어도 고정 표시가 있으면 유지한다'는 것을 의미하는지 명확히 확인하고 싶습니다. (현재 코드는 후자임을 반영하고 있습니다.)\"}]}"
+      }
+    ],
+    "seed": 1127,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 280,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "same": {
+              "type": "boolean"
+            },
+            "question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "same",
+            "question"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "review-duplicate-decisions"
+}

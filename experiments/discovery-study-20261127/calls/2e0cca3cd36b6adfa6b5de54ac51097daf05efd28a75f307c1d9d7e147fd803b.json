@@ -1,0 +1,101 @@
+{
+  "text": "{\n  \"slots\": [\n    {\n      \"key\": \"attend_and_submit\",\n      \"kind\": \"decision\",\n      \"origin\": \"Q1\",\n      \"question\": \"출석도 하지 않고 과제도 제출하지 않았을 경우, 혹은 출석은 했지만 과제는 제출하지 않았을 경우에도 수료 배지를 주지 않는 함수가 반환하는 값이 False 인가?\"\n    },\n    {\n      \"key\": \"attend_and_submit\",\n      \"kind\": \"decision\",\n      \"origin\": \"Q2\",\n      \"question\": \"출석도 하지 않고 과제도 제출하지 않았을 경우, 그리고 출석은 했지만 과제를 제출하지 않았을 경우 두 경우 모두 수료 배지를 주지 않는 함수가 반환하는 값이 False 인가?\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 182,
+    "prompt_tokens": 496,
+    "total_tokens": 678,
+    "prompt_tokens_details": {
+      "cached_tokens": 205
+    }
+  },
+  "server_timings": {
+    "cache_n": 205,
+    "prompt_n": 291,
+    "prompt_ms": 417.497,
+    "prompt_per_token_ms": 1.4346975945017182,
+    "prompt_per_second": 697.0109964862022,
+    "predicted_n": 182,
+    "predicted_ms": 2948.973,
+    "predicted_per_token_ms": 16.292668508287292,
+    "predicted_per_second": 61.37729982607504
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.38,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자에게 보낼 실제 질문들을 읽고 각각 독립적으로 답할 수 있는 결정의 목록을 만드세요.\n질문이 겹치면 합치고, 한 문장에서 값과 그 값에서 취할 행동을 함께 물었다면 둘로 나누세요. 공개 명세가 이미 정한 행동이나 코드 지적은 항목에 넣지 마세요.\n각 항목에는 파이썬 변수로 쓸 영문 key, 수치 자체를 물으면 quantity, 특정 상황에서 실행할지 물으면 decision,\n그 항목을 포함한 원래 질문 번호 origin, 그 한 가지를 다시 물을 한국어 의문문 question을 쓰세요. question은 담당자에게 그대로 전달됩니다.\n원래 질문이 이미 한 가지면 보존하세요. 묶인 질문에서는 해당 부분만 독립된 한 문장으로 적으세요.\ndecision 질문은 함수가 True를 반환하는 행동을 할지 묻는 긍정형으로 쓰세요. 답변과 기본값을 미리 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요. 출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. True는 지급, False는 미지급입니다.\",\"sent_questions\":{\"Q1\":\"출석도 하지 않고 과제도 제출하지 않았으면 수료 배지를 주지 않는다는 조건은 명확하지만, 출석은 하지 않았고 과제는 제출했을 경우, 혹은 출석은 했으나 과제는 제출하지 않았을 경우에도 배지를 주지 않는다는 논리만 명시되어 있습니다. 현재 코드는 '출석 AND 과제 제출'이 충족될 때만 True 를 반환하고, 그 외 모든 경우 (출석 없음, 과제 제출 없음, 둘 다 없음) 에 False 를 반환하도록 구현되어 있습니다. 이 로직이 의도한 대로인지, 혹은 출석만 했거나 과제도 제출만 했을 때에도 다른 조건 (예: 출석은 필수, 과제는 필수) 이 있는지 확인이 필요합니다.\",\"Q2\":\"출석도 하지 않고 과제도 제출하지 않았을 때, 그리고 출석은 했지만 과제를 제출하지 않았을 때 두 경우 모두 False 를 반환하는 것이 맞는지 확인해 주세요.\"}}"
+      }
+    ],
+    "seed": 1139,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "quantity",
+                      "decision"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "Q1",
+                      "Q2"
+                    ]
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "kind",
+                  "origin",
+                  "question"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "slots"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "decision-items"
+}

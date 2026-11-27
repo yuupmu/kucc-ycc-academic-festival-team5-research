@@ -1,0 +1,16 @@
+{
+  "brief": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요. 긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다. True는 보내기, False는 보내지 않기입니다.",
+  "code": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수입니다.\n    \n    로직:\n    1. 긴급 표시 (urgent) 가 True 인 경우에만 푸시 알림을 보냅니다.\n    2. 방해 금지 모드 (do_not_disturb) 가 True 인 경우, 푸시 알림은 절대 보내지 않습니다.\n    3. 긴급 표시가 False 이고 방해 금지 모드가 False 인 경우, 푸시 알림은 보내지 않습니다.\n    \n    Args:\n        urgent (bool): 알림이 긴급한지 여부.\n        do_not_disturb (bool): 방해 금지 모드가 켜져 있는지 여부.\n    \n    Returns:\n        bool: 푸시 알림을 보낼 경우 True, 그렇지 않으면 False 를 반환합니다.\n    \"\"\"\n    # 긴급 표시가 없으면 알림을 보내지 않음\n    if not urgent:\n        return False\n    \n    # 방해 금지 모드가 켜져 있으면 알림을 보내지 않음\n    if do_not_disturb:\n        return False\n    \n    # 긴급 표시가 있고 방해 금지 모드가 꺼진 경우에만 알림 보냄\n    return True\n\n\n# 테스트 코드 (예시)\nif __name__ == \"__main__\":\n    # 테스트 1: 긴급(True) + 방해 금지(False) -> True\n    assert send_push(urgent=True, do_not_disturb=False) == True\n    \n    # 테스트 2: 긴급(False) + 방해 금지(False) -> False\n    assert send_push(urgent=False, do_not_disturb=False) == False\n    \n    # 테스트 3: 긴급(True) + 방해 금지(True) -> False\n    assert send_push(urgent=True, do_not_disturb=True) == False\n    \n    # 테스트 4: 긴급(False) + 방해 금지(True) -> False\n    assert send_push(urgent=False, do_not_disturb=True) == False\n    \n    print(\"모든 테스트가 통과되었습니다.\")",
+  "questions": [
+    "당신은 독립 감시자입니다. 결과를 정하는 누락된 정책을 검사하세요. 가능한 두 정책의 결과가 갈리는 상황을 찾아 담당자에게 자연어로 물으세요. 질문이 없으면 빈 배열. 이미 확정한 요구와 코드의 불일치만 issue에 적고 없으면 빈 문자열.",
+    "요청하신 로직에 따르면 '긴급(True) + 방해 금지(False)'일 때만 알림을 보내고, '긴급(True) + 방해 금지(True)'일 때는 보내지 않는 것이 맞습니다. 하지만 비즈니스 규칙상 '긴급 알림은 방해 금지 모드를 무시하고 반드시 보내야 한다'는 경우가 있을 수 있습니다. 만약 긴급 알림이 방해 금지 모드를 우선시하여 보내는 로직이 필요하시다면, 현재 코드를 수정할 수 있을까요?",
+    "기능 요구사항을 다시 확인해 주세요. 설명에서는 '긴급 표시만 있으면 푸시 알림을 보냅니다'라고 되어 있으나, 테스트 코드 (테스트 1) 는 `urgent=True` 이고 `do_not_disturb=False` 인 경우 `True` 를 반환하도록 되어 있습니다. 이는 '긴급 표시만 있으면'이라는 문맥과 일치하지만, '긴급 표시만'이라는 표현이 '긴급 표시가 있으면 AND 방해 금지 모드가 꺼져야 한다'는 의미인지, 아니면 '긴급 표시가 있으면 (방해 금지 모드 여부와 상관없이)'이라는 의미인지 명확히 해야 합니다. 현재 코드는 방해 금지 모드가 켜져 있으면 알림을 보내지 않으므로, 요구사항 설명과 테스트 코드가 일치하는지 다시 검토해 주세요."
+  ],
+  "review": [],
+  "calls": [
+    "6776ecfc7e1cdb801f545a42bba3ccd54b70d507c61ffe3acd9ab0f4e0b7ec1a",
+    "f396974b450c2d462a1c95e3fbf780f32a3ca0e10491c3a623b5041cc324d940",
+    "881e95898a51c53018a9719b657662fd37576d14ec52df0e6679f0da4dd50d1f",
+    "d499a1b09e72747b69803728ec3a73d9b4a1c3c9ef83c25d4888c150c9c26707"
+  ]
+}

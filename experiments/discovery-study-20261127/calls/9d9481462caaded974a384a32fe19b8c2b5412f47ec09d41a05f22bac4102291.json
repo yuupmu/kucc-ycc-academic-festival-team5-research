@@ -1,0 +1,102 @@
+{
+  "text": "{\n  \"slots\": [\n    {\n      \"key\": \"approve_room_three_people\",\n      \"kind\": \"decision\",\n      \"origin\": \"Q3\",\n      \"question\": \"인원이 정확히 3 명일 때 승인 여부를 결정하시겠습니까?\"\n    },\n    {\n      \"key\": \"approve_room_fifteen_people\",\n      \"kind\": \"decision\",\n      \"origin\": \"Q3\",\n      \"question\": \"인원이 정확히 15 명일 때 승인 여부를 결정하시겠습니까?\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 129,
+    "prompt_tokens": 472,
+    "total_tokens": 601,
+    "prompt_tokens_details": {
+      "cached_tokens": 205
+    }
+  },
+  "server_timings": {
+    "cache_n": 205,
+    "prompt_n": 267,
+    "prompt_ms": 438.71,
+    "prompt_per_token_ms": 1.6431086142322096,
+    "prompt_per_second": 608.602493674637,
+    "predicted_n": 129,
+    "predicted_ms": 2119.175,
+    "predicted_per_token_ms": 16.5560546875,
+    "predicted_per_second": 60.40086354359597
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.57,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자에게 보낼 실제 질문들을 읽고 각각 독립적으로 답할 수 있는 결정의 목록을 만드세요.\n질문이 겹치면 합치고, 한 문장에서 값과 그 값에서 취할 행동을 함께 물었다면 둘로 나누세요. 공개 명세가 이미 정한 행동이나 코드 지적은 항목에 넣지 마세요.\n각 항목에는 파이썬 변수로 쓸 영문 key, 수치 자체를 물으면 quantity, 특정 상황에서 실행할지 물으면 decision,\n그 항목을 포함한 원래 질문 번호 origin, 그 한 가지를 다시 물을 한국어 의문문 question을 쓰세요. question은 담당자에게 그대로 전달됩니다.\n원래 질문이 이미 한 가지면 보존하세요. 묶인 질문에서는 해당 부분만 독립된 한 문장으로 적으세요.\ndecision 질문은 함수가 True를 반환하는 행동을 할지 묻는 긍정형으로 쓰세요. 답변과 기본값을 미리 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"동아리 세미나실 대여 신청을 승인할지 정하는 approve_room(people: int) -> bool 함수를 작성하세요. 입력은 신청 인원입니다. 인원이 3명 미만이거나 15명 초과이면 승인하지 않습니다. 3명 초과이고 15명 미만이면 승인합니다. True는 승인, False는 미승인입니다.\",\"sent_questions\":{\"Q1\":\"인원 수가 정확히 3 명일 때와 정확히 15 명일 때의 승인 여부가 명확히 정의되어 있나요? (3 명은 승인, 15 명은 미승인인지 확인이 필요합니다.)\",\"Q2\":\"인원 3 명과 15 명에 대한 승인 여부를 어떻게 처리하시겠습니까? 현재 코드는 3 명 이상 15 명 미만인 경우에만 승인하지만, 경계값인 3 명과 15 명은 승인하지 않는 것으로 보입니다.\",\"Q3\":\"인원 3 명과 15 명을 포함하여 승인할지 여부가 명확하지 않습니다. 3 명이나 15 명인 경우를 어떻게 처리해야 할지 담당자에게 확인 부탁드립니다.\"},\"format_feedback\":\"Use distinct English variable names and a nonempty single question\"}"
+      }
+    ],
+    "seed": 1113,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "quantity",
+                      "decision"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "Q1",
+                      "Q2",
+                      "Q3"
+                    ]
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "kind",
+                  "origin",
+                  "question"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "slots"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "decision-items"
+}

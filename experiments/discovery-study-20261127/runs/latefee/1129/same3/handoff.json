@@ -1,0 +1,12 @@
+{
+  "brief": "도서 연체료를 부과할지 정하는 charge_late_fee(days_late: int) -> bool 함수를 작성하세요. 입력은 0 이상의 연체 일수입니다. 연체 일수가 7일 이하이면 연체료를 부과하지 않습니다. 7일을 초과하면 부과합니다. True는 부과, False는 부과 안 함입니다.",
+  "code": "def charge_late_fee(days_late: int) -> bool:\n    \"\"\"\n    도서 연체료를 부과할지 여부를 결정하는 함수입니다.\n    \n    입력: 0 이상의 연체 일수 (days_late: int)\n    반환: 연체료가 부과될 경우 True, 부과되지 않을 경우 False\n    \n    규칙:\n    - 연체 일수가 7 일 이하이면 연체료를 부과하지 않습니다 (False).\n    - 7 일을 초과하면 연체료를 부과합니다 (True).\n    \"\"\"\n    return days_late > 7",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "edfa4e88e56a1ccb11475fa04abdbd01c4ebb596ca90a9d4c3325c0bb399e57f",
+    "f108c342c5873e79421f9b40aaf760dbc09da764c9ce81d397ff8598c20e0d63",
+    "04f970de678c586e792a7f0e69d8de1f6bed32b62ae9c66de86f4ca1cb8cce76",
+    "ef1931707fb02d7236c9b106cb5a1a3c13b83d785b5faad49845e6d722d39d2b"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "handoff": "02a9f156060f6837451319549794459f1f9f458bd7c0d07547c2b85192a9baff",
+  "digest": "426b22b9a71a6f2caa87671aff876a321dab196b7345f0825eb5de8d965ef7ed",
+  "agenda": {
+    "brief": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요. 긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다. True는 보내기, False는 보내지 않기입니다.",
+    "code": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수입니다.\n    \n    로직:\n    1. 긴급 표시 (urgent) 가 True 인 경우에만 푸시 알림을 보냅니다.\n    2. 방해 금지 모드 (do_not_disturb) 가 True 라면, 어떤 메시지도 보내지 않습니다.\n    3. 긴급 표시가 False 라면, 푸시 알림은 보내지 않습니다.\n    \n    Args:\n        urgent (bool): 메시지가 긴급 표시가 되어 있는지 여부.\n        do_not_disturb (bool): 방해 금지 모드가 켜져 있는지 여부.\n    \n    Returns:\n        bool: 푸시 알림을 보낼 경우 True, 보내지 않을 경우 False 를 반환합니다.\n    \"\"\"\n    # 방해 금지 모드가 켜져 있으면, 긴급 표시가 있더라도 알림을 보내지 않습니다.\n    if do_not_disturb:\n        return False\n    \n    # 방해 금지 모드가 꺼져 있고, 긴급 표시가 있으면 알림을 보냅니다.\n    return urgent\n\n# 테스트 코드 (예시)\nif __name__ == \"__main__\":\n    # 긴급 표시あり, 방해 금지 모드 꺼짐 -> True\n    assert send_push(True, False) == True\n    \n    # 긴급 표시 없음, 방해 금지 모드 꺼짐 -> False\n    assert send_push(False, False) == False\n    \n    # 긴급 표시あり, 방해 금지 모드 켜짐 -> False\n    assert send_push(True, True) == False\n    \n    # 긴급 표시 없음, 방해 금지 모드 켜짐 -> False\n    assert send_push(False, True) == False\n    \n    print(\"모든 테스트 케이스가 통과되었습니다.\")",
+    "editing_base": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수입니다.\n    \n    로직:\n    1. 긴급 표시 (urgent) 가 True 인 경우에만 푸시 알림을 보냅니다.\n    2. 방해 금지 모드 (do_not_disturb) 가 True 라면, 어떤 메시지도 보내지 않습니다.\n    3. 긴급 표시가 False 라면, 푸시 알림은 보내지 않습니다.\n    \n    Args:\n        urgent (bool): 메시지가 긴급 표시가 되어 있는지 여부.\n        do_not_disturb (bool): 방해 금지 모드가 켜져 있는지 여부.\n    \n    Returns:\n        bool: 푸시 알림을 보낼 경우 True, 보내지 않을 경우 False 를 반환합니다.\n    \"\"\"\n    # 방해 금지 모드가 켜져 있으면, 긴급 표시가 있더라도 알림을 보내지 않습니다.\n    if do_not_disturb:\n        raise NotImplementedError(\"check_dnd_block_logic\")\n    \n    # 방해 금지 모드가 꺼져 있고, 긴급 표시가 있으면 알림을 보냅니다.\n    return urgent\n\n# 테스트 코드 (예시)\nif __name__ == \"__main__\":\n    # 긴급 표시あり, 방해 금지 모드 꺼짐 -> True\n    assert send_push(True, False) == True\n    \n    # 긴급 표시 없음, 방해 금지 모드 꺼짐 -> False\n    assert send_push(False, False) == False\n    \n    # 긴급 표시あり, 방해 금지 모드 켜짐 -> False\n    assert send_push(True, True) == False\n    \n    # 긴급 표시 없음, 방해 금지 모드 켜짐 -> False\n    assert send_push(False, True) == False\n    \n    print(\"모든 테스트 케이스가 통과되었습니다.\")",
+    "original_questions": {
+      "Q1": "현재 코드 로직에서 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항과 '방해 금지만 켜져 있으면 보내지 않습니다'라는 요구사항이 모두 충족되나요? 만약 충족된다면, '긴급 표시가 있고 방해 금지 모드가 꺼져 있을 때'만 True 가 되므로, '긴급 표시만 있으면'이라는 표현이 명확한지 확인해 주세요. 또한, '방해 금지만 켜져 있으면 보내지 않습니다'는 모든 경우 (긴급 표시 유무 상관없이) True 를 반환하므로 이 부분도 명확히 확인해 주세요."
+    },
+    "sent_questions": {
+      "Q1": "현재 코드 로직에서 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항과 '방해 금지만 켜져 있으면 보내지 않습니다'라는 요구사항이 모두 충족되나요? 만약 충족된다면, '긴급 표시가 있고 방해 금지 모드가 꺼져 있을 때'만 True 가 되므로, '긴급 표시만 있으면'이라는 표현이 명확한지 확인해 주세요. 또한, '방해 금지만 켜져 있으면 보내지 않습니다'는 모든 경우 (긴급 표시 유무 상관없이) True 를 반환하므로 이 부분도 명확히 확인해 주세요."
+    },
+    "review": [],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:19:8"
+      ],
+      "findings": {},
+      "calls": [],
+      "reopened": {
+        "@pending:19:8": "check_dnd_block_logic"
+      }
+    },
+    "slots": {
+      "check_urgent_only_logic": {
+        "key": "check_urgent_only_logic",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 코드 로직에서 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항이 충족되나요?"
+      },
+      "check_dnd_block_logic": {
+        "key": "check_dnd_block_logic",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 코드 로직에서 '방해 금지만 켜져 있으면 보내지 않습니다'라는 요구사항이 충족되나요?"
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요.",
+      "P2": "긴급 표시만 있으면 푸시 알림을 보냅니다.",
+      "P3": "방해 금지만 켜져 있으면 보내지 않습니다.",
+      "P4": "True는 보내기, False는 보내지 않기입니다."
+    },
+    "rules": [
+      {
+        "when": "urgent and not do_not_disturb",
+        "then": "check_urgent_only_logic",
+        "source": "Q1"
+      },
+      {
+        "when": "do_not_disturb",
+        "then": "check_dnd_block_logic",
+        "source": "Q1"
+      },
+      {
+        "when": "not urgent and not do_not_disturb",
+        "then": "False",
+        "source": "P1"
+      },
+      {
+        "when": "not urgent and do_not_disturb",
+        "then": "False",
+        "source": "P1"
+      },
+      {
+        "when": "urgent and not do_not_disturb",
+        "then": "True",
+        "source": "P1"
+      },
+      {
+        "when": "urgent and do_not_disturb",
+        "then": "False",
+        "source": "P1"
+      },
+      {
+        "when": "urgent",
+        "then": "True",
+        "source": "P4"
+      },
+      {
+        "when": "do_not_disturb",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "not urgent",
+        "then": "False",
+        "source": "P4"
+      },
+      {
+        "when": "not do_not_disturb",
+        "then": "True",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "urgent",
+      "do_not_disturb"
+    ],
+    "mode": "flags",
+    "calls": [
+      "56c87dcd315cd1627acbbf802b8ba194ad1c7211820d5a18b73be348e9cc0341",
+      "21364478d81c9edddb8f5d51b0f0544928c233c7df0fdc4b4ec6c85044ffc60d"
+    ]
+  }
+}

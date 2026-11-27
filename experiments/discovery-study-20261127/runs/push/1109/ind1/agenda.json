@@ -1,0 +1,84 @@
+{
+  "handoff": "acb41e5eaf37d5b560c9ba54c54b83c4cddeaff96e560568db4d397472ccf302",
+  "digest": "ee18edbcf9ac6c42ea1d4d1ce38105f322ec6dd6228ea20e8ef52151abf37a29",
+  "agenda": {
+    "brief": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요. 긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다. True는 보내기, False는 보내지 않기입니다.",
+    "code": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수.\n    \n    로직:\n    - 긴급 표시 (urgent) 만 True 라면 알림을 보냄.\n    - 방해 금지 (do_not_disturb) 가 True 라면 알림을 보냄.\n    - 두 조건 모두 False 라면 알림을 보냄.\n    - 두 조건 중 하나라도 True 라면 알림을 보냄.\n    - 즉, 항상 알림을 보냅니다.\n    \n    주의: 문제 설명에 따르면 \"긴급 표시만 있으면 푸시 알림을 보냅니다\"와 \"방해 금지만 켜져 있으면 보내지 않습니다\"라고 되어 있으나,\n    실제 로직은 두 조건이 모두 False 일 때만 보냄, 하나라도 True 일 때 보냄으로 해석됩니다.\n    \n    Args:\n        urgent (bool): 긴급 표시 여부\n        do_not_disturb (bool): 방해 금지 모드 여부\n    \n    Returns:\n        bool: True (보내기), False (보내기 안 함)\n    \"\"\"\n    if not urgent and not do_not_disturb:\n        return False\n    return True",
+    "editing_base": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수.\n    \n    로직:\n    - 긴급 표시 (urgent) 만 True 라면 알림을 보냄.\n    - 방해 금지 (do_not_disturb) 가 True 라면 알림을 보냄.\n    - 두 조건 모두 False 라면 알림을 보냄.\n    - 두 조건 중 하나라도 True 라면 알림을 보냄.\n    - 즉, 항상 알림을 보냅니다.\n    \n    주의: 문제 설명에 따르면 \"긴급 표시만 있으면 푸시 알림을 보냅니다\"와 \"방해 금지만 켜져 있으면 보내지 않습니다\"라고 되어 있으나,\n    실제 로직은 두 조건이 모두 False 일 때만 보냄, 하나라도 True 일 때 보냄으로 해석됩니다.\n    \n    Args:\n        urgent (bool): 긴급 표시 여부\n        do_not_disturb (bool): 방해 금지 모드 여부\n    \n    Returns:\n        bool: True (보내기), False (보내기 안 함)\n    \"\"\"\n    if not urgent and not do_not_disturb:\n        return False\n    return True",
+    "original_questions": {
+      "Q1": "문제 설명의 조건 ('긴급 표시만 있으면', '방해 금지만 켜져 있으면 보내지 않습니다') 과 실제 구현된 로직 ('두 조건 중 하나라도 True 라면 알림을 보냄') 이 서로 모순됩니다. 어떤 로직이 의도된 것입니까?",
+      "Q2": "문제 설명에서 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문장은 '만약 긴급 표시가 있으면 (그 외 조건은 무시하거나 반대 조건이 성립하지 않는 경우) 보낸다'는 의미로 해석될 수 있으나, '방해 금지만 켜져 있으면 보내지 않습니다'라는 문장은 '방해 금지가 있으면 절대 보낸다'는 의미로 해석됩니다. 이 두 문장이 결합된 정확한 비즈니스 로직은 무엇인지 명확히 해주세요."
+    },
+    "sent_questions": {
+      "Q1": "문제 설명의 조건 ('긴급 표시만 있으면', '방해 금지만 켜져 있으면 보내지 않습니다') 과 실제 구현된 로직 ('두 조건 중 하나라도 True 라면 알림을 보냄') 이 서로 모순됩니다. 어떤 로직이 의도된 것입니까?",
+      "Q2": "문제 설명에서 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문장은 '만약 긴급 표시가 있으면 (그 외 조건은 무시하거나 반대 조건이 성립하지 않는 경우) 보낸다'는 의미로 해석될 수 있으나, '방해 금지만 켜져 있으면 보내지 않습니다'라는 문장은 '방해 금지가 있으면 절대 보낸다'는 의미로 해석됩니다. 이 두 문장이 결합된 정확한 비즈니스 로직은 무엇인지 명확히 해주세요."
+    },
+    "review": [
+      "문제 설명과 코드 로직의 불일치: 문제 설명은 '긴급 표시만 있으면 보내고, 방해 금지만 켜져 있으면 보내지 않는다'는 조건을 제시하지만, 코드는 '두 조건 중 하나라도 True 라면 True 를 반환한다'는 논리 (즉, 항상 알림을 보낸다) 를 구현하고 있습니다."
+    ],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "urgent_only_push_logic": {
+        "key": "urgent_only_push_logic",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "긴급 표시만 있으면 푸시 알림을 보냅니다 (방해 금지는 무시하거나 반대 조건이 성립하지 않는 경우) 이라는 로직이 의도된 것입니까?"
+      },
+      "do_not_disturb_block_push_logic": {
+        "key": "do_not_disturb_block_push_logic",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "방해 금지만 켜져 있으면 절대 푸시 알림을 보내지 않는다는 로직이 의도된 것입니까?"
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요.",
+      "P2": "긴급 표시만 있으면 푸시 알림을 보냅니다.",
+      "P3": "방해 금지만 켜져 있으면 보내지 않습니다.",
+      "P4": "True는 보내기, False는 보내지 않기입니다."
+    },
+    "rules": [
+      {
+        "when": "urgent",
+        "then": "urgent_only_push_logic",
+        "source": "Q1"
+      },
+      {
+        "when": "do_not_disturb",
+        "then": "do_not_disturb_block_push_logic",
+        "source": "Q2"
+      },
+      {
+        "when": "urgent",
+        "then": "True",
+        "source": "P2"
+      },
+      {
+        "when": "do_not_disturb",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "not urgent and not do_not_disturb",
+        "then": "False",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "urgent",
+      "do_not_disturb"
+    ],
+    "mode": "flags",
+    "calls": [
+      "89e1c9b7e48a7a3ad301957cae19e1aaca8585bf0e7e0ea5dd033f18d8c698ec",
+      "23af1b5ae9f9aa5c3daeebff1d85fddb6b6a6a0351d215c93ce579ca962b2474"
+    ]
+  }
+}

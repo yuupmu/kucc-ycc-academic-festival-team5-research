@@ -1,0 +1,176 @@
+{
+  "name": "discovery-study-20261127",
+  "question": "같은 초안을 검토할 때, 검토자의 틀·호출 수·관점 분할이 숨은 결정에 대한 질문 발견율을 바꾸는가",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "port": 18993,
+  "seeds": [1103, 1109, 1117, 1123, 1129],
+  "arms": {
+    "self1": {"calls": 1, "framing": "self", "views": "joined", "max_questions_per_call": 3, "reference": "experiments/mixed_review_ledger.py handoff(mode='self')"},
+    "ind1": {"calls": 1, "framing": "independent", "views": "joined", "max_questions_per_call": 3, "reference": "experiments/mixed_review_ledger.py handoff(mode='one')"},
+    "same3": {"calls": 3, "framing": "independent", "views": "joined", "max_questions_per_call": 1, "reference": "new arm: three calls with the ind1 prompt, roles observer-A/B/C, seeds base+10..12"},
+    "split3": {"calls": 3, "framing": "independent", "views": "one per call", "max_questions_per_call": 1, "reference": "experiments/mixed_review_ledger.py handoff(mode='three')"}
+  },
+  "contrasts": [
+    {"id": "framing", "from": "self1", "to": "ind1", "changes": "검토자 도입 문장과 draft_context 필드"},
+    {"id": "calls", "from": "ind1", "to": "same3", "changes": "호출 수 1→3 (총 질문 상한 3은 유지)"},
+    {"id": "lenses", "from": "same3", "to": "split3", "changes": "세 호출에 관점을 하나씩 배정"}
+  ],
+  "tasks": {
+    "ride": {
+      "kind": "hidden", "pattern": "range_inside",
+      "brief": "놀이공원 회전 그네의 탑승 가능 여부를 정하는 can_ride(height_cm: int) -> bool 함수를 작성하세요. 입력은 탑승객의 키(cm)입니다. 키가 110cm보다 작거나 190cm보다 크면 탑승할 수 없습니다. 110cm보다 크고 190cm보다 작으면 탑승할 수 있습니다. True는 탑승 가능, False는 탑승 불가입니다.",
+      "function": "can_ride", "signature": "height_cm: int",
+      "inputs": [[0], [90], [109], [110], [111], [150], [189], [190], [191], [210]],
+      "public_true": [[111], [150], [189]],
+      "decisions": [
+        {"id": "low", "input": [110], "desc": "키가 정확히 110cm일 때 탑승할 수 있는가"},
+        {"id": "high", "input": [190], "desc": "키가 정확히 190cm일 때 탑승할 수 있는가"}
+      ]
+    },
+    "room": {
+      "kind": "hidden", "pattern": "range_inside",
+      "brief": "동아리 세미나실 대여 신청을 승인할지 정하는 approve_room(people: int) -> bool 함수를 작성하세요. 입력은 신청 인원입니다. 인원이 3명 미만이거나 15명 초과이면 승인하지 않습니다. 3명 초과이고 15명 미만이면 승인합니다. True는 승인, False는 미승인입니다.",
+      "function": "approve_room", "signature": "people: int",
+      "inputs": [[0], [1], [2], [3], [4], [9], [14], [15], [16], [30]],
+      "public_true": [[4], [9], [14]],
+      "decisions": [
+        {"id": "low", "input": [3], "desc": "신청 인원이 정확히 3명일 때 승인하는가"},
+        {"id": "high", "input": [15], "desc": "신청 인원이 정확히 15명일 때 승인하는가"}
+      ]
+    },
+    "coldchain": {
+      "kind": "hidden", "pattern": "range_outside",
+      "brief": "백신 보관 냉장고의 온도 경보를 울릴지 정하는 raise_alarm(temp_c: int) -> bool 함수를 작성하세요. 입력은 섭씨 온도의 정수값입니다. 온도가 2도보다 낮거나 8도보다 높으면 경보를 울립니다. 2도보다 높고 8도보다 낮으면 울리지 않습니다. True는 경보, False는 경보 없음입니다.",
+      "function": "raise_alarm", "signature": "temp_c: int",
+      "inputs": [[-5], [0], [1], [2], [3], [5], [7], [8], [9], [15]],
+      "public_true": [[-5], [0], [1], [9], [15]],
+      "decisions": [
+        {"id": "low", "input": [2], "desc": "온도가 정확히 2도일 때 경보를 울리는가"},
+        {"id": "high", "input": [8], "desc": "온도가 정확히 8도일 때 경보를 울리는가"}
+      ]
+    },
+    "nightlight": {
+      "kind": "hidden", "pattern": "range_outside",
+      "brief": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.",
+      "function": "light_on", "signature": "hour: int",
+      "inputs": [[0], [3], [5], [6], [7], [12], [17], [18], [19], [23]],
+      "public_true": [[0], [3], [5], [19], [23]],
+      "decisions": [
+        {"id": "dawn", "input": [6], "desc": "정확히 6시일 때 조명을 켜는가"},
+        {"id": "dusk", "input": [18], "desc": "정확히 18시일 때 조명을 켜는가"}
+      ]
+    },
+    "retake": {
+      "kind": "hidden", "pattern": "three_band",
+      "brief": "쪽지 시험 재응시 대상인지 정하는 needs_retake(score: int) -> bool 함수를 작성하세요. 입력은 0부터 100까지의 점수입니다. 점수가 20점보다 낮으면 보충 수업으로 넘기므로 재응시 대상이 아닙니다. 20점보다 높고 60점보다 낮으면 재응시 대상입니다. 60점보다 높으면 통과이므로 대상이 아닙니다. True는 재응시 대상, False는 대상 아님입니다.",
+      "function": "needs_retake", "signature": "score: int",
+      "inputs": [[0], [10], [19], [20], [21], [40], [59], [60], [61], [100]],
+      "public_true": [[21], [40], [59]],
+      "decisions": [
+        {"id": "floor", "input": [20], "desc": "점수가 정확히 20점일 때 재응시 대상인가"},
+        {"id": "pass", "input": [60], "desc": "점수가 정확히 60점일 때 재응시 대상인가"}
+      ]
+    },
+    "break": {
+      "kind": "hidden", "pattern": "three_band",
+      "brief": "회의 일정에 휴식 제안을 붙일지 정하는 suggest_break(minutes: int) -> bool 함수를 작성하세요. 입력은 회의 길이(분)입니다. 50분이 안 되는 회의에는 휴식을 제안하지 않습니다. 50분을 넘고 180분이 안 되는 회의에는 제안합니다. 180분을 넘는 회의는 분할 안내를 따로 보내므로 휴식을 제안하지 않습니다. True는 제안, False는 제안 안 함입니다.",
+      "function": "suggest_break", "signature": "minutes: int",
+      "inputs": [[0], [30], [49], [50], [51], [90], [179], [180], [181], [240]],
+      "public_true": [[51], [90], [179]],
+      "decisions": [
+        {"id": "short", "input": [50], "desc": "회의가 정확히 50분일 때 휴식을 제안하는가"},
+        {"id": "long", "input": [180], "desc": "회의가 정확히 180분일 때 휴식을 제안하는가"}
+      ]
+    },
+    "push": {
+      "kind": "hidden", "pattern": "conflict",
+      "brief": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요. 긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다. True는 보내기, False는 보내지 않기입니다.",
+      "function": "send_push", "signature": "urgent: bool, do_not_disturb: bool",
+      "inputs": [[false, false], [false, true], [true, false], [true, true]],
+      "public_true": [[true, false]],
+      "decisions": [
+        {"id": "idle", "input": [false, false], "desc": "긴급 표시도 방해 금지도 없을 때 푸시 알림을 보내는가"},
+        {"id": "both", "input": [true, true], "desc": "긴급 표시와 방해 금지가 함께 있을 때 푸시 알림을 보내는가"}
+      ]
+    },
+    "sound": {
+      "kind": "hidden", "pattern": "conflict",
+      "brief": "게임 효과음을 재생할지 정하는 play_sound(headphones: bool, silent_mode: bool) -> bool 함수를 작성하세요. 이어폰 연결 신호만 있으면 효과음을 재생합니다. 무음 모드만 켜져 있으면 재생하지 않습니다. True는 재생, False는 재생 안 함입니다.",
+      "function": "play_sound", "signature": "headphones: bool, silent_mode: bool",
+      "inputs": [[false, false], [false, true], [true, false], [true, true]],
+      "public_true": [[true, false]],
+      "decisions": [
+        {"id": "idle", "input": [false, false], "desc": "이어폰 연결도 무음 모드도 없을 때 효과음을 재생하는가"},
+        {"id": "both", "input": [true, true], "desc": "이어폰 연결과 무음 모드가 함께 있을 때 효과음을 재생하는가"}
+      ]
+    },
+    "cache": {
+      "kind": "hidden", "pattern": "conflict",
+      "brief": "이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요. 고정 표시만 있으면 항목을 유지합니다. 만료 표시만 있으면 유지하지 않습니다. True는 유지, False는 삭제입니다.",
+      "function": "keep_cached", "signature": "pinned: bool, expired: bool",
+      "inputs": [[false, false], [false, true], [true, false], [true, true]],
+      "public_true": [[true, false]],
+      "decisions": [
+        {"id": "idle", "input": [false, false], "desc": "고정 표시도 만료 표시도 없을 때 항목을 유지하는가"},
+        {"id": "both", "input": [true, true], "desc": "고정 표시와 만료 표시가 함께 있을 때 항목을 유지하는가"}
+      ]
+    },
+    "expense": {
+      "kind": "hidden", "pattern": "agreement",
+      "brief": "동아리 지출 요청을 승인 처리할지 정하는 mark_approved(lead_ok: bool, treasurer_ok: bool) -> bool 함수를 작성하세요. 회장과 총무가 모두 승인하면 승인 처리합니다. 회장도 총무도 승인하지 않으면 승인 처리하지 않습니다. True는 승인 처리, False는 미처리입니다.",
+      "function": "mark_approved", "signature": "lead_ok: bool, treasurer_ok: bool",
+      "inputs": [[false, false], [false, true], [true, false], [true, true]],
+      "public_true": [[true, true]],
+      "decisions": [
+        {"id": "lead_only", "input": [true, false], "desc": "회장만 승인했을 때 승인 처리하는가"},
+        {"id": "treasurer_only", "input": [false, true], "desc": "총무만 승인했을 때 승인 처리하는가"}
+      ]
+    },
+    "refund": {
+      "kind": "hidden", "pattern": "agreement",
+      "brief": "반품 배송비를 환불할지 정하는 refund_shipping(defect_reported: bool, within_period: bool) -> bool 함수를 작성하세요. 불량 신고가 있고 반품 기간 안이면 배송비를 환불합니다. 불량 신고도 없고 반품 기간도 지났으면 환불하지 않습니다. True는 환불, False는 환불 안 함입니다.",
+      "function": "refund_shipping", "signature": "defect_reported: bool, within_period: bool",
+      "inputs": [[false, false], [false, true], [true, false], [true, true]],
+      "public_true": [[true, true]],
+      "decisions": [
+        {"id": "defect_only", "input": [true, false], "desc": "불량 신고는 있지만 반품 기간이 지났을 때 배송비를 환불하는가"},
+        {"id": "period_only", "input": [false, true], "desc": "불량 신고 없이 반품 기간 안일 때 배송비를 환불하는가"}
+      ]
+    },
+    "badge": {
+      "kind": "hidden", "pattern": "agreement",
+      "brief": "온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요. 출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. True는 지급, False는 미지급입니다.",
+      "function": "grant_badge", "signature": "attended: bool, submitted: bool",
+      "inputs": [[false, false], [false, true], [true, false], [true, true]],
+      "public_true": [[true, true]],
+      "decisions": [
+        {"id": "attended_only", "input": [true, false], "desc": "출석만 하고 과제를 제출하지 않았을 때 배지를 주는가"},
+        {"id": "submitted_only", "input": [false, true], "desc": "과제만 제출하고 출석하지 않았을 때 배지를 주는가"}
+      ]
+    },
+    "latefee": {
+      "kind": "complete", "pattern": "control",
+      "brief": "도서 연체료를 부과할지 정하는 charge_late_fee(days_late: int) -> bool 함수를 작성하세요. 입력은 0 이상의 연체 일수입니다. 연체 일수가 7일 이하이면 연체료를 부과하지 않습니다. 7일을 초과하면 부과합니다. True는 부과, False는 부과 안 함입니다.",
+      "function": "charge_late_fee", "signature": "days_late: int",
+      "inputs": [[0], [1], [6], [7], [8], [30]],
+      "public_true": [[8], [30]],
+      "decisions": []
+    },
+    "setmenu": {
+      "kind": "complete", "pattern": "control",
+      "brief": "식당에서 세트 메뉴를 제공할지 정하는 offer_set_menu(guests: int) -> bool 함수를 작성하세요. 입력은 1 이상의 손님 수입니다. 손님이 2명 이상 6명 이하이면 세트 메뉴를 제공합니다. 2명 미만이거나 6명 초과이면 제공하지 않습니다. True는 제공, False는 제공 안 함입니다.",
+      "function": "offer_set_menu", "signature": "guests: int",
+      "inputs": [[1], [2], [3], [5], [6], [7], [12]],
+      "public_true": [[2], [3], [5], [6]],
+      "decisions": []
+    },
+    "tips": {
+      "kind": "complete", "pattern": "control",
+      "brief": "앱 도움말 말풍선을 보여 줄지 정하는 show_tip(new_user: bool, tips_off: bool) -> bool 함수를 작성하세요. 도움말 끄기가 켜져 있으면 신규 사용자 여부와 관계없이 보여 주지 않습니다. 도움말 끄기가 꺼져 있고 신규 사용자이면 보여 줍니다. 도움말 끄기가 꺼져 있고 신규 사용자가 아니면 보여 주지 않습니다. True는 보여 주기, False는 숨기기입니다.",
+      "function": "show_tip", "signature": "new_user: bool, tips_off: bool",
+      "inputs": [[false, false], [false, true], [true, false], [true, true]],
+      "public_true": [[true, false]],
+      "decisions": []
+    }
+  }
+}

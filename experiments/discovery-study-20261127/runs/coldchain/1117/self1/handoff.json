@@ -1,0 +1,10 @@
+{
+  "brief": "백신 보관 냉장고의 온도 경보를 울릴지 정하는 raise_alarm(temp_c: int) -> bool 함수를 작성하세요. 입력은 섭씨 온도의 정수값입니다. 온도가 2도보다 낮거나 8도보다 높으면 경보를 울립니다. 2도보다 높고 8도보다 낮으면 울리지 않습니다. True는 경보, False는 경보 없음입니다.",
+  "code": "def raise_alarm(temp_c: int) -> bool:\n    \"\"\"\n    백신 보관 냉장고의 온도 경보를 울릴지 판단하는 함수입니다.\n    \n    온도가 2 도보다 낮거나 8 도보다 높으면 경보를 울립니다.\n    2 도보다 높고 8 도보다 낮으면 경보가 울리지 않습니다.\n    \n    Args:\n        temp_c (int): 섭씨 온도의 정수값\n    \n    Returns:\n        bool: 경보가 울리면 True, 그렇지 않으면 False\n    \"\"\"\n    if temp_c <= 2 or temp_c >= 8:\n        return True\n    else:\n        return False",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "c65835335f876969cf6b1437368a5a1a4775b7beafa8d74e002d9af4e7cff90e",
+    "aedbdab4d248d63c476a1d0cc81a43ab6b7838be568024c047da567c2bbfb732"
+  ]
+}

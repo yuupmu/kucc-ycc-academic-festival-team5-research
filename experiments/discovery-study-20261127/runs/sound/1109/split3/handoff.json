@@ -1,0 +1,16 @@
+{
+  "brief": "게임 효과음을 재생할지 정하는 play_sound(headphones: bool, silent_mode: bool) -> bool 함수를 작성하세요. 이어폰 연결 신호만 있으면 효과음을 재생합니다. 무음 모드만 켜져 있으면 재생하지 않습니다. True는 재생, False는 재생 안 함입니다.",
+  "code": "def play_sound(headphones: bool, silent_mode: bool) -> bool:\n    \"\"\"\n    게임 효과음을 재생할지 정하는 함수입니다.\n    \n    조건:\n    1. 이어폰이 연결되어 있으면 (headphones=True) 효과음을 재생합니다.\n    2. 무음 모드가 켜져 있으면 (silent_mode=True) 효과음을 재생하지 않습니다.\n    3. 두 조건이 모두 충족되지 않으면 재생하지 않습니다.\n    \n    Args:\n        headphones (bool): 이어폰이 연결되어 있는지 여부\n        silent_mode (bool): 무음 모드가 켜져 있는지 여부\n    \n    Returns:\n        bool: 효과음을 재생할 경우 True, 그렇지 않으면 False\n    \"\"\"\n    # 이어폰이 연결되어 있고, 무음 모드가 꺼져 있을 때만 재생\n    if headphones and not silent_mode:\n        return True\n    return False\n",
+  "questions": [
+    "기능 요구사항과 실제 구현을 확인했습니다. 요구사항에 따르면 '두 조건이 모두 충족되지 않으면 재생하지 않습니다'는 이어폰이 연결되어 있지 않거나 무음 모드가 켜져 있는 경우를 모두 포함해야 하지만, 현재 코드는 이어폰이 연결되어 있지 않은 경우 (headphones=False) 와 무음 모드가 켜져 있는 경우 (silent_mode=True) 를 모두 False 로 반환하고 있습니다. 이 로직이 요구사항과 일치하는지 담당자에게 확인 부탁드립니다.",
+    "요청하신 조건 (이어폰 연결 시 재생, 무음 모드 켜지면 재생 안 함, 둘 다 충족 안 하면 안 함) 을 만족하는 코드가 작성되어 있습니다. 추가 확인이 필요한 사항이 없나요?",
+    "요청하신 조건 (이어폰 연결 시 재생, 무음 모드 켜지면 재생 안 함, 둘 다 충족되지 않으면 안 함) 을 만족하는 코드가 작성되었는지 확인했습니다. 추가적인 질문이 없습니다."
+  ],
+  "review": [],
+  "calls": [
+    "6e96b650884bc403003e95bad53692af16c28c6fd8b44410462ceb3d4eb39834",
+    "9200196dbd64aac46c56f6e8129e3ee6c57bff7d2afc48f6974f217bcf6972ec",
+    "cfded96789798be98a024337db11418170e6c18042a9911111a99e9493c5046e",
+    "aafd7de07d2b12b031e57cc17583e93308e3ee7a04cbf1d74c77954398a8c459"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "text": "{\n  \"kind\": \"일반의견\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 79,
+    "total_tokens": 93,
+    "prompt_tokens_details": {
+      "cached_tokens": 53
+    }
+  },
+  "server_timings": {
+    "cache_n": 53,
+    "prompt_n": 26,
+    "prompt_ms": 101.403,
+    "prompt_per_token_ms": 3.900115384615385,
+    "prompt_per_second": 256.40267053242997,
+    "predicted_n": 14,
+    "predicted_ms": 229.714,
+    "predicted_per_token_ms": 17.67030769230769,
+    "predicted_per_second": 56.59211018919178
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.34,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문을 읽고 답의 종류를 분류하세요. 숫자를 실제로 요구하면 정수값, 특정 상황의 실행 여부를 요구하면 행동결정, 그 밖에 일반적인 의견·예상 문제를 물으면 일반의견입니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"question\":\"현재 구현에 포함된 이슈 목록은 무엇입니까?\"}"
+      }
+    ],
+    "seed": 1139,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 70,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "정수값",
+                "행동결정",
+                "일반의견"
+              ]
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "question-answer-type"
+}

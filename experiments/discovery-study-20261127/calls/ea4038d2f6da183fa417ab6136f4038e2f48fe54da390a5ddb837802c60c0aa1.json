@@ -1,0 +1,101 @@
+{
+  "text": "{\"slots\": [{\"key\": \"can_ride_110_or_190\", \"kind\": \"decision\", \"origin\": \"Q2\", \"question\": \"110cm 또는 190cm 인 경우 탑승 가능 여부를 어떻게 처리해야 할지 명확히 해주세요.\"}, {\"key\": \"can_ride_110_to_190\", \"kind\": \"decision\", \"origin\": \"Q1\", \"question\": \"110cm 이하와 190cm 초과인 경우를 제외하고는 탑승 가능 (True) 으로 처리하는 로직이 맞는지 확인하고 싶습니다.\"}]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 141,
+    "prompt_tokens": 389,
+    "total_tokens": 530,
+    "prompt_tokens_details": {
+      "cached_tokens": 205
+    }
+  },
+  "server_timings": {
+    "cache_n": 205,
+    "prompt_n": 184,
+    "prompt_ms": 287.2,
+    "prompt_per_token_ms": 1.5608695652173912,
+    "prompt_per_second": 640.6685236768802,
+    "predicted_n": 141,
+    "predicted_ms": 2299.592,
+    "predicted_per_token_ms": 16.425657142857144,
+    "predicted_per_second": 60.88036486472383
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.6,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자에게 보낼 실제 질문들을 읽고 각각 독립적으로 답할 수 있는 결정의 목록을 만드세요.\n질문이 겹치면 합치고, 한 문장에서 값과 그 값에서 취할 행동을 함께 물었다면 둘로 나누세요. 공개 명세가 이미 정한 행동이나 코드 지적은 항목에 넣지 마세요.\n각 항목에는 파이썬 변수로 쓸 영문 key, 수치 자체를 물으면 quantity, 특정 상황에서 실행할지 물으면 decision,\n그 항목을 포함한 원래 질문 번호 origin, 그 한 가지를 다시 물을 한국어 의문문 question을 쓰세요. question은 담당자에게 그대로 전달됩니다.\n원래 질문이 이미 한 가지면 보존하세요. 묶인 질문에서는 해당 부분만 독립된 한 문장으로 적으세요.\ndecision 질문은 함수가 True를 반환하는 행동을 할지 묻는 긍정형으로 쓰세요. 답변과 기본값을 미리 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"놀이공원 회전 그네의 탑승 가능 여부를 정하는 can_ride(height_cm: int) -> bool 함수를 작성하세요. 입력은 탑승객의 키(cm)입니다. 키가 110cm보다 작거나 190cm보다 크면 탑승할 수 없습니다. 110cm보다 크고 190cm보다 작으면 탑승할 수 있습니다. True는 탑승 가능, False는 탑승 불가입니다.\",\"sent_questions\":{\"Q1\":\"110cm 이하와 190cm 초과인 경우를 제외하고는 탑승 가능 (True) 으로 처리하는 로직이 맞는지 확인하고 싶습니다.\",\"Q2\":\"110cm 또는 190cm 인 경우 탑승 가능 여부를 어떻게 처리해야 할지 명확히 해주세요.\"}}"
+      }
+    ],
+    "seed": 1119,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "slots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "quantity",
+                      "decision"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "Q1",
+                      "Q2"
+                    ]
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "kind",
+                  "origin",
+                  "question"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "slots"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "decision-items"
+}

@@ -1,0 +1,114 @@
+{
+  "handoff": "23f65d01fd0f512d6082bfec40770a3f32c4c6fdc0a5eaa22fad0e1f0252a78e",
+  "digest": "d546bc4229d6dc5b91eea58c1fee0c60a7a1675de04348d746a66acf6605c4f9",
+  "agenda": {
+    "brief": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.",
+    "code": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시에 따라 공용 복도 조명이 켜져 있는지 반환합니다.\n    \n    조건:\n    - 0시 ~ 5시 (6시보다 이르거나): 조명을 켭니다 (True)\n    - 6시 ~ 17시 (6시보다 늦고 18시보다 이르면): 조명을 끕니다 (False)\n    - 18시 ~ 23시 (18시보다 늦으면): 조명을 켭니다 (True)\n    \n    Args:\n        hour (int): 현재 시간 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있으면 True, 꺼져 있으면 False\n    \"\"\"\n    # 6시보다 이르거나 (0 <= hour < 6) 또는 18시보다 늦거나 (hour >= 18) 인 경우 True\n    # 6시보다 늦고 18시보다 이르면 (6 <= hour < 18) 인 경우 False\n    if 0 <= hour < 6 or hour >= 18:\n        return True\n    else:\n        return False\n\n# 테스트 코드 (주석 처리된 상태)\n# assert light_on(0) == True\n# assert light_on(5) == True\n# assert light_on(6) == False\n# assert light_on(17) == False\n# assert light_on(18) == True\n# assert light_on(23) == True\n\n# 미정 경로 처리\n# 특정 시간 입력 시 예외가 발생하거나 논리적 오류가 의심되는 경우\n# raise NotImplementedError(\"시간 범위를 벗어남: 0 <= hour <= 23 이어야 합니다.\")",
+    "editing_base": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시에 따라 공용 복도 조명이 켜져 있는지 반환합니다.\n    \n    조건:\n    - 0시 ~ 5시 (6시보다 이르거나): 조명을 켭니다 (True)\n    - 6시 ~ 17시 (6시보다 늦고 18시보다 이르면): 조명을 끕니다 (False)\n    - 18시 ~ 23시 (18시보다 늦으면): 조명을 켭니다 (True)\n    \n    Args:\n        hour (int): 현재 시간 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있으면 True, 꺼져 있으면 False\n    \"\"\"\n    # 6시보다 이르거나 (0 <= hour < 6) 또는 18시보다 늦거나 (hour >= 18) 인 경우 True\n    # 6시보다 늦고 18시보다 이르면 (6 <= hour < 18) 인 경우 False\n    if 0 <= hour < 6 or hour >= 18:\n        return True\n    else:\n        return False\n\n# 테스트 코드 (주석 처리된 상태)\n# assert light_on(0) == True\n# assert light_on(5) == True\n# assert light_on(6) == False\n# assert light_on(17) == False\n# assert light_on(18) == True\n# assert light_on(23) == True\n\n# 미정 경로 처리\n# 특정 시간 입력 시 예외가 발생하거나 논리적 오류가 의심되는 경우\n# raise NotImplementedError(\"시간 범위를 벗어남: 0 <= hour <= 23 이어야 합니다.\")",
+    "original_questions": {
+      "Q1": "현재 시 (hour) 가 0 부터 23 까지 아닌 경우 (예: -1 또는 24) 에 대해 함수가 어떻게 처리해야 하는지 명확히 해주세요. 현재 코드는 이 범위를 벗어났을 때 NotImplementedError 를 발생시키도록 주석으로 처리되어 있지만, 요구사항에서 명시된 '0 부터 23 까지'라는 입력 제약 조건이 실제 함수 로직에 반영되어 있는지 확인이 필요합니다.",
+      "Q2": "현재 시 (hour) 가 0 부터 23 보다 벗어난 입력이 들어올 경우, 코드는 `NotImplementedError` 를 던지도록 처리하고 있으나, 실제 사용 환경에서 시간 입력이 유효하지 않은 값일 때 이를 어떻게 처리해야 할지 명확하지 않습니다.",
+      "Q3": "현재 시 (hour) 가 0 부터 23 까지 범위 밖 (예: -1 또는 24) 인 경우, 코드는 `NotImplementedError` 를 발생시키지만, 요구사항에 명시된 '6 시보다 이르거나 18 시보다 늦으면 켜고, 그 사이엔 끄는' 논리적 규칙이 적용되는지 명확하지 않습니다. 이 예외 처리가 의도된 보호 메커니즘인지, 아니면 논리적 오류를 감지하기 위한 것인지 확인 부탁드립니다."
+    },
+    "sent_questions": {
+      "light_on_invalid_hour_handling": "현재 시 (hour) 가 0 부터 23 까지 범위 밖인 경우, 함수가 `NotImplementedError` 를 발생시키는 것이 맞습니다.",
+      "light_on_valid_hour_logic": "현재 시 (hour) 가 0 부터 23 까지 범위 내인 경우, 6 시보다 이르거나 18 시보다 늦으면 조명을 켜고 그 사이엔 끄는 로직이 적용됩니다."
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "light_on_invalid_hour_handling": {
+        "key": "light_on_invalid_hour_handling",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 시 (hour) 가 0 부터 23 까지 범위 밖인 경우, 함수가 `NotImplementedError` 를 발생시키는 것이 맞습니다.",
+        "merged_from": [
+          {
+            "key": "light_on_invalid_hour_handling",
+            "kind": "decision",
+            "origin": "Q1",
+            "question": "현재 시 (hour) 가 0 부터 23 까지 범위 밖인 경우 함수가 NotImplementedError 를 발생시키는 것이 맞습니다."
+          },
+          {
+            "key": "light_on_exception_necessity",
+            "kind": "decision",
+            "origin": "Q2",
+            "question": "현재 시 (hour) 가 0 부터 23 보다 벗어난 입력이 들어올 경우 NotImplementedError 를 던지는 것이 맞습니다."
+          },
+          {
+            "key": "light_on_exception_reasoning",
+            "kind": "decision",
+            "origin": "Q3",
+            "question": "현재 시 (hour) 가 0 부터 23 까지 범위 밖인 경우 NotImplementedError 를 발생시키는 것은 보호 메커니즘입니다."
+          }
+        ]
+      },
+      "light_on_valid_hour_logic": {
+        "key": "light_on_valid_hour_logic",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 시 (hour) 가 0 부터 23 까지 범위 내인 경우, 6 시보다 이르거나 18 시보다 늦으면 조명을 켜고 그 사이엔 끄는 로직이 적용됩니다."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요.",
+      "P2": "입력은 0부터 23까지의 현재 시(hour)입니다.",
+      "P3": "6시보다 이르거나 18시보다 늦으면 조명을 켭니다.",
+      "P4": "6시보다 늦고 18시보다 이르면 켜지 않습니다.",
+      "P5": "True는 켜기, False는 끄기입니다."
+    },
+    "rules": [
+      {
+        "when": "hour < 0",
+        "then": "light_on_invalid_hour_handling",
+        "source": "Q1"
+      },
+      {
+        "when": "hour >= 0",
+        "then": "light_on_valid_hour_logic",
+        "source": "Q1"
+      },
+      {
+        "when": "hour >= 0",
+        "then": "True",
+        "source": "P1"
+      },
+      {
+        "when": "hour < 6",
+        "then": "True",
+        "source": "P3"
+      },
+      {
+        "when": "hour >= 6",
+        "then": "False",
+        "source": "P4"
+      },
+      {
+        "when": "hour >= 18",
+        "then": "True",
+        "source": "P3"
+      },
+      {
+        "when": "hour < 18",
+        "then": "False",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "hour"
+    ],
+    "mode": "integer",
+    "calls": [
+      "cd1a1fbbeb5821e1296bf2cf1974518041f3034d47f3c6c475ec7cb1d6fd9efa",
+      "054a6cb13095d1ce85ea23c942927c1fc36c71f4728cbb0830093e7e2d6c6e5b",
+      "6b9b19a98a3bfad6bce18e94b612e31de1f949add3dfd244cf09e61243a056bd"
+    ]
+  }
+}

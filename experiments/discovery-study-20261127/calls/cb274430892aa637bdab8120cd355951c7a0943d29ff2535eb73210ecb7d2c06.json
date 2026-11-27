@@ -1,0 +1,160 @@
+{
+  "text": "{\n  \"decision_conditions\": {\n    \"suggest_break_50_boundary\": \"minutes == 50\",\n    \"suggest_break_180_boundary\": \"minutes == 180\"\n  },\n  \"public_rules\": [\n    {\n      \"when\": \"minutes < 50\",\n      \"then\": \"False\",\n      \"source\": \"P3\"\n    },\n    {\n      \"when\": \"50 < minutes < 180\",\n      \"then\": \"True\",\n      \"source\": \"P4\"\n    },\n    {\n      \"when\": \"minutes > 180\",\n      \"then\": \"False\",\n      \"source\": \"P5\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 170,
+    "prompt_tokens": 443,
+    "total_tokens": 613,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 316,
+    "prompt_ms": 452.934,
+    "prompt_per_token_ms": 1.4333354430379748,
+    "prompt_per_second": 697.6733917082843,
+    "predicted_n": 170,
+    "predicted_ms": 2747.372,
+    "predicted_per_token_ms": 16.256639053254435,
+    "predicted_per_second": 61.51332982937877
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.21,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"회의 일정에 휴식 제안을 붙일지 정하는 suggest_break(minutes: int) -> bool 함수를 작성하세요.\",\"P2\":\"입력은 회의 길이(분)입니다.\",\"P3\":\"50분이 안 되는 회의에는 휴식을 제안하지 않습니다.\",\"P4\":\"50분을 넘고 180분이 안 되는 회의에는 제안합니다.\",\"P5\":\"180분을 넘는 회의는 분할 안내를 따로 보내므로 휴식을 제안하지 않습니다.\",\"P6\":\"True는 제안, False는 제안 안 함입니다.\"},\"decisions\":{\"suggest_break_50_boundary\":{\"key\":\"suggest_break_50_boundary\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"50 분 회의에 대해 휴식 제안을 할지 말지 결정하시오.\"},\"suggest_break_180_boundary\":{\"key\":\"suggest_break_180_boundary\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"180 분 회의에 대해 휴식 제안을 할지 말지 결정하시오.\"}},\"input_conditions\":[\"minutes == 50\",\"minutes < 50\",\"minutes > 50\",\"minutes <= 50\",\"minutes >= 50\",\"minutes == 180\",\"minutes < 180\",\"minutes > 180\",\"minutes <= 180\",\"minutes >= 180\",\"50 < minutes < 180\",\"180 < minutes < 50\"]}"
+      }
+    ],
+    "seed": 1127,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "suggest_break_50_boundary": {
+                  "type": "string",
+                  "enum": [
+                    "minutes == 50",
+                    "minutes < 50",
+                    "minutes > 50",
+                    "minutes <= 50",
+                    "minutes >= 50",
+                    "minutes == 180",
+                    "minutes < 180",
+                    "minutes > 180",
+                    "minutes <= 180",
+                    "minutes >= 180",
+                    "50 < minutes < 180",
+                    "180 < minutes < 50"
+                  ]
+                },
+                "suggest_break_180_boundary": {
+                  "type": "string",
+                  "enum": [
+                    "minutes == 50",
+                    "minutes < 50",
+                    "minutes > 50",
+                    "minutes <= 50",
+                    "minutes >= 50",
+                    "minutes == 180",
+                    "minutes < 180",
+                    "minutes > 180",
+                    "minutes <= 180",
+                    "minutes >= 180",
+                    "50 < minutes < 180",
+                    "180 < minutes < 50"
+                  ]
+                }
+              },
+              "required": [
+                "suggest_break_50_boundary",
+                "suggest_break_180_boundary"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "minutes == 50",
+                      "minutes < 50",
+                      "minutes > 50",
+                      "minutes <= 50",
+                      "minutes >= 50",
+                      "minutes == 180",
+                      "minutes < 180",
+                      "minutes > 180",
+                      "minutes <= 180",
+                      "minutes >= 180",
+                      "50 < minutes < 180",
+                      "180 < minutes < 50"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4",
+                      "P5",
+                      "P6"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

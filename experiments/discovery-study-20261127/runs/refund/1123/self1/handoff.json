@@ -1,0 +1,10 @@
+{
+  "brief": "반품 배송비를 환불할지 정하는 refund_shipping(defect_reported: bool, within_period: bool) -> bool 함수를 작성하세요. 불량 신고가 있고 반품 기간 안이면 배송비를 환불합니다. 불량 신고도 없고 반품 기간도 지났으면 환불하지 않습니다. True는 환불, False는 환불 안 함입니다.",
+  "code": "def refund_shipping(defect_reported: bool, within_period: bool) -> bool:\n    \"\"\"\n    반품 배송비 환불 여부를 결정하는 함수.\n    \n    로직:\n    - 불량 신고가 있고 (defect_reported=True) AND 반품 기간 안이면 (within_period=True) -> 환불 (True)\n    - 불량 신고도 없고 반품 기간도 지났으면 -> 환불 안 함 (False)\n    \n    주의: 문제 설명에 \"불량 신고가 있고 반품 기간 안이면\"이라고 명시되어 있으나,\n    일반적인 반품 정책과 함께 \"불량 신고가 없고 반품 기간 안이면\"도 환불되는 경우가 많으나,\n    제시된 조건문만 엄격히 해석하여 구현합니다.\n    \n    Args:\n        defect_reported (bool): 불량 신고 여부\n        within_period (bool): 반품 기간 내 여부\n    \n    Returns:\n        bool: 환불 여부 (True: 환불, False: 환불 안 함)\n    \"\"\"\n    if defect_reported and within_period:\n        return True\n    else:\n        return False",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "86346122e97c61ec5a45e026d622a1a55a47d69daf5ee8113a4871ccc8f3495e",
+    "57fddbc6083c41565f1b17c47e4c507584c42f42beef25a678cb8914c76d8ec1"
+  ]
+}

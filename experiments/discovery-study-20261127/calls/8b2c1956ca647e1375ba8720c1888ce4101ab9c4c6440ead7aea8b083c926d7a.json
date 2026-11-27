@@ -1,0 +1,371 @@
+{
+  "text": "{\"decision_conditions\":{\"test_case_hour_6\":\"hour == 6\",\"test_case_hour_18\":\"hour == 18\",\"test_case_hour_6_false\":\"hour == 6\",\"test_case_hour_18_true\":\"hour == 18\",\"test_case_hour_6_behavior\":\"hour == 6\",\"test_case_hour_18_behavior\":\"hour == 18\"},\"public_rules\":[{\"when\":\"hour == 6\",\"then\":\"True\",\"source\":\"P3\"},{\"when\":\"hour == 18\",\"then\":\"True\",\"source\":\"P3\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 118,
+    "prompt_tokens": 765,
+    "total_tokens": 883,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 638,
+    "prompt_ms": 889.149,
+    "prompt_per_token_ms": 1.3936504702194357,
+    "prompt_per_second": 717.5400298487655,
+    "predicted_n": 118,
+    "predicted_ms": 1927.031,
+    "predicted_per_token_ms": 16.47035042735043,
+    "predicted_per_second": 60.71516234040864
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.83,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요.\",\"P2\":\"입력은 0부터 23까지의 현재 시(hour)입니다.\",\"P3\":\"6시보다 이르거나 18시보다 늦으면 조명을 켭니다.\",\"P4\":\"6시보다 늦고 18시보다 이르면 켜지 않습니다.\",\"P5\":\"True는 켜기, False는 끄기입니다.\"},\"decisions\":{\"test_case_hour_6\":{\"key\":\"test_case_hour_6\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"6 시 (hour=6) 에 대해 light_on 함수가 True 를 반환하는 것이 맞습니다.\"},\"test_case_hour_18\":{\"key\":\"test_case_hour_18\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"18 시 (hour=18) 에 대해 light_on 함수가 True 를 반환하는 것이 맞습니다.\"},\"test_case_hour_6_false\":{\"key\":\"test_case_hour_6_false\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"6 시 (hour=6) 에 대해 light_on 함수가 False 를 반환하는 것이 맞습니다.\"},\"test_case_hour_18_true\":{\"key\":\"test_case_hour_18_true\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"18 시 (hour=18) 에 대해 light_on 함수가 True 를 반환하는 것이 맞습니다.\"},\"test_case_hour_6_behavior\":{\"key\":\"test_case_hour_6_behavior\",\"kind\":\"decision\",\"origin\":\"Q3\",\"question\":\"6 시 (hour=6) 에 대해 light_on 함수가 True 를 반환하는 것이 맞습니다.\"},\"test_case_hour_18_behavior\":{\"key\":\"test_case_hour_18_behavior\",\"kind\":\"decision\",\"origin\":\"Q3\",\"question\":\"18 시 (hour=18) 에 대해 light_on 함수가 True 를 반환하는 것이 맞습니다.\"}},\"input_conditions\":[\"hour == 0\",\"hour < 0\",\"hour > 0\",\"hour <= 0\",\"hour >= 0\",\"hour == 6\",\"hour < 6\",\"hour > 6\",\"hour <= 6\",\"hour >= 6\",\"hour == 18\",\"hour < 18\",\"hour > 18\",\"hour <= 18\",\"hour >= 18\",\"hour == 23\",\"hour < 23\",\"hour > 23\",\"hour <= 23\",\"hour >= 23\",\"0 < hour < 6\",\"0 < hour < 18\",\"0 < hour < 23\",\"6 < hour < 0\",\"6 < hour < 18\",\"6 < hour < 23\",\"18 < hour < 0\",\"18 < hour < 6\",\"18 < hour < 23\",\"23 < hour < 0\",\"23 < hour < 6\",\"23 < hour < 18\"]}"
+      }
+    ],
+    "seed": 1113,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "test_case_hour_6": {
+                  "type": "string",
+                  "enum": [
+                    "hour == 0",
+                    "hour < 0",
+                    "hour > 0",
+                    "hour <= 0",
+                    "hour >= 0",
+                    "hour == 6",
+                    "hour < 6",
+                    "hour > 6",
+                    "hour <= 6",
+                    "hour >= 6",
+                    "hour == 18",
+                    "hour < 18",
+                    "hour > 18",
+                    "hour <= 18",
+                    "hour >= 18",
+                    "hour == 23",
+                    "hour < 23",
+                    "hour > 23",
+                    "hour <= 23",
+                    "hour >= 23",
+                    "0 < hour < 6",
+                    "0 < hour < 18",
+                    "0 < hour < 23",
+                    "6 < hour < 0",
+                    "6 < hour < 18",
+                    "6 < hour < 23",
+                    "18 < hour < 0",
+                    "18 < hour < 6",
+                    "18 < hour < 23",
+                    "23 < hour < 0",
+                    "23 < hour < 6",
+                    "23 < hour < 18"
+                  ]
+                },
+                "test_case_hour_18": {
+                  "type": "string",
+                  "enum": [
+                    "hour == 0",
+                    "hour < 0",
+                    "hour > 0",
+                    "hour <= 0",
+                    "hour >= 0",
+                    "hour == 6",
+                    "hour < 6",
+                    "hour > 6",
+                    "hour <= 6",
+                    "hour >= 6",
+                    "hour == 18",
+                    "hour < 18",
+                    "hour > 18",
+                    "hour <= 18",
+                    "hour >= 18",
+                    "hour == 23",
+                    "hour < 23",
+                    "hour > 23",
+                    "hour <= 23",
+                    "hour >= 23",
+                    "0 < hour < 6",
+                    "0 < hour < 18",
+                    "0 < hour < 23",
+                    "6 < hour < 0",
+                    "6 < hour < 18",
+                    "6 < hour < 23",
+                    "18 < hour < 0",
+                    "18 < hour < 6",
+                    "18 < hour < 23",
+                    "23 < hour < 0",
+                    "23 < hour < 6",
+                    "23 < hour < 18"
+                  ]
+                },
+                "test_case_hour_6_false": {
+                  "type": "string",
+                  "enum": [
+                    "hour == 0",
+                    "hour < 0",
+                    "hour > 0",
+                    "hour <= 0",
+                    "hour >= 0",
+                    "hour == 6",
+                    "hour < 6",
+                    "hour > 6",
+                    "hour <= 6",
+                    "hour >= 6",
+                    "hour == 18",
+                    "hour < 18",
+                    "hour > 18",
+                    "hour <= 18",
+                    "hour >= 18",
+                    "hour == 23",
+                    "hour < 23",
+                    "hour > 23",
+                    "hour <= 23",
+                    "hour >= 23",
+                    "0 < hour < 6",
+                    "0 < hour < 18",
+                    "0 < hour < 23",
+                    "6 < hour < 0",
+                    "6 < hour < 18",
+                    "6 < hour < 23",
+                    "18 < hour < 0",
+                    "18 < hour < 6",
+                    "18 < hour < 23",
+                    "23 < hour < 0",
+                    "23 < hour < 6",
+                    "23 < hour < 18"
+                  ]
+                },
+                "test_case_hour_18_true": {
+                  "type": "string",
+                  "enum": [
+                    "hour == 0",
+                    "hour < 0",
+                    "hour > 0",
+                    "hour <= 0",
+                    "hour >= 0",
+                    "hour == 6",
+                    "hour < 6",
+                    "hour > 6",
+                    "hour <= 6",
+                    "hour >= 6",
+                    "hour == 18",
+                    "hour < 18",
+                    "hour > 18",
+                    "hour <= 18",
+                    "hour >= 18",
+                    "hour == 23",
+                    "hour < 23",
+                    "hour > 23",
+                    "hour <= 23",
+                    "hour >= 23",
+                    "0 < hour < 6",
+                    "0 < hour < 18",
+                    "0 < hour < 23",
+                    "6 < hour < 0",
+                    "6 < hour < 18",
+                    "6 < hour < 23",
+                    "18 < hour < 0",
+                    "18 < hour < 6",
+                    "18 < hour < 23",
+                    "23 < hour < 0",
+                    "23 < hour < 6",
+                    "23 < hour < 18"
+                  ]
+                },
+                "test_case_hour_6_behavior": {
+                  "type": "string",
+                  "enum": [
+                    "hour == 0",
+                    "hour < 0",
+                    "hour > 0",
+                    "hour <= 0",
+                    "hour >= 0",
+                    "hour == 6",
+                    "hour < 6",
+                    "hour > 6",
+                    "hour <= 6",
+                    "hour >= 6",
+                    "hour == 18",
+                    "hour < 18",
+                    "hour > 18",
+                    "hour <= 18",
+                    "hour >= 18",
+                    "hour == 23",
+                    "hour < 23",
+                    "hour > 23",
+                    "hour <= 23",
+                    "hour >= 23",
+                    "0 < hour < 6",
+                    "0 < hour < 18",
+                    "0 < hour < 23",
+                    "6 < hour < 0",
+                    "6 < hour < 18",
+                    "6 < hour < 23",
+                    "18 < hour < 0",
+                    "18 < hour < 6",
+                    "18 < hour < 23",
+                    "23 < hour < 0",
+                    "23 < hour < 6",
+                    "23 < hour < 18"
+                  ]
+                },
+                "test_case_hour_18_behavior": {
+                  "type": "string",
+                  "enum": [
+                    "hour == 0",
+                    "hour < 0",
+                    "hour > 0",
+                    "hour <= 0",
+                    "hour >= 0",
+                    "hour == 6",
+                    "hour < 6",
+                    "hour > 6",
+                    "hour <= 6",
+                    "hour >= 6",
+                    "hour == 18",
+                    "hour < 18",
+                    "hour > 18",
+                    "hour <= 18",
+                    "hour >= 18",
+                    "hour == 23",
+                    "hour < 23",
+                    "hour > 23",
+                    "hour <= 23",
+                    "hour >= 23",
+                    "0 < hour < 6",
+                    "0 < hour < 18",
+                    "0 < hour < 23",
+                    "6 < hour < 0",
+                    "6 < hour < 18",
+                    "6 < hour < 23",
+                    "18 < hour < 0",
+                    "18 < hour < 6",
+                    "18 < hour < 23",
+                    "23 < hour < 0",
+                    "23 < hour < 6",
+                    "23 < hour < 18"
+                  ]
+                }
+              },
+              "required": [
+                "test_case_hour_6",
+                "test_case_hour_18",
+                "test_case_hour_6_false",
+                "test_case_hour_18_true",
+                "test_case_hour_6_behavior",
+                "test_case_hour_18_behavior"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "hour == 0",
+                      "hour < 0",
+                      "hour > 0",
+                      "hour <= 0",
+                      "hour >= 0",
+                      "hour == 6",
+                      "hour < 6",
+                      "hour > 6",
+                      "hour <= 6",
+                      "hour >= 6",
+                      "hour == 18",
+                      "hour < 18",
+                      "hour > 18",
+                      "hour <= 18",
+                      "hour >= 18",
+                      "hour == 23",
+                      "hour < 23",
+                      "hour > 23",
+                      "hour <= 23",
+                      "hour >= 23",
+                      "0 < hour < 6",
+                      "0 < hour < 18",
+                      "0 < hour < 23",
+                      "6 < hour < 0",
+                      "6 < hour < 18",
+                      "6 < hour < 23",
+                      "18 < hour < 0",
+                      "18 < hour < 6",
+                      "18 < hour < 23",
+                      "23 < hour < 0",
+                      "23 < hour < 6",
+                      "23 < hour < 18"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4",
+                      "P5"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

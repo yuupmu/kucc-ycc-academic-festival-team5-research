@@ -1,0 +1,205 @@
+{
+  "note": "Model-free equivalence proof: this runner's handoff reproduces festival-validation's committed handoffs.\n\nUses a temporary copy of festival-validation-20261127/calls/ as the cache and a generator that raises on any\nnew model call. Arms self1/ind1/split3 are compared with festival modes self/one/three on papers/cover x 941/967/991.\nThe full prepare() (agenda stage) is replayed too and its prepared.json compared, as an extra check.",
+  "compared": 18,
+  "handoff_matched": 18,
+  "prepared_matched": 17,
+  "prepared_matched_current_ledger": 18,
+  "agenda_compared": 10,
+  "agenda_matched": 10,
+  "new_calls": 0,
+  "rows": [
+    {
+      "task": "papers",
+      "seed": 941,
+      "arm": "self1",
+      "reference": "experiments/festival-validation-20261127/runs/papers/941/self",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_question"
+    },
+    {
+      "task": "papers",
+      "seed": 941,
+      "arm": "ind1",
+      "reference": "experiments/festival-validation-20261127/runs/papers/941/one",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_question"
+    },
+    {
+      "task": "papers",
+      "seed": 941,
+      "arm": "split3",
+      "reference": "experiments/festival-validation-20261127/runs/papers/941/three",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "papers",
+      "seed": 967,
+      "arm": "self1",
+      "reference": "experiments/festival-validation-20261127/runs/papers/967/self",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_question"
+    },
+    {
+      "task": "papers",
+      "seed": 967,
+      "arm": "ind1",
+      "reference": "experiments/festival-validation-20261127/runs/papers/967/one",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_question"
+    },
+    {
+      "task": "papers",
+      "seed": 967,
+      "arm": "split3",
+      "reference": "experiments/festival-validation-20261127/runs/papers/967/three",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "papers",
+      "seed": 991,
+      "arm": "self1",
+      "reference": "experiments/festival-validation-20261127/runs/papers/991/self",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_question"
+    },
+    {
+      "task": "papers",
+      "seed": 991,
+      "arm": "ind1",
+      "reference": "experiments/festival-validation-20261127/runs/papers/991/one",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "papers",
+      "seed": 991,
+      "arm": "split3",
+      "reference": "experiments/festival-validation-20261127/runs/papers/991/three",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "cover",
+      "seed": 941,
+      "arm": "self1",
+      "reference": "experiments/festival-validation-20261127/runs/cover/941/self",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_question"
+    },
+    {
+      "task": "cover",
+      "seed": 941,
+      "arm": "ind1",
+      "reference": "experiments/festival-validation-20261127/runs/cover/941/one",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "cover",
+      "seed": 941,
+      "arm": "split3",
+      "reference": "experiments/festival-validation-20261127/runs/cover/941/three",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": false,
+      "status": "ready",
+      "supplement_reference": "experiments/festival-validation-20261127/supplement/runs/cover/941/three",
+      "prepared_equal_supplement": true,
+      "agenda_equal_supplement": true
+    },
+    {
+      "task": "cover",
+      "seed": 967,
+      "arm": "self1",
+      "reference": "experiments/festival-validation-20261127/runs/cover/967/self",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "cover",
+      "seed": 967,
+      "arm": "ind1",
+      "reference": "experiments/festival-validation-20261127/runs/cover/967/one",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "cover",
+      "seed": 967,
+      "arm": "split3",
+      "reference": "experiments/festival-validation-20261127/runs/cover/967/three",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "cover",
+      "seed": 991,
+      "arm": "self1",
+      "reference": "experiments/festival-validation-20261127/runs/cover/991/self",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_question"
+    },
+    {
+      "task": "cover",
+      "seed": 991,
+      "arm": "ind1",
+      "reference": "experiments/festival-validation-20261127/runs/cover/991/one",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "ready",
+      "agenda_equal": true
+    },
+    {
+      "task": "cover",
+      "seed": 991,
+      "arm": "split3",
+      "reference": "experiments/festival-validation-20261127/runs/cover/991/three",
+      "handoff_equal": true,
+      "stored_handoff_equal": true,
+      "prepared_equal": true,
+      "status": "no_open_decisions",
+      "agenda_equal": true
+    }
+  ]
+}
