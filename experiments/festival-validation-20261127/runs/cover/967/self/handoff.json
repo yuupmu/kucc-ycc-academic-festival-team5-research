@@ -1,0 +1,13 @@
+{
+  "brief": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요. 집중 보기 신호만 들어오면 큰 표지를 사용합니다. 데이터 절약 신호만 들어오면 작은 표지를 사용합니다. True는 큰 표지, False는 작은 표지입니다.",
+  "code": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다\n    if focus:\n        return True\n    \n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다\n    # focus 가 False 이고 save_data 가 True 인 경우만 작은 표지 사용\n    if save_data:\n        return False\n    \n    # 미정인 경우: 두 신호가 모두 False 인 경우\n    # 문제 설명에 따르면 \"집중 보기 신호만\" 또는 \"데이터 절약 신호만\" 이라는 조건이 명시되어 있으며,\n    # 두 신호가 모두 False 인 경우의 로직은 제공되지 않았으므로 NotImplementedError 를 사용합니다.\n    raise NotImplementedError(\"Both focus and save_data are False. Logic not specified.\")",
+  "questions": [
+    "두 신호가 모두 True인 경우 (집중 보기 와 데이터 절약이 동시에 활성화된 경우) 에 대한 로직이 명시되어 있지 않습니다. 이 경우 큰 표지 (True) 를 사용해야 하는지, 아니면 데이터 절약 우선 (False) 로 처리해야 하는지 담당자에게 확인을 요청해야 합니다.",
+    "두 신호가 모두 False인 경우 (두 신호가 모두 꺼진 경우) 에 대한 로직이 명시되어 있지 않습니다. 이 경우 기본값 (예: 큰 표지 사용) 을 적용해야 하는지, 아니면 예외 처리 (NotImplementedError) 를 유지해야 하는지 담당자에게 확인을 요청해야 합니다."
+  ],
+  "review": [],
+  "calls": [
+    "1b8764dac1c3bd6fb6421ff6f0aa2797503e6e997b47d2f5ea610f5ec8fd5e7f",
+    "7028fb610a95d777cd41d42358fd9a23fed30e4727a8928a5d9f47c4414df8eb"
+  ]
+}

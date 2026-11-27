@@ -14,7 +14,7 @@ from experiments.scoped_transfer_v2 import DRAFT, REVIEW
 REVIEWERS=(MODEL,'var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf','var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf')
 
 
-def handoff(project,ask,base_seed=263):
+def handoff(project,ask,base_seed=263,mode="mixed"):
     calls,questions,issues=[],[],[]
     key,draft=ask(MODEL,'main',DRAFT,project,obj({'code':STRING}),base_seed,1100)
     if not draft:
@@ -22,10 +22,19 @@ def handoff(project,ask,base_seed=263):
     calls.append(key)
     source=draft['code']
     compile(source,'solution.py','exec')
-    for i,(model,view) in enumerate(zip(REVIEWERS,VIEWS)):
-        key,resp=ask(model,'observer-'+'ABC'[i],'당신은 독립 감시자입니다. '+view+REVIEW,
-                     dict(brief=project['brief'],code=source,dialogue=[]),
-                     obj({'questions':array(STRING,0,1),'issue':STRING}),base_seed+10+i,1100)
+    if mode in ('self', 'one'):
+        assignments = [(MODEL, ' 및 '.join(VIEWS))]
+    else:
+        assignments = list(zip(REVIEWERS if mode == 'mixed' else (MODEL,)*3, VIEWS))
+    for i,(model,view) in enumerate(assignments):
+        packet = dict(brief=project['brief'],code=source,dialogue=[])
+        role, intro = 'observer-'+'ABC'[i], '당신은 독립 감시자입니다. '
+        if mode == 'self':
+            role, intro = 'main-review', '당신이 방금 작성한 초안을 스스로 검토하세요. '
+            packet['draft_context'] = dict(instruction=DRAFT, original_request=project)
+        key,resp=ask(model,role,intro+view+REVIEW,packet,
+                     obj({'questions':array(STRING,0,3 if mode in ('self','one') else 1),'issue':STRING}),
+                     base_seed+10+i,1100)
         calls.append(key)
         if resp:
             questions.extend(q.strip() for q in resp['questions'] if q.strip())
@@ -38,6 +47,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('project')
     p.add_argument('out',type=Path)
+    p.add_argument('--mode',choices=('mixed','self','one','three'),default='mixed')
     p.add_argument('--port',type=int,default=18984)
     p.add_argument('--seed',type=int,default=263)
     args=p.parse_args()
@@ -56,7 +66,7 @@ def main():
             return recorded(file,role,system,user,seed,cap,port,fmt,model)
         def ask(model,role,prompt,packet,fmt,seed,cap):
             return call_model(args.out,{'model':model},role,prompt,packet,fmt,seed,cap,args.port,invoke=invoke)
-        packet=handoff(project,ask,args.seed)
+        packet=handoff(project,ask,args.seed,args.mode)
         freeze(args.out/'handoff.json',packet)
         if packet['questions']:
             agenda=open_ticket(args.out,packet,lambda role,prompt,payload,fmt,cap:

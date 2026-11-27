@@ -1,0 +1,72 @@
+{
+  "text": "{\n  \"kind\": \"일반의견\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 92,
+    "total_tokens": 106,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 92,
+    "prompt_ms": 171.37,
+    "prompt_per_token_ms": 1.8627173913043478,
+    "prompt_per_second": 536.8500904475696,
+    "predicted_n": 14,
+    "predicted_ms": 193.901,
+    "predicted_per_token_ms": 14.915461538461539,
+    "predicted_per_second": 67.04452272035729
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.37,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문을 읽고 답의 종류를 분류하세요. 숫자를 실제로 요구하면 정수값, 특정 상황의 실행 여부를 요구하면 행동결정, 그 밖에 일반적인 의견·예상 문제를 물으면 일반의견입니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"question\":\"spoiler 가 True 일 때 항상 발췌문을 숨기는 이유와 그 근거를 설명해 주세요.\"}"
+      }
+    ],
+    "seed": 917,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 70,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "정수값",
+                "행동결정",
+                "일반의견"
+              ]
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "question-answer-type"
+}

@@ -1,0 +1,69 @@
+{
+  "handoff": "33946f15cc653f595963934cdb06f8454172682ee0dbdc15fb9cc67002ef1990",
+  "digest": "07c75a5daa7696aaf0f6b678f09ed38b3f8ca45b8f4bb3be84f6f02de4855abf",
+  "agenda": {
+    "brief": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요. 집중 보기 신호만 들어오면 큰 표지를 사용합니다. 데이터 절약 신호만 들어오면 작은 표지를 사용합니다. True는 큰 표지, False는 작은 표지입니다.",
+    "code": "def large_cover(focus: bool, save_data: bool) -> bool:\n    raise NotImplementedError\n",
+    "editing_base": "def large_cover(focus: bool, save_data: bool) -> bool:\n    raise NotImplementedError\n",
+    "original_questions": {
+      "Q1": "집중 보기와 데이터 절약이 모두 켜졌을 때 큰 표지를 사용하나요?",
+      "Q2": "집중 보기와 데이터 절약이 모두 꺼졌을 때 큰 표지를 사용하나요?"
+    },
+    "sent_questions": {
+      "Q1": "집중 보기와 데이터 절약이 모두 켜졌을 때 큰 표지를 사용하나요?",
+      "Q2": "집중 보기와 데이터 절약이 모두 꺼졌을 때 큰 표지를 사용하나요?"
+    },
+    "review": [],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:2:4"
+      ],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "large_cover_both_on": {
+        "key": "large_cover_both_on",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "집중 보기와 데이터 절약이 모두 켜졌을 때 큰 표지를 사용하나요?"
+      },
+      "large_cover_both_off": {
+        "key": "large_cover_both_off",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "집중 보기와 데이터 절약이 모두 꺼졌을 때 큰 표지를 사용하나요?"
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요.",
+      "P2": "집중 보기 신호만 들어오면 큰 표지를 사용합니다.",
+      "P3": "데이터 절약 신호만 들어오면 작은 표지를 사용합니다.",
+      "P4": "True는 큰 표지, False는 작은 표지입니다."
+    },
+    "rules": [
+      {
+        "when": "focus and save_data",
+        "then": "large_cover_both_on",
+        "source": "Q1"
+      },
+      {
+        "when": "not focus and not save_data",
+        "then": "large_cover_both_off",
+        "source": "Q2"
+      }
+    ],
+    "names": [
+      "focus",
+      "save_data"
+    ],
+    "mode": "flags",
+    "calls": [
+      "c3bd8b79eabd20e9b4a853f48022de5b1acec21717a69d069c55b28c6351e2ee",
+      "a335801a609354973933896da14eb8a44fd9062aaf554f32e2ef0b1cc9ec213a"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "status": "stopped_before_owner_contact",
+  "seeds": {
+    "draft": 907,
+    "receipt_planned": 917
+  },
+  "preregistered_tasks": 1,
+  "qualifying_proposals": {
+    "confirmed_at_least": [
+      "observer-A",
+      "observer-C"
+    ],
+    "basis": "A and C explicitly ask about the case where both flags are true; B also mentions precedence when challenging a draft assumption. No question was sent."
+  },
+  "original_review_questions": [
+    "문제 설명에서 '추천 표시만 있으면 표시하고, 스포일러 표시만 있으면 숨깁니다'라고 명시된 조건은 서로 배타적인 상황 (featured=True, spoiler=False) 과 (featured=False, spoiler=True) 을 가정하고 설명한 것으로 보입니다. 그러나 두 조건이 동시에 참인 경우 (featured=True, spoiler=True) 에 대한 명시적 규칙이 누락되어 있습니다. 이 경우 스포일러가 우선하여 숨김 (False) 을 적용할지, 아니면 추천 표시가 우선하여 표시 (True) 를 적용할지 담당자에게 확인 부탁드립니다.",
+    "show_excerpt 함수에서 compact가 True일 때 항상 False를 반환하는 것은 명확하게 설명되어 있습니다. 하지만 spoiler가 True일 때 항상 False를 반환하는 이유를 좀 더 자세히 설명해주실 수 있나요? 특히, 'spoiler가 featured를 덮는다고 가정'한다는 설명과 함께, 이 가정의 근거가 무엇인지 궁금합니다.",
+    "spoiler와featured가 동시에 참인 경우의 행동을 명시하지 않았습니다. 이 상황에서 코드를 수정하여 두 조건이 동시에 참인 경우에도 스포일러가 우선하여 False를 반환하도록 요청할 때, 그럴까요?"
+  ],
+  "sent_owner_questions": 0,
+  "received_owner_answers": 0,
+  "sealed_final_programs": 0,
+  "end_to_end_success": {
+    "met": 0,
+    "planned": 1
+  },
+  "paired_behavior_correct": null,
+  "off_target_preserved": null,
+  "rule_attempts": 2,
+  "last_validation_error": "Two different action slots selected the identical input condition",
+  "conflicting_slots": {
+    "spoiler_precedence": "featured and spoiler and not compact",
+    "featured_spoiler_both_true": "featured and spoiler and not compact"
+  },
+  "runtime_error": "ValueError: public-decision-rules: two invalid records",
+  "usage": {
+    "calls": 8,
+    "prompt_tokens": 4253,
+    "completion_tokens": 1658,
+    "total_tokens": 5911
+  },
+  "design_seal_sha256": "11d82063e52ff1543850469bc26554f5dd0705bfe04db30f876b6735b9818187",
+  "handoff_sha256": "760f1741e8617ae8754257c81429e3cb3c68c729ab06d890d2418184fd817c79",
+  "calls_sha256": {
+    "5c17c615a426c06ca5deb1fe2835061880043baa0cfe1820067e5b1f062e0d09": "9a38058f684cbc56377967547b171cef777678c26549c198f38a3488f4401efd",
+    "8d0c93dcf02311f219ffc65730b3269124f32c68dd55b42547a6218514e6c31e": "a7205942ae6259d4a88d79241bf38829371c6c513a4c21fdb4ecbc325f25bef1",
+    "9bae2f6217320163b38bd2b69e97582f64a7cdb8055668d75adf4c9fbffbe75d": "c3bf3acf3a2ec5b5198fb80fa72d104333cb88a2c855157ab7a5157b1a4a7ad4",
+    "c2ebd9c06c47f26b8e591056ce25308f23ff76d8ab542f200d4b805b4e098f30": "05f14276270a3bb954530f1146a1af188a342fe2d1ee69ce346ff3e6be8ce20e",
+    "d98b88ef6b30200b0971c6a92dfd1a52948f955bf0b009d2c7b28a6137950e53": "bad7a0110dd4dd45407aa52e8e76975ac4690dacbe17f826785339ac17cebb3c",
+    "dcf0653b9d32a8ac0dbde4cdde8840719f2b88cf9d43674279a03b3e181217a9": "c7ccd17b9b661dbaf7fb8dcdb4ffcb01336b58c647ff0bbd8c0cd504e472ecd8",
+    "e03affe618442bc065be65bbfd584bd69fef6e5dd7b7329cf014492fde70ca8b": "c1e22ced2c7d5991addf31c5c13afb86c8a7e81d2f6cad441fe2ed284245a995",
+    "ed646bb2195633865f8ed4bdee91a78556e9ab86983dbacc80eae4a2860c33e8": "16e9db9090dca33f83100d94bb8618d223c384e0747813fc2269a1b5a137202c"
+  }
+}

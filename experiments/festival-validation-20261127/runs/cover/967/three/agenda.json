@@ -1,0 +1,91 @@
+{
+  "handoff": "c897d599877e254420be0458650c40acce8a62b401574c046ed65b6dde73f586",
+  "digest": "cb9c77d0bcf559a37974f332e59b4f002b1517cb79eb31e29877aae52c51d30f",
+  "agenda": {
+    "brief": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요. 집중 보기 신호만 들어오면 큰 표지를 사용합니다. 데이터 절약 신호만 들어오면 작은 표지를 사용합니다. True는 큰 표지, False는 작은 표지입니다.",
+    "code": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다\n    if focus:\n        return True\n    \n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다\n    # focus 가 False 이고 save_data 가 True 인 경우만 작은 표지 사용\n    if save_data:\n        return False\n    \n    # 미정인 경우: 두 신호가 모두 False 인 경우\n    # 문제 설명에 따르면 \"집중 보기 신호만\" 또는 \"데이터 절약 신호만\" 이라는 조건이 명시되어 있으며,\n    # 두 신호가 모두 False 인 경우의 로직은 제공되지 않았으므로 NotImplementedError 를 사용합니다.\n    raise NotImplementedError(\"Both focus and save_data are False. Logic not specified.\")",
+    "editing_base": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다\n    if focus:\n        return True\n    \n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다\n    # focus 가 False 이고 save_data 가 True 인 경우만 작은 표지 사용\n    if save_data:\n        raise NotImplementedError(\"both_signals_false_use_small_cover\")\n    \n    # 미정인 경우: 두 신호가 모두 False 인 경우\n    # 문제 설명에 따르면 \"집중 보기 신호만\" 또는 \"데이터 절약 신호만\" 이라는 조건이 명시되어 있으며,\n    # 두 신호가 모두 False 인 경우의 로직은 제공되지 않았으므로 NotImplementedError 를 사용합니다.\n    raise NotImplementedError(\"Both focus and save_data are False. Logic not specified.\")",
+    "original_questions": {
+      "Q1": "두 신호가 모두 False 인 경우의 로직이 명시되지 않았으므로 NotImplementedError 를 사용했지만, 이 경우에도 작은 표지를 사용해야 하는지 확인해 주세요.",
+      "Q2": "두 신호가 모두 False 인 경우 (집중 보기도 안 하고 데이터 절약도 안 하는 경우) 에 대해 로직을 어떻게 처리해야 할지 명확히 해주세요.",
+      "Q3": "두 신호 (focus, save_data) 가 모두 False 인 경우, 큰 표지 (True) 를 사용해야 하는지 아니면 작은 표지 (False) 를 사용해야 하는지 명확히 해야 합니다."
+    },
+    "sent_questions": {
+      "Q1": "두 신호가 모두 False 인 경우의 로직이 명시되지 않았으므로 NotImplementedError 를 사용했지만, 이 경우에도 작은 표지를 사용해야 하는지 확인해 주세요.",
+      "Q2": "두 신호가 모두 False 인 경우 (집중 보기도 안 하고 데이터 절약도 안 하는 경우) 에 대해 로직을 어떻게 처리해야 할지 명확히 해주세요.",
+      "Q3": "두 신호 (focus, save_data) 가 모두 False 인 경우, 큰 표지 (True) 를 사용해야 하는지 아니면 작은 표지 (False) 를 사용해야 하는지 명확히 해야 합니다."
+    },
+    "review": [
+      "요구사항에 따르면 두 신호가 모두 False 인 경우의 로직이 명시되지 않았으나, 코드는 NotImplementedError 를 사용하여 예외를 발생시키고 있습니다.",
+      "요구사항에 따르면 '집중 보기 신호만' 또는 '데이터 절약 신호만' 이라는 조건이 명시되어 있으나, 두 신호가 모두 False 인 경우의 로직이 정의되지 않았습니다. 현재 코드는 이를 NotImplementedError 로 처리하고 있으나, 실제 사용 시 에러가 발생할 수 있습니다."
+    ],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:14:4",
+        "@pending:9:8"
+      ],
+      "findings": {
+        "R1": [
+          "S1"
+        ],
+        "R2": [
+          "S1"
+        ]
+      },
+      "aliases": {
+        "S1": "@pending:14:4"
+      },
+      "calls": [
+        "661d5d310d05f2c9c6dc5d73d24bcb42671dee649ff5a106c39c0c1e8bb8b853"
+      ],
+      "reopened": {
+        "@pending:9:8": "both_signals_false_use_small_cover"
+      }
+    },
+    "slots": {
+      "both_signals_false_use_large_cover": {
+        "key": "both_signals_false_use_large_cover",
+        "kind": "decision",
+        "origin": "Q3",
+        "question": "두 신호가 모두 False 인 경우 큰 표지를 사용해야 하는지 확인해 주세요."
+      },
+      "both_signals_false_use_small_cover": {
+        "key": "both_signals_false_use_small_cover",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "두 신호가 모두 False 인 경우 작은 표지를 사용해야 하는지 확인해 주세요."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요.",
+      "P2": "집중 보기 신호만 들어오면 큰 표지를 사용합니다.",
+      "P3": "데이터 절약 신호만 들어오면 작은 표지를 사용합니다.",
+      "P4": "True는 큰 표지, False는 작은 표지입니다."
+    },
+    "rules": [
+      {
+        "when": "not focus and not save_data",
+        "then": "both_signals_false_use_large_cover",
+        "source": "Q3"
+      },
+      {
+        "when": "not focus and save_data",
+        "then": "both_signals_false_use_small_cover",
+        "source": "Q1"
+      }
+    ],
+    "names": [
+      "focus",
+      "save_data"
+    ],
+    "mode": "flags",
+    "calls": [
+      "59544a32b61c39e0588072531f364415902c14c13b133c4717cc237732eda355",
+      "d47b9319c5252b015116c813a54ed0a8c29f63e319c4eb0be8bf938562bef656",
+      "85c9c15b13548b4300a1ce00d7a8d689b3e547fa94b362d9cb37e5c4751707d6",
+      "661d5d310d05f2c9c6dc5d73d24bcb42671dee649ff5a106c39c0c1e8bb8b853"
+    ]
+  }
+}

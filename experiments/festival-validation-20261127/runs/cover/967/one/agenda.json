@@ -1,0 +1,56 @@
+{
+  "handoff": "f642fb179fed0cb45e7bce8a24e53bb8fecc900c136eff033bf54d0af326b6cf",
+  "digest": "050f16eafab46aa8235a6003231a03a9b36320b990ffca023692a3d6ca192d28",
+  "agenda": {
+    "brief": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요. 집중 보기 신호만 들어오면 큰 표지를 사용합니다. 데이터 절약 신호만 들어오면 작은 표지를 사용합니다. True는 큰 표지, False는 작은 표지입니다.",
+    "code": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다\n    if focus:\n        return True\n    \n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다\n    # focus 가 False 이고 save_data 가 True 인 경우만 작은 표지 사용\n    if save_data:\n        return False\n    \n    # 미정인 경우: 두 신호가 모두 False 인 경우\n    # 문제 설명에 따르면 \"집중 보기 신호만\" 또는 \"데이터 절약 신호만\" 이라는 조건이 명시되어 있으며,\n    # 두 신호가 모두 False 인 경우의 로직은 제공되지 않았으므로 NotImplementedError 를 사용합니다.\n    raise NotImplementedError(\"Both focus and save_data are False. Logic not specified.\")",
+    "editing_base": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다\n    if focus:\n        return True\n    \n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다\n    # focus 가 False 이고 save_data 가 True 인 경우만 작은 표지 사용\n    if save_data:\n        return False\n    \n    # 미정인 경우: 두 신호가 모두 False 인 경우\n    # 문제 설명에 따르면 \"집중 보기 신호만\" 또는 \"데이터 절약 신호만\" 이라는 조건이 명시되어 있으며,\n    # 두 신호가 모두 False 인 경우의 로직은 제공되지 않았으므로 NotImplementedError 를 사용합니다.\n    raise NotImplementedError(\"Both focus and save_data are False. Logic not specified.\")",
+    "original_questions": {
+      "Q1": "두 신호 (focus, save_data) 가 모두 True 인 경우, 큰 표지를 사용해야 하는지 아니면 데이터 절약 우선으로 작은 표지를 사용해야 하는지 명확히 해야 합니다."
+    },
+    "sent_questions": {
+      "Q1": "두 신호 (focus, save_data) 가 모두 True 인 경우, 큰 표지를 사용해야 하는지 아니면 데이터 절약 우선으로 작은 표지를 사용해야 하는지 명확히 해야 합니다."
+    },
+    "review": [],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:14:4"
+      ],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "large_cover_both_signals": {
+        "key": "large_cover_both_signals",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "두 신호 (focus, save_data) 가 모두 True 인 경우 큰 표지를 사용해야 하는가?"
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요.",
+      "P2": "집중 보기 신호만 들어오면 큰 표지를 사용합니다.",
+      "P3": "데이터 절약 신호만 들어오면 작은 표지를 사용합니다.",
+      "P4": "True는 큰 표지, False는 작은 표지입니다."
+    },
+    "rules": [
+      {
+        "when": "focus and save_data",
+        "then": "large_cover_both_signals",
+        "source": "Q1"
+      }
+    ],
+    "names": [
+      "focus",
+      "save_data"
+    ],
+    "mode": "flags",
+    "calls": [
+      "d7795629478e6154ac9e0b3e7726a81a38a43a324b37c3fcc162615319f4c679",
+      "43167f3ac2c61ab8149e971c6a6443e15e8906aee15b24fe641e4ccfc552cea5"
+    ]
+  }
+}

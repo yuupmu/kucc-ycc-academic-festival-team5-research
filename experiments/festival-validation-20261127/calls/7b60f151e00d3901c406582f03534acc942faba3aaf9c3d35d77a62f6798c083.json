@@ -1,0 +1,176 @@
+{
+  "text": "{\n  \"decision_conditions\": {\n    \"pages_4_or_12\": \"pages == 4\",\n    \"pages_range_check\": \"pages < 4\",\n    \"code_logic_verification\": \"4 < pages < 12\"\n  },\n  \"public_rules\": [\n    {\n      \"when\": \"pages == 4\",\n      \"then\": \"False\",\n      \"source\": \"P3\"\n    },\n    {\n      \"when\": \"pages == 12\",\n      \"then\": \"False\",\n      \"source\": \"P3\"\n    },\n    {\n      \"when\": \"pages < 4\",\n      \"then\": \"False\",\n      \"source\": \"P3\"\n    },\n    {\n      \"when\": \"pages > 12\",\n      \"then\": \"False\",\n      \"source\": \"P3\"\n    },\n    {\n      \"when\": \"4 < pages < 12\",\n      \"then\": \"True\",\n      \"source\": \"P4\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 245,
+    "prompt_tokens": 483,
+    "total_tokens": 728,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 356,
+    "prompt_ms": 248.81,
+    "prompt_per_token_ms": 0.6989044943820225,
+    "prompt_per_second": 1430.8106587355815,
+    "predicted_n": 245,
+    "predicted_ms": 3499.289,
+    "predicted_per_token_ms": 14.341348360655738,
+    "predicted_per_second": 69.72845055095478
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.77,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"독서 모임 책자의 발췌본을 제안할지 정하는 offer_excerpt(pages: int) -> bool 함수를 작성하세요.\",\"P2\":\"입력은 원고 쪽수입니다.\",\"P3\":\"4쪽보다 얇거나 12쪽보다 두꺼운 원고에는 제안하지 않습니다.\",\"P4\":\"4쪽보다 두껍고 12쪽보다 얇으면 제안합니다.\"},\"decisions\":{\"pages_4_or_12\":{\"key\":\"pages_4_or_12\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"4 쪽이나 12 쪽인 경우에도 제안해야 하는지 결정합니다.\"},\"pages_range_check\":{\"key\":\"pages_range_check\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"4 쪽보다 얇거나 12 쪽보다 두꺼운 경우를 모두 제외하고 4 보다 12 보다 얇은 범위에서만 제안하는 로직이 맞는지 확인합니다.\"},\"code_logic_verification\":{\"key\":\"code_logic_verification\",\"kind\":\"decision\",\"origin\":\"Q3\",\"question\":\"요청하신 조건 (4 보다 12 보다 얇은 경우에만 제안) 에 따라 제안 여부를 판단하는 `offer_excerpt` 함수가 의도한 로직과 일치하는지 확인합니다.\"}},\"input_conditions\":[\"pages == 4\",\"pages < 4\",\"pages > 4\",\"pages <= 4\",\"pages >= 4\",\"pages == 12\",\"pages < 12\",\"pages > 12\",\"pages <= 12\",\"pages >= 12\",\"4 < pages < 12\",\"12 < pages < 4\"]}"
+      }
+    ],
+    "seed": 977,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "pages_4_or_12": {
+                  "type": "string",
+                  "enum": [
+                    "pages == 4",
+                    "pages < 4",
+                    "pages > 4",
+                    "pages <= 4",
+                    "pages >= 4",
+                    "pages == 12",
+                    "pages < 12",
+                    "pages > 12",
+                    "pages <= 12",
+                    "pages >= 12",
+                    "4 < pages < 12",
+                    "12 < pages < 4"
+                  ]
+                },
+                "pages_range_check": {
+                  "type": "string",
+                  "enum": [
+                    "pages == 4",
+                    "pages < 4",
+                    "pages > 4",
+                    "pages <= 4",
+                    "pages >= 4",
+                    "pages == 12",
+                    "pages < 12",
+                    "pages > 12",
+                    "pages <= 12",
+                    "pages >= 12",
+                    "4 < pages < 12",
+                    "12 < pages < 4"
+                  ]
+                },
+                "code_logic_verification": {
+                  "type": "string",
+                  "enum": [
+                    "pages == 4",
+                    "pages < 4",
+                    "pages > 4",
+                    "pages <= 4",
+                    "pages >= 4",
+                    "pages == 12",
+                    "pages < 12",
+                    "pages > 12",
+                    "pages <= 12",
+                    "pages >= 12",
+                    "4 < pages < 12",
+                    "12 < pages < 4"
+                  ]
+                }
+              },
+              "required": [
+                "pages_4_or_12",
+                "pages_range_check",
+                "code_logic_verification"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "pages == 4",
+                      "pages < 4",
+                      "pages > 4",
+                      "pages <= 4",
+                      "pages >= 4",
+                      "pages == 12",
+                      "pages < 12",
+                      "pages > 12",
+                      "pages <= 12",
+                      "pages >= 12",
+                      "4 < pages < 12",
+                      "12 < pages < 4"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

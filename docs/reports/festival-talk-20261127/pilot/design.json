@@ -1,0 +1,20 @@
+{
+  "purpose": "발표 준비를 위한 전향적 소표본. 개발에 사용하지 않은 새 명세 한 건으로 기존 혼합 감시와 회신 처리의 전체 경로를 검사한다.",
+  "sample": {"tasks": 1, "draft_seed": 907, "receipt_seed": 917, "review": "unchanged mixed_review_ledger handoff", "writer": "unchanged receipt_pipeline", "max_owner_turns_per_branch": 1},
+  "function": "show_excerpt",
+  "axes": ["featured", "spoiler", "compact"],
+  "conditions": [
+    {"input": [false, false, false], "display": true, "hide": true},
+    {"input": [false, false, true], "display": false, "hide": false},
+    {"input": [false, true, false], "display": false, "hide": false},
+    {"input": [false, true, true], "display": false, "hide": false},
+    {"input": [true, false, false], "display": true, "hide": true},
+    {"input": [true, false, true], "display": false, "hide": false},
+    {"input": [true, true, false], "display": true, "hide": false},
+    {"input": [true, true, true], "display": false, "hide": false}
+  ],
+  "question_gate": "Only a delivered question about both the recommendation and spoiler flags applying together, or their relative priority, licenses the paired answer. It may omit the regular-card qualifier if it does not explicitly restrict itself to compact cards. A generic request for all rules, an issue in a private review, or a claim in the code does not qualify. The proxy reads the sent questions without seeing code or scores.",
+  "owner": "A Codex proxy relays only the one asked decision, in natural language. Both arms receive the same other information (none).",
+  "outcomes": "Success requires a qualifying question, both opposing answers implemented on the target, and all seven other inputs correct for both sealed submissions. Count agreement outside the target and correctness there separately. A missing question, unavailable handoff, invalid submission or abandoned edit stays in the denominator. When forks cannot be delivered, report paired implementation as unobserved. No answer fabricated, no routing override, no development retries after a model failure. Once sealed, score both submissions offline together.",
+  "cost": "Actual model prompt plus completion tokens. Count the shared draft, reviews and agenda once per logical path. Report unique billed/generated local calls separately from a per-path cost. Proxy and grading are excluded from model tokens."
+}

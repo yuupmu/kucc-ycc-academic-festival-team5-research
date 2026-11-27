@@ -1,0 +1,72 @@
+{
+  "text": "{\n  \"kind\": \"일반의견\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 148,
+    "total_tokens": 162,
+    "prompt_tokens_details": {
+      "cached_tokens": 53
+    }
+  },
+  "server_timings": {
+    "cache_n": 53,
+    "prompt_n": 95,
+    "prompt_ms": 228.597,
+    "prompt_per_token_ms": 2.406284210526316,
+    "prompt_per_second": 415.57850715451207,
+    "predicted_n": 14,
+    "predicted_ms": 374.856,
+    "predicted_per_token_ms": 28.835076923076922,
+    "predicted_per_second": 34.679983780438356
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.62,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문을 읽고 답의 종류를 분류하세요. 숫자를 실제로 요구하면 정수값, 특정 상황의 실행 여부를 요구하면 행동결정, 그 밖에 일반적인 의견·예상 문제를 물으면 일반의견입니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"question\":\"두 신호 (focus, save_data) 가 모두 True 인 경우, 큰 표지를 사용해야 하는지 작은 표지를 사용해야 하는지 명확히 정의할 수 있을까요? 문제 설명에 '집중 보기 신호만'과 '데이터 절약 신호만'이라는 표현이 사용되었으나, 실제 구현 시 두 신호가 동시에 발생했을 때의 우선순위를 명확히 하지 않았습니다.\"}"
+      }
+    ],
+    "seed": 1001,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 70,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "정수값",
+                "행동결정",
+                "일반의견"
+              ]
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "question-answer-type"
+}

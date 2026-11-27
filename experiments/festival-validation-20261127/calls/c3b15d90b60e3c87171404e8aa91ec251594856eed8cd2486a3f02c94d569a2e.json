@@ -1,0 +1,84 @@
+{
+  "text": "{\n  \"condition\": \"featured and spoiler and not compact\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 17,
+    "prompt_tokens": 271,
+    "total_tokens": 288,
+    "prompt_tokens_details": {
+      "cached_tokens": 37
+    }
+  },
+  "server_timings": {
+    "cache_n": 37,
+    "prompt_n": 234,
+    "prompt_ms": 186.193,
+    "prompt_per_token_ms": 0.7956965811965813,
+    "prompt_per_second": 1256.7604582341978,
+    "predicted_n": 17,
+    "predicted_ms": 263.324,
+    "predicted_per_token_ms": 16.45775,
+    "predicted_per_second": 60.7616472482569
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.45,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문이 함수의 반환값을 확인하려는 입력 상황 하나를 고르세요. 정할 수 없거나 여러 상황이면 미확인으로 답하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"서평 카드의 발췌문을 표시할지 결정하는 show_excerpt(featured: bool, spoiler: bool, compact: bool) -> bool 함수를 작성해 주세요. True면 표시하고 False면 숨깁니다. 작은 카드(compact)에서는 항상 숨깁니다. 일반 카드에서는 추천 표시(featured)와 스포일러 표시(spoiler)가 모두 없으면 발췌문을 표시합니다. 추천 표시만 있으면 표시하고, 스포일러 표시만 있으면 숨깁니다.\",\"question\":\"featured 와 spoiler 가 모두 True 인 경우, 스포일러가 우선하여 발췌문을 숨기는 코드로 수정해야 할까요?\",\"conditions\":[\"not featured and not spoiler and not compact\",\"not featured and not spoiler and compact\",\"not featured and spoiler and not compact\",\"not featured and spoiler and compact\",\"featured and not spoiler and not compact\",\"featured and not spoiler and compact\",\"featured and spoiler and not compact\",\"featured and spoiler and compact\",\"featured\",\"spoiler\",\"compact\",\"not featured\",\"not spoiler\",\"not compact\"]}"
+      }
+    ],
+    "seed": 917,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 120,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "condition": {
+              "type": "string",
+              "enum": [
+                "not featured and not spoiler and not compact",
+                "not featured and not spoiler and compact",
+                "not featured and spoiler and not compact",
+                "not featured and spoiler and compact",
+                "featured and not spoiler and not compact",
+                "featured and not spoiler and compact",
+                "featured and spoiler and not compact",
+                "featured and spoiler and compact",
+                "featured",
+                "spoiler",
+                "compact",
+                "not featured",
+                "not spoiler",
+                "not compact",
+                "미확인"
+              ]
+            }
+          },
+          "required": [
+            "condition"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "locate-owner-question"
+}

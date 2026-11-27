@@ -1,0 +1,80 @@
+{
+  "text": "{\"item\": \"spoiler_precedence\", \"value\": \"False\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 17,
+    "prompt_tokens": 202,
+    "total_tokens": 219,
+    "prompt_tokens_details": {
+      "cached_tokens": 123
+    }
+  },
+  "server_timings": {
+    "cache_n": 123,
+    "prompt_n": 79,
+    "prompt_ms": 115.037,
+    "prompt_per_token_ms": 1.4561645569620254,
+    "prompt_per_second": 686.7355720333458,
+    "predicted_n": 17,
+    "predicted_ms": 241.019,
+    "predicted_per_token_ms": 15.0636875,
+    "predicted_per_second": 66.38480783672657
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.36,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자가 실제로 쓴 한 문장과, 이 회신을 받을 때 전달한 질문들입니다. 이 문장이 직접 답하는 항목 하나를 고르세요. 질문과 무관하거나 여러 항목 중 어디에 답한 것인지 알 수 없으면 해당 없음입니다. 행동을 정한 문장이라면 그 상황에서 함수를 실행·허용·켜는 의미는 True, 거절·끄는 의미는 False입니다. 실제 발언의 부정 표현을 정확히 읽으세요. 질문에 들어 있던 설명은 결정의 근거가 아닙니다. 다른 정책을 보충하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"owner_statement\":\"일반 카드에 추천 표시와 스포일러 표시가 함께 있으면 발췌문을 숨깁니다.\",\"sent_items\":{\"spoiler_precedence\":\"featured=참, spoiler=참, compact=거짓일 때 이 함수는 True를 반환해야 하나요?\"},\"ticket_size\":1}"
+      }
+    ],
+    "seed": 917,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "item": {
+              "type": "string",
+              "enum": [
+                "spoiler_precedence",
+                "해당 없음"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "True",
+                "False",
+                "미정"
+              ]
+            }
+          },
+          "required": [
+            "item",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "receipt-item"
+}

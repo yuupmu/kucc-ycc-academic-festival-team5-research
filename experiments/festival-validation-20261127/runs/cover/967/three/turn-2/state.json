@@ -1,0 +1,83 @@
+{
+  "code": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다\n    if focus:\n        return True\n    \n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다\n    # focus 가 False 이고 save_data 가 True 인 경우만 작은 표지 사용\n    if save_data:\n        return False\n    \n    # 미정인 경우: 두 신호가 모두 False 인 경우\n    # 문제 설명에 따르면 \"집중 보기 신호만\" 또는 \"데이터 절약 신호만\" 이라는 조건이 명시되어 있으며,\n    # 두 신호가 모두 False 인 경우의 로직은 제공되지 않았으므로 NotImplementedError 를 사용합니다.\n    return True",
+  "confirmed": {
+    "both_signals_false_use_large_cover": {
+      "value": true,
+      "quote": "두 신호가 모두 없으면 큰 표지를 사용합니다.",
+      "turn": 1
+    },
+    "both_signals_false_use_small_cover": {
+      "value": false,
+      "quote": "두 신호가 모두 없으면 큰 표지를 사용합니다.",
+      "turn": 2
+    }
+  },
+  "pending": [],
+  "history": [
+    {
+      "ticket": [
+        "both_signals_false_use_large_cover",
+        "both_signals_false_use_small_cover"
+      ],
+      "reply": "두 신호가 모두 없으면 큰 표지를 사용합니다.",
+      "statements": [
+        {
+          "quote": "두 신호가 모두 없으면 큰 표지를 사용합니다.",
+          "candidates": [
+            "both_signals_false_use_large_cover",
+            "both_signals_false_use_small_cover"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "both_signals_false_use_large_cover",
+            "value": "True"
+          }
+        }
+      ],
+      "calls": [
+        "ed1b9e8231b9ccc20f9a8a298e7d53588236247ec1edb72d40c3b9a1b31f666c"
+      ],
+      "edits": [
+        {
+          "site": "@pending:14:4",
+          "region": "not focus and not save_data",
+          "value": "True"
+        },
+        {
+          "site": "@pending:9:8",
+          "region": "not focus and save_data",
+          "value": "미정"
+        }
+      ]
+    },
+    {
+      "ticket": [
+        "both_signals_false_use_small_cover"
+      ],
+      "reply": "두 신호가 모두 없으면 큰 표지를 사용합니다.",
+      "statements": [
+        {
+          "quote": "두 신호가 모두 없으면 큰 표지를 사용합니다.",
+          "candidates": [
+            "both_signals_false_use_small_cover"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "both_signals_false_use_small_cover",
+            "value": "False"
+          }
+        }
+      ],
+      "calls": [
+        "91b5fe06d4fb56756e4a2b4a8684f9907340a5daded642d9fb6acca5b063c420"
+      ],
+      "edits": [
+        {
+          "site": "@pending:9:8",
+          "region": "not focus and save_data",
+          "value": "False"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "code": "def large_cover(focus: bool, save_data: bool) -> bool:\n    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다.\n    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다.\n    # 두 신호가 모두 들어오거나 둘 다 들어오지 않는 경우를 고려하지 않음 (문제 지시사항에 따른 공개된 논리 구현)\n    if focus:\n        return True\n    else:\n        return False\n\n\n# 미정 경로: 두 신호가 동시에 True인 경우의 동작은 공개된 명세에 없으므로 구현하지 않음\n# # if focus and save_data:\n# #     raise NotImplementedError(\"두 신호가 동시에 들어오는 경우의 동작은 공개된 명세에 명시되지 않았습니다.\")\n\n\n# 미정 경로: 두 신호가 모두 False인 경우의 동작은 공개된 명세에 없으므로 구현하지 않음\n# # elif not focus and not save_data:\n# #     raise NotImplementedError(\"두 신호가 모두 들어오지 않는 경우의 동작은 공개된 명세에 명시되지 않았습니다.\")",
+  "confirmed": {
+    "Q1_both_false": {
+      "value": false,
+      "quote": "두 신호가 모두 없으면 작은 표지를 사용합니다.",
+      "turn": 1
+    },
+    "Q1_both_true": {
+      "value": false,
+      "quote": "집중 보기와 데이터 절약 신호가 함께 들어오면 큰 표지를 사용합니다.",
+      "turn": 1
+    }
+  },
+  "pending": [],
+  "history": [
+    {
+      "ticket": [
+        "Q1_both_true",
+        "Q1_both_false"
+      ],
+      "reply": "두 신호가 모두 없으면 작은 표지를 사용합니다. 집중 보기와 데이터 절약 신호가 함께 들어오면 큰 표지를 사용합니다.",
+      "statements": [
+        {
+          "quote": "두 신호가 모두 없으면 작은 표지를 사용합니다.",
+          "candidates": [
+            "Q1_both_true",
+            "Q1_both_false"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "Q1_both_false",
+            "value": "False"
+          }
+        },
+        {
+          "quote": "집중 보기와 데이터 절약 신호가 함께 들어오면 큰 표지를 사용합니다.",
+          "candidates": [
+            "Q1_both_true",
+            "Q1_both_false"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "Q1_both_true",
+            "value": "False"
+          }
+        }
+      ],
+      "calls": [
+        "5af20bfe88b16ed510d828495bf454493f4dc59f0818a43b5b26f9bc43473ea9",
+        "ba0af00ee1f1f5fec15d1b14a37e8fced01038734553c9490f79ae0189449e0f"
+      ],
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "transfer_100": {
+    "scores": {
+      "A-solo": {
+        "correct": 43,
+        "grounded_correct": 16,
+        "topics": 0,
+        "questions": 0,
+        "tokens": 2873
+      },
+      "A-self": {
+        "correct": 57,
+        "grounded_correct": 56,
+        "topics": 12,
+        "questions": 15,
+        "tokens": 54337
+      },
+      "A-abc": {
+        "correct": 65,
+        "grounded_correct": 65,
+        "topics": 15,
+        "questions": 39,
+        "tokens": 84630
+      },
+      "B-solo": {
+        "correct": 38,
+        "grounded_correct": 12,
+        "topics": 0,
+        "questions": 0,
+        "tokens": 1691
+      },
+      "B-self": {
+        "correct": 45,
+        "grounded_correct": 39,
+        "topics": 14,
+        "questions": 34,
+        "tokens": 33858
+      },
+      "B-abc": {
+        "correct": 54,
+        "grounded_correct": 43,
+        "topics": 13,
+        "questions": 41,
+        "tokens": 59976
+      },
+      "C-solo": {
+        "correct": 0,
+        "grounded_correct": 0,
+        "topics": 0,
+        "questions": 0,
+        "tokens": 1232
+      },
+      "C-self": {
+        "correct": 31,
+        "grounded_correct": 31,
+        "topics": 11,
+        "questions": 17,
+        "tokens": 27639
+      },
+      "C-abc": {
+        "correct": 21,
+        "grounded_correct": 21,
+        "topics": 17,
+        "questions": 30,
+        "tokens": 71564
+      },
+      "mixed": {
+        "correct": 57,
+        "grounded_correct": 57,
+        "topics": 17,
+        "questions": 44,
+        "tokens": 110164
+      }
+    },
+    "per_input_pairs": {
+      "A-self -> A-abc": {
+        "gain": 8,
+        "same_correctness": 92,
+        "loss": 0
+      },
+      "B-self -> B-abc": {
+        "gain": 9,
+        "same_correctness": 91,
+        "loss": 0
+      },
+      "C-self -> C-abc": {
+        "gain": 8,
+        "same_correctness": 74,
+        "loss": 18
+      },
+      "A-abc -> mixed": {
+        "gain": 0,
+        "same_correctness": 92,
+        "loss": 8
+      },
+      "A-self -> mixed": {
+        "gain": 0,
+        "same_correctness": 100,
+        "loss": 0
+      }
+    }
+  },
+  "canonical_upload_tokens": {
+    "draft": 370,
+    "three_reviews": 1462,
+    "prepare_questions_and_public_rules": 2586,
+    "paths": {
+      "include/initial": {
+        "receipt_rounds": [
+          619
+        ],
+        "logical_path": 5037
+      },
+      "exclude/initial": {
+        "receipt_rounds": [
+          619
+        ],
+        "logical_path": 5037
+      },
+      "unmentioned/initial": {
+        "receipt_rounds": [
+          410
+        ],
+        "logical_path": 4828
+      },
+      "unmentioned/yes": {
+        "receipt_rounds": [
+          410,
+          187
+        ],
+        "logical_path": 5015
+      },
+      "unmentioned/no": {
+        "receipt_rounds": [
+          410,
+          189
+        ],
+        "logical_path": 5017
+      }
+    }
+  }
+}

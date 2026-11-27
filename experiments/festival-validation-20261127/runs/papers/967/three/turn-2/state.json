@@ -1,0 +1,121 @@
+{
+  "code": "def offer_excerpt(pages: int) -> bool:\n    \"\"\"\n    독서 모임 책자의 발췌본을 제안할지 정하는 함수입니다.\n    \n    조건:\n    - 4쪽보다 얇거나 (pages <= 4): 제안하지 않음 (False)\n    - 12쪽보다 두꺼운 (pages >= 12): 제안하지 않음 (False)\n    - 4쪽보다 두껍고 12쪽보다 얇은 (4 < pages < 12): 제안함 (True)\n    \n    Args:\n        pages (int): 원고 쪽수\n    \n    Returns:\n        bool: 제안 여부를 반환\n    \"\"\"\n    if pages <= 4 or pages >= 12:\n        return False\n    return True\n",
+  "confirmed": {},
+  "pending": [
+    "pages_4_or_12",
+    "pages_range_check",
+    "code_logic_verification"
+  ],
+  "history": [
+    {
+      "ticket": [
+        "pages_4_or_12",
+        "pages_range_check",
+        "code_logic_verification"
+      ],
+      "reply": "정확히 4쪽이면 발췌본을 제안하지 않습니다. 정확히 12쪽이면 발췌본을 제안합니다. 4쪽보다 두껍고 12쪽보다 얇으면 제안합니다.",
+      "statements": [
+        {
+          "quote": "정확히 4쪽이면 발췌본을 제안하지 않습니다.",
+          "candidates": [
+            "pages_4_or_12",
+            "pages_range_check",
+            "code_logic_verification"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_range_check",
+            "value": "True"
+          }
+        },
+        {
+          "quote": "정확히 12쪽이면 발췌본을 제안합니다.",
+          "candidates": [
+            "pages_4_or_12",
+            "pages_range_check",
+            "code_logic_verification"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_range_check",
+            "value": "False"
+          }
+        },
+        {
+          "quote": "4쪽보다 두껍고 12쪽보다 얇으면 제안합니다.",
+          "candidates": [
+            "pages_4_or_12",
+            "pages_range_check",
+            "code_logic_verification"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_range_check",
+            "value": "True"
+          }
+        }
+      ],
+      "calls": [
+        "df0174dd7df597e682695f736e9a85c0497757c2d0c774e9881bde151229c53e",
+        "89f3ca2a77f4e508db27e3a3533dc8a5e060e069d6f95869f4a97c0cfb4657e2",
+        "00cf5679cd2a519cdaebfa180ae829b407105122d90434d1055745dc5aa5b979"
+      ],
+      "edits": []
+    },
+    {
+      "ticket": [
+        "pages_4_or_12",
+        "pages_range_check",
+        "code_logic_verification"
+      ],
+      "reply": "정확히 4쪽이면 발췌본을 제안하지 않습니다. 정확히 12쪽이면 발췌본을 제안합니다. 4쪽보다 두껍고 12쪽보다 얇으면 제안합니다.",
+      "statements": [
+        {
+          "quote": "정확히 4쪽이면 발췌본을 제안하지 않습니다.",
+          "candidates": [
+            "pages_4_or_12",
+            "pages_range_check",
+            "code_logic_verification"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_range_check",
+            "value": "True"
+          }
+        },
+        {
+          "quote": "정확히 12쪽이면 발췌본을 제안합니다.",
+          "candidates": [
+            "pages_4_or_12",
+            "pages_range_check",
+            "code_logic_verification"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_range_check",
+            "value": "False"
+          }
+        },
+        {
+          "quote": "4쪽보다 두껍고 12쪽보다 얇으면 제안합니다.",
+          "candidates": [
+            "pages_4_or_12",
+            "pages_range_check",
+            "code_logic_verification"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_range_check",
+            "value": "True"
+          }
+        }
+      ],
+      "calls": [
+        "df0174dd7df597e682695f736e9a85c0497757c2d0c774e9881bde151229c53e",
+        "89f3ca2a77f4e508db27e3a3533dc8a5e060e069d6f95869f4a97c0cfb4657e2",
+        "00cf5679cd2a519cdaebfa180ae829b407105122d90434d1055745dc5aa5b979"
+      ],
+      "edits": []
+    }
+  ]
+}

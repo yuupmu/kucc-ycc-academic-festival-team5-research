@@ -4,6 +4,7 @@
 
 | 연구 질문 | 시작 자료 | 이어서 확인할 자료 |
 |---|---|---|
+| 감시자 1명과 3명은 무엇을 더 알아내고 구현했나? | [11월 27일 비교 결과](../../experiments/festival-validation-20261127/README.md) | [문답·제출물](../../experiments/festival-validation-20261127/runs) · [보완안](../../experiments/festival-validation-20261127/supplement) · [정책별 재집계](../reports/festival-talk-20261127/정책판정_재집계.json) |
 | 예약·문의 100문항에서 어느 단계가 점수를 갈랐나? | [설계와 보고서](../../experiments/pipeline100/README.md) | [회차별 기록](../../experiments/pipeline100/runs) · [문항별 분석](../../experiments/pipeline100/research) |
 | 세 모델과 감시 구성에 따라 점수·비용이 달라졌나? | [조건별 비교표](../../experiments/family-reply-delta-20261126/README.md) | [전이 실험](../../var/family-100-v1) · [예약 실험](../../var/reservation-family-v1) |
 | 답변을 반대로 주면 딱 그 입력에서 결과가 달라지나? | [고정한 초안·문답](../../experiments/answer-flip-20261126/frozen) | [제출 코드](../../experiments/answer-flip-20261126/runs) · [사전 검사와 사후 반례](../../experiments/answer-flip-20261126/evaluator) |
@@ -13,7 +14,7 @@
 
 ## 공개 범위와 무결성
 
-이번 추가 공개 목록은 [inventory.tsv](inventory.tsv)에 있다. 한 행은 한 파일 또는 저장소 내부 상대 링크이며, 해시는 공개한 내용의 SHA-256이다. 모델에 보낸 실험 프롬프트와 생성 응답, 정책 카드, 시드, 제출물, 실행 시간, 토큰, 채점 결과를 포함한다. 벤치마크의 가상 사용자 식별자는 문항 안에서 같은 대상을 대조하는 데 사용한다.
+11월 26일 공개 목록은 [inventory.tsv](inventory.tsv)에 있다. 한 행은 한 파일 또는 저장소 내부 상대 링크이며, 해시는 공개한 내용의 SHA-256이다. 모델에 보낸 실험 프롬프트와 생성 응답, 정책 카드, 시드, 제출물, 실행 시간, 토큰, 채점 결과를 포함한다. 벤치마크의 가상 사용자 식별자는 문항 안에서 같은 대상을 대조하는 데 사용한다.
 
 운영 로그·서버 시작 기록·실행 DB·모델 가중치는 배포 대상에서 제외했다. 일부 초안 출처는 저장소 상대 경로로 바꿨고 일정 배정 실행 상태는 연구에 쓰는 필드만 남겼다. 이 파일의 공개본 해시는 로컬 원본과 다를 수 있다. [변환한 파일 목록](transformed.txt)
 
@@ -23,7 +24,7 @@
 
 ```sh
 replay_dir=$(mktemp -d)
-git archive HEAD | tar -x -C "$replay_dir"
+git archive 88b7700fb0f3385266c0be742040d4e50d9ea920 | tar -x -C "$replay_dir"
 (
   cd "$replay_dir" || exit 1
   experiment=experiments/ledger-receipts-20261126

@@ -1,0 +1,44 @@
+{
+  "code": "def offer_excerpt(pages: int) -> bool:\n    \"\"\"\n    독서 모임 책자의 발췌본을 제안할지 정하는 함수입니다.\n    \n    조건:\n    - 4 쪽보다 얇거나 (pages <= 4): 제안하지 않음\n    - 12 쪽보다 두꺼운 (pages >= 12): 제안하지 않음\n    - 4 쪽보다 두껍고 12 쪽보다 얇은 (4 < pages < 12): 제안함\n    \n    Args:\n        pages (int): 원고 쪽수\n    \n    Returns:\n        bool: 제안할 경우 True, 아닐 경우 False\n    \"\"\"\n    if pages <= 4 or pages >= 12:\n        return False\n    return True",
+  "confirmed": {},
+  "pending": [
+    "pages_boundary_condition"
+  ],
+  "history": [
+    {
+      "ticket": [
+        "pages_boundary_condition"
+      ],
+      "reply": "정확히 4쪽이면 발췌본을 제안합니다. 정확히 12쪽이면 발췌본을 제안하지 않습니다.",
+      "statements": [
+        {
+          "quote": "정확히 4쪽이면 발췌본을 제안합니다.",
+          "candidates": [
+            "pages_boundary_condition"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_boundary_condition",
+            "value": "True"
+          }
+        },
+        {
+          "quote": "정확히 12쪽이면 발췌본을 제안하지 않습니다.",
+          "candidates": [
+            "pages_boundary_condition"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "pages_boundary_condition",
+            "value": "False"
+          }
+        }
+      ],
+      "calls": [
+        "f2f13d8a9e29280f9853d53e2bc53001290bb218353fd9c7a207c942e289aba3",
+        "8d9e3e32245ce444f19704355c331466d87fab972ba9d503ad833ae1186141e8"
+      ],
+      "edits": []
+    }
+  ]
+}

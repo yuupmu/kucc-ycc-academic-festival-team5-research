@@ -1,0 +1,93 @@
+{
+  "primary": {
+    "status": "agenda_failed",
+    "setup": {
+      "calls": 10,
+      "prompt": 5180,
+      "completion": 1469,
+      "tokens": 6649
+    },
+    "draft": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "questions": [],
+    "sides": {}
+  },
+  "independent_scope": {
+    "status": "ready",
+    "setup": {
+      "calls": 10,
+      "prompt": 4782,
+      "completion": 1404,
+      "tokens": 6186
+    },
+    "draft": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "questions": [
+      "featured=참, spoiler=참, compact=거짓일 때 이 함수는 True를 반환해야 하나요?",
+      "spoiler 가 True 일 때 항상 발췌문을 숨기는 이유와 그 근거를 설명해 주세요."
+    ],
+    "sides": {
+      "display": {
+        "actual": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "correct": 6,
+        "target_correct": false,
+        "controls_correct": 6,
+        "unchanged_controls": 7,
+        "cost": {
+          "calls": 11,
+          "prompt": 4982,
+          "completion": 1421,
+          "tokens": 6403
+        }
+      },
+      "hide": {
+        "actual": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "correct": 7,
+        "target_correct": true,
+        "controls_correct": 6,
+        "unchanged_controls": 7,
+        "cost": {
+          "calls": 11,
+          "prompt": 4984,
+          "completion": 1421,
+          "tokens": 6405
+        }
+      }
+    },
+    "changed_inputs": []
+  }
+}

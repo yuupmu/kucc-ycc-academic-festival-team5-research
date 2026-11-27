@@ -179,8 +179,6 @@ def prepare(brief, code, questions, issues, ask):
     conditions=condition_options(mode,names,brief,code,quantity)
     def validate_rules(answer):
         scopes=answer['decision_conditions']
-        if len(set(scopes.values()))!=len(scopes):
-            raise ValueError('Two different action slots selected the identical input condition')
         result=[dict(when=where,then=key,source=slots[key]['origin']) for key,where in scopes.items()]
         result+=answer['public_rules']
         used=set()
@@ -189,18 +187,64 @@ def prepare(brief, code, questions, issues, ask):
             used.update(n.id for n in ast.walk(expr) if isinstance(n,ast.Name) and n.id in quantity)
         if used!=quantity:
             raise ValueError('Unreferenced symbolic quantities: '+str(sorted(quantity-used)))
-        return result
+        groups = defaultdict(list)
+        for key, condition in scopes.items():
+            groups[condition].append(key)
+        merges = {}
+        for condition, keys in groups.items():
+            if len(keys) < 2:
+                continue
+            prompt = ('같은 입력 조건에 연결된 질문들을 원문과 대조하세요. 모든 질문이 그 입력에서 이 함수의 '
+                      '단일 반환값을 정하는 동일한 운영 결정일 때만 same을 true로 하세요. 서로 다른 조건이나 '
+                      '독립적으로 답할 수 있는 결정이면 false입니다. 같은 결정이면 해당 입력에서 함수가 '
+                      'True를 반환하는 행동을 해야 하는지 담당자에게 물을 자연스러운 한국어 질문 하나를 쓰세요.')
+            items = [dict(question=slots[k]['question'], original=qmap[slots[k]['origin']]) for k in keys]
+            call, verdict = ask('review-duplicate-decisions', prompt,
+                                dict(brief=brief, condition=condition, items=items),
+                                obj(dict(same={'type':'boolean'}, question=STRING)), 280)
+            calls.append(call)
+            if verdict and verdict['same'] and verdict['question'].strip():
+                question = verdict['question'].strip()
+            else:
+                # A single truth-table row of a Boolean function has one observable return.
+                # Independently map each question without showing the proposed shared row.
+                rows = dict(zip(conditions, itertools.product((False, True), repeat=len(names)))) if mode=='flags' else {}
+                if condition not in rows:
+                    raise ValueError('Different decisions need distinct input conditions')
+                for item in items:
+                    call, scope = ask('locate-owner-question',
+                        '이 질문이 함수의 반환값을 확인하려는 입력 상황 하나를 고르세요. '
+                        '정할 수 없거나 여러 상황이면 미확인으로 답하세요.',
+                        dict(brief=brief, question=item['question'], conditions=conditions),
+                        obj({'condition':enum([*conditions,'미확인'])}), 120)
+                    calls.append(call)
+                    if not scope or scope['condition'] != condition:
+                        raise ValueError('Different decisions need distinct input conditions')
+                situation = ', '.join(name+'='+('참' if v else '거짓') for name,v in zip(names,rows[condition]))
+                question = situation+'일 때 이 함수는 True를 반환해야 하나요?'
+            merges[keys[0]] = (keys, question)
+        redundant = {k for keys, _ in merges.values() for k in keys[1:]}
+        return [r for r in result if r['then'] not in redundant], merges
     rule = obj({'when':enum(conditions),'then':enum(['True','False']),'source':enum(publications)})
-    rules = checked(ask,'public-decision-rules',PLAN,dict(public=publications, decisions=slots, input_conditions=conditions),
+    rules, merges = checked(ask,'public-decision-rules',PLAN,dict(public=publications, decisions=slots, input_conditions=conditions),
                     obj({'decision_conditions':obj({k:enum(conditions) for k in choices}),'public_rules':array(rule,0,16)}),
                     1400,validate_rules,calls)
+    delivery = qmap
+    if merges:
+        for canonical, (keys, question) in merges.items():
+            sources = [dict(slots[k]) for k in keys]
+            slots[canonical] = dict(slots[canonical], question=question, merged_from=sources)
+            for key in keys[1:]:
+                del slots[key]
+        choices = [k for k in slots if k not in quantity]
+        delivery = {k:s['question'] for k,s in {**slots, **advisory}.items()}
     base, reopened = reopen_flag_decisions(code,brief,rules,choices) if mode=='flags' else (code,{})
     scope = (partial.scope(brief,code,questions,issues,ask) if pending_sites(code)
              else dict(accepted=False,sites=[],findings={},calls=[]))
     calls.extend(scope['calls'])
     scope['sites'] = list(dict.fromkeys([*(scope['sites'] if scope['accepted'] else []),*reopened]))
     scope.update(accepted=bool(scope['sites']), reopened=reopened)
-    return dict(brief=brief, code=code, editing_base=base, sent_questions=qmap, review=issues, scope=scope, slots=slots, advisory=advisory,
+    return dict(brief=brief, code=code, editing_base=base, original_questions=qmap, sent_questions=delivery, review=issues, scope=scope, slots=slots, advisory=advisory,
                 public=publications, rules=rules, names=names, mode=mode, calls=calls)
 
 

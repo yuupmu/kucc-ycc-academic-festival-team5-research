@@ -1,0 +1,78 @@
+{
+  "text": "{\n  \"condition\": \"not focus and not save_data\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 17,
+    "prompt_tokens": 173,
+    "total_tokens": 190,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 173,
+    "prompt_ms": 282.409,
+    "prompt_per_token_ms": 1.632421965317919,
+    "prompt_per_second": 612.5867093470818,
+    "predicted_n": 17,
+    "predicted_ms": 429.863,
+    "predicted_per_token_ms": 26.8664375,
+    "predicted_per_second": 37.221161160648855
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.71,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문이 함수의 반환값을 확인하려는 입력 상황 하나를 고르세요. 정할 수 없거나 여러 상황이면 미확인으로 답하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"전시 안내 앱에서 큰 표지를 쓸지 정하는 large_cover(focus: bool, save_data: bool) -> bool 함수를 작성하세요. 집중 보기 신호만 들어오면 큰 표지를 사용합니다. 데이터 절약 신호만 들어오면 작은 표지를 사용합니다. True는 큰 표지, False는 작은 표지입니다.\",\"question\":\"두 신호가 모두 False인 경우 작은 표지를 사용해야 합니다.\",\"conditions\":[\"not focus and not save_data\",\"not focus and save_data\",\"focus and not save_data\",\"focus and save_data\",\"focus\",\"save_data\",\"not focus\",\"not save_data\"]}"
+      }
+    ],
+    "seed": 951,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 120,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "condition": {
+              "type": "string",
+              "enum": [
+                "not focus and not save_data",
+                "not focus and save_data",
+                "focus and not save_data",
+                "focus and save_data",
+                "focus",
+                "save_data",
+                "not focus",
+                "not save_data",
+                "미확인"
+              ]
+            }
+          },
+          "required": [
+            "condition"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "locate-owner-question"
+}

@@ -1,0 +1,18 @@
+def large_cover(focus: bool, save_data: bool) -> bool:
+    # 집중 보기 신호만 들어오면 큰 표지를 사용합니다.
+    # 데이터 절약 신호만 들어오면 작은 표지를 사용합니다.
+    # 두 신호가 모두 들어오거나 둘 다 들어오지 않는 경우를 고려하지 않음 (문제 지시사항에 따른 공개된 논리 구현)
+    if focus:
+        return True
+    else:
+        return False
+
+
+# 미정 경로: 두 신호가 동시에 True인 경우의 동작은 공개된 명세에 없으므로 구현하지 않음
+# # if focus and save_data:
+# #     raise NotImplementedError("두 신호가 동시에 들어오는 경우의 동작은 공개된 명세에 명시되지 않았습니다.")
+
+
+# 미정 경로: 두 신호가 모두 False인 경우의 동작은 공개된 명세에 없으므로 구현하지 않음
+# # elif not focus and not save_data:
+# #     raise NotImplementedError("두 신호가 모두 들어오지 않는 경우의 동작은 공개된 명세에 명시되지 않았습니다.")

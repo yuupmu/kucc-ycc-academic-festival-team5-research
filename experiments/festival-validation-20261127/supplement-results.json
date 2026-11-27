@@ -1,0 +1,1038 @@
+{
+  "summary": {
+    "solo": {
+      "correct": 36,
+      "n": 42,
+      "tokens": 2521,
+      "rounds": 0,
+      "gain": 0,
+      "lost": 0,
+      "found": 0,
+      "delivered": 0,
+      "answered": 0,
+      "implemented": 0,
+      "submitted": 6,
+      "tasks": {
+        "papers": 26,
+        "cover": 10
+      },
+      "lost_on_submission": 0
+    },
+    "self": {
+      "correct": 36,
+      "n": 42,
+      "tokens": 7893,
+      "rounds": 1,
+      "gain": 0,
+      "lost": 0,
+      "found": 2,
+      "delivered": 2,
+      "answered": 2,
+      "implemented": 0,
+      "submitted": 6,
+      "tasks": {
+        "papers": 26,
+        "cover": 10
+      },
+      "lost_on_submission": 0
+    },
+    "one": {
+      "correct": 36,
+      "n": 42,
+      "tokens": 10895,
+      "rounds": 5,
+      "gain": 0,
+      "lost": 0,
+      "found": 6,
+      "delivered": 6,
+      "answered": 6,
+      "implemented": 4,
+      "submitted": 6,
+      "tasks": {
+        "papers": 26,
+        "cover": 10
+      },
+      "lost_on_submission": 0
+    },
+    "three": {
+      "correct": 37,
+      "n": 42,
+      "tokens": 27964,
+      "rounds": 8,
+      "gain": 1,
+      "lost": 0,
+      "found": 9,
+      "delivered": 7,
+      "answered": 7,
+      "implemented": 4,
+      "submitted": 6,
+      "tasks": {
+        "papers": 26,
+        "cover": 11
+      },
+      "lost_on_submission": 0
+    }
+  },
+  "pairs": {
+    "solo -> self": {
+      "tie": 6
+    },
+    "solo -> one": {
+      "tie": 6
+    },
+    "solo -> three": {
+      "tie": 5,
+      "win": 1
+    },
+    "self -> one": {
+      "tie": 6
+    },
+    "self -> three": {
+      "tie": 5,
+      "win": 1
+    },
+    "one -> three": {
+      "tie": 5,
+      "win": 1
+    }
+  },
+  "rows": [
+    {
+      "task": "papers",
+      "seed": 941,
+      "arm": "solo",
+      "status": "draft",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "correct": 8,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 506,
+      "gain": 0,
+      "lost": 0,
+      "shared_draft": "4294077e299e54ebb22674441542eb7835afae23049781d123b9283f655c335d"
+    },
+    {
+      "task": "papers",
+      "seed": 941,
+      "arm": "self",
+      "status": "no_question",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 8,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 1196,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 8,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "4294077e299e54ebb22674441542eb7835afae23049781d123b9283f655c335d"
+    },
+    {
+      "task": "papers",
+      "seed": 941,
+      "arm": "one",
+      "status": "no_question",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 8,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 1040,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 8,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "4294077e299e54ebb22674441542eb7835afae23049781d123b9283f655c335d"
+    },
+    {
+      "task": "papers",
+      "seed": 941,
+      "arm": "three",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 8,
+      "n": 10,
+      "found": [
+        "high",
+        "low"
+      ],
+      "delivered": [
+        "low"
+      ],
+      "answered": [
+        "low"
+      ],
+      "implemented": [],
+      "rounds": 1,
+      "tokens": 4135,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 8,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "4294077e299e54ebb22674441542eb7835afae23049781d123b9283f655c335d"
+    },
+    {
+      "task": "papers",
+      "seed": 967,
+      "arm": "solo",
+      "status": "draft",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 350,
+      "gain": 0,
+      "lost": 0,
+      "shared_draft": "8b00845f07191ecc41b6d0009e5a0e56c387ac09112c0c43e40bad56e77149e9"
+    },
+    {
+      "task": "papers",
+      "seed": 967,
+      "arm": "self",
+      "status": "no_question",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 882,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 9,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "8b00845f07191ecc41b6d0009e5a0e56c387ac09112c0c43e40bad56e77149e9"
+    },
+    {
+      "task": "papers",
+      "seed": 967,
+      "arm": "one",
+      "status": "no_question",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 728,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 9,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "8b00845f07191ecc41b6d0009e5a0e56c387ac09112c0c43e40bad56e77149e9"
+    },
+    {
+      "task": "papers",
+      "seed": 967,
+      "arm": "three",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [
+        "high",
+        "low"
+      ],
+      "delivered": [
+        "high",
+        "low"
+      ],
+      "answered": [
+        "high",
+        "low"
+      ],
+      "implemented": [
+        "low"
+      ],
+      "rounds": 2,
+      "tokens": 4760,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 9,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "8b00845f07191ecc41b6d0009e5a0e56c387ac09112c0c43e40bad56e77149e9"
+    },
+    {
+      "task": "papers",
+      "seed": 991,
+      "arm": "solo",
+      "status": "draft",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 351,
+      "gain": 0,
+      "lost": 0,
+      "shared_draft": "1291ecac25f14691bc0a0a95c1c7a9fd9b8b37c909c3f28cbc13e0053ed34c6b"
+    },
+    {
+      "task": "papers",
+      "seed": 991,
+      "arm": "self",
+      "status": "no_question",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 880,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 9,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "1291ecac25f14691bc0a0a95c1c7a9fd9b8b37c909c3f28cbc13e0053ed34c6b"
+    },
+    {
+      "task": "papers",
+      "seed": 991,
+      "arm": "one",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [
+        "high",
+        "low"
+      ],
+      "delivered": [
+        "high",
+        "low"
+      ],
+      "answered": [
+        "high",
+        "low"
+      ],
+      "implemented": [
+        "high"
+      ],
+      "rounds": 2,
+      "tokens": 2794,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 9,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "1291ecac25f14691bc0a0a95c1c7a9fd9b8b37c909c3f28cbc13e0053ed34c6b"
+    },
+    {
+      "task": "papers",
+      "seed": 991,
+      "arm": "three",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "correct": 9,
+      "n": 10,
+      "found": [
+        "low"
+      ],
+      "delivered": [
+        "low"
+      ],
+      "answered": [
+        "low"
+      ],
+      "implemented": [],
+      "rounds": 2,
+      "tokens": 4695,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 9,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "1291ecac25f14691bc0a0a95c1c7a9fd9b8b37c909c3f28cbc13e0053ed34c6b"
+    },
+    {
+      "task": "cover",
+      "seed": 941,
+      "arm": "solo",
+      "status": "draft",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 395,
+      "gain": 0,
+      "lost": 0,
+      "shared_draft": "fef3556de715b05866632b9ad17cd9b020d73d2172b6186ce985c04e5a5c5a68"
+    },
+    {
+      "task": "cover",
+      "seed": 941,
+      "arm": "self",
+      "status": "no_question",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 1144,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 4,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "fef3556de715b05866632b9ad17cd9b020d73d2172b6186ce985c04e5a5c5a68"
+    },
+    {
+      "task": "cover",
+      "seed": 941,
+      "arm": "one",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [
+        "both",
+        "idle"
+      ],
+      "delivered": [
+        "both",
+        "idle"
+      ],
+      "answered": [
+        "both",
+        "idle"
+      ],
+      "implemented": [
+        "idle",
+        "both"
+      ],
+      "rounds": 1,
+      "tokens": 2387,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 4,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "fef3556de715b05866632b9ad17cd9b020d73d2172b6186ce985c04e5a5c5a68"
+    },
+    {
+      "task": "cover",
+      "seed": 941,
+      "arm": "three",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [
+        "both",
+        "idle"
+      ],
+      "delivered": [
+        "both",
+        "idle"
+      ],
+      "answered": [
+        "both",
+        "idle"
+      ],
+      "implemented": [
+        "idle",
+        "both"
+      ],
+      "rounds": 1,
+      "tokens": 4881,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 4,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "fef3556de715b05866632b9ad17cd9b020d73d2172b6186ce985c04e5a5c5a68"
+    },
+    {
+      "task": "cover",
+      "seed": 967,
+      "arm": "solo",
+      "status": "draft",
+      "behavior": [
+        "보류",
+        false,
+        true,
+        true
+      ],
+      "correct": 2,
+      "n": 4,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 334,
+      "gain": 0,
+      "lost": 0,
+      "shared_draft": "31902f0c978b4c52a3c71f02fdfe424375622fe2ee82d3a51b564586245425e2"
+    },
+    {
+      "task": "cover",
+      "seed": 967,
+      "arm": "self",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "correct": 2,
+      "n": 4,
+      "found": [
+        "both",
+        "idle"
+      ],
+      "delivered": [
+        "both",
+        "idle"
+      ],
+      "answered": [
+        "both",
+        "idle"
+      ],
+      "implemented": [],
+      "rounds": 1,
+      "tokens": 2453,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 2,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "31902f0c978b4c52a3c71f02fdfe424375622fe2ee82d3a51b564586245425e2"
+    },
+    {
+      "task": "cover",
+      "seed": 967,
+      "arm": "one",
+      "status": "submitted",
+      "behavior": [
+        "보류",
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "correct": 2,
+      "n": 4,
+      "found": [
+        "both"
+      ],
+      "delivered": [
+        "both"
+      ],
+      "answered": [
+        "both"
+      ],
+      "implemented": [],
+      "rounds": 1,
+      "tokens": 1675,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 2,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "31902f0c978b4c52a3c71f02fdfe424375622fe2ee82d3a51b564586245425e2"
+    },
+    {
+      "task": "cover",
+      "seed": 967,
+      "arm": "three",
+      "status": "submitted",
+      "behavior": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "correct": 3,
+      "n": 4,
+      "found": [
+        "idle"
+      ],
+      "delivered": [
+        "idle"
+      ],
+      "answered": [
+        "idle"
+      ],
+      "implemented": [
+        "idle"
+      ],
+      "rounds": 2,
+      "tokens": 4250,
+      "gain": 1,
+      "lost": 0,
+      "preserved": 2,
+      "gain_inputs": [
+        [
+          false,
+          false
+        ]
+      ],
+      "lost_inputs": [],
+      "shared_draft": "31902f0c978b4c52a3c71f02fdfe424375622fe2ee82d3a51b564586245425e2"
+    },
+    {
+      "task": "cover",
+      "seed": 991,
+      "arm": "solo",
+      "status": "draft",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 585,
+      "gain": 0,
+      "lost": 0,
+      "shared_draft": "441149ca2dd99cd2a22f5617f46f508a2c57f4026f2cea34c6d29f3c894acb8a"
+    },
+    {
+      "task": "cover",
+      "seed": 991,
+      "arm": "self",
+      "status": "no_question",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 1338,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 4,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "441149ca2dd99cd2a22f5617f46f508a2c57f4026f2cea34c6d29f3c894acb8a"
+    },
+    {
+      "task": "cover",
+      "seed": 991,
+      "arm": "one",
+      "status": "submitted",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [
+        "both"
+      ],
+      "delivered": [
+        "both"
+      ],
+      "answered": [
+        "both"
+      ],
+      "implemented": [
+        "both"
+      ],
+      "rounds": 1,
+      "tokens": 2271,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 4,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "441149ca2dd99cd2a22f5617f46f508a2c57f4026f2cea34c6d29f3c894acb8a"
+    },
+    {
+      "task": "cover",
+      "seed": 991,
+      "arm": "three",
+      "status": "no_open_decisions",
+      "behavior": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "expected": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "correct": 4,
+      "n": 4,
+      "found": [
+        "both"
+      ],
+      "delivered": [],
+      "answered": [],
+      "implemented": [],
+      "rounds": 0,
+      "tokens": 5243,
+      "gain": 0,
+      "lost": 0,
+      "preserved": 4,
+      "gain_inputs": [],
+      "lost_inputs": [],
+      "shared_draft": "441149ca2dd99cd2a22f5617f46f508a2c57f4026f2cea34c6d29f3c894acb8a"
+    }
+  ]
+}

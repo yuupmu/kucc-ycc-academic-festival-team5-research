@@ -1,0 +1,15 @@
+{
+  "brief": "독서 모임 책자의 발췌본을 제안할지 정하는 offer_excerpt(pages: int) -> bool 함수를 작성하세요. 입력은 원고 쪽수입니다. 4쪽보다 얇거나 12쪽보다 두꺼운 원고에는 제안하지 않습니다. 4쪽보다 두껍고 12쪽보다 얇으면 제안합니다.",
+  "code": "def offer_excerpt(pages: int) -> bool:\n    \"\"\"\n    독서 모임 책자의 발췌본을 제안할지 정하는 함수입니다.\n    \n    조건:\n    - 4 쪽보다 얇거나 (pages <= 4): 제안하지 않음 (False)\n    - 12 쪽보다 두꺼운 (pages > 12): 제안하지 않음 (False)\n    - 4 쪽보다 두껍고 12 쪽보다 얇으면 (4 < pages <= 12): 제안함 (True)\n    \n    Args:\n        pages (int): 원고 쪽수\n    \n    Returns:\n        bool: 제안할 경우 True, 아니면 False\n    \"\"\"\n    if 4 < pages <= 12:\n        return True\n    else:\n        return False\n\n\n# 테스트 코드 (예시)\nif __name__ == \"__main__\":\n    # 4 쪽 이하인 경우\n    assert offer_excerpt(3) == False\n    assert offer_excerpt(4) == False\n    \n    # 4 쪽 초과 12 쪽 이하인 경우\n    assert offer_excerpt(5) == True\n    assert offer_excerpt(10) == True\n    assert offer_excerpt(12) == True\n    \n    # 12 쪽 초과인 경우\n    assert offer_excerpt(13) == False\n    assert offer_excerpt(20) == False\n    \n    print(\"모든 테스트 케이스가 통과되었습니다.\")",
+  "questions": [
+    "독서 모임 책자의 발췌본 제안 조건에서 '4 쪽보다 얇거나'와 '12 쪽보다 두꺼운' 경우를 제안하지 않는다는 설명과, 실제 코드에서 `4 < pages <= 12`로 구현된 로직이 조건 설명과 일치하는지 확인하고 싶습니다.",
+    "4 쪽보다 얇거나 (pages <= 4) 에 대해 제안하지 않는다는 조건과, 4 쪽보다 두껍고 12 쪽보다 얇으면 (4 < pages <= 12) 에 대해 제안한다는 조건이 겹치는 부분이 있는지 확인하고 싶습니다. 특히 pages=4 일 때의 처리가 명확히 정의되어 있는지 담당자에게 질문하고 싶습니다."
+  ],
+  "review": [],
+  "calls": [
+    "0be602e08088681fae56af38ff444e0ccaa376d6ed388a1a325254aab71b3d17",
+    "f24d9f935a206f33349f0bcfabaad5a4bd18f629e8a39a00625adcaa934fb674",
+    "9c32e4c22294ed0689a67c75c03cfe75acc702a666712420cbc0ed3767ceeca0",
+    "e6b11964d0ad34777ae700b44bdcb0ad90b36472acf71b617cfcb912e0cec7c3"
+  ]
+}

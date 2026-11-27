@@ -1,0 +1,80 @@
+{
+  "text": "{\"item\": \"offer_excerpt_logic\", \"value\": \"False\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 15,
+    "prompt_tokens": 235,
+    "total_tokens": 250,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 235,
+    "prompt_ms": 230.301,
+    "prompt_per_token_ms": 0.9800042553191489,
+    "prompt_per_second": 1020.4037325065892,
+    "predicted_n": 15,
+    "predicted_ms": 225.243,
+    "predicted_per_token_ms": 16.088785714285713,
+    "predicted_per_second": 62.15509471992471
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.46,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자가 실제로 쓴 한 문장과, 이 회신을 받을 때 전달한 질문들입니다. 이 문장이 직접 답하는 항목 하나를 고르세요. 질문과 무관하거나 여러 항목 중 어디에 답한 것인지 알 수 없으면 해당 없음입니다. 행동을 정한 문장이라면 그 상황에서 함수를 실행·허용·켜는 의미는 True, 거절·끄는 의미는 False입니다. 실제 발언의 부정 표현을 정확히 읽으세요. 질문에 들어 있던 설명은 결정의 근거가 아닙니다. 다른 정책을 보충하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"owner_statement\":\"질문하신 사항에 대해 추가로 정한 기준은 없습니다.\",\"sent_items\":{\"offer_excerpt_logic\":\"4 쪽보다 얇거나 12 쪽보다 두꺼운 원고에는 제안하지 않는 로직이 구현되어 있네요. 현재 코드는 pages <= 4 or pages >= 12 일 때 False 를 반환하고, 그 외 경우 True 를 반환하므로 조건과 일치합니다. 추가 확인이 필요하신 부분이 있으신가요?\"},\"ticket_size\":1}"
+      }
+    ],
+    "seed": 1001,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "item": {
+              "type": "string",
+              "enum": [
+                "offer_excerpt_logic",
+                "해당 없음"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "True",
+                "False",
+                "미정"
+              ]
+            }
+          },
+          "required": [
+            "item",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "receipt-item"
+}
