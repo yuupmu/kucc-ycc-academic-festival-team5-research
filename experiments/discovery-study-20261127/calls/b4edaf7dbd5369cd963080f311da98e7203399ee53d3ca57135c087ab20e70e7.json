@@ -1,0 +1,72 @@
+{
+  "text": "{\n  \"kind\": \"일반의견\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 85,
+    "total_tokens": 99,
+    "prompt_tokens_details": {
+      "cached_tokens": 3
+    }
+  },
+  "server_timings": {
+    "cache_n": 3,
+    "prompt_n": 82,
+    "prompt_ms": 199.796,
+    "prompt_per_token_ms": 2.4365365853658534,
+    "prompt_per_second": 410.4186269995396,
+    "predicted_n": 14,
+    "predicted_ms": 231.761,
+    "predicted_per_token_ms": 17.82776923076923,
+    "predicted_per_second": 56.09226746519044
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.44,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문을 읽고 답의 종류를 분류하세요. 숫자를 실제로 요구하면 정수값, 특정 상황의 실행 여부를 요구하면 행동결정, 그 밖에 일반적인 의견·예상 문제를 물으면 일반의견입니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"question\":\"`show_tip(False, False)` 테스트 케이스의 기대값은 무엇입니까?\"}"
+      }
+    ],
+    "seed": 1133,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 70,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "정수값",
+                "행동결정",
+                "일반의견"
+              ]
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "question-answer-type"
+}

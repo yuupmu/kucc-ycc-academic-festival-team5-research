@@ -1,0 +1,16 @@
+{
+  "brief": "놀이공원 회전 그네의 탑승 가능 여부를 정하는 can_ride(height_cm: int) -> bool 함수를 작성하세요. 입력은 탑승객의 키(cm)입니다. 키가 110cm보다 작거나 190cm보다 크면 탑승할 수 없습니다. 110cm보다 크고 190cm보다 작으면 탑승할 수 있습니다. True는 탑승 가능, False는 탑승 불가입니다.",
+  "code": "def can_ride(height_cm: int) -> bool:\n    \"\"\"\n    회전 그네 탑승 가능 여부를 판단합니다.\n    \n    조건:\n    - 키가 110cm보다 작거나 190cm보다 크면 탑승 불가 (False)\n    - 110cm보다 크고 190cm보다 작으면 탑승 가능 (True)\n    \n    Args:\n        height_cm (int): 탑승객의 키 (cm)\n    \n    Returns:\n        bool: 탑승 가능 여부\n    \"\"\"\n    if 110 < height_cm < 190:\n        return True\n    return False\n",
+  "questions": [
+    "110cm 또는 190cm인 경우 탑승 가능 여부를 명확히 하려면 어떤 기준을 적용하시겠습니까? 현재 코드는 110cm보다 크고 190cm보다 작을 때만 True를 반환하고 있으나, 110cm나 190cm인 경우를 명시적으로 정의하지 않았습니다.",
+    "요청하신 조건에 따라 코드가 올바른지 확인했습니다. 모든 테스트 케이스가 통과되었으므로 추가 질문이 없습니다.",
+    "요청하신 조건 (110cm 이상 190cm 미만) 을 구현한 코드가 정확히 일치하는지 확인하기 위해, 110cm 와 190cm 의 경계 값을 테스트할 질문이 필요합니다."
+  ],
+  "review": [],
+  "calls": [
+    "41816d1b924a6d6dd443087879b4d0c9fd4a5b75da19ae8cb154ad66f11715f0",
+    "04059e91e2ee0a8f48b7534a0dd8f75ecdb6c8ead19372c4d7b98bd89a2d8e09",
+    "ea08da7e2536ce205db18cfd31621b146a3b544a3ddd78262918e7686949e046",
+    "cefd70be23b056c86a5edef8fe52daaefeba537b20664764169d3abdc3264891"
+  ]
+}

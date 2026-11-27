@@ -1,0 +1,146 @@
+{
+  "text": "{\"decision_conditions\": {\"grant_badge_attend_and_submit\": \"attended and submitted\", \"grant_badge_attend_only\": \"attended\"}, \"public_rules\": [{\"when\": \"attended and submitted\", \"then\": \"True\", \"source\": \"P2\"}, {\"when\": \"not attended and not submitted\", \"then\": \"False\", \"source\": \"P3\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 79,
+    "prompt_tokens": 376,
+    "total_tokens": 455,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 249,
+    "prompt_ms": 372.052,
+    "prompt_per_token_ms": 1.4941847389558234,
+    "prompt_per_second": 669.2612860567878,
+    "predicted_n": 79,
+    "predicted_ms": 1335.057,
+    "predicted_per_token_ms": 17.116115384615384,
+    "predicted_per_second": 58.42447176412692
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.72,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요.\",\"P2\":\"출석도 하고 과제도 제출했으면 수료 배지를 줍니다.\",\"P3\":\"출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다.\",\"P4\":\"True는 지급, False는 미지급입니다.\"},\"decisions\":{\"grant_badge_attend_and_submit\":{\"key\":\"grant_badge_attend_and_submit\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"수료 배지를 지급하기 위한 조건이 출석 (attended) 과 과제 제출 (submitted) 이 모두 True 인 경우에만 True 를 반환하는지 명확히 해주세요.\"},\"grant_badge_attend_only\":{\"key\":\"grant_badge_attend_only\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"출석만 하면 수료 배지를 지급하는지 명확히 해주세요.\"}},\"input_conditions\":[\"not attended and not submitted\",\"not attended and submitted\",\"attended and not submitted\",\"attended and submitted\",\"attended\",\"submitted\",\"not attended\",\"not submitted\"]}"
+      }
+    ],
+    "seed": 1127,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "grant_badge_attend_and_submit": {
+                  "type": "string",
+                  "enum": [
+                    "not attended and not submitted",
+                    "not attended and submitted",
+                    "attended and not submitted",
+                    "attended and submitted",
+                    "attended",
+                    "submitted",
+                    "not attended",
+                    "not submitted"
+                  ]
+                },
+                "grant_badge_attend_only": {
+                  "type": "string",
+                  "enum": [
+                    "not attended and not submitted",
+                    "not attended and submitted",
+                    "attended and not submitted",
+                    "attended and submitted",
+                    "attended",
+                    "submitted",
+                    "not attended",
+                    "not submitted"
+                  ]
+                }
+              },
+              "required": [
+                "grant_badge_attend_and_submit",
+                "grant_badge_attend_only"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "not attended and not submitted",
+                      "not attended and submitted",
+                      "attended and not submitted",
+                      "attended and submitted",
+                      "attended",
+                      "submitted",
+                      "not attended",
+                      "not submitted"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

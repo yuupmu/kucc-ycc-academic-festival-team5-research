@@ -1,0 +1,12 @@
+{
+  "brief": "회의 일정에 휴식 제안을 붙일지 정하는 suggest_break(minutes: int) -> bool 함수를 작성하세요. 입력은 회의 길이(분)입니다. 50분이 안 되는 회의에는 휴식을 제안하지 않습니다. 50분을 넘고 180분이 안 되는 회의에는 제안합니다. 180분을 넘는 회의는 분할 안내를 따로 보내므로 휴식을 제안하지 않습니다. True는 제안, False는 제안 안 함입니다.",
+  "code": "def suggest_break(minutes: int) -> bool:\n    \"\"\"\n    회의 길이에 따라 휴식 제안을 결정하는 함수입니다.\n    \n    규칙:\n    - 50 분 미만: 휴식 제안 안 함 (False)\n    - 50 분 이상, 180 분 미만: 휴식 제안 함 (True)\n    - 180 분 이상: 분할 안내를 보내므로 휴식 제안 안 함 (False)\n    \n    Args:\n        minutes (int): 회의 길이 (분)\n    \n    Returns:\n        bool: 휴식 제안 여부\n    \n    Raises:\n        ValueError: 회의 길이 (minutes) 가 음수인 경우\n    \"\"\"\n    if minutes < 0:\n        raise ValueError(\"회의 길이는 음수일 수 없습니다.\")\n    \n    if 50 <= minutes < 180:\n        return True\n    else:\n        return False",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "8687b18eb26126b8c438671a454c15b8f6462353e2ccad1ca414f2d8b0dbfbf7",
+    "ff69ed750b7431dba444ca1d0b903540266345ea876ae13ab2c520381d9f8fa5",
+    "53c50ebc8eb6c327c16016124608c8c92541401749999b26941ac9d5df3ba710",
+    "27ebf386b36dc395ace3d357929139b7dcc0af8dc18cddbe2bef5349e47dcc2b"
+  ]
+}

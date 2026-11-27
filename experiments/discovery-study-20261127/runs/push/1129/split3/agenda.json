@@ -1,0 +1,119 @@
+{
+  "handoff": "3668244a9aaa5b5fb6b7e1d1ac6b1941eef41de813b944ad24b8c7db9f3cd3f0",
+  "digest": "b3a805e1c0eec5bdc9a3be2898ccdb13f9e920e9ac2bc1ad93edfeea0613c959",
+  "agenda": {
+    "brief": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요. 긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다. True는 보내기, False는 보내지 않기입니다.",
+    "code": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수입니다.\n    \n    로직:\n    - 긴급 표시 (urgent) 가 True 인 경우에만 푸시 알림을 보냅니다.\n    - 방해 금지 (do_not_disturb) 가 True 인 경우, 푸시 알림은 보내지 않습니다.\n    - 두 조건이 모두 True 라면, 긴급 표시가 우선하여 알림을 보냅니다.\n    \n    Args:\n        urgent (bool): 알림이 긴급한지 여부.\n        do_not_disturb (bool): 방해 금지 모드가 켜져 있는지 여부.\n    \n    Returns:\n        bool: 알림을 보낼 경우 True, 보내지 않을 경우 False 를 반환합니다.\n    \"\"\"\n    if urgent and not do_not_disturb:\n        return True\n    return False",
+    "editing_base": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수입니다.\n    \n    로직:\n    - 긴급 표시 (urgent) 가 True 인 경우에만 푸시 알림을 보냅니다.\n    - 방해 금지 (do_not_disturb) 가 True 인 경우, 푸시 알림은 보내지 않습니다.\n    - 두 조건이 모두 True 라면, 긴급 표시가 우선하여 알림을 보냅니다.\n    \n    Args:\n        urgent (bool): 알림이 긴급한지 여부.\n        do_not_disturb (bool): 방해 금지 모드가 켜져 있는지 여부.\n    \n    Returns:\n        bool: 알림을 보낼 경우 True, 보내지 않을 경우 False 를 반환합니다.\n    \"\"\"\n    if urgent and not do_not_disturb:\n        raise NotImplementedError(\"send_push_logic_urgent_only_condition\")\n    return False",
+    "original_questions": {
+      "Q1": "현재 코드는 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항에 따라 `urgent` 가 True 이고 `do_not_disturb` 가 False 일 때만 알림을 보냅니다. 하지만 요구사항 설명에서 '긴급 표시만 있으면'이라는 표현은 '긴급 표시가 True 이고 방해 금지는 False 인 경우'를 의미할 수도 있으나, 문맥상 '긴급 표시가 True 인 경우 (단, 방해 금지는 False 인 경우)'로 해석되는 것이 자연스럽습니다.\n\n만약 요구사항이 '긴급 표시가 True 인 경우 (도와 관계없이) 푸시 알림을 보낸다'라면 현재 코드는 틀렸습니다.\n\n만약 요구사항이 '긴급 표시가 True 이고 방해 금지는 False 인 경우에만 푸시 알림을 보낸다'라면 현재 코드는 맞습니다.\n\n현재 코드는 후자 (두 조건이 모두 True 라면, 긴급 표시가 우선하여 알림을 보냅니다) 로 구현되어 있습니다. 하지만 요구사항 설명의 '긴급 표시만 있으면'이라는 표현이 모호하여 담당자에게 확인이 필요합니다.\n\n정확한 요구사항을 확인하기 위해 다음을 물어보겠습니다:\n\n1. '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문장을 해석할 때, '만'이 '단, (방해 금지는 꺼져야 한다)'를 의미하는지, 아니면 '만 (도와 관계없이)'을 의미하는지 명확히 해주세요.\n2. 만약 '긴급 표시가 True 인 경우 (도와 관계없이) 푸시 알림을 보낸다'라면, 현재 코드는 `do_not_disturb` 가 True 인 경우에도 알림을 보내야 하므로 수정이 필요합니다.\n3. 만약 '긴급 표시가 True 이고 방해 금지는 False 인 경우에만 푸시 알림을 보낸다'라면, 현재 코드는 맞습니다.\n\n현재 코드는 두 경우 모두를 고려하여 `urgent and not do_not_disturb` 로 구현되어 있습니다. 하지만 요구사항 설명이 명확하지 않아 담당자에게 확인이 필요합니다.",
+      "Q2": "현재 로직은 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항에 따라 `urgent` 가 True 이고 `do_not_disturb` 가 False 일 때만 알림을 보냅니다. 하지만 요구사항에서 '긴급 표시만 있으면'이라는 표현은 `do_not_disturb` 가 True 인 경우에도 `urgent` 가 True 라면 보낼 수 있다는 의미로 해석될 수 있습니다. 만약 '긴급 표시만 있으면'이 '긴급 표시가 있고 방해 금지가 아니면'이라는 의미라면 현재 로직은 맞습니다. 만약 '긴급 표시가 있으면 (방해 금지 여부와 관계없이) 보낸다'는 의미라면 로직을 수정해야 합니다. 현재 로직이 의도하신 대로 맞는지 확인이 필요합니다.",
+      "Q3": "긴급 표시 (urgent) 가 True 이고 방해 금지 (do_not_disturb) 가 False 인 경우, 현재 로직은 알림을 보냅니다. 하지만 요구사항에 따라 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문맥상, 방해 금지 모드가 꺼져야만 보낼 수 있다는 것이 핵심인지, 아니면 긴급 표시가 있으면 항상 보낼 수 있는지 명확히 확인이 필요합니다. 특히 '긴급 표시만 있으면'이라는 표현이 '긴급 표시가 있고 방해 금지가 아닐 때'를 의미하는지, 아니면 '긴급 표시가 있으면 (방해 금지 여부와 상관없이)'를 의미하는지 담당자에게 질문을 드려야 합니다."
+    },
+    "sent_questions": {
+      "Q1": "현재 코드는 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항에 따라 `urgent` 가 True 이고 `do_not_disturb` 가 False 일 때만 알림을 보냅니다. 하지만 요구사항 설명에서 '긴급 표시만 있으면'이라는 표현은 '긴급 표시가 True 이고 방해 금지는 False 인 경우'를 의미할 수도 있으나, 문맥상 '긴급 표시가 True 인 경우 (단, 방해 금지는 False 인 경우)'로 해석되는 것이 자연스럽습니다.\n\n만약 요구사항이 '긴급 표시가 True 인 경우 (도와 관계없이) 푸시 알림을 보낸다'라면 현재 코드는 틀렸습니다.\n\n만약 요구사항이 '긴급 표시가 True 이고 방해 금지는 False 인 경우에만 푸시 알림을 보낸다'라면 현재 코드는 맞습니다.\n\n현재 코드는 후자 (두 조건이 모두 True 라면, 긴급 표시가 우선하여 알림을 보냅니다) 로 구현되어 있습니다. 하지만 요구사항 설명의 '긴급 표시만 있으면'이라는 표현이 모호하여 담당자에게 확인이 필요합니다.\n\n정확한 요구사항을 확인하기 위해 다음을 물어보겠습니다:\n\n1. '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문장을 해석할 때, '만'이 '단, (방해 금지는 꺼져야 한다)'를 의미하는지, 아니면 '만 (도와 관계없이)'을 의미하는지 명확히 해주세요.\n2. 만약 '긴급 표시가 True 인 경우 (도와 관계없이) 푸시 알림을 보낸다'라면, 현재 코드는 `do_not_disturb` 가 True 인 경우에도 알림을 보내야 하므로 수정이 필요합니다.\n3. 만약 '긴급 표시가 True 이고 방해 금지는 False 인 경우에만 푸시 알림을 보낸다'라면, 현재 코드는 맞습니다.\n\n현재 코드는 두 경우 모두를 고려하여 `urgent and not do_not_disturb` 로 구현되어 있습니다. 하지만 요구사항 설명이 명확하지 않아 담당자에게 확인이 필요합니다.",
+      "Q2": "현재 로직은 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항에 따라 `urgent` 가 True 이고 `do_not_disturb` 가 False 일 때만 알림을 보냅니다. 하지만 요구사항에서 '긴급 표시만 있으면'이라는 표현은 `do_not_disturb` 가 True 인 경우에도 `urgent` 가 True 라면 보낼 수 있다는 의미로 해석될 수 있습니다. 만약 '긴급 표시만 있으면'이 '긴급 표시가 있고 방해 금지가 아니면'이라는 의미라면 현재 로직은 맞습니다. 만약 '긴급 표시가 있으면 (방해 금지 여부와 관계없이) 보낸다'는 의미라면 로직을 수정해야 합니다. 현재 로직이 의도하신 대로 맞는지 확인이 필요합니다.",
+      "Q3": "긴급 표시 (urgent) 가 True 이고 방해 금지 (do_not_disturb) 가 False 인 경우, 현재 로직은 알림을 보냅니다. 하지만 요구사항에 따라 '긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문맥상, 방해 금지 모드가 꺼져야만 보낼 수 있다는 것이 핵심인지, 아니면 긴급 표시가 있으면 항상 보낼 수 있는지 명확히 확인이 필요합니다. 특히 '긴급 표시만 있으면'이라는 표현이 '긴급 표시가 있고 방해 금지가 아닐 때'를 의미하는지, 아니면 '긴급 표시가 있으면 (방해 금지 여부와 상관없이)'를 의미하는지 담당자에게 질문을 드려야 합니다."
+    },
+    "review": [],
+    "scope": {
+      "accepted": true,
+      "sites": [
+        "@pending:18:8"
+      ],
+      "findings": {},
+      "calls": [],
+      "reopened": {
+        "@pending:18:8": "send_push_logic_urgent_only_condition"
+      }
+    },
+    "slots": {
+      "send_push_logic_urgent_do_not_disturb_interpretation": {
+        "key": "send_push_logic_urgent_do_not_disturb_interpretation",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "'긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문장에서 '만'이 '단, 방해 금지는 꺼져야 한다'는 조건을 의미하는지 확인해 주세요."
+      },
+      "send_push_logic_do_not_disturb_override": {
+        "key": "send_push_logic_do_not_disturb_override",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "'긴급 표시만 있으면 푸시 알림을 보냅니다'라는 요구사항이 '긴급 표시가 True 인 경우 (방해 금지는 True 라도 관계없이) 푸시 알림을 보낸다'는 의미로 해석될까요?"
+      },
+      "send_push_logic_urgent_only_condition": {
+        "key": "send_push_logic_urgent_only_condition",
+        "kind": "decision",
+        "origin": "Q3",
+        "question": "'긴급 표시만 있으면 푸시 알림을 보냅니다'라는 문맥상, 방해 금지 모드가 꺼져야만 알림이 보내지는지 확인해 주세요."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요.",
+      "P2": "긴급 표시만 있으면 푸시 알림을 보냅니다.",
+      "P3": "방해 금지만 켜져 있으면 보내지 않습니다.",
+      "P4": "True는 보내기, False는 보내지 않기입니다."
+    },
+    "rules": [
+      {
+        "when": "not urgent and do_not_disturb",
+        "then": "send_push_logic_urgent_do_not_disturb_interpretation",
+        "source": "Q1"
+      },
+      {
+        "when": "urgent and do_not_disturb",
+        "then": "send_push_logic_do_not_disturb_override",
+        "source": "Q2"
+      },
+      {
+        "when": "urgent and not do_not_disturb",
+        "then": "send_push_logic_urgent_only_condition",
+        "source": "Q3"
+      },
+      {
+        "when": "not urgent and not do_not_disturb",
+        "then": "False",
+        "source": "P2"
+      },
+      {
+        "when": "not urgent and do_not_disturb",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "urgent and not do_not_disturb",
+        "then": "True",
+        "source": "P2"
+      },
+      {
+        "when": "urgent and do_not_disturb",
+        "then": "True",
+        "source": "P2"
+      },
+      {
+        "when": "do_not_disturb",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "not urgent",
+        "then": "False",
+        "source": "P2"
+      },
+      {
+        "when": "not do_not_disturb",
+        "then": "False",
+        "source": "P3"
+      }
+    ],
+    "names": [
+      "urgent",
+      "do_not_disturb"
+    ],
+    "mode": "flags",
+    "calls": [
+      "9aee7761925fa0801f93cdd6e17598b6846c84d79923e0ac3d6838c5d01dd8b0",
+      "a951f895a9f7a31a24c18b4cda36e030c23f0766e6a2ced6e841458488baa4d8"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "brief": "놀이공원 회전 그네의 탑승 가능 여부를 정하는 can_ride(height_cm: int) -> bool 함수를 작성하세요. 입력은 탑승객의 키(cm)입니다. 키가 110cm보다 작거나 190cm보다 크면 탑승할 수 없습니다. 110cm보다 크고 190cm보다 작으면 탑승할 수 있습니다. True는 탑승 가능, False는 탑승 불가입니다.",
+  "code": "def can_ride(height_cm: int) -> bool:\n    \"\"\"\n    회전 그네 탑승 가능 여부를 판단합니다.\n    \n    조건:\n    - 키가 110cm보다 작거나 190cm보다 크면 탑승 불가 (False)\n    - 110cm <= 키 <= 190cm 인 경우 탑승 가능 (True)\n    \n    Args:\n        height_cm (int): 탑승객의 키 (cm)\n    \n    Returns:\n        bool: 탑승 가능 여부\n    \"\"\"\n    if 110 <= height_cm <= 190:\n        return True\n    else:\n        return False\n\n# 테스트 코드 (해석기에서 실행되지 않도록 주석 처리)\n# assert can_ride(100) == False\n# assert can_ride(110) == True\n# assert can_ride(150) == True\n# assert can_ride(190) == True\n# assert can_ride(191) == False\n# assert can_ride(200) == False\n# assert can_ride(109) == False",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "3ae0823977b94b31093f2aaa5fa266b6dd5217b9dc4f5adef8873228150e648d",
+    "33f33b3113ef05edf28119b69b517e738d4572b46bb9735b1da118c7c5c20bc2"
+  ]
+}

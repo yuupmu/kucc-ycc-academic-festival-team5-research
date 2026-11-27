@@ -1,0 +1,13 @@
+{
+  "status": "ready",
+  "questions": [
+    "두 조건이 모두 True인 경우 (고정 표시와 만료 표시 모두 해당) 에 대해 '고정 표시 우선으로 유지한다'는 로직이 명확히 정의되어 있으나, 코드는 `pinned` 가 True 일 경우에만 `True` 를 반환하고 `expired` 가 True 인 경우를 직접 처리하지 않습니다. 이 로직이 의도한 대로 작동하는지, 아니면 `pinned` 가 False 인 상태에서 `expired` 가 True 인 경우에만 삭제하는 로직인지 담당자에게 확인이 필요합니다."
+  ],
+  "error": null,
+  "calls": [
+    "ea1f3e70e54c13e739015d7c90d7097d6130ebe362b4b99864a0dbc78ad5d5ba",
+    "0372fdb86ef0e44f2ad5440e07011765c6a7730311389c077c9e120e955825e4",
+    "0eecf6cb83643e5dd3d628fe3d25d62de89a83a3117153494dd45f5f7087187d",
+    "07a041451fe961515c8b7b7e19f380e9e2b796e43369fcef76dbf23b79a1dd7a"
+  ]
+}

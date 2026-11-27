@@ -1,0 +1,59 @@
+{
+  "handoff": "293a5d374de828673b346049fe2ae877727b23a1b1b77c20025d50560e009d94",
+  "digest": "90e5338418f69a1fed6c6ab8416d907bcca667e5738f53aadfde895c9e40a0dd",
+  "agenda": {
+    "brief": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.",
+    "code": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시간을 받아 공공 복도 조명이 켜져 있는지 판단하는 함수입니다.\n    \n    조건:\n    - 0 시 ~ 5 시 (6 시보다 이르거나): 조명 켜짐 (True)\n    - 6 시 ~ 17 시 (6 시보다 늦고 18 시보다 이르면): 조명 꺼짐 (False)\n    - 18 시 ~ 23 시 (18 시보다 늦으면): 조명 켜짐 (True)\n    \n    Args:\n        hour (int): 현재 시간 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있으면 True, 꺼져 있으면 False\n    \"\"\"\n    if hour < 6 or hour >= 18:\n        return True\n    else:\n        return False\n",
+    "editing_base": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시간을 받아 공공 복도 조명이 켜져 있는지 판단하는 함수입니다.\n    \n    조건:\n    - 0 시 ~ 5 시 (6 시보다 이르거나): 조명 켜짐 (True)\n    - 6 시 ~ 17 시 (6 시보다 늦고 18 시보다 이르면): 조명 꺼짐 (False)\n    - 18 시 ~ 23 시 (18 시보다 늦으면): 조명 켜짐 (True)\n    \n    Args:\n        hour (int): 현재 시간 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있으면 True, 꺼져 있으면 False\n    \"\"\"\n    if hour < 6 or hour >= 18:\n        return True\n    else:\n        return False\n",
+    "original_questions": {
+      "Q1": "현재 시가 6 시인 경우, 조명이 켜져 있는지 확인해 주시겠습니까?"
+    },
+    "sent_questions": {
+      "Q1": "현재 시가 6 시인 경우, 조명이 켜져 있는지 확인해 주시겠습니까?"
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "light_on_6": {
+        "key": "light_on_6",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "현재 시가 6 시일 때 light_on 함수는 True 를 반환하는지 확인해 주시겠습니까?"
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요.",
+      "P2": "입력은 0부터 23까지의 현재 시(hour)입니다.",
+      "P3": "6시보다 이르거나 18시보다 늦으면 조명을 켭니다.",
+      "P4": "6시보다 늦고 18시보다 이르면 켜지 않습니다.",
+      "P5": "True는 켜기, False는 끄기입니다."
+    },
+    "rules": [
+      {
+        "when": "hour == 6",
+        "then": "light_on_6",
+        "source": "Q1"
+      },
+      {
+        "when": "hour == 6",
+        "then": "True",
+        "source": "P3"
+      }
+    ],
+    "names": [
+      "hour"
+    ],
+    "mode": "integer",
+    "calls": [
+      "8f3ae31d37eaffa393c772725a31e38da654c52ab9a915da140e702eeb6a1cec",
+      "7fb16e10f8de79078a06e83a271635da56ea4f504f3ecc5ed4a655433404d815"
+    ]
+  }
+}

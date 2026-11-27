@@ -1,0 +1,160 @@
+{
+  "text": "{\n  \"decision_conditions\": {\n    \"decision_urgent_do_not_disturb_both_true\": \"urgent and do_not_disturb\",\n    \"quantity_urgent_do_not_disturb_both_true\": \"urgent and do_not_disturb\",\n    \"decision_urgent_do_not_disturb_urgent_true_not_disturb_false\": \"urgent and not do_not_disturb\"\n  },\n  \"public_rules\": [\n    {\n      \"when\": \"urgent and not do_not_disturb\",\n      \"then\": \"True\",\n      \"source\": \"P2\"\n    },\n    {\n      \"when\": \"not urgent and do_not_disturb\",\n      \"then\": \"False\",\n      \"source\": \"P3\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 167,
+    "prompt_tokens": 499,
+    "total_tokens": 666,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 372,
+    "prompt_ms": 534.174,
+    "prompt_per_token_ms": 1.4359516129032257,
+    "prompt_per_second": 696.4022958811174,
+    "predicted_n": 167,
+    "predicted_ms": 2727.632,
+    "predicted_per_token_ms": 16.43151807228916,
+    "predicted_per_second": 60.858649553898765
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.27,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요.\",\"P2\":\"긴급 표시만 있으면 푸시 알림을 보냅니다.\",\"P3\":\"방해 금지만 켜져 있으면 보내지 않습니다.\",\"P4\":\"True는 보내기, False는 보내지 않기입니다.\"},\"decisions\":{\"decision_urgent_do_not_disturb_both_true\":{\"key\":\"decision_urgent_do_not_disturb_both_true\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"긴급 표시 (urgent=True) 가 있고 방해 금지 (do_not_disturb=True) 가 켜져 있는 경우에도 푸시 알림을 보내야 하는지 정해져 있나요?\"},\"quantity_urgent_do_not_disturb_both_true\":{\"key\":\"quantity_urgent_do_not_disturb_both_true\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"긴급 표시 (urgent=True) 가 있고 방해 금지 (do_not_disturb=True) 인 경우, send_push 함수가 반환하는 값은 무엇인가요?\"},\"decision_urgent_do_not_disturb_urgent_true_not_disturb_false\":{\"key\":\"decision_urgent_do_not_disturb_urgent_true_not_disturb_false\",\"kind\":\"decision\",\"origin\":\"Q3\",\"question\":\"긴급 표시 (urgent=True) 가 있고 방해 금지 (do_not_disturb=False) 인 경우, send_push 함수가 알림을 보내는지 정해져 있나요?\"}},\"input_conditions\":[\"not urgent and not do_not_disturb\",\"not urgent and do_not_disturb\",\"urgent and not do_not_disturb\",\"urgent and do_not_disturb\",\"urgent\",\"do_not_disturb\",\"not urgent\",\"not do_not_disturb\"]}"
+      }
+    ],
+    "seed": 1139,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "decision_urgent_do_not_disturb_both_true": {
+                  "type": "string",
+                  "enum": [
+                    "not urgent and not do_not_disturb",
+                    "not urgent and do_not_disturb",
+                    "urgent and not do_not_disturb",
+                    "urgent and do_not_disturb",
+                    "urgent",
+                    "do_not_disturb",
+                    "not urgent",
+                    "not do_not_disturb"
+                  ]
+                },
+                "quantity_urgent_do_not_disturb_both_true": {
+                  "type": "string",
+                  "enum": [
+                    "not urgent and not do_not_disturb",
+                    "not urgent and do_not_disturb",
+                    "urgent and not do_not_disturb",
+                    "urgent and do_not_disturb",
+                    "urgent",
+                    "do_not_disturb",
+                    "not urgent",
+                    "not do_not_disturb"
+                  ]
+                },
+                "decision_urgent_do_not_disturb_urgent_true_not_disturb_false": {
+                  "type": "string",
+                  "enum": [
+                    "not urgent and not do_not_disturb",
+                    "not urgent and do_not_disturb",
+                    "urgent and not do_not_disturb",
+                    "urgent and do_not_disturb",
+                    "urgent",
+                    "do_not_disturb",
+                    "not urgent",
+                    "not do_not_disturb"
+                  ]
+                }
+              },
+              "required": [
+                "decision_urgent_do_not_disturb_both_true",
+                "quantity_urgent_do_not_disturb_both_true",
+                "decision_urgent_do_not_disturb_urgent_true_not_disturb_false"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "not urgent and not do_not_disturb",
+                      "not urgent and do_not_disturb",
+                      "urgent and not do_not_disturb",
+                      "urgent and do_not_disturb",
+                      "urgent",
+                      "do_not_disturb",
+                      "not urgent",
+                      "not do_not_disturb"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

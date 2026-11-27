@@ -1,0 +1,71 @@
+{
+  "text": "{\n  \"same\": true,\n  \"question\": \"만료되었지만 고정 표시가 있는 경우에도 삭제해야 하는지, 아니면 고정 표시가 있으면 무조건 유지해야 하는지 명확히 해야 할 것 같습니다.\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 50,
+    "prompt_tokens": 428,
+    "total_tokens": 478,
+    "prompt_tokens_details": {
+      "cached_tokens": 92
+    }
+  },
+  "server_timings": {
+    "cache_n": 92,
+    "prompt_n": 336,
+    "prompt_ms": 498.518,
+    "prompt_per_token_ms": 1.4836845238095238,
+    "prompt_per_second": 673.9977292695551,
+    "predicted_n": 50,
+    "predicted_ms": 781.094,
+    "predicted_per_token_ms": 15.940693877551022,
+    "predicted_per_second": 62.73252643087771
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.29,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "같은 입력 조건에 연결된 질문들을 원문과 대조하세요. 모든 질문이 그 입력에서 이 함수의 단일 반환값을 정하는 동일한 운영 결정일 때만 same을 true로 하세요. 서로 다른 조건이나 독립적으로 답할 수 있는 결정이면 false입니다. 같은 결정이면 해당 입력에서 함수가 True를 반환하는 행동을 해야 하는지 담당자에게 물을 자연스러운 한국어 질문 하나를 쓰세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요. 고정 표시만 있으면 항목을 유지합니다. 만료 표시만 있으면 유지하지 않습니다. True는 유지, False는 삭제입니다.\",\"condition\":\"pinned and expired\",\"items\":[{\"question\":\"pinned=True 이고 expired=True 인 경우 keep_cached 함수가 True 를 반환하는지 확인해 주세요.\",\"original\":\"현재 `keep_cached` 함수의 로직은 '고정 표시 (pinned) 만 있으면 항목을 유지하고, 만료 표시 (expired) 만 있으면 유지하지 않으며, 두 표시가 모두 있으면 고정 우선으로 유지한다'는 요구사항과 일치하는지 확인하기 위해, `pinned=True`이고 `expired=True`인 경우 함수가 `True`를 반환하는지 테스트해 보실 수 있나요?\"},{\"question\":\"만료 표시 (expired=True) 가 있지만 고정 표시 (pinned=True) 가 있는 경우, 고정 표시가 우선으로 유지 (True) 를 할지, 아니면 만료 규칙에 따라 삭제 (False) 를 할지 결정해 주세요.\",\"original\":\"두 조건 (pinned, expired) 이 모두 True 인 경우, 현재 코드는 pinned 가 우선으로 유지 (True) 를 반환하지만, 문서의 '만료 표시만 있으면 유지하지 않습니다'라는 규칙과 충돌할 수 있는지 확인하고 싶어요. 만료되었지만 고정 표시가 있는 경우에도 삭제해야 하는지, 아니면 고정 표시가 있으면 무조건 유지해야 하는지 명확히 해야 할 것 같습니다.\"}]}"
+      }
+    ],
+    "seed": 1133,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 280,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "same": {
+              "type": "boolean"
+            },
+            "question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "same",
+            "question"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "review-duplicate-decisions"
+}

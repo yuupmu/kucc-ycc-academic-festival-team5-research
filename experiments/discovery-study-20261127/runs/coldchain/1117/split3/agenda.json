@@ -1,0 +1,85 @@
+{
+  "handoff": "072bcee3d0810a39ed3ada7fb634a030460b1b020ebd2c34e545fe12f67dfbd8",
+  "digest": "31b38679a63a975b768d2a42af1110feba1d5459cb475d867b4de5277ac1bd9d",
+  "agenda": {
+    "brief": "백신 보관 냉장고의 온도 경보를 울릴지 정하는 raise_alarm(temp_c: int) -> bool 함수를 작성하세요. 입력은 섭씨 온도의 정수값입니다. 온도가 2도보다 낮거나 8도보다 높으면 경보를 울립니다. 2도보다 높고 8도보다 낮으면 울리지 않습니다. True는 경보, False는 경보 없음입니다.",
+    "code": "def raise_alarm(temp_c: int) -> bool:\n    \"\"\"\n    백신 보관 냉장고의 온도 경보를 울릴지 판단하는 함수입니다.\n    \n    온도가 2 도보다 낮거나 8 도보다 높으면 경보를 울립니다.\n    2 도보다 높고 8 도보다 낮으면 경보가 울리지 않습니다.\n    \n    Args:\n        temp_c (int): 섭씨 온도의 정수값\n    \n    Returns:\n        bool: 경보가 울리면 True, 그렇지 않으면 False\n    \"\"\"\n    if temp_c <= 2 or temp_c >= 8:\n        return True\n    else:\n        return False",
+    "editing_base": "def raise_alarm(temp_c: int) -> bool:\n    \"\"\"\n    백신 보관 냉장고의 온도 경보를 울릴지 판단하는 함수입니다.\n    \n    온도가 2 도보다 낮거나 8 도보다 높으면 경보를 울립니다.\n    2 도보다 높고 8 도보다 낮으면 경보가 울리지 않습니다.\n    \n    Args:\n        temp_c (int): 섭씨 온도의 정수값\n    \n    Returns:\n        bool: 경보가 울리면 True, 그렇지 않으면 False\n    \"\"\"\n    if temp_c <= 2 or temp_c >= 8:\n        return True\n    else:\n        return False",
+    "original_questions": {
+      "Q1": "요청하신 조건에 따라 경보가 울리는 범위를 정확히 확인했는지 다시 한번 확인하고 싶습니다. '2 도보다 낮거나 8 도보다 높으면 경보를 울립니다'라는 조건에 따라, 2 도 (temp_c=2) 와 8 도 (temp_c=8) 는 경보가 울리는 범위에 포함되도록 구현이 맞는지 담당자에게 질문하고 싶습니다."
+    },
+    "sent_questions": {
+      "Q1": "요청하신 조건에 따라 경보가 울리는 범위를 정확히 확인했는지 다시 한번 확인하고 싶습니다. '2 도보다 낮거나 8 도보다 높으면 경보를 울립니다'라는 조건에 따라, 2 도 (temp_c=2) 와 8 도 (temp_c=8) 는 경보가 울리는 범위에 포함되도록 구현이 맞는지 담당자에게 질문하고 싶습니다."
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "q1": {
+        "key": "q1",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "섭씨 온도가 2 도일 때 경보가 울리는지 확인하고 싶습니다."
+      },
+      "q2": {
+        "key": "q2",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "섭씨 온도가 8 도일 때 경보가 울리는지 확인하고 싶습니다."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "백신 보관 냉장고의 온도 경보를 울릴지 정하는 raise_alarm(temp_c: int) -> bool 함수를 작성하세요.",
+      "P2": "입력은 섭씨 온도의 정수값입니다.",
+      "P3": "온도가 2도보다 낮거나 8도보다 높으면 경보를 울립니다.",
+      "P4": "2도보다 높고 8도보다 낮으면 울리지 않습니다.",
+      "P5": "True는 경보, False는 경보 없음입니다."
+    },
+    "rules": [
+      {
+        "when": "temp_c == 2",
+        "then": "q1",
+        "source": "Q1"
+      },
+      {
+        "when": "temp_c == 8",
+        "then": "q2",
+        "source": "Q1"
+      },
+      {
+        "when": "temp_c <= 2",
+        "then": "True",
+        "source": "P3"
+      },
+      {
+        "when": "temp_c > 8",
+        "then": "True",
+        "source": "P3"
+      },
+      {
+        "when": "temp_c > 2",
+        "then": "False",
+        "source": "P4"
+      },
+      {
+        "when": "temp_c < 8",
+        "then": "False",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "temp_c"
+    ],
+    "mode": "integer",
+    "calls": [
+      "90002bd22dccd759a2cfefb532510ab0cde1304a4dc9a378079933b575716847",
+      "18a475b3473d8682565e98e97d2abe9aeaf293fc69be96844bea1292d64ea083"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "status": "ready",
+  "questions": [
+    "두 조건이 모두 만족될 경우 (고정 표시 있음, 만료 표시 있음) 고정 표시 우선으로 유지한다는 문서를 확인했습니다. 현재 코드도 `if pinned: return True` 로 이를 구현하고 있어 일치합니다. 하지만, 만료 표시만 있으면 유지하지 않는다는 규칙 (pinned=False, expired=True 일 때 False 를 반환) 과 고정 표시가 없을 때만 만료 표시를 기준으로 한다는 논리가 명확히 구분되어 있네요. 질문이 없습니다."
+  ],
+  "error": null,
+  "calls": [
+    "f633c03c6f383b7901817e874d2cee94aa7c445aa52a7c6cd7b6f0788d8f0836",
+    "50689c8f457910f7519c2bad694fd6afe2007e0dbb36ef9fdd48e71b2ef632e2",
+    "15f89908ebd3c6c5267df5f1904ce8ad0dbaf78372957bc278196a4c330abf2d",
+    "297eaf2d3e3be772326c3111a9c5ce8e45a2164bf758a0a0df3e6e468f786e57"
+  ]
+}

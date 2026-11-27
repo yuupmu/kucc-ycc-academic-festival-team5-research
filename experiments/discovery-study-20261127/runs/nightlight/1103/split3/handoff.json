@@ -1,0 +1,16 @@
+{
+  "brief": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.",
+  "code": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시(hour)에 따라 조명이 켜져 있는지 반환합니다.\n    \n    조건:\n    - 6시보다 이르거나 (0 <= hour < 6): 켜짐 (True)\n    - 6시보다 늦고 18시보다 이르면 (6 < hour < 18): 끄짐 (False)\n    - 18시보다 늦거나 (18 <= hour <= 23): 켜짐 (True)\n    \n    Args:\n        hour (int): 현재 시간 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져 있으면 True, 꺼져 있으면 False\n    \"\"\"\n    if hour < 6 or hour >= 18:\n        return True\n    else:\n        return False\n\n# 테스트 코드 (주석 처리된 경우를 제외하고는 실행 가능)\nif __name__ == \"__main__\":\n    # 6시보다 이르거나 18시보다 늦은 경우 (True) \n    assert light_on(0) == True\n    assert light_on(5) == True\n    assert light_on(18) == True\n    assert light_on(23) == True\n    \n    # 6시보다 늦고 18시보다 이르는 경우 (False)\n    assert light_on(6) == False\n    assert light_on(12) == False\n    assert light_on(17) == False\n    \n    print(\"모든 테스트 케이스가 통과되었습니다.\")",
+  "questions": [
+    "현재 시 (hour) 가 6 시인 경우, 조명은 켜져야 하는지 꺼져야 하는지 명확히 해주세요. 요청 사항에서 '6 시보다 이르거나'라고 명시되어 있으나, 6 시 자체의 동작이 정의되어 있지 않습니다.",
+    "현재 시(hour)가 6시 또는 18시인 경우, 조명이 켜져야 하는지 끄져야 하는지 명확히 해주세요.",
+    "6시와 18시라는 경계 시간 (hour == 6, hour == 18) 을 어떻게 처리해야 할지 명확하지 않습니다. 6시는 켜야 하는지, 18시는 켜야 하는지, 아니면 끄야 하는지 담당자의 의도를 확인해 주시겠습니까?"
+  ],
+  "review": [],
+  "calls": [
+    "ae985ee08b8d5a94414c24eb524ac5fb11f9d8e94ffe191ea5ecc759dd6c77b8",
+    "1293d6e1d89bdfb0b5c4f6eb7301af0c165f17253547ecc0978070ed53926926",
+    "db350cc376058893d241a7118afd105f394af61abc696d34f7e916c43dc491e3",
+    "eadc2f2320e30359b26d253f7f2a203da1704b24e5bbfc83e1f231bbbd196357"
+  ]
+}

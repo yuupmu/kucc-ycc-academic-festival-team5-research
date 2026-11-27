@@ -1,0 +1,10 @@
+{
+  "brief": "메신저 앱에서 푸시 알림을 보낼지 정하는 send_push(urgent: bool, do_not_disturb: bool) -> bool 함수를 작성하세요. 긴급 표시만 있으면 푸시 알림을 보냅니다. 방해 금지만 켜져 있으면 보내지 않습니다. True는 보내기, False는 보내지 않기입니다.",
+  "code": "def send_push(urgent: bool, do_not_disturb: bool) -> bool:\n    \"\"\"\n    메신저 앱에서 푸시 알림을 보낼지 결정하는 함수입니다.\n    \n    로직:\n    1. 긴급 표시 (urgent) 가 True 인 경우에만 푸시 알림을 보냅니다.\n    2. 방해 금지 모드 (do_not_disturb) 가 True 인 경우, 푸시 알림은 절대 보내지 않습니다.\n    3. 긴급 표시가 False 이고 방해 금지 모드가 False 인 경우, 푸시 알림은 보내지 않습니다.\n    \n    Args:\n        urgent (bool): 알림이 긴급한지 여부.\n        do_not_disturb (bool): 방해 금지 모드가 켜져 있는지 여부.\n    \n    Returns:\n        bool: 푸시 알림을 보낼 경우 True, 그렇지 않으면 False 를 반환합니다.\n    \"\"\"\n    # 긴급 표시가 없으면 알림을 보내지 않음\n    if not urgent:\n        return False\n    \n    # 방해 금지 모드가 켜져 있으면 알림을 보내지 않음\n    if do_not_disturb:\n        return False\n    \n    # 긴급 표시가 있고 방해 금지 모드가 꺼진 경우에만 알림 보냄\n    return True\n\n\n# 테스트 코드 (예시)\nif __name__ == \"__main__\":\n    # 테스트 1: 긴급(True) + 방해 금지(False) -> True\n    assert send_push(urgent=True, do_not_disturb=False) == True\n    \n    # 테스트 2: 긴급(False) + 방해 금지(False) -> False\n    assert send_push(urgent=False, do_not_disturb=False) == False\n    \n    # 테스트 3: 긴급(True) + 방해 금지(True) -> False\n    assert send_push(urgent=True, do_not_disturb=True) == False\n    \n    # 테스트 4: 긴급(False) + 방해 금지(True) -> False\n    assert send_push(urgent=False, do_not_disturb=True) == False\n    \n    print(\"모든 테스트가 통과되었습니다.\")",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "6776ecfc7e1cdb801f545a42bba3ccd54b70d507c61ffe3acd9ab0f4e0b7ec1a",
+    "cf74fbe2caccd2494935697551518e0df884707715141a91dca86c79e4fb5f10"
+  ]
+}

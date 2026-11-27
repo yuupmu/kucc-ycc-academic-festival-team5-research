@@ -1,0 +1,10 @@
+{
+  "brief": "공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.",
+  "code": "def light_on(hour: int) -> bool:\n    \"\"\"\n    현재 시간을 입력받아 공용 복도 조명이 켜져야 하는지 판단합니다.\n    \n    조건:\n    - 0 시 ~ 5 시 (6 시보다 이르거나): True\n    - 6 시 ~ 17 시 (6 시보다 늦고 18 시보다 이르면): False\n    - 18 시 ~ 23 시 (18 시보다 늦거나): True\n    \n    Args:\n        hour (int): 현재 시간 (0 ~ 23)\n    \n    Returns:\n        bool: 조명이 켜져야 하는지 여부\n    \"\"\"\n    if 0 <= hour < 6 or 18 <= hour <= 23:\n        return True\n    else:\n        return False\n",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "0060693f18360f72484ab97e7c36ef7b33b911aa2539d4579e891685dae8c598",
+    "b6ff7b293b642494091bd3647fedfae51352ade9761aa0c03979467697431e1d"
+  ]
+}

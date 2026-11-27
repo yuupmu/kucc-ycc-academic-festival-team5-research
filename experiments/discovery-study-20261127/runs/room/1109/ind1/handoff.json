@@ -1,0 +1,10 @@
+{
+  "brief": "동아리 세미나실 대여 신청을 승인할지 정하는 approve_room(people: int) -> bool 함수를 작성하세요. 입력은 신청 인원입니다. 인원이 3명 미만이거나 15명 초과이면 승인하지 않습니다. 3명 초과이고 15명 미만이면 승인합니다. True는 승인, False는 미승인입니다.",
+  "code": "def approve_room(people: int) -> bool:\n    \"\"\"\n    동아리 세미나실 대여 신청 승인 여부를 판단하는 함수입니다.\n    \n    조건:\n    - 인원이 3 명 미만이면 승인하지 않음 (False)\n    - 인원이 15 명 초과이면 승인하지 않음 (False)\n    - 3 명 초과이고 15 명 미만이면 승인함 (True)\n    \n    Args:\n        people (int): 신청 인원\n    \n    Returns:\n        bool: 승인 여부 (True: 승인, False: 미승인)\n    \"\"\"\n    if 3 <= people < 15:\n        return True\n    else:\n        return False",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "7be7a2bf58f8e642bbd68d488fabfcdc47a59e0b09dcb8d49327da4ca125c81d",
+    "cecf7e5056e7bc74d9af0a156db477257bf3210b21e7a4377921105b2d2aae86"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "text": "{\"code\":\"def play_sound(headphones: bool, silent_mode: bool) -> bool:\\n    \\\"\\\"\\\"\\n    게임 효과음을 재생할지 여부를 결정하는 함수입니다.\\n    \\n    조건:\\n    - 이어폰이 연결되어 있고 (headphones=True), 무음 모드가 꺼져 있을 때만 재생합니다.\\n    - 이어폰이 연결되지 않았거나, 무음 모드가 켜져 있으면 재생하지 않습니다.\\n    \\n    Args:\\n        headphones (bool): 이어폰이 연결되었는지 여부.\\n        silent_mode (bool): 무음 모드가 켜져 있는지 여부.\\n    \\n    Returns:\\n        bool: 효과음을 재생할 경우 True, 그렇지 않으면 False.\\n    \\\"\\\"\\\"\\n    # 이어폰이 연결되어 있고, 무음 모드가 꺼져 있을 때만 True 반환\\n    return headphones and not silent_mode\\n\\n\\n# 테스트 코드 (예시)\\nif __name__ == \\\"__main__\\\":\\n    # 테스트 1: 이어폰 연결, 무음 모드 OFF -> True\\n    assert play_sound(headphones=True, silent_mode=False) == True\\n    \\n    # 테스트 2: 이어폰 연결, 무음 모드 ON -> False\\n    assert play_sound(headphones=True, silent_mode=True) == False\\n    \\n    # 테스트 3: 이어폰 연결 안 함, 무음 모드 OFF -> False\\n    assert play_sound(headphones=False, silent_mode=False) == False\\n    \\n    # 테스트 4: 이어폰 연결 안 함, 무음 모드 ON -> False\\n    assert play_sound(headphones=False, silent_mode=True) == False\\n    \\n    print(\\\"모든 테스트가 통과되었습니다.\\\")\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 370,
+    "prompt_tokens": 152,
+    "total_tokens": 522,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 152,
+    "prompt_ms": 299.19,
+    "prompt_per_token_ms": 1.9683552631578947,
+    "prompt_per_second": 508.0383702663859,
+    "predicted_n": 370,
+    "predicted_ms": 5934.202,
+    "predicted_per_token_ms": 16.081848238482387,
+    "predicted_per_second": 62.18190752522411
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 6.24,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개된 내용으로 구현한 전체 파이썬 소스를 code에 쓰세요. 근거 있는 경로는 구현하고 미정인 경로만 raise NotImplementedError로 남기세요. 정책을 추측하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"게임 효과음을 재생할지 정하는 play_sound(headphones: bool, silent_mode: bool) -> bool 함수를 작성하세요. 이어폰 연결 신호만 있으면 효과음을 재생합니다. 무음 모드만 켜져 있으면 재생하지 않습니다. True는 재생, False는 재생 안 함입니다.\",\"files\":{\"solution.py\":\"def play_sound(headphones: bool, silent_mode: bool) -> bool:\\n    raise NotImplementedError\\n\"}}"
+      }
+    ],
+    "seed": 1103,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main"
+}

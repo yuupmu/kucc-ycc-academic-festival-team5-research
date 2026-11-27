@@ -1,0 +1,71 @@
+{
+  "text": "{\"same\": true, \"question\": \"연체 일수가 정확히 7 일일 때, 연체료를 부과하는지 담당자에게 명확히 확인해 주시겠습니까?\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 39,
+    "prompt_tokens": 355,
+    "total_tokens": 394,
+    "prompt_tokens_details": {
+      "cached_tokens": 3
+    }
+  },
+  "server_timings": {
+    "cache_n": 3,
+    "prompt_n": 352,
+    "prompt_ms": 566.706,
+    "prompt_per_token_ms": 1.6099602272727274,
+    "prompt_per_second": 621.1333566258342,
+    "predicted_n": 39,
+    "predicted_ms": 619.073,
+    "predicted_per_token_ms": 16.291394736842104,
+    "predicted_per_second": 61.382098718567924
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.2,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "같은 입력 조건에 연결된 질문들을 원문과 대조하세요. 모든 질문이 그 입력에서 이 함수의 단일 반환값을 정하는 동일한 운영 결정일 때만 same을 true로 하세요. 서로 다른 조건이나 독립적으로 답할 수 있는 결정이면 false입니다. 같은 결정이면 해당 입력에서 함수가 True를 반환하는 행동을 해야 하는지 담당자에게 물을 자연스러운 한국어 질문 하나를 쓰세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"도서 연체료를 부과할지 정하는 charge_late_fee(days_late: int) -> bool 함수를 작성하세요. 입력은 0 이상의 연체 일수입니다. 연체 일수가 7일 이하이면 연체료를 부과하지 않습니다. 7일을 초과하면 부과합니다. True는 부과, False는 부과 안 함입니다.\",\"condition\":\"days_late == 7\",\"items\":[{\"question\":\"연체 일수가 정확히 7 일인 경우, 연체료를 부과할지 여부를 명확히 하신다면요?\",\"original\":\"연체 일수가 정확히 7 일인 경우, 연체료를 부과할지 여부를 명확히 하신다면요?\"},{\"question\":\"연체 일수가 정확히 7 일일 때 연체료 부과 여부를 명확히 정의해 주시겠습니까?\",\"original\":\"연체 일수가 정확히 7 일일 때 연체료 부과 여부를 명확히 정의해 주시겠습니까? 현재 코드는 7 일 초과 (> 7) 시 부과하고, 7 일 이하 (<= 7) 시 부과하지 않는 것으로 되어 있는데, '7 일 초과'라는 표현이 7 일 자체를 포함하는지 명확하지 않습니다.\"}]}"
+      }
+    ],
+    "seed": 1133,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 280,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "same": {
+              "type": "boolean"
+            },
+            "question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "same",
+            "question"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "review-duplicate-decisions"
+}

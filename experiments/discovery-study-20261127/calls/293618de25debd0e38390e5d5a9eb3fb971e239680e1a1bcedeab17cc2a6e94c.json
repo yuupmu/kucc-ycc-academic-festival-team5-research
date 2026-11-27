@@ -1,0 +1,67 @@
+{
+  "text": "{\"code\":\"def show_tip(new_user: bool, tips_off: bool) -> bool:\\n    \\\"\\\"\\\"\\n    도움말 말풍선을 보여 줄지 정하는 함수입니다.\\n    \\n    논리:\\n    1. 도움말 끄기 (tips_off) 가 켜져 있으면 (True), 신규 사용자 여부와 관계없이 보여 주지 않습니다. -> False\\n    2. 도움말 끄기 (tips_off) 가 꺼져 있고 (False), 신규 사용자 (new_user) 이면 보여 줍니다. -> True\\n    3. 도움말 끄기 (tips_off) 가 꺼져 있고 (False), 신규 사용자가 아니면 보여 주지 않습니다. -> False\\n    \\n    Args:\\n        new_user (bool): 신규 사용자 여부\\n        tips_off (bool): 도움말 끄기 기능 활성화 여부\\n    \\n    Returns:\\n        bool: True (보여짐), False (숨김)\\n    \\\"\\\"\\\"\\n    if tips_off:\\n        return False\\n    else:\\n        return new_user\\n\\n# 테스트 코드 (주석 처리된 상태) #\\n# if __name__ == \\\"__main__\\\":\\n#     assert show_tip(True, False) == True\\n#     assert show_tip(False, False) == False\\n#     assert show_tip(True, True) == False\\n#     assert show_tip(False, True) == False\\n#     print(\\\"모든 테스트 통과\\\")\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 310,
+    "prompt_tokens": 180,
+    "total_tokens": 490,
+    "prompt_tokens_details": {
+      "cached_tokens": 176
+    }
+  },
+  "server_timings": {
+    "cache_n": 176,
+    "prompt_n": 4,
+    "prompt_ms": 36.844,
+    "prompt_per_token_ms": 9.211,
+    "prompt_per_second": 108.56584518510476,
+    "predicted_n": 310,
+    "predicted_ms": 4954.102,
+    "predicted_per_token_ms": 16.032692556634302,
+    "predicted_per_second": 62.372555106858925
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 5.0,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개된 내용으로 구현한 전체 파이썬 소스를 code에 쓰세요. 근거 있는 경로는 구현하고 미정인 경로만 raise NotImplementedError로 남기세요. 정책을 추측하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"앱 도움말 말풍선을 보여 줄지 정하는 show_tip(new_user: bool, tips_off: bool) -> bool 함수를 작성하세요. 도움말 끄기가 켜져 있으면 신규 사용자 여부와 관계없이 보여 주지 않습니다. 도움말 끄기가 꺼져 있고 신규 사용자이면 보여 줍니다. 도움말 끄기가 꺼져 있고 신규 사용자가 아니면 보여 주지 않습니다. True는 보여 주기, False는 숨기기입니다.\",\"files\":{\"solution.py\":\"def show_tip(new_user: bool, tips_off: bool) -> bool:\\n    raise NotImplementedError\\n\"}}"
+      }
+    ],
+    "seed": 1117,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main"
+}

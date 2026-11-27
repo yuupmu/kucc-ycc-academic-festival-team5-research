@@ -1,0 +1,71 @@
+{
+  "text": "{\"same\": false, \"question\": \"6 시와 18 시라는 경계 시간 (hour == 6, hour == 18) 을 어떻게 처리해야 할지 명확하지 않습니다. 6 시는 켜야 하는지, 18 시는 켜야 하는지, 아니면 끄야 하는지 담당자의 의도를 확인해 주시겠습니까?\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 83,
+    "prompt_tokens": 388,
+    "total_tokens": 471,
+    "prompt_tokens_details": {
+      "cached_tokens": 92
+    }
+  },
+  "server_timings": {
+    "cache_n": 92,
+    "prompt_n": 296,
+    "prompt_ms": 457.685,
+    "prompt_per_token_ms": 1.5462331081081082,
+    "prompt_per_second": 646.7330150649465,
+    "predicted_n": 83,
+    "predicted_ms": 1305.681,
+    "predicted_per_token_ms": 15.922939024390244,
+    "predicted_per_second": 62.80247625568573
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.77,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "같은 입력 조건에 연결된 질문들을 원문과 대조하세요. 모든 질문이 그 입력에서 이 함수의 단일 반환값을 정하는 동일한 운영 결정일 때만 same을 true로 하세요. 서로 다른 조건이나 독립적으로 답할 수 있는 결정이면 false입니다. 같은 결정이면 해당 입력에서 함수가 True를 반환하는 행동을 해야 하는지 담당자에게 물을 자연스러운 한국어 질문 하나를 쓰세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.\",\"condition\":\"hour == 6\",\"items\":[{\"question\":\"현재 시간이 6 시일 때 조명을 켜야 하는지?\",\"original\":\"현재 시 (hour) 가 6 시인 경우, 조명은 켜져야 하는지 꺼져야 하는지 명확히 해주세요. 요청 사항에서 '6 시보다 이르거나'라고 명시되어 있으나, 6 시 자체의 동작이 정의되어 있지 않습니다.\"},{\"question\":\"현재 시간이 6 시 또는 18 시일 때 조명을 켜야 하는지?\",\"original\":\"6시와 18시라는 경계 시간 (hour == 6, hour == 18) 을 어떻게 처리해야 할지 명확하지 않습니다. 6시는 켜야 하는지, 18시는 켜야 하는지, 아니면 끄야 하는지 담당자의 의도를 확인해 주시겠습니까?\"}]}"
+      }
+    ],
+    "seed": 1113,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 280,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "same": {
+              "type": "boolean"
+            },
+            "question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "same",
+            "question"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "review-duplicate-decisions"
+}

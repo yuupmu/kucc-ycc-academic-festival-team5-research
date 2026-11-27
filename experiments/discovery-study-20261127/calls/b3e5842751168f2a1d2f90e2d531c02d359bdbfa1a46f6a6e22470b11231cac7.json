@@ -1,0 +1,67 @@
+{
+  "text": "{\n  \"code\": \"def offer_set_menu(guests: int) -> bool:\\n    \\\"\\\"\\\"\\n    식당에서 세트 메뉴를 제공할지 여부를 결정하는 함수입니다.\\n    \\n    조건:\\n    - 손님이 2명 이상 6명 이하일 경우: True (제공)\\n    - 손님이 2명 미만 또는 6명 초과일 경우: False (제공 안 함)\\n    \\n    Args:\\n        guests (int): 손님 수 (1 이상)\\n    \\n    Returns:\\n        bool: 세트 메뉴 제공 여부\\n    \\\"\\\"\\\"\\n    return 2 <= guests <= 6\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 143,
+    "prompt_tokens": 164,
+    "total_tokens": 307,
+    "prompt_tokens_details": {
+      "cached_tokens": 160
+    }
+  },
+  "server_timings": {
+    "cache_n": 160,
+    "prompt_n": 4,
+    "prompt_ms": 39.785,
+    "prompt_per_token_ms": 9.94625,
+    "prompt_per_second": 100.54040467512883,
+    "predicted_n": 143,
+    "predicted_ms": 2302.559,
+    "predicted_per_token_ms": 16.215204225352114,
+    "predicted_per_second": 61.67051528321315
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.35,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개된 내용으로 구현한 전체 파이썬 소스를 code에 쓰세요. 근거 있는 경로는 구현하고 미정인 경로만 raise NotImplementedError로 남기세요. 정책을 추측하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"식당에서 세트 메뉴를 제공할지 정하는 offer_set_menu(guests: int) -> bool 함수를 작성하세요. 입력은 1 이상의 손님 수입니다. 손님이 2명 이상 6명 이하이면 세트 메뉴를 제공합니다. 2명 미만이거나 6명 초과이면 제공하지 않습니다. True는 제공, False는 제공 안 함입니다.\",\"files\":{\"solution.py\":\"def offer_set_menu(guests: int) -> bool:\\n    raise NotImplementedError\\n\"}}"
+      }
+    ],
+    "seed": 1109,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main"
+}

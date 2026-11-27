@@ -1,0 +1,10 @@
+{
+  "brief": "온라인 강좌의 수료 배지를 줄지 정하는 grant_badge(attended: bool, submitted: bool) -> bool 함수를 작성하세요. 출석도 하고 과제도 제출했으면 수료 배지를 줍니다. 출석도 하지 않고 과제도 제출하지 않았으면 주지 않습니다. True는 지급, False는 미지급입니다.",
+  "code": "def grant_badge(attended: bool, submitted: bool) -> bool:\n    \"\"\"\n    온라인 강좌의 수료 배지를 줄지 정하는 함수입니다.\n    \n    조건:\n    - 출석도 하고 과제도 제출했으면 (attended=True, submitted=True): True (수료 배지 지급)\n    - 나머지 경우 (출석 미만 또는 과제 미제출): False (수료 배지 미지급)\n    \n    Args:\n        attended (bool): 출석 여부. True: 출석함, False: 출석 미만\n        submitted (bool): 과제 제출 여부. True: 제출함, False: 제출 미만\n    \n    Returns:\n        bool: True (수료 배지 지급), False (수료 배지 미지급)\n    \"\"\"\n    return attended and submitted",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "1d53c8f739a83e4b706d78247fccb0189f65ba3471b3a9e7869b76083a602324",
+    "02dd18c7c677df96a00a6970a41d89ad0364770130a924504ff3361bf570103a"
+  ]
+}

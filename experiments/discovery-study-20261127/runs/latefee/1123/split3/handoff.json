@@ -1,0 +1,15 @@
+{
+  "brief": "도서 연체료를 부과할지 정하는 charge_late_fee(days_late: int) -> bool 함수를 작성하세요. 입력은 0 이상의 연체 일수입니다. 연체 일수가 7일 이하이면 연체료를 부과하지 않습니다. 7일을 초과하면 부과합니다. True는 부과, False는 부과 안 함입니다.",
+  "code": "def charge_late_fee(days_late: int) -> bool:\n    \"\"\"\n    도서 연체료를 부과할지 정하는 함수입니다.\n    \n    입력: 0 이상의 연체 일수 (days_late: int)\n    반환: 연체료를 부과할 경우 True, 부과하지 않을 경우 False\n    \n    규칙:\n    - 연체 일수가 7 일 이하이면 연체료를 부과하지 않습니다 (False).\n    - 7 일을 초과하면 연체료를 부과합니다 (True).\n    \"\"\"\n    if days_late > 7:\n        return True\n    else:\n        return False\n",
+  "questions": [
+    "연체 일수가 정확히 7 일인 경우, 연체료를 부과할지 여부를 명확히 하신다면요?",
+    "연체 일수가 정확히 7 일일 때 연체료 부과 여부를 명확히 정의해 주시겠습니까? 현재 코드는 7 일 초과 (> 7) 시 부과하고, 7 일 이하 (<= 7) 시 부과하지 않는 것으로 되어 있는데, '7 일 초과'라는 표현이 7 일 자체를 포함하는지 명확하지 않습니다."
+  ],
+  "review": [],
+  "calls": [
+    "9837361b4c8cff0cbc9f715074d1908e0b6cea3710ab4d018e80c942990c16aa",
+    "9e2cbec5a6f293490a147da3d0e2f9464881eb54fc2e1aa0bad6638e86d6e6be",
+    "8ca9ae9d1b8e278c0fd6f8aad31a7e9c7efb799334d88dd930a652aaf15004dd",
+    "0977317006ddfb32c9ac313ba9ba26b256e2e3f20fb89d9ada9aeca9de38b11b"
+  ]
+}

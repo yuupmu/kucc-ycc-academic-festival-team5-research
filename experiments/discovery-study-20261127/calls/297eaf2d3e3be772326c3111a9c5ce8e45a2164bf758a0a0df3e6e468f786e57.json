@@ -1,0 +1,160 @@
+{
+  "text": "{\"decision_conditions\":{\"keep_cached_pinned_true_expired_true\":\"pinned and expired\",\"keep_cached_pinned_false_expired_true\":\"not pinned and expired\",\"keep_cached_pinned_false_expired_false\":\"not pinned and not expired\"},\"public_rules\":[]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 49,
+    "prompt_tokens": 392,
+    "total_tokens": 441,
+    "prompt_tokens_details": {
+      "cached_tokens": 127
+    }
+  },
+  "server_timings": {
+    "cache_n": 127,
+    "prompt_n": 265,
+    "prompt_ms": 430.24,
+    "prompt_per_token_ms": 1.6235471698113209,
+    "prompt_per_second": 615.9352919300856,
+    "predicted_n": 49,
+    "predicted_ms": 826.115,
+    "predicted_per_token_ms": 17.210729166666667,
+    "predicted_per_second": 58.10329070407873
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.27,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요.\",\"P2\":\"고정 표시만 있으면 항목을 유지합니다.\",\"P3\":\"만료 표시만 있으면 유지하지 않습니다.\",\"P4\":\"True는 유지, False는 삭제입니다.\"},\"decisions\":{\"keep_cached_pinned_true_expired_true\":{\"key\":\"keep_cached_pinned_true_expired_true\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"고정 표시와 만료 표시가 모두 있는 경우, 해당 항목을 유지합니다.\"},\"keep_cached_pinned_false_expired_true\":{\"key\":\"keep_cached_pinned_false_expired_true\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"만료 표시만 있는 경우, 해당 항목을 유지하지 않습니다.\"},\"keep_cached_pinned_false_expired_false\":{\"key\":\"keep_cached_pinned_false_expired_false\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"고정 표시와 만료 표시가 모두 없는 경우, 해당 항목을 유지합니다.\"}},\"input_conditions\":[\"not pinned and not expired\",\"not pinned and expired\",\"pinned and not expired\",\"pinned and expired\",\"pinned\",\"expired\",\"not pinned\",\"not expired\"]}"
+      }
+    ],
+    "seed": 1127,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "keep_cached_pinned_true_expired_true": {
+                  "type": "string",
+                  "enum": [
+                    "not pinned and not expired",
+                    "not pinned and expired",
+                    "pinned and not expired",
+                    "pinned and expired",
+                    "pinned",
+                    "expired",
+                    "not pinned",
+                    "not expired"
+                  ]
+                },
+                "keep_cached_pinned_false_expired_true": {
+                  "type": "string",
+                  "enum": [
+                    "not pinned and not expired",
+                    "not pinned and expired",
+                    "pinned and not expired",
+                    "pinned and expired",
+                    "pinned",
+                    "expired",
+                    "not pinned",
+                    "not expired"
+                  ]
+                },
+                "keep_cached_pinned_false_expired_false": {
+                  "type": "string",
+                  "enum": [
+                    "not pinned and not expired",
+                    "not pinned and expired",
+                    "pinned and not expired",
+                    "pinned and expired",
+                    "pinned",
+                    "expired",
+                    "not pinned",
+                    "not expired"
+                  ]
+                }
+              },
+              "required": [
+                "keep_cached_pinned_true_expired_true",
+                "keep_cached_pinned_false_expired_true",
+                "keep_cached_pinned_false_expired_false"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "not pinned and not expired",
+                      "not pinned and expired",
+                      "pinned and not expired",
+                      "pinned and expired",
+                      "pinned",
+                      "expired",
+                      "not pinned",
+                      "not expired"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

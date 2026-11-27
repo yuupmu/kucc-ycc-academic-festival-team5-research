@@ -1,0 +1,1195 @@
+{
+  "valid_units": 67,
+  "dropped_units": [
+    [
+      "coldchain",
+      1109
+    ],
+    [
+      "refund",
+      1109
+    ],
+    [
+      "refund",
+      1129
+    ],
+    [
+      "retake",
+      1129
+    ],
+    [
+      "room",
+      1129
+    ],
+    [
+      "sound",
+      1123
+    ],
+    [
+      "sound",
+      1129
+    ],
+    [
+      "tips",
+      1109
+    ]
+  ],
+  "hidden_tasks": [
+    "ride",
+    "room",
+    "coldchain",
+    "nightlight",
+    "retake",
+    "break",
+    "push",
+    "sound",
+    "cache",
+    "expense",
+    "refund",
+    "badge"
+  ],
+  "control_tasks": [
+    "latefee",
+    "setmenu",
+    "tips"
+  ],
+  "recall": {
+    "raw/both": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.3,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.3034722222222222,
+        "ci95": [
+          0.19305555555555556,
+          0.4159722222222222
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.7,
+          "retake": 0.375,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.16666666666666666,
+          "cache": 0.5,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.7902777777777779,
+        "ci95": [
+          0.6694444444444444,
+          0.9041666666666667
+        ],
+        "by_task": {
+          "ride": 1.0,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 1.0,
+          "retake": 0.75,
+          "break": 1.0,
+          "push": 0.4,
+          "sound": 0.5,
+          "cache": 0.6,
+          "expense": 0.6,
+          "refund": 0.8333333333333334,
+          "badge": 0.8
+        }
+      }
+    },
+    "sent/both": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.3,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.19930555555555554,
+        "ci95": [
+          0.10694444444444444,
+          0.30277777777777776
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.1,
+          "retake": 0.125,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.0,
+          "cache": 0.6,
+          "expense": 0.0,
+          "refund": 0.16666666666666666,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.5902777777777778,
+        "ci95": [
+          0.45,
+          0.7319444444444444
+        ],
+        "by_task": {
+          "ride": 0.7,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 0.4,
+          "retake": 0.75,
+          "break": 0.6,
+          "push": 0.4,
+          "sound": 0.5,
+          "cache": 0.4,
+          "expense": 0.2,
+          "refund": 0.3333333333333333,
+          "badge": 0.8
+        }
+      }
+    },
+    "raw/either": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.4,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.3277777777777778,
+        "ci95": [
+          0.21527777777777776,
+          0.4388888888888889
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.7,
+          "retake": 0.5,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.3333333333333333,
+          "cache": 0.5,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.8319444444444444,
+        "ci95": [
+          0.725,
+          0.9319444444444445
+        ],
+        "by_task": {
+          "ride": 1.0,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 1.0,
+          "retake": 0.75,
+          "break": 1.0,
+          "push": 0.6,
+          "sound": 0.5,
+          "cache": 0.7,
+          "expense": 0.6,
+          "refund": 0.8333333333333334,
+          "badge": 1.0
+        }
+      }
+    },
+    "sent/either": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.4,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.20972222222222223,
+        "ci95": [
+          0.11805555555555554,
+          0.3111111111111111
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.1,
+          "retake": 0.25,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.0,
+          "cache": 0.6,
+          "expense": 0.0,
+          "refund": 0.16666666666666666,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.6597222222222222,
+        "ci95": [
+          0.5111111111111112,
+          0.7999999999999999
+        ],
+        "by_task": {
+          "ride": 0.7,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 0.4,
+          "retake": 0.75,
+          "break": 0.6,
+          "push": 0.6,
+          "sound": 0.8333333333333334,
+          "cache": 0.5,
+          "expense": 0.2,
+          "refund": 0.3333333333333333,
+          "badge": 1.0
+        }
+      }
+    },
+    "raw/A": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.4,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.3173611111111111,
+        "ci95": [
+          0.20833333333333334,
+          0.42569444444444443
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.7,
+          "retake": 0.375,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.3333333333333333,
+          "cache": 0.5,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.8319444444444444,
+        "ci95": [
+          0.725,
+          0.9319444444444445
+        ],
+        "by_task": {
+          "ride": 1.0,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 1.0,
+          "retake": 0.75,
+          "break": 1.0,
+          "push": 0.6,
+          "sound": 0.5,
+          "cache": 0.7,
+          "expense": 0.6,
+          "refund": 0.8333333333333334,
+          "badge": 1.0
+        }
+      }
+    },
+    "sent/A": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.4,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.19930555555555554,
+        "ci95": [
+          0.10694444444444444,
+          0.30277777777777776
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.1,
+          "retake": 0.125,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.0,
+          "cache": 0.6,
+          "expense": 0.0,
+          "refund": 0.16666666666666666,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.6597222222222222,
+        "ci95": [
+          0.5111111111111112,
+          0.7999999999999999
+        ],
+        "by_task": {
+          "ride": 0.7,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 0.4,
+          "retake": 0.75,
+          "break": 0.6,
+          "push": 0.6,
+          "sound": 0.8333333333333334,
+          "cache": 0.5,
+          "expense": 0.2,
+          "refund": 0.3333333333333333,
+          "badge": 1.0
+        }
+      }
+    },
+    "raw/B": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.3,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.3138888888888889,
+        "ci95": [
+          0.1986111111111111,
+          0.4291666666666667
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.7,
+          "retake": 0.5,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.16666666666666666,
+          "cache": 0.5,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.7902777777777779,
+        "ci95": [
+          0.6694444444444444,
+          0.9041666666666667
+        ],
+        "by_task": {
+          "ride": 1.0,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 1.0,
+          "retake": 0.75,
+          "break": 1.0,
+          "push": 0.4,
+          "sound": 0.5,
+          "cache": 0.6,
+          "expense": 0.6,
+          "refund": 0.8333333333333334,
+          "badge": 0.8
+        }
+      }
+    },
+    "sent/B": {
+      "self1": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.0,
+          "retake": 0.0,
+          "break": 0.0,
+          "push": 0.0,
+          "sound": 0.0,
+          "cache": 0.0,
+          "expense": 0.0,
+          "refund": 0.0,
+          "badge": 0.0
+        }
+      },
+      "ind1": {
+        "mean": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "by_task": {
+          "ride": 0.0,
+          "room": 0.0,
+          "coldchain": 0.0,
+          "nightlight": 0.4,
+          "retake": 0.25,
+          "break": 0.0,
+          "push": 0.2,
+          "sound": 0.0,
+          "cache": 0.3,
+          "expense": 0.0,
+          "refund": 0.5,
+          "badge": 0.0
+        }
+      },
+      "same3": {
+        "mean": 0.20972222222222223,
+        "ci95": [
+          0.11805555555555554,
+          0.3111111111111111
+        ],
+        "by_task": {
+          "ride": 0.4,
+          "room": 0.25,
+          "coldchain": 0.25,
+          "nightlight": 0.1,
+          "retake": 0.25,
+          "break": 0.2,
+          "push": 0.3,
+          "sound": 0.0,
+          "cache": 0.6,
+          "expense": 0.0,
+          "refund": 0.16666666666666666,
+          "badge": 0.0
+        }
+      },
+      "split3": {
+        "mean": 0.5902777777777778,
+        "ci95": [
+          0.45,
+          0.7319444444444444
+        ],
+        "by_task": {
+          "ride": 0.7,
+          "room": 1.0,
+          "coldchain": 1.0,
+          "nightlight": 0.4,
+          "retake": 0.75,
+          "break": 0.6,
+          "push": 0.4,
+          "sound": 0.5,
+          "cache": 0.4,
+          "expense": 0.2,
+          "refund": 0.3333333333333333,
+          "badge": 0.8
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "raw/both": {
+      "framing": {
+        "diff": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.0625
+      },
+      "calls": {
+        "diff": 0.16597222222222222,
+        "ci95": [
+          0.09722222222222221,
+          0.23472222222222225
+        ],
+        "p": 0.00390625,
+        "tasks_up": 9,
+        "tasks_down": 0,
+        "tasks_tie": 3,
+        "pattern_p": 0.125,
+        "p_holm": 0.0078125
+      },
+      "lenses": {
+        "diff": 0.48680555555555555,
+        "ci95": [
+          0.3430555555555556,
+          0.6277777777777778
+        ],
+        "p": 0.00048828125,
+        "tasks_up": 12,
+        "tasks_down": 0,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.00146484375
+      }
+    },
+    "sent/both": {
+      "framing": {
+        "diff": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.125
+      },
+      "calls": {
+        "diff": 0.06180555555555555,
+        "ci95": [
+          -0.06736111111111112,
+          0.18541666666666667
+        ],
+        "p": 0.3828125,
+        "tasks_up": 6,
+        "tasks_down": 3,
+        "tasks_tie": 3,
+        "pattern_p": 0.4375,
+        "p_holm": 0.3828125
+      },
+      "lenses": {
+        "diff": 0.3909722222222222,
+        "ci95": [
+          0.21944444444444447,
+          0.5534722222222223
+        ],
+        "p": 0.00244140625,
+        "tasks_up": 11,
+        "tasks_down": 1,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.00732421875
+      }
+    },
+    "raw/either": {
+      "framing": {
+        "diff": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.0625
+      },
+      "calls": {
+        "diff": 0.18194444444444444,
+        "ci95": [
+          0.10416666666666667,
+          0.25555555555555554
+        ],
+        "p": 0.00390625,
+        "tasks_up": 9,
+        "tasks_down": 0,
+        "tasks_tie": 3,
+        "pattern_p": 0.125,
+        "p_holm": 0.0078125
+      },
+      "lenses": {
+        "diff": 0.5041666666666667,
+        "ci95": [
+          0.35833333333333334,
+          0.6625
+        ],
+        "p": 0.00048828125,
+        "tasks_up": 12,
+        "tasks_down": 0,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.00146484375
+      }
+    },
+    "sent/either": {
+      "framing": {
+        "diff": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.125
+      },
+      "calls": {
+        "diff": 0.06388888888888888,
+        "ci95": [
+          -0.05833333333333335,
+          0.17916666666666667
+        ],
+        "p": 0.3359375,
+        "tasks_up": 6,
+        "tasks_down": 2,
+        "tasks_tie": 4,
+        "pattern_p": 0.5,
+        "p_holm": 0.3359375
+      },
+      "lenses": {
+        "diff": 0.45,
+        "ci95": [
+          0.2791666666666666,
+          0.6277777777777778
+        ],
+        "p": 0.0009765625,
+        "tasks_up": 11,
+        "tasks_down": 1,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.0029296875
+      }
+    },
+    "raw/A": {
+      "framing": {
+        "diff": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.0625
+      },
+      "calls": {
+        "diff": 0.17152777777777775,
+        "ci95": [
+          0.09652777777777777,
+          0.24583333333333332
+        ],
+        "p": 0.00390625,
+        "tasks_up": 9,
+        "tasks_down": 0,
+        "tasks_tie": 3,
+        "pattern_p": 0.125,
+        "p_holm": 0.0078125
+      },
+      "lenses": {
+        "diff": 0.5145833333333333,
+        "ci95": [
+          0.37222222222222223,
+          0.6652777777777777
+        ],
+        "p": 0.00048828125,
+        "tasks_up": 12,
+        "tasks_down": 0,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.00146484375
+      }
+    },
+    "sent/A": {
+      "framing": {
+        "diff": 0.14583333333333334,
+        "ci95": [
+          0.05000000000000001,
+          0.2541666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.125
+      },
+      "calls": {
+        "diff": 0.05347222222222222,
+        "ci95": [
+          -0.07083333333333336,
+          0.1729166666666667
+        ],
+        "p": 0.43359375,
+        "tasks_up": 6,
+        "tasks_down": 3,
+        "tasks_tie": 3,
+        "pattern_p": 0.5,
+        "p_holm": 0.43359375
+      },
+      "lenses": {
+        "diff": 0.4604166666666667,
+        "ci95": [
+          0.2861111111111111,
+          0.6381944444444444
+        ],
+        "p": 0.0009765625,
+        "tasks_up": 11,
+        "tasks_down": 1,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.0029296875
+      }
+    },
+    "raw/B": {
+      "framing": {
+        "diff": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.0625
+      },
+      "calls": {
+        "diff": 0.1763888888888889,
+        "ci95": [
+          0.10555555555555556,
+          0.24444444444444446
+        ],
+        "p": 0.00390625,
+        "tasks_up": 9,
+        "tasks_down": 0,
+        "tasks_tie": 3,
+        "pattern_p": 0.125,
+        "p_holm": 0.0078125
+      },
+      "lenses": {
+        "diff": 0.4763888888888889,
+        "ci95": [
+          0.33055555555555555,
+          0.6222222222222222
+        ],
+        "p": 0.00048828125,
+        "tasks_up": 12,
+        "tasks_down": 0,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.00146484375
+      }
+    },
+    "sent/B": {
+      "framing": {
+        "diff": 0.13749999999999998,
+        "ci95": [
+          0.041666666666666664,
+          0.24166666666666667
+        ],
+        "p": 0.0625,
+        "tasks_up": 5,
+        "tasks_down": 0,
+        "tasks_tie": 7,
+        "pattern_p": 0.125,
+        "p_holm": 0.125
+      },
+      "calls": {
+        "diff": 0.07222222222222222,
+        "ci95": [
+          -0.054166666666666675,
+          0.19166666666666665
+        ],
+        "p": 0.296875,
+        "tasks_up": 6,
+        "tasks_down": 2,
+        "tasks_tie": 4,
+        "pattern_p": 0.4375,
+        "p_holm": 0.296875
+      },
+      "lenses": {
+        "diff": 0.38055555555555554,
+        "ci95": [
+          0.2138888888888889,
+          0.5388888888888889
+        ],
+        "p": 0.00244140625,
+        "tasks_up": 11,
+        "tasks_down": 1,
+        "tasks_tie": 0,
+        "pattern_p": 0.0625,
+        "p_holm": 0.00732421875
+      }
+    }
+  },
+  "primary": {
+    "framing": {
+      "diff": 0.13749999999999998,
+      "ci95": [
+        0.041666666666666664,
+        0.24166666666666667
+      ],
+      "p": 0.0625,
+      "tasks_up": 5,
+      "tasks_down": 0,
+      "tasks_tie": 7,
+      "pattern_p": 0.125,
+      "p_holm": 0.0625,
+      "verdict": "not distinguished"
+    },
+    "calls": {
+      "diff": 0.16597222222222222,
+      "ci95": [
+        0.09722222222222221,
+        0.23472222222222225
+      ],
+      "p": 0.00390625,
+      "tasks_up": 9,
+      "tasks_down": 0,
+      "tasks_tie": 3,
+      "pattern_p": 0.125,
+      "p_holm": 0.0078125,
+      "verdict": "supported"
+    },
+    "lenses": {
+      "diff": 0.48680555555555555,
+      "ci95": [
+        0.3430555555555556,
+        0.6277777777777778
+      ],
+      "p": 0.00048828125,
+      "tasks_up": 12,
+      "tasks_down": 0,
+      "tasks_tie": 0,
+      "pattern_p": 0.0625,
+      "p_holm": 0.00146484375,
+      "verdict": "supported"
+    }
+  },
+  "questions": {
+    "self1": {
+      "raw_per_unit": 0.0,
+      "off_target_per_unit": 0.0,
+      "sent_per_unit": 0.0,
+      "control_raw_per_unit": 0.0,
+      "control_units_with_question": 0.0,
+      "control_sent_per_unit": 0.0,
+      "tokens_review_per_unit": 614.3432835820895,
+      "tokens_agenda_per_unit": 0.0,
+      "status": {
+        "no_question": 67
+      }
+    },
+    "ind1": {
+      "raw_per_unit": 0.3584905660377358,
+      "off_target_per_unit": 0.1509433962264151,
+      "sent_per_unit": 0.3584905660377358,
+      "control_raw_per_unit": 0.0,
+      "control_units_with_question": 0.0,
+      "control_sent_per_unit": 0.0,
+      "tokens_review_per_unit": 465.65671641791045,
+      "tokens_agenda_per_unit": 247.46268656716418,
+      "status": {
+        "no_question": 51,
+        "ready": 16
+      }
+    },
+    "same3": {
+      "raw_per_unit": 1.0566037735849056,
+      "off_target_per_unit": 0.2641509433962264,
+      "sent_per_unit": 0.660377358490566,
+      "control_raw_per_unit": 0.0,
+      "control_units_with_question": 0.0,
+      "control_sent_per_unit": 0.0,
+      "tokens_review_per_unit": 1398.0746268656717,
+      "tokens_agenda_per_unit": 724.5970149253732,
+      "status": {
+        "ready": 20,
+        "no_question": 40,
+        "agenda_failed": 7
+      }
+    },
+    "split3": {
+      "raw_per_unit": 2.6792452830188678,
+      "off_target_per_unit": 0.7169811320754716,
+      "sent_per_unit": 1.9245283018867925,
+      "control_raw_per_unit": 2.357142857142857,
+      "control_units_with_question": 1.0,
+      "control_sent_per_unit": 0.9285714285714286,
+      "tokens_review_per_unit": 1507.3731343283582,
+      "tokens_agenda_per_unit": 1762.089552238806,
+      "status": {
+        "ready": 48,
+        "agenda_failed": 19
+      }
+    }
+  },
+  "drafts": {
+    "at_hidden_decisions": {
+      "asserted": 106
+    },
+    "on_public_inputs": {
+      "correct": 347,
+      "wrong": 2
+    }
+  },
+  "judges": {
+    "questions": 233,
+    "pairs": 466,
+    "agreement": 0.9313304721030042,
+    "kappa": 0.8612114217638955,
+    "a_yes": 260,
+    "b_yes": 254
+  }
+}

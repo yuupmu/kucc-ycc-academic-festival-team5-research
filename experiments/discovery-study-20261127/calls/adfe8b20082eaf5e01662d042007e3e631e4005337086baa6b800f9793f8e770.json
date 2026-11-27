@@ -1,0 +1,67 @@
+{
+  "text": "{\"code\":\"def keep_cached(pinned: bool, expired: bool) -> bool:\\n    \\\"\\\"\\\"\\n    이미지 캐시 항목을 유지할지 정하는 함수입니다.\\n    \\n    규칙:\\n    - 고정 표시 (pinned) 만 있으면 항목을 유지합니다.\\n    - 만료 표시 (expired) 만 있으면 유지하지 않습니다.\\n    - 두 표시가 모두 있으면 고정 우선으로 유지합니다.\\n    \\n    Args:\\n        pinned (bool): 고정 표시 여부 (True: 고정됨, False: 고정 안됨)\\n        expired (bool): 만료 표시 여부 (True: 만료됨, False: 만료 안됨)\\n    \\n    Returns:\\n        bool: True (유지), False (삭제)\\n    \\\"\\\"\\\"\\n    # 고정 표시가 있으면 유지합니다.\\n    if pinned:\\n        return True\\n    \\n    # 고정 표시가 없으면, 만료 표시가 있으면 삭제합니다.\\n    if expired:\\n        return False\\n    \\n    # 만료 표시도 없으면 유지합니다.\\n    return True\\n\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 238,
+    "prompt_tokens": 145,
+    "total_tokens": 383,
+    "prompt_tokens_details": {
+      "cached_tokens": 141
+    }
+  },
+  "server_timings": {
+    "cache_n": 141,
+    "prompt_n": 4,
+    "prompt_ms": 40.373,
+    "prompt_per_token_ms": 10.09325,
+    "prompt_per_second": 99.07611522552202,
+    "predicted_n": 238,
+    "predicted_ms": 3801.809,
+    "predicted_per_token_ms": 16.04138818565401,
+    "predicted_per_second": 62.3387445292491
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.85,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개된 내용으로 구현한 전체 파이썬 소스를 code에 쓰세요. 근거 있는 경로는 구현하고 미정인 경로만 raise NotImplementedError로 남기세요. 정책을 추측하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"이미지 캐시 항목을 유지할지 정하는 keep_cached(pinned: bool, expired: bool) -> bool 함수를 작성하세요. 고정 표시만 있으면 항목을 유지합니다. 만료 표시만 있으면 유지하지 않습니다. True는 유지, False는 삭제입니다.\",\"files\":{\"solution.py\":\"def keep_cached(pinned: bool, expired: bool) -> bool:\\n    raise NotImplementedError\\n\"}}"
+      }
+    ],
+    "seed": 1129,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main"
+}

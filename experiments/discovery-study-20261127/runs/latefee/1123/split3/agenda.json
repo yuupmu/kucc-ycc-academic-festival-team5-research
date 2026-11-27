@@ -1,0 +1,80 @@
+{
+  "handoff": "e5e1272a2b4e6d16a38ec3d500ea0c415123754c037747be5e7a916127cc8dbd",
+  "digest": "a40416601b226f10f4ab73928ae1fc02b90379c06ae9b4bf91d4044ac232f030",
+  "agenda": {
+    "brief": "도서 연체료를 부과할지 정하는 charge_late_fee(days_late: int) -> bool 함수를 작성하세요. 입력은 0 이상의 연체 일수입니다. 연체 일수가 7일 이하이면 연체료를 부과하지 않습니다. 7일을 초과하면 부과합니다. True는 부과, False는 부과 안 함입니다.",
+    "code": "def charge_late_fee(days_late: int) -> bool:\n    \"\"\"\n    도서 연체료를 부과할지 정하는 함수입니다.\n    \n    입력: 0 이상의 연체 일수 (days_late: int)\n    반환: 연체료를 부과할 경우 True, 부과하지 않을 경우 False\n    \n    규칙:\n    - 연체 일수가 7 일 이하이면 연체료를 부과하지 않습니다 (False).\n    - 7 일을 초과하면 연체료를 부과합니다 (True).\n    \"\"\"\n    if days_late > 7:\n        return True\n    else:\n        return False\n",
+    "editing_base": "def charge_late_fee(days_late: int) -> bool:\n    \"\"\"\n    도서 연체료를 부과할지 정하는 함수입니다.\n    \n    입력: 0 이상의 연체 일수 (days_late: int)\n    반환: 연체료를 부과할 경우 True, 부과하지 않을 경우 False\n    \n    규칙:\n    - 연체 일수가 7 일 이하이면 연체료를 부과하지 않습니다 (False).\n    - 7 일을 초과하면 연체료를 부과합니다 (True).\n    \"\"\"\n    if days_late > 7:\n        return True\n    else:\n        return False\n",
+    "original_questions": {
+      "Q1": "연체 일수가 정확히 7 일인 경우, 연체료를 부과할지 여부를 명확히 하신다면요?",
+      "Q2": "연체 일수가 정확히 7 일일 때 연체료 부과 여부를 명확히 정의해 주시겠습니까? 현재 코드는 7 일 초과 (> 7) 시 부과하고, 7 일 이하 (<= 7) 시 부과하지 않는 것으로 되어 있는데, '7 일 초과'라는 표현이 7 일 자체를 포함하는지 명확하지 않습니다."
+    },
+    "sent_questions": {
+      "charge_late_fee_7_days": "연체 일수가 정확히 7 일일 때, 연체료를 부과하는지 담당자에게 명확히 확인해 주시겠습니까?"
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "charge_late_fee_7_days": {
+        "key": "charge_late_fee_7_days",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "연체 일수가 정확히 7 일일 때, 연체료를 부과하는지 담당자에게 명확히 확인해 주시겠습니까?",
+        "merged_from": [
+          {
+            "key": "charge_late_fee_7_days",
+            "kind": "decision",
+            "origin": "Q1",
+            "question": "연체 일수가 정확히 7 일인 경우, 연체료를 부과할지 여부를 명확히 하신다면요?"
+          },
+          {
+            "key": "charge_late_fee_7_days_definition",
+            "kind": "decision",
+            "origin": "Q2",
+            "question": "연체 일수가 정확히 7 일일 때 연체료 부과 여부를 명확히 정의해 주시겠습니까?"
+          }
+        ]
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "도서 연체료를 부과할지 정하는 charge_late_fee(days_late: int) -> bool 함수를 작성하세요.",
+      "P2": "입력은 0 이상의 연체 일수입니다.",
+      "P3": "연체 일수가 7일 이하이면 연체료를 부과하지 않습니다.",
+      "P4": "7일을 초과하면 부과합니다.",
+      "P5": "True는 부과, False는 부과 안 함입니다."
+    },
+    "rules": [
+      {
+        "when": "days_late == 7",
+        "then": "charge_late_fee_7_days",
+        "source": "Q1"
+      },
+      {
+        "when": "days_late <= 7",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "days_late > 7",
+        "then": "True",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "days_late"
+    ],
+    "mode": "integer",
+    "calls": [
+      "8166652e6017b829f02f9880329b33bbdd83d9595cfce2fae7f1021f8e4c9250",
+      "23bfcf9480a7406b674fce9aad3a1e07cb5da8583e9415e35d60e4d0577b4386",
+      "1efaf4d8c60be8c6de74341729224090b733c86ae8d29bea8e8323173d26849d"
+    ]
+  }
+}

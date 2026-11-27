@@ -1,0 +1,67 @@
+{
+  "text": "{\n  \"code\": \"def light_on(hour: int) -> bool:\\n    \\\"\\\"\\\"\\n    현재 시간을 입력받아 공용 복도 조명이 켜져야 하는지 판단합니다.\\n    \\n    조건:\\n    - 0 시 ~ 5 시 (6 시보다 이르거나): True\\n    - 6 시 ~ 17 시 (6 시보다 늦고 18 시보다 이르면): False\\n    - 18 시 ~ 23 시 (18 시보다 늦거나): True\\n    \\n    Args:\\n        hour (int): 현재 시간 (0 ~ 23)\\n    \\n    Returns:\\n        bool: 조명이 켜져야 하는지 여부\\n    \\\"\\\"\\\"\\n    if 0 <= hour < 6 or 18 <= hour <= 23:\\n        return True\\n    else:\\n        return False\\n\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 200,
+    "prompt_tokens": 178,
+    "total_tokens": 378,
+    "prompt_tokens_details": {
+      "cached_tokens": 174
+    }
+  },
+  "server_timings": {
+    "cache_n": 174,
+    "prompt_n": 4,
+    "prompt_ms": 40.009,
+    "prompt_per_token_ms": 10.00225,
+    "prompt_per_second": 99.9775050613612,
+    "predicted_n": 200,
+    "predicted_ms": 3195.928,
+    "predicted_per_token_ms": 16.05993969849246,
+    "predicted_per_second": 62.26673441954888
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.25,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개된 내용으로 구현한 전체 파이썬 소스를 code에 쓰세요. 근거 있는 경로는 구현하고 미정인 경로만 raise NotImplementedError로 남기세요. 정책을 추측하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"공용 복도 조명을 켤지 정하는 light_on(hour: int) -> bool 함수를 작성하세요. 입력은 0부터 23까지의 현재 시(hour)입니다. 6시보다 이르거나 18시보다 늦으면 조명을 켭니다. 6시보다 늦고 18시보다 이르면 켜지 않습니다. True는 켜기, False는 끄기입니다.\",\"files\":{\"solution.py\":\"def light_on(hour: int) -> bool:\\n    raise NotImplementedError\\n\"}}"
+      }
+    ],
+    "seed": 1109,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main"
+}

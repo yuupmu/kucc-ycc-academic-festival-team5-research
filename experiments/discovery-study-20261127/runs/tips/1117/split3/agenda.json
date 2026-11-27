@@ -1,0 +1,93 @@
+{
+  "handoff": "d4b6feec881ebcea02e4b8dc2c34bfe06a763c7c684587a540705043d30f198b",
+  "digest": "7c9429ba06589c4163b5ace09809ecd7bfe558d9b179992d3f3801815df6e781",
+  "agenda": {
+    "brief": "앱 도움말 말풍선을 보여 줄지 정하는 show_tip(new_user: bool, tips_off: bool) -> bool 함수를 작성하세요. 도움말 끄기가 켜져 있으면 신규 사용자 여부와 관계없이 보여 주지 않습니다. 도움말 끄기가 꺼져 있고 신규 사용자이면 보여 줍니다. 도움말 끄기가 꺼져 있고 신규 사용자가 아니면 보여 주지 않습니다. True는 보여 주기, False는 숨기기입니다.",
+    "code": "def show_tip(new_user: bool, tips_off: bool) -> bool:\n    \"\"\"\n    도움말 말풍선을 보여 줄지 정하는 함수입니다.\n    \n    논리:\n    1. 도움말 끄기 (tips_off) 가 켜져 있으면 (True), 신규 사용자 여부와 관계없이 보여 주지 않습니다. -> False\n    2. 도움말 끄기 (tips_off) 가 꺼져 있고 (False), 신규 사용자 (new_user) 이면 보여 줍니다. -> True\n    3. 도움말 끄기 (tips_off) 가 꺼져 있고 (False), 신규 사용자가 아니면 보여 주지 않습니다. -> False\n    \n    Args:\n        new_user (bool): 신규 사용자 여부\n        tips_off (bool): 도움말 끄기 기능 활성화 여부\n    \n    Returns:\n        bool: True (보여짐), False (숨김)\n    \"\"\"\n    if tips_off:\n        return False\n    else:\n        return new_user\n\n# 테스트 코드 (주석 처리된 상태) #\n# if __name__ == \"__main__\":\n#     assert show_tip(True, False) == True\n#     assert show_tip(False, False) == False\n#     assert show_tip(True, True) == False\n#     assert show_tip(False, True) == False\n#     print(\"모든 테스트 통과\")",
+    "editing_base": "def show_tip(new_user: bool, tips_off: bool) -> bool:\n    \"\"\"\n    도움말 말풍선을 보여 줄지 정하는 함수입니다.\n    \n    논리:\n    1. 도움말 끄기 (tips_off) 가 켜져 있으면 (True), 신규 사용자 여부와 관계없이 보여 주지 않습니다. -> False\n    2. 도움말 끄기 (tips_off) 가 꺼져 있고 (False), 신규 사용자 (new_user) 이면 보여 줍니다. -> True\n    3. 도움말 끄기 (tips_off) 가 꺼져 있고 (False), 신규 사용자가 아니면 보여 주지 않습니다. -> False\n    \n    Args:\n        new_user (bool): 신규 사용자 여부\n        tips_off (bool): 도움말 끄기 기능 활성화 여부\n    \n    Returns:\n        bool: True (보여짐), False (숨김)\n    \"\"\"\n    if tips_off:\n        return False\n    else:\n        return new_user\n\n# 테스트 코드 (주석 처리된 상태) #\n# if __name__ == \"__main__\":\n#     assert show_tip(True, False) == True\n#     assert show_tip(False, False) == False\n#     assert show_tip(True, True) == False\n#     assert show_tip(False, True) == False\n#     print(\"모든 테스트 통과\")",
+    "original_questions": {
+      "Q1": "현재 코드와 논리 설명을 확인했습니다. 요청하신 논리 (도움말 끄기 켜지면 항상 False, 끔이면 신규 사용자 여부만 판단) 에 따라 코드가 정확히 구현되어 있습니다. 추가적인 정책 불일치나 누락된 사항을 발견하지 못했습니다.",
+      "Q2": "도움말 말풍선 표시 로직을 확인했습니다. 요청하신 논리 (도움말 끄기 켜지면 항상 숨김, 끔이면 신규 사용자 여부로 결정) 와 코드 로직이 일치합니다. 추가 확인이 필요하신 부분이 있으신가요?"
+    },
+    "sent_questions": {
+      "Q1": "현재 코드와 논리 설명을 확인했습니다. 요청하신 논리 (도움말 끄기 켜지면 항상 False, 끔이면 신규 사용자 여부만 판단) 에 따라 코드가 정확히 구현되어 있습니다. 추가적인 정책 불일치나 누락된 사항을 발견하지 못했습니다.",
+      "Q2": "도움말 말풍선 표시 로직을 확인했습니다. 요청하신 논리 (도움말 끄기 켜지면 항상 숨김, 끔이면 신규 사용자 여부로 결정) 와 코드 로직이 일치합니다. 추가 확인이 필요하신 부분이 있으신가요?"
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "Q1": {
+        "key": "Q1",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "도움말 말풍선 표시 로직이 요청된 논리에 따라 정확히 구현되어 있습니다."
+      },
+      "Q2": {
+        "key": "Q2",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "도움말 말풍선 표시 로직이 요청된 논리에 따라 정확히 구현되어 있습니다."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "앱 도움말 말풍선을 보여 줄지 정하는 show_tip(new_user: bool, tips_off: bool) -> bool 함수를 작성하세요.",
+      "P2": "도움말 끄기가 켜져 있으면 신규 사용자 여부와 관계없이 보여 주지 않습니다.",
+      "P3": "도움말 끄기가 꺼져 있고 신규 사용자이면 보여 줍니다.",
+      "P4": "도움말 끄기가 꺼져 있고 신규 사용자가 아니면 보여 주지 않습니다.",
+      "P5": "True는 보여 주기, False는 숨기기입니다."
+    },
+    "rules": [
+      {
+        "when": "not new_user and not tips_off",
+        "then": "Q1",
+        "source": "Q1"
+      },
+      {
+        "when": "not new_user and tips_off",
+        "then": "Q2",
+        "source": "Q2"
+      },
+      {
+        "when": "not new_user and tips_off",
+        "then": "False",
+        "source": "P2"
+      },
+      {
+        "when": "new_user and not tips_off",
+        "then": "True",
+        "source": "P3"
+      },
+      {
+        "when": "new_user and tips_off",
+        "then": "False",
+        "source": "P4"
+      },
+      {
+        "when": "not new_user",
+        "then": "False",
+        "source": "P2"
+      },
+      {
+        "when": "tips_off",
+        "then": "False",
+        "source": "P2"
+      }
+    ],
+    "names": [
+      "new_user",
+      "tips_off"
+    ],
+    "mode": "flags",
+    "calls": [
+      "aab97d3aa2dad38d8fffa57a253e9c027299b2a2a83d8a2791f0c98df4ce54cd",
+      "36c7489bd9a60d85321ef0ef43f633a981103b65e6d5fd427332b17a023cf5ba"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "brief": "쪽지 시험 재응시 대상인지 정하는 needs_retake(score: int) -> bool 함수를 작성하세요. 입력은 0부터 100까지의 점수입니다. 점수가 20점보다 낮으면 보충 수업으로 넘기므로 재응시 대상이 아닙니다. 20점보다 높고 60점보다 낮으면 재응시 대상입니다. 60점보다 높으면 통과이므로 대상이 아닙니다. True는 재응시 대상, False는 대상 아님입니다.",
+  "code": "def needs_retake(score: int) -> bool:\n    \"\"\"\n    쪽지 시험 재응시 대상인지 판단하는 함수입니다.\n    \n    Args:\n        score (int): 0 부터 100 까지의 점수\n    \n    Returns:\n        bool: 20 점보다 높고 60 점보다 낮으면 True (재응시 대상), \n               그 외 경우 False (대상 아님)\n    \n    Logic:\n    - 점수가 20 점보다 낮으면: 보충 수업으로 넘김 (False)\n    - 20 점 <= 점수 < 60 점: 재응시 대상 (True)\n    - 60 점 >= 점수: 통과 (False)\n    \"\"\"\n    if score < 20:\n        return False\n    elif score < 60:\n        return True\n    else:\n        return False\n\n# 테스트 코드 (주석 처리된 상태)\n# assert needs_retake(10) == False\n# assert needs_retake(20) == True\n# assert needs_retake(59) == True\n# assert needs_retake(60) == False\n# assert needs_retake(100) == False\n\nif __name__ == \"__main__\":\n    # 간단한 테스트 실행\n    test_cases = [\n        (10, False),\n        (20, True),\n        (59, True),\n        (60, False),\n        (100, False)\n    ]\n    \n    for score, expected in test_cases:\n        result = needs_retake(score)\n        assert result == expected, f\"점수 {score} 에 대해 예상값 {expected} 와 실제값 {result} 이 다릅니다.\"\n    \n    print(\"모든 테스트 케이스가 통과되었습니다.\")",
+  "questions": [],
+  "review": [],
+  "calls": [
+    "be762623429e3e7127f539e11a496c23126e6ed638eccdb40641eb22bcf10633",
+    "95436735d7e4d2343e86c2e61b1e26e9a99d6a5e8dcf1c4a6405991b0c64f78d"
+  ]
+}

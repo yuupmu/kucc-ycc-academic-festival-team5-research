@@ -1,0 +1,82 @@
+{
+  "handoff": "ef667c5c4196484e913ed042f838facab2df544f41da37e05cda64b705e2e6bf",
+  "digest": "7b0e59f8d74230cc1054dc70ab9dad2a2cfa3c31c72fca2f3bef610e642d7ebb",
+  "agenda": {
+    "brief": "놀이공원 회전 그네의 탑승 가능 여부를 정하는 can_ride(height_cm: int) -> bool 함수를 작성하세요. 입력은 탑승객의 키(cm)입니다. 키가 110cm보다 작거나 190cm보다 크면 탑승할 수 없습니다. 110cm보다 크고 190cm보다 작으면 탑승할 수 있습니다. True는 탑승 가능, False는 탑승 불가입니다.",
+    "code": "def can_ride(height_cm: int) -> bool:\n    \"\"\"\n    놀이공원 회전 그네의 탑승 가능 여부를 판단하는 함수입니다.\n    \n    조건:\n    - 키가 110cm보다 작거나 190cm보다 크면 탑승 불가 (False)\n    - 110cm <= 키 <= 190cm 인 경우 탑승 가능 (True)\n    \n    Args:\n        height_cm (int): 탑승객의 키 (cm)\n    \n    Returns:\n        bool: 탑승 가능 여부\n    \"\"\"\n    if 110 <= height_cm <= 190:\n        return True\n    else:\n        return False",
+    "editing_base": "def can_ride(height_cm: int) -> bool:\n    \"\"\"\n    놀이공원 회전 그네의 탑승 가능 여부를 판단하는 함수입니다.\n    \n    조건:\n    - 키가 110cm보다 작거나 190cm보다 크면 탑승 불가 (False)\n    - 110cm <= 키 <= 190cm 인 경우 탑승 가능 (True)\n    \n    Args:\n        height_cm (int): 탑승객의 키 (cm)\n    \n    Returns:\n        bool: 탑승 가능 여부\n    \"\"\"\n    if 110 <= height_cm <= 190:\n        return True\n    else:\n        return False",
+    "original_questions": {
+      "Q1": "110cm 이하와 190cm 초과인 경우를 제외하고는 탑승 가능 (True) 으로 처리하는 로직이 맞는지 확인하고 싶습니다.",
+      "Q2": "110cm 또는 190cm 인 경우 탑승 가능 여부를 어떻게 처리해야 할지 명확히 해주세요."
+    },
+    "sent_questions": {
+      "Q1": "110cm 이하와 190cm 초과인 경우를 제외하고는 탑승 가능 (True) 으로 처리하는 로직이 맞는지 확인하고 싶습니다.",
+      "Q2": "110cm 또는 190cm 인 경우 탑승 가능 여부를 어떻게 처리해야 할지 명확히 해주세요."
+    },
+    "review": [],
+    "scope": {
+      "accepted": false,
+      "sites": [],
+      "findings": {},
+      "calls": [],
+      "reopened": {}
+    },
+    "slots": {
+      "can_ride_110_or_190": {
+        "key": "can_ride_110_or_190",
+        "kind": "decision",
+        "origin": "Q2",
+        "question": "110cm 또는 190cm 인 경우 탑승 가능 여부를 어떻게 처리해야 할지 명확히 해주세요."
+      },
+      "can_ride_110_to_190": {
+        "key": "can_ride_110_to_190",
+        "kind": "decision",
+        "origin": "Q1",
+        "question": "110cm 이하와 190cm 초과인 경우를 제외하고는 탑승 가능 (True) 으로 처리하는 로직이 맞는지 확인하고 싶습니다."
+      }
+    },
+    "advisory": {},
+    "public": {
+      "P1": "놀이공원 회전 그네의 탑승 가능 여부를 정하는 can_ride(height_cm: int) -> bool 함수를 작성하세요.",
+      "P2": "입력은 탑승객의 키(cm)입니다.",
+      "P3": "키가 110cm보다 작거나 190cm보다 크면 탑승할 수 없습니다.",
+      "P4": "110cm보다 크고 190cm보다 작으면 탑승할 수 있습니다.",
+      "P5": "True는 탑승 가능, False는 탑승 불가입니다."
+    },
+    "rules": [
+      {
+        "when": "height_cm == 110",
+        "then": "can_ride_110_or_190",
+        "source": "Q2"
+      },
+      {
+        "when": "height_cm > 110",
+        "then": "can_ride_110_to_190",
+        "source": "Q1"
+      },
+      {
+        "when": "height_cm == 110",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "height_cm == 190",
+        "then": "False",
+        "source": "P3"
+      },
+      {
+        "when": "height_cm > 110",
+        "then": "True",
+        "source": "P4"
+      }
+    ],
+    "names": [
+      "height_cm"
+    ],
+    "mode": "integer",
+    "calls": [
+      "ea4038d2f6da183fa417ab6136f4038e2f48fe54da390a5ddb837802c60c0aa1",
+      "4c1b8f56124b6f4bfbc4c927835f6d8b64e08b419a8484cc265d0e91e6fdc100"
+    ]
+  }
+}
