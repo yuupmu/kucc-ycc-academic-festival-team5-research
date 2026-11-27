@@ -1,0 +1,509 @@
+{
+  "writer": {
+    "calls": [
+      "901aa024e06facc5a23f8cc01fdb4d860914e8e66c9b11a73529e872c0ca16b2",
+      "ea3aad37d11b0b487e2158d0941a4dc4cb0ce3b3737f4de211143ed1d6f89426",
+      "1016520dd0a87083a2c505bbfa35a2cff4158cc992ebee84c3fa0c40ef36c181"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "allow_upload(size_bytes) 함수는 정수 타입의 size_bytes 인수를 받습니다. 0 은 빈 파일로 간주됩니다. 음수 값은 거부합니다.",
+        "input": "size_bytes",
+        "still_open": "0 이상의 양수 값에 대한 구체적인 허용/거부 로직은 P2와 P3의 상한값 규칙에 의존합니다.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "업로드 크기의 상한은 16 바이트입니다 (H2).",
+        "input": "size_bytes",
+        "still_open": "상한보다 작은 양수 파일은 허용해야 함 (H2).",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "상한 값은 16 바이트입니다 (H2). 정확히 상한 (16 바이트) 인 파일은 허용합니다 (H3). 빈 파일 (0 바이트) 의 허용 여부는 H1에 의해 거부로 확정됩니다.",
+        "input": "size_bytes",
+        "still_open": "빈 파일 (0) 은 거부 (H1). 16 바이트는 허용 (H3). 0 < size_bytes < 16 인 양수 파일은 허용 (P2). 16 < size_bytes 인 경우 거부 (P2).",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "빈 파일 (size_bytes == 0) 은 거부합니다.",
+        "input": "size_bytes",
+        "still_open": "없음.",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "업로드 크기의 상한은 16 바이트입니다.",
+        "input": "size_bytes",
+        "still_open": "없음.",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "파일 크기가 16 바이트와 정확히 같아도 허용합니다.",
+        "input": "size_bytes",
+        "still_open": "없음.",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def allow_upload(size_bytes):",
+            "sources": [
+              "P1",
+              "H1",
+              "H2",
+              "H3"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "    if size_bytes < 0:",
+            "sources": [
+              "P1",
+              "H1"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if size_bytes == 0:",
+            "sources": [
+              "H1"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if size_bytes > 16:",
+            "sources": [
+              "H2",
+              "P2"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return True",
+            "sources": [
+              "H3",
+              "P2"
+            ]
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    if size_bytes < 0:\n        return False\n    if size_bytes == 0:\n        return False\n    if size_bytes > 16:\n        return False\n    return True\n"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 1,
+            "sources": [
+              "P1",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "H2",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "H3",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 1,
+            "sources": [
+              "P1",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "H1"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 1,
+            "sources": [
+              "P1",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "H2",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 1,
+            "sources": [
+              "P1",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "H3",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "error": null,
+    "complete": false,
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {
+          "Q_H2_1_bytes": {
+            "source": "H2",
+            "kind": "quantity",
+            "quote": "16바이트",
+            "value": 16,
+            "unit": "bytes",
+            "inputs": [
+              "size_bytes"
+            ]
+          }
+        },
+        "decision": {
+          "rules": [
+            {
+              "when": "size_bytes < 0",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P1",
+                "P2"
+              ]
+            },
+            {
+              "when": "size_bytes == 0",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "H1",
+                "P3"
+              ]
+            },
+            {
+              "when": "size_bytes > 16",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P2",
+                "H2"
+              ]
+            },
+            {
+              "when": "size_bytes == 16",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "H3",
+                "P3"
+              ]
+            },
+            {
+              "when": "size_bytes > 0 and size_bytes < 16",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "True",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P2"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "False",
+            "sources": [
+              "P2"
+            ]
+          },
+          "complete": true,
+          "applicable": false
+        }
+      }
+    ],
+    "issues": [],
+    "format": "native"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "빈 파일에 대한 허용 여부",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일은 거부합니다."
+          },
+          {
+            "situation": "업로드 크기의 상한",
+            "outcome_a": "업로드 크기의 상한은 16바이트입니다.",
+            "outcome_b": "업로드 크기의 상한은 17바이트입니다.",
+            "question": "업로드 크기의 상한은 16바이트입니다."
+          },
+          {
+            "situation": "상한과 정확히 같은 파일의 허용 여부",
+            "outcome_a": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+            "outcome_b": "파일 크기가 상한과 정확히 같아도 거부합니다.",
+            "question": "파일 크기가 상한과 정확히 같아도 허용합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 에 대한 허용 여부",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 은 허용되나요?"
+          },
+          {
+            "situation": "파일 크기가 상한 (16 바이트) 과 정확히 같을 때의 허용 여부",
+            "outcome_a": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+            "outcome_b": "파일 크기가 상한과 정확히 같아도 거부합니다.",
+            "question": "파일 크기가 16 바이트와 정확히 같아도 허용되나요?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 에 대한 허용 여부는 담당자가 정한 규칙과 코드 구현이 상반되어 있습니다.",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 은 거부해야 하는가?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "3e083a73633876e924cd281be0ffc112ce9cb6bee0f72725536215c70ac7b621",
+    "0de0b2e388425eefbe101f75ec89dbfc2392f053b8e80a53a49254badbf53e76",
+    "a2b7376555315a13fe063e2d0c09eb391b654cccbee5b42b8600fbac00240f62",
+    "0c32b9e10e83d0bab8a8523f1afd469f4a0ae4f510feed46a9002180d2cee86c",
+    "901aa024e06facc5a23f8cc01fdb4d860914e8e66c9b11a73529e872c0ca16b2",
+    "ea3aad37d11b0b487e2158d0941a4dc4cb0ce3b3737f4de211143ed1d6f89426",
+    "1016520dd0a87083a2c505bbfa35a2cff4158cc992ebee84c3fa0c40ef36c181",
+    "a232f17baa29a757c1a3d21e80c1602e3f445e6b3d018d859bd9ac034fc96994",
+    "9be4c7e5db14bde8fc80122f20ec4703a588269a330fe04a4047865787a20d84",
+    "dc248b84990eed57d5904498104dd996c1c907f964ef7b4b060bee73c244e79c"
+  ],
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    if size_bytes < 0:\n        return False\n    if size_bytes == 0:\n        return False\n    if size_bytes > 16:\n        return False\n    return True\n"
+  },
+  "sha256": "e8c20d965d2ff2e18a0cbe1f52bab991e9998cceb5a2d0620aa46ee8b13741b2",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "0482c3381b64e276d7cb5eefd72ab0446e00c114d489015eaf29d702c758d026",
+      "questions": [
+        {
+          "question": "0(빈 파일)은 항상 허용되나요?",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "상한 값과 빈 파일의 허용 여부를 저장소 담당자에게 확인하여, 그 결과를 바탕으로 allow_upload 함수를 구현하시오.",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "상한 파일 크기를 100MB로 가정하고 상한 이하를 허용할지, 아니면 50MB로 가정하고 상한 이하를 허용할지 결정이 필요합니다.",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "빈 파일에는 거부로 처리합니다.\n업로드 크기의 상한은 16바이트입니다.\n파일 크기가 상한과 정확히 같아도 허용합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

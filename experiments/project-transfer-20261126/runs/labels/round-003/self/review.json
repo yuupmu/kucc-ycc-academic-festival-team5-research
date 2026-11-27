@@ -1,0 +1,154 @@
+{
+  "reviews": [
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 4
+            },
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "P1",
+            "P2",
+            "P3",
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A2.1",
+            "A2.2"
+          ],
+          "message": "기존 코드는 'label = item.strip()'만으로 처리하고, 'label not in result' 조건으로 중복 여부를 판단합니다. 그러나 담당자 답변에 따르면, 대소문자 구분 없이 비교하고, 유니코드 casefold 기준으로 판단해야 합니다. 따라서, 'label'을 casefold한 값을 사용하여 중복 여부를 판단해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "P1",
+            "P2",
+            "P3",
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A2.1",
+            "A2.2"
+          ],
+          "message": "기존 코드의 'if label not in result' 조건은 처음 등장한 라벨만 유지하므로, 이 조건을 수정해야 합니다. 담당자 답변에 따르면, 같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 따라서, 'label'을 casefold한 값을 사용하여 중복 여부를 판단하고, 가장 최근의 표기를 유지해야 합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 4
+            },
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "P1",
+            "P2",
+            "P3",
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A2.1",
+            "A2.2"
+          ],
+          "message": "기존 코드는 'label = item.strip()'만으로 처리하고, 'label not in result' 조건으로 중복 여부를 판단합니다. 그러나 담당자 답변에 따르면, 대소문자 구분 없이 비교하고, 유니코드 casefold 기준으로 판단해야 합니다. 따라서, 'label'을 casefold한 값을 사용하여 중복 여부를 판단해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "P1",
+            "P2",
+            "P3",
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A2.1",
+            "A2.2"
+          ],
+          "message": "기존 코드의 'if label not in result' 조건은 처음 등장한 라벨만 유지하므로, 이 조건을 수정해야 합니다. 담당자 답변에 따르면, 같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 따라서, 'label'을 casefold한 값을 사용하여 중복 여부를 판단하고, 가장 최근의 표기를 유지해야 합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 4
+            },
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "P1",
+            "P2",
+            "P3",
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A2.1",
+            "A2.2"
+          ],
+          "message": "기존 코드는 'label = item.strip()'만으로 처리하고, 'label not in result' 조건으로 중복 여부를 판단합니다. 그러나 담당자 답변에 따르면, 대소문자 구분 없이 비교하고, 유니코드 casefold 기준으로 판단해야 합니다. 따라서, 'label'을 casefold한 값을 사용하여 중복 여부를 판단해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "P1",
+            "P2",
+            "P3",
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A2.1",
+            "A2.2"
+          ],
+          "message": "기존 코드의 'if label not in result' 조건은 처음 등장한 라벨만 유지하므로, 이 조건을 수정해야 합니다. 담당자 답변에 따르면, 같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 따라서, 'label'을 casefold한 값을 사용하여 중복 여부를 판단하고, 가장 최근의 표기를 유지해야 합니다."
+        }
+      ],
+      "ready": false
+    }
+  ],
+  "main_questions": [],
+  "questions": [],
+  "ready": false
+}

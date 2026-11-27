@@ -1,0 +1,29 @@
+{
+  "protocol": "festival-human-review-p4-v1",
+  "project": {
+    "brief": "고객지원 도구의 triage(tags) 함수를 구현하세요. 입력은 소문자 문자열 태그의 리스트이고 출력은 담당 팀 이름 한 개입니다.\n알려진 태그는 account, billing, privacy이며 단독으로 들어오면 같은 이름의 팀으로 보냅니다. 입력 순서나 중복 횟수가 바뀌어도 같은 요청입니다.\n여러 담당 분야가 겹치거나 모르는 태그가 섞일 수 있습니다. 담당자가 정한 분류 관행을 반영해야 합니다.",
+    "files": {
+      "router.py": "def triage(tags):\n    for tag in tags:\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    raise NotImplementedError\n"
+    }
+  },
+  "seed": 263,
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "arms": [
+    "p4"
+  ],
+  "versions": 2,
+  "questions_per_window": 3,
+  "limits": [
+    2400,
+    950
+  ],
+  "prompts_sha256": "7b4218acf84babe78c8199cfc37237cb8ae6e743118752743d2af19c3780388a",
+  "parent_draft": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+  "parent_review": [
+    "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6",
+    "b86d0f233f27f403a51fb6dc7ac29f8f36769f631c50b35505688f96ace96f1d",
+    "9a7afc3938d774a2d306923447167b7f62f378bc4ae0c0d824b70dec9862213d",
+    "2e72ed9ca1f5390d0515546b7f74af5ad8f0628659d32ead0849cad95187703d"
+  ],
+  "refinement_sha256": "53728141c80470befd690caa242b0f2f77c00d71b5cafb0f82ea000a9f2f67e2"
+}

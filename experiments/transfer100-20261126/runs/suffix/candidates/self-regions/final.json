@@ -1,0 +1,150 @@
+{
+  "writer": {
+    "calls": [
+      "24c1e08b5c0aa20fc37b25300b378c6aca0077ca54c13b5edb0226dfdead8479",
+      "892be927b626e27e12e6ed00daad600b640be759e0071c919d15d4189f0517d3"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "file_suffix(name) 함수는 str 타입을 반환하며, 입력은 경로 구분자 없이 영문 대소문자, 숫자, 점, 하이픈으로만 구성된 파일 이름입니다. 공백과 빈 문자열은 입력되지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "이름 안에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일의 경우, 점 다음 부분을 반환하며 반환값에 점을 붙이지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "",
+        "input": "name",
+        "still_open": "대소문자 표기, 점이 여러 개인 이름, 점으로 시작하는 이름, 확장자가 없는 이름의 처리는 파일 관리 담당자에게 확인해야 합니다.",
+        "status": "undetermined"
+      },
+      "H1": {
+        "established": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용하며, 복합 확장자를 합치지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def file_suffix(name: str) -> str:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if name.count('.') != 1:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return name",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    parts = name.split('.')",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if parts[0] == '' or parts[-1] == '':",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return name",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return parts[-1]",
+            "sources": []
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def file_suffix(name: str) -> str:\n    if name.count('.') != 1:\n        return name\n    parts = name.split('.')\n    if parts[0] == '' or parts[-1] == '':\n        return name\n    return parts[-1]\n"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "undetermined",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": []
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "점과 하이픈이 모두 포함된 이름 (예: 'file.name-v2') 에서 하이픈이 포함된 부분이 확장자로 인식되는지 확인이 필요합니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "6cf529781a51dd51273c07e0a1f61ef06c0337bb583c6f8f61d1017f656a0431",
+    "24c1e08b5c0aa20fc37b25300b378c6aca0077ca54c13b5edb0226dfdead8479",
+    "892be927b626e27e12e6ed00daad600b640be759e0071c919d15d4189f0517d3",
+    "bb5ec831c37d91b0979072a33624a0ea1098016a2fdd39899bc1af7b9eb223ec"
+  ],
+  "files": {
+    "solution.py": "def file_suffix(name: str) -> str:\n    if name.count('.') != 1:\n        return name\n    parts = name.split('.')\n    if parts[0] == '' or parts[-1] == '':\n        return name\n    return parts[-1]\n"
+  },
+  "sha256": "6263cce05c172ed8ef616a7ffbc958ea930967c9495d3ca528dffc160d4d8798",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "d361619a38873acad52de32ec631e78251360221fe8c3cb5a9ae00315f5f2d3a",
+      "questions": [
+        {
+          "question": "file_suffix 함수의 확장자 추출 로직과 여러 점 처리 규칙은 파일 관리 담당자에게 확인이 필요한 것으로 명시되어 있으나, 해당 담당자와의 구체적인 확인 사항이나 확인 시점을 정하지 않았습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

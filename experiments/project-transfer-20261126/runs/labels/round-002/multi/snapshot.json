@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "files": {
+    "labels.py": "def merge_labels(base, incoming):\n    result = []\n    for item in base + incoming:\n        label = item.strip()\n        if label not in result:\n            result.append(label)\n    return result\n"
+  },
+  "sha256": "95ce0528bb9749293a688bf43c25579f96d9061c5d144d09b9676e20a8c46594",
+  "plan": "기존 코드는 base와 incoming을 합쳐서 순차적으로 처리하고, 중복된 라벨을 제거합니다. 그러나 공개 명세와 담당자 답변에 따르면, 같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 하며, 대소문자 구분 없이 비교해야 합니다. 기존 코드는 단순히 문자열이 중복되지 않음을 기준으로 처리하므로, 이 기준을 수정해야 합니다. 또한, 공백을 제거한 후 비교해야 하므로, `strip()`을 사용한 라벨을 기준으로 비교해야 합니다. 이에 따라, 기존 코드의 `if label not in result` 조건을 수정하여, 대소문자 구분 없이 비교하고, 가장 최근의 표기를 유지하도록 처리해야 합니다.",
+  "complete": false,
+  "applied_edits": [],
+  "edit_error": "같은 원본 줄을 두 번 편집함",
+  "received": [
+    1
+  ]
+}

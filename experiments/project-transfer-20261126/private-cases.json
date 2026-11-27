@@ -1,0 +1,362 @@
+{
+  "triage": [
+    {
+      "args": [
+        [
+          "account"
+        ]
+      ],
+      "expected": "account"
+    },
+    {
+      "args": [
+        [
+          "billing"
+        ]
+      ],
+      "expected": "billing"
+    },
+    {
+      "args": [
+        [
+          "privacy"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "misc"
+        ]
+      ],
+      "expected": "general"
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": "general"
+    },
+    {
+      "args": [
+        [
+          "account",
+          "billing"
+        ]
+      ],
+      "expected": "billing"
+    },
+    {
+      "args": [
+        [
+          "billing",
+          "account"
+        ]
+      ],
+      "expected": "billing"
+    },
+    {
+      "args": [
+        [
+          "privacy",
+          "account"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "account",
+          "privacy"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "privacy",
+          "billing"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "billing",
+          "privacy"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "account",
+          "billing",
+          "privacy"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "privacy",
+          "billing",
+          "account"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "misc",
+          "billing"
+        ]
+      ],
+      "expected": "billing"
+    },
+    {
+      "args": [
+        [
+          "misc",
+          "account",
+          "privacy",
+          "privacy"
+        ]
+      ],
+      "expected": "privacy"
+    },
+    {
+      "args": [
+        [
+          "misc",
+          "other",
+          "misc"
+        ]
+      ],
+      "expected": "general"
+    }
+  ],
+  "labels": [
+    {
+      "args": [
+        [],
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          "Blue"
+        ],
+        []
+      ],
+      "expected": [
+        "Blue"
+      ]
+    },
+    {
+      "args": [
+        [],
+        [
+          "Red"
+        ]
+      ],
+      "expected": [
+        "Red"
+      ]
+    },
+    {
+      "args": [
+        [
+          "  A  "
+        ],
+        [
+          "B"
+        ]
+      ],
+      "expected": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "args": [
+        [
+          "A"
+        ],
+        [
+          "A"
+        ]
+      ],
+      "expected": [
+        "A"
+      ]
+    },
+    {
+      "args": [
+        [
+          "A"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "expected": [
+        "a"
+      ]
+    },
+    {
+      "args": [
+        [
+          "red",
+          "Blue"
+        ],
+        [
+          "RED"
+        ]
+      ],
+      "expected": [
+        "RED",
+        "Blue"
+      ]
+    },
+    {
+      "args": [
+        [
+          "Q",
+          "p"
+        ],
+        [
+          "q",
+          "P",
+          "Q"
+        ]
+      ],
+      "expected": [
+        "Q",
+        "P"
+      ]
+    },
+    {
+      "args": [
+        [
+          " "
+        ],
+        [
+          "B",
+          ""
+        ]
+      ],
+      "expected": [
+        "B"
+      ]
+    },
+    {
+      "args": [
+        [
+          "",
+          "  "
+        ],
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          "Straße"
+        ],
+        [
+          "STRASSE"
+        ]
+      ],
+      "expected": [
+        "STRASSE"
+      ]
+    },
+    {
+      "args": [
+        [
+          "X",
+          "y"
+        ],
+        [
+          "Y",
+          "z",
+          "x"
+        ]
+      ],
+      "expected": [
+        "x",
+        "Y",
+        "z"
+      ]
+    },
+    {
+      "args": [
+        [
+          " red ",
+          "green"
+        ],
+        [
+          "RED ",
+          "Blue"
+        ]
+      ],
+      "expected": [
+        "RED",
+        "green",
+        "Blue"
+      ]
+    },
+    {
+      "args": [
+        [
+          "A",
+          "a",
+          "B"
+        ],
+        []
+      ],
+      "expected": [
+        "a",
+        "B"
+      ]
+    },
+    {
+      "args": [
+        [],
+        [
+          " First ",
+          "first",
+          "SECOND"
+        ]
+      ],
+      "expected": [
+        "first",
+        "SECOND"
+      ]
+    },
+    {
+      "args": [
+        [
+          "茶"
+        ],
+        [
+          " 茶 "
+        ]
+      ],
+      "expected": [
+        "茶"
+      ]
+    }
+  ]
+}

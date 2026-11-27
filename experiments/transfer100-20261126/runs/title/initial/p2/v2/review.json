@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "87acd269152c06880fdc2abae58b21b78a8abef77e2664847648e3fcc42400de",
+    "07832993f09051f1424cb008781d409887b15e9c982c2cf149ff8aeaa002b8f5",
+    "17ed972621bd478897e086abf7221ce6a8cc816551d8aafa70defc289687efd6",
+    "a6e238282d6b8098b7658431e80e469fd5a52b237f3522658606343e8cc3cb9f"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 줄이는 것이 편집 담당자의 기준에 맞는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 통일하는 규칙이 정해졌는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "연속된 하이픈이 여러 개 있을 때, 정규식 `[\\s-]+` 로 처리하여 하나의 하이픈으로 통일하는 것이 맞는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "연속된 하이픈을 하나의 하이픈으로 줄이는 것이 편집 담당자의 기준에 맞는지 확인해 주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "연속된 하이픈을 하나의 하이픈으로 통일하는 규칙이 정해졌는지 확인해주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "연속된 하이픈이 여러 개 있을 때, 정규식 `[\\s-]+` 로 처리하여 하나의 하이픈으로 통일하는 것이 맞는지 확인해 주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

@@ -1,0 +1,4088 @@
+{
+  "summary": {
+    "A-solo": {
+      "correct": 43,
+      "sufficient": 17,
+      "grounded_correct": 16,
+      "questions": 0,
+      "windows": 0,
+      "writer_packets_checked": 0,
+      "calls": 5,
+      "tokens": 2873,
+      "topics": 0,
+      "complete_policy_cards": 0,
+      "known_wrong": 1,
+      "missing_wrong": 56,
+      "task_scores": {
+        "title": 7,
+        "suffix": 8,
+        "mask": 10,
+        "upload": 4,
+        "print": 14
+      },
+      "round_scores": [],
+      "round_tokens": []
+    },
+    "A-self": {
+      "correct": 65,
+      "sufficient": 83,
+      "grounded_correct": 63,
+      "questions": 15,
+      "windows": 12,
+      "writer_packets_checked": 23,
+      "calls": 43,
+      "tokens": 50663,
+      "topics": 12,
+      "complete_policy_cards": 12,
+      "known_wrong": 20,
+      "missing_wrong": 15,
+      "task_scores": {
+        "title": 7,
+        "suffix": 8,
+        "mask": 10,
+        "upload": 20,
+        "print": 20
+      },
+      "round_scores": [
+        59,
+        59,
+        65
+      ],
+      "round_tokens": [
+        24118,
+        40223,
+        50663
+      ]
+    },
+    "A-abc": {
+      "correct": 65,
+      "sufficient": 97,
+      "grounded_correct": 65,
+      "questions": 37,
+      "windows": 15,
+      "writer_packets_checked": 26,
+      "calls": 76,
+      "tokens": 80702,
+      "topics": 15,
+      "complete_policy_cards": 15,
+      "known_wrong": 32,
+      "missing_wrong": 3,
+      "task_scores": {
+        "title": 7,
+        "suffix": 8,
+        "mask": 10,
+        "upload": 20,
+        "print": 20
+      },
+      "round_scores": [
+        65,
+        60,
+        65
+      ],
+      "round_tokens": [
+        26213,
+        51809,
+        80702
+      ],
+      "same_or_complementary": {
+        "three_same": 5,
+        "partly_overlapping": 8,
+        "two_same": 2
+      },
+      "first_round_overlap": {
+        "title": "three_same",
+        "suffix": "partly_overlapping",
+        "mask": "partly_overlapping",
+        "upload": "partly_overlapping",
+        "print": "partly_overlapping"
+      },
+      "later_new_topics": 0,
+      "unshared_new_topics_by_slot": {
+        "observer-A": 0,
+        "observer-B": 1,
+        "observer-C": 5
+      },
+      "first_round_question_topics_by_retained_slot": {
+        "A": 7,
+        "B": 10,
+        "C": 11,
+        "AB": 10,
+        "AC": 14,
+        "BC": 15,
+        "ABC": 15
+      }
+    }
+  },
+  "paired": {
+    "A-self -> A-abc": {
+      "improved": [],
+      "regressed": []
+    }
+  },
+  "diagnostic_mask": {
+    "self": {
+      "key": "fc94664a53c56845abdb61380147c42128f42bfebbf755f8a82717c84f840e51",
+      "proposed": "if len(code) <= 3:\n    return \"\"\nelse:\n    return \"*\" * (len(code) - 3) + code[-3:]",
+      "format_only_score": 11,
+      "remaining_scope_check": "변경 범위는 하나의 기존 계산문이나 조건식 안에 있어야 합니다."
+    },
+    "abc": {
+      "key": "33c03c7532e4ec4cd75455e7ed2f749b716fd4be4809cd677b69ce2b78003df6",
+      "proposed": "if len(code) <= 3:\n    return \"*\" * len(code)\nelse:\n    return \"*\" * (len(code) - 3) + code[-3:]",
+      "format_only_score": 20,
+      "remaining_scope_check": "변경 범위는 하나의 기존 계산문이나 조건식 안에 있어야 합니다."
+    }
+  },
+  "trace": {
+    "A-solo": {
+      "title": {
+        "rounds": [],
+        "evidence": [],
+        "topics": [],
+        "usage": {
+          "calls": 1,
+          "tokens": 574
+        },
+        "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+        "questions": 0,
+        "windows": 0,
+        "writer_packets_checked": 0,
+        "cases": {
+          "title-01": {
+            "value": "hello",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-02": {
+            "value": "  news",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-03": {
+            "value": "release 2",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-04": {
+            "value": "2026",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-05": {
+            "value": "blue  sky",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-06": {
+            "value": " a   b",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-07": {
+            "value": "a    2",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-08": {
+            "value": "one  two   three",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-09": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-10": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-11": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-12": {
+            "value": "a-b",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "title-13": {
+            "value": "--x--",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "title-14": {
+            "value": "a--b",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "title-15": {
+            "value": " -",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-16": {
+            "value": "  a--b   c",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-17": {
+            "value": "x  -  y",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-18": {
+            "value": " --  a",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-19": {
+            "value": "9  -z",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-20": {
+            "value": "a b c",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          }
+        },
+        "correct": 7,
+        "sufficient": 5,
+        "grounded_correct": 4
+      },
+      "suffix": {
+        "rounds": [],
+        "evidence": [],
+        "topics": [],
+        "usage": {
+          "calls": 1,
+          "tokens": 465
+        },
+        "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+        "questions": 0,
+        "windows": 0,
+        "writer_packets_checked": 0,
+        "cases": {
+          "suffix-01": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-02": {
+            "value": "csv",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-03": {
+            "value": "json",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-04": {
+            "value": "123",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-05": {
+            "value": "TXT",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-06": {
+            "value": "JpG",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-07": {
+            "value": "CSV",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-08": {
+            "value": "Json",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-09": {
+            "value": "gz",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "suffix-10": {
+            "value": "c",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "suffix-11": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "suffix-12": {
+            "value": "CSV",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-13": {
+            "value": "env",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-14": {
+            "value": "profile",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-15": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "suffix-16": {
+            "value": "JSON",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-17": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-18": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-19": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-20": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          }
+        },
+        "correct": 8,
+        "sufficient": 4,
+        "grounded_correct": 4
+      },
+      "mask": {
+        "rounds": [],
+        "evidence": [],
+        "topics": [],
+        "usage": {
+          "calls": 1,
+          "tokens": 358
+        },
+        "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+        "questions": 0,
+        "windows": 0,
+        "writer_packets_checked": 0,
+        "cases": {
+          "mask-01": {
+            "value": "****",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-02": {
+            "value": "*****",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-03": {
+            "value": "******",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-04": {
+            "value": "******",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-05": {
+            "value": "*******",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-06": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-07": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-08": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-09": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-10": {
+            "value": "*",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-11": {
+            "value": "*",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-12": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-13": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-14": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "mask-15": {
+            "value": "",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-16": {
+            "value": "*****",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-17": {
+            "value": "********",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-18": {
+            "value": "****",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-19": {
+            "value": "*********",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "mask-20": {
+            "value": "********",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          }
+        },
+        "correct": 10,
+        "sufficient": 1,
+        "grounded_correct": 1
+      },
+      "upload": {
+        "rounds": [],
+        "evidence": [],
+        "topics": [],
+        "usage": {
+          "calls": 1,
+          "tokens": 370
+        },
+        "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05",
+        "questions": 0,
+        "windows": 0,
+        "writer_packets_checked": 0,
+        "cases": {
+          "upload-01": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-02": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-03": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-04": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-05": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-06": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-07": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-08": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-09": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-10": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-11": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-12": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-13": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-14": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-15": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-16": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-17": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-18": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-19": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          },
+          "upload-20": {
+            "value": null,
+            "error": "NotImplementedError",
+            "correct": false,
+            "sufficient": false
+          }
+        },
+        "correct": 4,
+        "sufficient": 4,
+        "grounded_correct": 4
+      },
+      "print": {
+        "rounds": [],
+        "evidence": [],
+        "topics": [],
+        "usage": {
+          "calls": 1,
+          "tokens": 1106
+        },
+        "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf",
+        "questions": 0,
+        "windows": 0,
+        "writer_packets_checked": 0,
+        "cases": {
+          "print-01": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-02": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-03": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-04": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-05": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-06": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-07": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-08": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-09": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-10": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-11": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-12": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-13": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-14": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "print-15": {
+            "value": true,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "print-16": {
+            "value": true,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "print-17": {
+            "value": true,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "print-18": {
+            "value": true,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "print-19": {
+            "value": true,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "print-20": {
+            "value": true,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          }
+        },
+        "correct": 14,
+        "sufficient": 3,
+        "grounded_correct": 3
+      }
+    },
+    "A-self": {
+      "title": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백이나 하이픈을 줄이는 로직이 명시적으로 요구되었는지, 편집 담당자의 기준이 이미 정해져 있는지 확인하고 싶습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "요구사항과 코드의 불일치가 없습니다.",
+                "key": "11c01ea794edbc1caaff5f2248e8c93d1fb62574bc1b742355dc9d7bbc912b2b"
+              }
+            },
+            "delivered": [
+              "연속된 내부 공백이나 하이픈을 줄이는 로직이 명시적으로 요구되었는지, 편집 담당자의 기준이 이미 정해져 있는지 확인하고 싶습니다."
+            ],
+            "answer": "연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.",
+            "questions_topics": [
+              "hyphen",
+              "spaces"
+            ],
+            "known": [
+              "h",
+              "s"
+            ],
+            "writer_calls": [
+              "5c05f00efc0d6d089bc4f99d9b54c7ef1677ae4dd35afa4df0cb96df2432ef7c",
+              "3ea3f36eca926fa686f5fcb3ca26a84613a392de65184c80d2e1efab3c686404"
+            ],
+            "patch_attempts": [
+              {
+                "key": "5c05f00efc0d6d089bc4f99d9b54c7ef1677ae4dd35afa4df0cb96df2432ef7c",
+                "status": "rejected",
+                "reason": "계산이나 판단을 실제로 변경하는 수정이어야 합니다."
+              },
+              {
+                "key": "3ea3f36eca926fa686f5fcb3ca26a84613a392de65184c80d2e1efab3c686404",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 7,
+            "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+            "cumulative_tokens": 3244
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백을 줄이고, 하이픈은 위치와 개수를 그대로 유지하는 로직을 추가해야 할지, 아니면 현재 구현대로 유지해야 하는지 담당자에게 확인하고 싶습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "bf0a25b6d956244501b4fe685eace2d59ca3c650cc0c645818b2379cb9c2547e"
+              }
+            },
+            "delivered": [
+              "연속된 내부 공백을 줄이고, 하이픈은 위치와 개수를 그대로 유지하는 로직을 추가해야 할지, 아니면 현재 구현대로 유지해야 하는지 담당자에게 확인하고 싶습니다."
+            ],
+            "answer": "연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.",
+            "questions_topics": [
+              "hyphen",
+              "spaces"
+            ],
+            "known": [
+              "h",
+              "s"
+            ],
+            "writer_calls": [
+              "4c9324933daf98092fcf7569e84ba2260b9fe35e3d9181155edd13837af06ed0",
+              "fbf828a3404c4bea8ca3436b80569e3562873deb9902a3dbc2f5232063eb77d9",
+              "616faebd5436416398d9bcc81e6bcc772830ec8ca89fb4e731847c3a9872e66a"
+            ],
+            "patch_attempts": [
+              {
+                "key": "4c9324933daf98092fcf7569e84ba2260b9fe35e3d9181155edd13837af06ed0",
+                "status": "rejected",
+                "reason": "계산이나 판단을 실제로 변경하는 수정이어야 합니다."
+              },
+              {
+                "key": "fbf828a3404c4bea8ca3436b80569e3562873deb9902a3dbc2f5232063eb77d9",
+                "status": "length"
+              },
+              {
+                "key": "616faebd5436416398d9bcc81e6bcc772830ec8ca89fb4e731847c3a9872e66a",
+                "status": "length"
+              }
+            ],
+            "changed": false,
+            "score": 7,
+            "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+            "cumulative_tokens": 9718
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백을 줄이고, 하이픈은 위치와 개수를 그대로 유지하는 로직을 추가해야 할지, 아니면 현재 구현대로 유지해야 하는지 담당자에게 확인하고 싶습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "9e5936212febec23d39385dffcbbef243ade8d4bf23f06cfceeb8e43e1663ca5"
+              }
+            },
+            "delivered": [
+              "연속된 내부 공백을 줄이고, 하이픈은 위치와 개수를 그대로 유지하는 로직을 추가해야 할지, 아니면 현재 구현대로 유지해야 하는지 담당자에게 확인하고 싶습니다."
+            ],
+            "answer": "연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.",
+            "questions_topics": [
+              "hyphen",
+              "spaces"
+            ],
+            "known": [
+              "h",
+              "s"
+            ],
+            "writer_calls": [
+              "28b2b3af7e1681ab64dcda8e48c879492fbd4c72cab833323daa08cf7dbef0a9",
+              "3456e667e22fd97dd8499f8ea49d2733fb7ebe31ecf276487f0ff4b3b6a30c5b"
+            ],
+            "patch_attempts": [
+              {
+                "key": "28b2b3af7e1681ab64dcda8e48c879492fbd4c72cab833323daa08cf7dbef0a9",
+                "status": "rejected",
+                "reason": "계산이나 판단을 실제로 변경하는 수정이어야 합니다."
+              },
+              {
+                "key": "3456e667e22fd97dd8499f8ea49d2733fb7ebe31ecf276487f0ff4b3b6a30c5b",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 7,
+            "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+            "cumulative_tokens": 13088
+          }
+        ],
+        "evidence": [
+          "h",
+          "s"
+        ],
+        "topics": [
+          "hyphen",
+          "spaces"
+        ],
+        "usage": {
+          "calls": 11,
+          "tokens": 13088
+        },
+        "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+        "questions": 3,
+        "windows": 3,
+        "writer_packets_checked": 7,
+        "cases": {
+          "title-01": {
+            "value": "hello",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-02": {
+            "value": "  news",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-03": {
+            "value": "release 2",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-04": {
+            "value": "2026",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-05": {
+            "value": "blue  sky",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-06": {
+            "value": " a   b",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-07": {
+            "value": "a    2",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-08": {
+            "value": "one  two   three",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-09": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-10": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-11": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-12": {
+            "value": "a-b",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-13": {
+            "value": "--x--",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-14": {
+            "value": "a--b",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-15": {
+            "value": " -",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-16": {
+            "value": "  a--b   c",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-17": {
+            "value": "x  -  y",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-18": {
+            "value": " --  a",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-19": {
+            "value": "9  -z",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-20": {
+            "value": "a b c",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          }
+        },
+        "correct": 7,
+        "sufficient": 17,
+        "grounded_correct": 7
+      },
+      "suffix": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "요구사항에 따르면 '점이 여러 개인 이름'은 담당자에게 확인해야 하지만, 코드 설명에서는 '점이 여러 개일 경우, 마지막 점 다음 부분을 반환'한다고 명시되어 있습니다. 이 불일치가 실제 로직과 맞는지 확인이 필요합니다.",
+                "key": "08b4dd7338c952d656384fb6b94a25790a1f24191d8ad886bf988deabbf7e1bd"
+              }
+            },
+            "delivered": [
+              "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+            ],
+            "answer": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+            "questions_topics": [
+              "multi"
+            ],
+            "known": [
+              "m"
+            ],
+            "writer_calls": [
+              "57e0a584f31a0b1f24fee49d3ebf4bea73ffccc5220452468fa192baff679c89",
+              "5dd0d9329ac13b62f1c9aaa33033da1b60bbd64d954535afc9ff3038dc0dcc25"
+            ],
+            "patch_attempts": [
+              {
+                "key": "57e0a584f31a0b1f24fee49d3ebf4bea73ffccc5220452468fa192baff679c89",
+                "status": "rejected",
+                "reason": "서로 겹치는 코드 수정입니다."
+              },
+              {
+                "key": "5dd0d9329ac13b62f1c9aaa33033da1b60bbd64d954535afc9ff3038dc0dcc25",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 8,
+            "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+            "cumulative_tokens": 2844
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "0f55609e0cb73e2e69436c2015e7a74175884bf9bf942440403b36a2f7f6ef5c"
+              }
+            },
+            "delivered": [
+              "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+            ],
+            "answer": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+            "questions_topics": [
+              "multi"
+            ],
+            "known": [
+              "m"
+            ],
+            "writer_calls": [
+              "69dc9ab95e135362d7fb8c84ba0804d42c919d4f780e5127f540a89138f03d78"
+            ],
+            "patch_attempts": [
+              {
+                "key": "69dc9ab95e135362d7fb8c84ba0804d42c919d4f780e5127f540a89138f03d78",
+                "status": "empty",
+                "edit_count": 0
+              }
+            ],
+            "changed": false,
+            "score": 8,
+            "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+            "cumulative_tokens": 4180
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "02a8028012953679e41e8c3c607b3eb5e33305d445e5aa5cc9151fa5bf6ca173"
+              }
+            },
+            "delivered": [
+              "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+            ],
+            "answer": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+            "questions_topics": [
+              "multi"
+            ],
+            "known": [
+              "m"
+            ],
+            "writer_calls": [
+              "56d06b600f29385286c1a5dfbf4a8cbc04a0f4766f212e839e254a914d2f281e"
+            ],
+            "patch_attempts": [
+              {
+                "key": "56d06b600f29385286c1a5dfbf4a8cbc04a0f4766f212e839e254a914d2f281e",
+                "status": "empty",
+                "edit_count": 0
+              }
+            ],
+            "changed": false,
+            "score": 8,
+            "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+            "cumulative_tokens": 5691
+          }
+        ],
+        "evidence": [
+          "m"
+        ],
+        "topics": [
+          "multi"
+        ],
+        "usage": {
+          "calls": 8,
+          "tokens": 5691
+        },
+        "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+        "questions": 3,
+        "windows": 3,
+        "writer_packets_checked": 4,
+        "cases": {
+          "suffix-01": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-02": {
+            "value": "csv",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-03": {
+            "value": "json",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-04": {
+            "value": "123",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-05": {
+            "value": "TXT",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-06": {
+            "value": "JpG",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-07": {
+            "value": "CSV",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-08": {
+            "value": "Json",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-09": {
+            "value": "gz",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-10": {
+            "value": "c",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-11": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-12": {
+            "value": "CSV",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-13": {
+            "value": "env",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-14": {
+            "value": "profile",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-15": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "suffix-16": {
+            "value": "JSON",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-17": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-18": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-19": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "suffix-20": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          }
+        },
+        "correct": 8,
+        "sufficient": 7,
+        "grounded_correct": 7
+      },
+      "mask": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요."
+                ],
+                "topics": [
+                  "empty",
+                  "short",
+                  "visible"
+                ],
+                "issue": "",
+                "key": "3888785ad45ffce2105bf89ddaf4f342f40f479a3068b6a2ce3fbb70b2f70f4c"
+              }
+            },
+            "delivered": [
+              "현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요."
+            ],
+            "answer": "마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.",
+            "questions_topics": [
+              "empty",
+              "short",
+              "visible"
+            ],
+            "known": [
+              "d",
+              "e",
+              "k",
+              "s"
+            ],
+            "writer_calls": [
+              "90aeca05a6c07d3c5bbb3d6a5b84a8731b84c54e0879885116c6dee3cb884478",
+              "4b397b8941962537f19255331e1f9a7211e8d46bb5d0f3795020778c6c503f74"
+            ],
+            "patch_attempts": [
+              {
+                "key": "90aeca05a6c07d3c5bbb3d6a5b84a8731b84c54e0879885116c6dee3cb884478",
+                "status": "rejected",
+                "reason": "수정 전 코드는 이전 파일에서 정확히 한 번 찾아야 합니다."
+              },
+              {
+                "key": "4b397b8941962537f19255331e1f9a7211e8d46bb5d0f3795020778c6c503f74",
+                "status": "rejected",
+                "reason": "수정 전후의 파이썬 코드가 유효해야 합니다."
+              }
+            ],
+            "changed": false,
+            "score": 10,
+            "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+            "cumulative_tokens": 2392
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요."
+                ],
+                "topics": [
+                  "empty",
+                  "short",
+                  "visible"
+                ],
+                "issue": "",
+                "key": "6f5b0a311286163403571a6af115b3493880f518e8d3e42de2e38259d29c2ff0"
+              }
+            },
+            "delivered": [
+              "현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요."
+            ],
+            "answer": "마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.",
+            "questions_topics": [
+              "empty",
+              "short",
+              "visible"
+            ],
+            "known": [
+              "d",
+              "e",
+              "k",
+              "s"
+            ],
+            "writer_calls": [
+              "fc94664a53c56845abdb61380147c42128f42bfebbf755f8a82717c84f840e51",
+              "03110fc60903df15772121eb92427ec7eb05cf3ca334dad383374d14f1eecae8"
+            ],
+            "patch_attempts": [
+              {
+                "key": "fc94664a53c56845abdb61380147c42128f42bfebbf755f8a82717c84f840e51",
+                "status": "rejected",
+                "reason": "수정 전후의 파이썬 코드가 유효해야 합니다."
+              },
+              {
+                "key": "03110fc60903df15772121eb92427ec7eb05cf3ca334dad383374d14f1eecae8",
+                "status": "rejected",
+                "reason": "수정 전후의 파이썬 코드가 유효해야 합니다."
+              }
+            ],
+            "changed": false,
+            "score": 10,
+            "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+            "cumulative_tokens": 4582
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [],
+                "topics": [],
+                "issue": "",
+                "key": "161ef23246bf3391142700b601485e269368b03b9779bf931f20757ded6c9a75"
+              }
+            },
+            "delivered": [],
+            "answer": null,
+            "questions_topics": [],
+            "known": [
+              "d",
+              "e",
+              "k",
+              "s"
+            ],
+            "writer_calls": [],
+            "patch_attempts": [],
+            "changed": false,
+            "score": 10,
+            "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+            "cumulative_tokens": 5184
+          }
+        ],
+        "evidence": [
+          "d",
+          "e",
+          "k",
+          "s"
+        ],
+        "topics": [
+          "empty",
+          "short",
+          "visible"
+        ],
+        "usage": {
+          "calls": 8,
+          "tokens": 5184
+        },
+        "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+        "questions": 2,
+        "windows": 2,
+        "writer_packets_checked": 4,
+        "cases": {
+          "mask-01": {
+            "value": "****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-02": {
+            "value": "*****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-03": {
+            "value": "******",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-04": {
+            "value": "******",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-05": {
+            "value": "*******",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-06": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-07": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-08": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-09": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-10": {
+            "value": "*",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-11": {
+            "value": "*",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-12": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-13": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-14": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-15": {
+            "value": "",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-16": {
+            "value": "*****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-17": {
+            "value": "********",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-18": {
+            "value": "****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-19": {
+            "value": "*********",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-20": {
+            "value": "********",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          }
+        },
+        "correct": 10,
+        "sufficient": 20,
+        "grounded_correct": 10
+      },
+      "upload": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "파일 크기의 상한 값과 0 바이트 (빈 파일) 의 허용 여부는 담당자에게 확인이 필요하다고 하셨는데, 현재 코드는 두 경우 모두 NotImplementedError 를 발생시켜 개발을 막고 있습니다. 상한 값과 0 바이트 처리 로직이 확정된 후 코드를 수정할 예정인가요?",
+                  "현재 코드는 상한 값이 정해지지 않았을 때 모든 양수 파일에 대해 예외를 던지고 있습니다. 만약 상한 값이 나중에 결정되면 이 예외 처리 로직을 어떻게 변경할 계획이신가요?"
+                ],
+                "topics": [
+                  "empty",
+                  "limit"
+                ],
+                "issue": "코드에서 NotImplementedError 를 던지는 로직이 존재하여 실제 사용 시 에러가 발생하므로, 담당자가 정한 상한 값과 0 바이트 처리 여부를 명확히 해야 합니다.",
+                "key": "06da2ead9bc8f76c778532d9b136dcd36065893afe0ead7e79e4bf62a9b108e5"
+              }
+            },
+            "delivered": [
+              "파일 크기의 상한 값과 0 바이트 (빈 파일) 의 허용 여부는 담당자에게 확인이 필요하다고 하셨는데, 현재 코드는 두 경우 모두 NotImplementedError 를 발생시켜 개발을 막고 있습니다. 상한 값과 0 바이트 처리 로직이 확정된 후 코드를 수정할 예정인가요?",
+              "현재 코드는 상한 값이 정해지지 않았을 때 모든 양수 파일에 대해 예외를 던지고 있습니다. 만약 상한 값이 나중에 결정되면 이 예외 처리 로직을 어떻게 변경할 계획이신가요?"
+            ],
+            "answer": "상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+            "questions_topics": [
+              "empty",
+              "limit"
+            ],
+            "known": [
+              "l",
+              "z"
+            ],
+            "writer_calls": [
+              "745f7a646c98999f58ac88917cfdfec60fb47a2b92f4f3e6183dddbb24a90d61"
+            ],
+            "patch_attempts": [
+              {
+                "key": "745f7a646c98999f58ac88917cfdfec60fb47a2b92f4f3e6183dddbb24a90d61",
+                "status": "applied",
+                "edit_count": 2
+              }
+            ],
+            "changed": true,
+            "score": 20,
+            "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+            "cumulative_tokens": 1752
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [],
+                "topics": [],
+                "issue": "",
+                "key": "6d3e13c82f4ee19ac0ada5e0d37d948f82241f09f1e44c57d986e17a983163be"
+              }
+            },
+            "delivered": [],
+            "answer": null,
+            "questions_topics": [],
+            "known": [
+              "l",
+              "z"
+            ],
+            "writer_calls": [],
+            "patch_attempts": [],
+            "changed": false,
+            "score": 20,
+            "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+            "cumulative_tokens": 2263
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [],
+                "topics": [],
+                "issue": "",
+                "key": "34eacffe83d79e496480be6704912ed71cf36833122bf59821d9fe61e179478a"
+              }
+            },
+            "delivered": [],
+            "answer": null,
+            "questions_topics": [],
+            "known": [
+              "l",
+              "z"
+            ],
+            "writer_calls": [],
+            "patch_attempts": [],
+            "changed": false,
+            "score": 20,
+            "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+            "cumulative_tokens": 2774
+          }
+        ],
+        "evidence": [
+          "l",
+          "z"
+        ],
+        "topics": [
+          "empty",
+          "limit"
+        ],
+        "usage": {
+          "calls": 5,
+          "tokens": 2774
+        },
+        "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+        "questions": 2,
+        "windows": 1,
+        "writer_packets_checked": 1,
+        "cases": {
+          "upload-01": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-02": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-03": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-04": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-05": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-06": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-07": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-08": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-09": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-10": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-11": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-12": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-13": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": false
+          },
+          "upload-14": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-15": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-16": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-17": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-18": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-19": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-20": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          }
+        },
+        "correct": 20,
+        "sufficient": 19,
+        "grounded_correct": 19
+      },
+      "print": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있으나, 실제 코드에서는 상한값을 100cm 로 고정하고 '상한과 같은 길이'를 거부하는 로직으로 구현되었습니다. 인쇄 담당자에게 확인이 필요한 구체적인 조건 (상한값과 0/상한 처리) 이 명확하지 않아 담당자에게 질문이 필요합니다."
+                ],
+                "topics": [
+                  "equal",
+                  "height",
+                  "width",
+                  "zero"
+                ],
+                "issue": "문제 설명의 '0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'와 코드가 0 을 거부하는 로직으로 구현되었으나, 상한값 (100cm) 이 문제에서 명시되지 않았고 실제 시스템의 상한과 다를 수 있어 불일치 가능성이 있습니다.",
+                "key": "71dcbe3efd78364a276fe163cf36cb8c637f9d35586f1af1947fa526234e8298"
+              }
+            },
+            "delivered": [
+              "문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있으나, 실제 코드에서는 상한값을 100cm 로 고정하고 '상한과 같은 길이'를 거부하는 로직으로 구현되었습니다. 인쇄 담당자에게 확인이 필요한 구체적인 조건 (상한값과 0/상한 처리) 이 명확하지 않아 담당자에게 질문이 필요합니다."
+            ],
+            "answer": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+            "questions_topics": [
+              "equal",
+              "height",
+              "width",
+              "zero"
+            ],
+            "known": [
+              "b",
+              "h",
+              "w",
+              "z"
+            ],
+            "writer_calls": [
+              "cc0a87fdea02a4f17486d87a2a4162064e599040c6e54ce70dcc7bf39133e8b9",
+              "e7e75ebad4960b34557d97ff08210ebbc3eb56700b430c5ee2db60f1ed803947",
+              "ee43f999f408c95926bec1ef6cbdd66b522c110c3bf1d155ad3c72d294d63e17",
+              "d8d47c7739154030640f07cff7102d5c54a877f9383f7f06a35f58f3930dce2e"
+            ],
+            "patch_attempts": [
+              {
+                "key": "cc0a87fdea02a4f17486d87a2a4162064e599040c6e54ce70dcc7bf39133e8b9",
+                "status": "length"
+              },
+              {
+                "key": "e7e75ebad4960b34557d97ff08210ebbc3eb56700b430c5ee2db60f1ed803947",
+                "status": "rejected",
+                "reason": "수정 전 코드는 이전 파일에서 정확히 한 번 찾아야 합니다."
+              },
+              {
+                "key": "ee43f999f408c95926bec1ef6cbdd66b522c110c3bf1d155ad3c72d294d63e17",
+                "status": "length"
+              },
+              {
+                "key": "d8d47c7739154030640f07cff7102d5c54a877f9383f7f06a35f58f3930dce2e",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 14,
+            "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf",
+            "cumulative_tokens": 13886
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드에서 상한값을 100cm 로 고정하고 '상한과 같은 길이'를 거부하는 로직으로 구현되었으나, 대화 기록에 따르면 실제 인쇄 담당자는 '가로는 최대 6센티미터, 세로는 최대 4센티미터'라고 명시하고 있습니다. 또한, 담당자는 '각각 자기 상한과 정확히 같아도 허용한다'고 했으나 코드는 '상한보다 작으면 허용' (즉, 상한과 같으면 거부) 로 구현되어 있습니다. 이 상한값 (6cm, 4cm) 과 '상한과 같은 길이' 허용 여부를 담당자에게 다시 확인해 주시겠습니까?",
+                  "0 인 길이의 처리에 대해 대화 기록에서는 '가로나 세로 중 하나라도 0 이면 거부한다'고 명시되어 있으나, 문제 설명의 '0 은 가로 길이 없음' 문맥과 실제 인쇄 시스템의 상한 (6cm, 4cm) 을 고려할 때, 0 을 거부하는 로직이 맞는지, 아니면 0 을 허용하는 로직이 필요한지 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "equal",
+                  "height",
+                  "width",
+                  "zero"
+                ],
+                "issue": "문제 설명의 '0 은 가로/세로 길이 없음' 문맥과 실제 대화 기록의 '0 이면 거부' 조건이 일치하지만, 문제 설명의 '상한, 상한과 같은 길이' 처리가 명확하지 않아 코드가 상한값을 100cm 로 가정하고 상한과 같으면 거부하는 로직으로 구현되어 있습니다. 실제 인쇄 담당자가 지정한 상한값 (6cm, 4cm) 과 '상한과 같으면 허용' 조건을 반영하지 못했습니다.",
+                "key": "4b0aace77b15f18e74e81e6430d4515ed1013021e42af0ad9ae1da46e62125a8"
+              }
+            },
+            "delivered": [
+              "현재 코드에서 상한값을 100cm 로 고정하고 '상한과 같은 길이'를 거부하는 로직으로 구현되었으나, 대화 기록에 따르면 실제 인쇄 담당자는 '가로는 최대 6센티미터, 세로는 최대 4센티미터'라고 명시하고 있습니다. 또한, 담당자는 '각각 자기 상한과 정확히 같아도 허용한다'고 했으나 코드는 '상한보다 작으면 허용' (즉, 상한과 같으면 거부) 로 구현되어 있습니다. 이 상한값 (6cm, 4cm) 과 '상한과 같은 길이' 허용 여부를 담당자에게 다시 확인해 주시겠습니까?",
+              "0 인 길이의 처리에 대해 대화 기록에서는 '가로나 세로 중 하나라도 0 이면 거부한다'고 명시되어 있으나, 문제 설명의 '0 은 가로 길이 없음' 문맥과 실제 인쇄 시스템의 상한 (6cm, 4cm) 을 고려할 때, 0 을 거부하는 로직이 맞는지, 아니면 0 을 허용하는 로직이 필요한지 담당자에게 확인이 필요합니다."
+            ],
+            "answer": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+            "questions_topics": [
+              "equal",
+              "height",
+              "width",
+              "zero"
+            ],
+            "known": [
+              "b",
+              "h",
+              "w",
+              "z"
+            ],
+            "writer_calls": [
+              "dbfc171063a7bff1fe34ebeae3165bdbe5ea1f2cdc9c6748aee284e3bda96c07",
+              "a8a2c600113e433e3c96f0445b83384bb265c4cae9f578ae057cde11a98faac8"
+            ],
+            "patch_attempts": [
+              {
+                "key": "dbfc171063a7bff1fe34ebeae3165bdbe5ea1f2cdc9c6748aee284e3bda96c07",
+                "status": "rejected",
+                "reason": "변경 범위는 하나의 기존 계산문이나 조건식 안에 있어야 합니다."
+              },
+              {
+                "key": "a8a2c600113e433e3c96f0445b83384bb265c4cae9f578ae057cde11a98faac8",
+                "status": "rejected",
+                "reason": "계산이나 판단을 실제로 변경하는 수정이어야 합니다."
+              }
+            ],
+            "changed": false,
+            "score": 14,
+            "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf",
+            "cumulative_tokens": 19480
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "main-review": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드에서는 상한값을 100cm 로 고정하고, '상한과 같은 길이'를 거부하는 로직으로 구현되어 있으나, 대화 기록에 따르면 실제 인쇄 담당자는 '가로는 최대 6센티미터, 세로는 최대 4센티미터'라고 명시하고 있습니다. 또한 담당자는 '각각 자기 상한과 정확히 같아도 허용한다'고 하셨으나, 코드는 '상한보다 작으면 허용 (상한과 같으면 거부)' 로 구현되어 있어 상한값 (6cm, 4cm) 과 '상한과 같은 길이' 허용 여부를 담당자에게 다시 확인해 주시겠습니까?",
+                  "0 인 길이의 처리에 대해 대화 기록에서는 '가로나 세로 중 하나라도 0 이면 거부한다'고 명시되어 있으나, 문제 설명의 '0 은 가로 길이 없음' 문맥과 실제 인쇄 시스템의 상한 (6cm, 4cm) 을 고려할 때, 0 을 거부하는 로직이 맞는지, 아니면 0 을 허용하는 로직이 필요한지 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "equal",
+                  "height",
+                  "width",
+                  "zero"
+                ],
+                "issue": "현재 코드에서 상한값을 100cm 로 고정하고 '상한과 같은 길이'를 거부하는 로직으로 구현되어 있으나, 대화 기록에 따르면 실제 인쇄 담당자는 '가로는 최대 6센티미터, 세로는 최대 4센티미터'라고 명시하고 있습니다. 또한 담당자는 '각각 자기 상한과 정확히 같아도 허용한다'고 하셨으나, 코드는 '상한보다 작으면 허용 (상한과 같으면 거부)' 로 구현되어 있어 상한값 (6cm, 4cm) 과 '상한과 같은 길이' 허용 여부를 담당자에게 다시 확인해 주시겠습니까? 0 인 길이의 처리에 대해 대화 기록에서는 '가로나 세로 중 하나라도 0 이면 거부한다'고 명시되어 있으나, 문제 설명의 '0 은 가로 길이 없음' 문맥과 실제 인쇄 시스템의 상한 (6cm, 4cm) 을 고려할 때, 0 을 거부하는 로직이 맞는지, 아니면 0 을 허용하는 로직이 필요한지 담당자에게 확인이 필요합니다.",
+                "key": "dc482155f00aaf0c46e636fb13befa67813175fa288b3079500bc47263264a8d"
+              }
+            },
+            "delivered": [
+              "현재 코드에서는 상한값을 100cm 로 고정하고, '상한과 같은 길이'를 거부하는 로직으로 구현되어 있으나, 대화 기록에 따르면 실제 인쇄 담당자는 '가로는 최대 6센티미터, 세로는 최대 4센티미터'라고 명시하고 있습니다. 또한 담당자는 '각각 자기 상한과 정확히 같아도 허용한다'고 하셨으나, 코드는 '상한보다 작으면 허용 (상한과 같으면 거부)' 로 구현되어 있어 상한값 (6cm, 4cm) 과 '상한과 같은 길이' 허용 여부를 담당자에게 다시 확인해 주시겠습니까?",
+              "0 인 길이의 처리에 대해 대화 기록에서는 '가로나 세로 중 하나라도 0 이면 거부한다'고 명시되어 있으나, 문제 설명의 '0 은 가로 길이 없음' 문맥과 실제 인쇄 시스템의 상한 (6cm, 4cm) 을 고려할 때, 0 을 거부하는 로직이 맞는지, 아니면 0 을 허용하는 로직이 필요한지 담당자에게 확인이 필요합니다."
+            ],
+            "answer": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+            "questions_topics": [
+              "equal",
+              "height",
+              "width",
+              "zero"
+            ],
+            "known": [
+              "b",
+              "h",
+              "w",
+              "z"
+            ],
+            "writer_calls": [
+              "dda7a3a1b3874514abc88f6d7e48bfe2a65acfb5d28ffa4e24515db72b30247b"
+            ],
+            "patch_attempts": [
+              {
+                "key": "dda7a3a1b3874514abc88f6d7e48bfe2a65acfb5d28ffa4e24515db72b30247b",
+                "status": "applied",
+                "edit_count": 2
+              }
+            ],
+            "changed": true,
+            "score": 20,
+            "code_sha256": "fa64da3c3dfe97e30b72d116fd9fd85d9e79caf9a07fb42e79641609b3d3353e",
+            "cumulative_tokens": 23926
+          }
+        ],
+        "evidence": [
+          "b",
+          "h",
+          "w",
+          "z"
+        ],
+        "topics": [
+          "equal",
+          "height",
+          "width",
+          "zero"
+        ],
+        "usage": {
+          "calls": 11,
+          "tokens": 23926
+        },
+        "code_sha256": "fa64da3c3dfe97e30b72d116fd9fd85d9e79caf9a07fb42e79641609b3d3353e",
+        "questions": 5,
+        "windows": 3,
+        "writer_packets_checked": 7,
+        "cases": {
+          "print-01": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-02": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-03": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-04": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-05": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-06": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-07": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-08": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-09": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-10": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-11": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-12": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-13": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-14": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-15": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-16": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-17": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-18": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-19": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-20": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          }
+        },
+        "correct": 20,
+        "sufficient": 20,
+        "grounded_correct": 20
+      }
+    },
+    "A-abc": {
+      "title": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백이나 하이픈이 포함된 경우를 어떻게 처리할지 명확히 해야 합니다. 현재 코드는 이를 유지하고 있지만, 편집 담당자의 기준에 따라 줄여야 할지 여부가 불분명합니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "86183e8c066bb4f8ada0467b83e3eaf6c299b7878a4e8b3ed751cd914eadd375"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백이나 하이픈을 줄이는 로직이 명시적으로 요구되지 않았지만, 일반적인 제목 정리 관행상 이를 제거하는 것이 바람직할지, 아니면 편집 담당자의 기준에 따라 유연하게 처리해야 할지 확인이 필요합니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "fe53dce6401291928c9005bbb8d7bc8add650c8265d6428884d5605d46c39ca7"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백이나 하이픈이 포함된 경우를 어떻게 처리할지 편집 담당자의 기준을 명확히 해주시겠습니까? 현재 구현은 이를 줄이지 않고 유지하고 있습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "0ed283b82ce036ab2086bf2122477f9cd90fc4af78f0b22653eb762ac283525d"
+              }
+            },
+            "delivered": [
+              "연속된 내부 공백이나 하이픈이 포함된 경우를 어떻게 처리할지 명확히 해야 합니다. 현재 코드는 이를 유지하고 있지만, 편집 담당자의 기준에 따라 줄여야 할지 여부가 불분명합니다.",
+              "연속된 내부 공백이나 하이픈을 줄이는 로직이 명시적으로 요구되지 않았지만, 일반적인 제목 정리 관행상 이를 제거하는 것이 바람직할지, 아니면 편집 담당자의 기준에 따라 유연하게 처리해야 할지 확인이 필요합니다.",
+              "연속된 내부 공백이나 하이픈이 포함된 경우를 어떻게 처리할지 편집 담당자의 기준을 명확히 해주시겠습니까? 현재 구현은 이를 줄이지 않고 유지하고 있습니다."
+            ],
+            "answer": "연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.",
+            "questions_topics": [
+              "hyphen",
+              "spaces"
+            ],
+            "known": [
+              "h",
+              "s"
+            ],
+            "writer_calls": [
+              "593193e3bb68e3974b950748688459d261bcdbfd48c717a6fe17407ce3f42fba",
+              "e0b3372e95a87ebab5f23b2399dd396b31fba52b5a7d0b4acc778563ed1bc13c"
+            ],
+            "patch_attempts": [
+              {
+                "key": "593193e3bb68e3974b950748688459d261bcdbfd48c717a6fe17407ce3f42fba",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              },
+              {
+                "key": "e0b3372e95a87ebab5f23b2399dd396b31fba52b5a7d0b4acc778563ed1bc13c",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 7,
+            "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+            "cumulative_tokens": 4745
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백은 편집 담당자의 기준에 따라 한 칸으로 줄이게 되었는데, 하이픈은 위치와 개수를 그대로 유지하라고 하셨습니다. 이 기준에 따라 코드를 수정할까요? 아니면 하이픈 처리에도 편집 담당자의 최종 기준을 다시 확인해야 할까요?"
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "6f1adfd2b56402ca499e997a06f426f8a794a04f44035d650c3de6dde695e6e8"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니까? 현재 코드는 이를 줄이지 않고 유지하고 있습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "bd5a54576506bc5f63d304d2f46462e61af883ac2e2ef171634b72080058122c"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니다. 이 기준에 따라 코드를 수정하겠습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "417b0666bbf9e6642996fa8ddf2f6aaa3bc2bbb0b8256fd8d01ace085a1dbd0f"
+              }
+            },
+            "delivered": [
+              "연속된 내부 공백은 편집 담당자의 기준에 따라 한 칸으로 줄이게 되었는데, 하이픈은 위치와 개수를 그대로 유지하라고 하셨습니다. 이 기준에 따라 코드를 수정할까요? 아니면 하이픈 처리에도 편집 담당자의 최종 기준을 다시 확인해야 할까요?",
+              "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니까? 현재 코드는 이를 줄이지 않고 유지하고 있습니다.",
+              "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니다. 이 기준에 따라 코드를 수정하겠습니다."
+            ],
+            "answer": "연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.",
+            "questions_topics": [
+              "hyphen",
+              "spaces"
+            ],
+            "known": [
+              "h",
+              "s"
+            ],
+            "writer_calls": [
+              "db3f73f5d0f84059ab999541ec60bf50341971f7577a88f20da0416ee3c5e962",
+              "c6469421a181f2e5842a79dbd846ebe791aebdb9726697c7c9121b2a8815b373"
+            ],
+            "patch_attempts": [
+              {
+                "key": "db3f73f5d0f84059ab999541ec60bf50341971f7577a88f20da0416ee3c5e962",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              },
+              {
+                "key": "c6469421a181f2e5842a79dbd846ebe791aebdb9726697c7c9121b2a8815b373",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 7,
+            "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+            "cumulative_tokens": 9888
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니까? 현재 코드는 이를 줄이지 않고 유지하고 있습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "846499bd35140f307a33d37f70b9abeea235f1aaf9bfd7d25ebd4c2b14037845"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니까? 현재 코드는 이를 줄이지 않고 유지하고 있습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "2d44fde2303e5df8e42decb674f87ddc3c6a25080b9944cf861eeb78ce93b056"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니까? 현재 코드는 이를 줄이지 않고 유지하고 있습니다."
+                ],
+                "topics": [
+                  "hyphen",
+                  "spaces"
+                ],
+                "issue": "",
+                "key": "b2b1d9839cbe98576e1e8c470a3cac2d17d8d73458f37f7ea10946cad93b6c7f"
+              }
+            },
+            "delivered": [
+              "연속된 내부 공백은 한 칸으로 줄이고, 하이픈은 위치와 개수를 그대로 유지하시겠습니까? 현재 코드는 이를 줄이지 않고 유지하고 있습니다."
+            ],
+            "answer": "연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.",
+            "questions_topics": [
+              "hyphen",
+              "spaces"
+            ],
+            "known": [
+              "h",
+              "s"
+            ],
+            "writer_calls": [
+              "7d4940241ea8f0f3aae29e0b2872733d2d07b47ca117bcc17b911c232fb6e79c",
+              "c48ba8753dfbffe9c83d7c90c4170920f69c2e3eb9db34a77b1b2afb9805f24d"
+            ],
+            "patch_attempts": [
+              {
+                "key": "7d4940241ea8f0f3aae29e0b2872733d2d07b47ca117bcc17b911c232fb6e79c",
+                "status": "rejected",
+                "reason": "계산이나 판단을 실제로 변경하는 수정이어야 합니다."
+              },
+              {
+                "key": "c48ba8753dfbffe9c83d7c90c4170920f69c2e3eb9db34a77b1b2afb9805f24d",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 7,
+            "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+            "cumulative_tokens": 15857
+          }
+        ],
+        "evidence": [
+          "h",
+          "s"
+        ],
+        "topics": [
+          "hyphen",
+          "spaces"
+        ],
+        "usage": {
+          "calls": 16,
+          "tokens": 15857
+        },
+        "code_sha256": "d67a7ff61efd31f2750a8aeefcfde5209c1d73fa788b4ae3afca653f228536b4",
+        "questions": 7,
+        "windows": 3,
+        "writer_packets_checked": 6,
+        "cases": {
+          "title-01": {
+            "value": "hello",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-02": {
+            "value": "  news",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-03": {
+            "value": "release 2",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-04": {
+            "value": "2026",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-05": {
+            "value": "blue  sky",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-06": {
+            "value": " a   b",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-07": {
+            "value": "a    2",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-08": {
+            "value": "one  two   three",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-09": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-10": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-11": {
+            "value": "",
+            "error": null,
+            "correct": false,
+            "sufficient": false
+          },
+          "title-12": {
+            "value": "a-b",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-13": {
+            "value": "--x--",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-14": {
+            "value": "a--b",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "title-15": {
+            "value": " -",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-16": {
+            "value": "  a--b   c",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-17": {
+            "value": "x  -  y",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-18": {
+            "value": " --  a",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-19": {
+            "value": "9  -z",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "title-20": {
+            "value": "a b c",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          }
+        },
+        "correct": 7,
+        "sufficient": 17,
+        "grounded_correct": 7
+      },
+      "suffix": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "2681cd66ef3e3e97f593fd333b0ab94bbb0b70460ae5d57331f0c9a815d56607"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 경우 (예: 'image.png.jpg') 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환해야 하는지 파일 관리 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "3ab2b5305cc47cc3c05e58543bcf74ea2ddea371851ca07ab492bef3bd98be4e"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개인 파일 (예: 'image.png.jpg') 에 대해 마지막 점 다음 부분을 반환하는 로직이 명확합니다만, 대소문자 표기나 점으로 시작하는 이름 ('.txt'), 확장자가 없는 이름 ('file') 등 예외 상황의 처리 기준이 문서와 코드 간에 완전히 일치하는지 담당자께 확인 부탁드립니다."
+                ],
+                "topics": [
+                  "case",
+                  "hidden",
+                  "missing"
+                ],
+                "issue": "",
+                "key": "c210fcdffe0c631dc47e83df9ac74aca4a16eeaca2c6cc588db762f429601476"
+              }
+            },
+            "delivered": [
+              "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요.",
+              "확장자가 여러 개 있는 경우 (예: 'image.png.jpg') 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환해야 하는지 파일 관리 담당자에게 확인이 필요합니다.",
+              "확장자가 여러 개인 파일 (예: 'image.png.jpg') 에 대해 마지막 점 다음 부분을 반환하는 로직이 명확합니다만, 대소문자 표기나 점으로 시작하는 이름 ('.txt'), 확장자가 없는 이름 ('file') 등 예외 상황의 처리 기준이 문서와 코드 간에 완전히 일치하는지 담당자께 확인 부탁드립니다."
+            ],
+            "answer": "점이 여러 개면 마지막 점 뒤의 부분만 소문자로 반환합니다. 점으로 시작하고 뒤에 다른 점이 없으면 확장자가 없습니다. 점이 없거나 마지막 글자가 점이어도 빈 문자열을 반환합니다.",
+            "questions_topics": [
+              "case",
+              "hidden",
+              "missing",
+              "multi"
+            ],
+            "known": [
+              "c",
+              "h",
+              "m",
+              "n",
+              "t",
+              "x"
+            ],
+            "writer_calls": [
+              "89eb514807f6d3bf76fffc9ef5515432579848fadc450649bcd2617b86f8d84d",
+              "1ffc8b5163db081dd475837b5a6f4c7c587e157ad9f59f513c7e16a6f31824e4"
+            ],
+            "patch_attempts": [
+              {
+                "key": "89eb514807f6d3bf76fffc9ef5515432579848fadc450649bcd2617b86f8d84d",
+                "status": "length"
+              },
+              {
+                "key": "1ffc8b5163db081dd475837b5a6f4c7c587e157ad9f59f513c7e16a6f31824e4",
+                "status": "length"
+              }
+            ],
+            "changed": false,
+            "score": 8,
+            "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+            "cumulative_tokens": 6527
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "95e55de38951aea5176bdf60fb871ea7a1c3d0d2d69a5d7ecebbcb8ce443dc14"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "33abd6819528e885405aae8a673660ee49f77d29cdfa389c724e5f9377c24012"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "0ff55cec4ffab62f632963465ca17fc3111fa6c960373401cdb5fb89fb990f35"
+              }
+            },
+            "delivered": [
+              "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요."
+            ],
+            "answer": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+            "questions_topics": [
+              "multi"
+            ],
+            "known": [
+              "c",
+              "h",
+              "m",
+              "n",
+              "t",
+              "x"
+            ],
+            "writer_calls": [
+              "9269f6e873fc67f22f10e599816ef8d6da8df4daa83d211124637c1ee3d2b655"
+            ],
+            "patch_attempts": [
+              {
+                "key": "9269f6e873fc67f22f10e599816ef8d6da8df4daa83d211124637c1ee3d2b655",
+                "status": "empty",
+                "edit_count": 0
+              }
+            ],
+            "changed": false,
+            "score": 8,
+            "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+            "cumulative_tokens": 9651
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [],
+                "topics": [],
+                "issue": "",
+                "key": "49f2b5d2391e487cdc054b3935615b11a5d3a73afacbee1df5b245573dd385b9"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 파일 관리 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "9a48f0a465751db5f5a90066df84f8cb2f5aa695bb0c5fc9d075b6fdb5c9f100"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요."
+                ],
+                "topics": [
+                  "multi"
+                ],
+                "issue": "",
+                "key": "af765410610c16fe762959a8729765336e8ac0ca4833c07c2cf725c032072f78"
+              }
+            },
+            "delivered": [
+              "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 파일 관리 담당자에게 확인이 필요합니다.",
+              "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 확인해 주세요."
+            ],
+            "answer": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+            "questions_topics": [
+              "multi"
+            ],
+            "known": [
+              "c",
+              "h",
+              "m",
+              "n",
+              "t",
+              "x"
+            ],
+            "writer_calls": [
+              "b7fb69ec5fb4264ea6bc8a0e563c595e99b291db31e3caf9c9f3015513f6b516",
+              "2156274a3d31042ff01dab4ff42c632bf5fa25504e3efc6f0755e491044d484f"
+            ],
+            "patch_attempts": [
+              {
+                "key": "b7fb69ec5fb4264ea6bc8a0e563c595e99b291db31e3caf9c9f3015513f6b516",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              },
+              {
+                "key": "2156274a3d31042ff01dab4ff42c632bf5fa25504e3efc6f0755e491044d484f",
+                "status": "empty",
+                "edit_count": 0
+              }
+            ],
+            "changed": false,
+            "score": 8,
+            "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+            "cumulative_tokens": 14754
+          }
+        ],
+        "evidence": [
+          "c",
+          "h",
+          "m",
+          "n",
+          "t",
+          "x"
+        ],
+        "topics": [
+          "case",
+          "hidden",
+          "missing",
+          "multi"
+        ],
+        "usage": {
+          "calls": 15,
+          "tokens": 14754
+        },
+        "code_sha256": "fcb0787409ae19ddc1a2c372baaa9068982223f728a1871b706221910e0cfc14",
+        "questions": 6,
+        "windows": 3,
+        "writer_packets_checked": 5,
+        "cases": {
+          "suffix-01": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-02": {
+            "value": "csv",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-03": {
+            "value": "json",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-04": {
+            "value": "123",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-05": {
+            "value": "TXT",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-06": {
+            "value": "JpG",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-07": {
+            "value": "CSV",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-08": {
+            "value": "Json",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-09": {
+            "value": "gz",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-10": {
+            "value": "c",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-11": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-12": {
+            "value": "CSV",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-13": {
+            "value": "env",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-14": {
+            "value": "profile",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-15": {
+            "value": "txt",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "suffix-16": {
+            "value": "JSON",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-17": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-18": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-19": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "suffix-20": {
+            "value": null,
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          }
+        },
+        "correct": 8,
+        "sufficient": 20,
+        "grounded_correct": 8
+      },
+      "mask": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 모든 글자를 별표로 대체하는 로직을 구현하고 있지만, 요구사항에 따라 '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았습니다. 이 부분을 담당자에게 확인해 주세요."
+                ],
+                "topics": [
+                  "visible"
+                ],
+                "issue": "",
+                "key": "6beff2b64e4da83d5254e560326fb9a56103749ae427c5e68a31173ce171a6a0"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 모든 글자를 별표로 대체하지만, 요구사항에 따라 일부 글자를 공개해야 할 경우와 코드 길이에 따른 운영 담당자의 기준에 따른 공개 로직이 구현되어 있지 않습니다. 이 부분을 어떻게 처리하시겠습니까?"
+                ],
+                "topics": [
+                  "short",
+                  "visible"
+                ],
+                "issue": "",
+                "key": "596c1e6ee98a5a6b5b3ee6318be1aa53de8916fd45063300ec783088ed8172a9"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 mask_code 함수는 입력 문자열의 길이에 따라 모든 글자를 별표 (*) 로 대체하고 있습니다. 운영 담당자의 기준에 따라 코드의 일부 글자를 공개해야 할 경우, 이 함수가 해당 규칙을 따르지 않습니다. 공개할 글자의 개수나 위치를 어떻게 결정할지 명확히 할 수 있을까요?"
+                ],
+                "topics": [
+                  "visible"
+                ],
+                "issue": "",
+                "key": "1b703cc52e15b8ee550a2a9d35e97d966e655094c3f65fb902d8a3179db36711"
+              }
+            },
+            "delivered": [
+              "현재 코드는 모든 글자를 별표로 대체하는 로직을 구현하고 있지만, 요구사항에 따라 '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.",
+              "현재 코드는 모든 글자를 별표로 대체하지만, 요구사항에 따라 일부 글자를 공개해야 할 경우와 코드 길이에 따른 운영 담당자의 기준에 따른 공개 로직이 구현되어 있지 않습니다. 이 부분을 어떻게 처리하시겠습니까?",
+              "현재 mask_code 함수는 입력 문자열의 길이에 따라 모든 글자를 별표 (*) 로 대체하고 있습니다. 운영 담당자의 기준에 따라 코드의 일부 글자를 공개해야 할 경우, 이 함수가 해당 규칙을 따르지 않습니다. 공개할 글자의 개수나 위치를 어떻게 결정할지 명확히 할 수 있을까요?"
+            ],
+            "answer": "마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하인 코드는 전부 가립니다.",
+            "questions_topics": [
+              "short",
+              "visible"
+            ],
+            "known": [
+              "d",
+              "k",
+              "s"
+            ],
+            "writer_calls": [
+              "7ac4ff2de0370984d72bf94d8991331336dbeef6fd09cb8712a03812c0a0630c",
+              "ec024880b44ce9af696f7ca93fdbbf79aed3ce23cf70335389e4ecdbf8d33fc3"
+            ],
+            "patch_attempts": [
+              {
+                "key": "7ac4ff2de0370984d72bf94d8991331336dbeef6fd09cb8712a03812c0a0630c",
+                "status": "rejected",
+                "reason": "수정 전 코드는 이전 파일에서 정확히 한 번 찾아야 합니다."
+              },
+              {
+                "key": "ec024880b44ce9af696f7ca93fdbbf79aed3ce23cf70335389e4ecdbf8d33fc3",
+                "status": "rejected",
+                "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다."
+              }
+            ],
+            "changed": false,
+            "score": 10,
+            "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+            "cumulative_tokens": 3604
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 모든 글자를 별표 (*) 로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?"
+                ],
+                "topics": [
+                  "visible"
+                ],
+                "issue": "mask_code 함수는 모든 글자를 별표로 대체하지만, 운영 담당자의 기준에 따라 마지막 세 글자를 공개해야 함.",
+                "key": "edb12ddbc823877e9d14f85163b077d4cf1a280d04bffca828d61984a0d5d459"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "마지막 세 글자를 공개하고 나머지는 별표로 가리는 로직을 구현하시오. 길이가 3 글자 이하인 코드는 전부 별표로 가립니다."
+                ],
+                "topics": [
+                  "short",
+                  "visible"
+                ],
+                "issue": "",
+                "key": "2ed48187ddc99648d64f97057116c4c1280b6d6afe511c52136cd343c084bc1b"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "마지막 세 글자를 공개하고 앞은 별표로 가리는 로직을 구현할 계획입니다. 길이가 3 글자 이하인 코드는 전부 별표로 가리는 것이 맞는지 확인해 주세요."
+                ],
+                "topics": [
+                  "short",
+                  "visible"
+                ],
+                "issue": "",
+                "key": "d648320f5309b634593cd7ef85dd59eca19f24db9e47537638f2211f43da5ec9"
+              }
+            },
+            "delivered": [
+              "현재 코드는 모든 글자를 별표 (*) 로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?",
+              "마지막 세 글자를 공개하고 나머지는 별표로 가리는 로직을 구현하시오. 길이가 3 글자 이하인 코드는 전부 별표로 가립니다.",
+              "마지막 세 글자를 공개하고 앞은 별표로 가리는 로직을 구현할 계획입니다. 길이가 3 글자 이하인 코드는 전부 별표로 가리는 것이 맞는지 확인해 주세요."
+            ],
+            "answer": "마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하인 코드는 전부 가립니다.",
+            "questions_topics": [
+              "short",
+              "visible"
+            ],
+            "known": [
+              "d",
+              "k",
+              "s"
+            ],
+            "writer_calls": [
+              "33c03c7532e4ec4cd75455e7ed2f749b716fd4be4809cd677b69ce2b78003df6",
+              "d5608055f5874072163f0623849655916b437a0bc737f358e17fb676fc1f6880"
+            ],
+            "patch_attempts": [
+              {
+                "key": "33c03c7532e4ec4cd75455e7ed2f749b716fd4be4809cd677b69ce2b78003df6",
+                "status": "rejected",
+                "reason": "수정 전후의 파이썬 코드가 유효해야 합니다."
+              },
+              {
+                "key": "d5608055f5874072163f0623849655916b437a0bc737f358e17fb676fc1f6880",
+                "status": "rejected",
+                "reason": "수정 전후의 파이썬 코드가 유효해야 합니다."
+              }
+            ],
+            "changed": false,
+            "score": 10,
+            "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+            "cumulative_tokens": 7508
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 모든 글자를 별표로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?"
+                ],
+                "topics": [
+                  "short",
+                  "visible"
+                ],
+                "issue": "현재 코드는 모든 글자를 별표 (*) 로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?",
+                "key": "b24533331d1537a364c3b811fb127a5fe25151541414770fd1ff683ea027560e"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 모든 글자를 별표로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?"
+                ],
+                "topics": [
+                  "short",
+                  "visible"
+                ],
+                "issue": "현재 코드는 모든 글자를 별표 (*) 로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?",
+                "key": "77d4bc8fc98810624f06e1885199ebad06fece241333991d730643e3d51cbb82"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 모든 글자를 별표로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?"
+                ],
+                "topics": [
+                  "short",
+                  "visible"
+                ],
+                "issue": "요구사항: '어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다.'\n현재 코드: 모든 글자를 별표 (*) 로 대체합니다.\n불일치: 요구사항에 명시된 운영 담당자의 기준 (마지막 3 글자 공개 등) 이 코드에 반영되지 않았습니다.",
+                "key": "8591c2278d7bb1aa5cca4105ccb94ef52ec643be4a9813970c30a3d687ddb94e"
+              }
+            },
+            "delivered": [
+              "현재 코드는 모든 글자를 별표로 대체하고 있으나, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙을 반영하지 못합니다. 이 불일치를 수정할 수 있을까요?"
+            ],
+            "answer": "길이가 세 글자보다 긴 코드는 마지막 세 글자만 공개합니다. 세 글자 이하인 코드는 전부 가립니다.",
+            "questions_topics": [
+              "short",
+              "visible"
+            ],
+            "known": [
+              "d",
+              "k",
+              "s"
+            ],
+            "writer_calls": [
+              "8f066492094de728502ed50b0ee238ddc3456b856f407b9009a2730529fd5eb9",
+              "29a600e6a1d010788210808a3e1718b83bc00a6611c8b19fc94051c326c6f476"
+            ],
+            "patch_attempts": [
+              {
+                "key": "8f066492094de728502ed50b0ee238ddc3456b856f407b9009a2730529fd5eb9",
+                "status": "rejected",
+                "reason": "수정 전후의 파이썬 코드가 유효해야 합니다."
+              },
+              {
+                "key": "29a600e6a1d010788210808a3e1718b83bc00a6611c8b19fc94051c326c6f476",
+                "status": "rejected",
+                "reason": "수정 전후의 파이썬 코드가 유효해야 합니다."
+              }
+            ],
+            "changed": false,
+            "score": 10,
+            "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+            "cumulative_tokens": 12648
+          }
+        ],
+        "evidence": [
+          "d",
+          "k",
+          "s"
+        ],
+        "topics": [
+          "short",
+          "visible"
+        ],
+        "usage": {
+          "calls": 16,
+          "tokens": 12648
+        },
+        "code_sha256": "bdaf9c3920c951a449b3b8a5bf2ad21d946b29f9b47f2ae27ac2576220078d2a",
+        "questions": 7,
+        "windows": 3,
+        "writer_packets_checked": 6,
+        "cases": {
+          "mask-01": {
+            "value": "****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-02": {
+            "value": "*****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-03": {
+            "value": "******",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-04": {
+            "value": "******",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-05": {
+            "value": "*******",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-06": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-07": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-08": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-09": {
+            "value": "***",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-10": {
+            "value": "*",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-11": {
+            "value": "*",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-12": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-13": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-14": {
+            "value": "**",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-15": {
+            "value": "",
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "mask-16": {
+            "value": "*****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-17": {
+            "value": "********",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-18": {
+            "value": "****",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-19": {
+            "value": "*********",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          },
+          "mask-20": {
+            "value": "********",
+            "error": null,
+            "correct": false,
+            "sufficient": true
+          }
+        },
+        "correct": 10,
+        "sufficient": 20,
+        "grounded_correct": 10
+      },
+      "upload": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "파일 크기의 상한 값을 정해달라."
+                ],
+                "topics": [
+                  "limit"
+                ],
+                "issue": "",
+                "key": "d724aebf966bdc6c97adc45d62feeaf04f8bf14384440fa732dd133e7fc3d70c"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "파일 크기의 상한 값과 정확히 상한 크기에 해당하는 파일의 허용 여부는 저장소 담당자에게 확인이 필요하신가요?"
+                ],
+                "topics": [
+                  "equal",
+                  "limit"
+                ],
+                "issue": "",
+                "key": "5c4e33c1a7a9170366f4696416d5cb9cc03888179863d8a96610656ef831039e"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "파일 크기의 상한 값과 정확히 상한 크기의 파일은 허용하는지, 0 바이트의 빈 파일은 허용하는지 저장소 담당자에게 확인이 필요한지 알려주세요."
+                ],
+                "topics": [
+                  "empty",
+                  "equal",
+                  "limit"
+                ],
+                "issue": "",
+                "key": "5c3ff2d3b07f87689de4f58d0a9a3b6f5883bc43967c1bc5ded3f339f33ec85a"
+              }
+            },
+            "delivered": [
+              "파일 크기의 상한 값을 정해달라.",
+              "파일 크기의 상한 값과 정확히 상한 크기에 해당하는 파일의 허용 여부는 저장소 담당자에게 확인이 필요하신가요?",
+              "파일 크기의 상한 값과 정확히 상한 크기의 파일은 허용하는지, 0 바이트의 빈 파일은 허용하는지 저장소 담당자에게 확인이 필요한지 알려주세요."
+            ],
+            "answer": "상한은 16바이트입니다. 정확히 상한이면 허용하고, 0바이트 빈 파일은 거부합니다.",
+            "questions_topics": [
+              "empty",
+              "equal",
+              "limit"
+            ],
+            "known": [
+              "b",
+              "l",
+              "z"
+            ],
+            "writer_calls": [
+              "b92e983de08c7698398f4f8ddbeb516aabf19e0c54d8e9e273aefbe8e085f50e"
+            ],
+            "patch_attempts": [
+              {
+                "key": "b92e983de08c7698398f4f8ddbeb516aabf19e0c54d8e9e273aefbe8e085f50e",
+                "status": "applied",
+                "edit_count": 2
+              }
+            ],
+            "changed": true,
+            "score": 20,
+            "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+            "cumulative_tokens": 2381
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "상한 값이 16 바이트로 확정되었으니, 정확히 16 바이트 크기의 파일은 허용해야 하는지, 그리고 0 바이트의 빈 파일은 거부해야 하는지 저장소 담당자에게 최종 확인이 필요합니다."
+                ],
+                "topics": [
+                  "empty",
+                  "equal"
+                ],
+                "issue": "코드에서는 상한 값이 정해지지 않았다고 가정하고 NotImplementedError 를 발생시키거나 16 바이트를 임의로 적용하고 있으나, 대화에서 상한이 16 바이트로 확정되었고 0 바이트는 거부, 정확히 16 바이트는 허용해야 한다고 명시되어 있어 코드 로직과 요구사항이 불일치합니다.",
+                "key": "15b9a1dcb0b2805ac63901dfb39adca1c1a4dbdec8923afb956f19a7420432d7"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "상한 값이 16 바이트로 확정되었으니, 정확히 16 바이트인 파일은 허용하고 0 바이트 빈 파일은 거부하는 로직으로 코드를 수정해 주실 수 있나요?"
+                ],
+                "topics": [
+                  "empty",
+                  "equal",
+                  "limit"
+                ],
+                "issue": "",
+                "key": "503d8f0807233de8bf970fb5ab56ba179511c34485258b7aaafe1ad70d59e4c0"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "상한 값은 16 바이트로 정해졌고, 정확히 16 바이트인 파일은 허용하며 0 바이트 빈 파일은 거부하는 것으로 이해했습니다. 현재 코드는 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 이 구현이 의도하신 대로인지 확인 부탁드립니다."
+                ],
+                "topics": [
+                  "empty",
+                  "equal",
+                  "limit"
+                ],
+                "issue": "",
+                "key": "b840cd1a0e4ad56100a82a1dec012dc4bb030e54f8494cf24ba8613ec970bc6d"
+              }
+            },
+            "delivered": [
+              "상한 값이 16 바이트로 확정되었으니, 정확히 16 바이트 크기의 파일은 허용해야 하는지, 그리고 0 바이트의 빈 파일은 거부해야 하는지 저장소 담당자에게 최종 확인이 필요합니다.",
+              "상한 값이 16 바이트로 확정되었으니, 정확히 16 바이트인 파일은 허용하고 0 바이트 빈 파일은 거부하는 로직으로 코드를 수정해 주실 수 있나요?",
+              "상한 값은 16 바이트로 정해졌고, 정확히 16 바이트인 파일은 허용하며 0 바이트 빈 파일은 거부하는 것으로 이해했습니다. 현재 코드는 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 이 구현이 의도하신 대로인지 확인 부탁드립니다."
+            ],
+            "answer": "상한은 16바이트입니다. 정확히 상한이면 허용하고, 0바이트 빈 파일은 거부합니다.",
+            "questions_topics": [
+              "empty",
+              "equal",
+              "limit"
+            ],
+            "known": [
+              "b",
+              "l",
+              "z"
+            ],
+            "writer_calls": [
+              "c7d381d9bb5e5be625ca026234fc893ae1d8f79af4adf3457fac871e1c560879",
+              "1ea72c3dffb4ad117838efebf6806983bd01a00189ea11cf1116d517b680804e"
+            ],
+            "patch_attempts": [
+              {
+                "key": "c7d381d9bb5e5be625ca026234fc893ae1d8f79af4adf3457fac871e1c560879",
+                "status": "rejected",
+                "reason": "수정 전 코드는 이전 파일에서 정확히 한 번 찾아야 합니다."
+              },
+              {
+                "key": "1ea72c3dffb4ad117838efebf6806983bd01a00189ea11cf1116d517b680804e",
+                "status": "rejected",
+                "reason": "수정 전 코드는 이전 파일에서 정확히 한 번 찾아야 합니다."
+              }
+            ],
+            "changed": false,
+            "score": 20,
+            "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+            "cumulative_tokens": 6256
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [],
+                "topics": [],
+                "issue": "현재 코드는 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 이는 저장소 담당자가 최종 확인한 '상한 16 바이트, 정확히 16 바이트는 허용, 0 바이트는 거부'의 요구사항과 일치합니다. 따라서 수정이 필요하지 않습니다.",
+                "key": "52b1252fc788a8a7c09f54d443443a20439568188b7edd8ebe11a67c18505bcf"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 담당자가 정한 규칙 (상한 16 바이트, 정확히 16 바이트는 허용, 0 바이트는 거부) 에 따라 코드를 수정하여 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 변경해 주실 수 있나요?"
+                ],
+                "topics": [
+                  "empty",
+                  "equal",
+                  "limit"
+                ],
+                "issue": "",
+                "key": "31cd9516527269f7e8c03761f70c32599e5c4afe84e61196434365dffc870220"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 0 바이트 파일을 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 하지만 대화 기록에 따르면 '정확히 16 바이트인 파일은 허용하고, 0 바이트 빈 파일은 거부한다'는 것이 최종 결정 사항입니다. 코드가 이 요구사항을 정확히 반영하고 있는지 담당자에게 최종 확인이 필요합니다."
+                ],
+                "topics": [
+                  "empty",
+                  "equal",
+                  "limit"
+                ],
+                "issue": "",
+                "key": "4d98ba41c95ececfb30b971a147729dc286b3a8c1c8758c07052d310ab6f82c1"
+              }
+            },
+            "delivered": [
+              "현재 코드는 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 담당자가 정한 규칙 (상한 16 바이트, 정확히 16 바이트는 허용, 0 바이트는 거부) 에 따라 코드를 수정하여 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 변경해 주실 수 있나요?",
+              "현재 코드는 0 바이트 파일을 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 하지만 대화 기록에 따르면 '정확히 16 바이트인 파일은 허용하고, 0 바이트 빈 파일은 거부한다'는 것이 최종 결정 사항입니다. 코드가 이 요구사항을 정확히 반영하고 있는지 담당자에게 최종 확인이 필요합니다."
+            ],
+            "answer": "상한은 16바이트입니다. 정확히 상한이면 허용하고, 0바이트 빈 파일은 거부합니다.",
+            "questions_topics": [
+              "empty",
+              "equal",
+              "limit"
+            ],
+            "known": [
+              "b",
+              "l",
+              "z"
+            ],
+            "writer_calls": [
+              "f425ee5f362f71b215cff8f3c7a6557ec4dc1cecbe5c01d1c817e2f77b9c0983"
+            ],
+            "patch_attempts": [
+              {
+                "key": "f425ee5f362f71b215cff8f3c7a6557ec4dc1cecbe5c01d1c817e2f77b9c0983",
+                "status": "empty",
+                "edit_count": 0
+              }
+            ],
+            "changed": false,
+            "score": 20,
+            "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+            "cumulative_tokens": 9747
+          }
+        ],
+        "evidence": [
+          "b",
+          "l",
+          "z"
+        ],
+        "topics": [
+          "empty",
+          "equal",
+          "limit"
+        ],
+        "usage": {
+          "calls": 14,
+          "tokens": 9747
+        },
+        "code_sha256": "deaf107288f6d0437876a604a50a91c679412f601a199182d2f686a851745f72",
+        "questions": 8,
+        "windows": 3,
+        "writer_packets_checked": 4,
+        "cases": {
+          "upload-01": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-02": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-03": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-04": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-05": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-06": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-07": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-08": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-09": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-10": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-11": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-12": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-13": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-14": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-15": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-16": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-17": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-18": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-19": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "upload-20": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          }
+        },
+        "correct": 20,
+        "sufficient": 20,
+        "grounded_correct": 20
+      },
+      "print": {
+        "rounds": [
+          {
+            "round": 1,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드에서는 인쇄 영역의 최대 허용 길이를 100cm 로 고정하여 구현하고 있으나, 문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있어 실제 시스템의 상한값이 100cm 가 아닌지 확인이 필요합니다. 인쇄 담당자에게 현재 상한값이 무엇인지 확인해 주세요."
+                ],
+                "topics": [
+                  "height",
+                  "width"
+                ],
+                "issue": "",
+                "key": "be0bd2e6a76afc8f613ef193b8552077d96983ddf440de45cb3d11e91f253baf"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드에서는 인쇄 영역의 최대 허용 치수를 100cm 로 고정하고 있습니다. 문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있으나, 실제 시스템의 상한치 (예: 120cm 등) 와 0 길이 처리 기준이 명확하지 않아 이를 담당자에게 확인해야 할 것 같습니다."
+                ],
+                "topics": [
+                  "height",
+                  "width",
+                  "zero"
+                ],
+                "issue": "",
+                "key": "817855572619a388c544f78462a71350cf23b6ba0065bf9cc122afba3071eb87"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "문제 설명의 '0 은 가로/세로 길이 없음'과 '양수이고 각각 자기 상한보다 작으면 허용합니다'라는 문맥과, 실제 코드에서 정의된 상한값 (100cm) 을 명시적으로 언급하지 않았기 때문에, '0'과 '상한값과 같은 길이' 처리에 대한 명확한 기준이 부족합니다. 인쇄 담당자에게 이 두 가지 경계 조건 (0 처리, 상한값과 같은 길이 처리) 을 확인해야 합니다."
+                ],
+                "topics": [
+                  "equal",
+                  "zero"
+                ],
+                "issue": "문제 설명에서 '0 은 가로/세로 길이 없음'이라고 명시되었으나, 실제 인쇄 시스템의 상한값 (예: 100cm) 이 명시되지 않았습니다. 코드는 100cm 를 가정하고 구현되었으나, 문제에서 요구하는 상한값과 실제 시스템의 상한값이 일치하는지, 그리고 '0'과 '상한값과 같은 길이'가 허용되는지 여부를 인쇄 담당자에게 확인해야 합니다.",
+                "key": "e57a84eec44c76703352a18bf04eba228cdcf4b4652b88459f751e3bb534e5e1"
+              }
+            },
+            "delivered": [
+              "현재 코드에서는 인쇄 영역의 최대 허용 길이를 100cm 로 고정하여 구현하고 있으나, 문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있어 실제 시스템의 상한값이 100cm 가 아닌지 확인이 필요합니다. 인쇄 담당자에게 현재 상한값이 무엇인지 확인해 주세요.",
+              "현재 코드에서는 인쇄 영역의 최대 허용 치수를 100cm 로 고정하고 있습니다. 문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있으나, 실제 시스템의 상한치 (예: 120cm 등) 와 0 길이 처리 기준이 명확하지 않아 이를 담당자에게 확인해야 할 것 같습니다.",
+              "문제 설명의 '0 은 가로/세로 길이 없음'과 '양수이고 각각 자기 상한보다 작으면 허용합니다'라는 문맥과, 실제 코드에서 정의된 상한값 (100cm) 을 명시적으로 언급하지 않았기 때문에, '0'과 '상한값과 같은 길이' 처리에 대한 명확한 기준이 부족합니다. 인쇄 담당자에게 이 두 가지 경계 조건 (0 처리, 상한값과 같은 길이 처리) 을 확인해야 합니다."
+            ],
+            "answer": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+            "questions_topics": [
+              "equal",
+              "height",
+              "width",
+              "zero"
+            ],
+            "known": [
+              "b",
+              "h",
+              "w",
+              "z"
+            ],
+            "writer_calls": [
+              "985cbfe5be84c644c27e3c05f985954e6caa6e1ef9d2fb2607d13bd28f8a92f5",
+              "714fe8dc482472d625cb9d61e6c6c895dfc24ceb0474a7802878dbbe892b0911"
+            ],
+            "patch_attempts": [
+              {
+                "key": "985cbfe5be84c644c27e3c05f985954e6caa6e1ef9d2fb2607d13bd28f8a92f5",
+                "status": "rejected",
+                "reason": "수정 전 코드는 이전 파일에서 정확히 한 번 찾아야 합니다."
+              },
+              {
+                "key": "714fe8dc482472d625cb9d61e6c6c895dfc24ceb0474a7802878dbbe892b0911",
+                "status": "applied",
+                "edit_count": 2
+              }
+            ],
+            "changed": true,
+            "score": 20,
+            "code_sha256": "fa64da3c3dfe97e30b72d116fd9fd85d9e79caf9a07fb42e79641609b3d3353e",
+            "cumulative_tokens": 8956
+          },
+          {
+            "round": 2,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드에서는 상한값을 6cm 와 4cm 로 고정하고 있으며, '상한과 같은 길이'는 허용하는 것으로 구현되어 있습니다. 하지만 문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있고, 답변에서도 '상한과 정확히 같아도 허용합니다'라고 했으나 문제의 '상한보다 작으면 허용합니다'라는 조건과 상한과 같은 길이의 허용 여부가 명확하지 않습니다. 또한, 문제 설명에서 '0 은 가로 길이 없음'이라고 했으나 실제 시스템에서 0 길이는 절대 허용되지 않는지, 아니면 '길이 없음'이라는 의미로 다른 처리가 필요한지 인쇄 담당자에게 확인이 필요합니다."
+                ],
+                "topics": [
+                  "equal",
+                  "zero"
+                ],
+                "issue": "문제 설명의 '양수이고 각각 자기 상한보다 작으면 허용합니다'와 답변의 '상한과 정확히 같아도 허용합니다'가 모순됩니다. 또한 '0 은 가로 길이 없음'이라는 설명과 실제 구현/답변의 '0 이나 음수 거부'가 일치하는지 명확하지 않습니다.",
+                "key": "ad573e60581312f610d9a55e7583a76b4c16fdcd1ba4f299c649545d539bf7ab"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드에서는 상한값을 100cm 로 고정하고 있으나, 인쇄 담당자의 답변에 따르면 가로 6cm, 세로 4cm 가 상한이며 '상한과 정확히 같아도 허용'한다고 명시되어 있습니다. 문제 설명의 '상한보다 작으면 허용' 조건과 '상한과 같은 길이 허용' 조건이 모순되어 있으며, 이를 해결하기 위해 코드를 수정해야 할 것 같습니다. 담당자님, 이 모순을 어떻게 해결하시겠습니까?"
+                ],
+                "topics": [
+                  "equal"
+                ],
+                "issue": "",
+                "key": "d6339084396efdaf2a53453c77ad48850bb3bf87789b4beb6d85c66fbfbde9cb"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 `MAX_WIDTH=6`, `MAX_HEIGHT=4`로 상한을 정의하고 있으며, 조건 `width_cm > MAX_WIDTH`로 상한과 **같을 경우 거부**하도록 구현했습니다. 하지만 인쇄 담당자의 답변에 따르면 '상한과 정확히 같아도 **허용**합니다'라고 명시되어 있어, 조건을 `>=`로 수정해야 합니다. 또한, 담당자가 언급한 '가로나 세로 중 하나라도 0이면 거부'는 코드와 일치하나, '상한과 같은 길이' 처리가 명확하지 않아 이 부분을 수정하고 상한값 (6cm, 4cm) 을 코드에 반영하여 담당자에게 다시 확인해 주세요."
+                ],
+                "topics": [
+                  "equal",
+                  "height",
+                  "width",
+                  "zero"
+                ],
+                "issue": "코드에서 상한값 (6, 4) 과 같은 경우를 거부 (`>`) 로 처리하고 있으나, 인쇄 담당자의 답변에 따르면 허용 (`>=`) 해야 함. 이를 수정해야 함.",
+                "key": "84b48ebe2c67a99e2fc2c4daaf4f4f294bcd1ae47e5a978b938fcb733869463f"
+              }
+            },
+            "delivered": [
+              "현재 코드에서는 상한값을 6cm 와 4cm 로 고정하고 있으며, '상한과 같은 길이'는 허용하는 것으로 구현되어 있습니다. 하지만 문제 설명에 '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라고 명시되어 있고, 답변에서도 '상한과 정확히 같아도 허용합니다'라고 했으나 문제의 '상한보다 작으면 허용합니다'라는 조건과 상한과 같은 길이의 허용 여부가 명확하지 않습니다. 또한, 문제 설명에서 '0 은 가로 길이 없음'이라고 했으나 실제 시스템에서 0 길이는 절대 허용되지 않는지, 아니면 '길이 없음'이라는 의미로 다른 처리가 필요한지 인쇄 담당자에게 확인이 필요합니다.",
+              "현재 코드에서는 상한값을 100cm 로 고정하고 있으나, 인쇄 담당자의 답변에 따르면 가로 6cm, 세로 4cm 가 상한이며 '상한과 정확히 같아도 허용'한다고 명시되어 있습니다. 문제 설명의 '상한보다 작으면 허용' 조건과 '상한과 같은 길이 허용' 조건이 모순되어 있으며, 이를 해결하기 위해 코드를 수정해야 할 것 같습니다. 담당자님, 이 모순을 어떻게 해결하시겠습니까?",
+              "현재 코드는 `MAX_WIDTH=6`, `MAX_HEIGHT=4`로 상한을 정의하고 있으며, 조건 `width_cm > MAX_WIDTH`로 상한과 **같을 경우 거부**하도록 구현했습니다. 하지만 인쇄 담당자의 답변에 따르면 '상한과 정확히 같아도 **허용**합니다'라고 명시되어 있어, 조건을 `>=`로 수정해야 합니다. 또한, 담당자가 언급한 '가로나 세로 중 하나라도 0이면 거부'는 코드와 일치하나, '상한과 같은 길이' 처리가 명확하지 않아 이 부분을 수정하고 상한값 (6cm, 4cm) 을 코드에 반영하여 담당자에게 다시 확인해 주세요."
+            ],
+            "answer": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+            "questions_topics": [
+              "equal",
+              "height",
+              "width",
+              "zero"
+            ],
+            "known": [
+              "b",
+              "h",
+              "w",
+              "z"
+            ],
+            "writer_calls": [
+              "3d0fd322b8bdffc997d6f1c29f3a7b092ed52df32182ad1d7cc85c21fec8f9fc",
+              "9a78613ef365a188ad715a07d558bace36b4bd526487b9993df3c0984d430065"
+            ],
+            "patch_attempts": [
+              {
+                "key": "3d0fd322b8bdffc997d6f1c29f3a7b092ed52df32182ad1d7cc85c21fec8f9fc",
+                "status": "rejected",
+                "reason": "변경 범위는 하나의 기존 계산문이나 조건식 안에 있어야 합니다."
+              },
+              {
+                "key": "9a78613ef365a188ad715a07d558bace36b4bd526487b9993df3c0984d430065",
+                "status": "applied",
+                "edit_count": 1
+              }
+            ],
+            "changed": true,
+            "score": 15,
+            "code_sha256": "3f92963e6a15426fcf4e5b70fd9cce889497081e61005cef5c5beb4138e90531",
+            "cumulative_tokens": 18506
+          },
+          {
+            "round": 3,
+            "reviewers": {
+              "observer-A": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "인쇄 담당자님, 현재 코드에서는 상한값을 6cm 와 4cm 로 설정하고 '상한과 정확히 같아도 허용합니다'라고 구현했습니다. 하지만 문제 설명의 '양수이고 각각 자기 상한보다 작으면 허용합니다'라는 조건과, '상한과 같은 길이'의 처리가 명확하지 않아 모순이 발생했습니다. '상한과 정확히 같아도 허용'하는지, 아니면 '상한보다 작아야만 허용'하는지 명확히 확인해 주세요."
+                ],
+                "topics": [
+                  "equal"
+                ],
+                "issue": "문제 설명의 '양수이고 각각 자기 상한보다 작으면 허용합니다' 조건과, 인쇄 담당자의 답변에 따른 '상한과 정확히 같아도 허용합니다' 조건이 모순됩니다. 이를 해결하기 위해 코드를 수정해야 합니다.",
+                "key": "06debd9509d042dbdcb485b25e46e1b1195f3f224e7635440a0f454fe783a1ac"
+              },
+              "observer-B": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 인쇄 담당자의 답변에 따라 상한값을 6cm 와 4cm 로 수정하고, '상한과 정확히 같아도 허용'하므로 `width_cm > MAX_WIDTH`를 `width_cm >= MAX_WIDTH`로 변경하여 구현했습니다. 하지만 문제 설명의 '상한보다 작으면 허용합니다'라는 문장과 실제 시스템의 '상한과 같은 길이 허용'이 충돌하는지, 그리고 0 길이를 '길이 없음'으로 해석하여 거부하는 것이 올바른지 최종적으로 확인이 필요합니다."
+                ],
+                "topics": [
+                  "equal",
+                  "zero"
+                ],
+                "issue": "문제 설명의 '상한보다 작으면 허용'과 인쇄 담당자의 '상한과 같아도 허용'이 모순됨. 코드는 담당자 답변을 우선시하여 '상한과 같아도 허용'하도록 수정되었으나, 문제 의도가 무엇인지 명확히 해야 함.",
+                "key": "a10a6a2f6f2d3d844fc3e3cb2157cf748f3c1e9988793b5cc136c8b796850e26"
+              },
+              "observer-C": {
+                "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+                "questions": [
+                  "현재 코드는 `width_cm >= MAX_WIDTH` 또는 `height_cm >= MAX_HEIGHT`로 구현되어 있어 상한과 같은 길이를 거부하고 있으나, 인쇄 담당자의 답변에 따르면 '상한과 정확히 같아도 허용합니다'라고 명시되어 있습니다. 이 모순을 해결하기 위해 조건을 `>`로 수정해야 하는지, 또는 담당자님의 최종 결정이 필요합니다. 또한, 문제 설명에서 '0 은 가로 길이 없음'이라고 하였으나, 실제 시스템에서 0 길이는 절대 허용되지 않는지, 아니면 '길이 없음'이라는 의미로 다른 처리가 필요한지 명확히 확인이 필요합니다."
+                ],
+                "topics": [
+                  "equal",
+                  "zero"
+                ],
+                "issue": "문제 설명의 '양수이고 각각 자기 상한보다 작으면 허용합니다'와 인쇄 담당자의 답변 '상한과 정확히 같아도 허용합니다'가 상충됨. 또한 '0 은 가로 길이 없음'이라는 문맥과 실제 0 처리 기준이 명확하지 않음.",
+                "key": "c508cd61140ed36636f71755d8e623ae07332b47ccc5bb3e7112a09a1c8b4900"
+              }
+            },
+            "delivered": [
+              "인쇄 담당자님, 현재 코드에서는 상한값을 6cm 와 4cm 로 설정하고 '상한과 정확히 같아도 허용합니다'라고 구현했습니다. 하지만 문제 설명의 '양수이고 각각 자기 상한보다 작으면 허용합니다'라는 조건과, '상한과 같은 길이'의 처리가 명확하지 않아 모순이 발생했습니다. '상한과 정확히 같아도 허용'하는지, 아니면 '상한보다 작아야만 허용'하는지 명확히 확인해 주세요.",
+              "현재 코드는 인쇄 담당자의 답변에 따라 상한값을 6cm 와 4cm 로 수정하고, '상한과 정확히 같아도 허용'하므로 `width_cm > MAX_WIDTH`를 `width_cm >= MAX_WIDTH`로 변경하여 구현했습니다. 하지만 문제 설명의 '상한보다 작으면 허용합니다'라는 문장과 실제 시스템의 '상한과 같은 길이 허용'이 충돌하는지, 그리고 0 길이를 '길이 없음'으로 해석하여 거부하는 것이 올바른지 최종적으로 확인이 필요합니다.",
+              "현재 코드는 `width_cm >= MAX_WIDTH` 또는 `height_cm >= MAX_HEIGHT`로 구현되어 있어 상한과 같은 길이를 거부하고 있으나, 인쇄 담당자의 답변에 따르면 '상한과 정확히 같아도 허용합니다'라고 명시되어 있습니다. 이 모순을 해결하기 위해 조건을 `>`로 수정해야 하는지, 또는 담당자님의 최종 결정이 필요합니다. 또한, 문제 설명에서 '0 은 가로 길이 없음'이라고 하였으나, 실제 시스템에서 0 길이는 절대 허용되지 않는지, 아니면 '길이 없음'이라는 의미로 다른 처리가 필요한지 명확히 확인이 필요합니다."
+            ],
+            "answer": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+            "questions_topics": [
+              "equal",
+              "zero"
+            ],
+            "known": [
+              "b",
+              "h",
+              "w",
+              "z"
+            ],
+            "writer_calls": [
+              "159ffc0d37ab382cd25f4910b7f4ee7edbbc2c85417ad7238feb76dbfde7b745"
+            ],
+            "patch_attempts": [
+              {
+                "key": "159ffc0d37ab382cd25f4910b7f4ee7edbbc2c85417ad7238feb76dbfde7b745",
+                "status": "applied",
+                "edit_count": 1
+              }
+            ],
+            "changed": true,
+            "score": 20,
+            "code_sha256": "fa64da3c3dfe97e30b72d116fd9fd85d9e79caf9a07fb42e79641609b3d3353e",
+            "cumulative_tokens": 27696
+          }
+        ],
+        "evidence": [
+          "b",
+          "h",
+          "w",
+          "z"
+        ],
+        "topics": [
+          "equal",
+          "height",
+          "width",
+          "zero"
+        ],
+        "usage": {
+          "calls": 15,
+          "tokens": 27696
+        },
+        "code_sha256": "fa64da3c3dfe97e30b72d116fd9fd85d9e79caf9a07fb42e79641609b3d3353e",
+        "questions": 9,
+        "windows": 3,
+        "writer_packets_checked": 5,
+        "cases": {
+          "print-01": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-02": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-03": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-04": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-05": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-06": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-07": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-08": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-09": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-10": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-11": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-12": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-13": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-14": {
+            "value": true,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-15": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-16": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-17": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-18": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-19": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          },
+          "print-20": {
+            "value": false,
+            "error": null,
+            "correct": true,
+            "sufficient": true
+          }
+        },
+        "correct": 20,
+        "sufficient": 20,
+        "grounded_correct": 20
+      }
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "writer": {
+    "calls": [
+      "94bcd6a8245db9fbff7ce4d802747cb97bfb00fd5d46e14f719a21f66fe25fc8",
+      "99acd95b9a4d5ac38bcd50b385df5f15a2d59ba211078c0f2d1c19ac0ac00b3d"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "file_suffix(name) 함수를 구현해야 함. 입력은 영문 대소문자, 숫자, 점, 하이픈으로만 된 파일 이름이며, 공백과 빈 문자열은 입력되지 않는다고 가정.",
+        "input": "name",
+        "still_open": "대소문자 표기, 점이 여러 개인 이름, 점으로 시작하는 이름, 확장자가 없는 이름의 처리는 파일 관리 담당자에게 확인 필요.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "이름 안에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일은 점 다음 부분을 반환하며, 반환값에 점을 붙이지 않는다고 함.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "",
+        "input": "name",
+        "still_open": "대소문자 표기, 점이 여러 개인 이름, 점으로 시작하는 이름, 확장자가 없는 이름의 처리는 파일 관리 담당자에게 확인 필요.",
+        "status": "undetermined"
+      },
+      "H1": {
+        "established": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용하며, 복합 확장자를 합치지 않는다고 함.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환한다고 함.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def file_suffix(name):",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if '.' not in name or name.endswith('.') or name.startswith('.'):",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return \"\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    last_dot = name.rfind('.')",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if last_dot == 0 or last_dot == len(name) - 1:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return \"\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return name[last_dot + 1:]",
+            "sources": []
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def file_suffix(name):\n    if '.' not in name or name.endswith('.') or name.startswith('.'):\n        return \"\"\n    last_dot = name.rfind('.')\n    if last_dot == 0 or last_dot == len(name) - 1:\n        return \"\"\n    return name[last_dot + 1:]\n"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "undetermined",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": []
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 하지만 현재 코드는 rfind()를 사용하여 가장 마지막 점 뒤의 부분을 반환하고 있습니다. 이는 담당자 답변의 '점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 한다'는 요구사항과 일치합니다. 그러나 코드가 '점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 하지만 현재 코드는 rfind()를 사용하여 가장 마지막 점 뒤의 부분을 반환하고 있습니다'라는 설명과 모순되는 부분이 있습니다.",
+            "outcome_a": "코드가 rfind()를 사용하여 가장 마지막 점 뒤의 부분을 반환하고 있으므로, '점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 한다'는 요구사항을 충족합니다.",
+            "outcome_b": "코드가 rfind()를 사용하여 가장 마지막 점 뒤의 부분을 반환하고 있으므로, '점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 하지만 현재 코드는 rfind()를 사용하여 가장 마지막 점 뒤의 부분을 반환하고 있습니다'라는 설명과 모순되는 부분이 있습니다.",
+            "question": "점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 하지만 현재 코드가 rfind()를 사용하여 가장 마지막 점 뒤의 부분을 반환하고 있습니다. 이는 담당자 답변의 '점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 한다'는 요구사항과 일치합니다. 그러나 코드가 '점의 개수가 여러 개인 경우, 마지막 점 뒤의 부분을 반환해야 하지만 현재 코드가 rfind()를 사용하여 가장 마지막 점 뒤의 부분을 반환하고 있습니다'라는 설명과 모순되는 부분이 있습니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "점 여러 개가 있는 보통 파일의 경우, 담당자 답변은 '마지막 점 뒤'를, 현재 코드는 '마지막 점 뒤'를 구현하고 있습니다. 하지만 '복합 확장자를 합치지 않는다'는 문맥상, '점 여러 개'가 있는 경우에도 '마지막 점'을 기준으로 한다는 것이 코드의 논리와 담당자 답변의 핵심 요구사항이 일치하는지 확인이 필요합니다.",
+            "outcome_a": "담당자 답변의 '마지막 점 뒤'를 해석하여, 'test.tar.gz'에 대해 'gz'를 반환하는 것이 맞습니다.",
+            "outcome_b": "담당자 답변의 '마지막 점 뒤'를 '첫 번째 점 뒤'로 오해하거나, '복합 확장자를 합치지 않는다'는 것이 '마지막 점'이 아니라 '첫 번째 점'을 의미한다고 해석하여, 'test.tar.gz'에 대해 'tar'를 반환하는 것이 맞습니다.",
+            "question": "점 여러 개가 있는 보통 파일의 경우, 담당자 답변의 '마지막 점 뒤'를 해석하여 'test.tar.gz'에 대해 'gz'를 반환하는 것이 맞는지, 아니면 '복합 확장자를 합치지 않는다'는 문맥상 '첫 번째 점 뒤'를 의미하여 'tar'를 반환하는 것이 맞는지 확인해 주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "점의 개수가 정확히 하나인 경우, 반환값에 점이 포함되는지 여부에 대한 모순",
+            "outcome_a": "요구사항에서 '반환값에 점을 붙이지 않습니다'라고 명시되어 있으나, 담당자 답변에서 '복합 확장자를 합치지 않습니다'라는 표현이 점 자체를 포함할 수 있음을 시사할 수 있습니다.",
+            "outcome_b": "요구사항의 명시적 지시인 '반환값에 점을 붙이지 않습니다'를 따르되, 담당자 답변의 '복합 확장자를 합치지 않습니다'는 점의 위치를 의미하는 것으로 해석하여 모순을 피합니다.",
+            "question": "요구사항에서 '반환값에 점을 붙이지 않습니다'라고 명시되어 있으나, 담당자 답변에서 '복합 확장자를 합치지 않습니다'라는 표현이 점 자체를 포함할 수 있음을 시사할 수 있습니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "45354425f7a92800bc8517502b33ae6fd3627a744d2b92476df1fd9eaf06df94",
+    "a8dfa9ce7388d33ff9ad24c550644f08993831578eada68d59ceaa2cdc0b83f3",
+    "80c2db699ba66036e9b1a39d2890733c831c28ff7dabf8aec720391ae03f0c6e",
+    "455fa8be3c9648250f3cbfeba3a177e44e662a93e3e69ba2add80e60da2e23d4",
+    "94bcd6a8245db9fbff7ce4d802747cb97bfb00fd5d46e14f719a21f66fe25fc8",
+    "99acd95b9a4d5ac38bcd50b385df5f15a2d59ba211078c0f2d1c19ac0ac00b3d",
+    "eb7cbb80fc31fa2316acec616bd115e4d56bdd5f2c522bbd80c79aad8131567f",
+    "cc059bd295983ffaae67a42d49a09cba94a45a3514c80304a33e20aed6cf6611",
+    "a527423d65a7763c99b0b180c4d700af7537535b7f6379e79ba8fa4a4e0946c8"
+  ],
+  "files": {
+    "solution.py": "def file_suffix(name):\n    if '.' not in name or name.endswith('.') or name.startswith('.'):\n        return \"\"\n    last_dot = name.rfind('.')\n    if last_dot == 0 or last_dot == len(name) - 1:\n        return \"\"\n    return name[last_dot + 1:]\n"
+  },
+  "sha256": "bfa7b960e915c12769d39ae35cc244dee0334591502f2f7e8062f8c46bc31953",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "0a33db5f88e8c807925198eb68d735651c3f41b3a44b949e5cdca691d34efdd0",
+      "questions": [
+        {
+          "question": "여러 개의 점이 있는 파일 이름 (예: archive.tar.gz) 에 대해 점 다음 부분을 반환할지, 마지막 점 다음 부분을 반환할지",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "확장자가 없는 이름에 대해 NotImplementedError 를 발생시키고 실패할지, 아니면 다른 처리 로직을 적용하여 실패하지 않을지",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "확장자가 없는 이름 (예: readme) 을 입력했을 때 반환값이 빈 문자열인지, 아니면 예외를 던지는지",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.\n점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

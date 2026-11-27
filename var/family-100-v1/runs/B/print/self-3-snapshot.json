@@ -1,0 +1,48 @@
+{
+  "code": "def fits_print(width_cm, height_cm):\n    if width_cm <= 0 or height_cm <= 0:\n        return False\n\n    max_width_cm = 200  # 예시 값, 실제 값으로 변경 필요\n    max_height_cm = 150 # 예시 값, 실제 값으로 변경 필요\n\n    if width_cm > max_width_cm or height_cm > max_height_cm:\n        return False\n\n    return True",
+  "calls": [
+    "fbe26b67ded8e0123829e67c1ba056fac3be5f78247223f7356b9d8c1694825e",
+    "4cdf36f03b5ed69b8247819530e9dc1cca29901aa1494608457dfb6caa938b0c",
+    "dcf9212b2e679769c230cbc4edc6488ef9c986d62b32ee2dda165fdb15d973b5",
+    "07959f3b64275ecfcd2e9b05798279ac36bf15c2096fe83552417236316c72cd",
+    "59957ecb8503458352a1d7ea2aa776e03313ad8b4afbff86d605c0a212518e9d",
+    "a06c84baedc6bb25a6cc3a639febfafebde3800d137f8f62874abf7dbf773c4b",
+    "c50e2d7c3674b32f162bd42e17941932c7499e814a63ca524542825bac055fa9",
+    "584344a62cd8444a011ef19f814dbdb9f6ce9ef3c9b94acb6c2e52a24b5f932c",
+    "7099fe94a6f74f308cce8a8c18d95dee27d3ec7a45b4b923fa10ac471666fac3",
+    "139b14260e009e5d103faa763ab5c8b21b3ee1b633d475618fe612feba6082b2"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "max_width_cm와 max_height_cm의 실제 값을 어떻게 결정해야 할까요?",
+        "인쇄 담당자가 확인해야 할 0인 길이 처리는 어떤 경우에 해당될까요?",
+        "width_cm와 height_cm가 max_width_cm와 max_height_cm를 초과하는 경우, 어떤 상황에서 거부해야 할까요?"
+      ],
+      "answer": {
+        "text": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 가로나 세로 중 하나라도 0이면 거부합니다. 음수 길이는 거부합니다. 축을 교환하지 않으며 양수는 각 상한보다 작으면 허용하고 하나라도 초과하면 거부합니다."
+      }
+    },
+    {
+      "request_id": "self-2",
+      "questions": [
+        "max_width_cm와 max_height_cm의 실제 값을 결정하는 기준은 무엇인가요?",
+        "가로 또는 세로 길이가 0인 경우, 인쇄 담당자가 확인해야 할 특별한 고려 사항이 있나요?"
+      ],
+      "answer": {
+        "text": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 가로나 세로 중 하나라도 0이면 거부합니다."
+      }
+    },
+    {
+      "request_id": "self-3",
+      "questions": [
+        "max_width_cm와 max_height_cm의 실제 값을 결정하는 기준은 무엇인가요?",
+        "가로 또는 세로 길이가 0인 경우, 인쇄 담당자가 확인해야 할 특별한 고려 사항이 있나요?"
+      ],
+      "answer": {
+        "text": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 가로나 세로 중 하나라도 0이면 거부합니다."
+      }
+    }
+  ]
+}

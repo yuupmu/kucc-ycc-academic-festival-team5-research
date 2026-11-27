@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    \"\"\"\n    업로드 파일 크기 검사 함수.\n    \n    상한값: 16 바이트\n    - 크기가 0 인 경우: 거부 (False)\n    - 크기가 16 이하인 양수인 경우: 허용 (True)\n    - 크기가 16 보다 큰 경우: 거부 (False)\n    - 음수인 경우: 거부 (False)\n    \n    Args:\n        size_bytes (int): 파일 크기 (바이트)\n    \n    Returns:\n        bool: 파일이 허용되는지 여부\n    \"\"\"\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 담당자 답변에 따라 거부합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한값은 16 바이트입니다.\n    # 크기가 16 이하인 양수인 경우 허용합니다.\n    if size_bytes <= 16:\n        return True\n    \n    # 상한보다 큰 파일은 거부합니다.\n    return False"
+  },
+  "sha256": "f36af281a56580043f545e9419e956433c9ab797e831cc1bb9b2778dcd3a1f8f",
+  "received": [
+    1
+  ],
+  "author_call": "aa83db4e30bd121e849e299cf1d11c5c26821af77751407007574bc977301bdd",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  }
+}

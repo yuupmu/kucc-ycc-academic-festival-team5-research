@@ -1,0 +1,96 @@
+{
+  "text": "{\"decision\":\"known\",\"value_json\":\"상한 값은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.\",\"quote\":\"상한 값은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.\",\"reason\":\"상한 값과 빈 파일의 허용 여부는 저장소 담당자에게 확인이 필요하다는 내용이 명시되어 있으며, 상한 값이 16바이트임이 명시되어 있습니다.\",\"scope\":\"over\",\"excess_quote\":\"상한 값은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.\"}",
+  "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 160,
+    "prompt_tokens": 509,
+    "total_tokens": 669,
+    "prompt_tokens_details": {
+      "cached_tokens": 337
+    }
+  },
+  "server_timings": {
+    "cache_n": 337,
+    "prompt_n": 172,
+    "prompt_ms": 212.272,
+    "prompt_per_token_ms": 1.234139534883721,
+    "prompt_per_second": 810.2811487148565,
+    "predicted_n": 160,
+    "predicted_ms": 3396.116,
+    "predicted_per_token_ms": 21.359220125786162,
+    "predicted_per_second": 46.81818877800405
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.62,
+  "request": {
+    "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 독립적으로 운영 정책의 의미를 읽는 평가자입니다. 입력 인자에 대한 반환값이 공개 명세 또는 실제 담당자 답변으로 확정되는지 판정하세요. 질문자의 추측은 정책이 아닙니다. 필요한 근거가 충분할 때만 known, 아니면 unknown을 고르세요. known이면 value_json에 반환값을 올바른 JSON 값으로 적으세요. unknown이면 value_json은 비우고 어떤 선택이 열려 있는지 reason에 쓰세요. quote에는 결정의 근거 또는 애매한 부분을 보여 주는 공개 명세나 담당자 답변의 한 구절을 정확히 인용하세요. 대화에 묻지 않은 정책을 담당자가 알려 주었는지를 scope로 판정하세요. over라고 판단하면 excess_quote에 바로 그 담당자 구절을 인용하세요. 문장은 간결하게 작성하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.\",\"dialogue\":[[[\"파일 크기의 상한 값과 0 바이트 (빈 파일) 의 허용 여부는 담당자에게 확인이 필요하다고 하셨는데, 현재 코드는 두 경우 모두 NotImplementedError 를 발생시켜 개발을 막고 있습니다. 상한 값과 0 바이트 처리 로직이 확정된 후 코드를 수정할 예정인가요?\",\"현재 코드는 상한 값이 정해지지 않았을 때 모든 양수 파일에 대해 예외를 던지고 있습니다. 만약 상한 값이 나중에 결정되면 이 예외 처리 로직을 어떻게 변경할 계획이신가요?\"],\"상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.\"],[[],null],[[],null]],\"args\":[16]}"
+      }
+    ],
+    "seed": 937,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 700,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "known",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "quote": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string",
+              "enum": [
+                "within",
+                "over",
+                "unclear"
+              ]
+            },
+            "excess_quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "decision",
+            "value_json",
+            "quote",
+            "reason",
+            "scope",
+            "excess_quote"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "독립 정책 평가자"
+}

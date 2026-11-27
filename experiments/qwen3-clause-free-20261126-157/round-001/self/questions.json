@@ -1,0 +1,75 @@
+{
+  "arm": "self",
+  "batch": 1,
+  "issued_at": 1795630052.281558,
+  "groups": [
+    {
+      "question": "일반 취소 마감은 이용 시작 24시간 전입니다. 이는 until_start_seconds의 어떤 값에 해당하나요?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "이용이 시작되면 일반 취소는 마감됩니다. until_start_seconds가 0이하일 경우, 일반 취소는 허용됩니까?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있습니다. 이는 until_start_seconds의 어떤 범위에 해당하나요?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 이는 until_start_seconds의 어떤 범위에 해당하나요?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "일반 취소 마감이 24시간 전인 경우, until_start_seconds가 86400초(24시간)보다 큰 경우에만 취소가 허용됩니까?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "이용 시작 시점(0) 이후에는 일반 취소가 허용되지 않습니까?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있는 경우, until_start_seconds가 0보다 큰 경우에만 취소가 허용됩니까?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "별도의 정정 시간에 대한 정책은 어떤 조건에 따라 결정되며, 해당 조건을 명확히 해야 하는가요?",
+      "sources": [
+        "self-review-1"
+      ]
+    },
+    {
+      "question": "별도의 정정 시간이 적용되는 고객의 조건은 무엇인가요? (예: 방금 잘못 예약한 고객의 정의)",
+      "sources": [
+        "self-review-1"
+      ]
+    },
+    {
+      "question": "별도의 정정 시간에 적용되는 고객의 조건은 무엇인가요? (예: 방금 잘못 예약한 고객의 정의)",
+      "sources": [
+        "self-review-2",
+        "self-review-3"
+      ]
+    },
+    {
+      "question": "별도의 정정 시간의 기준은 무엇인가요? (예: 예약 생성 후 일정 시간 이내에 예약한 고객)",
+      "sources": [
+        "self-review-2",
+        "self-review-3"
+      ]
+    }
+  ]
+}

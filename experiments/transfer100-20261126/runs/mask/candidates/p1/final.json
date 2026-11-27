@@ -1,0 +1,98 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def mask_code(code):\n    \"\"\"\n    화면에서 식별코드를 가리는 함수입니다.\n    \n    입력: 영문 대소문자와 숫자로만 된 문자열 (빈 문자열 포함)\n    출력: 마지막 세 글자는 원래 문자 그대로, 앞의 글자는 별표(*)로 바뀐 문자열\n    \n    동작:\n    1. 입력 문자열의 길이를 확인합니다.\n    2. 길이가 3 이하인 경우: 입력과 동일한 문자열을 반환합니다.\n    3. 길이가 3 초과인 경우:\n       - 마지막 3 글자는 원래 문자 그대로 유지합니다.\n       - 나머지 앞의 글자(길이 - 3 개)는 별표(*)로 바꿉니다.\n    4. 입력에는 공백이나 다른 문자가 없음을 가정합니다.\n    \n    예시:\n    mask_code(\"abc\") -> \"abc\"\n    mask_code(\"abcd\") -> \"*cd\"\n    mask_code(\"abcdef\") -> \"***def\"\n    \"\"\"\n    if len(code) <= 3:\n        return code\n    else:\n        masked_prefix = \"*\" * (len(code) - 3)\n        return masked_prefix + code[-3:]"
+  },
+  "sha256": "845e3bf137bcf240a345a68c50eabf1ff3a5dfaf2a3498ebc9ef11b2a57c559e",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def mask_code(code):\n    \"\"\"\n    화면에서 식별코드를 가리는 함수입니다.\n    \n    입력: 영문 대소문자와 숫자로만 된 문자열 (빈 문자열 포함)\n    출력: 마지막 세 글자는 원래 문자 그대로, 앞의 글자는 별표(*)로 바뀐 문자열\n    \n    동작:\n    1. 입력 문자열의 길이를 확인합니다.\n    2. 길이가 3 이하인 경우: 입력과 동일한 문자열을 반환합니다.\n    3. 길이가 3 초과인 경우:\n       - 마지막 3 글자는 원래 문자 그대로 유지합니다.\n       - 나머지 앞의 글자(길이 - 3 개)는 별표(*)로 바꿉니다.\n    4. 입력에는 공백이나 다른 문자가 없음을 가정합니다.\n    \n    예시:\n    mask_code(\"abc\") -> \"abc\"\n    mask_code(\"abcd\") -> \"*cd\"\n    mask_code(\"abcdef\") -> \"***def\"\n    \"\"\"\n    if len(code) <= 3:\n        return code\n    else:\n        masked_prefix = \"*\" * (len(code) - 3)\n        return masked_prefix + code[-3:]"
+    },
+    "sha256": "845e3bf137bcf240a345a68c50eabf1ff3a5dfaf2a3498ebc9ef11b2a57c559e",
+    "received": [
+      1
+    ],
+    "author_call": "07b1d389061afc2f896b54f4cb37cf4e77f598218960aa65027f3d1ffd90f25e",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "마지막 세 글자를 공개하는 규칙이 코드에서 어떻게 구현되었는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하는 기준이 운영 결정에 따라 달라질 수 있습니다. 현재 코드는 항상 마지막 3 글자를 공개하도록 구현되어 있는데, 이 공개 글자 수를 변경할 계획이 있는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "마지막 세 글자를 공개하는 운영 결정이 코드에 반영되었는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "3434824beca71d38fb3fe964d2440aadffb316a1436cd3d3f8355609420c9fec",
+    "0b68ff691daf3e148951cfaf7547bda756259b315e985133d457c1c007c5d7ff",
+    "6b765637df059068c9ae61bb69f1ccdc6e7687f54eb698ef76600d7271a79b0a",
+    "07b1d389061afc2f896b54f4cb37cf4e77f598218960aa65027f3d1ffd90f25e",
+    "e3ecac918c8f4fd995e5f779a58331c1021829ab780049b0367ba800d8513e79",
+    "8656a74ff3565148e64e36fc195dc0acfad29833b27845ebb030ad0d1c1dd134",
+    "3cb47a9e6213b5046524cd1e77c98a5a77fc102c53c962ae526ab111451af169"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "18ed1aef37382d3888c085642278eab11283dbcba9b07a53b43fa9d8e77ba28f",
+      "questions": [
+        {
+          "question": "mask_code 함수가 모든 입력 문자를 별표 (*) 로 변환하는 구현이 공개 요구사항에 따라 올바른지 확인해 주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "mask_code 함수는 입력된 문자열의 모든 글자를 별표로 변환하는 로직이 구현되어 있는데, 공개 요구사항에서 '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않아 이 부분을 어떻게 처리할지 확인이 필요합니다.",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "needs_code_fix: mask_code 함수는 입력된 문자열의 모든 글자를 별표(*)로 바꾼 결과물을 반환해야 하지만, 현재 코드는 입력 문자열의 대소문자와 숫자 정보를 모두 삭제하고 있습니다.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.\n별표는 가린 글자마다 하나씩 쓰고, 결과 길이와 공개 글자의 원래 대소문자 및 순서를 유지합니다. 입력에는 공백이나 다른 문자가 없습니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

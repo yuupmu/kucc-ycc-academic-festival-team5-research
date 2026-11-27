@@ -1,0 +1,1026 @@
+{
+  "text": "{\n  \"applicable\": true,\n  \"regions\": {\n    \"width_cm < 0 and height_cm < 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm < 0 and height_cm == 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm < 0 and 0 < height_cm < 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm < 0 and height_cm == 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm < 0 and height_cm > 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 0 and height_cm < 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 0 and height_cm == 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 0 and 0 < height_cm < 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 0 and height_cm == 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 0 and height_cm > 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"0 < width_cm < 6 and height_cm < 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"0 < width_cm < 6 and height_cm == 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"0 < width_cm < 6 and 0 < height_cm < 4\": {\n      \"result\": \"True\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"0 < width_cm < 6 and height_cm == 4\": {\n      \"result\": \"True\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"0 < width_cm < 6 and height_cm > 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 6 and height_cm < 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 6 and height_cm == 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 6 and 0 < height_cm < 4\": {\n      \"result\": \"True\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 6 and height_cm == 4\": {\n      \"result\": \"True\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm == 6 and height_cm > 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm > 6 and height_cm < 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm > 6 and height_cm == 0\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm > 6 and 0 < height_cm < 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm > 6 and height_cm == 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    },\n    \"width_cm > 6 and height_cm > 4\": {\n      \"result\": \"False\",\n      \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]\n    }\n  }\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 1372,
+    "prompt_tokens": 909,
+    "total_tokens": 2281,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 909,
+    "prompt_ms": 1024.096,
+    "prompt_per_token_ms": 1.1266182618261826,
+    "prompt_per_second": 887.6120988657314,
+    "predicted_n": 1372,
+    "predicted_ms": 35964.549,
+    "predicted_per_token_ms": 26.232347921225383,
+    "predicted_per_second": 38.12087286288506
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 37.02,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 프로젝트의 메인 작성자입니다. 공개 원문과 실제 담당자 회신만으로 함수 동작을 구현하세요. 같은 입력을 설명하는 서로 겹치지 않는 영역을 제공합니다. 각 영역 전체에 대하여 원문이 보장하는 결과를 선택하고 관련 원문 번호를 인용하세요. 한 영역 안에서도 아직 가능한 정책에 따라 결과가 달라지면 defer를 고르세요. 조건식을 새로 쓰거나 미정 정책을 추측할 필요가 없습니다. 경계의 정확한 순간과 양옆을 따로 읽으세요. 한 규칙이 닫힌 뒤에도 적용되는 예외가 있으면 그 정보도 사용하세요. 집합에서 단 하나의 알려진 값 자체를 반환하는 선택은 그 값이 단 하나인 영역에만 쓸 수 있습니다. 원문에 주어진 순위 연산은 입력에 있는 값들 중 그 순서로 가장 앞선 값을 반환합니다. 목록만 제시된 순서는 우선순위가 아닙니다. 연산의 근거 번호도 함께 인용하세요. 일반 분기 조건만으로 본래 함수 역할을 표현할 수 없을 때만 applicable을 false로 표시하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"함수\":\"fits_print(width_cm: int, height_cm: int)\",\"원문\":{\"P1\":\"고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\",\"P2\":\"한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\",\"P3\":\"가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.\",\"H1\":\"각 길이는 자기 상한과 정확히 같아도 허용합니다.\",\"H2\":\"가로 길이 없음에는 거부로 처리합니다.\",\"H3\":\"세로 길이 없음에는 거부로 처리합니다.\",\"H4\":\"가로 길이의 상한은 6센티미터입니다.\",\"H5\":\"세로 길이의 상한은 4센티미터입니다.\",\"H6\":\"한쪽이라도 음수이면 거부하고 회전이나 가로·세로 교환은 하지 않습니다. 두 길이가 양수이고 각 상한보다 작으면 허용하고 어느 한쪽이라도 자기 상한을 초과하면 거부합니다.\"},\"입력영역\":[\"width_cm < 0 and height_cm < 0\",\"width_cm < 0 and height_cm == 0\",\"width_cm < 0 and 0 < height_cm < 4\",\"width_cm < 0 and height_cm == 4\",\"width_cm < 0 and height_cm > 4\",\"width_cm == 0 and height_cm < 0\",\"width_cm == 0 and height_cm == 0\",\"width_cm == 0 and 0 < height_cm < 4\",\"width_cm == 0 and height_cm == 4\",\"width_cm == 0 and height_cm > 4\",\"0 < width_cm < 6 and height_cm < 0\",\"0 < width_cm < 6 and height_cm == 0\",\"0 < width_cm < 6 and 0 < height_cm < 4\",\"0 < width_cm < 6 and height_cm == 4\",\"0 < width_cm < 6 and height_cm > 4\",\"width_cm == 6 and height_cm < 0\",\"width_cm == 6 and height_cm == 0\",\"width_cm == 6 and 0 < height_cm < 4\",\"width_cm == 6 and height_cm == 4\",\"width_cm == 6 and height_cm > 4\",\"width_cm > 6 and height_cm < 0\",\"width_cm > 6 and height_cm == 0\",\"width_cm > 6 and 0 < height_cm < 4\",\"width_cm > 6 and height_cm == 4\",\"width_cm > 6 and height_cm > 4\"],\"가능한결과\":{\"True\":{\"동작\":\"True\",\"근거\":[]},\"False\":{\"동작\":\"False\",\"근거\":[]},\"defer\":{\"동작\":null,\"근거\":[]}}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2450,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "applicable": {
+              "type": "boolean"
+            },
+            "regions": {
+              "type": "object",
+              "properties": {
+                "width_cm < 0 and height_cm < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm < 0 and height_cm == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm < 0 and 0 < height_cm < 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm < 0 and height_cm == 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm < 0 and height_cm > 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 0 and height_cm < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 0 and height_cm == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 0 and 0 < height_cm < 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 0 and height_cm == 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 0 and height_cm > 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < width_cm < 6 and height_cm < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < width_cm < 6 and height_cm == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < width_cm < 6 and 0 < height_cm < 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < width_cm < 6 and height_cm == 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < width_cm < 6 and height_cm > 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 6 and height_cm < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 6 and height_cm == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 6 and 0 < height_cm < 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 6 and height_cm == 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm == 6 and height_cm > 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm > 6 and height_cm < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm > 6 and height_cm == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm > 6 and 0 < height_cm < 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm > 6 and height_cm == 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "width_cm > 6 and height_cm > 4": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "width_cm < 0 and height_cm < 0",
+                "width_cm < 0 and height_cm == 0",
+                "width_cm < 0 and 0 < height_cm < 4",
+                "width_cm < 0 and height_cm == 4",
+                "width_cm < 0 and height_cm > 4",
+                "width_cm == 0 and height_cm < 0",
+                "width_cm == 0 and height_cm == 0",
+                "width_cm == 0 and 0 < height_cm < 4",
+                "width_cm == 0 and height_cm == 4",
+                "width_cm == 0 and height_cm > 4",
+                "0 < width_cm < 6 and height_cm < 0",
+                "0 < width_cm < 6 and height_cm == 0",
+                "0 < width_cm < 6 and 0 < height_cm < 4",
+                "0 < width_cm < 6 and height_cm == 4",
+                "0 < width_cm < 6 and height_cm > 4",
+                "width_cm == 6 and height_cm < 0",
+                "width_cm == 6 and height_cm == 0",
+                "width_cm == 6 and 0 < height_cm < 4",
+                "width_cm == 6 and height_cm == 4",
+                "width_cm == 6 and height_cm > 4",
+                "width_cm > 6 and height_cm < 0",
+                "width_cm > 6 and height_cm == 0",
+                "width_cm > 6 and 0 < height_cm < 4",
+                "width_cm > 6 and height_cm == 4",
+                "width_cm > 6 and height_cm > 4"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "applicable",
+            "regions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-region-decisions"
+}

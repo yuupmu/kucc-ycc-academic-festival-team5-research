@@ -1,0 +1,98 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "import re\n\n\ndef clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열을 하나의 공백으로 통일\n    # 정규식: 공백, 하이픈, 빈 문자열 (\\s) 을 하나씩 묶어서 하나의 공백으로 치환\n    # \\s+ 는 하나 이상의 공백을 의미하므로, 이를 하나의 공백으로 줄여줌\n    # 하이픈도 연속된 경우를 하나의 하이픈으로 줄여줌\n    # 빈 문자열 (두 공백 사이) 도 하나의 공백으로 치환됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\n"
+  },
+  "sha256": "b0499d84ac6ff212cdaa3fa8dc3844f3bc360007049613530759eb5398156351",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "import re\n\n\ndef clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열을 하나의 공백으로 통일\n    # 정규식: 공백, 하이픈, 빈 문자열 (\\s) 을 하나씩 묶어서 하나의 공백으로 치환\n    # \\s+ 는 하나 이상의 공백을 의미하므로, 이를 하나의 공백으로 줄여줌\n    # 하이픈도 연속된 경우를 하나의 하이픈으로 줄여줌\n    # 빈 문자열 (두 공백 사이) 도 하나의 공백으로 치환됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\n"
+    },
+    "sha256": "b0499d84ac6ff212cdaa3fa8dc3844f3bc360007049613530759eb5398156351",
+    "received": [
+      1
+    ],
+    "author_call": "87acd269152c06880fdc2abae58b21b78a8abef77e2664847648e3fcc42400de",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "연속된 하이픈이 여러 개 있을 때 이를 하나의 하이픈으로 통일하는 처리는 현재 구현에 포함되어야 하는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 통일하는 처리 기준이 명확하지 않습니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 통일하는 규칙이 명확하지 않아 편집 담당자의 기준을 구체적으로 물어봐 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "34bc20f35ee2eeec4e6368696de41f80fd35be8a7f6631dc5a3d96327464b386",
+    "2f171a7942b0f3cb90e092eefa70e75fb4c8aec55819b4e3e20b1e81a02770bc",
+    "9a3ecd4f2df0b7d76e4e4765849ecbd6aae52a85174c7e39d767fe38679054d2",
+    "87acd269152c06880fdc2abae58b21b78a8abef77e2664847648e3fcc42400de",
+    "d0dd73a25fbef3ef4b21be69404733f15de90c6754f4c7ab1aa4965430a2da0c",
+    "5784ee106447491a2495b5f20054bd31f4c429605edf7054ec2ac7eb0eff8810",
+    "89478369cf39cf956f747bbc3c2f694eb43b5ab2d8adc7c234a2bc0cd8aaac2d"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "42113bcfbe0edd2139594acb071a863ea6ec1418a314270587a01d512d3d85ee",
+      "questions": [
+        {
+          "question": "clean_title 함수가 연속된 하이픈을 하나의 하이픈으로 통일하는지 확인하기 위해 'a--b' 입력 시 결과가 'a b'가 되는지, 즉 하이픈이 공백으로 치환되는지 확인해야 하는지 편집 담당자에게 질문드립니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "clean_title 함수에서 정규식 r'[\\s-]+'으로 연속된 공백과 하이픈을 하나의 공백으로 통일할 때, 빈 문자열 (두 공백 사이) 이 제거되어 빈 문자열이 아닌 텍스트로 변환되는 것을 방지할 수 있는가?",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "연속된 하이픈이 있는 경우 (예: 'hello--world') 를 하나의 하이픈으로 통일하는 로직이 구현되어 있는지 확인해주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "하이픈은 개수와 위치를 그대로 유지합니다.\n이 질문만으로는 정할 상황을 특정하기 어렵습니다. 결과가 달라지는 입력이나 처리 기준을 구체적으로 물어봐 주세요.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

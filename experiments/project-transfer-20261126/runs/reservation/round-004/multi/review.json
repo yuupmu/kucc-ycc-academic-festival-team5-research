@@ -1,0 +1,204 @@
+{
+  "reviews": [
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 3
+            },
+            {
+              "file": "solution.py",
+              "line": 11
+            }
+          ],
+          "sources": [
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A1.5",
+            "A2.1",
+            "A2.2",
+            "A2.3",
+            "A3.1"
+          ],
+          "message": "정정 가능 기간은 10분이며, 정정 시간은 예약 생성부터 셉니다. 일반 마감이 지난 예약도 정정 기간 안이면 정정할 수 있습니다. 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 11
+            },
+            {
+              "file": "solution.py",
+              "line": 14
+            }
+          ],
+          "sources": [
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A1.5",
+            "A2.1",
+            "A2.2",
+            "A2.3",
+            "A3.1"
+          ],
+          "message": "일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+        }
+      ],
+      "ready": true
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 3
+            },
+            {
+              "file": "solution.py",
+              "line": 11
+            }
+          ],
+          "sources": [
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A1.5",
+            "A2.1",
+            "A2.2",
+            "A2.3",
+            "A3.1"
+          ],
+          "message": "현재 코드는 정정 기간(10분)을 고려하지 않고, 일반 마감 시간(24시간 전)을 잘못 적용하고 있습니다. 정정 기간은 예약 생성 시간부터 계산되며, 정정 기간 내에 있으면 일반 마감이 지난 예약도 정정할 수 있습니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 7
+            },
+            {
+              "file": "solution.py",
+              "line": 10
+            }
+          ],
+          "sources": [
+            "A1.3",
+            "A1.5",
+            "A2.3",
+            "A3.1"
+          ],
+          "message": "이용이 시작되는 순간(until_start_seconds == 0)에는 정정 기간이 남아 있어도 거부해야 합니다. 그러나 현재 코드는 until_start_seconds == 0일 때 return False로 처리하고 있으므로, 이 조건은 이미 충족되어 있습니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 14
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3",
+            "A2.2",
+            "A2.3",
+            "A3.2",
+            "A3.3"
+          ],
+          "message": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다. 그러나 현재 코드는 정정 기간을 고려하지 않고, 일반 마감 시간(24시간 전)을 기준으로만 처리하고 있습니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 3
+            },
+            {
+              "file": "solution.py",
+              "line": 11
+            }
+          ],
+          "sources": [
+            "A1.1",
+            "A1.2",
+            "A1.3",
+            "A1.5",
+            "A2.1",
+            "A2.2",
+            "A2.3",
+            "A3.1"
+          ],
+          "message": "현재 코드는 정정 기간(10분)을 age_seconds로 처리하고 있지만, 정정 기간은 예약 생성 시간부터 셉니다. age_seconds는 예약 생성 후 경과한 시간이므로, 정정 기간이 10분인 경우 age_seconds <= 600(10분)이어야 합니다. 그러나 코드는 age_seconds > 600일 때만 거부하고, 600 이하일 때는 항상 허용하고 있습니다. 이는 정정 기간이 10분이라는 조건을 반영하지 못합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 11
+            },
+            {
+              "file": "solution.py",
+              "line": 14
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3",
+            "A3.2",
+            "A3.3"
+          ],
+          "message": "현재 코드는 until_start_seconds < 86400일 때 True를 반환하고, 그 외에는 False를 반환합니다. 이는 일반 마감이 지난 예약에 대한 처리가 잘못되었습니다. 일반 마감은 이용 시작 24시간 전이므로, until_start_seconds >= 86400일 때 일반 마감이 지난 것으로 간주해야 합니다. 그러나 코드는 until_start_seconds < 86400일 때 True를 반환하고, 그 외 False를 반환하고 있습니다. 이는 일반 마감이 지난 예약을 허용하는 조건이 잘못되었습니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "solution.py",
+              "line": 7
+            },
+            {
+              "file": "solution.py",
+              "line": 8
+            }
+          ],
+          "sources": [
+            "A1.3",
+            "A2.3",
+            "A3.1"
+          ],
+          "message": "현재 코드는 until_start_seconds == 0일 때 False를 반환하고 있지만, 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부해야 합니다. 이는 until_start_seconds == 0일 때만 거부하는 조건이 부족합니다. 정정 기간이 남아 있어도 이용이 시작된 순간에는 거부해야 하므로, until_start_seconds <= 0일 때 거부해야 합니다."
+        }
+      ],
+      "ready": false
+    }
+  ],
+  "main_questions": [
+    "정정 기간이 10분이라는 조건은 age_seconds를 기준으로 판단해야 하며, until_start_seconds와는 별개의 조건입니다. 이 조건을 어떻게 반영해야 할까요?"
+  ],
+  "questions": [
+    {
+      "question": "정정 기간이 10분이라는 조건은 age_seconds를 기준으로 판단해야 하며, until_start_seconds와는 별개의 조건입니다. 이 조건을 어떻게 반영해야 할까요?",
+      "proposed_by": [
+        "main"
+      ]
+    }
+  ],
+  "ready": false
+}

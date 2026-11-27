@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "files": {
+    "router.py": "def triage(tags):\n    for tag in tags:\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    return 'general'\n"
+  },
+  "sha256": "de186a58eec4a98fcaf14a381fb77eddc6e21feabe6355903deb50966f83a3c4",
+  "plan": "담당자의 분류 관행에 따라, 우선순위가 높은 태그를 먼저 검사하고, 알 수 없는 태그는 무시합니다. 태그가 하나도 없으면 general 팀으로 보냅니다. 기존 코드는 단일 태그만 처리하고, 여러 태그가 겹치는 경우를 처리하지 않아 수정이 필요합니다.",
+  "complete": true,
+  "applied_edits": [
+    {
+      "file": "router.py",
+      "first": 2,
+      "last": 5,
+      "sources": [
+        "A1.1",
+        "A1.2",
+        "A1.3"
+      ],
+      "text": "    for tag in tags:\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    return 'general'"
+    }
+  ],
+  "edit_error": null,
+  "received": [
+    1
+  ]
+}

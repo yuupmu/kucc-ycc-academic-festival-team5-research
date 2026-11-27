@@ -1,0 +1,266 @@
+{
+  "writer": {
+    "calls": [
+      "29efa89c012b3572c4a4de03303b02f04004a20ea359f3ecde5f75fc2cfa7645",
+      "547c3a81ffb699df49d0160bb8bea0e6c1abde675289d39c40480499486eede4"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "fits_print(width_cm, height_cm) -> bool 함수 구현 필요. width_cm, height_cm 은 정수 센티미터. 0 은 길이 없음.",
+        "input": "width_cm",
+        "still_open": "0 처리 여부, 음수 처리 여부, 상한 처리 여부, 회전/교환 여부.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "음수 거부. 양수이고 자기 상한보다 작으면 허용. 상한 초과 거부. 회전/교환 하지 않음. True/False 반환.",
+        "input": "width_cm",
+        "still_open": "0 처리 여부, 상한 값.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인 필요 (불확실).",
+        "input": "width_cm",
+        "still_open": "0 처리, 상한 처리.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "가로 길이 없음 (0) 은 거부.",
+        "input": "width_cm",
+        "still_open": "None",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "세로 길이 없음 (0) 은 거부.",
+        "input": "height_cm",
+        "still_open": "None",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "가로 길이 상한은 6cm.",
+        "input": "width_cm",
+        "still_open": "None",
+        "status": "rule"
+      },
+      "H4": {
+        "established": "세로 길이 상한은 4cm.",
+        "input": "height_cm",
+        "still_open": "None",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def fits_print(width_cm: int, height_cm: int) -> bool:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 음수 확인",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if width_cm < 0 or height_cm < 0:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 0 처리: 가로/세로 길이 없음이므로 거부",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if width_cm == 0 or height_cm == 0:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 상한 확인: 가로 6cm, 세로 4cm. 상한과 같은 길이는 허용 (strictly less than)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if width_cm >= 6 or height_cm >= 4:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return True",
+            "sources": []
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def fits_print(width_cm: int, height_cm: int) -> bool:\n    # 음수 확인\n    if width_cm < 0 or height_cm < 0:\n        return False\n    \n    # 0 처리: 가로/세로 길이 없음이므로 거부\n    if width_cm == 0 or height_cm == 0:\n        return False\n    \n    # 상한 확인: 가로 6cm, 세로 4cm. 상한과 같은 길이는 허용 (strictly less than)\n    if width_cm >= 6 or height_cm >= 4:\n        return False\n    \n    return True"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "height_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H3": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H4": {
+        "status": "rule",
+        "input": "height_cm",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "error": null,
+    "complete": false
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "상한과 같은 길이는 허용하는지",
+            "outcome_a": "상한과 같은 길이는 허용합니다.",
+            "outcome_b": "상한과 같은 길이는 거부합니다.",
+            "question": "상한과 같은 길이는 허용하는지?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "상한 길이와 같은 길이는 허용하는지",
+            "outcome_a": "상한 길이와 같은 길이는 허용합니다.",
+            "outcome_b": "상한 길이와 같은 길이는 거부합니다.",
+            "question": "상한 길이와 같은 길이는 허용하는지 확인해 주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "상한 길이와 동일한 길이는 허용하는지",
+            "outcome_a": "상한 길이와 동일한 길이는 허용합니다.",
+            "outcome_b": "상한 길이와 동일한 길이는 거부합니다.",
+            "question": "상한 길이와 동일한 길이는 허용하는지 확인해 주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "d28272087a6e54b77afcbdbb627778e611feeb7a01b362f320628283242968ef",
+    "336628ca95043907c9302612e7cd14a9aa1e1764a4fe2ca90635ddcc1684537c",
+    "dd636a95b069b4af920c82cc9d574abbc26d1327af5bb58c3a05b87d11351d0b",
+    "7f18438fcb03ffd5c8dcf449a503516db306a8468a0b6f37310631e8d204dacc",
+    "1798248ce38a6a3c23edae3d8462d67ad527cd2bfe07c7428e618dc7a078b803",
+    "29efa89c012b3572c4a4de03303b02f04004a20ea359f3ecde5f75fc2cfa7645",
+    "547c3a81ffb699df49d0160bb8bea0e6c1abde675289d39c40480499486eede4",
+    "25f65b0c913c5fbc6b8a6bcf01f536853484ca9f46df8e89783ea895b726424e",
+    "8b08a7df4d8466c0700f6d3298dab7b803b202c62b947d4985d3e5a0f4417156",
+    "e559dcb1854f2939b4c43292cf75cbe2f5f4dd6f2028a38e63d5526cbc8b68e7"
+  ],
+  "files": {
+    "solution.py": "def fits_print(width_cm: int, height_cm: int) -> bool:\n    # 음수 확인\n    if width_cm < 0 or height_cm < 0:\n        return False\n    \n    # 0 처리: 가로/세로 길이 없음이므로 거부\n    if width_cm == 0 or height_cm == 0:\n        return False\n    \n    # 상한 확인: 가로 6cm, 세로 4cm. 상한과 같은 길이는 허용 (strictly less than)\n    if width_cm >= 6 or height_cm >= 4:\n        return False\n    \n    return True"
+  },
+  "sha256": "34b0f39e87e4127c3b3d31997673e065dd33b2744a28a061e0a163d70b59e858",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "a18b59f25a7ecdbc3add0eaea4fd3c9797ef914f473f9fd9cdea0a09af16b1c0",
+      "questions": [
+        {
+          "question": "0 인 길이는 허용해야 하는가?",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "인쇄 영역의 가로와 세로 상한값은 무엇인가요?",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A2"
+        }
+      ],
+      "text": "가로 길이 없음에는 거부로 처리합니다.\n세로 길이 없음에는 거부로 처리합니다.\n가로 길이의 상한은 6센티미터입니다.\n세로 길이의 상한은 4센티미터입니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

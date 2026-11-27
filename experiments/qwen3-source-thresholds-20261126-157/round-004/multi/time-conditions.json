@@ -1,0 +1,371 @@
+[
+  {
+    "row": 1,
+    "limit": "until_start_seconds · 24시간",
+    "side": "작은 쪽",
+    "equality": true,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": [
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+        "meaning": "허용"
+      }
+    ]
+  },
+  {
+    "row": 1,
+    "limit": "age_seconds · 10분",
+    "side": "작은 쪽",
+    "equality": true,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": [
+      {
+        "ref": 6,
+        "text": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+        "meaning": "smaller"
+      }
+    ]
+  },
+  {
+    "row": 2,
+    "limit": "until_start_seconds · 24시간",
+    "side": "작은 쪽",
+    "equality": false,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": [
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+        "meaning": "허용"
+      }
+    ]
+  },
+  {
+    "row": 2,
+    "limit": "age_seconds · 10분",
+    "side": "큰 쪽",
+    "equality": false,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": [
+      {
+        "ref": 6,
+        "text": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+        "meaning": "smaller"
+      }
+    ]
+  },
+  {
+    "row": 3,
+    "limit": "until_start_seconds · 24시간",
+    "side": "큰 쪽",
+    "equality": false,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": [
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+        "meaning": "허용"
+      }
+    ]
+  },
+  {
+    "row": 3,
+    "limit": "age_seconds · 10분",
+    "side": "작은 쪽",
+    "equality": null,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 4,
+    "limit": "until_start_seconds · 24시간",
+    "side": "큰 쪽",
+    "equality": null,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 4,
+    "limit": "age_seconds · 10분",
+    "side": "같은 순간",
+    "equality": null,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 5,
+    "limit": "until_start_seconds · 24시간",
+    "side": "작은 쪽",
+    "equality": null,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 5,
+    "limit": "age_seconds · 10분",
+    "side": "같은 순간",
+    "equality": null,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 6,
+    "limit": "until_start_seconds · 24시간",
+    "side": "큰 쪽",
+    "equality": false,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": [
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+        "meaning": "허용"
+      }
+    ]
+  },
+  {
+    "row": 6,
+    "limit": "age_seconds · 10분",
+    "side": "큰 쪽",
+    "equality": null,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 7,
+    "limit": "until_start_seconds · 24시간",
+    "side": "같은 순간",
+    "equality": null,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": [
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+        "meaning": "허용"
+      }
+    ]
+  },
+  {
+    "row": 8,
+    "limit": "until_start_seconds · 24시간",
+    "side": "작은 쪽",
+    "equality": null,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 9,
+    "limit": "until_start_seconds · 24시간",
+    "side": "큰 쪽",
+    "equality": null,
+    "input": "until_start_seconds",
+    "seconds": 86400,
+    "sources": [
+      {
+        "ref": 0,
+        "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+      },
+      {
+        "ref": 1,
+        "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+      },
+      {
+        "ref": 3,
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 10,
+    "limit": "age_seconds · 10분",
+    "side": "작은 쪽",
+    "equality": null,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": []
+  },
+  {
+    "row": 11,
+    "limit": "age_seconds · 10분",
+    "side": "큰 쪽",
+    "equality": null,
+    "input": "age_seconds",
+    "seconds": 600,
+    "sources": [
+      {
+        "ref": 5,
+        "text": "정정 기간은 예약 생성 후 10분입니다."
+      }
+    ],
+    "boundary_sources": []
+  }
+]

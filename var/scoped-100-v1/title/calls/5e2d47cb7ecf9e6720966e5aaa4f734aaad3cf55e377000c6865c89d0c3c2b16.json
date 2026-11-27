@@ -1,0 +1,85 @@
+{
+  "text": "{\"cases\": [{\"args\": \"\\\"Hello  World  - Test  - 123  \\\"\", \"expected\": \"\\\"hello world - test - 123 \\\"\"}, {\"args\": \"\\\"   \\\"\", \"expected\": \"\\\" \\\"\"}, {\"args\": \"\\\"A-B-C\\\"\", \"expected\": \"\\\"a-b-c\\\"\"}, {\"args\": \"\\\"123\\\"\", \"expected\": \"\\\"123\\\"\"}, {\"args\": \"\\\"Hello\\\"\", \"expected\": \"\\\"hello\\\"\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 100,
+    "prompt_tokens": 309,
+    "total_tokens": 409,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 309,
+    "prompt_ms": 400.143,
+    "prompt_per_token_ms": 1.2949611650485435,
+    "prompt_per_second": 772.2239299450447,
+    "predicted_n": 100,
+    "predicted_ms": 2561.718,
+    "predicted_per_token_ms": 25.875939393939394,
+    "predicted_per_second": 38.64593995123585
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.98,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "코드에 접근할 수 없는 독립 검토자입니다. 공개 요구와 담당자 답변에 따라 그 답의 적용과 예외를 구별하는 다양한 입력을 고르세요. 각 답변에 명시된 서로 다른 경계 양쪽과 정확히 경계인 경우, 예외, 조합을 포함하세요. args와 expected는 각각 JSON 배열과 JSON 반환값을 인코딩한 문자열입니다. 확정된 결과만 작성합니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"answers\":[\"연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.\",\"연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.\",\"연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다.\"]}"
+      }
+    ],
+    "seed": 702,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1500,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "args": {
+                    "type": "string"
+                  },
+                  "expected": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "args",
+                  "expected"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 4,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "cases"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "owner-reader"
+}

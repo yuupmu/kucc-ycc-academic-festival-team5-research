@@ -1,0 +1,75 @@
+{
+  "route": "implement",
+  "calls": [
+    "db58850968ab300dc4ea554c8fef460bb6fc45dc00e2410425154507dfc4eac5",
+    "9fc62d4b7257b4d4b6581b426a5c1a5dc91071e5f51abbbe4334bedb17b4eee9",
+    "5a0bd72fe78a6597e347771f257256a9560d732c6e10ecb2b07ab164376dbf4c",
+    "3b3c479f040f5398e1281d43eaa43005a384aa2f2d3c85bb85baaedae56edec1"
+  ],
+  "decisions": [
+    {
+      "region": "size_bytes == 0",
+      "site": "@pending:8:8",
+      "behavior_actions": [
+        "False"
+      ],
+      "value": "False"
+    },
+    {
+      "region": "0 < size_bytes < 16",
+      "site": "@pending:12:4",
+      "behavior_actions": [
+        "True"
+      ],
+      "value": "True"
+    },
+    {
+      "region": "size_bytes == 16",
+      "site": "@pending:12:4",
+      "behavior_actions": [
+        "True"
+      ],
+      "value": "True"
+    },
+    {
+      "region": "size_bytes > 16",
+      "site": "@pending:12:4",
+      "behavior_actions": [
+        "False"
+      ],
+      "value": "False"
+    }
+  ],
+  "unresolved": [],
+  "behavior": [
+    {
+      "when": "size_bytes < 0",
+      "then": "False 반환 (음수 입력은 잘못된 크기이므로 거부합니다.)"
+    },
+    {
+      "when": "size_bytes == 0",
+      "then": "False 반환 (담당자 회신: 0 바이트 빈 파일은 거부합니다.)"
+    },
+    {
+      "when": "0 < size_bytes < 16",
+      "then": "True 반환 (상한보다 작은 양수 파일은 허용합니다.)"
+    },
+    {
+      "when": "size_bytes == 16",
+      "then": "True 반환 (담당자 회신: 정확히 상한인 파일은 허용합니다.)"
+    },
+    {
+      "when": "size_bytes > 16",
+      "then": "False 반환 (상한보다 큰 파일은 거부합니다.)"
+    }
+  ],
+  "predicates": {
+    "true_when": "size_bytes > 0 and size_bytes < 16 or size_bytes == 16",
+    "false_when": "size_bytes < 0 or size_bytes == 0 or size_bytes > 16",
+    "evidence": "abc-1/H1"
+  },
+  "outstanding_policy": {
+    "note": "상한 16 바이트, 정확히 16 바이트는 허용하며 0 바이트는 거부하므로 allow_upload(size_bytes) = (size_bytes > 0) and (size_bytes <= 16) 입니다.",
+    "unresolved_when": "False"
+  }
+}

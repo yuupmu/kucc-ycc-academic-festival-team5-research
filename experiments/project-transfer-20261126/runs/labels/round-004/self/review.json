@@ -1,0 +1,136 @@
+{
+  "reviews": [
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 4
+            },
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3",
+            "P2"
+          ],
+          "message": "중복 여부를 판단할 때는 'casefold'를 적용한 값을 사용해야 합니다. 그러나 현재 코드는 'label = item.strip().casefold()'로 처리하고, 'if label not in result' 조건에서 'result'에 저장된 값은 원본 문자열이 아닙니다. 'result'에 저장할 때는 원본 문자열을 사용해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            },
+            {
+              "file": "labels.py",
+              "line": 6
+            }
+          ],
+          "sources": [
+            "A1.3",
+            "A2.3",
+            "P2"
+          ],
+          "message": "같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 그러나 현재 코드는 'if label not in result' 조건으로 중복을 제거하고, 'result'에 저장할 때는 'item.strip()'으로 처리합니다. 이는 'casefold'를 적용한 값으로 중복 여부를 판단하지만, 저장할 때는 이미 공백을 제거한 값이므로, 'casefold'를 적용한 값과 저장된 값이 다를 수 있습니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 4
+            },
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3",
+            "P2"
+          ],
+          "message": "중복 여부를 판단할 때는 'casefold'를 적용한 값을 사용해야 합니다. 그러나 현재 코드는 'label = item.strip().casefold()'로 처리하고, 'if label not in result' 조건에서 'result'에 저장된 값은 원본 문자열이 아닙니다. 'result'에 저장할 때는 원본 문자열을 사용해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            },
+            {
+              "file": "labels.py",
+              "line": 6
+            }
+          ],
+          "sources": [
+            "A1.3",
+            "A2.3",
+            "P2"
+          ],
+          "message": "같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 그러나 현재 코드는 'if label not in result' 조건으로 중복을 제거하고, 'result'에 저장할 때는 'item.strip()'으로 처리합니다. 이는 'casefold'를 적용한 값으로 중복 여부를 판단하지만, 저장할 때는 이미 공백을 제거한 값이므로, 'casefold'를 적용한 값과 저장된 값이 다를 수 있습니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 4
+            },
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3",
+            "P2"
+          ],
+          "message": "중복 여부를 판단할 때는 'casefold'를 적용한 값을 사용해야 합니다. 그러나 현재 코드는 'label = item.strip().casefold()'로 처리하고, 'if label not in result' 조건에서 'result'에 저장된 값은 원본 문자열이 아닙니다. 'result'에 저장할 때는 원본 문자열을 사용해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            },
+            {
+              "file": "labels.py",
+              "line": 6
+            }
+          ],
+          "sources": [
+            "A1.3",
+            "A2.3",
+            "P2"
+          ],
+          "message": "같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 그러나 현재 코드는 'if label not in result' 조건으로 중복을 제거하고, 'result'에 저장할 때는 'item.strip()'으로 처리합니다. 이는 'casefold'를 적용한 값으로 중복 여부를 판단하지만, 저장할 때는 이미 공백을 제거한 값이므로, 'casefold'를 적용한 값과 저장된 값이 다를 수 있습니다."
+        }
+      ],
+      "ready": false
+    }
+  ],
+  "main_questions": [],
+  "questions": [],
+  "ready": false
+}

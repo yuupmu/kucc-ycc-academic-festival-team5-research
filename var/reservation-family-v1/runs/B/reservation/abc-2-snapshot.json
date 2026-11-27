@@ -1,0 +1,40 @@
+{
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds < 0:\n        return False\n    if until_start_seconds < 86400:\n        return True\n    return False",
+  "calls": [
+    "7fe6a1d0567c7b9441a0728a14578211a782f18c75cbd4f7ca6006c20a3670d2",
+    "adabb23d1bcdff757b46f4f8a8aab22992121167e2be9d557294e67ddcfcdf3b",
+    "3ae49fae504a71b336cbba47961d8e42a853a11483250bca065bfde285113180",
+    "7e99cc5eefe9ca2b9158b1521ef84fa82caed0453fced546beb25e64fb5652f9",
+    "9c69fcab406be936cbbe61af8d0cde519e00651e2f7f72f4e6581d6ed6dcf954",
+    "21d09242f123e8090ca63f2a8a065bbfb052cb63f158cb0e3759a55d091e10ca",
+    "5242710da65e5cf278ce9d8e2154ca323df345f7d85370bd5153585f7ec237f6",
+    "79b3279d472a949580a65493e7fa973ca2ad719cbd3c3bfb53aa5806280c3f66",
+    "5ad4032feacb4159ad4ebe360197f065c7fb0f2aa7fdf11279dfadae298b8992",
+    "eb862960b3ca9dec91c649bd4bf6d055f2ae7a1c2d24952cc847e0375fc03605",
+    "752c19e6a577ac2b9941cbf75f0317d30320c9089153df2986dc53f748b931a2",
+    "721548e9d951bf35b31ecae923857099f3b5199c543ef1ee31959ac074ce222a"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "until_start_seconds가 음수일 때, 정정 요청을 허용해야 하는가?",
+        "이용이 시작되기 직전에 취소를 요청한 고객에게는 정정 시간이 주어지는 것이 맞나요? 만약 그렇다면, until_start_seconds가 0에 가까워질수록 취소를 허용해야 할까요?",
+        "until_start_seconds가 음수일 때, 정정 요청을 받을 수 있나요?"
+      ],
+      "answer": {
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다. 정정 가능 기간은 10분입니다. 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다. 이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다."
+      }
+    },
+    {
+      "request_id": "abc-2",
+      "questions": [
+        "until_start_seconds가 음수일 때, 정정 요청을 허용해야 하는가?",
+        "until_start_seconds가 음수일 때, 정정 요청을 허용해야 하는가? 이 경우, 예약 생성 시점부터의 시간 차이를 고려하여 정정 가능성을 판단해야 하는가?"
+      ],
+      "answer": {
+        "text": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다."
+      }
+    }
+  ]
+}

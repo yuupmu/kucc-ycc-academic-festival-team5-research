@@ -1,0 +1,74 @@
+{
+  "calls": [
+    "d6cf9297d931c97afe58707bc578e9ba9d0af2c12764f6d47552c519a12100f9",
+    "03e7d8e523777e89574065e2b370965ff2eac73a6c187682c6348bb3698aff12",
+    "a913e0712b8f8a4e552349f5068fa13497bd292e0c9c75bf936b6d154616c98c",
+    "8e29cd30b7a4489dc32cdc19d1f7eb3d512517c7187a79adb5c2d9dbc82c80df"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "업로드 파일 크기 검사 함수 allow_upload(size_bytes)에서 0이 입력되었을 때 거부 (False) 처리가 되어야 하는지, 아니면 빈 파일에 대한 허용 여부가 저장소 담당자에게 확인이 필요한지",
+            "outcome_a": "0 입력 시 거부 (False) 처리",
+            "outcome_b": "0 입력 시 거부 여부가 저장소 담당자에게 확인 필요",
+            "question": "0 입력 시 거부 (False) 처리가 되어야 하는지, 아니면 빈 파일에 대한 허용 여부가 저장소 담당자에게 확인이 필요한지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 에 대한 허용 여부",
+            "outcome_a": "담당자 답변에 따라 거부 (False)",
+            "outcome_b": "빈 파일은 '0'이므로 음수 입력이 아니므로 거부하지 않고 (True) 허용해야 한다.",
+            "question": "빈 파일 (0 바이트) 을 거부하는지, 아니면 음수 입력이 아닌 일반적인 입력으로 허용하는지?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 바이트인 빈 파일은 거부 처리하고 있습니다.",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일은 거부 처리해야 하는가?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "0 입력 시 거부 (False) 처리가 되어야 하는지, 아니면 빈 파일에 대한 허용 여부가 저장소 담당자에게 확인이 필요한지",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "빈 파일 (0 바이트) 을 거부하는지, 아니면 음수 입력이 아닌 일반적인 입력으로 허용하는지?",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "빈 파일은 거부 처리해야 하는가?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

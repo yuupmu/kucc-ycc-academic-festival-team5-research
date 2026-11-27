@@ -1,0 +1,37 @@
+{
+  "questions": [
+    {
+      "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "selections": [
+    [
+      "rank",
+      "unknown"
+    ],
+    [
+      "rank"
+    ],
+    [
+      "three_known"
+    ]
+  ],
+  "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+  "source": "delegated_policy_card",
+  "origin": "experiments/rule-cycle-20261126/runs/triage/operator.json"
+}

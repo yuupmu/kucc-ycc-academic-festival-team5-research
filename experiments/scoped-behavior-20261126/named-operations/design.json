@@ -1,0 +1,27 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "model_sha256": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c",
+  "task_seeds": {
+    "upload": [
+      273,
+      419,
+      887
+    ],
+    "sensors": [
+      419
+    ]
+  },
+  "files": {
+    "experiments/scoped-behavior-20261126/design.json": "b9e4a7c302d54f0df3067387c10125df687deda19c0066778255610147dc8a91",
+    "experiments/scoped-behavior-20261126/sealed.json": "1cc296887dfe089864ab2a6b491052d7094c9d864dfd0ce805b32bf3de71ec4d",
+    "experiments/scoped-behavior-20261126/results.json": "643be2afe487495c30e3dc31f2717cb2521f59adbe6e59d184aadad20fe155f9",
+    "experiments/scoped-behavior-20261126/trial.py": "2afb7a8e6ba42b22dbbc767d1a0f9efc319b08564150085f1de31dc45eabc2a3",
+    "experiments/scoped-behavior-20261126/score.py": "a34bb028ac4d01135eabdfe4f0bd0408c875db9eebc745cdb53905db1a736fb2",
+    "experiments/scoped-behavior-20261126/evaluate.py": "7df7bb4b16b6387bb1d635ac3b049fb4fdbf8e2068a40352cd09486c96153fd9",
+    "experiments/scoped-behavior-20261126/site_trial.py": "302e0a7b545d21d2455c3f739db6ceea24ed5391fd6709ff80c8a16ce944d0d1",
+    "experiments/scoped_sites.py": "d256b627e079388d42d65b9e8becd3d7589f614219be9edb0d0fe0be9ed3faf3"
+  },
+  "change": "Only the code edit representation. Reuse exact recorded behavior plans; charge them at full cost.",
+  "grading": "After all eight submissions are frozen. Upload primary 15,16,17 and fixed prior integer grid -2..33. Sensors: prior finite grid of the four readings through length four. Compare fixes, losses, strict typed returns, paired changes and writer tokens.",
+  "independent_holdout": false
+}

@@ -1,0 +1,259 @@
+"""Apply an owner's explicit answer as a scoped decision before the ordinary final review."""
+import ast
+import re
+from copy import deepcopy
+
+from backend import scoped_implementation
+from backend.structured_output import array, obj
+from experiments import region_cycle
+
+
+VERSION='owner-answer-v1'
+TEXT={'type':'string','maxLength':220}
+BLOCK={'type':'string','maxLength':2000}
+ANY='*'
+EXTRACT=('당신은 코드를 쓰는 메인입니다. 실제 담당자 회신을 읽고, 회신이 직접 결정하는 입력 조건과 그때의 반환 동작을 묶으세요. '
+         '질문은 지칭 대상을 알아보는 문맥입니다. 질문의 예시나 가설을 규칙으로 쓰지 마세요. 답을 확인해 주지 않았거나 '
+         '기간·기산점·용어만 주고 반환을 아직 결정하지 못하는 문장은 생략하세요. 여러 질문에 짧은 답만 있어 대상이 모호해도 생략하세요. '
+         '각 규칙에는 회신 번호와 그 답에서 그대로 복사한 결과 구절이 필요합니다. 공개 요구사항은 입력·반환값의 뜻을 정의합니다. '
+         '규칙의 효력이 있는 모든 조건을 명시하세요. “정확히 그 순간”을 이전이나 이후까지 넓히지 마세요. '
+         '조건과 예외를 현재 선택지로 정확히 나타낼 수 없으면 그 규칙을 생략하세요.')
+REGIONS=(EXTRACT+' 먼저 답의 결과를 고른 뒤 그 결과가 보장되는 입력 범위만 선택하세요. *는 해당 축의 모든 값에 '
+         '같은 결과가 보장될 때만 선택합니다. 한 조합의 예를 여러 조합 전체에 적용하지 마세요. 이미 받은 다른 답의 예외도 지키세요.')
+NATIVE=(EXTRACT+' 아래 현재 코드에서 그 답을 거스르거나 누락한 부분에만 최소한의 치환을 작성하세요. '
+        'before는 현재 텍스트에 정확히 한 번 나오는 연속 구간이고 after는 같은 형식의 수정입니다. '
+        '일치하거나 정확한 변경을 특정하기 어려우면 edits는 빈 배열입니다.')
+
+
+def enum(values):
+    return {'type':'string','enum':list(values)}
+
+
+def dialogue(receipts):
+    """A repeated 'yes' can have a different referent in each window."""
+    windows,answers=[],{}
+    for receipt in receipts:
+        ids=[]
+        for i,line in enumerate((s.strip() for s in receipt['text'].splitlines() if s.strip()),1):
+            key=f"R{receipt['cycle']}.{i}"
+            answers[key]=line
+            ids.append(key)
+        windows.append({'questions':[q['question'] for q in receipt['questions']],'answers':ids})
+    return windows,answers
+
+
+def condition_menu(cells):
+    """Project the existing disjoint regions onto their axes without executing code or inventing cutoffs."""
+    parts=[name.split(' and ') for name in cells]
+    if not all(re.search(r' (?:==|<|>) ',p) for row in parts for p in row):
+        return {'region':{ANY:set(cells),**{name:{name} for name in cells}}}
+    menu={}
+    for i,column in enumerate(zip(*parts)):
+        bands=list(dict.fromkeys(column))
+        boundary=[(n,m) for n,b in enumerate(bands) if (m:=re.fullmatch(r'(\w+) == (-?[\d.]+)',b))]
+        if not boundary:
+            return {'region':{ANY:set(cells),**{name:{name} for name in cells}}}
+        param=boundary[0][1][1]
+        groups={ANY:set(bands),**{band:{band} for band in bands}}
+        for n,m in boundary:
+            for op,allowed in [('<',bands[:n]),('<=',bands[:n+1]),('>',bands[n+1:]),('>=',bands[n:])]:
+                groups[f'{param} {op} {m[2]}']=set(allowed)
+        menu[param]={label:{cell for cell,row in zip(cells,parts) if row[i] in group} for label,group in groups.items()}
+    return menu
+
+
+def witness(rule,answers):
+    key=rule['reply']
+    quote=rule['quote'].strip()
+    return bool(quote and key in answers and quote in answers[key])
+
+
+def boolean_meanings(public):
+    """Use the interface's own action-to-bool mapping, including interfaces whose truth value is reversed."""
+    result={}
+    patterns=[r'([가-힣]+?)(?:하면|이면|라면|일\s*때)\s*`?(True|False)(?![A-Za-z0-9_])',
+              r'\b([A-Za-z][\w-]*)\s+(?:means|maps to|returns)\s+`?(True|False)\b']
+    for pattern in patterns:
+        for word,value in re.findall(pattern,public):
+            result.setdefault(word,set()).add(value)
+    return {word:next(iter(values)) for word,values in result.items() if len(values)==1}
+
+
+def explicit_boolean(rule,statement,meanings):
+    quote=rule['quote'].strip()
+    vals=set(re.findall(r'(?<![A-Za-z0-9_])(?:True|False)(?![A-Za-z0-9_])',quote))
+    for word,val in meanings.items():
+        if word in quote and not re.search(re.escape(word)+r'\s*(?:하|되)?지\s*(?:않|못)|\bnot\s+'+re.escape(word),statement,re.I):
+            vals.add(val)
+    permitted={v for k,v in meanings.items() if k.casefold() in ('허용','허가','승인','allowed','permitted','approved')}
+    if len(permitted)==1:
+        yes=next(iter(permitted))
+        no='False' if yes=='True' else 'True'
+        if re.search(r'수\s*없(?:습|다)|불가능(?:합|하)|불가(?:합|하)|\b(?:cannot|may not)\b',quote,re.I):
+            vals.add(no)
+        elif re.search(r'수\s*있(?:습|다)|가능(?:합|하)|\b(?:can|may)\b',quote,re.I):
+            vals.add(yes)
+    return next(iter(vals)) if len(vals)==1 else None
+
+
+def apply_decisions(original,rules,packet,answers,menu):
+    result=deepcopy(original)
+    rows=result['regions']
+    sources=packet['원문']
+    meanings=boolean_meanings('\n'.join(s for k,s in sources.items() if k.startswith('P')))
+    declared=set()
+    sole=packet['가능한결과'].get('sole declared value')
+    if sole:
+        for node in ast.walk(ast.parse(sole['동작'],mode='eval')):
+            if isinstance(node,ast.Constant) and isinstance(node.value,str):
+                declared.add(node.value)
+    proposed={}
+    rejected=[]
+    for rule in rules:
+        if not witness(rule,answers):
+            rejected.append('회신 원문에 없는 인용')
+            continue
+        selected=rule['when'].copy()
+        statement=answers[rule['reply']]
+        value=rule['result']
+        if value in ('True','False'):
+            direct=explicit_boolean(rule,statement,meanings)
+            if direct:
+                value=direct
+            elif meanings:
+                # The existing writer still handles descriptive replies. A number, term, or citation
+                # on its own is insufficient to force an extra boolean override.
+                rejected.append('회신 결과와 공개 반환 규약의 직접 대응이 없음')
+                continue
+        if value.startswith('literal ') and len([s for s in declared if s in statement])>1 and 'region' in menu:
+            rejected.append('특정 값의 조합을 전체 집합 영역으로 넓힐 수 없음')
+            continue
+        if 'region' not in menu and re.search(r'(?:순간|정각|시점)(?:에는|에만)|at the (?:exact )?(?:instant|moment)\b',statement,re.I):
+            if not any(' == ' in label for label in selected.values()):
+                bounds=[(k,label) for k,label in selected.items() if re.fullmatch(r'\w+ (?:<=|>=) -?[\d.]+',label)]
+                if len(bounds)!=1:
+                    rejected.append('정확한 순간에 해당하는 단일 경계를 특정하지 못함')
+                    continue
+                k,label=bounds[0]
+                selected[k]=label.replace('<=','==').replace('>=','==')
+        if all(v==ANY for v in selected.values()) and not re.search(
+                r'항상|언제나|예외\s*없이|모든\s*경우|always|unconditionally|in all cases',answers[rule['reply']],re.I):
+            rejected.append('모든 입력에 적용할 근거가 없음')
+            continue
+        matched=set.intersection(*(menu[axis][label] for axis,label in selected.items()))
+        for name in matched:
+            proposed.setdefault(name,[]).append({**rule,'result':value})
+    changes=[]
+    for name,old in original['regions'].items():
+        claims=proposed.get(name,[])
+        if not claims:
+            continue
+        values={r['result'] for r in claims}
+        target=next(iter(values)) if len(values)==1 else 'defer'
+        if len(values)>1:
+            rejected.append(name+' · 회신 결과가 충돌함')
+        if old['result']==target:
+            continue
+        ids=list(dict.fromkeys(r['reply'] for r in claims))
+        human=[k for k,v in sources.items() if k.startswith('H') and v in [answers[i] for i in ids]]
+        required=packet['가능한결과'][target]['근거']
+        # A computed return uses its pre-existing sourced operator as well as the owner's decision.
+        refs=list(dict.fromkeys([*human,*required,*old['sources']]))[:min(5,len(sources))]
+        rows[name]=dict(result=target,sources=refs)
+        changes.append(dict(region=name,before=old['result'],after=target,replies=ids,conflict=len(values)>1))
+    return result,changes,rejected
+
+
+def apply_text(text,rules,answers):
+    changes=[]
+    for rule in rules:
+        before=rule['before']
+        if not witness(rule,answers) or not before.strip() or text.count(before)!=1 or before==rule['after']:
+            return text,[],['회신 인용 또는 유일한 원본 구간을 확인할 수 없음']
+        first=text.index(before)
+        changes.append((first,first+len(before),rule))
+    changes.sort(key=lambda c:c[0])
+    if any(a[1]>b[0] for a,b in zip(changes,changes[1:])):
+        return text,[],['서로 겹치는 수정 구간']
+    parts=[]
+    end=0
+    for first,last,rule in changes:
+        parts.extend([text[end:first],rule['after']])
+        end=last
+    return ''.join([*parts,text[end:]]),[c[2] for c in changes],[]
+
+
+class AnswerWriter:
+    def __init__(self,ask,receipts,previous,starter):
+        self.ask=ask
+        self.windows,self.answers=dialogue(receipts)
+        self.previous=previous
+        self.starter=starter
+        self.records=[]
+        self.added={}
+
+    def check(self,parent,system,context,fields,seed):
+        context={**context,'질문과_회신_묶음':self.windows,'담당자_답_원문':self.answers}
+        fields={'reply':enum(self.answers),'quote':TEXT,**fields}
+        schema=obj({'edits':array(obj(fields),0,16)})
+        key,decision=self.ask('main-answer-implementation',system,context,schema,seed,1450)
+        self.added[parent]=key
+        if decision:
+            ambiguous={rid for window in self.windows if len(window['questions'])!=1 for rid in window['answers']
+                       if re.fullmatch(r'(?:네|예|아니요|아니오|맞습니다|yes|no|correct)[.! ]*',self.answers[rid],re.I)}
+            decision={**decision,'edits':[r for r in decision['edits'] if r['reply'] not in ambiguous]}
+        return key,decision
+
+    def __call__(self,role,system,packet,schema,seed,limit):
+        key,choice=self.ask(role,system,packet,schema,seed,limit)
+        if role!='main-region-decisions' or not self.answers or not choice or not choice['applicable']:
+            return key,choice
+        cells=packet['입력영역']
+        menu=condition_menu(cells)
+        options=[v for v in packet['가능한결과'] if v!='defer']
+        context={'함수':packet['함수'],'공개_입력과_반환_정의':{k:v for k,v in packet['원문'].items() if k.startswith('P')},
+                 '입력_조건_선택지':{axis:list(values) for axis,values in menu.items()},'반환_선택지':options}
+        call,proof=self.check(key,REGIONS,context,{'result':enum(options),'when':obj({k:enum(v) for k,v in menu.items()})},seed)
+        corrected,changed,issues=(apply_decisions(choice,proof['edits'],packet,self.answers,menu) if proof is not None
+                                  else (choice,[],['담당자 답을 실행 조건으로 해석한 응답이 미완성']))
+        self.records.append(dict(call=call,rules=proof,changes=changed,issues=issues))
+        return key,corrected
+
+    def text(self,role,system,packet,seed,limit):
+        key,text=self.ask.text(role,system,packet,seed,limit)
+        if role!='main-author' or not self.answers or not text:
+            return key,text
+        context={'공개_명세':packet['public_request'],'수정_대상':packet['editable_scope'],'현재_코드':text}
+        call,proof=self.check(key,NATIVE,context,{'before':BLOCK,'after':BLOCK},seed)
+        corrected,changed,issues=(apply_text(text,proof['edits'],self.answers) if proof is not None
+                                  else (text,[],['담당자 답과 편집의 대응을 확인하지 못함']))
+        if changed:
+            targets=scoped_implementation.targets(self.previous,self.starter)
+            scope=packet['editable_scope']
+            target=next(k for k,r in targets.items() if (r['path'],r['name'])==(scope['path'],scope['name']))
+            try:
+                edit=scoped_implementation.natural_edit(target,targets[target],corrected,packet['sources'])
+                shape={k:{'input':'none','status':'rule'} for k in packet['sources']}
+                scoped_implementation.apply(self.previous,targets,[edit],shape)
+            except (ValueError,SyntaxError,RecursionError):
+                corrected,changed,issues=text,[],['답에 따른 수정이 기존 코드 범위 또는 구문과 일치하지 않음']
+        self.records.append(dict(call=call,rules=proof,changes=changed,issues=issues))
+        return key,corrected
+
+    def calls(self,old):
+        return [key for item in old for key in ([item,self.added[item]] if item in self.added else [item])]
+
+
+def revise(project,previous,receipts,seed,role,ask):
+    writer=AnswerWriter(ask,receipts,previous,project['files'])
+    text='\n'.join(r['text'] for r in receipts) or None
+    result=region_cycle.revise(project,previous,text,seed,role,writer)
+    work=result['writer']
+    work['answer_application']=writer.records
+    work['calls']=writer.calls(work['calls'])
+    result['calls']=writer.calls(result['calls'])
+    if any(r['issues'] or any(c.get('conflict') for c in r['changes']) for r in writer.records):
+        work['complete']=False
+        if result['status']=='reviewed_complete':
+            result['status']='open_limit'
+    return result

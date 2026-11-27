@@ -1,0 +1,89 @@
+{
+  "text": "{\"facts\": [{\"quote\": \"상한은 16바이트입니다.\", \"kind\": \"quantity\"}, {\"quote\": \"0바이트 빈 파일은 거부합니다.\", \"kind\": \"decision\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 44,
+    "prompt_tokens": 178,
+    "total_tokens": 222,
+    "prompt_tokens_details": {
+      "cached_tokens": 133
+    }
+  },
+  "server_timings": {
+    "cache_n": 133,
+    "prompt_n": 45,
+    "prompt_ms": 196.767,
+    "prompt_per_token_ms": 4.3726,
+    "prompt_per_second": 228.69688514842426,
+    "predicted_n": 44,
+    "predicted_ms": 1303.335,
+    "predicted_per_token_ms": 30.310116279069767,
+    "predicted_per_second": 32.99228517610591
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.51,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자 발언에서 담당자가 실제로 선언한 독립적인 사실만 추출하세요. 질문, 아직 결정하지 않았다는 말, 단순한 예시는 제외하세요.\nquote에는 주어와 서술어가 모두 담긴 실제 발언 부분을 문자 그대로 복사하세요. 바꾸어 쓰거나 없는 말을 채우지 마세요.\nquantity는 수치 자체가 답인 선언, decision은 어떤 상황에서 무엇을 할지 정한 선언입니다. 행동을 설명하는 문장 속 수치는 맥락일 수 있습니다.\n한 발언에 여러 결정이 있으면 나누세요. 짧은 긍정·부정 회신 자체도 decision입니다. 내용이 없으면 빈 배열입니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"owner_reply\":\"상한은 16바이트입니다. 정확히 상한이면 거부합니다. 0바이트 빈 파일은 거부합니다.\"}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 650,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "quantity",
+                      "decision"
+                    ]
+                  }
+                },
+                "required": [
+                  "quote",
+                  "kind"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "facts"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "owner-statements"
+}

@@ -1,0 +1,30 @@
+{
+  "model": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+  "seed": 263,
+  "task": "title",
+  "cycles": 3,
+  "max_questions": 3,
+  "project": {
+    "brief": "표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.",
+    "files": {
+      "solution.py": "def clean_title(text):\n    raise NotImplementedError\n"
+    }
+  },
+  "reviewer_schedule": [
+    [
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf"
+    ],
+    [
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf"
+    ],
+    [
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+      "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf"
+    ]
+  ]
+}

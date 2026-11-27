@@ -1,0 +1,421 @@
+[
+  {
+    "role": "plan",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "self/plan.json",
+    "before_sha256": "a04ceffbf4a8c82509fece7d94d02405493e9fa3a274435dda26afb56d5ee604",
+    "after_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됩니다. 24시간은 24*60*60=86400초입니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2는 이용이 시작된 후에는 취소가 불가능합니다. until_start_seconds < 0는 이미 시작된 경우를 의미합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 명시적으로 조건이 주어지지 않았으므로, 현재까지의 조건으로는 처리할 수 없습니다. 이는 특별한 경우에 대한 추가 조건이므로, 현재의 일반 규칙에서는 무시됩니다."
+      },
+      "otherwise": false
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "review1",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review1.json",
+    "before_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "after_sha256": "48513fcde7ceaf7c6331fe2fdd3e5523afa71d93731b8ce5e6a01b92fad417e2",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됩니다. 24시간은 24*60*60=86400초입니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2는 이용이 시작된 후에는 취소가 불가능합니다. until_start_seconds < 0는 이미 시작된 경우를 의미합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 1
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "rule_edit",
+        "reason": "원문 R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 명시적으로 조건이 주어지지 않았으므로, 현재까지의 조건으로는 처리할 수 없습니다. 이는 특별한 경우에 대한 추가 조건이므로, 현재의 일반 규칙에서는 무시됩니다. 그러나, '방금 잘못 예약한 고객'이라는",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 명시적으로 조건이 주어지지 않았으므로, 현재까지의 조건으로는 처리할 수 없습니다. 이는 특별한 경우에 대한 추가 조건이므로, 현재의 일반 규칙에서는 무시됩니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "seconds": 1
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+        }
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [
+        6
+      ],
+      "otherwise": [
+        8
+      ]
+    }
+  },
+  {
+    "role": "review2",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review2.json",
+    "before_sha256": "48513fcde7ceaf7c6331fe2fdd3e5523afa71d93731b8ce5e6a01b92fad417e2",
+    "after_sha256": "48513fcde7ceaf7c6331fe2fdd3e5523afa71d93731b8ce5e6a01b92fad417e2",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됩니다. 24시간은 24*60*60=86400초입니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2는 이용이 시작된 후에는 취소가 불가능합니다. until_start_seconds < 0는 이미 시작된 경우를 의미합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 1
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "원문 R3은 '방금 잘못 예약한 고객'이라는 조건이 명시되지 않았으므로, 일반 규칙에서는 무시되지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다. 1초 이내의 경우 정정이 가능하다고 해석합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "seconds": 1
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "seconds": 1
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+        }
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [
+        6
+      ],
+      "otherwise": [
+        8
+      ]
+    }
+  },
+  {
+    "role": "final",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/final.json",
+    "before_sha256": "48513fcde7ceaf7c6331fe2fdd3e5523afa71d93731b8ce5e6a01b92fad417e2",
+    "after_sha256": "48513fcde7ceaf7c6331fe2fdd3e5523afa71d93731b8ce5e6a01b92fad417e2",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됩니다. 24시간은 24*60*60=86400초입니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2는 이용이 시작된 후에는 취소가 불가능합니다. until_start_seconds < 0는 이미 시작된 경우를 의미합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 1
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "원문 R3은 '방금 잘못 예약한 고객'이라는 조건이 명시되지 않았으므로, 일반 규칙에서는 무시되지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다. 1초 이내의 경우 정정이 가능하다고 해석합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "seconds": 1
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "seconds": 1
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장은 1초 이내의 경우 정정이 가능하다고 해석합니다. 이는 특별한 경우에 대한 추가 조건이므로, 일반 규칙에서는 무시하지만, 명시적으로 조건이 주어지지 않았으므로 가정으로 처리합니다."
+        }
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [
+        6
+      ],
+      "otherwise": [
+        8
+      ]
+    }
+  }
+]

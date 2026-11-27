@@ -1,0 +1,79 @@
+{
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "45354425f7a92800bc8517502b33ae6fd3627a744d2b92476df1fd9eaf06df94",
+    "a8dfa9ce7388d33ff9ad24c550644f08993831578eada68d59ceaa2cdc0b83f3",
+    "80c2db699ba66036e9b1a39d2890733c831c28ff7dabf8aec720391ae03f0c6e"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "확장자가 여러 개인 경우 (예: 'archive.tar.gz')를 처리할지, 아니면 마지막 확장자만 반환할지.",
+            "outcome_a": "여러 개의 점을 가진 경우, 점 다음 부분을 반환합니다.",
+            "outcome_b": "여러 개의 점을 가진 경우, 마지막 점 다음 부분을 반환합니다.",
+            "question": "여러 개의 점을 가진 파일 이름 (예: archive.tar.gz)의 경우 점 다음 부분을 반환할지, 마지막 점 다음 부분을 반환할지."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "현재 코드는 모든 입력에 대해 예외를 발생시키고, 요구사항에 명시된 '확장자가 없는 이름' 처리에 대한 구체적인 로직이 구현되지 않았습니다.",
+            "outcome_a": "도입된 코드는 확장자가 없는 경우 NotImplementedError 를 발생시켜 실패합니다.",
+            "outcome_b": "도입된 코드는 확장자가 없는 경우 NotImplementedError 를 발생시켜 실패합니다.",
+            "question": "확장자가 없는 이름에 대해 NotImplementedError 를 발생시키고 실패할지, 아니면 다른 처리 로직을 적용하여 실패하지 않을지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "확장자가 없는 이름 (예: 'readme') 을 입력했을 때, 반환값이 빈 문자열인지 아니면 예외를 던지는지 명확하지 않습니다.",
+            "outcome_a": "빈 문자열 반환",
+            "outcome_b": "예외 발생",
+            "question": "확장자가 없는 이름 (예: 'readme') 을 입력했을 때, 반환값이 빈 문자열인지 아니면 예외를 던지는지 명확하지 않습니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "여러 개의 점을 가진 파일 이름 (예: archive.tar.gz)의 경우 점 다음 부분을 반환할지, 마지막 점 다음 부분을 반환할지.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "확장자가 없는 이름 (예: 'readme') 을 입력했을 때, 반환값이 빈 문자열인지 아니면 예외를 던지는지 명확하지 않습니다.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [
+    {
+      "role": "B",
+      "item": {
+        "situation": "현재 코드는 모든 입력에 대해 예외를 발생시키고, 요구사항에 명시된 '확장자가 없는 이름' 처리에 대한 구체적인 로직이 구현되지 않았습니다.",
+        "outcome_a": "도입된 코드는 확장자가 없는 경우 NotImplementedError 를 발생시켜 실패합니다.",
+        "outcome_b": "도입된 코드는 확장자가 없는 경우 NotImplementedError 를 발생시켜 실패합니다.",
+        "question": "확장자가 없는 이름에 대해 NotImplementedError 를 발생시키고 실패할지, 아니면 다른 처리 로직을 적용하여 실패하지 않을지"
+      },
+      "reason": "distinct_outcomes_missing"
+    }
+  ],
+  "status": "awaiting_human"
+}

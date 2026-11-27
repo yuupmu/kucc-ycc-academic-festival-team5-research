@@ -1,0 +1,41 @@
+{
+  "input_digest": "2b860a860c749a0aa00fdad808281d0882474bf3edf1d9bcd279d66d86077ab0",
+  "finding_review": "Researcher coded scope before inference; no annotation is transmitted to a model.",
+  "findings": [
+    {
+      "issue": "코드의 불일치: 0 바이트 파일 처리 및 상한 값 처리 방식이 저장소 담당자의 요구사항과 일치하지 않습니다.  `NotImplementedError`를 발생시키는 대신, 저장소 담당자의 확인을 받아야 합니다. 파일 크기 상한 값에 대한 명확한 정의가 필요합니다.",
+      "sites": [
+        "@pending:8:8",
+        "@pending:12:4"
+      ]
+    },
+    {
+      "issue": "code에는 상한 값과 정확히 상한인 파일의 허용 여부를 처리하는 부분이 미정 경로로 처리되어 있습니다. 이것은 지정된 정책과 모순됩니다. 또한, 상한 값이 정의되지 않았습니다.",
+      "sites": [
+        "@pending:12:4"
+      ]
+    }
+  ],
+  "checked_evidence": [
+    {
+      "source": "public",
+      "quote": "음수 입력은 잘못된 크기이므로 거부합니다."
+    },
+    {
+      "source": "public",
+      "quote": "담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다."
+    },
+    {
+      "source": "abc-1/H1",
+      "quote": "상한은 16바이트입니다."
+    },
+    {
+      "source": "abc-1/H1",
+      "quote": "정확히 상한이면 허용합니다."
+    },
+    {
+      "source": "abc-1/H1",
+      "quote": "0바이트 빈 파일은 거부합니다."
+    }
+  ]
+}

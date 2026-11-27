@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "def file_suffix(name):\n    parts = name.rsplit('.', 1) if '.' in name else [name]\n    return '' if len(parts) == 1 or parts[-1] == '' else parts[-1]"
+  },
+  "sha256": "86f8fbc9a5d726f095b9cdec77daa076f164e8e99e3d91118b367a3aea51bde2",
+  "received": [
+    1
+  ],
+  "author_call": "30ad3ddea1259526ae84451c85efd534e0a646c87848a9bd5d5704874cae8e4c",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  },
+  "attempts": [
+    {
+      "key": "30ad3ddea1259526ae84451c85efd534e0a646c87848a9bd5d5704874cae8e4c",
+      "issues": [],
+      "bindings": [
+        {
+          "reply": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "    parts = name.rsplit('.', 1) if '.' in name else [name]"
+        },
+        {
+          "reply": "점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "    return '' if len(parts) == 1 or parts[-1] == '' else parts[-1]"
+        }
+      ]
+    }
+  ]
+}

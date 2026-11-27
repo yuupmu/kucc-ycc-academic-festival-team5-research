@@ -1,0 +1,36 @@
+{
+  "type": "web engine diagnostic with fixed responses",
+  "code": "def can_cancel(now, booked_at, starts_at):\n    return False\n",
+  "status": "completed",
+  "verification": {
+    "type": "syntax_and_public_checks",
+    "code_version": 1,
+    "passed": true,
+    "correct": 0,
+    "total": 0,
+    "results": [],
+    "note": "문법·모델 제안 자체 검증. 인간 결정 반영은 모델 보고이며 최종 정확도는 별도 채점."
+  },
+  "monitors": [
+    {
+      "decision": "continue",
+      "version": 1,
+      "verification": null,
+      "status": "observed"
+    },
+    {
+      "decision": "continue",
+      "version": 1,
+      "verification": null,
+      "status": "observed"
+    },
+    {
+      "decision": "continue",
+      "version": 1,
+      "verification": null,
+      "status": "observed"
+    }
+  ],
+  "score": 20,
+  "total": 40
+}

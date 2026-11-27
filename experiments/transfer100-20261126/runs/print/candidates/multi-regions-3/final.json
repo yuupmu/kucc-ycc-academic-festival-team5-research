@@ -1,0 +1,5485 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def fits_print(width_cm: int, height_cm: int) -> bool:\n    # 음수 확인 (P2)\n    if width_cm < 0 and height_cm < 0:\n        return False\n    if width_cm < 0 and height_cm == 0:\n        return False\n    if width_cm < 0 and 0 < height_cm < 4:\n        return False\n    if width_cm < 0 and height_cm == 4:\n        return False\n    if width_cm < 0 and height_cm > 4:\n        return False\n    if width_cm == 0 and height_cm < 0:\n        return False\n    if width_cm == 0 and height_cm == 0:\n        return False\n    if width_cm == 0 and 0 < height_cm < 4:\n        return False\n    if width_cm == 0 and height_cm == 4:\n        return False\n    if width_cm == 0 and height_cm > 4:\n        return False\n    if 0 < width_cm < 6 and height_cm < 0:\n        return False\n    if 0 < width_cm < 6 and height_cm == 0:\n        return False\n    if 0 < width_cm < 6 and 0 < height_cm < 4:\n        return True\n    if 0 < width_cm < 6 and height_cm == 4:\n        return True\n    if 0 < width_cm < 6 and height_cm > 4:\n        return False\n    if width_cm == 6 and height_cm < 0:\n        return False\n    if width_cm == 6 and height_cm == 0:\n        return False\n    if width_cm == 6 and 0 < height_cm < 4:\n        return True\n    if width_cm == 6 and height_cm == 4:\n        return True\n    if width_cm == 6 and height_cm > 4:\n        return False\n    if width_cm > 6 and height_cm < 0:\n        return False\n    if width_cm > 6 and height_cm == 0:\n        return False\n    if width_cm > 6 and 0 < height_cm < 4:\n        return False\n    if width_cm > 6 and height_cm == 4:\n        return False\n    if width_cm > 6 and height_cm > 4:\n        return False\n    raise NotImplementedError"
+    },
+    "calls": [
+      "baf571a22968a304aa985e4145f2198761b5acf77b7b37ea82e95f58a67301a3",
+      "810a976eb5dc66ad2e1cbf53a09b4400859d0e58da9e1ad68e097fb5481cdf51"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "fits_print(width_cm, height_cm) -> bool 함수 구현 필요. width_cm: int (가로, 0=길이 없음), height_cm: int (세로, 0=길이 없음).",
+        "input": "width_cm",
+        "still_open": "0 처리는 H2/H3에 의해 거부됨. 양수 처리는 H4/H5 상한에 의존. 음수 처리는 H6에 의해 거부됨.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "한쪽 음수 -> 거부. 양수이고 각 상한보다 작으면 허용. 한쪽 상한 초과 -> 거부. 회전/교환 없음. True/False 반환.",
+        "input": "width_cm",
+        "still_open": "상한 값은 H4/H5에서 정의됨.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "가로/세로 상한, 상한과 같은 길이, 0 처리는 인쇄 담당자에게 확인 필요.",
+        "input": "width_cm",
+        "still_open": "H1, H4, H5는 구체적인 값과 규칙을 제시함. H2, H3, H6는 구체적인 거부 조건을 제시함. P3의 '확인 필요' 항목은 H1-H6에 의해 구체적으로 덮여있거나 모순됨.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "각 길이는 자기 상한과 정확히 같아도 허용.",
+        "input": "width_cm",
+        "still_open": "상한 값은 H4에 의해 6cm로 정의됨.",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "가로 길이 없음 (0) 은 거부.",
+        "input": "width_cm",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "세로 길이 없음 (0) 은 거부.",
+        "input": "height_cm",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H4": {
+        "established": "가로 길이 상한은 6센티미터.",
+        "input": "width_cm",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H5": {
+        "established": "세로 길이 상한은 4센티미터.",
+        "input": "height_cm",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H6": {
+        "established": "한쪽 음수 -> 거부. 양수이고 각 상한보다 작으면 허용. 한쪽 상한 초과 -> 거부. 회전/교환 없음.",
+        "input": "width_cm",
+        "still_open": "상한 값은 H4/H5에 의해 정의됨.",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 16,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 18,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 20,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 52,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 16,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 18,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 20,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 52,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 16,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 18,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 20,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 52,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "height_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 16,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 18,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 20,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 52,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H4": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 16,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 18,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 20,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "H4",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 52,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H5": {
+        "status": "rule",
+        "input": "height_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "H4",
+              "H5",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H6": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "regions": [
+      {
+        "scope": "T1",
+        "kind": "numeric",
+        "rows": [
+          {
+            "region": "width_cm < 0 and height_cm < 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm < 0 and height_cm == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm < 0 and 0 < height_cm < 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm < 0 and height_cm == 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm < 0 and height_cm > 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 0 and height_cm < 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 0 and height_cm == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 0 and 0 < height_cm < 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 0 and height_cm == 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 0 and height_cm > 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < width_cm < 6 and height_cm < 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < width_cm < 6 and height_cm == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < width_cm < 6 and 0 < height_cm < 4",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < width_cm < 6 and height_cm == 4",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < width_cm < 6 and height_cm > 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 6 and height_cm < 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 6 and height_cm == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 6 and 0 < height_cm < 4",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 6 and height_cm == 4",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm == 6 and height_cm > 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm > 6 and height_cm < 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm > 6 and height_cm == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm > 6 and 0 < height_cm < 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm > 6 and height_cm == 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "width_cm > 6 and height_cm > 4",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "error": null,
+    "complete": false,
+    "format": "regions"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이 6센티미터, 세로 길이 0센티미터를 입력했을 때",
+            "outcome_a": "허용 (True)",
+            "outcome_b": "거부 (False)",
+            "question": "가로 길이가 상한 (6센티미터) 과 정확히 같아도 허용하는지 확인해야 합니까?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이 6센티미터, 세로 길이 4센티미터일 때, 현재 코드는 True를 반환하지만 담당자 답변에 따르면 '상한과 정확히 같아도 허용'하므로 True가 맞음. 그러나 코드의 조건문 구조가 매우 복잡하고 중복되어 가독성이 떨어지고 유지보수가 어렵습니다.",
+            "outcome_a": "코드 로직이 담당자 답변의 규칙을 정확히 반영하고 있음.",
+            "outcome_b": "코드 로직이 담당자 답변의 규칙을 정확히 반영하지 못함.",
+            "question": "코드 로직이 담당자 답변의 규칙을 정확히 반영하고 있습니다."
+          },
+          {
+            "situation": "가로 길이 6센티미터, 세로 길이 4센티미터일 때, 현재 코드는 True를 반환하지만 담당자 답변에 따르면 '상한과 정확히 같아도 허용'하므로 True가 맞음. 그러나 코드의 조건문 구조가 매우 복잡하고 중복되어 가독성이 떨어지고 유지보수가 어렵습니다.",
+            "outcome_a": "코드 로직이 담당자 답변의 규칙을 정확히 반영하고 있음.",
+            "outcome_b": "코드 로직이 담당자 답변의 규칙을 정확히 반영하지 못함.",
+            "question": "코드 로직이 담당자 답변의 규칙을 정확히 반영하고 있습니다."
+          },
+          {
+            "situation": "가로 길이 6센티미터, 세로 길이 4센티미터일 때, 현재 코드는 True를 반환하지만 담당자 답변에 따르면 '상한과 정확히 같아도 허용'하므로 True가 맞음. 그러나 코드의 조건문 구조가 매우 복잡하고 중복되어 가독성이 떨어지고 유지보수가 어렵습니다.",
+            "outcome_a": "코드 로직이 담당자 답변의 규칙을 정확히 반영하고 있음.",
+            "outcome_b": "코드 로직이 담당자 답변의 규칙을 정확히 반영하지 못함.",
+            "question": "코드 로직이 담당자 답변의 규칙을 정확히 반영하고 있습니다."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이가 6센티미터이고 세로 길이가 4센티미터인 경우를 허용하는지 확인합니다.",
+            "outcome_a": "가로 길이 6센티미터, 세로 길이 4센티미터인 경우를 허용합니다.",
+            "outcome_b": "가로 길이 6센티미터, 세로 길이 4센티미터인 경우를 거부합니다.",
+            "question": "가로 길이 6센티미터, 세로 길이 4센티미터인 경우를 허용합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "d28272087a6e54b77afcbdbb627778e611feeb7a01b362f320628283242968ef",
+    "c10db394ed16ed81fe5f2573412f63da7ed3c32815728e43d0204e64cdce19d4",
+    "edbbc43c83ce3b9dde838a45ba8ecd4c88051046b46dc9c2a6775159c79d24de",
+    "e5bcbc8fd94cef2e0c6eb7519529fc7fe2ab5b85b428e590aefb191b88be4d8b",
+    "2c57216340f814f4979da11b871e3db8f75f76176dc7a05e8caa6071b569c6d1",
+    "fe78b55ff31ecfe73ea15035be170a3aad34406db07852cc18ba8b5a227dee96",
+    "dc5a40199e881d71735120c40187458e08a8cb14e14af751ec5ec4feb70e6b8c",
+    "2fd6b31f658d87657db237b5567bb3a14c501ebb5a023b67ec7c477155029f54",
+    "5100440655fb6205dbbe7d8159b054fd7fbbab25f1a1868c2962fcd0d2986eee",
+    "9efd7f993ca5b7f52fe98374661d324440f569c1b39e0cf1b4184cd9588e514b",
+    "988c85a6e142df519d2f3d54dc9a1dee827ad84bd02cbf9b9629cf7048a10da9",
+    "d5dc46453e7ff3cc767e16a0176260d9bbe61c36cc40b438b3126b17a8c49fcc",
+    "58d63e3a8d88a0ee0f92406af4b5d89273b16af6188e6b0069f9cdddcf585f4f",
+    "5203a46e3634b42fbed78a023cf80777cb1b788bf8e092a880f5102a75db31b5",
+    "ccdc37dc29fa9b06897049549d97d369b474148b2400a7ee99339fffde1e8ec7",
+    "52fa1513d099428eb50c001c0abe42d8b555fecb0a99d5c149b143e2709d7ea7",
+    "c460ac879b108f2b1e84f54a62ffbca44e656cfcdc59868153874faec6db6c51",
+    "b33724fa2380fcd63982b1458071e93b891030eb91f8dfc4994d093d10f3d909",
+    "d861ee71d5131e6394f3c035fef8a3d482fd57db519baebb95c0625496de0a1f",
+    "5e605844e06ab4a8776cfe4c00ac6aa9f16dcbd8e1d67f3ba2af6bb8df938994",
+    "baf571a22968a304aa985e4145f2198761b5acf77b7b37ea82e95f58a67301a3",
+    "810a976eb5dc66ad2e1cbf53a09b4400859d0e58da9e1ad68e097fb5481cdf51",
+    "66ff286d9cf89c9b12de246434ebf2839c103e7a41582475c54230be1f9d978f",
+    "3ee36bcd30b3cbc5cb60e4789d304addc42384ef5ce423e1f14009d07fc1c5c1",
+    "09d3561fbf4e2fa43708f59ffbdf834c1de06b817b03baea7d3a3a23a5966dff"
+  ],
+  "files": {
+    "solution.py": "def fits_print(width_cm: int, height_cm: int) -> bool:\n    # 음수 확인 (P2)\n    if width_cm < 0 and height_cm < 0:\n        return False\n    if width_cm < 0 and height_cm == 0:\n        return False\n    if width_cm < 0 and 0 < height_cm < 4:\n        return False\n    if width_cm < 0 and height_cm == 4:\n        return False\n    if width_cm < 0 and height_cm > 4:\n        return False\n    if width_cm == 0 and height_cm < 0:\n        return False\n    if width_cm == 0 and height_cm == 0:\n        return False\n    if width_cm == 0 and 0 < height_cm < 4:\n        return False\n    if width_cm == 0 and height_cm == 4:\n        return False\n    if width_cm == 0 and height_cm > 4:\n        return False\n    if 0 < width_cm < 6 and height_cm < 0:\n        return False\n    if 0 < width_cm < 6 and height_cm == 0:\n        return False\n    if 0 < width_cm < 6 and 0 < height_cm < 4:\n        return True\n    if 0 < width_cm < 6 and height_cm == 4:\n        return True\n    if 0 < width_cm < 6 and height_cm > 4:\n        return False\n    if width_cm == 6 and height_cm < 0:\n        return False\n    if width_cm == 6 and height_cm == 0:\n        return False\n    if width_cm == 6 and 0 < height_cm < 4:\n        return True\n    if width_cm == 6 and height_cm == 4:\n        return True\n    if width_cm == 6 and height_cm > 4:\n        return False\n    if width_cm > 6 and height_cm < 0:\n        return False\n    if width_cm > 6 and height_cm == 0:\n        return False\n    if width_cm > 6 and 0 < height_cm < 4:\n        return False\n    if width_cm > 6 and height_cm == 4:\n        return False\n    if width_cm > 6 and height_cm > 4:\n        return False\n    raise NotImplementedError"
+  },
+  "sha256": "2e7fd9200c068447e061d4685de58dbe4769ef4e0bcc4411bb1e9ab1949587f3",
+  "status": "open_limit",
+  "cycle": 3,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "8384ced4a84d204d4a507683aa5cf0e51afa32642c34e63117a8fc505354c587",
+      "questions": [
+        {
+          "question": "상한값과 같은 길이 (5) 는 허용해야 하나요? 그리고 0 은 절대 허용하지 않아도 되나요?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "각 길이는 자기 상한과 정확히 같아도 허용합니다.\n가로 길이 없음에는 거부로 처리합니다.\n세로 길이 없음에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    },
+    {
+      "cycle": 2,
+      "ticket": "1b7153de0f9462793cbbae86896d79b21f301eca8752233ffc2e33c92f26c69d",
+      "questions": [
+        {
+          "question": "현재 코드와 요청 사항에 따라 '상한과 정확히 같아도 허용'하는 규칙이 적용되지만, '상한보다 작아야만 허용'하는 규칙도 여전히 유효한 해석이 가능합니다. 두 규칙이 모두 요청 사항과 일치합니다. 실제 운영 기준은 무엇인가요? '자기 상한'과 '자기 상한보다 작은 길이'의 기준을 명확히 해주세요. 기준이 되는 값 (Reference point) 과 경계 (Boundary) 를 알려주세요. 예를 들어, '상한과 같아도 허용'하는지, '상한을 초과하면 거부'하는지 명확히 해주세요. 이 결정은 인쇄 담당자의 확인 사항에 기반해야 합니다. 실제 기준이 무엇인지 알려주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "각 길이는 자기 상한과 정확히 같아도 허용합니다. 이 규칙이 맞나요? 아니면 상한보다 작아야만 허용해야 하나요? 두 가지 규칙이 모두 적용될 때 우선순위는 어떻게 되나요?",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "가로 길이 없음 (0) 에는 거부로 처리하시겠습니까?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "가로 길이의 상한은 6센티미터입니다.\n세로 길이의 상한은 4센티미터입니다.\n각 길이는 자기 상한과 정확히 같아도 허용합니다.\n가로 길이 없음에는 거부로 처리합니다.\n세로 길이 없음에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    },
+    {
+      "cycle": 3,
+      "ticket": "597249eecf705d0bb4687fd678c86a48e01a7b10519a38fec6ead3623655613b",
+      "questions": [
+        {
+          "question": "가로 길이의 상한은 6센티미터이고 세로 길이의 상한은 4센티미터이며, 각 길이는 자기 상한과 정확히 같아도 허용합니다. 이 기준에 따라 (6, 4) 입력은 허용 (True) 해야 합니다. 그러나 코드에서는 width_cm > 6 이면 거부하고 width_cm == 6 이면 세로 길이에 따라 판단하는 로직이 혼재되어 있습니다. 특히 width_cm == 6 이고 height_cm == 4 인 경우를 어떻게 처리해야 하는지 명확히 해주세요. 허용해야 하는지 거부해야 하는지 결정해 주세요. (현재 코드는 width_cm == 6 이고 height_cm == 4 인 경우 True 를 반환하고 있습니다.)",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "가로 길이의 상한은 6센티미터이고, 세로 길이의 상한은 4센티미터입니다. 각 길이는 자기 상한과 정확히 같아도 허용합니다. 0 인 길이는 거부합니다. 이 규칙이 맞습니까? 아니면 다른 규칙이 적용되어야 합니까? 만약 두 규칙이 모두 적용 가능해 보인다면, 우선순위가 있는 규칙을 선택해 주세요. (예: 상한을 초과하는 경우 거부하는 규칙이 우선인지, 아니면 0 처리 규칙이 우선인지 등). 또한, 0 이 아닌 길이가 상한보다 작거나 같아야 하는지, 아니면 0 이 아닌 길이가 상한보다 작아야 하는지 명확히 해 주세요. (예: width_cm=6, height_cm=4 는 허용하는지, width_cm=5, height_cm=3",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "가로 길이가 6센티미터이고 세로 길이가 4센티미터보다 큰 경우 (예: 6x5) 는 허용해야 할까요, 아니면 거부해야 할까요?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "각 길이는 자기 상한과 정확히 같아도 허용합니다.\n가로 길이의 상한은 6센티미터입니다.\n세로 길이의 상한은 4센티미터입니다.\n가로 길이 없음에는 거부로 처리합니다.\n세로 길이 없음에는 거부로 처리합니다.\n한쪽이라도 음수이면 거부하고 회전이나 가로·세로 교환은 하지 않습니다. 두 길이가 양수이고 각 상한보다 작으면 허용하고 어느 한쪽이라도 자기 상한을 초과하면 거부합니다.",
+      "source": "delegated_policy_card"
+    }
+  ],
+  "previous_sha256": "2e7fd9200c068447e061d4685de58dbe4769ef4e0bcc4411bb1e9ab1949587f3",
+  "dialogue": "runs/print/dialogues/multi-regions-3/cycle-3"
+}

@@ -1,0 +1,48 @@
+{
+  "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간 이전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_deadline:\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용 시작한 경우, 취소 불가\n        return False\n    else:\n        # 이용 시작 전이지만, 일반 마감 시간 이후에는 취소 불가\n        return False\n```",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 232,
+    "prompt_tokens": 318,
+    "total_tokens": 550,
+    "prompt_tokens_details": {
+      "cached_tokens": 317
+    }
+  },
+  "server_timings": {
+    "cache_n": 317,
+    "prompt_n": 1,
+    "prompt_ms": 59.353,
+    "prompt_per_token_ms": 59.353,
+    "prompt_per_second": 16.84834801947669,
+    "predicted_n": 232,
+    "predicted_ms": 24640.069,
+    "predicted_per_token_ms": 106.66696536796536,
+    "predicted_per_second": 9.374973747029687
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 24.78,
+  "request": {
+    "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 예약 시스템의 Python 개발자입니다. 직접 질문하지 않고 주어진 정보로 전체 함수를 구현합니다."
+      },
+      {
+        "role": "user",
+        "content": "작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n담당자에게 직접 질문하지 마세요. 미확정 사항은 합리적으로 가정하고, 표준 라이브러리만 쓰는 실행 가능한 전체 Python 함수를 하나의 코드 블록으로 제출하세요."
+      }
+    ],
+    "seed": 293,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1500,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "role": "main"
+}

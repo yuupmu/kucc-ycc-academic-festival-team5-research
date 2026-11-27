@@ -1,0 +1,53 @@
+{
+  "common_sha256": "b69a2d480efa1c18c1187685e30f9293e3bbd9976075d7142f2abdb5d9ca74a3",
+  "answer_sha256": "a99fbaf95159abd8c357f2ac3ba07dc8f545f97db304142f1e9befa1c593bae6",
+  "source_sha256": "e05d735e66947ecb067e232597a59b2773ea7a34adb3a59f9bedcc2ea36b2643",
+  "attempts": [
+    {
+      "call": "b9120bff196562c5d45441c060b068028818d5117de20a154158c8a072a9798e",
+      "limit": 1100,
+      "seed": 419,
+      "decoded": true,
+      "outcome": "rejected",
+      "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다.",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "def allow_cancel(age_seconds, until_start_seconds):",
+          "after": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    작은 연습실의 예약 취소 정책 함수\n    \n    두 입력은 정수 초입니다.\n    age_seconds: 예약 생성부터 경과한 시간 (0 이상)\n    until_start_seconds: 이용 시작까지 남은 시간 (0 은 시작 순간, 음수는 이미 시작)\n    \n    안내문 기준:\n    1. 일반 취소 마감은 이용 시작 24 시간 전입니다.\n    2. 이용이 시작되면 일반 취소는 마감됩니다.\n    3. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\n    \n    직원의 답변 (가정): 안내문과 일치하는 운영 기준을 따릅니다.\n    - '이용 시작 24 시간 전' (until_start_seconds >= 86400): 취소 허용\n    - '이용이 시작되면' (until_start_seconds < 0): 취소 거부\n    - '방금 잘못 예약한' (0 <= until_start_seconds < 86400): 취소 허용\n    \n    정정 시간 기준 (직원의 답변):\n    - 정정 시간은 예약 생성 (age_seconds) 부터 셉니다.\n    - 정정 가능 기간은 10 분 (600 초) 입니다.\n    - 정정 기간이 정확히 끝나는 순간도 포함합니다.\n    - 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n    - 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n    - 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n    \n    논리:\n    1. 이미 시작했는지 확인 (until_start_seconds < 0): 거부\n    2. 정정 가능 기간 내인지 확인 (age_seconds < 600): 허용\n    3. 일반 마감이 지난지 확인 (until_start_seconds < 0 이 아닌 경우, 즉 0 이상인 경우): 정정 기간 안이면 허용\n    \n    Args:\n        age_seconds (int): 예약 생성부터 경과한 초\n        until_start_seconds (int): 이용 시작까지 남은 초\n    \n    Returns:\n        bool: 취소를 허용할 경우 True, 거부할 경우 False\n    \"\"\"\n    if until_start_seconds < 0:\n        return False\n    \n    # 정정 가능 기간 (10 분 = 600 초) 내라면 허용\n    if age_seconds < 600:\n        return True\n    \n    # 정정 가능 기간을 지나도 일반 마감이 지난 경우 (until_start_seconds >= 0)\n    # 정정 가능 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n    # 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n    # 정정 가능 기간 (600 초) 을 지나면 일반 마감이 지난지 여부와 관계없이 거부합니다.\n    return False"
+        }
+      ]
+    },
+    {
+      "call": "5c4443e2c27f35ae453ca05a9771692570f1f59d5dff6bdf44ecfcc4c9692175",
+      "limit": 1100,
+      "seed": 420,
+      "decoded": false
+    },
+    {
+      "call": "93973e51cedc6f64c300f2c57036b34e0da9ddcaa7e9a5d2184d895502c6480a",
+      "limit": 1800,
+      "seed": 420,
+      "decoded": true,
+      "outcome": "rejected",
+      "reason": "파일이나 넓은 코드 범위를 통째로 바꿀 수 없습니다.",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "def allow_cancel(age_seconds, until_start_seconds):",
+          "after": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    작은 연습실의 예약 취소 정책 함수\n    \n    두 입력은 정수 초입니다.\n    age_seconds: 예약 생성부터 현재까지 경과한 시간 (0 이상)\n    until_start_seconds: 이용 시작까지 남은 시간 (0 은 시작 순간, 음수는 이미 시작)\n    \n    안내문 기준:\n    1. 일반 취소 마감은 이용 시작 24 시간 전입니다.\n    2. 이용이 시작되면 일반 취소는 마감됩니다.\n    3. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\n    \n    직원의 답변 (가정): 안내문과 일치하는 운영 기준을 따릅니다.\n    - '이용 시작 24 시간 전' (until_start_seconds >= 86400): 취소 허용\n    - '이용이 시작되면' (until_start_seconds < 0): 취소 거부\n    - '방금 잘못 예약한' (0 <= until_start_seconds < 86400): 취소 허용\n    \n    직원의 답변 (정정 시간 기준):\n    - 정정 시간은 예약 생성부터 셉니다.\n    - 정정 가능 기간은 10 분입니다.\n    - 정정 기간이 정확히 끝나는 순간도 포함합니다.\n    - 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n    - 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n    - 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n    \n    논리:\n    - until_start_seconds < 0: 이미 시작했으므로 False\n    - 0 <= until_start_seconds < 86400:\n      - age_seconds < 600 (10 분): 정정 가능 (True)\n      - age_seconds >= 600: 일반 마감이 지나므로 False\n    - until_start_seconds >= 86400:\n      - age_seconds < 600: 정정 가능 (True)\n      - age_seconds >= 600: 일반 마감이 지나므로 False\n    \"\"\"\n    if until_start_seconds < 0:\n        return False\n    \n    if until_start_seconds >= 86400:\n        if age_seconds < 600:\n            return True\n        return False\n    \n    if age_seconds < 600:\n        return True\n    return False"
+        },
+        {
+          "evidence": "abc-1/H1",
+          "before": "def allow_cancel(age_seconds, until_start_seconds):",
+          "after": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    작은 연습실의 예약 취소 정책 함수\n    \n    두 입력은 정수 초입니다.\n    age_seconds: 예약 생성부터 현재까지 경과한 시간 (0 이상)\n    until_start_seconds: 이용 시작까지 남은 시간 (0 은 시작 순간, 음수는 이미 시작)\n    \n    안내문 기준:\n    1. 일반 취소 마감은 이용 시작 24 시간 전입니다.\n    2. 이용이 시작되면 일반 취소는 마감됩니다.\n    3. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\n    \n    직원의 답변 (가정): 안내문과 일치하는 운영 기준을 따릅니다.\n    - '이용 시작 24 시간 전' (until_start_seconds >= 86400): 취소 허용\n    - '이용이 시작되면' (until_start_seconds < 0): 취소 거부\n    - '방금 잘못 예약한' (0 <= until_start_seconds < 86400): 취소 허용\n    \n    직원의 답변 (정정 시간 기준):\n    - 정정 시간은 예약 생성부터 셉니다.\n    - 정정 가능 기간은 10 분입니다.\n    - 정정 기간이 정확히 끝나는 순간도 포함합니다.\n    - 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n    - 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n    - 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n    \n    논리:\n    - until_start_seconds < 0: 이미 시작했으므로 False\n    - 0 <= until_start_seconds < 86400:\n      - age_seconds < 600 (10 분): 정정 가능 (True)\n      - age_seconds >= 600: 일반 마감이 지나므로 False\n    - until_start_seconds >= 86400:\n      - age_seconds < 600: 정정 가능 (True)\n      - age_seconds >= 600: 일반 마감이 지나므로 False\n    \"\"\"\n    if until_start_seconds < 0:\n        return False\n    \n    if until_start_seconds >= 86400:\n        if age_seconds < 600:\n            return True\n        return False\n    \n    if age_seconds < 600:\n        return True\n    return False"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3424,
+    "completion_tokens": 2972,
+    "total_tokens": 6396
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "protocol": "project-evidence-review-v1",
+  "project": {
+    "brief": "편집 도구의 merge_labels(base, incoming) 함수를 구현하세요. 두 입력은 문자열 리스트입니다. 반환값은 화면에 표시할 문자열 리스트입니다.\n기존 목록을 먼저, 새 목록을 그 다음에 읽고, 서로 다른 태그는 처음 나온 위치를 유지합니다. 화면에 표시할 때 양끝 공백은 제거합니다.\n같은 태그를 판별하는 방식과 표기가 겹칠 때 무엇을 보여줄지는 편집팀의 기준을 따릅니다. 비어 있는 문자열이 입력될 수도 있습니다.",
+    "files": {
+      "labels.py": "def merge_labels(base, incoming):\n    result = []\n    for item in base + incoming:\n        label = item.strip()\n        if label not in result:\n            result.append(label)\n    return result\n"
+    }
+  },
+  "seed": 263,
+  "author_model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "review_models": [
+    "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+    "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+    "var/local-models/Qwen3-8B-Q4_K_M.gguf"
+  ],
+  "prompts_sha256": "1952284896b8f1ba7998651bb00f4bf019156ad09dc024b3c08b5c35ddb25068",
+  "limits": {
+    "main": 2200,
+    "review": 850
+  },
+  "max_versions": 6
+}

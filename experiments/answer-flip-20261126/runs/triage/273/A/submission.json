@@ -1,0 +1,26 @@
+{
+  "common_sha256": "75dffda18d3b97a83a462b49b1783a8e3d533ccb0ebd631732f975a25dcaa5dc",
+  "answer_sha256": "5b8f50e633b261e9cc088f9be9574d37f85c6a4552481a56cd49a7ee94e648c3",
+  "source_sha256": "423e3326508fa51faa795902f01b647356277e2e8dd34ce4be5cf6c673440aa0",
+  "attempts": [
+    {
+      "call": "9d29a53d089cc9d825b4e71e0cc4089948078709bd59446869ba14784e0cd55c",
+      "limit": 1100,
+      "seed": 273,
+      "decoded": true,
+      "outcome": "applied",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "if tag in ('account', 'billing', 'privacy'):",
+          "after": "if tag in ('privacy', 'billing', 'account'):"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 636,
+    "completion_tokens": 71,
+    "total_tokens": 707
+  }
+}

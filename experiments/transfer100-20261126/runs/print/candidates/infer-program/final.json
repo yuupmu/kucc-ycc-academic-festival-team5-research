@@ -1,0 +1,390 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def fits_print(width_cm, height_cm):\n    if any((_policy_item in 0 for _policy_item in [width_cm, height_cm])):\n        raise NotImplementedError\n    if width_cm < 0 or height_cm < 0:\n        return False\n    raise NotImplementedError"
+    },
+    "calls": [
+      "2c57216340f814f4979da11b871e3db8f75f76176dc7a05e8caa6071b569c6d1",
+      "1eaf914413cfeb2877fa15fc204c7b0bb69c3228a469fde0cb7bbe9c13d9f574"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "fits_print(width_cm, height_cm) -> bool 함수 구현 필요. width_cm, height_cm 은 정수 센티미터. width_cm=0 또는 height_cm=0 인 경우 거부 (H2, H3).",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의. 상한과 정확히 같거나 0 인 경우의 처리는 인쇄 담당자에게 확인 필요 (P3).",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "한쪽이라도 음수이면 거부. 두 길이 양수이고 각각 자기 상한보다 작으면 허용. 어느 한쪽이라도 자기 상한을 초과하면 거부. 회전이나 교환 없음. True/False 반환.",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "가로/세로 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인 필요.",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "각 길이는 자기 상한과 정확히 같아도 허용.",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의.",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "가로 길이 없음 (0) 은 거부.",
+        "input": "width_cm",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "세로 길이 없음 (0) 은 거부.",
+        "input": "height_cm",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "height_cm",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {
+          "L_P1_1": {
+            "source": "P1",
+            "kind": "listed",
+            "quote": "width_cm, height_cm",
+            "value": [
+              "width_cm",
+              "height_cm"
+            ]
+          }
+        },
+        "decision": {
+          "rules": [
+            {
+              "when": "has_present([width_cm, height_cm], 0)",
+              "action": "defer",
+              "value": "",
+              "sources": [
+                "H2",
+                "H3"
+              ]
+            },
+            {
+              "when": "width_cm < 0 or height_cm < 0",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "width_cm > 0 and height_cm > 0 and width_cm <= 100 and height_cm <= 100",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P2",
+                "H1"
+              ]
+            },
+            {
+              "when": "width_cm > 0 and height_cm > 0 and (width_cm > 100 or height_cm > 100)",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "width_cm > 0 and height_cm > 0 and width_cm == 100 and height_cm == 100",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P2",
+                "H1"
+              ]
+            },
+            {
+              "when": "width_cm > 0 and height_cm > 0 and width_cm == 100 and height_cm < 100",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P2",
+                "H1"
+              ]
+            },
+            {
+              "when": "width_cm > 0 and height_cm > 0 and width_cm < 100 and height_cm == 100",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P2",
+                "H1"
+              ]
+            },
+            {
+              "when": "width_cm > 0 and height_cm > 0 and width_cm < 100 and height_cm < 100",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "width_cm == 0 or height_cm == 0",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "H2",
+                "H3"
+              ]
+            },
+            {
+              "when": "True",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P2"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "False",
+            "sources": [
+              "P2"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "3번째 조건 · 그 입력에 연결된 수량으로 확인되지 않는 문턱값"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이 없음 (0) 은 거부해야 하지만, 현재 코드는 0 을 검사하는 로직이 비활성화되어 NotImplementedError 를 던지고 있습니다.",
+            "outcome_a": "0 인 입력은 즉시 거부하여 예외를 발생시키거나 False 를 반환해야 합니다.",
+            "outcome_b": "0 인 입력은 허용되어 상한 조건과 함께 검사되어야 합니다.",
+            "question": "가로 길이 없음 (0) 은 거부해야 하는지, 아니면 허용하여 상한 조건과 함께 검사해야 하는지?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이 없음 (0) 에 대한 처리가 거부로 되어야 하는지, 아니면 인쇄 담당자에게 확인을 요청해야 하는지",
+            "outcome_a": "가로 길이 없음 (0) 에는 거부 처리",
+            "outcome_b": "가로 길이 없음 (0) 에는 인쇄 담당자에게 확인 요청",
+            "question": "가로 길이 없음 (0) 에 대한 처리가 거부로 되어야 하는지, 아니면 인쇄 담당자에게 확인을 요청해야 하는지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이 없음 (0) 에 대한 처리가 거부 (False) 로 되어야 하지만, 현재 코드는 NotImplementedError 를 발생시켜 예외를 던지고 있으며, 이는 요구사항에 따른 거부 처리가 아닌 구현 오류입니다.",
+            "outcome_a": "가로 길이 없음 (0) 에 대해 NotImplementedError 를 발생시켜 예외를 던짐",
+            "outcome_b": "가로 길이 없음 (0) 에 대해 False 를 반환하여 거부 처리",
+            "question": "가로 길이 없음 (0) 에 대해 NotImplementedError 를 발생시키거나 False 를 반환하는 구현 중 어떤 것이 올바른가?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "d28272087a6e54b77afcbdbb627778e611feeb7a01b362f320628283242968ef",
+    "c10db394ed16ed81fe5f2573412f63da7ed3c32815728e43d0204e64cdce19d4",
+    "edbbc43c83ce3b9dde838a45ba8ecd4c88051046b46dc9c2a6775159c79d24de",
+    "e5bcbc8fd94cef2e0c6eb7519529fc7fe2ab5b85b428e590aefb191b88be4d8b",
+    "2c57216340f814f4979da11b871e3db8f75f76176dc7a05e8caa6071b569c6d1",
+    "1eaf914413cfeb2877fa15fc204c7b0bb69c3228a469fde0cb7bbe9c13d9f574",
+    "8469e67f3dbb4d693363140e059c705a1efff418aafcd09cfad5b78981ea5a68",
+    "5240a10dff92c3c6416ae05944df0425eebb83bfa5b8769be30d87d59c7d45e8",
+    "a0546f6fb4a715b3fb97cb77b286c031bedccfb670186a6bd756328e6865d930"
+  ],
+  "files": {
+    "solution.py": "def fits_print(width_cm, height_cm):\n    if any((_policy_item in 0 for _policy_item in [width_cm, height_cm])):\n        raise NotImplementedError\n    if width_cm < 0 or height_cm < 0:\n        return False\n    raise NotImplementedError"
+  },
+  "sha256": "da03e83f16e1cf78e92b85e69df6bdb45fd98f1916fe58511c8edbf471825b54",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "8384ced4a84d204d4a507683aa5cf0e51afa32642c34e63117a8fc505354c587",
+      "questions": [
+        {
+          "question": "상한값과 같은 길이 (5) 는 허용해야 하나요? 그리고 0 은 절대 허용하지 않아도 되나요?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "각 길이는 자기 상한과 정확히 같아도 허용합니다.\n가로 길이 없음에는 거부로 처리합니다.\n세로 길이 없음에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

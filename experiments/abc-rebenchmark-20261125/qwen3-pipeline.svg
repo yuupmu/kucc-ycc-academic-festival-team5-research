@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1376" height="1142" viewBox="0 0 1376 1142" role="img" aria-labelledby="title desc">
+<title id="title">Qwen3 예약 취소 A·B·C 실험 파이프라인</title>
+<desc id="desc">A는 질문 후 공통 초안을 작성하고 비공개 40문항 기준 점수를 기록한다. B는 메인의 순차 자체 검토, C는 세 감시자의 독립 검토이다. 각 조건에서 담당자가 답변한 뒤 메인이 첫 수정본을 낸다. 담당자 확정 예시를 검사하고 실패 시 최대 5회 더 수정한다. 종료 후 첫 수정본과 마지막 제출본을 비공개 채점한다. 비공개 점수는 모델에 전달되지 않는다.</desc>
+<defs>
+<marker id="flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#506e7b"/></marker>
+<marker id="score" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ad661e"/></marker>
+<marker id="retry" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#006b62"/></marker>
+</defs>
+<rect x="0" y="0" width="1376" height="1142" rx="0" fill="#fafcfc" stroke="none" stroke-width="1.5"/>
+<rect x="0" y="0" width="1376" height="7" rx="0" fill="#006b62" stroke="none" stroke-width="1.5"/>
+<text x="44" y="68" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="45" fill="#153340" font-weight="750" text-anchor="start">Qwen3 예약 취소 실험 파이프라인</text>
+<text x="46" y="108" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="22" fill="#3b535f" font-weight="400" text-anchor="start">불완전한 운영 규칙으로 시작한 A·B·C 실험   ·   Qwen3-8B (추론 끔)   ·   시드 17, 29, 43</text>
+<rect x="978" y="140" width="354" height="908" rx="18" fill="#fcf5e8" stroke="#e9d8b8" stroke-width="1.5"/>
+<text x="46" y="169" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="22" fill="#006b62" font-weight="700" text-anchor="start">모델 호출 · 담당자 답변 · 예시 검사</text>
+<text x="1001" y="172" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="23" fill="#8c4d14" font-weight="700" text-anchor="start">비공개 벤치마크 채점</text>
+<rect x="44" y="191" width="898" height="101" rx="13" fill="#e4f3ef" stroke="#8ebeb2" stroke-width="1.5"/>
+<rect x="65" y="205" width="39" height="31" rx="7" fill="#c4e4db" stroke="none" stroke-width="1.5"/>
+<text x="84.5" y="228" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="22" fill="#006b62" font-weight="700" text-anchor="middle">A</text>
+<text x="116" y="232" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="28" fill="#153340" font-weight="700" text-anchor="start">메인 단독으로 공통 초안 작성</text>
+<text x="67" y="270" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="22" fill="#3b535f" font-weight="400" text-anchor="start">공개 안내문 → 메인이 질문 → 담당자가 카드로 답변 → 메인이 초안 제출</text>
+<rect x="1001" y="192" width="307" height="100" rx="13" fill="#fffdf8" stroke="#d7bd91" stroke-width="1.5"/>
+<text x="1021" y="226" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="24" fill="#8c4d14" font-weight="700" text-anchor="start">A 초안 제출 직후</text>
+<text x="1021" y="255" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="21" fill="#153340" font-weight="400" text-anchor="start">40문항 기준 점수 기록</text>
+<text x="1021" y="280" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="17" fill="#546b77" font-weight="400" text-anchor="start">시드 43의 A 점수  39/40</text>
+<path d="M943 243 H998" fill="none" stroke="#ad661e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#score)" stroke-dasharray="5 5"/>
+<path d="M493 293 V313" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M493 313 H258 V340" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
+<path d="M493 313 H729 V340" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
+<rect x="44" y="343" width="430" height="120" rx="13" fill="#eef3fa" stroke="#bacbe0" stroke-width="1.5"/>
+<rect x="65" y="359" width="39" height="31" rx="7" fill="#d7e5f5" stroke="none" stroke-width="1.5"/>
+<text x="84.5" y="382" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="22" fill="#28568b" font-weight="700" text-anchor="middle">B</text>
+<text x="115" y="384" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="26" fill="#153340" font-weight="700" text-anchor="start">메인의 자체 검토 3회</text>
+<text x="66" y="418" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="21" fill="#3b535f" font-weight="400" text-anchor="start">같은 초안에서 세 관점을 차례로 검토</text>
+<text x="66" y="445" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="19" fill="#3b535f" font-weight="400" text-anchor="start">두 번째·세 번째 검토는 앞선 의견도 읽음</text>
+<rect x="513" y="343" width="429" height="120" rx="13" fill="#edf6f3" stroke="#adcebf" stroke-width="1.5"/>
+<rect x="534" y="359" width="39" height="31" rx="7" fill="#cce7de" stroke="none" stroke-width="1.5"/>
+<text x="553.5" y="382" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="22" fill="#006b62" font-weight="700" text-anchor="middle">C</text>
+<text x="584" y="384" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="26" fill="#153340" font-weight="700" text-anchor="start">독립 감시자 3명</text>
+<text x="535" y="418" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="21" fill="#3b535f" font-weight="400" text-anchor="start">각자 같은 초안과 한 가지 관점을 받음</text>
+<text x="535" y="445" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="19" fill="#3b535f" font-weight="400" text-anchor="start">동료 의견을 보지 않고 한 번씩 검토</text>
+<path d="M258 464 V481 H493" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M729 464 V481 H493" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M493 481 V502" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
+<rect x="44" y="505" width="898" height="97" rx="13" fill="#ffffff" stroke="#b4c8cd" stroke-width="1.5"/>
+<text x="66" y="541" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="27" fill="#153340" font-weight="700" text-anchor="start">담당자가 B와 C에 각각 답변</text>
+<text x="66" y="573" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">의견 3건마다 질문·의견 원문을 읽고 R1·R2·R3에 답을 연결. 지적이 없으면 빈 답.</text>
+<path d="M493 603 V633" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
+<rect x="44" y="636" width="898" height="81" rx="13" fill="#ffffff" stroke="#b4c8cd" stroke-width="1.5"/>
+<text x="66" y="671" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="27" fill="#153340" font-weight="700" text-anchor="start">메인이 조건별 첫 수정본 제출</text>
+<text x="66" y="699" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">메인 입력 = 초안 대화 + 검토 원문 3건 + 의견별 담당자 답변</text>
+<text x="1003" y="412" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="22" fill="#8c4d14" font-weight="700" text-anchor="start">점수를 볼 수 있는 곳</text>
+<text x="1003" y="450" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">채점기는 점수와 문항별 결과를</text>
+<text x="1003" y="479" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">실험 기록에 저장한다.</text>
+<text x="1003" y="527" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">메인과 감시자가 받는 메시지에는</text>
+<text x="1003" y="556" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">이 40문항의 입력·정답·점수가</text>
+<text x="1003" y="585" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">들어가지 않는다.</text>
+<path d="M1004 637 H1058" fill="none" stroke="#ad661e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#score)" stroke-dasharray="5 5"/>
+<text x="1072" y="644" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="18" fill="#8c4d14" font-weight="400" text-anchor="start">채점용 코드 사본</text>
+<path d="M242 718 V775" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
+<path d="M754 779 V747 H438 V775" fill="none" stroke="#006b62" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#retry)"/>
+<text x="580" y="740" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="17" fill="#006b62" font-weight="550" text-anchor="middle">새 코드로 다시 검사</text>
+<rect x="44" y="779" width="482" height="128" rx="13" fill="#e4f3ef" stroke="#8ebeb2" stroke-width="1.5"/>
+<text x="66" y="815" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="24" fill="#153340" font-weight="700" text-anchor="start">검사기가 담당자 확정 예시를 실행</text>
+<text x="66" y="849" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">검토에서 확정한 동작을 매 제출마다 검사.</text>
+<text x="66" y="878" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="19" fill="#3b535f" font-weight="400" text-anchor="start">해당하면 초안 단계에서 확정한 예시도 포함.</text>
+<rect x="612" y="779" width="330" height="128" rx="13" fill="#edf6f3" stroke="#8ebeb2" stroke-width="1.5"/>
+<text x="631" y="815" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="24" fill="#153340" font-weight="700" text-anchor="start">메인 추가 수정 1회</text>
+<text x="631" y="847" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">실패 입력·기대값·실제값과</text>
+<text x="631" y="875" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">담당자 답을 전달. 최대 5회.</text>
+<path d="M527 850 H608" fill="none" stroke="#006b62" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#retry)"/>
+<text x="570" y="837" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="17" fill="#006b62" font-weight="650" text-anchor="middle">실패¹</text>
+<path d="M283 908 V948" fill="none" stroke="#506e7b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
+<text x="302" y="936" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="19" fill="#3b535f" font-weight="400" text-anchor="start">검사할 예시 없음  /  전부 통과  /  추가 수정 한도 도달</text>
+<rect x="44" y="952" width="898" height="96" rx="13" fill="#eaf0f2" stroke="#b2c6cc" stroke-width="1.5"/>
+<text x="66" y="989" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="26" fill="#153340" font-weight="700" text-anchor="start">종료 · 마지막 제출본을 최종본으로 기록</text>
+<text x="66" y="1022" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">한도까지 실패가 남으면 ‘미해결’. 점수가 하락해도 이전 코드로 되돌리지 않음.</text>
+<rect x="1001" y="943" width="307" height="105" rx="13" fill="#fffdf8" stroke="#d7bd91" stroke-width="1.5"/>
+<text x="1021" y="976" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="24" fill="#8c4d14" font-weight="700" text-anchor="start">B·C 각 조건 종료 후</text>
+<text x="1021" y="1004" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="19" fill="#153340" font-weight="400" text-anchor="start">첫 수정본과 마지막 제출본 채점</text>
+<text x="1021" y="1030" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="17" fill="#546b77" font-weight="400" text-anchor="start">시드 43  B 39→39  ·  C 39→30</text>
+<path d="M943 998 H998" fill="none" stroke="#ad661e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#score)" stroke-dasharray="5 5"/>
+<rect x="44" y="1070" width="1288" height="1" rx="0" fill="#cbdbdc" stroke="none" stroke-width="1.5"/>
+<text x="46" y="1103" font-family="Apple SD Gothic Neo, Noto Sans CJK KR, Malgun Gothic, sans-serif" font-size="20" fill="#3b535f" font-weight="400" text-anchor="start">¹ 추가 수정이 5회 미만일 때만 반복한다. 모델 호출 수는 A 2회, B·C는 공통 초안 포함 각 6~11회다.</text>
+</svg>

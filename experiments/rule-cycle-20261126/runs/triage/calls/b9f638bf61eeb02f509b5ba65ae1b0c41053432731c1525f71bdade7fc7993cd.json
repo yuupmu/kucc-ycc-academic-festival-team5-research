@@ -1,0 +1,304 @@
+{
+  "text": "{\n  \"applicable\": true,\n  \"regions\": {\n    \"empty input\": {\n      \"result\": \"literal 'general'\",\n      \"sources\": [\"H3\"]\n    },\n    \"nonempty, no declared values\": {\n      \"result\": \"defer\",\n      \"sources\": [\"P3\", \"H2\"]\n    },\n    \"exactly one distinct declared value, only declared values\": {\n      \"result\": \"sole declared value\",\n      \"sources\": [\"P2\", \"H1\"]\n    },\n    \"exactly one distinct declared value, also undeclared values\": {\n      \"result\": \"sole declared value\",\n      \"sources\": [\"P2\", \"H2\", \"H1\"]\n    },\n    \"several distinct declared values, only declared values\": {\n      \"result\": \"defer\",\n      \"sources\": [\"P3\", \"H1\"]\n    },\n    \"several distinct declared values, also undeclared values\": {\n      \"result\": \"defer\",\n      \"sources\": [\"P3\", \"H2\", \"H1\"]\n    }\n  }\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 255,
+    "prompt_tokens": 587,
+    "total_tokens": 842,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 587,
+    "prompt_ms": 754.292,
+    "prompt_per_token_ms": 1.2849948892674616,
+    "prompt_per_second": 778.2132118595981,
+    "predicted_n": 255,
+    "predicted_ms": 6955.905,
+    "predicted_per_token_ms": 27.38545275590551,
+    "predicted_per_second": 36.51573734833929
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 7.73,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 프로젝트의 메인 작성자입니다. 공개 원문과 실제 담당자 회신만으로 함수 동작을 구현하세요. 같은 입력을 설명하는 서로 겹치지 않는 영역을 제공합니다. 각 영역 전체에 대하여 원문이 보장하는 결과를 선택하고 관련 원문 번호를 인용하세요. 한 영역 안에서도 아직 가능한 정책에 따라 결과가 달라지면 defer를 고르세요. 조건식을 새로 쓰거나 미정 정책을 추측할 필요가 없습니다. 경계의 정확한 순간과 양옆을 따로 읽으세요. 한 규칙이 닫힌 뒤에도 적용되는 예외가 있으면 그 정보도 사용하세요. 집합에서 단 하나의 알려진 값 자체를 반환하는 선택은 그 값이 단 하나인 영역에만 쓸 수 있습니다. 원문에 주어진 순위 연산은 입력에 있는 값들 중 그 순서로 가장 앞선 값을 반환합니다. 목록만 제시된 순서는 우선순위가 아닙니다. 연산의 근거 번호도 함께 인용하세요. 일반 분기 조건만으로 본래 함수 역할을 표현할 수 없을 때만 applicable을 false로 표시하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"함수\":\"triage(tags)\",\"원문\":{\"P1\":\"고객지원 도구의 triage(tags) 함수를 구현하세요. 입력은 소문자 문자열 태그의 리스트이고 출력은 담당 팀 이름 한 개입니다.\",\"P2\":\"알려진 태그는 account, billing, privacy이며 단독으로 들어오면 같은 이름의 팀으로 보냅니다. 입력 순서나 중복 횟수가 바뀌어도 같은 요청입니다.\",\"P3\":\"여러 담당 분야가 겹치거나 모르는 태그가 섞일 수 있습니다. 담당자가 정한 분류 관행을 반영해야 합니다.\",\"H1\":\"입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\",\"H2\":\"담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\",\"H3\":\"빈 목록은 general 팀으로 보냅니다.\"},\"입력영역\":[\"empty input\",\"nonempty, no declared values\",\"exactly one distinct declared value, only declared values\",\"exactly one distinct declared value, also undeclared values\",\"several distinct declared values, only declared values\",\"several distinct declared values, also undeclared values\"],\"가능한결과\":{\"defer\":{\"동작\":null,\"근거\":[]},\"sole declared value\":{\"동작\":\"next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\",\"근거\":[\"P2\"]},\"literal 'account'\":{\"동작\":\"'account'\",\"근거\":[\"P2\"]},\"literal 'billing'\":{\"동작\":\"'billing'\",\"근거\":[\"P2\"]},\"literal 'privacy'\":{\"동작\":\"'privacy'\",\"근거\":[\"P2\"]},\"literal 'general'\":{\"동작\":\"'general'\",\"근거\":[\"H3\"]}}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2450,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "applicable": {
+              "type": "boolean"
+            },
+            "regions": {
+              "type": "object",
+              "properties": {
+                "empty input": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "defer",
+                        "sole declared value",
+                        "literal 'account'",
+                        "literal 'billing'",
+                        "literal 'privacy'",
+                        "literal 'general'"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "nonempty, no declared values": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "defer",
+                        "sole declared value",
+                        "literal 'account'",
+                        "literal 'billing'",
+                        "literal 'privacy'",
+                        "literal 'general'"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "exactly one distinct declared value, only declared values": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "defer",
+                        "sole declared value",
+                        "literal 'account'",
+                        "literal 'billing'",
+                        "literal 'privacy'",
+                        "literal 'general'"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "exactly one distinct declared value, also undeclared values": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "defer",
+                        "sole declared value",
+                        "literal 'account'",
+                        "literal 'billing'",
+                        "literal 'privacy'",
+                        "literal 'general'"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "several distinct declared values, only declared values": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "defer",
+                        "sole declared value",
+                        "literal 'account'",
+                        "literal 'billing'",
+                        "literal 'privacy'",
+                        "literal 'general'"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "several distinct declared values, also undeclared values": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "defer",
+                        "sole declared value",
+                        "literal 'account'",
+                        "literal 'billing'",
+                        "literal 'privacy'",
+                        "literal 'general'"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "empty input",
+                "nonempty, no declared values",
+                "exactly one distinct declared value, only declared values",
+                "exactly one distinct declared value, also undeclared values",
+                "several distinct declared values, only declared values",
+                "several distinct declared values, also undeclared values"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "applicable",
+            "regions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-region-decisions"
+}

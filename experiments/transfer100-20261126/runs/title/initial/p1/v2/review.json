@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "87acd269152c06880fdc2abae58b21b78a8abef77e2664847648e3fcc42400de",
+    "d0dd73a25fbef3ef4b21be69404733f15de90c6754f4c7ab1aa4965430a2da0c",
+    "5784ee106447491a2495b5f20054bd31f4c429605edf7054ec2ac7eb0eff8810",
+    "89478369cf39cf956f747bbc3c2f694eb43b5ab2d8adc7c234a2bc0cd8aaac2d"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "연속된 하이픈이 여러 개 있을 때 이를 하나의 하이픈으로 통일하는 처리는 현재 구현에 포함되어야 하는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 통일하는 처리 기준이 명확하지 않습니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 통일하는 규칙이 명확하지 않아 편집 담당자의 기준을 구체적으로 물어봐 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "연속된 하이픈이 여러 개 있을 때 이를 하나의 하이픈으로 통일하는 처리는 현재 구현에 포함되어야 하는지 확인해 주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "연속된 하이픈을 하나의 하이픈으로 통일하는 처리 기준이 명확하지 않습니다.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "연속된 하이픈을 하나의 하이픈으로 통일하는 규칙이 명확하지 않아 편집 담당자의 기준을 구체적으로 물어봐 주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

@@ -1,0 +1,75 @@
+{
+  "calls": [
+    "5e239b765585272b61a3ad085d52f16e528262828fdc7096c137deb773d947b7",
+    "f63077535004802d9d557d142e7e7ec1d5c3c0ddb9e6e1d78da56368f48caa2f",
+    "f142df8c006ef2403a05b5efa24d4503a901240a27c9fd25f0b7f7d6db153bf3",
+    "f6af3b5be666817200749a65f7580fc6e0e17753994ab3bba871952e0a13841c",
+    "95e8732e1edda5139443bf90e16830fef371813d0c47cf14b389ec61ad6b49c6"
+  ],
+  "questions": [
+    {
+      "question": "빈 파일 (0 바이트) 에 대한 허용 여부를 어떻게 처리해야 합니까?",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "빈 파일 (0 바이트) 은 거부해야 하나요?",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "빈 파일 (0 바이트) 은 거부 처리가 맞나요?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "reviewers": [
+    [
+      "A",
+      {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 은 거부해야 하지만, 현재 코드는 0 을 포함한 음수 값만 거부하고 0 은 허용합니다.",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 에 대한 허용 여부를 어떻게 처리해야 합니까?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ],
+    [
+      "B",
+      {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 에 대한 허용 여부",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 은 거부해야 하나요?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    ],
+    [
+      "C",
+      {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 에 대한 허용 여부",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 은 거부 처리가 맞나요?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ]
+  ],
+  "status": "open_limit"
+}

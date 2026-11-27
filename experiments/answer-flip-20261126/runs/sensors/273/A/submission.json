@@ -1,0 +1,42 @@
+{
+  "common_sha256": "97ce3dc902a9758db61f58401b4fe0840bf9a8cfab1ed6866e73260121532f99",
+  "answer_sha256": "6cad9c8e841d9a73961f9362eb1be999cb72160380c971537d47e512178a1c20",
+  "source_sha256": "fb3947cb37319f819b5f1055ddb56ec658a5c1a95e6d138c7fcaae1985fc824a",
+  "attempts": [
+    {
+      "call": "2edd2955daf7b97013670b4cc14cb49a858a2ec6e3a933f5143e2d6ae6b39929",
+      "limit": 1100,
+      "seed": 273,
+      "decoded": true,
+      "outcome": "rejected",
+      "reason": "수정한 분기에 미구현 지점이 남았습니다.",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "raise NotImplementedError",
+          "after": "pass"
+        }
+      ]
+    },
+    {
+      "call": "09aa5c78b20d4e64840f405a77f11582f1b5c5f6a0c34a305b07e729be4d8317",
+      "limit": 1100,
+      "seed": 274,
+      "decoded": true,
+      "outcome": "rejected",
+      "reason": "수정한 분기에 미구현 지점이 남았습니다.",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "raise NotImplementedError",
+          "after": "pass"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 726,
+    "completion_tokens": 74,
+    "total_tokens": 800
+  }
+}

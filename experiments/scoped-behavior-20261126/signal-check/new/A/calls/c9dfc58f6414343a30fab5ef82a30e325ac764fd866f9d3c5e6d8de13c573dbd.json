@@ -1,0 +1,78 @@
+{
+  "text": "{\n  \"true_when\": \"level > -3 or level == -3\",\n  \"false_when\": \"level < -3\",\n  \"evidence\": \"abc-1/H1\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 46,
+    "prompt_tokens": 370,
+    "total_tokens": 416,
+    "prompt_tokens_details": {
+      "cached_tokens": 125
+    }
+  },
+  "server_timings": {
+    "cache_n": 125,
+    "prompt_n": 245,
+    "prompt_ms": 177.857,
+    "prompt_per_token_ms": 0.7259469387755102,
+    "prompt_per_second": 1377.5111465952984,
+    "predicted_n": 46,
+    "predicted_ms": 597.017,
+    "predicted_per_token_ms": 13.267044444444446,
+    "predicted_per_second": 75.37473807278519
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.78,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자 회신과 공개 명세가 설명하는 함수의 값을 입력 범위로 옮기세요. true_when에는 결과가 True인 정수 전체의 조건, false_when에는 결과가 False인 정수 전체의 조건을 서로 독립된 파이썬 비교식으로 적으세요. parameter에 적힌 이름과 정수, 비교 연산, and/or/not만 사용하세요. 근거가 없는 입력은 양쪽 식에서 제외하세요. 해당하는 입력이 하나도 없으면 False라고 쓰세요. return문은 쓰지 마세요. evidence에는 사용한 담당자 회신을 고르세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"needs_check(level: int) -> bool은 계측값을 다시 확인할지 결정합니다. level은 음수도 유효한 정수입니다. 기준보다 높은 값은 재검(True), 낮은 값은 통과(False)입니다. 기준 수치와 정확히 기준일 때의 처리는 담당자에게 확인하세요.\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"재검 기준은 얼마이고, 값이 정확히 기준일 때도 재검하나요?\"],\"answer\":{\"text\":\"기준값은 -3입니다. 정확히 기준이면 재검합니다.\"}}],\"evidence\":{\"abc-1/H1\":{\"request_id\":\"abc-1\",\"quote\":\"기준값은 -3입니다. 정확히 기준이면 재검합니다.\"}},\"parameter\":\"level\",\"behavior\":[{\"when\":\"계측값이 기준 (-3) 보다 높은 경우\",\"then\":\"재검 (True) 수행\"},{\"when\":\"계측값이 기준 (-3) 보다 낮은 경우\",\"then\":\"통과 (False) 수행\"},{\"when\":\"계측값이 기준 (-3) 과 정확히 같음\",\"then\":\"재검 (True) 수행\"}]}"
+      }
+    ],
+    "seed": 1421,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "true_when": {
+              "type": "string"
+            },
+            "false_when": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string",
+              "enum": [
+                "abc-1/H1"
+              ]
+            }
+          },
+          "required": [
+            "true_when",
+            "false_when",
+            "evidence"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-predicates"
+}

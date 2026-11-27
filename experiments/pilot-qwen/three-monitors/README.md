@@ -1,6 +1,6 @@
 # 감시자 3명이 예약 취소 코드에 미친 영향
 
-세 모델의 최종 비교, 감시자가 제안한 테스트의 정확도, 확정된 규칙으로 재실행한 결과와 웹 실행기 완료 판정은 [감시자·파이프라인 실험 보고서](monitor-pipeline-report.ko.md)에 정리했다. 모델·시드별 집계 (로컬 보관 자료)에서 문항 변화와 토큰 수를 확인할 수 있다.
+세 모델의 최종 비교, 감시자가 제안한 테스트의 정확도, 확정된 규칙으로 재실행한 결과와 웹 실행기 완료 판정은 [감시자·파이프라인 실험 보고서](monitor-pipeline-report.ko.md)에 정리했다. [모델·시드별 집계](paired-results.json)에서 문항 변화와 토큰 수를 확인할 수 있다.
 
 완료 조건을 수정한 뒤 같은 제출에서 재검토를 반복한 후속 결과는 [완료 조건 변경 후 통제 실험](completion-gate/README.md)에 있다.
 
@@ -16,9 +16,9 @@
 
 | 모델 | 독립 감시의 시드별 결과 · 각 40점 | 자체 검토의 시드별 결과 · 각 40점 | 추가 토큰 · 독립 감시 / 자체 검토 |
 |---|---|---|---:|
-| 7B | 20 (로컬 보관 자료) · 29 (로컬 보관 자료) · 30 (로컬 보관 자료) | 20 (로컬 보관 자료) · 29 (로컬 보관 자료) · 30 (로컬 보관 자료) | 9,915 / 12,750 |
-| 14B | 20 (로컬 보관 자료) · 29 (로컬 보관 자료) · 25 (로컬 보관 자료) | 20 (로컬 보관 자료) · 29 (로컬 보관 자료) · 20 (로컬 보관 자료) | 11,723 / 15,056 |
-| Qwen3-8B | 20 (로컬 보관 자료) · 39 (로컬 보관 자료) · 39 (로컬 보관 자료) | 20 (로컬 보관 자료) · 39 (로컬 보관 자료) · 39 (로컬 보관 자료) | 14,615 / 16,505 |
+| 7B | [20](7b-seconds-monitors-17.json) · [29](7b-seconds-monitors-29.json) · [30](7b-seconds-monitors-43.json) | [20](7b-seconds-self-17.json) · [29](7b-seconds-self-29.json) · [30](7b-seconds-self-43.json) | 9,915 / 12,750 |
+| 14B | [20](14b-seconds-monitors-17.json) · [29](14b-seconds-monitors-29.json) · [25](14b-seconds-monitors-43.json) | [20](14b-seconds-self-17.json) · [29](14b-seconds-self-29.json) · [20](14b-seconds-self-43.json) | 11,723 / 15,056 |
+| Qwen3-8B | [20](qwen3-8b-off-monitors-17.json) · [39](qwen3-8b-off-monitors-29.json) · [39](qwen3-8b-off-monitors-43.json) | [20](qwen3-8b-off-self-17.json) · [39](qwen3-8b-off-self-29.json) · [39](qwen3-8b-off-self-43.json) | 14,615 / 16,505 |
 
 ## 어느 단계에서 실패했나
 

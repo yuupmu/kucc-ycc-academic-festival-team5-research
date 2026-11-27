@@ -1,0 +1,369 @@
+{
+  "arm": "self",
+  "version": 3,
+  "sha256": "c226ef7a4e2599151c1871794be6a234ae7f85b12ff689ace3a84fca6b00e2d2",
+  "report": {
+    "benchmark_version": "1.0-basic.1",
+    "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+    "score": 24,
+    "total": 40,
+    "accuracy_percent": 60.0,
+    "errors": 1,
+    "categories": {
+      "평일 마감": {
+        "correct": 5,
+        "total": 10
+      },
+      "마감 경계": {
+        "correct": 5,
+        "total": 10
+      },
+      "예약 직후 유예": {
+        "correct": 5,
+        "total": 10
+      },
+      "시작과 유예 우선순위": {
+        "correct": 9,
+        "total": 10
+      }
+    },
+    "labels": {
+      "allow": {
+        "correct": 20,
+        "total": 20
+      },
+      "deny": {
+        "correct": 4,
+        "total": 20
+      }
+    },
+    "results": [
+      {
+        "id": "C001",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C002",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C003",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C004",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C005",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C006",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C007",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C008",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C009",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C010",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C011",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C012",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C013",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C014",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C015",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C016",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C017",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C018",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C019",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C020",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C071",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C072",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C073",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C074",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C075",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C076",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C077",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C078",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C079",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C080",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C081",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C082",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C083",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C084",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C085",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C086",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C087",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C088",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C089",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C090",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  "delta": {
+    "corrected": [],
+    "regressed": [],
+    "newly_answered": [],
+    "newly_unanswered": []
+  }
+}

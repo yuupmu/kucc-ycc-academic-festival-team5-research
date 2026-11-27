@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+    "716347e0ef909fc62ddb1d659bc9b65eab9cc34eaae32f1493d4b52e8fde8dae",
+    "6c881507d102a2dbfb9b0ce6eb9d497375ad57ab7f9cece07e436db139add305",
+    "35168e2be2848e0f881071458dde23e9a2f2b76683e647f0219deb0136bbb2b4"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "직원이 '이용 시작 24 시간 전' 기준을 적용할 때, age_seconds(예약 생성 경과 시간)를 고려하여 정정 시간 (예: 24 시간 이내) 을 적용할 수 있는지 확인이 필요합니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "직원이 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문의 제 3 조항을 '이용 시작 24 시간 전까지'의 범위 내에서 별도의 정정 시간을 적용한다는 의미로 해석하여, `until_start_seconds`가 0 이상 86400 미만의 경우에도 취소를 허용하는 로직을 구현했는지 확인해 주세요."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "현재 코드에서 `age_seconds` (예약 생성부터 경과한 시간) 를 고려하지 않고, `until_start_seconds >= 0` 일 때 무조건 `True` 를 반환하는 로직이, 안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 조건을 제대로 반영하고 있는가?"
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "직원이 '이용 시작 24 시간 전' 기준을 적용할 때, age_seconds(예약 생성 경과 시간)를 고려하여 정정 시간 (예: 24 시간 이내) 을 적용할 수 있는지 확인이 필요합니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "직원이 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문의 제 3 조항을 '이용 시작 24 시간 전까지'의 범위 내에서 별도의 정정 시간을 적용한다는 의미로 해석하여, `until_start_seconds`가 0 이상 86400 미만의 경우에도 취소를 허용하는 로직을 구현했는지 확인해 주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "현재 코드에서 `age_seconds` (예약 생성부터 경과한 시간) 를 고려하지 않고, `until_start_seconds >= 0` 일 때 무조건 `True` 를 반환하는 로직이, 안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 조건을 제대로 반영하고 있는가?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "awaiting_human"
+}

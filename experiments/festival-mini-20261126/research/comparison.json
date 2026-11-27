@@ -1,0 +1,2060 @@
+{
+  "sample_size": 20,
+  "tasks": {
+    "reservation": {
+      "solo": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "solo",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 6,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 0,
+          "status": "one_shot",
+          "versions": 1,
+          "human_windows": 0,
+          "questions_answered": 0,
+          "calls": 1,
+          "author_tokens": 799,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 0,
+          "prompt_tokens": 424,
+          "completion_tokens": 375,
+          "total_tokens": 799,
+          "unsupported_returns": 3,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "clock"
+                  ],
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "one_shot",
+            "questions": [],
+            "reply": null,
+            "calls": [
+              "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 424,
+            "completion_tokens": 375,
+            "total_tokens": 799
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "A": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "B": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "self": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "self",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 6,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 0,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 1,
+          "calls": 4,
+          "author_tokens": 1925,
+          "main_self_review_tokens": 1578,
+          "watcher_tokens": 0,
+          "prompt_tokens": 2610,
+          "completion_tokens": 893,
+          "total_tokens": 3503,
+          "unsupported_returns": 3,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "clock"
+                  ],
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+                "proposed_by": [
+                  "main-self"
+                ]
+              }
+            ],
+            "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+            "calls": [
+              "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+              "ccf667a3606131410dee87ccaacca5e7c35f3988e74ea1f0229800eb4cd821eb"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          },
+          {
+            "version": 2,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "정정 가능 기간이 10 분이라는 답변과 안내문의 '이용 시작 24 시간 전'이라는 조건이 상충할 때, 정정 가능 기간 10 분을 적용하여 `age_seconds`를 기준으로 추가 논리를 구현할지, 아니면 안내문의 24 시간 기준만 유지할지 결정이 필요합니다.",
+                "proposed_by": [
+                  "main-self"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "f114b767f9ca5b988e982a8a1f97f5e500665b6515ef8d70133cf244f4b9e1f0",
+              "2d66ea728aa0f0f3b92e9c811bc0a61ee15255c158e93c3a886f3149a3c05920"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 1175,
+            "completion_tokens": 750,
+            "total_tokens": 1925
+          },
+          "main-self": {
+            "prompt_tokens": 1435,
+            "completion_tokens": 143,
+            "total_tokens": 1578
+          },
+          "A": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "B": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "p2": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "p2",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 6,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 0,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 3,
+          "calls": 8,
+          "author_tokens": 1931,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 4735,
+          "prompt_tokens": 5510,
+          "completion_tokens": 1156,
+          "total_tokens": 6666,
+          "unsupported_returns": 3,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "clock"
+                  ],
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "직원이 '이용 시작 24 시간 전' 기준을 적용할 때, age_seconds(예약 생성 경과 시간)를 고려하여 정정 시간 (예: 24 시간 이내) 을 적용할 수 있는지 확인이 필요합니다.",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "직원이 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문의 제 3 조항을 '이용 시작 24 시간 전까지'의 범위 내에서 별도의 정정 시간을 적용한다는 의미로 해석하여, `until_start_seconds`가 0 이상 86400 미만의 경우에도 취소를 허용하는 로직을 구현했는지 확인해 주세요.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "현재 코드에서 `age_seconds` (예약 생성부터 경과한 시간) 를 고려하지 않고, `until_start_seconds >= 0` 일 때 무조건 `True` 를 반환하는 로직이, 안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 조건을 제대로 반영하고 있는가?",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+            "calls": [
+              "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+              "716347e0ef909fc62ddb1d659bc9b65eab9cc34eaae32f1493d4b52e8fde8dae",
+              "6c881507d102a2dbfb9b0ce6eb9d497375ad57ab7f9cece07e436db139add305",
+              "35168e2be2848e0f881071458dde23e9a2f2b76683e647f0219deb0136bbb2b4"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          },
+          {
+            "version": 2,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "정정 시간 (age_seconds 기준) 을 고려하여 취소 허용 여부를 결정하는 로직이 구현되어 있지 않습니다.",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "정정 시간의 기준이 '예약 생성 시점'인지 '이용 시작 24 시간 전'인지 명확히 해야 합니다.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "정정 기간이 '예약 생성부터' 시작한다는 답변과 안내문의 '이용 시작 24 시간 전' 기준이 충돌할 때, 정정 기간을 적용할 수 있는 구체적인 운영 기준을 담당자에게 질문해야 하는지 확인합니다.",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "e3ca96461e7c47326ebe1880632c9ae65db425b0b2c7c6397f118f450fcc23f0",
+              "fa19a341fe184de16a412dea4b92e7106ab5ad57a7416d0fba66d424413e1c8c",
+              "deb8ef2656ce4e957d36656aa1d6c14a89b3638ec48504f144d4c6fbfa7aea1f",
+              "a541d999e8590b22dfd05b56d434167f608382373adb9e3d72d1f77de64b0ebb"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 1181,
+            "completion_tokens": 750,
+            "total_tokens": 1931
+          },
+          "A": {
+            "prompt_tokens": 1443,
+            "completion_tokens": 100,
+            "total_tokens": 1543
+          },
+          "B": {
+            "prompt_tokens": 1441,
+            "completion_tokens": 138,
+            "total_tokens": 1579
+          },
+          "C": {
+            "prompt_tokens": 1445,
+            "completion_tokens": 168,
+            "total_tokens": 1613
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "p3": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "p3",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 6,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 0,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 3,
+          "calls": 8,
+          "author_tokens": 1930,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 5782,
+          "prompt_tokens": 5770,
+          "completion_tokens": 1942,
+          "total_tokens": 7712,
+          "unsupported_returns": 3,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "clock"
+                  ],
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "안내문의 문구와 일치하는 운영 기준이 없으므로, 현재 코드가 정정 시간을 고려하지 않고 단순 시간 기준으로만 판단하는 것이 맞습니다.",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않으며, 현재 코드는 이를 반영하지 않고 0 초 이상의 모든 경우를 취소 허용으로 처리하고 있습니다.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+            "calls": [
+              "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+              "5c2973db85eaa0394a5c19101218fbdb1c78fd839f7fdd6f4ef2bdd9b49eb988",
+              "46551e796467e27100d313278baa9264dc938388dc6a8a28e54e5d2a83ad00b2",
+              "6d9fc2f49ef6fbcb76ab768bb69c3857ae6d6748645f013b1f9df2de57241b30"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          },
+          {
+            "version": 2,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "정정 시간은 예약 생성 시점부터 계산되므로, age_seconds 가 0 이거나 매우 짧은 시간일 때만 정정 시간이 적용되는지, 아니면 age_seconds 가 임의의 값일 때에도 정정 시간이 적용되는지 명확히 해야 합니다.",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "정정 시간의 기준이 age_seconds (예약 생성 후 경과 시간) 에 의존하는지, 아니면 안내문의 '이용 시작 24 시간 전'과 '이용 시작 시점'만 따르는 것으로 해석되는지 명확히 해야 합니다.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "정정 시간은 예약 생성 시점부터 계산된다는 답변을 고려할 때, 현재 코드가 '이용 시작 시간' 기준인 점을 수정하여 '예약 생성 시간' 기준 24 시간 이내로 판단해야 하는가?",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "2754eb4f6f6157bd23b730f8e806f960b34f31984fb1e1ade1f9c4e34cf24499",
+              "9634518f9325ac552f1a2ce780a7c669d48f6b33a7b520a356d427edce636010",
+              "4c40029773de87aa64dcd548f5f4fefb206ec48f5f315f84f53b2c3f51be4f22",
+              "d3ed1f251717df56b9c8f385b1022bad3f272d32886d159d966e8c9c07cbcef8"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 1180,
+            "completion_tokens": 750,
+            "total_tokens": 1930
+          },
+          "A": {
+            "prompt_tokens": 1530,
+            "completion_tokens": 405,
+            "total_tokens": 1935
+          },
+          "B": {
+            "prompt_tokens": 1528,
+            "completion_tokens": 433,
+            "total_tokens": 1961
+          },
+          "C": {
+            "prompt_tokens": 1532,
+            "completion_tokens": 354,
+            "total_tokens": 1886
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "p4": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "p4",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 5,
+          "total": 10,
+          "wrong": 5,
+          "unanswered": 0,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 3,
+          "calls": 10,
+          "author_tokens": 2229,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 5905,
+          "prompt_tokens": 6102,
+          "completion_tokens": 2032,
+          "total_tokens": 8134,
+          "unsupported_returns": 3,
+          "policy_probes": 3,
+          "gained": 2,
+          "regressed": 3
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "ids": {
+              "C003": "correct",
+              "C011": "correct",
+              "C002": "wrong",
+              "C006": "wrong",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "correct"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "clock"
+                  ],
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+                "proposed_by": [
+                  "A",
+                  "C"
+                ],
+                "basis": "A1"
+              },
+              {
+                "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+                "proposed_by": [
+                  "B",
+                  "C"
+                ],
+                "basis": "B1"
+              },
+              {
+                "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+                "proposed_by": [
+                  "C"
+                ],
+                "basis": "C1"
+              }
+            ],
+            "reply": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+            "calls": [
+              "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+              "5c2973db85eaa0394a5c19101218fbdb1c78fd839f7fdd6f4ef2bdd9b49eb988",
+              "46551e796467e27100d313278baa9264dc938388dc6a8a28e54e5d2a83ad00b2",
+              "6d9fc2f49ef6fbcb76ab768bb69c3857ae6d6748645f013b1f9df2de57241b30",
+              "c17b752c4877148f06986e6e1de34f0661ab21ab9e1620cc7b3a9513c5be9ea0"
+            ],
+            "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18"
+          },
+          {
+            "version": 2,
+            "correct": 5,
+            "wrong": 5,
+            "unanswered": 0,
+            "ids": {
+              "C003": "wrong",
+              "C011": "wrong",
+              "C002": "correct",
+              "C006": "correct",
+              "C071": "correct",
+              "C072": "wrong",
+              "C073": "correct",
+              "C081": "correct",
+              "C082": "wrong",
+              "C084": "wrong"
+            },
+            "probes": {
+              "C011": {
+                "required_but_unreceived": [
+                  [
+                    "deadline"
+                  ]
+                ],
+                "returned": true
+              },
+              "C071": {
+                "required_but_unreceived": [
+                  [
+                    "duration"
+                  ],
+                  [
+                    "end"
+                  ],
+                  [
+                    "late"
+                  ]
+                ],
+                "returned": true
+              },
+              "C084": {
+                "required_but_unreceived": [
+                  [
+                    "after"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "정정 시간이 예약 생성 시점부터 계산되므로, 예약 생성 후 86400 초가 지났더라도 아직 이용 시작 전 (until_start_seconds >= 0) 이라면 정정 가능해야 합니다.",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "정정 시간이 24 시간 (86400 초) 을 초과해도 가능할 수 있습니다. 현재 코드는 age_seconds >= 86400 인 경우 무조건 False 를 반환하고 있습니다. 정정 시간의 구체적인 계산 기준 (예: 24 시간 초과 여부) 이 명확하지 않아 86400 초를 기준으로 처리하는 것이 안전합니다.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "정정 시간을 예약 생성 시점부터 계산하므로, 86400 초를 초과한 예약은 정정 불가인지, 정정 가능인지 명확히 알려주세요.",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "d781d4be5225fa5cb5d035fbd05818194d63330d7641e657f874d16257d6a5b5",
+              "a04f8698b54e5c9a8d599381cc6de1b6886747bbad1c8aa15674d86a89c11006",
+              "70f952faa4d2c5211fbcf9352815d1729064be244c64d92c5c1e583ede79bc65",
+              "87e0c5b7f508a3352306d4932118badc5627aabc8eb5cc65db1155afd99906ab",
+              "3bde50ac7eb3e4e34a7ec08db985c8eb801e14aa29d9de74d075b3e04fc12e9b"
+            ],
+            "sha256": "60735a194b26890ac81ca32009b420f2f044527924e7aa265c3966b18c665bf3"
+          }
+        ],
+        "improved_ids": [
+          "C002",
+          "C006"
+        ],
+        "regressed_ids": [
+          "C003",
+          "C011",
+          "C084"
+        ],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 1519,
+            "completion_tokens": 710,
+            "total_tokens": 2229
+          },
+          "A": {
+            "prompt_tokens": 1233,
+            "completion_tokens": 333,
+            "total_tokens": 1566
+          },
+          "B": {
+            "prompt_tokens": 1231,
+            "completion_tokens": 473,
+            "total_tokens": 1704
+          },
+          "C": {
+            "prompt_tokens": 1235,
+            "completion_tokens": 384,
+            "total_tokens": 1619
+          },
+          "C-intake": {
+            "prompt_tokens": 884,
+            "completion_tokens": 132,
+            "total_tokens": 1016
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      }
+    },
+    "triage": {
+      "solo": {
+        "metrics": {
+          "task": "triage",
+          "arm": "solo",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 4,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 2,
+          "status": "one_shot",
+          "versions": 1,
+          "human_windows": 0,
+          "questions_answered": 0,
+          "calls": 1,
+          "author_tokens": 826,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 0,
+          "prompt_tokens": 314,
+          "completion_tokens": 512,
+          "total_tokens": 826,
+          "unsupported_returns": 2,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [
+                  [
+                    "unknown"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "one_shot",
+            "questions": [],
+            "reply": null,
+            "calls": [
+              "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6"
+            ],
+            "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 314,
+            "completion_tokens": 512,
+            "total_tokens": 826
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "A": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "B": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "self": {
+        "metrics": {
+          "task": "triage",
+          "arm": "self",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 4,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 2,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 1,
+          "calls": 4,
+          "author_tokens": 1630,
+          "main_self_review_tokens": 729,
+          "watcher_tokens": 0,
+          "prompt_tokens": 1248,
+          "completion_tokens": 1111,
+          "total_tokens": 2359,
+          "unsupported_returns": 2,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [
+                  [
+                    "unknown"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+                "proposed_by": [
+                  "main-self"
+                ]
+              }
+            ],
+            "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+            "calls": [
+              "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6",
+              "76e63ca36a7d91c966c8330595de7389cd972516da3c6642dc2a1c968983ff28"
+            ],
+            "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc"
+          },
+          {
+            "version": 2,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [
+                  [
+                    "unknown"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "triage 함수가 여러 태그가 들어올 때 첫 번째 매칭된 태그만 반환하고 나머지는 처리하지 않는다는 점을 고려하여, 미처리된 태그가 오류를 유발하지 않도록 처리하는 로직이 누락되었습니다.",
+                "proposed_by": [
+                  "main-self"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "45ad4799a19d588251e5838d61c604f7c6bf7ba40e4c843157e224f0364ae129",
+              "feb84e26b1c4f901a1b401674d32fef7553a4eb7cd415bbac5465d9a97017f7e"
+            ],
+            "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 645,
+            "completion_tokens": 985,
+            "total_tokens": 1630
+          },
+          "main-self": {
+            "prompt_tokens": 603,
+            "completion_tokens": 126,
+            "total_tokens": 729
+          },
+          "A": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "B": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "p2": {
+        "metrics": {
+          "task": "triage",
+          "arm": "p2",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 4,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 2,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 3,
+          "calls": 8,
+          "author_tokens": 1421,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 2744,
+          "prompt_tokens": 3082,
+          "completion_tokens": 1083,
+          "total_tokens": 4165,
+          "unsupported_returns": 1,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [
+                  [
+                    "unknown"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "중복된 태그가 입력될 경우, 첫 번째로 발견된 태그를 반환하는 것이 맞나요?",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "triage 함수가 여러 태그가 들어올 경우 첫 번째로 찾은 태그만 반환하는 구현이, '중복 횟수'나 '입력 순서'에 따라 결과가 달라지지 않는지 확인하세요.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "코드에서 여러 태그가 들어올 경우 첫 번째로 발견된 태그만 반환하고 나머지는 무시하며, 알 수 없는 태그가 섞여도 예외를 던지지 않고 첫 번째 유효 태그를 반환하는 로직이 분류 관행과 일치하는지 확인해야 합니다.",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+            "calls": [
+              "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6",
+              "5441c3c0f9767f9aae5f2545de70c13e268234856d4efce12108387656627bbf",
+              "c6c6da2fec836fee7f044b5eef38396df06b0456020abb0aff157896b42971ce",
+              "41c86dd8aaea7d1410da263c64d62790b183dafca24e537191e48e16b54398b9"
+            ],
+            "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc"
+          },
+          {
+            "version": 2,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "triage 함수가 알 수 없는 태그가 섞여 있을 때 이를 무시하고 알려진 태그만 처리하는 로직이 구현되어 있는지 확인하시오.",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "코드에서 알 수 없는 태그를 무시하는 로직이 구현되어 있거나, 알 수 없는 태그가 있을 경우 어떻게 처리해야 하는지 명확히 해야 합니다.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "알려지지 않은 태그가 섞여 있을 때, 해당 태그가 포함된 요청은 어떻게 처리해야 하는지 명확히 해야 합니다.",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "d9e05f575f0c288860f6aa0d82f0fd80cddf865739663bac96d79bd4af61f068",
+              "4fd29b92a594b96dd59b571231b9a67c1ddca104421082d85efc3d156a156e6c",
+              "6b7f6946fafad45ef629455c7fa87408b6ad451884b1c19e640cf978642724b9",
+              "d9cd1463930905a186da6a3311f71c3acc9cfb4fab876b7950eb04552bfa25cf"
+            ],
+            "sha256": "09ed9f0ccdf17c3ad392957671406c3d5355c2bc5a4d3a803345a9b95f8f1e93"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 664,
+            "completion_tokens": 757,
+            "total_tokens": 1421
+          },
+          "A": {
+            "prompt_tokens": 806,
+            "completion_tokens": 92,
+            "total_tokens": 898
+          },
+          "B": {
+            "prompt_tokens": 804,
+            "completion_tokens": 108,
+            "total_tokens": 912
+          },
+          "C": {
+            "prompt_tokens": 808,
+            "completion_tokens": 126,
+            "total_tokens": 934
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "p3": {
+        "metrics": {
+          "task": "triage",
+          "arm": "p3",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 4,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 2,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 3,
+          "calls": 8,
+          "author_tokens": 1630,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 3729,
+          "prompt_tokens": 2724,
+          "completion_tokens": 2635,
+          "total_tokens": 5359,
+          "unsupported_returns": 2,
+          "policy_probes": 3,
+          "gained": 0,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [
+                  [
+                    "unknown"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "중복 태그가 포함된 입력 시, 코드는 첫 번째로 발견된 태그를 반환하는지 마지막에 발견된 태그를 반환하는지 명확히 해야 합니다.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "중복 태그가 포함된 입력 시, triage 함수는 첫 번째로 발견된 태그를 반환하는 것이 맞나요?",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+            "calls": [
+              "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6",
+              "b86d0f233f27f403a51fb6dc7ac29f8f36769f631c50b35505688f96ace96f1d",
+              "9a7afc3938d774a2d306923447167b7f62f378bc4ae0c0d824b70dec9862213d",
+              "2e72ed9ca1f5390d0515546b7f74af5ad8f0628659d32ead0849cad95187703d"
+            ],
+            "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc"
+          },
+          {
+            "version": 2,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [
+                  [
+                    "unknown"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "중복된 태그가 있을 때 첫 번째로 발견된 태그만 반환하여 중복을 제거해야 하는지, 아니면 중복된 태그를 모두 처리하여 중복을 허용해야 하는지",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "중복된 태그가 있을 때 우선순위를 어떻게 정할까요?",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "여러 알려진 태그가 섞여 있을 때, 코드는 어떤 방식으로 팀을 결정하는가?",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "45ad4799a19d588251e5838d61c604f7c6bf7ba40e4c843157e224f0364ae129",
+              "c69b3b1775b6b59d117a6ca69fa4ecf3f62659e440d48328cf7b4dd7e7156573",
+              "f2851e4f00fe3dfb7b8acb4f40e638f066c502be7cfaf5802b9d4c0caf5c2995",
+              "a824206dfeb354edfefae3698030a919d0cfb4890969cc6e29343cde5006ce1f"
+            ],
+            "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc"
+          }
+        ],
+        "improved_ids": [],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 645,
+            "completion_tokens": 985,
+            "total_tokens": 1630
+          },
+          "A": {
+            "prompt_tokens": 693,
+            "completion_tokens": 643,
+            "total_tokens": 1336
+          },
+          "B": {
+            "prompt_tokens": 691,
+            "completion_tokens": 534,
+            "total_tokens": 1225
+          },
+          "C": {
+            "prompt_tokens": 695,
+            "completion_tokens": 473,
+            "total_tokens": 1168
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "C-intake": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "p4": {
+        "metrics": {
+          "task": "triage",
+          "arm": "p4",
+          "model": "Qwen3.5-4B-Q4_K_M.gguf",
+          "seed": 263,
+          "correct": 5,
+          "total": 10,
+          "wrong": 4,
+          "unanswered": 1,
+          "status": "open_limit",
+          "versions": 2,
+          "human_windows": 1,
+          "questions_answered": 3,
+          "calls": 9,
+          "author_tokens": 1441,
+          "main_self_review_tokens": 0,
+          "watcher_tokens": 5053,
+          "prompt_tokens": 4147,
+          "completion_tokens": 2347,
+          "total_tokens": 6494,
+          "unsupported_returns": 1,
+          "policy_probes": 3,
+          "gained": 1,
+          "regressed": 0
+        },
+        "history": [
+          {
+            "version": 1,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "unanswered",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [
+                  [
+                    "empty",
+                    "empty_list"
+                  ]
+                ],
+                "returned": false
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [
+                  [
+                    "unknown"
+                  ]
+                ],
+                "returned": true
+              }
+            },
+            "status": "awaiting_human",
+            "questions": [
+              {
+                "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+                "proposed_by": [
+                  "A",
+                  "C"
+                ],
+                "basis": "A1"
+              },
+              {
+                "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+                "proposed_by": [
+                  "A",
+                  "C"
+                ],
+                "basis": "A2"
+              },
+              {
+                "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+                "proposed_by": [
+                  "A",
+                  "C"
+                ],
+                "basis": "A3"
+              }
+            ],
+            "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+            "calls": [
+              "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6",
+              "b86d0f233f27f403a51fb6dc7ac29f8f36769f631c50b35505688f96ace96f1d",
+              "9a7afc3938d774a2d306923447167b7f62f378bc4ae0c0d824b70dec9862213d",
+              "2e72ed9ca1f5390d0515546b7f74af5ad8f0628659d32ead0849cad95187703d",
+              "5e83d2b6c1e8a8d8f32fe7d1e377839531c379f086553b12bea941e916d1bd48"
+            ],
+            "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc"
+          },
+          {
+            "version": 2,
+            "correct": 5,
+            "wrong": 4,
+            "unanswered": 1,
+            "ids": {
+              "1": "correct",
+              "3": "correct",
+              "4": "unanswered",
+              "5": "correct",
+              "6": "wrong",
+              "7": "correct",
+              "9": "wrong",
+              "11": "wrong",
+              "14": "correct",
+              "15": "wrong"
+            },
+            "probes": {
+              "5": {
+                "required_but_unreceived": [],
+                "returned": true
+              },
+              "6": {
+                "required_but_unreceived": [
+                  [
+                    "rank",
+                    "ab"
+                  ]
+                ],
+                "returned": true
+              },
+              "14": {
+                "required_but_unreceived": [],
+                "returned": true
+              }
+            },
+            "status": "open_limit",
+            "questions": [
+              {
+                "question": "알 수 없는 태그가 섞여 있을 때, 담당자가 정한 분류 관행에 따라 알 수 없는 태그를 무시하고 가장 먼저 발견된 알려진 태그로 분류하는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있으면 전체 분류를 거부하거나 예외 처리하는 것이 맞는지",
+                "proposed_by": [
+                  "A"
+                ]
+              },
+              {
+                "question": "알 수 없는 태그가 섞여 있을 때, 정해진 태그가 없으면 예외를 발생시키거나 일반 팀을 반환해야 하는지 확인해주세요.",
+                "proposed_by": [
+                  "B"
+                ]
+              },
+              {
+                "question": "빈 입력 목록이 일반 팀으로 분류되도록 코드가 명시적으로 처리하고 있는지 확인해주세요.",
+                "proposed_by": [
+                  "C"
+                ]
+              }
+            ],
+            "reply": null,
+            "calls": [
+              "8952ede29806d48320fd10df7d3fd2de6688e2d4caa1d9104d1f0127bd95e363",
+              "95b49648acc860d022c50f78bf86e6fe7909996b32689f0998cdf011ca06e481",
+              "0210471817c7b5f22bd7d5d542640a658b79f821480a2917cb1095199823ca07",
+              "ac96a7abebc32e9a3bbc6b3059f5ac3117aa5b6a0d2340d3583b5c8468305b03"
+            ],
+            "sha256": "653b25914fdd741a5908eb240cc89d93cff149bf881f8ff83d10940ffe64e6c3"
+          }
+        ],
+        "improved_ids": [
+          "5"
+        ],
+        "regressed_ids": [],
+        "role_usage": {
+          "main-author": {
+            "prompt_tokens": 760,
+            "completion_tokens": 681,
+            "total_tokens": 1441
+          },
+          "A": {
+            "prompt_tokens": 733,
+            "completion_tokens": 624,
+            "total_tokens": 1357
+          },
+          "B": {
+            "prompt_tokens": 731,
+            "completion_tokens": 476,
+            "total_tokens": 1207
+          },
+          "C": {
+            "prompt_tokens": 735,
+            "completion_tokens": 377,
+            "total_tokens": 1112
+          },
+          "C-intake": {
+            "prompt_tokens": 1188,
+            "completion_tokens": 189,
+            "total_tokens": 1377
+          },
+          "main-self": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      }
+    }
+  },
+  "totals": [
+    {
+      "arm": "solo",
+      "correct": 10,
+      "total": 20,
+      "wrong": 8,
+      "unanswered": 2,
+      "calls": 2,
+      "questions_answered": 0,
+      "human_windows": 0,
+      "author_tokens": 1625,
+      "main_self_review_tokens": 0,
+      "watcher_tokens": 0,
+      "prompt_tokens": 738,
+      "completion_tokens": 887,
+      "total_tokens": 1625,
+      "unsupported_returns": 5,
+      "policy_probes": 6,
+      "gained": 0,
+      "regressed": 0
+    },
+    {
+      "arm": "self",
+      "correct": 10,
+      "total": 20,
+      "wrong": 8,
+      "unanswered": 2,
+      "calls": 8,
+      "questions_answered": 2,
+      "human_windows": 2,
+      "author_tokens": 3555,
+      "main_self_review_tokens": 2307,
+      "watcher_tokens": 0,
+      "prompt_tokens": 3858,
+      "completion_tokens": 2004,
+      "total_tokens": 5862,
+      "unsupported_returns": 5,
+      "policy_probes": 6,
+      "gained": 0,
+      "regressed": 0
+    },
+    {
+      "arm": "p2",
+      "correct": 10,
+      "total": 20,
+      "wrong": 8,
+      "unanswered": 2,
+      "calls": 16,
+      "questions_answered": 6,
+      "human_windows": 2,
+      "author_tokens": 3352,
+      "main_self_review_tokens": 0,
+      "watcher_tokens": 7479,
+      "prompt_tokens": 8592,
+      "completion_tokens": 2239,
+      "total_tokens": 10831,
+      "unsupported_returns": 4,
+      "policy_probes": 6,
+      "gained": 0,
+      "regressed": 0
+    },
+    {
+      "arm": "p3",
+      "correct": 10,
+      "total": 20,
+      "wrong": 8,
+      "unanswered": 2,
+      "calls": 16,
+      "questions_answered": 6,
+      "human_windows": 2,
+      "author_tokens": 3560,
+      "main_self_review_tokens": 0,
+      "watcher_tokens": 9511,
+      "prompt_tokens": 8494,
+      "completion_tokens": 4577,
+      "total_tokens": 13071,
+      "unsupported_returns": 5,
+      "policy_probes": 6,
+      "gained": 0,
+      "regressed": 0
+    },
+    {
+      "arm": "p4",
+      "correct": 10,
+      "total": 20,
+      "wrong": 9,
+      "unanswered": 1,
+      "calls": 19,
+      "questions_answered": 6,
+      "human_windows": 2,
+      "author_tokens": 3670,
+      "main_self_review_tokens": 0,
+      "watcher_tokens": 10958,
+      "prompt_tokens": 10249,
+      "completion_tokens": 4379,
+      "total_tokens": 14628,
+      "unsupported_returns": 4,
+      "policy_probes": 6,
+      "gained": 3,
+      "regressed": 3
+    }
+  ],
+  "physical": {
+    "unique_calls": 46,
+    "prompt_tokens": 25384,
+    "completion_tokens": 8490,
+    "total_tokens": 33874
+  },
+  "logical_calls": 61,
+  "shared_references": 15,
+  "discarded_punctuation_trial": {
+    "extra_calls": 8,
+    "prompt_tokens": 4383,
+    "completion_tokens": 1473,
+    "total_tokens": 5856
+  }
+}

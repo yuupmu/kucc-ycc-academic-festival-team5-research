@@ -1,0 +1,225 @@
+{
+  "text": "{\"scopes\": [\"T1\", \"T2\"], \"notes\": {\"P1\": {\"established\": \"allow_cancel(age_seconds, until_start_seconds) -> bool. age_seconds: int (seconds since reservation creation, >= 0). until_start_seconds: int (seconds until start, 0 = start moment, < 0 = started). Caller handles time conversion.\", \"input\": \"age_seconds\", \"still_open\": \"Specific boundary conditions for 'just made a mistake' correction policy (H2) vs general policy (P1).\"}, \"P2\": {\"established\": \"General cancellation deadline: 24 hours before start. Cancellation blocked after start. 'Just made a mistake' exception exists.\", \"input\": \"until_start_seconds\", \"still_open\": \"Definition of '24 hours' (exact integer boundary?). Definition of 'just made a mistake' criteria (time window?).\"}, \"P3\": {\"established\": \"Staff accepts correction requests even after general deadline or after start. Return True if allowed, False otherwise.\", \"input\": \"age_seconds\", \"still_open\": \"Criteria for 'just made a mistake' exception (H2).\"}, \"H1\": {\"established\": \"Request for clarification on specific cases.\", \"input\": \"age_seconds\", \"still_open\": \"Clarification requested; no facts established yet.\"}, \"H2\": {\"established\": \"Correction time starts from reservation creation time.\", \"input\": \"age_seconds\", \"still_open\": \"Duration of correction window? Does it override general 24h rule? Does it apply after start time?\"}}}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 338,
+    "prompt_tokens": 418,
+    "total_tokens": 756,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 418,
+    "prompt_ms": 378.504,
+    "prompt_per_token_ms": 0.905511961722488,
+    "prompt_per_second": 1104.347642297043,
+    "predicted_n": 338,
+    "predicted_ms": 9583.864,
+    "predicted_per_token_ms": 28.438765578635014,
+    "predicted_per_second": 35.163270263434455
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 9.97,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer planning a revision. For each verbatim source, write separately what it establishes and what it still leaves open. A missing detail never erases a confirmed one. Select the actual input that the established fact governs. Preserve any stated number, units, equality, precedence or invariant. A request for clarification supplies no new decision. Use empty strings where nothing is established or nothing remains open. Keep notes short. Select the smallest editable scopes."
+      },
+      {
+        "role": "user",
+        "content": "{\"editable_scopes\":{\"T1\":{\"path\":\"solution.py\",\"name\":\"allow_cancel\",\"parameters\":[\"age_seconds\",\"until_start_seconds\"],\"kind\":\"body\",\"signature\":\"age_seconds, until_start_seconds\"},\"T2\":{\"path\":\"solution.py\",\"name\":\"solution.py\",\"parameters\":[],\"kind\":\"file\",\"signature\":\"\"}},\"public_and_owner_sources\":{\"P1\":\"작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\",\"P2\":\"이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\",\"P3\":\"직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\",\"H1\":\"어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\",\"H2\":\"정정 시간은 예약을 생성한 때부터 셉니다.\"}}"
+      }
+    ],
+    "seed": 863,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "T1",
+                  "T2"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2
+            },
+            "notes": {
+              "type": "object",
+              "properties": {
+                "P1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P3": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "scopes",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-plan"
+}

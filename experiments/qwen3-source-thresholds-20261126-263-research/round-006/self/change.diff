@@ -1,0 +1,13 @@
+--- v5
++++ v6
+@@ -11,6 +11,10 @@
+         return True
+     if until_start_seconds <= 86400 and age_seconds <= 600:
+         raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds < 86400:  # [7]
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds == 86400:
++        raise NotImplementedError("담당자 판단 필요")
+     if until_start_seconds < 86400 and age_seconds > 600:  # [7]
+         raise NotImplementedError("담당자 판단 필요")
+     if until_start_seconds <= 86400 and age_seconds >= 600:

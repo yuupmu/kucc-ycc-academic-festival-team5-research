@@ -1,0 +1,45 @@
+{
+  "protocol": "serial-rule-edits-v1",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "information": "public",
+  "previously_used": [
+    131,
+    157,
+    191,
+    223,
+    257,
+    293
+  ],
+  "new": [
+    307,
+    331,
+    353,
+    379,
+    401,
+    419
+  ],
+  "arms": [
+    "direct",
+    "self_plan",
+    "self_final",
+    "B",
+    "C",
+    "abcd"
+  ],
+  "fixed_calls": {
+    "direct": 1,
+    "self_plan": 2,
+    "self_final": 5,
+    "B": 3,
+    "C": 4,
+    "abcd": 5
+  },
+  "notice": {
+    "R1": "일반 취소 마감은 이용 시작 24시간 전입니다.",
+    "R2": "이용이 시작되면 일반 취소는 마감됩니다.",
+    "R3": "방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다."
+  },
+  "max_tokens_after_draft": 1152,
+  "constraints": "source and syntax only; no example execution, hidden labels, or score-based routing",
+  "evaluation": "seal all six snapshots for every seed, then grade 40 and 56 inputs"
+}

@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "ab433803a4d8269652cc2b7e6254a9843b91d06f24ec03fdd7cb97416dc2ebdf",
+    "f2bbae8668b942ceed018044a00b745549fee2dd9b3fb7d9af0f129f31f49114",
+    "f3579bf427a21b9c4b40d856c237e706940aef52296bcd6aa51c0a533e9735f0",
+    "a2a9b1bc53786b7a3a81aa94be60992af8f8c8c34846a060cbf2fa1427bc6650"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "정정 가능 기간이 10 분 (600 초) 이며, 이 기간은 예약 생성부터 계산된다는 답변을 고려할 때, 정정 가능 기간이 남아있는 예약은 age_seconds 와 until_start_seconds 를 어떻게 조합하여 판단해야 하는지 구체적으로 질문할 수 있습니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "정정 가능 기간이 10 분 (600 초) 이며, 정정 요청은 예약 생성 시간부터 계산된다는 답변을 반영하여 `age_seconds`를 고려한 정정 로직을 추가해야 하나요."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "정정 가능 기간이 10 분 (600 초) 이며, 정정 요청은 예약 생성 후 10 분 이내에만 허용되는데, 현재 코드는 이를 고려하지 않고 모든 미시작 예약을 허용하는지 확인해 주세요."
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "정정 가능 기간이 10 분 (600 초) 이며, 이 기간은 예약 생성부터 계산된다는 답변을 고려할 때, 정정 가능 기간이 남아있는 예약은 age_seconds 와 until_start_seconds 를 어떻게 조합하여 판단해야 하는지 구체적으로 질문할 수 있습니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "정정 가능 기간이 10 분 (600 초) 이며, 정정 요청은 예약 생성 시간부터 계산된다는 답변을 반영하여 `age_seconds`를 고려한 정정 로직을 추가해야 하나요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "정정 가능 기간이 10 분 (600 초) 이며, 정정 요청은 예약 생성 후 10 분 이내에만 허용되는데, 현재 코드는 이를 고려하지 않고 모든 미시작 예약을 허용하는지 확인해 주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

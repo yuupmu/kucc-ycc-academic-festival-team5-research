@@ -1,0 +1,180 @@
+{
+  "status": "completed",
+  "pause_reason": null,
+  "verification": {
+    "type": "syntax_and_public_checks",
+    "code_version": 6,
+    "passed": true,
+    "correct": 8,
+    "total": 8,
+    "results": [
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-08T12:00:00+00:00",
+        "starts_at": "2026-01-12T12:00:00+00:00",
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-08T12:00:00+00:00",
+        "starts_at": "2026-01-11T11:59:59+00:00",
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "passed": true
+      },
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-10T11:50:01+00:00",
+        "starts_at": "2026-01-10T14:00:00+00:00",
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "passed": true,
+        "request_id": "290e8d30a5c44bf385845870b965471a"
+      },
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-10T11:49:59+00:00",
+        "starts_at": "2026-01-10T14:00:00+00:00",
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "passed": true,
+        "request_id": "290e8d30a5c44bf385845870b965471a"
+      },
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-10T11:55:00+00:00",
+        "starts_at": "2026-01-10T12:00:01+00:00",
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "passed": true,
+        "request_id": "290e8d30a5c44bf385845870b965471a"
+      },
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-10T11:50:00+00:00",
+        "starts_at": "2026-01-10T14:00:00+00:00",
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "passed": true,
+        "request_id": "290e8d30a5c44bf385845870b965471a"
+      },
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-10T11:55:00+00:00",
+        "starts_at": "2026-01-10T12:00:00+00:00",
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "passed": true,
+        "request_id": "290e8d30a5c44bf385845870b965471a"
+      },
+      {
+        "now": "2026-01-10T12:00:00+00:00",
+        "booked_at": "2026-01-10T11:55:00+00:00",
+        "starts_at": "2026-01-10T11:59:59+00:00",
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "passed": true,
+        "request_id": "290e8d30a5c44bf385845870b965471a"
+      }
+    ],
+    "decision_status": {
+      "290e8d30a5c44bf385845870b965471a": true
+    },
+    "needs_examples": [],
+    "status": "passed",
+    "note": "이 코드 버전의 공개 검사 결과입니다. 최종 정확도는 별도 채점합니다."
+  },
+  "versions": [
+    {
+      "version": 1,
+      "correct": 0,
+      "total": 0
+    },
+    {
+      "version": 2,
+      "correct": 7,
+      "total": 8
+    },
+    {
+      "version": 3,
+      "correct": 7,
+      "total": 8
+    },
+    {
+      "version": 4,
+      "correct": 7,
+      "total": 8
+    },
+    {
+      "version": 5,
+      "correct": 7,
+      "total": 8
+    }
+  ],
+  "requests": [
+    {
+      "key": "priority",
+      "question": "예약 생성 후 10분 이내의 정정 시간은, 이용 시작 전에만 적용되나요? 아니면 이용 중에도 적용되나요?",
+      "reason": "우선순위",
+      "affected_tasks": [
+        "policy"
+      ],
+      "priority": "normal",
+      "id": "290e8d30a5c44bf385845870b965471a",
+      "sources": [
+        2
+      ],
+      "status": "applied",
+      "answer": {
+        "text": "예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다. 현재 시각이 이용 시작 시각과 같거나 이후면, 정정 시간이 남아 있어도 거부합니다."
+      },
+      "observed_version": 0,
+      "fields": [
+        {
+          "name": "text",
+          "type": "text",
+          "label": "답변"
+        }
+      ],
+      "applied_version": 6,
+      "verified_version": 6
+    }
+  ],
+  "monitors": [
+    {
+      "id": 1,
+      "status": "observed",
+      "decision": "continue",
+      "version": 6,
+      "reason": "저장된 판단",
+      "verification": null
+    },
+    {
+      "id": 2,
+      "status": "observed",
+      "decision": "continue",
+      "version": 6,
+      "reason": "저장된 판단",
+      "verification": null
+    },
+    {
+      "id": 3,
+      "status": "observed",
+      "decision": "continue",
+      "version": 6,
+      "reason": "저장된 판단",
+      "verification": null
+    }
+  ],
+  "hidden_score": 40
+}

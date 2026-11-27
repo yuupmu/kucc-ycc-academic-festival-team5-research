@@ -1,0 +1,155 @@
+{
+  "text": "{\"rules\":[{\"when\":\"has_present([\\\"P1\\\", \\\"P2\\\", \\\"P3\\\", \\\"H1\\\"], \\\"text\\\") and len(text.strip()) > 0,\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\"]},{\"when\":\"has_present([\\\"P1\\\", \\\"P2\\\", \\\"P3\\\", \\\"H1\\\"], \\\"text\\\") and len(text.strip()) == 0,\",\"action\":\"return\",\"value\":\"\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\"]}],\"otherwise\":{\"action\":\"return\",\"value\":\"\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\"]},\"complete\":true,\"applicable\":true}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 160,
+    "prompt_tokens": 790,
+    "total_tokens": 950,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 790,
+    "prompt_ms": 915.983,
+    "prompt_per_token_ms": 1.159472151898734,
+    "prompt_per_second": 862.4614212272498,
+    "predicted_n": 160,
+    "predicted_ms": 4386.545,
+    "predicted_per_token_ms": 27.588333333333335,
+    "predicted_per_second": 36.247205944541776
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 5.31,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer implementing this decision function. Choose ordered decision rows, first matching row wins. Write short Python expressions using the actual arguments. Each row and the fallback must cite the source IDs that authorize it. The public text and the exact owner replies are authoritative. Your preliminary notes can be mistaken. The previous code supplies no policy. Order exceptions and general conditions so a broad early return cannot erase a more specific confirmed decision. An ambiguous boundary can be its own narrow row; it does not erase facts on either side. Defer only where different policies consistent with the sources would change the result. Never choose a missing priority, duration, default, exception, or label. Use exact identifiers from the literal table in expressions when available. A quantity is already converted to the argument unit. Bind it to the right input. A listed sequence supplies membership only. An ordered sequence also supplies precedence. has_present(sequence, input) tests overlap; first_present(ordered_sequence, input) returns the highest-priority present item. Usual Python boolean expressions, membership, length and sets also work. Quote string results as Python literals. The action defer takes an empty value. Omit comments and explanations. Mark complete false for any unresolved outcome. Set applicable false if this target needs effects, state changes, or other behavior outside a pure decision function."
+      },
+      {
+        "role": "user",
+        "content": "{\"signature\":\"clean_title(text)\",\"public_request\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"exact_owner_replies\":[\"하이픈은 개수와 위치를 그대로 유지합니다.\"],\"sources\":{\"P1\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\",\"P2\":\"양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\",\"P3\":\"연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"H1\":\"하이픈은 개수와 위치를 그대로 유지합니다.\"},\"my_preliminary_notes\":{\"P1\":{\"established\":\"clean_title(text) -> str 함수 구현 필요. 입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백 (빈 문자열 포함).\",\"input\":\"text\",\"still_open\":\"구체적인 정제 로직 (연속 공백/하이픈 처리 기준), 길이 제한.\"},\"P2\":{\"established\":\"양끝 공백 제거, 영문자 소문자화, 숫자 유지, 내부 단어 사이 단일 공백 유지.\",\"input\":\"text\",\"still_open\":\"연속된 내부 공백, 하이픈, 비어 있는 제목 처리 기준.\"},\"P3\":{\"established\":\"연속 내부 공백, 하이픈, 비어 있는 제목 처리는 편집 담당자 기준.\",\"input\":\"text\",\"still_open\":\"구체적인 편집 기준 정의.\"},\"H1\":{\"established\":\"하이픈 개수와 위치는 유지.\",\"input\":\"text\",\"still_open\":\"연속 하이픈 처리 기준.\"}},\"literal_table\":{}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1650,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "return",
+                      "defer"
+                    ]
+                  },
+                  "value": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P1",
+                        "P2",
+                        "P3",
+                        "H1"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "when",
+                  "action",
+                  "value",
+                  "sources"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 12
+            },
+            "otherwise": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "return",
+                    "defer"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 550
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "H1"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 4
+                }
+              },
+              "required": [
+                "action",
+                "value",
+                "sources"
+              ],
+              "additionalProperties": false
+            },
+            "complete": {
+              "type": "boolean"
+            },
+            "applicable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "rules",
+            "otherwise",
+            "complete",
+            "applicable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-program"
+}

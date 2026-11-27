@@ -1,0 +1,7 @@
+﻿stage,condition,model,seed,reservation,triage,correct,total,wrong,unanswered,prompt_tokens,completion_tokens,total_tokens,unsupported_returns,policy_probes,gained,regressed
+model_run,① 메인 단독,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,20,8,2,738,887,1625,5,6,0,0
+model_run,② 메인 자체 검토,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,20,8,2,3858,2004,5862,5,6,0,0
+model_run,③ P2 역할 분담,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,20,8,2,8592,2239,10831,4,6,0,0
+model_run,③ P3 역할 분담·질문 근거,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,20,8,2,8494,4577,13071,5,6,0,0
+model_run,③ P4 질문 정리·답변 반영 확인,Qwen3.5-4B-Q4_K_M.gguf,263,5,5,10,20,9,1,10249,4379,14628,4,6,3,3
+post_hoc_replay,③ P4 수정 보류 재생,Qwen3.5-4B-Q4_K_M.gguf,263,6,5,11,20,8,1,10249,4379,14628,4,6,1,0

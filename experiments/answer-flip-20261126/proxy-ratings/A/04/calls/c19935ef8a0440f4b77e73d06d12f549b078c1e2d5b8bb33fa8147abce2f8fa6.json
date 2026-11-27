@@ -1,0 +1,96 @@
+{
+  "text": "{\"decision\":\"unknown\",\"value_json\":\"\",\"quote\":\"현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.\",\"reason\":\"정책 결정이 담당자 답변에 의존합니다. 공개 비율 및 글자 공개 방식에 대한 구체적인 기준이 공개 명세에 명시되어 있지 않습니다.\",\"scope\":\"over\",\"excess_quote\":\"현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.\"}",
+  "model": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 204,
+    "prompt_tokens": 558,
+    "total_tokens": 762,
+    "prompt_tokens_details": {
+      "cached_tokens": 45
+    }
+  },
+  "server_timings": {
+    "cache_n": 45,
+    "prompt_n": 513,
+    "prompt_ms": 454.982,
+    "prompt_per_token_ms": 0.8869044834307993,
+    "prompt_per_second": 1127.5171325459028,
+    "predicted_n": 204,
+    "predicted_ms": 4501.639,
+    "predicted_per_token_ms": 22.17556157635468,
+    "predicted_per_second": 45.094686624138454
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 4.97,
+  "request": {
+    "model": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 독립적으로 운영 정책의 의미를 읽는 평가자입니다. 입력 인자에 대한 반환값이 공개 명세 또는 실제 담당자 답변으로 확정되는지 판정하세요. 질문자의 추측은 정책이 아닙니다. 필요한 근거가 충분할 때만 known, 아니면 unknown을 고르세요. known이면 value_json에 반환값을 올바른 JSON 값으로 적으세요. unknown이면 value_json은 비우고 어떤 선택이 열려 있는지 reason에 쓰세요. quote에는 결정의 근거 또는 애매한 부분을 보여 주는 공개 명세나 담당자 답변의 한 구절을 정확히 인용하세요. 대화에 묻지 않은 정책을 담당자가 알려 주었는지를 scope로 판정하세요. over라고 판단하면 excess_quote에 바로 그 담당자 구절을 인용하세요. 문장은 간결하게 작성하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"화면에서 식별코드를 가리는 mask_code(code) -> str 함수를 구현하세요. 입력은 영문 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능합니다.\\n가리는 각 글자를 별표(*) 하나로 바꿉니다. 결과 길이는 입력 길이와 같아야 합니다. 공개하는 글자의 원래 대소문자와 순서는 유지합니다.\\n어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다. 다른 문자나 공백은 입력되지 않습니다.\",\"dialogue\":[[[\"현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.\"],\"마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.\"],[[\"현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.\"],\"마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.\"],[[],null]],\"args\":[\"z0X\"]}"
+      }
+    ],
+    "seed": 937,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 700,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision": {
+              "type": "string",
+              "enum": [
+                "known",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "quote": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string",
+              "enum": [
+                "within",
+                "over",
+                "unclear"
+              ]
+            },
+            "excess_quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "decision",
+            "value_json",
+            "quote",
+            "reason",
+            "scope",
+            "excess_quote"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "독립 정책 평가자"
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "topic": "correction_edge",
+    "question": "그 정정 기간이 정확히 끝나는 순간에도 정정을 허용하나요?",
+    "proposals": [
+      {
+        "source": "self-main",
+        "question": "정정 기간이 정확히 끝나는 순간에도 정정을 허용하나요?"
+      },
+      {
+        "source": "self-review-1",
+        "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "self-review-2",
+        "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "self-review-3",
+        "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "multi-main",
+        "question": "정정 기간이 정확히 끝나는 순간에도 정정을 허용하나요?"
+      },
+      {
+        "source": "multi-review-1",
+        "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "multi-review-2",
+        "question": "정정 기간이 정확히 끝나는 순간(예약 생성 후 10분이 지나는 순간)에는 허용해야 하나요?"
+      },
+      {
+        "source": "multi-review-3",
+        "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+      }
+    ]
+  },
+  {
+    "topic": "deadline_edge",
+    "question": "일반 취소는 이용 시작까지 정확히 24시간 남은 순간에도 허용하나요?",
+    "proposals": [
+      {
+        "source": "self-review-1",
+        "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "self-review-2",
+        "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "self-review-3",
+        "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "multi-review-1",
+        "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+      },
+      {
+        "source": "multi-review-2",
+        "question": "일반 취소 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 정확히 24시간인 경우에도 허용해야 하나요?"
+      },
+      {
+        "source": "multi-review-3",
+        "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+      }
+    ]
+  },
+  {
+    "topic": "correction_period",
+    "question": "예약 직후 정정할 수 있는 기간은 예약한 뒤 얼마 동안인가요?",
+    "proposals": [
+      {
+        "source": "self-review-1",
+        "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+      },
+      {
+        "source": "self-review-2",
+        "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+      },
+      {
+        "source": "self-review-3",
+        "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+      },
+      {
+        "source": "multi-review-1",
+        "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+      },
+      {
+        "source": "multi-review-2",
+        "question": "정정 기간이 10분인 경우, age_seconds가 정확히 10분인 경우에도 허용해야 하나요?"
+      },
+      {
+        "source": "multi-review-3",
+        "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+      }
+    ]
+  },
+  {
+    "topic": "start_priority",
+    "question": "정정 기간이 남아 있을 때, 이용이 막 시작된 순간과 이미 시작된 뒤에는 각각 어떻게 처리하나요?",
+    "proposals": [
+      {
+        "source": "self-review-1",
+        "question": "이용 시작 시점 이후에 정정 기간이 남아도 취소를 허용해야 하나요?"
+      },
+      {
+        "source": "self-review-2",
+        "question": "이용 시작 시점 이후에 정정 기간이 남아도 취소를 허용해야 하나요?"
+      },
+      {
+        "source": "self-review-3",
+        "question": "이용 시작 시점 이후에 정정 기간이 남아도 취소를 허용해야 하나요?"
+      },
+      {
+        "source": "multi-review-1",
+        "question": "이용 시작 시점 이후에 정정 기간이 남아도 정정을 거부하는 이유는 무엇인가요?"
+      },
+      {
+        "source": "multi-review-2",
+        "question": "이용 시작 시점 이후(until_start_seconds < 0)에 정정 기간이 남아도 거부해야 하나요?"
+      },
+      {
+        "source": "multi-review-3",
+        "question": "이용 시작 시점 이후에 정정 기간이 남아도 정정을 거부하는 조건은 무엇인가요?"
+      }
+    ]
+  }
+]

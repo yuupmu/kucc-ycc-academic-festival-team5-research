@@ -1,0 +1,234 @@
+{
+  "writer": {
+    "calls": [
+      "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+      "2184be87d82c5036e0a61b214fd0b26ce3f975060f9bb48ad7c0d962b664f704"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code) 함수를 구현해야 함. 입력은 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능함.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "가리는 글자는 '*'로 바꿈. 결과 길이는 입력 길이와 같아야 함. 공개된 글자의 원래 대소문자와 순서는 유지해야 함.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "어느 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따름. 입력에는 다른 문자나 공백 없음.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "마지막 세 글자를 공개하고 그 앞의 글자는 모두 '*'로 가림.",
+        "input": "code",
+        "still_open": "코드가 3 글자 미만일 때의 처리는 운영 담당자의 기준을 따름",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def mask_code(code: str) -> str:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if len(code) <= 3:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return code",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return \"*\" * (len(code) - 3) + code[-3:]",
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1"
+            ]
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def mask_code(code: str) -> str:\n    if len(code) <= 3:\n        return code\n    return \"*\" * (len(code) - 3) + code[-3:]"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": [],
+    "answer_application": [
+      {
+        "mode": "native",
+        "scope": "solution.py",
+        "issues": []
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하는 운영 결정이 코드 구현과 일치하는지 확인하고, 입력 길이가 3 이하일 때 원래 텍스트를 그대로 반환하는 처리가 요구사항에 따라 올바른지 검토해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "4f1da32fdb1663a743048e9932056ec657a5806598452ae894234cd5364c265b",
+    "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+    "2184be87d82c5036e0a61b214fd0b26ce3f975060f9bb48ad7c0d962b664f704",
+    "5ca097b229a5754b60233d21f623217d634327f078396ce8453dae7430e6ac41"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code: str) -> str:\n    if len(code) <= 3:\n        return code\n    return \"*\" * (len(code) - 3) + code[-3:]"
+  },
+  "sha256": "c58cc5f0299f0bcbfc9c3b6b57684732a9984ecdfc1a93b6431d0e5e8cea8c5d",
+  "status": "open_limit",
+  "cycle": 2,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "b33cabe1d7f9ed3f89fe28fdec442b0295eb30b9386231d416813229f823b449",
+      "questions": [
+        {
+          "question": "mask_code 함수의 동작 방식 (원본 텍스트를 유지하거나 가리는 방식) 에 대한 운영 결정이 명확하지 않습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    },
+    {
+      "cycle": 2,
+      "ticket": "63a7d8a7c3df0d6e4b52b4411808e32b354ec44f0912b1dc22af1c9fe7b40d97",
+      "questions": [
+        {
+          "question": "마지막 세 글자를 공개하는 운영 결정이 코드에 반영되었는지 확인합니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ],
+  "previous_sha256": "ced6909708d51c9a50dd5bb70255a1def7d4a61963da9fe070d7aa2c960f7daf",
+  "dialogue": "runs/mask/dialogues/self-fidelity-3/cycle-2"
+}

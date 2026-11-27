@@ -1,0 +1,26 @@
+{
+  "task": "upload",
+  "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+  "code": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        raise NotImplementedError(\"빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 합니다.\")\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+  "questions": [
+    "파일 크기의 상한 값을 정해달라.",
+    "파일 크기의 상한 값과 정확히 상한 크기에 해당하는 파일의 허용 여부는 저장소 담당자에게 확인이 필요하신가요?",
+    "파일 크기의 상한 값과 정확히 상한 크기의 파일은 허용하는지, 0 바이트의 빈 파일은 허용하는지 저장소 담당자에게 확인이 필요한지 알려주세요."
+  ],
+  "review": [],
+  "function": "allow_upload",
+  "answers": {
+    "A": "상한은 16바이트입니다. 정확히 상한이면 허용합니다. 0바이트 빈 파일은 거부합니다.",
+    "B": "상한은 16바이트입니다. 정확히 상한이면 거부합니다. 0바이트 빈 파일은 거부합니다."
+  },
+  "changed_sentence": {
+    "A": "정확히 상한이면 허용합니다.",
+    "B": "정확히 상한이면 거부합니다."
+  },
+  "source_paths": {
+    "var/family-100-v1/runs/A/upload/design.json": "3b85bda77174b80e0b0f0f1fe9bf239253320f73cc1f0949d7b530d5a0daf6c4",
+    "var/family-100-v1/runs/A/upload/submissions/solo/solution.py": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05",
+    "var/family-100-v1/runs/A/upload/abc-1-questions.json": "716ab1b16b7ded1111b65cb0b0f0e0ced0c2ce36b02da1f542707e570fa57352",
+    "var/family-100-v1/runs/A/upload/abc-1-reply.json": "34ba0f8440ca8a9dfeb4a5491d7477e154f4efb7c2b1d67fdfa43671915a93c2"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    "title",
+    "suffix",
+    "mask",
+    "upload",
+    "print"
+  ],
+  "arms": [
+    "solo",
+    "self",
+    "abc",
+    "abc-confirmed"
+  ],
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "seed": 263,
+  "cycles": 3,
+  "questions_per_arm_cycle": 3,
+  "responders": "Codex chooses only requested facts from the registered operator cards",
+  "invalid_confirmation": "retain sealed ABC, record failed calls",
+  "grading": "after all 20 submissions sealed"
+}

@@ -1,0 +1,131 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def fits_print(width_cm, height_cm):\n    \"\"\"\n    고정 방향 인쇄 영역을 검사하는 함수입니다.\n    \n    Args:\n        width_cm (int): 인쇄 영역의 가로 길이 (센티미터). 0 은 가로 길이 없음을 의미합니다.\n        height_cm (int): 인쇄 영역의 세로 길이 (센티미터). 0 은 세로 길이 없음을 의미합니다.\n    \n    Returns:\n        bool: 인쇄 영역이 허용되는 경우 True, 그렇지 않은 경우 False 를 반환합니다.\n    \n    Requirements:\n        - 한쪽이라도 음수이면 거부합니다.\n        - 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다.\n        - 어느 한쪽이라도 자기 상한을 초과하면 거부합니다.\n        - 회전이나 가로·세로 교환은 하지 않습니다.\n        - 허용하면 True, 거부하면 False 를 반환합니다.\n        - 가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.\n    \n    Note:\n        현재 요구사항에서 '인쇄 담당자에게 확인할 수 있는' 상한값이 명시적으로 제공되지 않았습니다.\n        따라서 이 구현은 '상한값이 존재하지 않는 경우 (무한대)'를 가정하고,\n        양수인 경우에만 True 를 반환하는 로직으로 작성됩니다.\n        만약 향후 인쇄 담당자가 구체적인 상한값 (예: 20cm) 을 제공하면,\n        해당 상한값을 사용하여 비교 로직을 수정해야 합니다.\n    \"\"\"\n    # 음수 확인\n    if width_cm < 0 or height_cm < 0:\n        return False\n    \n    # 0 처리\n    # 요구사항: \"0 은 가로/세로 길이 없음\"\n    # 요구사항: \"양수이고 각각 자기 상한보다 작으면 허용합니다\"\n    # 0 은 양수가 아니므로, 상한값이 존재하지 않는 경우 0 은 허용되지 않음.\n    # (만약 0 을 허용해야 한다면, 상한값이 0 보다 큰 값이 제공되어야 함) \n    # 현재 정보로는 0 을 허용하는 근거가 없으므로 거부합니다.\n    if width_cm == 0 or height_cm == 0:\n        return False\n    \n    # 양수 확인 (0 이 아닐 경우) 및 상한 확인\n    # 현재 요구사항에 구체적인 상한값이 없으므로,\n    # '양수인 경우 허용' 로 해석하여 구현합니다.\n    # 만약 상한값이 제공된다면: width_cm < MAX_WIDTH and height_cm < MAX_HEIGHT\n    # 현재는 MAX_WIDTH = float('inf') 로 간주합니다.\n    \n    return True"
+  },
+  "sha256": "2aa12b1972150b68f608163f3db47e0903a53dd00a893bfd4e5e0f7ba7ac0413",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def fits_print(width_cm, height_cm):\n    \"\"\"\n    고정 방향 인쇄 영역을 검사하는 함수입니다.\n    \n    Args:\n        width_cm (int): 인쇄 영역의 가로 길이 (센티미터). 0 은 가로 길이 없음을 의미합니다.\n        height_cm (int): 인쇄 영역의 세로 길이 (센티미터). 0 은 세로 길이 없음을 의미합니다.\n    \n    Returns:\n        bool: 인쇄 영역이 허용되는 경우 True, 그렇지 않은 경우 False 를 반환합니다.\n    \n    Requirements:\n        - 한쪽이라도 음수이면 거부합니다.\n        - 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다.\n        - 어느 한쪽이라도 자기 상한을 초과하면 거부합니다.\n        - 회전이나 가로·세로 교환은 하지 않습니다.\n        - 허용하면 True, 거부하면 False 를 반환합니다.\n        - 가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.\n    \n    Note:\n        현재 요구사항에서 '인쇄 담당자에게 확인할 수 있는' 상한값이 명시적으로 제공되지 않았습니다.\n        따라서 이 구현은 '상한값이 존재하지 않는 경우 (무한대)'를 가정하고,\n        양수인 경우에만 True 를 반환하는 로직으로 작성됩니다.\n        만약 향후 인쇄 담당자가 구체적인 상한값 (예: 20cm) 을 제공하면,\n        해당 상한값을 사용하여 비교 로직을 수정해야 합니다.\n    \"\"\"\n    # 음수 확인\n    if width_cm < 0 or height_cm < 0:\n        return False\n    \n    # 0 처리\n    # 요구사항: \"0 은 가로/세로 길이 없음\"\n    # 요구사항: \"양수이고 각각 자기 상한보다 작으면 허용합니다\"\n    # 0 은 양수가 아니므로, 상한값이 존재하지 않는 경우 0 은 허용되지 않음.\n    # (만약 0 을 허용해야 한다면, 상한값이 0 보다 큰 값이 제공되어야 함) \n    # 현재 정보로는 0 을 허용하는 근거가 없으므로 거부합니다.\n    if width_cm == 0 or height_cm == 0:\n        return False\n    \n    # 양수 확인 (0 이 아닐 경우) 및 상한 확인\n    # 현재 요구사항에 구체적인 상한값이 없으므로,\n    # '양수인 경우 허용' 로 해석하여 구현합니다.\n    # 만약 상한값이 제공된다면: width_cm < MAX_WIDTH and height_cm < MAX_HEIGHT\n    # 현재는 MAX_WIDTH = float('inf') 로 간주합니다.\n    \n    return True"
+    },
+    "sha256": "2aa12b1972150b68f608163f3db47e0903a53dd00a893bfd4e5e0f7ba7ac0413",
+    "received": [
+      1
+    ],
+    "author_call": "e3add32f28f52cf2886f11c75df75aa86e679c9d2337903648fcad4ebc9f29d0",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 거부해야 하는지, 인쇄 담당자가 확인해야 하는지",
+            "outcome_a": "0 인 길이는 거부합니다.",
+            "outcome_b": "0 인 길이는 인쇄 담당자에게 확인합니다.",
+            "question": "0 인 길이는 거부해야 하는지, 인쇄 담당자가 확인해야 하는지"
+          },
+          {
+            "situation": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 허용해야 하는지",
+            "outcome_a": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 거부합니다.",
+            "outcome_b": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 허용합니다.",
+            "question": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 거부해야 하는지, 허용해야 하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 거부해야 하는지, 인쇄 담당자에게 확인해야 하는지",
+            "outcome_a": "0 인 길이는 양수가 아니므로 거부합니다.",
+            "outcome_b": "0 인 길이는 인쇄 담당자에게 확인해야 합니다.",
+            "question": "0 인 길이는 거부해야 하는지, 인쇄 담당자에게 확인해야 하는지"
+          },
+          {
+            "situation": "상한값이 존재하는지, 존재하지 않는지",
+            "outcome_a": "상한값이 존재하므로 이를 기준으로 검사합니다.",
+            "outcome_b": "상한값이 존재하지 않으므로 양수인 경우 허용합니다.",
+            "question": "상한값이 존재하는지, 존재하지 않는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 거부해야 하는지, 아니면 인쇄 담당자에게 확인이 필요한지",
+            "outcome_a": "0 인 길이는 양수가 아니므로 거부합니다.",
+            "outcome_b": "0 인 길이는 인쇄 담당자에게 확인이 필요하므로 거부하지 않습니다.",
+            "question": "0 인 길이는 거부해야 하는지, 아니면 인쇄 담당자에게 확인이 필요한지"
+          },
+          {
+            "situation": "인쇄 담당자가 상한값을 제공하지 않았을 때, 양수인 경우를 어떻게 처리하는지",
+            "outcome_a": "상한값이 제공되지 않았으므로 양수인 경우 무조건 허용합니다.",
+            "outcome_b": "상한값이 제공되지 않았으므로 양수인 경우에도 거부합니다.",
+            "question": "인쇄 담당자가 상한값을 제공하지 않았을 때, 양수인 경우를 어떻게 처리하는지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "d28272087a6e54b77afcbdbb627778e611feeb7a01b362f320628283242968ef",
+    "336628ca95043907c9302612e7cd14a9aa1e1764a4fe2ca90635ddcc1684537c",
+    "dd636a95b069b4af920c82cc9d574abbc26d1327af5bb58c3a05b87d11351d0b",
+    "7f18438fcb03ffd5c8dcf449a503516db306a8468a0b6f37310631e8d204dacc",
+    "e3add32f28f52cf2886f11c75df75aa86e679c9d2337903648fcad4ebc9f29d0",
+    "ae9a4c3c3623b8f2681e9dbd2fa0f195ccb598fabe7184e3dda365e74a4dad59",
+    "e59e6bbac0264a867e6f5b2dfad7687ab8fc115bd549ceac6ff9fcd1588a0da4",
+    "6542ce615fc9c3226e4f1881de84d8c2f87c21691e25c78ab9164d30bf01f73b"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "08fb109ca43cd7c072e39babef741138eacaf947dfc22c2f1c343d169c1c8d15",
+      "questions": [
+        {
+          "question": "0 인 길이는 허용해야 하는지",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "0 인 길이는 허용되나요?",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "0 인 길이는 허용해야 하는가?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "가로 길이 없음에는 거부로 처리합니다.\n세로 길이 없음에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

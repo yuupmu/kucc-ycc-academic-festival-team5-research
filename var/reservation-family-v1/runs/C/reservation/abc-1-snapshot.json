@@ -1,0 +1,22 @@
+{
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds < 0:\n        return False\n    if until_start_seconds < 86400:\n        return True\n    if age_seconds < 0:\n        return False\n    if age_seconds >= 86400:\n        return False\n    if age_seconds < until_start_seconds:\n        return True\n    return False",
+  "calls": [
+    "da1b90e54be2b1c183e786e69f4b8a6b5efa4cd882e35e3bfcebf95224493f7d",
+    "73086d6198d466f75c24b72f33a2ffc1686fddfc21d273e7778051e19f3ab7e0",
+    "e4563888ca846db15860026f8f15b62d687457da081c37353c2c5e1d38c8cb44",
+    "ada68da564b8f087fe395acb124e6dabe53008f7af2d420f9c466c49b3c5429a",
+    "4d98e870742ac6a19405e97d27e6a2648ebc04d8ea40356ce23d7b77b212ac0e"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "예약은 이용 시작 24시간 전까지 취소할 수 있습니까?",
+        "예약이 시작되기 전에 24시간 전인지 확인할 수 있나요?"
+      ],
+      "answer": {
+        "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다. 이용 시작까지 24시간보다 많이 남아 있으면 일반 취소가 가능합니다."
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "calls": [
+    "b4d9e9daf56cfb532b0874642c8cc0d3c34c9853857ce2b60cfce323555ad139",
+    "d9878bd03d7ca833bd2741d26d627bf7ac607f5705fe2f779747eefb80efa853",
+    "1690f875fc2d11fd341ec87dbe4e92015504c225b43c158a7fdaa04441b47170",
+    "af13a9d78ec132dcff89feafd1a7f20e6efe275ec10564c3ca181faf5a533cde",
+    "1455e333da1432a46aa73d5df829a374073b92221d8b365d816f11359df51360"
+  ],
+  "questions": [
+    {
+      "question": "연속된 하이픈을 하나의 하이픈으로 통일해야 하는지, 아니면 하이픈 개수와 위치를 그대로 유지해야 하는지",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "연속된 하이픈을 하나의 하이픈으로 통일하는지, 아니면 편집 담당자의 기준에 따라 개수를 유지하는지",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "연속된 하이픈이 있는 경우 (예: 'hello--world')를 어떻게 처리할지",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [
+    {
+      "role": "A",
+      "item": {
+        "situation": "빈 문자열 (input: '') 을 처리할 때, rstrip() 후 빈 문자열이 되는지, 아니면 정규식 처리 후 빈 문자열이 되는지",
+        "outcome_a": "빈 문자열은 빈 문자열로 반환합니다.",
+        "outcome_b": "빈 문자열은 빈 문자열로 반환합니다.",
+        "question": ""
+      },
+      "reason": "distinct_outcomes_missing"
+    },
+    {
+      "question": "연속된 공백이 있는 경우 (예: 'hello  world')를 어떻게 처리할지",
+      "proposed_by": [
+        "C"
+      ],
+      "reason": "window_limit"
+    }
+  ],
+  "reviewers": [
+    [
+      "A",
+      {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'hello---world')를 하나의 하이픈으로 통일해야 하는지, 아니면 하이픈 개수와 위치를 그대로 유지해야 하는지",
+            "outcome_a": "연속된 하이픈을 하나의 하이픈으로 통일합니다.",
+            "outcome_b": "연속된 하이픈은 개수와 위치를 그대로 유지합니다.",
+            "question": "연속된 하이픈을 하나의 하이픈으로 통일해야 하는지, 아니면 하이픈 개수와 위치를 그대로 유지해야 하는지"
+          },
+          {
+            "situation": "빈 문자열 (input: '') 을 처리할 때, rstrip() 후 빈 문자열이 되는지, 아니면 정규식 처리 후 빈 문자열이 되는지",
+            "outcome_a": "빈 문자열은 빈 문자열로 반환합니다.",
+            "outcome_b": "빈 문자열은 빈 문자열로 반환합니다.",
+            "question": ""
+          }
+        ],
+        "needs_code_fix": false
+      }
+    ],
+    [
+      "B",
+      {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'a--b')",
+            "outcome_a": "편집 담당자의 기준에 따라 하이픈 개수를 그대로 유지할 경우",
+            "outcome_b": "담당자 답변 원문의 규칙에 따라 하이픈을 하나로 줄일 경우",
+            "question": "연속된 하이픈을 하나의 하이픈으로 통일하는지, 아니면 편집 담당자의 기준에 따라 개수를 유지하는지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ],
+    [
+      "C",
+      {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'hello--world')를 어떻게 처리할지",
+            "outcome_a": "하이픈이 연속되어 있으면 하나의 하이픈으로 줄인다.",
+            "outcome_b": "하이픈이 연속되어 있으면 그대로 두어 위치를 유지한다.",
+            "question": "연속된 하이픈이 있는 경우 (예: 'hello--world')를 어떻게 처리할지"
+          },
+          {
+            "situation": "연속된 공백이 있는 경우 (예: 'hello  world')를 어떻게 처리할지",
+            "outcome_a": "공백이 연속되어 있으면 하나의 공백으로 줄인다.",
+            "outcome_b": "공백이 연속되어 있으면 그대로 두어 위치를 유지한다.",
+            "question": "연속된 공백이 있는 경우 (예: 'hello  world')를 어떻게 처리할지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ]
+  ],
+  "status": "open_limit"
+}

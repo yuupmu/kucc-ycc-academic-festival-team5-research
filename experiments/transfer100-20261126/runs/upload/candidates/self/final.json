@@ -1,0 +1,64 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    \"\"\"\n    업로드 파일 크기 검사 함수.\n    \n    상한값: 16 바이트\n    - 크기가 0 인 경우: 거부 (False)\n    - 크기가 16 이하인 양수인 경우: 허용 (True)\n    - 크기가 16 보다 큰 경우: 거부 (False)\n    - 음수인 경우: 거부 (False)\n    \n    Args:\n        size_bytes (int): 파일 크기 (바이트)\n    \n    Returns:\n        bool: 파일이 허용되는지 여부\n    \"\"\"\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 담당자 답변에 따라 거부합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한값은 16 바이트입니다.\n    # 크기가 16 이하인 양수인 경우 허용합니다.\n    if size_bytes <= 16:\n        return True\n    \n    # 상한보다 큰 파일은 거부합니다.\n    return False"
+  },
+  "sha256": "f36af281a56580043f545e9419e956433c9ab797e831cc1bb9b2778dcd3a1f8f",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    \"\"\"\n    업로드 파일 크기 검사 함수.\n    \n    상한값: 16 바이트\n    - 크기가 0 인 경우: 거부 (False)\n    - 크기가 16 이하인 양수인 경우: 허용 (True)\n    - 크기가 16 보다 큰 경우: 거부 (False)\n    - 음수인 경우: 거부 (False)\n    \n    Args:\n        size_bytes (int): 파일 크기 (바이트)\n    \n    Returns:\n        bool: 파일이 허용되는지 여부\n    \"\"\"\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 담당자 답변에 따라 거부합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한값은 16 바이트입니다.\n    # 크기가 16 이하인 양수인 경우 허용합니다.\n    if size_bytes <= 16:\n        return True\n    \n    # 상한보다 큰 파일은 거부합니다.\n    return False"
+    },
+    "sha256": "f36af281a56580043f545e9419e956433c9ab797e831cc1bb9b2778dcd3a1f8f",
+    "received": [
+      1
+    ],
+    "author_call": "aa83db4e30bd121e849e299cf1d11c5c26821af77751407007574bc977301bdd",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "업로드 파일 크기의 상한값이 16 바이트로 확정되었는지, 그리고 빈 파일 (0 바이트) 과 상한값 (16 바이트) 을 허용하는지 최종 확인이 필요한지 담당자에게 문의합니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "14adf5d2086b7d92cec2c4bd6e89b269cf4cf744089739f5b663c8c8cec8c6ad",
+    "aa83db4e30bd121e849e299cf1d11c5c26821af77751407007574bc977301bdd",
+    "78590de603ff3d0958cfa2f8a0653c3627498a054bc328eb56d9398279461785"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "1b802f94d088a6b588a24b9fdb2b431fd3c28bccaa7304381d7a3700ff5c5227",
+      "questions": [
+        {
+          "question": "상한 파일 크기를 정하고, 정확히 그 크기와 0 크기는 허용할지 거부할지 저장소 담당자에게 확인해 주세요.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "업로드 크기의 상한은 16바이트입니다.\n파일 크기가 상한과 정확히 같아도 허용합니다.\n빈 파일에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def mask_code(code):\n    return \"*\" * len(code) if len(code) <= 3 else \"*\" * (len(code) - 3) + code[-3:]"
+    },
+    "review_files": {
+      "solution.py": "def mask_code(code):\n    return \"*\" * len(code) if len(code) <= 3 else \"*\" * (len(code) - 3) + code[-3:]"
+    },
+    "calls": [
+      "d8b92e064ebfdfa00c29f06e7279b9bf563d3f68bb2afcc8c6f7f4108ae8951b"
+    ],
+    "attempts": [
+      {
+        "issues": [],
+        "bindings": [
+          {
+            "reply": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) if len(code) <= 3 else \"*\" * (len(code) - 3) + code[-3:]"
+          },
+          {
+            "reply": "빈 코드는 빈 문자열을 반환합니다.",
+            "status": "present",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) if len(code) <= 3 else \"*\" * (len(code) - 3) + code[-3:]"
+          },
+          {
+            "reply": "길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+            "status": "present",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) if len(code) <= 3 else \"*\" * (len(code) - 3) + code[-3:]"
+          }
+        ]
+      }
+    ],
+    "guard": {
+      "held": false,
+      "issues": [],
+      "unverified": [],
+      "changed_files": [
+        "solution.py"
+      ],
+      "evidenced_files": [
+        "solution.py"
+      ]
+    },
+    "complete": true,
+    "error": null
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 세 글자를 공개하는 규칙이 운영 기준이 아니거나, 길이가 3 이하인 경우의 처리가 다른 운영 기준과 충돌할 때",
+            "outcome_a": "마지막 세 글자를 공개하고 나머지는 별표로 가림",
+            "outcome_b": "운영 담당자가 정한 다른 공개 규칙에 따름",
+            "question": "마지막 세 글자를 공개하는 것이 운영 기준과 일치하는지 확인해주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "비어 있지 않은 입력 문자열에 대한 처리",
+            "outcome_a": "빈 문자열 반환",
+            "outcome_b": "별표로 가림 (예: \"***\" 또는 \"*\" * 3)",
+            "question": "비어 있지 않은 빈 문자열 입력 시 별표로 가리는 것이 허용되는가?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 세 글자를 공개하는 규칙에 따라 길이가 3 이하인 코드는 전체를 공개해야 하지만, 현재 코드는 길이가 3 이하인 경우를 별표로 가리는 것으로 구현되어 있습니다.",
+            "outcome_a": "길이가 3 이하인 코드는 전체를 공개합니다.",
+            "outcome_b": "길이가 3 이하인 코드는 모두 별표로 가립니다.",
+            "question": "길이가 3 이하인 코드는 전체를 공개해야 하는지, 아니면 모두 별표로 가리는지."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "c826dd99b02a20e42bf2cf5d2b133159572d3d55fc48eb78971724dc1d508742",
+    "61184d7af207c481b030d0f4a21b69480c0009127311dd5c149ea1b261f8b062",
+    "679f05a910af3243283b654e3ee9c1a7f31c3d5a59af69bf7b857d7c5d62891f",
+    "d8b92e064ebfdfa00c29f06e7279b9bf563d3f68bb2afcc8c6f7f4108ae8951b",
+    "721472f5fd4b583612b297b123d6e526c4855d20b97a1665ebf70bccc5eb0f3b",
+    "8965a7005f837faac127828b8fba37e18aae7b2cb27085e31ae63c8906e1c466",
+    "9cfec02a414cb2eb337b484814cc63968919f37ba8a0f20bd24e49c2d1ef5495"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code):\n    return \"*\" * len(code) if len(code) <= 3 else \"*\" * (len(code) - 3) + code[-3:]"
+  },
+  "sha256": "ed92c13956d2554d5ca26dfde682466e5545c052836dbeef5420f12e21a41238",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "a5fea5d99eccaf9dd69ff40dc08fca82882165272fff49b3cbacac232edf629e",
+      "questions": [
+        {
+          "question": "현재 운영 기준에 따라 'A1B2C3' 와 같은 6 자 이상의 코드를 가릴 때, 앞뒤 몇 글자를 공개해야 하는지 정해져 있나요? (예: 앞뒤 1 자, 앞뒤 2 자 등) 또한 빈 문자열이나 1~4 자인 코드는 어떻게 처리하나요? 이 기준과 그 적용 기준 (reference point) 이 명확히 정의되어야 합니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "입력 코드가 'AB' 일 때, 운영 담당자가 정한 공개 기준에 따라 결과 문자열이 'AB' 가 되는지, 아니면 '**' 가 되는지 명확히 해주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.\n빈 코드는 빈 문자열을 반환합니다.\n길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

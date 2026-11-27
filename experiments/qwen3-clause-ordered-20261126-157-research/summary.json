@@ -1,0 +1,184 @@
+{
+  "status": "incomplete_limit",
+  "arm_status": {
+    "self": {
+      "status": "incomplete_limit",
+      "version": 6
+    },
+    "multi": {
+      "status": "incomplete_limit",
+      "version": 6
+    }
+  },
+  "submissions": {},
+  "versions": [
+    {
+      "version": 1,
+      "arm": "multi",
+      "score": 15,
+      "total": 40,
+      "returned": 15,
+      "corrected": null,
+      "regressed": null,
+      "code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab"
+    },
+    {
+      "version": 1,
+      "arm": "self",
+      "score": 15,
+      "total": 40,
+      "returned": 15,
+      "corrected": null,
+      "regressed": null,
+      "code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab"
+    },
+    {
+      "version": 2,
+      "arm": "multi",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 20,
+      "regressed": 10,
+      "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45"
+    },
+    {
+      "version": 2,
+      "arm": "self",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 20,
+      "regressed": 10,
+      "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45"
+    },
+    {
+      "version": 3,
+      "arm": "multi",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45"
+    },
+    {
+      "version": 3,
+      "arm": "self",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45"
+    },
+    {
+      "version": 4,
+      "arm": "multi",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "92f1bfb01c15947b5977144fce94de6b996f11add8172a6502967d13ca6044e0"
+    },
+    {
+      "version": 4,
+      "arm": "self",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45"
+    },
+    {
+      "version": 5,
+      "arm": "multi",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "5b6aec231f69e004fb2a2034fef08982835d24e929d7aaeee6cb45cdae409752"
+    },
+    {
+      "version": 5,
+      "arm": "self",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45"
+    },
+    {
+      "version": 6,
+      "arm": "multi",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "5b6aec231f69e004fb2a2034fef08982835d24e929d7aaeee6cb45cdae409752"
+    },
+    {
+      "version": 6,
+      "arm": "self",
+      "score": 25,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45"
+    }
+  ],
+  "usage": {
+    "self": {
+      "calls": 24,
+      "tokens": 49417,
+      "model_seconds": 278.56,
+      "question_batches": 2,
+      "questions": 19,
+      "replies": 2,
+      "clarification_only": 1,
+      "facts_received": [
+        "after_start",
+        "at_start",
+        "correction_edge",
+        "correction_period",
+        "correction_reference",
+        "deadline_edge",
+        "past_deadline",
+        "public_deadline",
+        "public_start"
+      ]
+    },
+    "multi": {
+      "calls": 24,
+      "tokens": 41756,
+      "model_seconds": 292.11,
+      "question_batches": 1,
+      "questions": 19,
+      "replies": 1,
+      "clarification_only": 0,
+      "facts_received": [
+        "after_start",
+        "at_start",
+        "correction_edge",
+        "correction_period",
+        "correction_reference",
+        "deadline_edge",
+        "past_deadline",
+        "public_deadline",
+        "public_start"
+      ]
+    }
+  },
+  "human_replies": 0,
+  "delegated_replies": 3,
+  "question_batches": 3,
+  "question_groups": 38,
+  "human_wait_seconds": 0,
+  "delegated_wait_seconds": 136.21
+}

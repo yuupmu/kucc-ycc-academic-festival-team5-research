@@ -1,0 +1,423 @@
+{
+  "seal": "efe7f271580a1faac31a69a7ea58c4a82407eef3b01e0193b2b056a0b9d473d7",
+  "cross_table": {
+    "both_correct": 13,
+    "prediction_only": 5
+  },
+  "per_run": [
+    {
+      "seed": 273,
+      "policy": "A",
+      "prediction_all": true,
+      "code_all": true,
+      "edit_status": "applied",
+      "code_matches_original": true
+    },
+    {
+      "seed": 273,
+      "policy": "B",
+      "prediction_all": true,
+      "code_all": false,
+      "edit_status": "applied",
+      "code_matches_original": true
+    },
+    {
+      "seed": 419,
+      "policy": "A",
+      "prediction_all": true,
+      "code_all": true,
+      "edit_status": "applied",
+      "code_matches_original": true
+    },
+    {
+      "seed": 419,
+      "policy": "B",
+      "prediction_all": true,
+      "code_all": false,
+      "edit_status": "applied",
+      "code_matches_original": true
+    },
+    {
+      "seed": 887,
+      "policy": "A",
+      "prediction_all": true,
+      "code_all": true,
+      "edit_status": "applied",
+      "code_matches_original": true
+    },
+    {
+      "seed": 887,
+      "policy": "B",
+      "prediction_all": true,
+      "code_all": false,
+      "edit_status": "applied",
+      "code_matches_original": true
+    }
+  ],
+  "per_input": [
+    {
+      "seed": 273,
+      "policy": "A",
+      "size": 15,
+      "expected": true,
+      "prediction": "허용",
+      "returned": true,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 273,
+      "policy": "A",
+      "size": 16,
+      "expected": true,
+      "prediction": "허용",
+      "returned": true,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 273,
+      "policy": "A",
+      "size": 17,
+      "expected": false,
+      "prediction": "거부",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 273,
+      "policy": "B",
+      "size": 15,
+      "expected": true,
+      "prediction": "허용",
+      "returned": null,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        13,
+        16
+      ],
+      "code_status": "invalid-return",
+      "prediction_correct": true,
+      "code_correct": false,
+      "result": "prediction_only"
+    },
+    {
+      "seed": 273,
+      "policy": "B",
+      "size": 16,
+      "expected": false,
+      "prediction": "거부",
+      "returned": null,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        13,
+        16
+      ],
+      "code_status": "invalid-return",
+      "prediction_correct": true,
+      "code_correct": false,
+      "result": "prediction_only"
+    },
+    {
+      "seed": 273,
+      "policy": "B",
+      "size": 17,
+      "expected": false,
+      "prediction": "거부",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        13,
+        14
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 419,
+      "policy": "A",
+      "size": 15,
+      "expected": true,
+      "prediction": "허용",
+      "returned": true,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 419,
+      "policy": "A",
+      "size": 16,
+      "expected": true,
+      "prediction": "허용",
+      "returned": true,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 419,
+      "policy": "A",
+      "size": 17,
+      "expected": false,
+      "prediction": "거부",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 419,
+      "policy": "B",
+      "size": 15,
+      "expected": true,
+      "prediction": "허용",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "wrong",
+      "prediction_correct": true,
+      "code_correct": false,
+      "result": "prediction_only"
+    },
+    {
+      "seed": 419,
+      "policy": "B",
+      "size": 16,
+      "expected": false,
+      "prediction": "거부",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 419,
+      "policy": "B",
+      "size": 17,
+      "expected": false,
+      "prediction": "거부",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 887,
+      "policy": "A",
+      "size": 15,
+      "expected": true,
+      "prediction": "허용",
+      "returned": true,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 887,
+      "policy": "A",
+      "size": 16,
+      "expected": true,
+      "prediction": "허용",
+      "returned": true,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 887,
+      "policy": "A",
+      "size": 17,
+      "expected": false,
+      "prediction": "거부",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 887,
+      "policy": "B",
+      "size": 15,
+      "expected": true,
+      "prediction": "허용",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "wrong",
+      "prediction_correct": true,
+      "code_correct": false,
+      "result": "prediction_only"
+    },
+    {
+      "seed": 887,
+      "policy": "B",
+      "size": 16,
+      "expected": false,
+      "prediction": "거부",
+      "returned": false,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "correct",
+      "prediction_correct": true,
+      "code_correct": true,
+      "result": "both_correct"
+    },
+    {
+      "seed": 887,
+      "policy": "B",
+      "size": 17,
+      "expected": false,
+      "prediction": "거부",
+      "returned": true,
+      "error": null,
+      "executed_lines": [
+        3,
+        7,
+        12
+      ],
+      "code_status": "wrong",
+      "prediction_correct": true,
+      "code_correct": false,
+      "result": "prediction_only"
+    }
+  ],
+  "policy_flip": [
+    {
+      "seed": 273,
+      "prediction_boundary": true,
+      "execution_boundary": false,
+      "prediction_controls": true,
+      "execution_controls": false
+    },
+    {
+      "seed": 419,
+      "prediction_boundary": true,
+      "execution_boundary": true,
+      "prediction_controls": true,
+      "execution_controls": false
+    },
+    {
+      "seed": 887,
+      "prediction_boundary": true,
+      "execution_boundary": true,
+      "prediction_controls": true,
+      "execution_controls": false
+    }
+  ],
+  "usage": {
+    "edit": {
+      "prompt_tokens": 3816,
+      "completion_tokens": 721,
+      "total_tokens": 4537,
+      "calls": 6
+    },
+    "predict": {
+      "prompt_tokens": 3792,
+      "completion_tokens": 204,
+      "total_tokens": 3996,
+      "calls": 6
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "text": "{\"rules\":[{\"when\":\"size_bytes < 0 and not ALLOW_EMPTY_FILE\",\"then\":\"False\",\"source\":\"P3\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 28,
+    "prompt_tokens": 487,
+    "total_tokens": 515,
+    "prompt_tokens_details": {
+      "cached_tokens": 188
+    }
+  },
+  "server_timings": {
+    "cache_n": 188,
+    "prompt_n": 299,
+    "prompt_ms": 443.462,
+    "prompt_per_token_ms": 1.4831505016722408,
+    "prompt_per_second": 674.2404084228186,
+    "predicted_n": 28,
+    "predicted_ms": 651.909,
+    "predicted_per_token_ms": 24.144777777777776,
+    "predicted_per_second": 41.41682351371127
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.1,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 담당자에게 질문을 보내는 시점에 공개 명세가 정한 행동을 한 번 기록합니다.\n순서대로 처음 참인 행이 반환됩니다. when은 입력 이름, quantity 항목의 변수명, 명세에 나온 정수, 비교 연산 및 and/or/not으로 쓴 파이썬 조건식입니다.\nthen은 공개 규칙이면 True/False, 담당자가 정할 행동이면 해당 decision의 변수명입니다. source는 이 행의 근거인 공개 문장 번호입니다.\n수치 자체는 quantity 변수로 비교하고, 결정할 행동은 별도의 decision 변수를 반환하세요. 미확정 수치나 행동을 추측하지 마세요.\n가능하면 모든 입력을 포함하세요. 명세와 질문에 근거가 없으면 행을 만들지 마세요. 이미 구현된 분기도 원래 계약대로 표현하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요.\",\"P2\":\"size_bytes는 정수 바이트 수이며 0은 빈 파일입니다.\",\"P3\":\"음수 입력은 잘못된 크기이므로 거부합니다.\",\"P4\":\"담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다.\",\"P5\":\"허용하면 True, 거부하면 False를 반환합니다.\",\"P6\":\"상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다.\",\"P7\":\"파일 내용이나 확장자는 입력에 없습니다.\"},\"inputs\":[\"size_bytes\"],\"decisions\":{\"MAX_SIZE_BYTES\":{\"key\":\"MAX_SIZE_BYTES\",\"kind\":\"quantity\",\"origin\":\"Q1\",\"question\":\"파일 크기의 상한 바이트 수를 정해달라.\"},\"ALLOW_EMPTY_FILE\":{\"key\":\"ALLOW_EMPTY_FILE\",\"kind\":\"decision\",\"origin\":\"Q2\",\"question\":\"빈 파일 (0 바이트) 을 허용하는지 확인해주세요.\"},\"ALLOW_EXACT_MAX\":{\"key\":\"ALLOW_EXACT_MAX\",\"kind\":\"decision\",\"origin\":\"Q3\",\"question\":\"정확히 상한 크기에 해당하는 파일을 허용하는지 확인해주세요.\"}},\"format_feedback\":\"Use only the supplied variable names, comparisons, and Boolean expressions: size_bytes < 0 and not ALLOW_EMPTY_FILE\"}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string"
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False",
+                      "ALLOW_EMPTY_FILE",
+                      "ALLOW_EXACT_MAX"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4",
+                      "P5",
+                      "P6",
+                      "P7"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

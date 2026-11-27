@@ -1,0 +1,251 @@
+{
+  "text": "{\"applicable\": true, \"regions\": {\"size_bytes < 0\": {\"result\": \"False\", \"sources\": [\"P1\", \"H1\"]}, \"size_bytes == 0\": {\"result\": \"False\", \"sources\": [\"H1\"]}, \"0 < size_bytes < 16\": {\"result\": \"True\", \"sources\": [\"P2\", \"H2\"]}, \"size_bytes == 16\": {\"result\": \"True\", \"sources\": [\"P2\", \"H3\"]}, \"size_bytes > 16\": {\"result\": \"False\", \"sources\": [\"P2\", \"H2\"]}}}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 143,
+    "prompt_tokens": 497,
+    "total_tokens": 640,
+    "prompt_tokens_details": {
+      "cached_tokens": 225
+    }
+  },
+  "server_timings": {
+    "cache_n": 225,
+    "prompt_n": 272,
+    "prompt_ms": 461.516,
+    "prompt_per_token_ms": 1.69675,
+    "prompt_per_second": 589.3620156180933,
+    "predicted_n": 143,
+    "predicted_ms": 4036.209,
+    "predicted_per_token_ms": 28.42400704225352,
+    "predicted_per_second": 35.18152801304392
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 4.52,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 프로젝트의 메인 작성자입니다. 공개 원문과 실제 담당자 회신만으로 함수 동작을 구현하세요. 같은 입력을 설명하는 서로 겹치지 않는 영역을 제공합니다. 각 영역 전체에 대하여 원문이 보장하는 결과를 선택하고 관련 원문 번호를 인용하세요. 한 영역 안에서도 아직 가능한 정책에 따라 결과가 달라지면 defer를 고르세요. 조건식을 새로 쓰거나 미정 정책을 추측할 필요가 없습니다. 경계의 정확한 순간과 양옆을 따로 읽으세요. 한 규칙이 닫힌 뒤에도 적용되는 예외가 있으면 그 정보도 사용하세요. 집합에서 단 하나의 알려진 값 자체를 반환하는 선택은 그 값이 단 하나인 영역에만 쓸 수 있습니다. 원문에 주어진 순위 연산은 입력에 있는 값들 중 그 순서로 가장 앞선 값을 반환합니다. 목록만 제시된 순서는 우선순위가 아닙니다. 연산의 근거 번호도 함께 인용하세요. 일반 분기 조건만으로 본래 함수 역할을 표현할 수 없을 때만 applicable을 false로 표시하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"함수\":\"allow_upload(size_bytes)\",\"원문\":{\"P1\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\",\"P2\":\"담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\",\"P3\":\"상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.\",\"H1\":\"빈 파일에는 거부로 처리합니다.\",\"H2\":\"업로드 크기의 상한은 16바이트입니다.\",\"H3\":\"파일 크기가 상한과 정확히 같아도 허용합니다.\"},\"입력영역\":[\"size_bytes < 0\",\"size_bytes == 0\",\"0 < size_bytes < 16\",\"size_bytes == 16\",\"size_bytes > 16\"],\"가능한결과\":{\"True\":{\"동작\":\"True\",\"근거\":[]},\"False\":{\"동작\":\"False\",\"근거\":[]},\"defer\":{\"동작\":null,\"근거\":[]}}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2450,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "applicable": {
+              "type": "boolean"
+            },
+            "regions": {
+              "type": "object",
+              "properties": {
+                "size_bytes < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "size_bytes == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < size_bytes < 16": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "size_bytes == 16": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "size_bytes > 16": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "size_bytes < 0",
+                "size_bytes == 0",
+                "0 < size_bytes < 16",
+                "size_bytes == 16",
+                "size_bytes > 16"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "applicable",
+            "regions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-region-decisions"
+}

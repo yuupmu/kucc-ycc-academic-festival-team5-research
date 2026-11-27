@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "10d328388c0a56252ee2dd06ea45b40e63c7de2a2e70707a8b7f2c988e0c3c9e",
+    "0073686da3320d8bce88fd1af694ee258072fa032ab319a2a27ebc64a284b6f8",
+    "39b82eb13a3392b6cb3a475caa2cc477ccf9b2b2e4baca8399781d2caa63b560",
+    "cf4d6fa8269fde63ccfb45b4cf8a731f5672d7f88a24ac0e2b7dd07f48e321f4"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "점과 하이픈이 섞여 있는 이름 (예: `file-name.txt`) 에서 하이픈이 포함된 부분이 확장자로 간주되는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "이 코드는 점으로 시작하거나 점이 여러 개인 경우, 그리고 점이 맨 끝에 있는 경우를 어떻게 처리할지 명확히 정의해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "점의 개수가 1 개인 경우와 여러 개인 경우를 구분하여, 여러 개일 때 마지막 점 뒤의 부분만 반환하는 로직이 구현되었는지 확인 부탁드립니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "점과 하이픈이 섞여 있는 이름 (예: `file-name.txt`) 에서 하이픈이 포함된 부분이 확장자로 간주되는지 확인해 주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "이 코드는 점으로 시작하거나 점이 여러 개인 경우, 그리고 점이 맨 끝에 있는 경우를 어떻게 처리할지 명확히 정의해 주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "점의 개수가 1 개인 경우와 여러 개인 경우를 구분하여, 여러 개일 때 마지막 점 뒤의 부분만 반환하는 로직이 구현되었는지 확인 부탁드립니다.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

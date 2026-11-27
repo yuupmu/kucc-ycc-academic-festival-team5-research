@@ -1,0 +1,43 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "weights": {
+    "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+    "bytes": 2707513696,
+    "sha256": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c"
+  },
+  "tasks": [
+    "reservation",
+    "upload",
+    "triage",
+    "sensors"
+  ],
+  "seeds": [
+    273,
+    419,
+    887
+  ],
+  "rounds": 1,
+  "scope": "fixed first owner reply; no later owner turns or performance feedback",
+  "temperature": 0.3,
+  "top_p": 0.9,
+  "top_k": 40,
+  "thinking": false,
+  "retries": "same writer, 1100/1800 if truncated or malformed, and at most one retry on edit format errors, no tests",
+  "outcomes": "strict paired match on affected inputs; both same, both correct, preservation among initially correct on invariant inputs; decline and error separate",
+  "design_order": "all four tasks, policies, probes, programs and alternate A/B execution order frozen before first model call. Three archived snapshots and one new neutral starter.",
+  "signatures": {
+    "experiments/answer-flip-20261126/frozen/upload.json": "7d345012e39d30854766194e73e732a0851e8144baf3aec50b9a41da0dcfd33b",
+    "experiments/answer-flip-20261126/frozen/triage.json": "6ef69ea2eadbe87b59f9d5fb5ec8e3b06156bb53357857bd383e8ba099fce5b4",
+    "experiments/answer-flip-20261126/frozen/sensors.json": "c512b494753d075c85ab3ae69e23c303b3b9bf72e1f1d74589c91fc5c136f7d4",
+    "experiments/answer-flip-20261126/frozen/reservation.json": "df895a91d86cb44093ad2e0e3a02848e102e63a7ddbf43e65c14eab1ecaa72d5",
+    "experiments/answer-flip-20261126/evaluator/cases.json": "0bfd057523c960da7373db7fb52ee56e114e21461939ed066e30d55253c98b52",
+    "experiments/answer-flip-20261126/prepare.py": "b851ec951052a4fbb2caaeef2239b1ee1c921c22a216eaabedbeed0f90c33816",
+    "experiments/answer-flip-20261126/run_pairs.py": "1290cce452bc093a3bf369ab16997d2a560f75589278210b929832b2a917e801",
+    "experiments/answer-flip-20261126/score_pairs.py": "4aa7cd0fef75b922feeed29185df81db0ae30ae7ce4e4efb318695401d091b2c",
+    "backend/allocation_repair.py": "bae7eb8807d459d3f6534c1f90b84342a7c746686d5b040739f6b234bfea2f44",
+    "experiments/festival_protocol.py": "bef0db5da639e34b33b5e0776f816267d98365e0c95da1c4cecdc0a5ec95edf2",
+    "experiments/scoped_transfer.py": "8589d93534ebdabb31281a48a87247f45b0656a2262dab3da467a57657a011b7",
+    "experiments/local_transport.py": "20687f9c04c6a312bb610cc29bd4fdba83e21d36d735d955f5536f9c3423210f",
+    "var/family-100-v1/weights.json": "458dabc7b39f82d8ba1a93649fe8f3617f2724dc29937011345a93a730d50577"
+  }
+}

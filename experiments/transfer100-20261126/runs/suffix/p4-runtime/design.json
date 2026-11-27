@@ -1,0 +1,29 @@
+{
+  "protocol": "festival-human-review-p4-v2",
+  "project": {
+    "brief": "파일 이름에서 확장자를 추출하는 file_suffix(name) -> str 함수를 구현하세요. 입력은 경로 구분자 없이 영문 대소문자, 숫자, 점, 하이픈으로만 된 파일 이름입니다. 공백과 빈 문자열은 입력되지 않습니다.\n이름 안에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일은 점 다음 부분을 반환합니다. 반환값에 점을 붙이지 않습니다.\n대소문자 표기, 점이 여러 개인 이름, 점으로 시작하는 이름, 확장자가 없는 이름의 처리는 파일 관리 담당자에게 확인할 수 있습니다.",
+    "files": {
+      "solution.py": "def file_suffix(name):\n    raise NotImplementedError\n"
+    }
+  },
+  "seed": 263,
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "arms": [
+    "p4"
+  ],
+  "versions": 2,
+  "questions_per_window": 3,
+  "limits": [
+    2400,
+    950
+  ],
+  "prompts_sha256": "7b4218acf84babe78c8199cfc37237cb8ae6e743118752743d2af19c3780388a",
+  "parent_draft": "b7807474da7e8282301e87a084aed4660335c099ab60b4a442961412ba2d3d3a",
+  "parent_review": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "45354425f7a92800bc8517502b33ae6fd3627a744d2b92476df1fd9eaf06df94",
+    "a8dfa9ce7388d33ff9ad24c550644f08993831578eada68d59ceaa2cdc0b83f3",
+    "80c2db699ba66036e9b1a39d2890733c831c28ff7dabf8aec720391ae03f0c6e"
+  ],
+  "refinement_sha256": "53728141c80470befd690caa242b0f2f77c00d71b5cafb0f82ea000a9f2f67e2"
+}

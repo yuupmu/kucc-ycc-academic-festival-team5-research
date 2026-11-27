@@ -1,0 +1,114 @@
+{
+  "calls": [
+    "e3add32f28f52cf2886f11c75df75aa86e679c9d2337903648fcad4ebc9f29d0",
+    "ae9a4c3c3623b8f2681e9dbd2fa0f195ccb598fabe7184e3dda365e74a4dad59",
+    "e59e6bbac0264a867e6f5b2dfad7687ab8fc115bd549ceac6ff9fcd1588a0da4",
+    "6542ce615fc9c3226e4f1881de84d8c2f87c21691e25c78ab9164d30bf01f73b"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 거부해야 하는지, 인쇄 담당자가 확인해야 하는지",
+            "outcome_a": "0 인 길이는 거부합니다.",
+            "outcome_b": "0 인 길이는 인쇄 담당자에게 확인합니다.",
+            "question": "0 인 길이는 거부해야 하는지, 인쇄 담당자가 확인해야 하는지"
+          },
+          {
+            "situation": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 허용해야 하는지",
+            "outcome_a": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 거부합니다.",
+            "outcome_b": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 허용합니다.",
+            "question": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 거부해야 하는지, 허용해야 하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 거부해야 하는지, 인쇄 담당자에게 확인해야 하는지",
+            "outcome_a": "0 인 길이는 양수가 아니므로 거부합니다.",
+            "outcome_b": "0 인 길이는 인쇄 담당자에게 확인해야 합니다.",
+            "question": "0 인 길이는 거부해야 하는지, 인쇄 담당자에게 확인해야 하는지"
+          },
+          {
+            "situation": "상한값이 존재하는지, 존재하지 않는지",
+            "outcome_a": "상한값이 존재하므로 이를 기준으로 검사합니다.",
+            "outcome_b": "상한값이 존재하지 않으므로 양수인 경우 허용합니다.",
+            "question": "상한값이 존재하는지, 존재하지 않는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 거부해야 하는지, 아니면 인쇄 담당자에게 확인이 필요한지",
+            "outcome_a": "0 인 길이는 양수가 아니므로 거부합니다.",
+            "outcome_b": "0 인 길이는 인쇄 담당자에게 확인이 필요하므로 거부하지 않습니다.",
+            "question": "0 인 길이는 거부해야 하는지, 아니면 인쇄 담당자에게 확인이 필요한지"
+          },
+          {
+            "situation": "인쇄 담당자가 상한값을 제공하지 않았을 때, 양수인 경우를 어떻게 처리하는지",
+            "outcome_a": "상한값이 제공되지 않았으므로 양수인 경우 무조건 허용합니다.",
+            "outcome_b": "상한값이 제공되지 않았으므로 양수인 경우에도 거부합니다.",
+            "question": "인쇄 담당자가 상한값을 제공하지 않았을 때, 양수인 경우를 어떻게 처리하는지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "0 인 길이는 거부해야 하는지, 인쇄 담당자가 확인해야 하는지",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "0 인 길이는 거부해야 하는지, 인쇄 담당자에게 확인해야 하는지",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "0 인 길이는 거부해야 하는지, 아니면 인쇄 담당자에게 확인이 필요한지",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [
+    {
+      "question": "상한값이 존재하지 않는 경우 0 보다 큰 양수 길이는 거부해야 하는지, 허용해야 하는지",
+      "proposed_by": [
+        "A"
+      ],
+      "reason": "window_limit"
+    },
+    {
+      "question": "상한값이 존재하는지, 존재하지 않는지",
+      "proposed_by": [
+        "B"
+      ],
+      "reason": "window_limit"
+    },
+    {
+      "question": "인쇄 담당자가 상한값을 제공하지 않았을 때, 양수인 경우를 어떻게 처리하는지",
+      "proposed_by": [
+        "C"
+      ],
+      "reason": "window_limit"
+    }
+  ],
+  "status": "open_limit"
+}

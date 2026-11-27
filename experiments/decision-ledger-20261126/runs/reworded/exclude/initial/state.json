@@ -1,0 +1,58 @@
+{
+  "code": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+  "confirmed": {
+    "ALLOW_EMPTY_FILE": {
+      "value": false,
+      "quote": "빈 파일은 받지 않습니다.",
+      "turn": 1
+    },
+    "ALLOW_EXACT_MAX": {
+      "value": true,
+      "quote": "용량 제한은 16바이트예요.",
+      "turn": 1
+    }
+  },
+  "pending": [
+    "MAX_SIZE_BYTES"
+  ],
+  "history": [
+    {
+      "ticket": [
+        "MAX_SIZE_BYTES",
+        "ALLOW_EMPTY_FILE",
+        "ALLOW_EXACT_MAX"
+      ],
+      "reply": "빈 파일은 받지 않습니다. 용량 제한은 16바이트예요. 한도와 딱 같은 크기는 올릴 수 없어요.",
+      "parsed": {
+        "facts": [
+          {
+            "quote": "빈 파일은 받지 않습니다.",
+            "kind": "decision"
+          },
+          {
+            "quote": "용량 제한은 16바이트예요.",
+            "kind": "decision"
+          }
+        ]
+      },
+      "rejected": [],
+      "calls": [
+        "6e1434013b2783271c0e5bc83c0a9023a07a73ffeff42e4b3636b0f92f6557ef",
+        "3cb72dd898e031c97b4181a45bd9077a29081ee148987511d875c82b175564de",
+        "10679d16ef2f4c1fa929c2e6396949ac2338802f7cb23e94475d13ce41ac9f6d"
+      ],
+      "edits": [
+        {
+          "site": "@pending:8:8",
+          "region": "size_bytes == 0",
+          "value": "False"
+        },
+        {
+          "site": "@pending:12:4",
+          "region": "size_bytes > 0",
+          "value": "미정"
+        }
+      ]
+    }
+  ]
+}

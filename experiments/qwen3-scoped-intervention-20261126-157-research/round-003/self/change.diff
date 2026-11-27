@@ -1,0 +1,13 @@
+--- v2
++++ v3
+@@ -1,7 +1,8 @@
+ def allow_cancel(age_seconds, until_start_seconds):
++    if age_seconds <= 600:
++        return True
+     if until_start_seconds >= 86400:
+         return True
+-    elif until_start_seconds <= 0:
++    if until_start_seconds <= 0:
+         return False
+-    else:
+-        raise NotImplementedError("별도의 정정 시간에 대한 정책이 명확하지 않습니다.")+    raise NotImplementedError("별도의 정정 시간에 대한 정책이 명확하지 않습니다.")

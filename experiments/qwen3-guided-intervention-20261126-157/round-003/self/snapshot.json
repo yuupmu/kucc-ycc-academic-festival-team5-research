@@ -1,0 +1,41 @@
+{
+  "version": 3,
+  "arm": "self",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    # 일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.\n    if until_start_seconds >= 86400:\n        return True # [1]\n    # 이용이 시작된 순간부터 일반 취소는 마감됩니다.\n    if until_start_seconds <= 0:\n        return False # [2]\n    # 정정 기간은 예약 생성 후 10분입니다.\n    if age_seconds <= 600:\n        return True # [4]\n    # 정정 기간이 정확히 끝나는 순간도 포함합니다.\n    if age_seconds == 600:\n        return True # [5]\n    # 정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.\n    if age_seconds <= 600:\n        return True # [6]\n    # 현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다.\n    if until_start_seconds == 0:\n        return False # [7]\n    # 이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다.\n    if until_start_seconds < 0:\n        return False # [8]\n    raise NotImplementedError(\"별도의 정정 시간에 대한 정책이 명확하지 않습니다.\") # [9]",
+  "sha256": "caa47f4c83e81b39afa4406d836712378a0602fd321ee4479406204d2992745f",
+  "plan": "함수 allow_cancel(age_seconds, until_start_seconds) -> bool를 구현합니다. 담당자 답변을 기반으로 다음 조건을 우선순위대로 검사합니다:\n\n1. 일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다. (인용 번호 #1)\n2. 이용이 시작된 순간부터 일반 취소는 마감됩니다. (인용 번호 #2)\n3. 정정 기간은 예약 생성 후 10분입니다. (인용 번호 #4)\n4. 정정 기간이 정확히 끝나는 순간도 포함합니다. (인용 번호 #5)\n5. 정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다. (인용 번호 #6)\n6. 현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다. (인용 번호 #7)\n7. 이용이",
+  "links": [
+    {
+      "quote": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.",
+      "line": "return True"
+    },
+    {
+      "quote": "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+      "line": "return False"
+    },
+    {
+      "quote": "정정 기간은 예약 생성 후 10분입니다.",
+      "line": "return True"
+    },
+    {
+      "quote": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+      "line": "return True"
+    },
+    {
+      "quote": "정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.",
+      "line": "return True"
+    },
+    {
+      "quote": "현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다.",
+      "line": "return False"
+    },
+    {
+      "quote": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다.",
+      "line": "return False"
+    }
+  ],
+  "main_complete": true,
+  "answer_batches": [
+    1
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "decisions": [
+    {
+      "region": "size_bytes == 0",
+      "interpretation": {
+        "근거": "P3",
+        "반환": "False"
+      },
+      "calls": [
+        "1e31048770845612ed5119a4759baa53e5c166e6d01c761bef298a3a609eaa5b",
+        "4ad9099a40c495e3d7dab44846542e7bfdbf76aaeb5152624c8d843d7d14a13e"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "음수 입력은 잘못된 크기이므로 거부합니다.",
+      "site": "@pending:8:8"
+    },
+    {
+      "region": "0 < size_bytes < 16",
+      "interpretation": {
+        "근거": "H1.2",
+        "반환": "False"
+      },
+      "calls": [
+        "486772894eb7dfbf529d74032b062738a905089c1e4adb5543510034c8b06bb7",
+        "5606ac6ba72e1235f1c26bcc141b2f6c8b65d7e59824c363cedaf3109113d2b1"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "0바이트 빈 파일은 거부합니다.",
+      "site": "@pending:12:4"
+    },
+    {
+      "region": "size_bytes == 16",
+      "interpretation": {
+        "근거": "H1.1",
+        "반환": "False"
+      },
+      "calls": [
+        "c07be44ea73a9e6f99b26f6f5cf3d26aa9142b03e34ac90bd87d8f9cac37f91a",
+        "0f61c72f64a9a0c75d972b95a620bd9e4ae398aafa33ad31110de697548a5bdb"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "상한은 16바이트입니다.",
+      "site": "@pending:12:4"
+    },
+    {
+      "region": "size_bytes > 16",
+      "interpretation": {
+        "근거": "P3",
+        "반환": "False"
+      },
+      "calls": [
+        "2d2fc4136ff657168b03f428cb7ad952eea3ec0f5bf55f27ab8e16ca07ee1902",
+        "2e2caf0870d1c32a24c06e1f1e58671dfaf031738b7910757338e245234277f4"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "음수 입력은 잘못된 크기이므로 거부합니다.",
+      "site": "@pending:12:4"
+    }
+  ],
+  "unresolved": [
+    "size_bytes == 0",
+    "0 < size_bytes < 16",
+    "size_bytes == 16",
+    "size_bytes > 16"
+  ],
+  "calls": [
+    "1e31048770845612ed5119a4759baa53e5c166e6d01c761bef298a3a609eaa5b",
+    "4ad9099a40c495e3d7dab44846542e7bfdbf76aaeb5152624c8d843d7d14a13e",
+    "486772894eb7dfbf529d74032b062738a905089c1e4adb5543510034c8b06bb7",
+    "5606ac6ba72e1235f1c26bcc141b2f6c8b65d7e59824c363cedaf3109113d2b1",
+    "c07be44ea73a9e6f99b26f6f5cf3d26aa9142b03e34ac90bd87d8f9cac37f91a",
+    "0f61c72f64a9a0c75d972b95a620bd9e4ae398aafa33ad31110de697548a5bdb",
+    "2d2fc4136ff657168b03f428cb7ad952eea3ec0f5bf55f27ab8e16ca07ee1902",
+    "2e2caf0870d1c32a24c06e1f1e58671dfaf031738b7910757338e245234277f4"
+  ],
+  "route": "request clarification"
+}

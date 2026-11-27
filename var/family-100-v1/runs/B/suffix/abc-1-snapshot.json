@@ -1,0 +1,24 @@
+{
+  "code": "def file_suffix(name):\n    for i, char in enumerate(name):\n        if char == '.':\n            if i > 0 and i < len(name) - 1:\n                return name[i+1:]\n            else:\n                return ''\n    return ''\n",
+  "calls": [
+    "89819386f218982c71ff307328655cad2bb464e6c9f4433e927bb442d6ab9416",
+    "cbbffe659833477a07d81deaa87de5e9307904afe13f275efd12fdca0d1ba642",
+    "dac5e35f0a8c2715495ccd8d8539846e8ed21ca0b7a4b394954b118844090a0c",
+    "8e503520ba2d6a17f5157929483312be2439c34d9a2c02049cc35065d3fd3316",
+    "7082c7e20a8fbc0ac75a24020fc050a60e6cdb98f02a7c7a55b9f1bed1305b95",
+    "896d2e6004f472697680c97358a74e98cdbc9583900c675ba8b79ac6bbbe4739"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "대소문자를 구분하지 않고 파일 이름을 처리해야 하는 경우, 파일 확장자를 추출하는 방식에 어떤 고려 사항이 있을까요? 예를 들어, 'MyFile.txt'와 'myfile.TXT'를 어떻게 처리해야 할까요?",
+        "대소문자를 구분하지 않고 파일 이름에 점이 여러 개 있는 경우 어떻게 처리해야 할까요? 예를 들어 'My.File.Name.txt'와 같은 이름이 주어졌을 때 어떤 결과를 반환해야 할까요?",
+        "대소문자를 구분하지 않고 파일 이름을 처리할 때, 'MyFile.TXT'와 'myfile.txt'를 입력했을 때 어떤 결과가 예상되나요?"
+      ],
+      "answer": {
+        "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 반환하는 확장자는 소문자로 통일합니다."
+      }
+    }
+  ]
+}

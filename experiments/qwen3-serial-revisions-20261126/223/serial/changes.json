@@ -1,0 +1,298 @@
+[
+  {
+    "role": "B",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "serial/B.json",
+    "before_sha256": "f7ab6f18bee5c3661897e83570255620a5fbc7cf402d73abadbbd16f034d5486",
+    "after_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간 전의 정확한 시점은 24 * 60 * 60 초로 가정합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 후의 정확한 시점은 0초로 가정합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "방금 잘못 예약한 고객의 정의와 별도의 정정 시간은 명시되지 않았으므로, 이 규칙은 현재 코드에 반영되지 않습니다."
+      },
+      "otherwise": false
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "C",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/C.json",
+    "before_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "after_sha256": "6f8274bd38308927f6b4eb24515a0b9ceb95434213ddbc959c3c95b9bcdc67a7",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간 전의 정확한 시점은 24 * 60 * 60 초로 가정합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 후의 정확한 시점은 0초로 가정합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 10
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 예약 후 10초 이내에만 정정이 가능하며, 이는 명시되지 않은 가정입니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "rule_edit",
+        "reason": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장에 해당하며, 이는 일반 취소 마감 시간과 별도의 조건입니다. '방금'이라는 표현은 10초 이내로 해석하고, 이는 명시되지 않은 가정입니다.",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "방금 잘못 예약한 고객의 정의와 별도의 정정 시간은 명시되지 않았으므로, 이 규칙은 현재 코드에 반영되지 않습니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "seconds": 10
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 예약 후 10초 이내에만 정정이 가능하며, 이는 명시되지 않은 가정입니다."
+        }
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [
+        6
+      ],
+      "otherwise": [
+        8
+      ]
+    }
+  },
+  {
+    "role": "D",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/D.json",
+    "before_sha256": "6f8274bd38308927f6b4eb24515a0b9ceb95434213ddbc959c3c95b9bcdc67a7",
+    "after_sha256": "6f8274bd38308927f6b4eb24515a0b9ceb95434213ddbc959c3c95b9bcdc67a7",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간 전의 정확한 시점은 24 * 60 * 60 초로 가정합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 후의 정확한 시점은 0초로 가정합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 10
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 예약 후 10초 이내에만 정정이 가능하며, 이는 명시되지 않은 가정입니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문장에 해당하며, 이는 일반 취소 마감 시간과 별도의 조건입니다. '방금'이라는 표현은 10초 이내로 해석하고, 이는 명시되지 않은 가정입니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "seconds": 10
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 예약 후 10초 이내에만 정정이 가능하며, 이는 명시되지 않은 가정입니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "seconds": 10
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 예약 후 10초 이내에만 정정이 가능하며, 이는 명시되지 않은 가정입니다."
+        }
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [
+        6
+      ],
+      "otherwise": [
+        8
+      ]
+    }
+  }
+]

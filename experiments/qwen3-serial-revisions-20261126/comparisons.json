@@ -1,0 +1,629 @@
+{
+  "groups": {
+    "previous": {
+      "seeds": [
+        131,
+        157,
+        191,
+        223,
+        257,
+        293
+      ],
+      "totals": {
+        "direct": {
+          "score": 169,
+          "total": 240,
+          "transfer_score": 256,
+          "transfer_total": 336,
+          "calls": 6,
+          "tokens": 3550,
+          "age_read_seeds": 0,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "self_plan": {
+          "score": 124,
+          "total": 240,
+          "transfer_score": 208,
+          "transfer_total": 336,
+          "calls": 12,
+          "tokens": 9457,
+          "age_read_seeds": 0,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "self_final": {
+          "score": 127,
+          "total": 240,
+          "transfer_score": 194,
+          "transfer_total": 336,
+          "calls": 30,
+          "tokens": 35900,
+          "age_read_seeds": 1,
+          "age_sensitive_seeds": 1,
+          "case_errors": 0
+        },
+        "B": {
+          "score": 130,
+          "total": 240,
+          "transfer_score": 200,
+          "transfer_total": 336,
+          "calls": 18,
+          "tokens": 13918,
+          "age_read_seeds": 0,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "C": {
+          "score": 139,
+          "total": 240,
+          "transfer_score": 220,
+          "transfer_total": 336,
+          "calls": 24,
+          "tokens": 23155,
+          "age_read_seeds": 6,
+          "age_sensitive_seeds": 5,
+          "case_errors": 0
+        },
+        "abcd": {
+          "score": 139,
+          "total": 240,
+          "transfer_score": 220,
+          "transfer_total": 336,
+          "calls": 30,
+          "tokens": 33434,
+          "age_read_seeds": 6,
+          "age_sensitive_seeds": 5,
+          "case_errors": 0
+        }
+      },
+      "paired": {
+        "direct->abcd": {
+          "official": {
+            "corrected": 41,
+            "regressed": 71,
+            "changed": 112,
+            "changed_seeds": 6,
+            "losses": 5,
+            "wins": 1
+          },
+          "transfer": {
+            "corrected": 51,
+            "regressed": 87,
+            "changed": 138,
+            "changed_seeds": 6,
+            "losses": 2,
+            "ties": 3,
+            "wins": 1
+          }
+        },
+        "self_final->abcd": {
+          "official": {
+            "corrected": 27,
+            "regressed": 15,
+            "changed": 42,
+            "changed_seeds": 6,
+            "losses": 2,
+            "wins": 3,
+            "ties": 1
+          },
+          "transfer": {
+            "corrected": 48,
+            "regressed": 22,
+            "changed": 70,
+            "changed_seeds": 6,
+            "losses": 2,
+            "ties": 1,
+            "wins": 3
+          }
+        },
+        "direct->self_final": {
+          "official": {
+            "corrected": 40,
+            "regressed": 82,
+            "changed": 122,
+            "changed_seeds": 6,
+            "losses": 6
+          },
+          "transfer": {
+            "corrected": 42,
+            "regressed": 104,
+            "changed": 146,
+            "changed_seeds": 6,
+            "losses": 3,
+            "ties": 2,
+            "wins": 1
+          }
+        },
+        "direct->B": {
+          "official": {
+            "corrected": 31,
+            "regressed": 70,
+            "changed": 101,
+            "changed_seeds": 5,
+            "losses": 5,
+            "ties": 1
+          },
+          "transfer": {
+            "corrected": 40,
+            "regressed": 96,
+            "changed": 136,
+            "changed_seeds": 5,
+            "losses": 2,
+            "ties": 3,
+            "wins": 1
+          }
+        },
+        "B->C": {
+          "official": {
+            "corrected": 20,
+            "regressed": 11,
+            "changed": 31,
+            "changed_seeds": 3,
+            "ties": 4,
+            "wins": 2
+          },
+          "transfer": {
+            "corrected": 39,
+            "regressed": 19,
+            "changed": 58,
+            "changed_seeds": 5,
+            "wins": 2,
+            "ties": 4
+          }
+        },
+        "C->abcd": {
+          "official": {
+            "corrected": 0,
+            "regressed": 0,
+            "changed": 0,
+            "changed_seeds": 0,
+            "ties": 6
+          },
+          "transfer": {
+            "corrected": 0,
+            "regressed": 0,
+            "changed": 0,
+            "changed_seeds": 0,
+            "ties": 6
+          }
+        }
+      }
+    },
+    "fresh": {
+      "seeds": [
+        307,
+        331,
+        353,
+        379,
+        401,
+        419
+      ],
+      "totals": {
+        "direct": {
+          "score": 174,
+          "total": 240,
+          "transfer_score": 256,
+          "transfer_total": 336,
+          "calls": 6,
+          "tokens": 3586,
+          "age_read_seeds": 1,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "self_plan": {
+          "score": 120,
+          "total": 240,
+          "transfer_score": 264,
+          "transfer_total": 336,
+          "calls": 12,
+          "tokens": 9498,
+          "age_read_seeds": 1,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "self_final": {
+          "score": 118,
+          "total": 240,
+          "transfer_score": 248,
+          "transfer_total": 336,
+          "calls": 30,
+          "tokens": 35856,
+          "age_read_seeds": 3,
+          "age_sensitive_seeds": 2,
+          "case_errors": 0
+        },
+        "B": {
+          "score": 130,
+          "total": 240,
+          "transfer_score": 264,
+          "transfer_total": 336,
+          "calls": 18,
+          "tokens": 13889,
+          "age_read_seeds": 1,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "C": {
+          "score": 134,
+          "total": 240,
+          "transfer_score": 260,
+          "transfer_total": 336,
+          "calls": 24,
+          "tokens": 22830,
+          "age_read_seeds": 6,
+          "age_sensitive_seeds": 4,
+          "case_errors": 0
+        },
+        "abcd": {
+          "score": 134,
+          "total": 240,
+          "transfer_score": 260,
+          "transfer_total": 336,
+          "calls": 30,
+          "tokens": 32734,
+          "age_read_seeds": 6,
+          "age_sensitive_seeds": 4,
+          "case_errors": 0
+        }
+      },
+      "paired": {
+        "direct->abcd": {
+          "official": {
+            "corrected": 26,
+            "regressed": 66,
+            "changed": 92,
+            "changed_seeds": 5,
+            "ties": 1,
+            "losses": 5
+          },
+          "transfer": {
+            "corrected": 51,
+            "regressed": 47,
+            "changed": 98,
+            "changed_seeds": 5,
+            "ties": 4,
+            "wins": 1,
+            "losses": 1
+          }
+        },
+        "self_final->abcd": {
+          "official": {
+            "corrected": 22,
+            "regressed": 6,
+            "changed": 28,
+            "changed_seeds": 4,
+            "wins": 4,
+            "ties": 2
+          },
+          "transfer": {
+            "corrected": 27,
+            "regressed": 15,
+            "changed": 42,
+            "changed_seeds": 4,
+            "ties": 3,
+            "wins": 2,
+            "losses": 1
+          }
+        },
+        "direct->self_final": {
+          "official": {
+            "corrected": 26,
+            "regressed": 82,
+            "changed": 108,
+            "changed_seeds": 6,
+            "losses": 6
+          },
+          "transfer": {
+            "corrected": 54,
+            "regressed": 62,
+            "changed": 116,
+            "changed_seeds": 6,
+            "ties": 3,
+            "wins": 1,
+            "losses": 2
+          }
+        },
+        "direct->B": {
+          "official": {
+            "corrected": 21,
+            "regressed": 65,
+            "changed": 86,
+            "changed_seeds": 5,
+            "ties": 1,
+            "losses": 5
+          },
+          "transfer": {
+            "corrected": 44,
+            "regressed": 36,
+            "changed": 80,
+            "changed_seeds": 5,
+            "ties": 5,
+            "wins": 1
+          }
+        },
+        "B->C": {
+          "official": {
+            "corrected": 5,
+            "regressed": 1,
+            "changed": 6,
+            "changed_seeds": 1,
+            "ties": 5,
+            "wins": 1
+          },
+          "transfer": {
+            "corrected": 7,
+            "regressed": 11,
+            "changed": 18,
+            "changed_seeds": 4,
+            "ties": 5,
+            "losses": 1
+          }
+        },
+        "C->abcd": {
+          "official": {
+            "corrected": 0,
+            "regressed": 0,
+            "changed": 0,
+            "changed_seeds": 0,
+            "ties": 6
+          },
+          "transfer": {
+            "corrected": 0,
+            "regressed": 0,
+            "changed": 0,
+            "changed_seeds": 0,
+            "ties": 6
+          }
+        }
+      }
+    },
+    "all": {
+      "seeds": [
+        131,
+        157,
+        191,
+        223,
+        257,
+        293,
+        307,
+        331,
+        353,
+        379,
+        401,
+        419
+      ],
+      "totals": {
+        "direct": {
+          "score": 343,
+          "total": 480,
+          "transfer_score": 512,
+          "transfer_total": 672,
+          "calls": 12,
+          "tokens": 7136,
+          "age_read_seeds": 1,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "self_plan": {
+          "score": 244,
+          "total": 480,
+          "transfer_score": 472,
+          "transfer_total": 672,
+          "calls": 24,
+          "tokens": 18955,
+          "age_read_seeds": 1,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "self_final": {
+          "score": 245,
+          "total": 480,
+          "transfer_score": 442,
+          "transfer_total": 672,
+          "calls": 60,
+          "tokens": 71756,
+          "age_read_seeds": 4,
+          "age_sensitive_seeds": 3,
+          "case_errors": 0
+        },
+        "B": {
+          "score": 260,
+          "total": 480,
+          "transfer_score": 464,
+          "transfer_total": 672,
+          "calls": 36,
+          "tokens": 27807,
+          "age_read_seeds": 1,
+          "age_sensitive_seeds": 0,
+          "case_errors": 0
+        },
+        "C": {
+          "score": 273,
+          "total": 480,
+          "transfer_score": 480,
+          "transfer_total": 672,
+          "calls": 48,
+          "tokens": 45985,
+          "age_read_seeds": 12,
+          "age_sensitive_seeds": 9,
+          "case_errors": 0
+        },
+        "abcd": {
+          "score": 273,
+          "total": 480,
+          "transfer_score": 480,
+          "transfer_total": 672,
+          "calls": 60,
+          "tokens": 66168,
+          "age_read_seeds": 12,
+          "age_sensitive_seeds": 9,
+          "case_errors": 0
+        }
+      },
+      "paired": {
+        "direct->abcd": {
+          "official": {
+            "corrected": 67,
+            "regressed": 137,
+            "changed": 204,
+            "changed_seeds": 11,
+            "losses": 10,
+            "wins": 1,
+            "ties": 1
+          },
+          "transfer": {
+            "corrected": 102,
+            "regressed": 134,
+            "changed": 236,
+            "changed_seeds": 11,
+            "losses": 3,
+            "ties": 7,
+            "wins": 2
+          }
+        },
+        "self_final->abcd": {
+          "official": {
+            "corrected": 49,
+            "regressed": 21,
+            "changed": 70,
+            "changed_seeds": 10,
+            "losses": 2,
+            "wins": 7,
+            "ties": 3
+          },
+          "transfer": {
+            "corrected": 75,
+            "regressed": 37,
+            "changed": 112,
+            "changed_seeds": 10,
+            "losses": 3,
+            "ties": 4,
+            "wins": 5
+          }
+        },
+        "direct->self_final": {
+          "official": {
+            "corrected": 66,
+            "regressed": 164,
+            "changed": 230,
+            "changed_seeds": 12,
+            "losses": 12
+          },
+          "transfer": {
+            "corrected": 96,
+            "regressed": 166,
+            "changed": 262,
+            "changed_seeds": 12,
+            "losses": 5,
+            "ties": 5,
+            "wins": 2
+          }
+        },
+        "direct->B": {
+          "official": {
+            "corrected": 52,
+            "regressed": 135,
+            "changed": 187,
+            "changed_seeds": 10,
+            "losses": 10,
+            "ties": 2
+          },
+          "transfer": {
+            "corrected": 84,
+            "regressed": 132,
+            "changed": 216,
+            "changed_seeds": 10,
+            "losses": 2,
+            "ties": 8,
+            "wins": 2
+          }
+        },
+        "B->C": {
+          "official": {
+            "corrected": 25,
+            "regressed": 12,
+            "changed": 37,
+            "changed_seeds": 4,
+            "ties": 9,
+            "wins": 3
+          },
+          "transfer": {
+            "corrected": 46,
+            "regressed": 30,
+            "changed": 76,
+            "changed_seeds": 9,
+            "wins": 2,
+            "ties": 9,
+            "losses": 1
+          }
+        },
+        "C->abcd": {
+          "official": {
+            "corrected": 0,
+            "regressed": 0,
+            "changed": 0,
+            "changed_seeds": 0,
+            "ties": 12
+          },
+          "transfer": {
+            "corrected": 0,
+            "regressed": 0,
+            "changed": 0,
+            "changed_seeds": 0,
+            "ties": 12
+          }
+        }
+      }
+    }
+  },
+  "stages": {
+    "self": {
+      "plan": {
+        "created": 12,
+        "emitted_code_changed": 12
+      },
+      "review1": {
+        "reviewed": 12,
+        "emitted_code_changed": 9,
+        "kept": 29,
+        "rule_edit": 9,
+        "no_change": 10
+      },
+      "review2": {
+        "reviewed": 12,
+        "emitted_code_changed": 0,
+        "kept": 35,
+        "note_only": 8,
+        "no_change": 5
+      },
+      "final": {
+        "reviewed": 12,
+        "emitted_code_changed": 2,
+        "kept": 37,
+        "no_change": 9,
+        "rule_edit": 2
+      }
+    },
+    "serial": {
+      "B": {
+        "created": 12,
+        "emitted_code_changed": 12
+      },
+      "C": {
+        "reviewed": 12,
+        "emitted_code_changed": 11,
+        "kept": 29,
+        "rule_edit": 11,
+        "no_change": 8
+      },
+      "D": {
+        "reviewed": 12,
+        "emitted_code_changed": 0,
+        "kept": 37,
+        "no_change": 7,
+        "note_only": 4
+      }
+    }
+  }
+}

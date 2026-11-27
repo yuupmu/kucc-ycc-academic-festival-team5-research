@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    if size_bytes <= 0:\n        return False\n    if size_bytes > 16:\n        return False\n    return True"
+  },
+  "sha256": "8b1a5183044957a01ff641cfc0a5df24ce4d51a39c8610fadfedd92e8fd7b220",
+  "received": [
+    1
+  ],
+  "author_call": "f63077535004802d9d557d142e7e7ec1d5c3c0ddb9e6e1d78da56368f48caa2f",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  },
+  "attempts": [
+    {
+      "key": "5e239b765585272b61a3ad085d52f16e528262828fdc7096c137deb773d947b7",
+      "issues": [
+        "missing_executable_line",
+        "missing_executable_line"
+      ],
+      "bindings": [
+        {
+          "reply": "빈 파일에는 거부로 처리합니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "if size_bytes == 0: return False"
+        },
+        {
+          "reply": "업로드 크기의 상한은 16바이트입니다.",
+          "status": "present",
+          "file": "solution.py",
+          "line": "if size_bytes > 16: return False"
+        },
+        {
+          "reply": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+          "status": "present",
+          "file": "solution.py",
+          "line": "return True"
+        }
+      ]
+    },
+    {
+      "key": "f63077535004802d9d557d142e7e7ec1d5c3c0ddb9e6e1d78da56368f48caa2f",
+      "issues": [
+        "missing_executable_line",
+        "missing_executable_line"
+      ],
+      "bindings": [
+        {
+          "reply": "빈 파일에는 거부로 처리합니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "    if size_bytes == 0:\n        return False"
+        },
+        {
+          "reply": "업로드 크기의 상한은 16바이트입니다.",
+          "status": "present",
+          "file": "solution.py",
+          "line": "    if size_bytes > 16:\n        return False"
+        },
+        {
+          "reply": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+          "status": "present",
+          "file": "solution.py",
+          "line": "    return True"
+        }
+      ]
+    }
+  ]
+}

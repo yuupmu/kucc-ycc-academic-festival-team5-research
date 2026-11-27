@@ -1,0 +1,26 @@
+{
+  "code": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    if size_bytes > 16:\n        return False",
+  "calls": [
+    "e24d897f2105242f8c58c7bc42b69515f6a542e00768e6c61f82a37197b99aae",
+    "06da2ead9bc8f76c778532d9b136dcd36065893afe0ead7e79e4bf62a9b108e5",
+    "fa05194044db886302c22203d3566308cc483c6b7ccc253d3623664604108994",
+    "eb58a78f6ab8bfa2ae6f03b4e8fd78c965b42e56c8c91a9fa6ab284a32f45a6b",
+    "a727ee2e149098393f72344183e88193c849f4cafbfd496690cee93eebb1a167",
+    "3fdf372a3ae7c02efc498d56086bbaeee9bd960c2842c3fb25a231fd7217f2d8",
+    "05d67550141667b3c94d4de7db8b67eb5e91df9d3b708f2cdc5f4527ea0eb89f",
+    "7400540a3a6492cc31d554ef73b28de18c835c5777bc0fa890333a1d8d629fdc",
+    "4733c7760427d6381c0004353b537a7a7d60aef062effb2a3e45df737c2ed66f"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "파일 크기의 상한 값과 0 바이트 (빈 파일) 의 허용 여부는 담당자에게 확인이 필요하다고 하셨는데, 현재 코드는 두 경우 모두 NotImplementedError 를 발생시켜 개발을 막고 있습니다. 상한 값과 0 바이트 처리 로직이 확정된 후 코드를 수정할 예정인가요?",
+        "현재 코드는 상한 값이 정해지지 않았을 때 모든 양수 파일에 대해 예외를 던지고 있습니다. 만약 상한 값이 나중에 결정되면 이 예외 처리 로직을 어떻게 변경할 계획이신가요?"
+      ],
+      "answer": {
+        "text": "상한은 16바이트입니다. 0바이트 빈 파일은 거부합니다."
+      }
+    }
+  ]
+}

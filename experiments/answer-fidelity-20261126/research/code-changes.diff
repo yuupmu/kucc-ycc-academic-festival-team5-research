@@ -1,0 +1,69 @@
+--- before/reservation/self/cycle-3/solution.py
++++ after/reservation/self/cycle-3/solution.py
+@@ -48,5 +48,5 @@
+     if age_seconds > 600 and until_start_seconds == 86400:
+         return True
+     if age_seconds > 600 and until_start_seconds > 86400:
+-        return False
++        return True
+     raise NotImplementedError
+--- before/reservation/multi/cycle-1/solution.py
++++ after/reservation/multi/cycle-1/solution.py
+@@ -22,7 +22,7 @@
+     if 0 < age_seconds < 600 and until_start_seconds < 0:
+         return True
+     if 0 < age_seconds < 600 and until_start_seconds == 0:
+-        return True
++        return False
+     if 0 < age_seconds < 600 and 0 < until_start_seconds < 86400:
+         return True
+     if 0 < age_seconds < 600 and until_start_seconds == 86400:
+@@ -32,7 +32,7 @@
+     if age_seconds == 600 and until_start_seconds < 0:
+         return True
+     if age_seconds == 600 and until_start_seconds == 0:
+-        return True
++        return False
+     if age_seconds == 600 and 0 < until_start_seconds < 86400:
+         return True
+     if age_seconds == 600 and until_start_seconds == 86400:
+--- before/reservation/multi/cycle-2/solution.py
++++ after/reservation/multi/cycle-2/solution.py
+@@ -22,7 +22,7 @@
+     if 0 < age_seconds < 600 and until_start_seconds < 0:
+         return True
+     if 0 < age_seconds < 600 and until_start_seconds == 0:
+-        return True
++        return False
+     if 0 < age_seconds < 600 and 0 < until_start_seconds < 86400:
+         return True
+     if 0 < age_seconds < 600 and until_start_seconds == 86400:
+@@ -32,7 +32,7 @@
+     if age_seconds == 600 and until_start_seconds < 0:
+         return True
+     if age_seconds == 600 and until_start_seconds == 0:
+-        return True
++        return False
+     if age_seconds == 600 and 0 < until_start_seconds < 86400:
+         return True
+     if age_seconds == 600 and until_start_seconds == 86400:
+--- before/reservation/multi/cycle-3/solution.py
++++ after/reservation/multi/cycle-3/solution.py
+@@ -22,7 +22,7 @@
+     if 0 < age_seconds < 600 and until_start_seconds < 0:
+         return True
+     if 0 < age_seconds < 600 and until_start_seconds == 0:
+-        return True
++        return False
+     if 0 < age_seconds < 600 and 0 < until_start_seconds < 86400:
+         return True
+     if 0 < age_seconds < 600 and until_start_seconds == 86400:
+@@ -32,7 +32,7 @@
+     if age_seconds == 600 and until_start_seconds < 0:
+         return True
+     if age_seconds == 600 and until_start_seconds == 0:
+-        return True
++        return False
+     if age_seconds == 600 and 0 < until_start_seconds < 86400:
+         return True
+     if age_seconds == 600 and until_start_seconds == 86400:

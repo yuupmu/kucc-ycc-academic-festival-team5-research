@@ -1,0 +1,91 @@
+{
+  "text": "{\n  \"questions\": [\n    {\n      \"basis\": \"A1\",\n      \"question\": \"연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까?\"\n    },\n    {\n      \"basis\": \"B1\",\n      \"question\": \"연속된 내부 공백을 하이픈으로 치환하시겠습니까?\"\n    },\n    {\n      \"basis\": \"C1\",\n      \"question\": \"연속된 하이픈과 공백이 섞인 경우, 하이픈까지 모두 공백으로 통일하시겠습니까?\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 133,
+    "prompt_tokens": 598,
+    "total_tokens": 731,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 598,
+    "prompt_ms": 879.333,
+    "prompt_per_token_ms": 1.4704565217391303,
+    "prompt_per_second": 680.0609098032259,
+    "predicted_n": 133,
+    "predicted_ms": 3515.301,
+    "predicted_per_token_ms": 26.631068181818183,
+    "predicted_per_second": 37.550127286397384
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 25.87,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 감시자 C입니다. 세 감시자의 메모를 읽고, 코드를 모르는 운영 담당자에게 직접 묻는 질문을 정리하세요. 공개 설명에서 아직 정하지 않아 답에 따라 결과가 달라지는 정책을 찾으세요. 서로 다른 결정당 한 문장, 중요한 것부터 최대 세 개입니다. 여러 메모가 같은 주제면 묶고, 관련 메모를 근거로 아직 필요한 결정 자체를 구체적으로 물으세요. 정책 내용을 제시하거나 추측하지 마세요. 구현 여부나 변수명, 이미 정해진 사항을 묻지 마세요. 각 question은 담당자가 평소 말로 답할 수 있는 직접 질문으로 쓰고 물음표로 끝내세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"공개 요구사항\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"감시 메모\":{\"A1\":{\"situation\":\"연속된 하이픈이 있는 경우 (예: 'hello--world') 를 하나의 하이픈으로 통일하는지, 아니면 공백으로 치환하는지\",\"outcome_a\":\"연속된 하이픈을 하나의 하이픈으로 통일하여 'hello-world'로 반환\",\"outcome_b\":\"연속된 하이픈을 공백으로 치환하여 'hello world'로 반환\",\"question\":\"연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까? 아니면 공백으로 치환하시겠습니까?\"},\"B1\":{\"situation\":\"연속된 내부 공백이 하이픈으로 치환되는지 확인\",\"outcome_a\":\"연속된 공백이 하이픈으로 치환됩니다.\",\"outcome_b\":\"연속된 공백이 공백으로 치환됩니다.\",\"question\":\"연속된 내부 공백이 하이픈으로 치환되는지 확인\"},\"C1\":{\"situation\":\"연속된 하이픈과 공백이 섞여 있는 경우 (예: 'a-- b')\",\"outcome_a\":\"정규식 `[\\\\s-]+` 로 인해 하이픈과 공백이 모두 하나의 공백으로 통일되어 'a b' 가 됨\",\"outcome_b\":\"하이픈을 유지하고 공백만 통일하여 'a - b' 가 됨\",\"question\":\"연속된 하이픈과 공백이 섞여 있는 경우, 하이픈을 유지하고 공백만 통일해야 하는지, 아니면 하이픈까지 모두 공백으로 통일해야 하는지\"}}}"
+      }
+    ],
+    "seed": 313,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 950,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "questions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "basis": {
+                    "type": "string",
+                    "enum": [
+                      "A1",
+                      "B1",
+                      "C1"
+                    ]
+                  },
+                  "question": {
+                    "type": "string",
+                    "maxLength": 350
+                  }
+                },
+                "required": [
+                  "basis",
+                  "question"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "questions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "C-intake"
+}

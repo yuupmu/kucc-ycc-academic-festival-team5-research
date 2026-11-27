@@ -1,0 +1,48 @@
+{
+  "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 일반 취소 마감 시간 이전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    \n    # 이용이 이미 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n    \n    # \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n    # 이 경우는 일반 취소 마감 시간 이전에 취소가 가능하므로, True를 반환\n    \n    # 위 조건을 모두 통과하면, 일반 마감 시간 이후이거나 이미 시작된 경우, False 반환\n    return False\n```",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 292,
+    "prompt_tokens": 318,
+    "total_tokens": 610,
+    "prompt_tokens_details": {
+      "cached_tokens": 317
+    }
+  },
+  "server_timings": {
+    "cache_n": 317,
+    "prompt_n": 1,
+    "prompt_ms": 21.206,
+    "prompt_per_token_ms": 21.206,
+    "prompt_per_second": 47.15646515137225,
+    "predicted_n": 292,
+    "predicted_ms": 5587.783,
+    "predicted_per_token_ms": 19.202003436426118,
+    "predicted_per_second": 52.077899231233566
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 5.66,
+  "request": {
+    "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 예약 시스템의 Python 개발자입니다. 직접 질문하지 않고 주어진 정보로 전체 함수를 구현합니다."
+      },
+      {
+        "role": "user",
+        "content": "작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n담당자에게 직접 질문하지 마세요. 미확정 사항은 합리적으로 가정하고, 표준 라이브러리만 쓰는 실행 가능한 전체 Python 함수를 하나의 코드 블록으로 제출하세요."
+      }
+    ],
+    "seed": 71,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1500,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "role": "main"
+}

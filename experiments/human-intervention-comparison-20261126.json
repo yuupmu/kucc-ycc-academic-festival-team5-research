@@ -1,0 +1,1097 @@
+{
+  "task": "cancellation_basic",
+  "items_per_run": 40,
+  "model": "Qwen3-8B Q4_K_M",
+  "baseline": "scoped",
+  "endpoint": "last observed version; submissions listed separately",
+  "seeds": {
+    "131": {
+      "scoped": {
+        "directory": "qwen3-scoped-intervention-20261126-131",
+        "seed": 131,
+        "protocol": "human-intervention-v2",
+        "actual_calls_audited": 47,
+        "answer_batches_audited": 10,
+        "arms": {
+          "self": {
+            "status": "incomplete_limit",
+            "versions": [
+              14,
+              24,
+              24,
+              24,
+              24,
+              24
+            ],
+            "returned": [
+              14,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "code_sha256": "2a55193273dc898ec46d78d3d55fc77948725775b2cb132f711341a793dcddb2",
+            "first_code_sha256": "e00a38f8e8839a7077d0b9808dc7f4cc77f66df51ffdcdbf45baab955e4312b7",
+            "last_score": 24,
+            "submitted": null,
+            "received_decisions": [
+              "correction_period",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": null,
+            "first_reviewer_only_decisions": [],
+            "questions": 12,
+            "question_batches": 6,
+            "direct_replies": 0,
+            "proxy_replies": 5,
+            "tokens": 31663,
+            "calls": 24,
+            "model_seconds": 164.17,
+            "last_review": {
+              "missing": [
+                "after_start",
+                "at_start",
+                "correction_edge",
+                "deadline_edge"
+              ],
+              "linked": false,
+              "reviewers_asking_to_revise": 0,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 0,
+              "regressed": 0,
+              "newly_answered": 0,
+              "newly_unanswered": 0,
+              "net": 0
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 9
+            }
+          },
+          "multi": {
+            "status": "incomplete_limit",
+            "versions": [
+              14,
+              24,
+              24,
+              24,
+              24,
+              24
+            ],
+            "returned": [
+              14,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "code_sha256": "2a55193273dc898ec46d78d3d55fc77948725775b2cb132f711341a793dcddb2",
+            "first_code_sha256": "e00a38f8e8839a7077d0b9808dc7f4cc77f66df51ffdcdbf45baab955e4312b7",
+            "last_score": 24,
+            "submitted": null,
+            "received_decisions": [
+              "correction_period",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": null,
+            "first_reviewer_only_decisions": [],
+            "questions": 12,
+            "question_batches": 6,
+            "direct_replies": 0,
+            "proxy_replies": 5,
+            "tokens": 28031,
+            "calls": 24,
+            "model_seconds": 159.58,
+            "last_review": {
+              "missing": [
+                "after_start",
+                "at_start",
+                "correction_edge",
+                "deadline_edge"
+              ],
+              "linked": false,
+              "reviewers_asking_to_revise": 0,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 0,
+              "regressed": 0,
+              "newly_answered": 0,
+              "newly_unanswered": 0,
+              "net": 0
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 9
+            }
+          }
+        }
+      },
+      "guided": {
+        "directory": "qwen3-guided-intervention-20261126-131",
+        "seed": 131,
+        "protocol": "human-intervention-guided-v1",
+        "actual_calls_audited": 47,
+        "answer_batches_audited": 5,
+        "arms": {
+          "self": {
+            "status": "incomplete_limit",
+            "versions": [
+              14,
+              24,
+              24,
+              24,
+              24,
+              24
+            ],
+            "returned": [
+              14,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "code_sha256": "92a51e9a60034b40167caf84001045a35f010698c2b7e3d9e154bc0ca1ba0ddb",
+            "first_code_sha256": "e00a38f8e8839a7077d0b9808dc7f4cc77f66df51ffdcdbf45baab955e4312b7",
+            "last_score": 24,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "deadline_edge"
+            ],
+            "questions": 16,
+            "question_batches": 1,
+            "direct_replies": 0,
+            "proxy_replies": 1,
+            "tokens": 49348,
+            "calls": 24,
+            "model_seconds": 251.13,
+            "last_review": {
+              "missing": [],
+              "linked": true,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 0,
+              "regressed": 0,
+              "newly_answered": 0,
+              "newly_unanswered": 0,
+              "net": 0
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 9
+            }
+          },
+          "multi": {
+            "status": "incomplete_limit",
+            "versions": [
+              14,
+              24,
+              24,
+              24,
+              24,
+              24
+            ],
+            "returned": [
+              14,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "code_sha256": "2167c08f58decbab69aea5b31d13597d5d4d9c9d01ce57e0b8ecd8bacbf00dc3",
+            "first_code_sha256": "e00a38f8e8839a7077d0b9808dc7f4cc77f66df51ffdcdbf45baab955e4312b7",
+            "last_score": 24,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "deadline_edge"
+            ],
+            "questions": 28,
+            "question_batches": 4,
+            "direct_replies": 0,
+            "proxy_replies": 4,
+            "tokens": 44975,
+            "calls": 24,
+            "model_seconds": 291.28,
+            "last_review": {
+              "missing": [],
+              "linked": true,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 0,
+              "regressed": 0,
+              "newly_answered": 0,
+              "newly_unanswered": 0,
+              "net": 0
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 9
+            }
+          }
+        }
+      },
+      "ordered": {
+        "directory": "qwen3-ordered-intervention-20261126-131",
+        "seed": 131,
+        "protocol": "human-intervention-ordered-v1",
+        "actual_calls_audited": 47,
+        "answer_batches_audited": 2,
+        "arms": {
+          "self": {
+            "status": "incomplete_limit",
+            "versions": [
+              14,
+              20,
+              29,
+              35,
+              35,
+              35
+            ],
+            "returned": [
+              14,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "code_sha256": "f1b9bf236644004ac5a294e3605476c950de0e392dd63d26c474575f8ef565d6",
+            "first_code_sha256": "e00a38f8e8839a7077d0b9808dc7f4cc77f66df51ffdcdbf45baab955e4312b7",
+            "last_score": 35,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "deadline_edge"
+            ],
+            "questions": 16,
+            "question_batches": 1,
+            "direct_replies": 0,
+            "proxy_replies": 1,
+            "tokens": 49416,
+            "calls": 24,
+            "model_seconds": 279.77,
+            "last_review": {
+              "missing": [],
+              "linked": false,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 15,
+              "regressed": 4,
+              "newly_answered": 15,
+              "newly_unanswered": 0,
+              "net": 11
+            },
+            "previously_unanswered_now_correct": 15,
+            "categories": {
+              "평일 마감": 6,
+              "마감 경계": 10,
+              "예약 직후 유예": 10,
+              "시작과 유예 우선순위": 9
+            }
+          },
+          "multi": {
+            "status": "incomplete_limit",
+            "versions": [
+              14,
+              20,
+              29,
+              35,
+              35,
+              35
+            ],
+            "returned": [
+              14,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "code_sha256": "f1b9bf236644004ac5a294e3605476c950de0e392dd63d26c474575f8ef565d6",
+            "first_code_sha256": "e00a38f8e8839a7077d0b9808dc7f4cc77f66df51ffdcdbf45baab955e4312b7",
+            "last_score": 35,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "deadline_edge"
+            ],
+            "questions": 23,
+            "question_batches": 1,
+            "direct_replies": 0,
+            "proxy_replies": 1,
+            "tokens": 42002,
+            "calls": 24,
+            "model_seconds": 291.62,
+            "last_review": {
+              "missing": [],
+              "linked": false,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 15,
+              "regressed": 4,
+              "newly_answered": 15,
+              "newly_unanswered": 0,
+              "net": 11
+            },
+            "previously_unanswered_now_correct": 15,
+            "categories": {
+              "평일 마감": 6,
+              "마감 경계": 10,
+              "예약 직후 유예": 10,
+              "시작과 유예 우선순위": 9
+            }
+          }
+        }
+      }
+    },
+    "157": {
+      "scoped": {
+        "directory": "qwen3-scoped-intervention-20261126-157",
+        "seed": 157,
+        "protocol": "human-intervention-v2",
+        "actual_calls_audited": 47,
+        "answer_batches_audited": 6,
+        "arms": {
+          "self": {
+            "status": "incomplete_limit",
+            "versions": [
+              15,
+              15,
+              20,
+              20,
+              20,
+              20
+            ],
+            "returned": [
+              15,
+              15,
+              25,
+              25,
+              25,
+              25
+            ],
+            "code_sha256": "c3b07b1aa5f06d988a51d14f55890c5b9bdf8a4f103b8c71848b04927246f9e8",
+            "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+            "last_score": 20,
+            "submitted": null,
+            "received_decisions": [
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": null,
+            "first_reviewer_only_decisions": [],
+            "questions": 14,
+            "question_batches": 3,
+            "direct_replies": 0,
+            "proxy_replies": 3,
+            "tokens": 31442,
+            "calls": 24,
+            "model_seconds": 155.28,
+            "last_review": {
+              "missing": [
+                "after_start",
+                "at_start",
+                "correction_edge"
+              ],
+              "linked": false,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 0,
+              "regressed": 0,
+              "newly_answered": 0,
+              "newly_unanswered": 0,
+              "net": 0
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 5
+            }
+          },
+          "multi": {
+            "status": "incomplete_limit",
+            "versions": [
+              15,
+              15,
+              20,
+              20,
+              20,
+              20
+            ],
+            "returned": [
+              15,
+              15,
+              20,
+              20,
+              20,
+              20
+            ],
+            "code_sha256": "9eac6836b84921ff396444a1f226a5b41f105561c1b8032a0fbdbd2937436ea0",
+            "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+            "last_score": 20,
+            "submitted": null,
+            "received_decisions": [
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": null,
+            "first_reviewer_only_decisions": [],
+            "questions": 18,
+            "question_batches": 3,
+            "direct_replies": 0,
+            "proxy_replies": 3,
+            "tokens": 27434,
+            "calls": 24,
+            "model_seconds": 161.34,
+            "last_review": {
+              "missing": [
+                "after_start",
+                "at_start",
+                "correction_edge"
+              ],
+              "linked": false,
+              "reviewers_asking_to_revise": 2,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 0,
+              "regressed": 0,
+              "newly_answered": 0,
+              "newly_unanswered": 0,
+              "net": 0
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 0,
+              "시작과 유예 우선순위": 10
+            }
+          }
+        }
+      },
+      "guided": {
+        "directory": "qwen3-guided-intervention-20261126-157",
+        "seed": 157,
+        "protocol": "human-intervention-guided-v1",
+        "actual_calls_audited": 47,
+        "answer_batches_audited": 6,
+        "arms": {
+          "self": {
+            "status": "incomplete_limit",
+            "versions": [
+              15,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned": [
+              15,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "code_sha256": "49e208b57570672ca71b7a186d2beed1071a4fe947238d387fa5ec5420c3577b",
+            "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+            "last_score": 25,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period"
+            ],
+            "questions": 20,
+            "question_batches": 3,
+            "direct_replies": 0,
+            "proxy_replies": 3,
+            "tokens": 52073,
+            "calls": 24,
+            "model_seconds": 289.42,
+            "last_review": {
+              "missing": [],
+              "linked": false,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 5,
+              "regressed": 0,
+              "newly_answered": 0,
+              "newly_unanswered": 0,
+              "net": 5
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 10
+            }
+          },
+          "multi": {
+            "status": "incomplete_limit",
+            "versions": [
+              15,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned": [
+              15,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "code_sha256": "a0a64606219aa483ee61d9ab6bf9ba04894e3cb83bdf734f54be0cdd6a84dddf",
+            "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+            "last_score": 25,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period"
+            ],
+            "questions": 23,
+            "question_batches": 3,
+            "direct_replies": 0,
+            "proxy_replies": 3,
+            "tokens": 43045,
+            "calls": 24,
+            "model_seconds": 288.08,
+            "last_review": {
+              "missing": [],
+              "linked": false,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 5,
+              "regressed": 0,
+              "newly_answered": 5,
+              "newly_unanswered": 0,
+              "net": 5
+            },
+            "previously_unanswered_now_correct": 5,
+            "categories": {
+              "평일 마감": 5,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 10
+            }
+          }
+        }
+      },
+      "ordered": {
+        "directory": "qwen3-ordered-intervention-20261126-157",
+        "seed": 157,
+        "protocol": "human-intervention-ordered-v1",
+        "actual_calls_audited": 47,
+        "answer_batches_audited": 4,
+        "arms": {
+          "self": {
+            "status": "incomplete_limit",
+            "versions": [
+              15,
+              14,
+              14,
+              14,
+              20,
+              20
+            ],
+            "returned": [
+              15,
+              15,
+              15,
+              15,
+              21,
+              21
+            ],
+            "code_sha256": "e8d5c494feb0e3423df95cd306d9f64b8d29c7af10f348df77a46e322b60834a",
+            "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+            "last_score": 20,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period"
+            ],
+            "questions": 19,
+            "question_batches": 2,
+            "direct_replies": 0,
+            "proxy_replies": 2,
+            "tokens": 49636,
+            "calls": 24,
+            "model_seconds": 293.51,
+            "last_review": {
+              "missing": [],
+              "linked": true,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 4,
+              "regressed": 4,
+              "newly_answered": 0,
+              "newly_unanswered": 4,
+              "net": 0
+            },
+            "previously_unanswered_now_correct": 0,
+            "categories": {
+              "평일 마감": 1,
+              "마감 경계": 5,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 9
+            }
+          },
+          "multi": {
+            "status": "incomplete_limit",
+            "versions": [
+              15,
+              14,
+              14,
+              14,
+              14,
+              14
+            ],
+            "returned": [
+              15,
+              15,
+              15,
+              15,
+              15,
+              15
+            ],
+            "code_sha256": "a5763fa9a8aa7efbdc612c550b34aef1c304fb842662fa818befd9dfca5e3019",
+            "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+            "last_score": 14,
+            "submitted": null,
+            "received_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "first_version_with_all_six_decisions": 2,
+            "first_reviewer_only_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period"
+            ],
+            "questions": 20,
+            "question_batches": 2,
+            "direct_replies": 0,
+            "proxy_replies": 2,
+            "tokens": 41424,
+            "calls": 24,
+            "model_seconds": 298.54,
+            "last_review": {
+              "missing": [],
+              "linked": true,
+              "reviewers_asking_to_revise": 3,
+              "author_claimed_completion": true
+            },
+            "relative_to_free_baseline": {
+              "corrected": 5,
+              "regressed": 11,
+              "newly_answered": 5,
+              "newly_unanswered": 10,
+              "net": -6
+            },
+            "previously_unanswered_now_correct": 5,
+            "categories": {
+              "평일 마감": 0,
+              "마감 경계": 0,
+              "예약 직후 유예": 5,
+              "시작과 유예 우선순위": 9
+            }
+          }
+        }
+      }
+    }
+  },
+  "corrected_operator_seed_157": {
+    "free": {
+      "directory": "qwen3-clause-free-20261126-157",
+      "actual_calls_audited": 47,
+      "answer_batches_audited": 5,
+      "arms": {
+        "self": {
+          "status": "incomplete_limit",
+          "versions": [
+            15,
+            15,
+            15,
+            15,
+            15,
+            15
+          ],
+          "returned": [
+            15,
+            15,
+            15,
+            15,
+            15,
+            15
+          ],
+          "code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+          "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+          "last_score": 15,
+          "submitted": null,
+          "received_decisions": [
+            "deadline_edge"
+          ],
+          "first_version_with_all_six_decisions": null,
+          "first_reviewer_only_decisions": [],
+          "questions": 11,
+          "question_batches": 1,
+          "direct_replies": 0,
+          "proxy_replies": 1,
+          "tokens": 29192,
+          "calls": 24,
+          "model_seconds": 146.19,
+          "last_review": {
+            "missing": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "past_deadline"
+            ],
+            "linked": false,
+            "reviewers_asking_to_revise": 0,
+            "author_claimed_completion": true
+          },
+          "relative_to_corrected_free": {
+            "corrected": 0,
+            "regressed": 0,
+            "newly_answered": 0,
+            "newly_unanswered": 0,
+            "net": 0
+          },
+          "categories": {
+            "평일 마감": 5,
+            "마감 경계": 5,
+            "예약 직후 유예": 0,
+            "시작과 유예 우선순위": 5
+          }
+        },
+        "multi": {
+          "status": "incomplete_limit",
+          "versions": [
+            15,
+            15,
+            15,
+            20,
+            20,
+            20
+          ],
+          "returned": [
+            15,
+            15,
+            15,
+            20,
+            20,
+            20
+          ],
+          "code_sha256": "9eac6836b84921ff396444a1f226a5b41f105561c1b8032a0fbdbd2937436ea0",
+          "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+          "last_score": 20,
+          "submitted": null,
+          "received_decisions": [
+            "correction_edge",
+            "correction_period",
+            "deadline_edge"
+          ],
+          "first_version_with_all_six_decisions": null,
+          "first_reviewer_only_decisions": [],
+          "questions": 15,
+          "question_batches": 4,
+          "direct_replies": 0,
+          "proxy_replies": 4,
+          "tokens": 26886,
+          "calls": 24,
+          "model_seconds": 151.76,
+          "last_review": {
+            "missing": [
+              "after_start",
+              "at_start",
+              "past_deadline"
+            ],
+            "linked": false,
+            "reviewers_asking_to_revise": 3,
+            "author_claimed_completion": true
+          },
+          "relative_to_corrected_free": {
+            "corrected": 0,
+            "regressed": 0,
+            "newly_answered": 0,
+            "newly_unanswered": 0,
+            "net": 0
+          },
+          "categories": {
+            "평일 마감": 5,
+            "마감 경계": 5,
+            "예약 직후 유예": 0,
+            "시작과 유예 우선순위": 10
+          }
+        }
+      }
+    },
+    "ordered": {
+      "directory": "qwen3-clause-ordered-20261126-157",
+      "actual_calls_audited": 47,
+      "answer_batches_audited": 3,
+      "arms": {
+        "self": {
+          "status": "incomplete_limit",
+          "versions": [
+            15,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "returned": [
+            15,
+            40,
+            40,
+            40,
+            40,
+            40
+          ],
+          "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45",
+          "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+          "last_score": 25,
+          "submitted": null,
+          "received_decisions": [
+            "after_start",
+            "at_start",
+            "correction_edge",
+            "correction_period",
+            "deadline_edge",
+            "past_deadline"
+          ],
+          "first_version_with_all_six_decisions": 2,
+          "first_reviewer_only_decisions": [
+            "after_start",
+            "at_start",
+            "correction_edge",
+            "correction_period",
+            "past_deadline"
+          ],
+          "questions": 19,
+          "question_batches": 2,
+          "direct_replies": 0,
+          "proxy_replies": 2,
+          "tokens": 49417,
+          "calls": 24,
+          "model_seconds": 278.56,
+          "last_review": {
+            "missing": [],
+            "linked": true,
+            "reviewers_asking_to_revise": 3,
+            "author_claimed_completion": true
+          },
+          "relative_to_corrected_free": {
+            "corrected": 20,
+            "regressed": 10,
+            "newly_answered": 25,
+            "newly_unanswered": 0,
+            "net": 10
+          },
+          "categories": {
+            "평일 마감": 5,
+            "마감 경계": 5,
+            "예약 직후 유예": 5,
+            "시작과 유예 우선순위": 10
+          }
+        },
+        "multi": {
+          "status": "incomplete_limit",
+          "versions": [
+            15,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "returned": [
+            15,
+            40,
+            40,
+            40,
+            40,
+            40
+          ],
+          "code_sha256": "5b6aec231f69e004fb2a2034fef08982835d24e929d7aaeee6cb45cdae409752",
+          "first_code_sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+          "last_score": 25,
+          "submitted": null,
+          "received_decisions": [
+            "after_start",
+            "at_start",
+            "correction_edge",
+            "correction_period",
+            "deadline_edge",
+            "past_deadline"
+          ],
+          "first_version_with_all_six_decisions": 2,
+          "first_reviewer_only_decisions": [
+            "after_start",
+            "at_start",
+            "correction_edge",
+            "correction_period",
+            "past_deadline"
+          ],
+          "questions": 19,
+          "question_batches": 1,
+          "direct_replies": 0,
+          "proxy_replies": 1,
+          "tokens": 41756,
+          "calls": 24,
+          "model_seconds": 292.11,
+          "last_review": {
+            "missing": [],
+            "linked": true,
+            "reviewers_asking_to_revise": 3,
+            "author_claimed_completion": true
+          },
+          "relative_to_corrected_free": {
+            "corrected": 15,
+            "regressed": 10,
+            "newly_answered": 20,
+            "newly_unanswered": 0,
+            "net": 5
+          },
+          "categories": {
+            "평일 마감": 5,
+            "마감 경계": 5,
+            "예약 직후 유예": 5,
+            "시작과 유예 우선순위": 10
+          }
+        }
+      }
+    }
+  }
+}

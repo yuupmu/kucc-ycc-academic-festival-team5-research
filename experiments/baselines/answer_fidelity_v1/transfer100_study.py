@@ -1,0 +1,281 @@
+"""Run historical owner-mediated pipelines on five new public tasks. Hidden evaluation runs separately."""
+import argparse
+from pathlib import Path
+
+from experiments import answer_fidelity, festival_protocol as base, festival_refinement as refined, festival_guarded as guarded
+from experiments import region_cycle, repeated_intervention as live, rule_cycle, rule_intake, rule_program_cycle
+from experiments.local_transport import local_server, locked_output, read, recorded
+from experiments.project_review import freeze, publish
+from experiments.rule_cycle_calls import Calls
+
+ROOT = Path(__file__).resolve().parents[1]
+STUDY = ROOT/'experiments/transfer100-20261126'
+BANK = STUDY/'model-records'
+TASKS = ('title','suffix','mask','upload','print')
+WRITERS = {'native':lambda *a:rule_cycle.revise(*a[:-1],'scoped',a[-1]),
+           'legacy':lambda *a:rule_cycle.revise(*a[:-1],'legacy',a[-1]),
+           'program':rule_program_cycle.revise,'regions':region_cycle.revise}
+SINGLES = {'infer-legacy':('infer','legacy')}
+SINGLES.update({f'{group}-{style}':(group,style) for group in ('self','p4','infer') for style in ('native','program','regions')})
+CYCLES = {'self-regions-3':('self','regions'), 'multi-regions-3':('multi','regions'),
+          'self-fidelity-3':('self','fidelity'), 'multi-fidelity-3':('multi','fidelity')}
+ARMS = ('solo','self','p1','p2','p3','p4','p4guard',*SINGLES,*CYCLES)
+NAMES = {'solo':'① 메인 단독','self':'② 자체 검토·기존 작성','p1':'③ P1 공통 관점 감시자','p2':'③ P2 관점 분담',
+         'p3':'③ P3 상황·두 결과','p4':'③ P4 질문 정리·줄 인용','p4guard':'③ P4 적용 근거 확인',
+         'infer-legacy':'③ a 질문 개선·기존 작성',
+         'self-native':'② 자체 질문·일반 코드','self-program':'② 자체 질문·자유 조건식','self-regions':'② 자체 질문·입력 영역',
+         'p4-native':'③ b 기존 질문·일반 코드','p4-program':'③ b 기존 질문·자유 조건식','p4-regions':'③ b 기존 질문·입력 영역',
+         'infer-native':'③ a+b 일반 코드','infer-program':'③ a+b 자유 조건식','infer-regions':'③ a+b 입력 영역',
+         'self-regions-3':'② 이전 구조·3회차','multi-regions-3':'③ 이전 구조·3회차',
+         'self-fidelity-3':'② 현재 구조·3회차','multi-fidelity-3':'③ 현재 구조·3회차'}
+
+def checksum(path):
+    import hashlib
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def prepare():
+    config=dict(model=base.MODEL,seed=263,tasks=list(TASKS),arms=list(ARMS),names=NAMES,questions_per_window=3,cycles=3,
+        unit='5개 독립 코드 작성 과제마다 서로 다른 입력 20개, 총 100문항. 독립 프로젝트 수는 5.',
+        design='단일 순수 함수, 작은 정수 또는 제한된 ASCII 문자열. 상태·날짜·일정·팀 배정 없음.',
+        comparison='과제별 최초 코드와 최초 같은 방식의 질문·회신 공유. 반복 조건은 매회 실제 자기 직전 코드를 보고 새 질문을 생성.',
+        selection='시드 한 개와 마지막 제출을 사용. 모든 105개 제출을 고정한 뒤 최초로 채점. 실패·보류·구문 오류도 포함.',
+        operator='모델 질문의 요청 범위에 해당하는 사전 정책 문장만 대리 담당자가 수동 선택. 선택 근거도 기록. 미정/모호 질문에는 구체화 요청.',
+        costs='조건별 실제 입력·출력·재시도·검토 비용 전액과 전체 실험의 고유 호출 비용을 함께 계상.',
+        history_scope='인간 개입 목표 확정 후의 P1~P4, 적용 보완, a/b 일반 코드·자유 조건식·입력 영역, 이전 3회차 및 현재 3회차.',
+        exclusions='중간 채점 노출이 있던 초기 A/B/C/D와 예약 전용 후보 선택 실험은 현 비교 조건과 맞지 않아 실행 목록에서 제외.')
+    freeze(STUDY/'design.json',config)
+    files=list((STUDY/'public').glob('*.json'))+list((STUDY/'operator').glob('*.json'))+list((STUDY/'evaluator').glob('*.json'))
+    files += [STUDY/'design.json',Path(__file__),ROOT/'experiments/transfer100_data.py']
+    files += [ROOT/'experiments'/name for name in ('festival_protocol.py','festival_refinement.py','festival_guarded.py',
+        'rule_cycle.py','rule_writer.py','rule_intake.py','rule_program_cycle.py','region_cycle.py','answer_fidelity.py',
+        'repeated_intervention.py','rule_cycle_calls.py','local_transport.py')]
+    files += [ROOT/'backend'/name for name in ('anchored_program.py','decision_regions.py','answer_contracts.py',
+        'scoped_implementation.py','project_review.py','project_syntax.py','structured_output.py','isolated.py','isolated_runner.py')]
+    freeze(STUDY/'manifest.json',dict(files={str(p.relative_to(ROOT)):checksum(p) for p in files},
+        model=checksum(ROOT/base.MODEL),runner=checksum(ROOT/'var/local-models/llama-b12706/llama-server')))
+    return config
+
+def verify():
+    config=read(STUDY/'design.json')
+    for relative,digest in read(STUDY/'manifest.json')['files'].items():
+        if checksum(ROOT/relative)!=digest:
+            raise ValueError('고정 조건이 변경됨 '+relative)
+    return config
+
+def design_for(task):
+    return base.spec(read(STUDY/'public'/f'{task}.json'),263,base.MODEL,('solo','self','p1','p2','p3'),2)
+
+def reuse(path,role,system,user,seed,limit,port,fmt,model):
+    raw=BANK/'calls'/path.name
+    if raw.exists() and not path.exists():
+        freeze(path,read(raw))
+    result=recorded(path,role,system,user,seed,limit,port,fmt,model)
+    raw.parent.mkdir(parents=True,exist_ok=True)
+    freeze(raw,result)
+    return result
+
+def root(task):
+    return STUDY/'runs'/task
+
+def intake(task,group,number,document):
+    folder=root(task)/'dialogues'/group/f'cycle-{number}'
+    folder.mkdir(parents=True,exist_ok=True)
+    freeze(folder/'intake.json',document)
+    return folder
+
+def reply(folder,number):
+    document=read(folder/'intake.json')
+    if not document['questions']:
+        return None
+    if not (folder/'answer.json').exists():
+        return False
+    value=read(folder/'answer.json')
+    if value['questions']!=document['questions'] or value['cycle']!=number or value['ticket']!=base.core.digest(document):
+        raise ValueError('회신이 해당 질문 원문과 일치하지 않습니다.')
+    return value
+
+def answer(task,group,number,selections,rationales):
+    verify()
+    folder=root(task)/'dialogues'/group/f'cycle-{number}'
+    doc=read(folder/'intake.json')
+    cards=read(STUDY/'operator'/f'{task}.json')
+    if len(selections)!=len(doc['questions']) or len(rationales)!=len(selections) or not selections:
+        raise ValueError('질문마다 선택한 정책과 이유가 필요합니다.')
+    texts=[]
+    for ids,reason in zip(selections,rationales):
+        if not reason.strip():
+            raise ValueError('선택 이유가 필요합니다.')
+        texts.extend([cards['cards'][key] for key in ids] if ids else [cards['clarification']])
+    text='\n'.join(dict.fromkeys(line for item in texts for line in item.splitlines()))
+    freeze(folder/'operator.json',dict(selections=selections,rationales=rationales))
+    rec=dict(cycle=number,ticket=base.core.digest(doc),questions=doc['questions'],text=base.core.natural_reply(text),source='delegated_policy_card')
+    freeze(folder/'answer.json',rec)
+
+def finalize(task,arm,result):
+    folder=root(task)/'candidates'/arm
+    folder.mkdir(parents=True,exist_ok=True)
+    freeze(folder/'final.json',result)
+    publish(folder,'candidate',result['files'])
+    print('fixed',task,arm,result['status'],flush=True)
+
+def shared_first(task,port):
+    design=design_for(task)
+    initial=root(task)/'initial'
+    initial.mkdir(parents=True,exist_ok=True)
+    freeze(initial/'design.json',design)
+    snapshots={}
+    for arm in ('solo','self','p1','p2','p3'):
+        draft,review=base.record_version(initial,design,arm,1,None,[],port,invoke=reuse)
+        snapshots[arm]=(draft,review)
+        if arm=='solo':
+            record=dict(cycle=0,files=draft['files'],sha256=draft['sha256'],status='one_shot',calls=review['calls'],receipts=[],reviews=[])
+            if not (root(task)/'candidates/solo/final.json').exists():
+                finalize(task,'solo',record)
+        else:
+            intake(task,arm,1,dict(questions=review['questions'],calls=review['calls'],reviews=review['reviewers'],
+                                 withheld=review['withheld'],invalid=review['status']=='invalid_output'))
+    draft=snapshots['solo'][0]
+    ask=Calls(BANK,design,port)
+    current=rule_intake.inspect(design['project'],draft['files'],design['seed'],ask)
+    intake(task,'infer',1,{**current,'calls':[draft['author_call'],*current['calls']]})
+    p4=root(task)/'p4-runtime'
+    p4.mkdir(exist_ok=True)
+    recfolder=root(task)/'dialogues/p4/cycle-1'
+    incoming=read(recfolder/'answer.json')['text'] if (recfolder/'answer.json').exists() else None
+    state=refined.stage(initial,p4,incoming,source='delegated_policy_card',port=port,previous_calls=BANK/'calls',
+                        audit=(p4/'submissions/p4').exists())
+    for p in (p4/'calls').glob('*.json'):
+        freeze(BANK/'calls'/p.name,read(p))
+    rev=read(p4/'p4/v1/review.json')
+    intake(task,'p4',1,dict(questions=rev['questions'],calls=rev['calls'],reviews=rev['reviewers'],invalid=False))
+    if state['arms']['p4']['version']==2:
+        snap=read(p4/'p4/v2/snapshot.json')
+        review=read(p4/'p4/v2/review.json')
+        receipt=reply(recfolder,1)
+        result=dict(cycle=1,files=snap['files'],sha256=snap['sha256'],status=review['status'],
+                    writer=snap,reviews=review['reviewers'],calls=rev['calls']+review['calls'],receipts=[receipt] if receipt else [])
+        if not (root(task)/'candidates/p4/final.json').exists():
+            finalize(task,'p4',result)
+        kept,decision=guarded.finalize(p4)
+        result={**result,'files':kept,'sha256':base.core.digest(kept),'guard':decision,'status':decision['status']}
+        if not (root(task)/'candidates/p4guard/final.json').exists():
+            finalize(task,'p4guard',result)
+    return design,snapshots
+
+def one_cycle(task,port,design,snapshots):
+    initial=root(task)/'initial'
+    for arm in ('self','p1','p2','p3'):
+        if (root(task)/'candidates'/arm/'final.json').exists():
+            continue
+        folder=root(task)/'dialogues'/arm/'cycle-1'
+        rec=reply(folder,1)
+        if rec is False:
+            continue
+        answers=[dict(arm=arm,version=1,text=rec['text'])] if rec else []
+        snap,review=base.record_version(initial,design,arm,2,snapshots[arm][0],answers,port,invoke=reuse)
+        finalize(task,arm,dict(cycle=1,files=snap['files'],sha256=snap['sha256'],status=review['status'],
+            writer=snap,reviews=review['reviewers'],calls=snapshots[arm][1]['calls']+review['calls'],receipts=[rec] if rec else []))
+    for arm,(group,style) in SINGLES.items():
+        if (root(task)/'candidates'/arm/'final.json').exists():
+            continue
+        folder=root(task)/'dialogues'/group/'cycle-1'
+        rec=reply(folder,1)
+        if rec is False:
+            continue
+        ask=Calls(BANK,design,port)
+        role='self' if group=='self' else 'multi'
+        result=WRITERS[style](design['project'],snapshots['solo'][0]['files'],rec['text'] if rec else None,263,role,ask)
+        result.update(cycle=1,calls=read(folder/'intake.json')['calls']+result['calls'],receipts=[rec] if rec else [])
+        finalize(task,arm,result)
+
+def cycles(task,arm,port,design,snapshots):
+    role,style=CYCLES[arm]
+    prior=snapshots['solo'][0]['files']
+    receipts=[]
+    last_writer=None
+    for number in (1,2,3):
+        folder=root(task)/'cycles'/arm/f'cycle-{number}'
+        if (folder/'snapshot.json').exists():
+            current=read(folder/'snapshot.json')
+            if current['previous_sha256']!=base.core.digest(prior):
+                raise ValueError('회차 코드 연결이 다릅니다.')
+            prior,receipts,last_writer=current['files'],current['receipts'],current['writer']
+            continue
+        folder.mkdir(parents=True,exist_ok=True)
+        ask=Calls(BANK,design,port)
+        if number==1:
+            group='self' if role=='self' else 'infer'
+            question_folder=root(task)/'dialogues'/group/'cycle-1'
+            inquiry=read(question_folder/'intake.json')
+        else:
+            group=arm
+            inquiry=live.questions_for(design['project'],prior,role,263,ask,receipts)
+            question_folder=intake(task,group,number,inquiry)
+        rec=reply(question_folder,number)
+        if rec is False:
+            return
+        receipts=[*receipts,rec] if rec else receipts
+        if number==1 and style=='regions':
+            base_arm='self-regions' if role=='self' else 'infer-regions'
+            if not (root(task)/'candidates'/base_arm/'final.json').exists():
+                return
+            current=read(root(task)/'candidates'/base_arm/'final.json')
+        else:
+            if style=='fidelity':
+                result=answer_fidelity.revise(design['project'],prior,receipts,263,role,ask,last_writer)
+            else:
+                result=region_cycle.revise(design['project'],prior,live.owner_text(receipts),263,role,ask)
+            current={**result,'cycle':number,'calls':inquiry['calls']+result['calls'],'receipts':receipts}
+        current={**current,'previous_sha256':base.core.digest(prior),'dialogue':str(question_folder.relative_to(STUDY))}
+        freeze(folder/'snapshot.json',current)
+        print('cycle',task,arm,number,current['status'],flush=True)
+        prior,last_writer=current['files'],current['writer']
+    calls=[key for n in (1,2,3) for key in read(root(task)/'cycles'/arm/f'cycle-{n}'/'snapshot.json')['calls']]
+    finalize(task,arm,{**current,'calls':calls})
+
+def run(port):
+    verify()
+    with locked_output(STUDY/'runs'),local_server(port,base.MODEL):
+        for task in TASKS:
+            design,snapshots=shared_first(task,port)
+            one_cycle(task,port,design,snapshots)
+            for arm in CYCLES:
+                if not (root(task)/'candidates'/arm/'final.json').exists():
+                    cycles(task,arm,port,design,snapshots)
+    pending()
+    seal()
+
+def pending():
+    for task in TASKS:
+        for path in sorted((root(task)/'dialogues').glob('*/cycle-*/intake.json')):
+            doc=read(path)
+            if doc['questions'] and not (path.parent/'answer.json').exists():
+                print('WAIT',task,path.parent.parent.name,path.parent.name,flush=True)
+                for i,q in enumerate(doc['questions'],1):
+                    print(i,q['question'],flush=True)
+
+def seal():
+    missing=[f'{t}/{a}' for t in TASKS for a in ARMS if not (root(t)/'candidates'/a/'final.json').exists()]
+    if missing:
+        print('remaining candidates',len(missing),flush=True)
+        return False
+    files=list((STUDY/'runs').rglob('*.json'))+list((BANK/'calls').glob('*.json'))
+    freeze(STUDY/'submissions-manifest.json',dict(protocol=checksum(STUDY/'manifest.json'),
+        files={str(p.relative_to(STUDY)):checksum(p) for p in sorted(files)}))
+    print('SEALED',len(TASKS)*len(ARMS),'submissions',flush=True)
+    return True
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('action',choices=('prepare','run','pending','report'))
+    parser.add_argument('--port',type=int,default=18773)
+    args=parser.parse_args()
+    if args.action=='prepare':
+        prepare()
+    elif args.action=='run':
+        run(args.port)
+    elif args.action=='pending':
+        pending()
+    else:
+        from experiments.transfer100_report import report
+        report()

@@ -1,0 +1,231 @@
+{
+  "status": "incomplete_limit",
+  "started_at": 1795626901.7841961,
+  "arms": {
+    "self": {
+      "status": "incomplete_limit",
+      "version": 6
+    },
+    "multi": {
+      "status": "incomplete_limit",
+      "version": 6
+    }
+  },
+  "answers": [
+    {
+      "arm": "self",
+      "batch": 1,
+      "questions": [
+        "일반 취소 마감은 이용 시작 24시간 전입니다. 이는 until_start_seconds의 어떤 값에 해당하나요?",
+        "방금 잘못 예약한 고객에게 별도의 정정 시간이 있습니다. 이는 어떤 조건에 해당하나요?",
+        "이용이 시작되면 일반 취소는 마감됩니다. 이는 until_start_seconds가 0 이하일 때 적용되나요?",
+        "일반 마감이 지난 예약에 대해 정정 요청을 받을 수 있는 조건은 무엇인가요?",
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 무엇인가요? (예: age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등)",
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등으로 정의되어야 하는가요?"
+      ],
+      "source": "delegated_policy_card",
+      "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.\n이용이 시작된 순간부터 일반 취소는 마감됩니다.\n정정 가능 시간을 재는 기준점은 예약 생성 시각입니다.\n정정 기간은 예약 생성 후 10분입니다.\n정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.\n그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {
+        "public_deadline": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.",
+        "public_start": "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+        "correction_reference": "정정 가능 시간을 재는 기준점은 예약 생성 시각입니다.",
+        "correction_period": "정정 기간은 예약 생성 후 10분입니다.",
+        "past_deadline": "정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다."
+      },
+      "sources_by_question": {
+        "일반 취소 마감은 이용 시작 24시간 전입니다. 이는 until_start_seconds의 어떤 값에 해당하나요?": [
+          "public_deadline"
+        ],
+        "방금 잘못 예약한 고객에게 별도의 정정 시간이 있습니다. 이는 어떤 조건에 해당하나요?": [],
+        "이용이 시작되면 일반 취소는 마감됩니다. 이는 until_start_seconds가 0 이하일 때 적용되나요?": [
+          "public_start"
+        ],
+        "일반 마감이 지난 예약에 대해 정정 요청을 받을 수 있는 조건은 무엇인가요?": [
+          "correction_period",
+          "past_deadline"
+        ],
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 무엇인가요? (예: age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등)": [
+          "correction_period",
+          "correction_reference",
+          "past_deadline"
+        ],
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등으로 정의되어야 하는가요?": [
+          "correction_period",
+          "correction_reference",
+          "past_deadline"
+        ]
+      },
+      "received_at": 1795627033.424073,
+      "wait_seconds": 106.6127769947052
+    },
+    {
+      "arm": "multi",
+      "batch": 1,
+      "questions": [
+        "일반 취소 마감은 이용 시작 24시간 전입니다. 이는 until_start_seconds의 어떤 값에 해당하나요?",
+        "방금 잘못 예약한 고객에게 별도의 정정 시간이 있습니다. 이는 어떤 조건에 해당하나요?",
+        "이용이 시작되면 일반 취소는 마감됩니다. 이는 until_start_seconds가 0 이하일 때 적용되나요?",
+        "일반 마감이 지난 예약에 대해 정정 요청을 받을 수 있는 조건은 무엇인가요?",
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 무엇인가요? (예: age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등)",
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 담당자에게 문의해야 합니다. 이 조건은 어떤 상황을 포함하나요?"
+      ],
+      "source": "delegated_policy_card",
+      "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.\n이용이 시작된 순간부터 일반 취소는 마감됩니다.\n정정 가능 시간을 재는 기준점은 예약 생성 시각입니다.\n정정 기간은 예약 생성 후 10분입니다.\n정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.\n그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {
+        "public_deadline": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.",
+        "public_start": "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+        "correction_reference": "정정 가능 시간을 재는 기준점은 예약 생성 시각입니다.",
+        "correction_period": "정정 기간은 예약 생성 후 10분입니다.",
+        "past_deadline": "정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다."
+      },
+      "sources_by_question": {
+        "일반 취소 마감은 이용 시작 24시간 전입니다. 이는 until_start_seconds의 어떤 값에 해당하나요?": [
+          "public_deadline"
+        ],
+        "방금 잘못 예약한 고객에게 별도의 정정 시간이 있습니다. 이는 어떤 조건에 해당하나요?": [],
+        "이용이 시작되면 일반 취소는 마감됩니다. 이는 until_start_seconds가 0 이하일 때 적용되나요?": [
+          "public_start"
+        ],
+        "일반 마감이 지난 예약에 대해 정정 요청을 받을 수 있는 조건은 무엇인가요?": [
+          "correction_period",
+          "past_deadline"
+        ],
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 무엇인가요? (예: age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등)": [
+          "correction_period",
+          "correction_reference",
+          "past_deadline"
+        ],
+        "일반 마감이 지난 예약에 대한 정정 요청 조건은 담당자에게 문의해야 합니다. 이 조건은 어떤 상황을 포함하나요?": [
+          "correction_period",
+          "past_deadline"
+        ]
+      },
+      "received_at": 1795627061.534466,
+      "wait_seconds": 122.34740805625916
+    },
+    {
+      "arm": "self",
+      "batch": 2,
+      "questions": [
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.": [],
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.": []
+      },
+      "received_at": 1795627089.906555,
+      "wait_seconds": 28.372637033462524
+    },
+    {
+      "arm": "multi",
+      "batch": 2,
+      "questions": [
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.": [],
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.": []
+      },
+      "received_at": 1795627120.068059,
+      "wait_seconds": 30.162786960601807
+    },
+    {
+      "arm": "self",
+      "batch": 3,
+      "questions": [
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.": []
+      },
+      "received_at": 1795627147.50847,
+      "wait_seconds": 27.442190170288086
+    },
+    {
+      "arm": "multi",
+      "batch": 3,
+      "questions": [
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.": []
+      },
+      "received_at": 1795627173.326447,
+      "wait_seconds": 25.819663047790527
+    },
+    {
+      "arm": "self",
+      "batch": 4,
+      "questions": [
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.": []
+      },
+      "received_at": 1795627200.55684,
+      "wait_seconds": 27.23128390312195
+    },
+    {
+      "arm": "multi",
+      "batch": 4,
+      "questions": [
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.": []
+      },
+      "received_at": 1795627227.003913,
+      "wait_seconds": 26.448731899261475
+    },
+    {
+      "arm": "self",
+      "batch": 5,
+      "questions": [
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.": []
+      },
+      "received_at": 1795627253.581764,
+      "wait_seconds": 26.578468084335327
+    },
+    {
+      "arm": "multi",
+      "batch": 5,
+      "questions": [
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다."
+      ],
+      "source": "delegated_policy_card",
+      "text": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "scoped_replies": {},
+      "sources_by_question": {
+        "이용이 시작된 순간부터 일반 취소는 마감됩니다.": []
+      },
+      "received_at": 1795627283.041769,
+      "wait_seconds": 29.460582971572876
+    }
+  ]
+}

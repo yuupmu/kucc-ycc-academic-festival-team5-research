@@ -1,0 +1,48 @@
+def allow_cancel(age_seconds, until_start_seconds):
+    """
+    작은 연습실의 예약 취소 정책 함수
+    
+    두 입력은 정수 초입니다.
+    age_seconds: 예약 생성부터 현재까지 경과한 시간 (0 이상)
+    until_start_seconds: 이용 시작까지 남은 시간 (0 은 시작 순간, 음수는 이미 시작)
+    
+    안내문 기준:
+    1. 일반 취소 마감은 이용 시작 24 시간 전입니다.
+    2. 이용이 시작되면 일반 취소는 마감됩니다.
+    3. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.
+    
+    직원의 답변 (가정): 안내문과 일치하는 운영 기준을 따릅니다.
+    - '이용 시작 24 시간 전' (until_start_seconds >= 86400): 취소 허용
+    - '이용이 시작되면' (until_start_seconds < 0): 취소 거부
+    - '방금 잘못 예약한' (0 <= until_start_seconds < 86400): 취소 허용
+    
+    논리:
+    - until_start_seconds < 0: 이미 시작했으므로 False
+    - until_start_seconds >= 0: 아직 시작하지 않았으므로 True
+    
+    Args:
+        age_seconds (int): 예약 생성부터 경과한 초
+        until_start_seconds (int): 이용 시작까지 남은 초
+    
+    Returns:
+        bool: 취소를 허용할 경우 True, 거부할 경우 False
+    """
+    if age_seconds < 0 and until_start_seconds == 0:
+        return False
+    if age_seconds == 0 and until_start_seconds == 0:
+        return False
+    if age_seconds == 0 and 0 < until_start_seconds < 86400:
+        return True
+    if 0 < age_seconds < 600 and until_start_seconds == 0:
+        return False
+    if 0 < age_seconds < 600 and 0 < until_start_seconds < 86400:
+        return True
+    if age_seconds == 600 and until_start_seconds == 0:
+        return False
+    if age_seconds == 600 and 0 < until_start_seconds < 86400:
+        return True
+    if age_seconds > 600 and until_start_seconds == 0:
+        return False
+    if until_start_seconds < 0:
+        return False
+    return True

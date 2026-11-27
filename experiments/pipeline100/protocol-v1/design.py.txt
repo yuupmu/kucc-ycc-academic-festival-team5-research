@@ -1,0 +1,92 @@
+"""Fixed 100 distinct inputs, scored independently of the agents and owner interface."""
+from datetime import datetime
+from pathlib import Path
+from itertools import permutations
+from experiments import festival_mini as mini
+from experiments.festival_report import select_cases
+from experiments.local_transport import read
+from experiments.project_review import freeze
+
+ROOT = Path(__file__).resolve().parent
+TASKS = ('reservation','triage')
+KINDS = {
+    'R1':'일반 취소 마감 전 · 정정 만료','R2':'일반 마감 정확히 24시간 전','R3':'일반·정정 기한 모두 만료',
+    'R4':'예약 생성 바로 그 순간','R5':'정정 기간 안 · 이용 시작 전','R6':'정정 기간 끝점 600초',
+    'R7':'일반 취소와 정정 모두 가능','R8':'이용 시작 정각','R9':'이용을 이미 시작한 뒤',
+    'T1':'알려진 태그 하나','T2':'같은 담당 태그 중복','T3':'두 담당 태그의 우선순위',
+    'T4':'세 담당 태그 순서 바꿈','T5':'한 담당 팀과 미등록 태그','T6':'두 담당 팀과 미등록 태그',
+    'T7':'미등록 태그만 있음','T8':'빈 목록','T9':'세 담당 팀과 미등록 태그'}
+REG = {
+    'R1':[(604799,86401),(601,86401),(601,86402),(1800,90000),(86400,172800),(1209600,259200)],
+    'R2':[(165600,86400),(601,86400),(602,86400),(3600,86400),(604800,86400)],
+    'R3':[(604801,86399),(608400,82800),(601,3600),(601,1),(602,86399),(86401,60)],
+    'R4':[(0,1),(0,60),(0,3599),(0,3600),(0,86399)],
+    'R5':[(299,1),(1,3600),(599,1),(1,86399),(300,1800)],
+    'R6':[(600,3600),(600,7200),(600,1),(600,86399),(600,60)],
+    'R7':[(0,86401),(1,172800),(599,86401),(600,259200)],
+    'R8':[(300,0),(0,0),(1,0),(299,0),(599,0),(600,0)],
+    'R9':[(301,-1),(0,-1),(1,-1),(300,-10),(599,-1),(600,-1),(1,-60),(600,-300)]}
+A,B,P='account','billing','privacy'
+X,Y,Z='misc','external','other'
+TAG = {
+    'T1':[(A,),(B,),(P,)],'T2':[(A,A),(B,B),(P,P),(A,A,A),(B,B,B)],
+    'T3':[(A,B),(B,A),(A,P),(P,A),(B,P),(P,B),(A,B,A),(P,A,P),(B,P,B)],
+    'T4':list(permutations([A,B,P])),'T5':[(X,B),(B,X),(X,A),(P,X),(X,B,B),(Y,P,X),(A,Y,A)],
+    'T6':[(X,A,P,P),(X,A,B),(B,X,A),(Y,A,P),(P,A,Y),(B,P,X),(Y,P,B),(P,Y,A,P),(B,X,A,A)],
+    'T7':[(X,),(Y,),(Z,),(X,Y),(Y,X),(X,X)],'T8':[()],
+    'T9':[(A,B,P,X),(X,P,B,A),(Y,B,P,A,B),(P,X,A,Y,B)]}
+NEEDS = {'R1':[], 'R2':[['deadline']], 'R3':[['expired','duration','clock']], 'R4':[['late','clock','duration']],
+         'R5':[['late','clock','duration']], 'R6':[['late','clock','duration','end']], 'R7':[], 'R8':[['start']], 'R9':[['after']],
+         'T1':[], 'T2':[], 'T5':[['unknown']], 'T7':[['unknown_only'],['empty']], 'T8':[['empty_list'],['empty']]}
+
+def needs(kind,values):
+    if kind in NEEDS:
+        return NEEDS[kind]
+    known=frozenset(values).intersection((A,B,P))
+    pair={frozenset((A,B)):'ab',frozenset((A,P)):'ap',frozenset((B,P)):'bp',frozenset((A,B,P)):'three_known'}[known]
+    more=['unknown'] if kind in ('T6','T9') else []
+    return [['rank',*more],[pair,*more]]
+
+def sample():
+    cfg=read(mini.CONFIG)
+    result=[]
+    for task, families in zip(TASKS,(REG,TAG)):
+        old={}
+        for cid,c,y in select_cases(cfg,task):
+            if task=='reservation':
+                now,book,start=(datetime.fromisoformat(c[k]) for k in ('now','booked_at','starts_at'))
+                args=(int((now-book).total_seconds()),int((start-now).total_seconds()))
+            else:
+                args=tuple(c['initial_state']['args'][0])
+            old[args]=(cid,y)
+        offset=len(result)
+        for kind,inputs in families.items():
+            for values in inputs:
+                if task=='reservation':
+                    age,remaining=values
+                    expected=remaining>=86400 or (0<remaining and 0<=age<=600)
+                else:
+                    expected=next((k for k in (P,B,A) if k in values),'general')
+                orig=old.get(values)
+                if orig and not (type(orig[1]) is type(expected) and orig[1]==expected):
+                    raise ValueError('기존 기준 정답과 불일치')
+                result.append(dict(id=('R' if task=='reservation' else 'T')+f'{len(result)-offset+1:02}',task=task,
+                    kind=kind,type=KINDS[kind],inputs=list(values),expected=expected,old_id=orig[0] if orig else '',
+                    owner_paths=needs(kind,values)))
+        subset=result[offset:]
+        assert len(subset)==len({tuple(c['inputs']) for c in subset})==50
+        assert {c['old_id'] for c in subset if c['old_id']}=={v[0] for v in old.values()}
+    return result
+
+def register():
+    freeze(ROOT/'sample.json',sample())
+    freeze(ROOT/'protocol.json',dict(seed=263, model=read(mini.CONFIG)['model'], tasks=list(TASKS), sizes=[50,50],
+           sample_sha256=mini.checksum(ROOT/'sample.json'), builder_sha256=mini.checksum(Path(__file__)),
+           strata=KINDS, previous_items=20, added_items=80, unit='2개 공개 프로젝트에서 서로 다른 함수 입력 100개',
+           design='기존 실험을 본 뒤 설계한 진단용 층화 표본. 확정된 입력과 참조 규칙으로 각 조건의 마지막 코드를 채점. 최고 회차 선택 금지.',
+           arms='Qwen3.5-4B의 단독·자체 검토, P1~P4, 능동 질문/기존 질문과 세 작성기, 세 회차 전·후, 동일 대화 재생 및 실제 적응형, 코드 선택형의 공통 과제 재현. 원형 A·B·C·D 6시드는 예약 50문항에 별도 집계.',
+           evidence='공개 규칙 또는 해당 문항의 사전등록 정책 조합 하나 이상이면 근거 확보. 카드 미확보는 오답의 단독 원인을 의미하지 않는다.',
+           access='문항·채점기·결과는 새 생성 호출에 전달하지 않는다. 대리 담당자는 카드에서 실제 질문에 해당하는 문장만 고른다. 모든 새 최종 제출이 고정된 이후 연구자만 점수를 연다.',
+           cost='입력+출력 실측 토큰의 독립 실행 비용. 공통 호출도 각 조건 비용에 포함. 새로 생성한 비용은 별도.'))
+if __name__=='__main__':
+    register()

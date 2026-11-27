@@ -1,0 +1,1737 @@
+{
+  "benchmark_version": 1,
+  "benchmark": "resource-allocation-v1",
+  "policy_sha256": "b1b672b2634895d2ff01d8cb3ae9bb92424303aa6548df18cbb64f2edd69d0ec",
+  "score": 150,
+  "total": 150,
+  "accuracy_percent": 100.0,
+  "errors": 0,
+  "categories": {
+    "capacity_boundary": {
+      "correct": 10,
+      "total": 10
+    },
+    "fifo_and_bypass": {
+      "correct": 10,
+      "total": 10
+    },
+    "priority_order": {
+      "correct": 10,
+      "total": 10
+    },
+    "oversized_waiter": {
+      "correct": 10,
+      "total": 10
+    },
+    "atomic_resources": {
+      "correct": 10,
+      "total": 10
+    },
+    "cancel_waiter": {
+      "correct": 10,
+      "total": 10
+    },
+    "non_preemption": {
+      "correct": 10,
+      "total": 10
+    },
+    "amend_confirmed": {
+      "correct": 10,
+      "total": 10
+    },
+    "amend_waiting": {
+      "correct": 10,
+      "total": 10
+    },
+    "expand_resources": {
+      "correct": 10,
+      "total": 10
+    },
+    "shrink_resources": {
+      "correct": 10,
+      "total": 10
+    },
+    "duplicate_identity": {
+      "correct": 10,
+      "total": 10
+    },
+    "idempotency": {
+      "correct": 10,
+      "total": 10
+    },
+    "invalid_input": {
+      "correct": 10,
+      "total": 10
+    },
+    "mixed_chain": {
+      "correct": 10,
+      "total": 10
+    }
+  },
+  "components": {
+    "event_results": {
+      "correct": 150,
+      "total": 150
+    },
+    "final_state": {
+      "correct": 150,
+      "total": 150
+    },
+    "notifications": {
+      "correct": 150,
+      "total": 150
+    }
+  },
+  "results": [
+    {
+      "id": "RA-01-01",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-02",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-03",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-04",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-05",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-06",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-07",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-08",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-09",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-01-10",
+      "category": "capacity_boundary",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-01",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-02",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-03",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-04",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-05",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-06",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-07",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-08",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-09",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-02-10",
+      "category": "fifo_and_bypass",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-01",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-02",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-03",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-04",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-05",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-06",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-07",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-08",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-09",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-03-10",
+      "category": "priority_order",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-01",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-02",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-03",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-04",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-05",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-06",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-07",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-08",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-09",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-04-10",
+      "category": "oversized_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-01",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-02",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-03",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-04",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-05",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-06",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-07",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-08",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-09",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-05-10",
+      "category": "atomic_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-01",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-02",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-03",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-04",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-05",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-06",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-07",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-08",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-09",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-06-10",
+      "category": "cancel_waiter",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-01",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-02",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-03",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-04",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-05",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-06",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-07",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-08",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-09",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-07-10",
+      "category": "non_preemption",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-01",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-02",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-03",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-04",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-05",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-06",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-07",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-08",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-09",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-08-10",
+      "category": "amend_confirmed",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-01",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-02",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-03",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-04",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-05",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-06",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-07",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-08",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-09",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-09-10",
+      "category": "amend_waiting",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-01",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-02",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-03",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-04",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-05",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-06",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-07",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-08",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-09",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-10-10",
+      "category": "expand_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-01",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-02",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-03",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-04",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-05",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-06",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-07",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-08",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-09",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-11-10",
+      "category": "shrink_resources",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-01",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-02",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-03",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-04",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-05",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-06",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-07",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-08",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-09",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-12-10",
+      "category": "duplicate_identity",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-01",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-02",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-03",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-04",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-05",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-06",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-07",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-08",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-09",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-13-10",
+      "category": "idempotency",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-01",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-02",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-03",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-04",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-05",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-06",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-07",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-08",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-09",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-14-10",
+      "category": "invalid_input",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-01",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-02",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-03",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-04",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-05",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-06",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-07",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-08",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-09",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    },
+    {
+      "id": "RA-15-10",
+      "category": "mixed_chain",
+      "passed": true,
+      "error": null,
+      "components": {
+        "event_results": true,
+        "final_state": true,
+        "notifications": true
+      }
+    }
+  ]
+}

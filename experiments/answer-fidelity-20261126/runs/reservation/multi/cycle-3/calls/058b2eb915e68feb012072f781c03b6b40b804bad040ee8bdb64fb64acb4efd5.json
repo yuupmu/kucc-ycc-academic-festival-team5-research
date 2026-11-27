@@ -1,0 +1,337 @@
+{
+  "text": "{\"scopes\": [\"T1\", \"T2\"], \"notes\": {\"P1\": {\"established\": \"allow_cancel(age_seconds, until_start_seconds) -> bool; age_seconds >= 0; until_start_seconds <= 0 (음수는 이미 시작); 시간 변환은 호출자가 처리\", \"input\": \"age_seconds\", \"still_open\": \"until_start_seconds의 정확성 (0은 시작 순간, 음수는 이미 시작)을 age_seconds와 함께 검증할 수 없음\"}, \"P2\": {\"established\": \"일반 취소 마감은 이용 시작 24시간 전; 이용 시작 시 일반 취소는 마감됨\", \"input\": \"until_start_seconds\", \"still_open\": \"정정 가능 기간 (10분)과 일반 마감 (24시간)의 관계 (정정 기간이 일반 마감보다 짧은지)를 명시하지 않음\"}, \"P3\": {\"established\": \"일반 마감이 지난 예약과 막 이용이 시작된 예약에 정정 요청 가능; 정정 가능 기간 10분; 정정 기간 끝나는 순간 포함; 이용 시작 순간에는 정정 기간이 남아 있어도 거부; 정정 기간 안이면 일반 마감이 지난 예약도 정정 가능; 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소 불가\", \"input\": \"age_seconds\", \"still_open\": \"정정 가능 기간 (10분)이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"}, \"H1\": {\"established\": \"정정 시간은 예약 생성부터 셉니다\", \"input\": \"age_seconds\", \"still_open\": \"정정 가능 기간의 시작점이 age_seconds와 일치하는지 명시하지 않음\"}, \"H2\": {\"established\": \"정정 가능 기간은 10분입니다\", \"input\": \"age_seconds\", \"still_open\": \"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"}, \"H3\": {\"established\": \"정정 기간이 정확히 끝나는 순간도 포함합니다\", \"input\": \"age_seconds\", \"still_open\": \"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"}, \"H4\": {\"established\": \"이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다\", \"input\": \"until_start_seconds\", \"still_open\": \"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"}, \"H5\": {\"established\": \"정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다\", \"input\": \"age_seconds\", \"still_open\": \"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"}, \"H6\": {\"established\": \"일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다\", \"input\": \"age_seconds\", \"still_open\": \"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"}}}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 652,
+    "prompt_tokens": 489,
+    "total_tokens": 1141,
+    "prompt_tokens_details": {
+      "cached_tokens": 97
+    }
+  },
+  "server_timings": {
+    "cache_n": 97,
+    "prompt_n": 392,
+    "prompt_ms": 472.79,
+    "prompt_per_token_ms": 1.2060969387755103,
+    "prompt_per_second": 829.1207512849256,
+    "predicted_n": 652,
+    "predicted_ms": 16834.142,
+    "predicted_per_token_ms": 25.85889708141321,
+    "predicted_per_second": 38.67140956753246
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 17.33,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer planning a revision. For each verbatim source, write separately what it establishes and what it still leaves open. A missing detail never erases a confirmed one. Select the actual input that the established fact governs. Preserve any stated number, units, equality, precedence or invariant. A request for clarification supplies no new decision. Use empty strings where nothing is established or nothing remains open. Keep notes short. Select the smallest editable scopes."
+      },
+      {
+        "role": "user",
+        "content": "{\"editable_scopes\":{\"T1\":{\"path\":\"solution.py\",\"name\":\"allow_cancel\",\"parameters\":[\"age_seconds\",\"until_start_seconds\"],\"kind\":\"body\",\"signature\":\"age_seconds, until_start_seconds\"},\"T2\":{\"path\":\"solution.py\",\"name\":\"solution.py\",\"parameters\":[],\"kind\":\"file\",\"signature\":\"\"}},\"public_and_owner_sources\":{\"P1\":\"작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\",\"P2\":\"이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\",\"P3\":\"직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\",\"H1\":\"정정 시간은 예약을 생성한 때부터 셉니다.\",\"H2\":\"정정 가능 기간은 10분입니다.\",\"H3\":\"정정 기간이 정확히 끝나는 순간도 포함합니다.\",\"H4\":\"이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\",\"H5\":\"정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\",\"H6\":\"일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\"}}"
+      }
+    ],
+    "seed": 863,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "T1",
+                  "T2"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2
+            },
+            "notes": {
+              "type": "object",
+              "properties": {
+                "P1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P3": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H3": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H4": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H5": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H6": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "age_seconds",
+                        "until_start_seconds"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5",
+                "H6"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "scopes",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-plan"
+}

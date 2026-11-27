@@ -1,0 +1,558 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def mask_code(code):\n    if len(code) >= 3:\n        return code[-3:] + '*' * (len(code) - 3)\n    if len(code) < 3:\n        return code\n    if code == '':\n        return ''\n    if True:\n        return False\n    return False"
+    },
+    "calls": [
+      "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+      "d613450869462cffd680223a14bb2d67113713462b70f3eb22f72d4ccf452034"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code) 함수를 구현해야 함. 입력은 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능함.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "가리는 글자는 '*'로 바꿈. 결과 길이는 입력 길이와 같아야 함. 공개된 글자의 원래 대소문자와 순서는 유지해야 함.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "어느 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따름. 입력에는 다른 문자나 공백 없음.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "마지막 세 글자를 공개하고 그 앞의 글자는 모두 '*'로 가림.",
+        "input": "code",
+        "still_open": "코드가 3 글자 미만일 때의 처리는 운영 담당자의 기준을 따름",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          }
+        ],
+        "structural_support": true
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "H1",
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {},
+        "decision": {
+          "rules": [
+            {
+              "when": "len(code) >= 3",
+              "action": "return",
+              "value": "code[-3:] + '*' * (len(code) - 3)",
+              "sources": [
+                "H1",
+                "P1",
+                "P2"
+              ]
+            },
+            {
+              "when": "len(code) < 3",
+              "action": "return",
+              "value": "code",
+              "sources": [
+                "H1",
+                "P1",
+                "P2"
+              ]
+            },
+            {
+              "when": "code == \"\"",
+              "action": "return",
+              "value": "\"\"",
+              "sources": [
+                "P1",
+                "P2"
+              ]
+            },
+            {
+              "when": "True",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P1",
+                "P2",
+                "P3"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "False",
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하는 운영 결정이 코드 길이가 3 미만의 경우에도 적용되도록 수정되었는지 확인해주세요."
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "07cd4e85c9ba15d4be04bf536b04777698c1eeab9d2b66b79f40d5905ccfd30c",
+    "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+    "d613450869462cffd680223a14bb2d67113713462b70f3eb22f72d4ccf452034",
+    "d12a5b2ea8cccc539596f3a393b9177dc603b2a26bb5b8353e8ae687061d957e"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code):\n    if len(code) >= 3:\n        return code[-3:] + '*' * (len(code) - 3)\n    if len(code) < 3:\n        return code\n    if code == '':\n        return ''\n    if True:\n        return False\n    return False"
+  },
+  "sha256": "1944d689b201ae58ed2fe9aaf9dbafc09471d256c5bbcf7ba7ce242f51044534",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "b33cabe1d7f9ed3f89fe28fdec442b0295eb30b9386231d416813229f823b449",
+      "questions": [
+        {
+          "question": "mask_code 함수의 동작 방식 (원본 텍스트를 유지하거나 가리는 방식) 에 대한 운영 결정이 명확하지 않습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

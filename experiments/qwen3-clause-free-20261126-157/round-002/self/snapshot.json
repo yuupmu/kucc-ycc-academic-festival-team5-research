@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "arm": "self",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds >= 86400:\n        return True\n    elif until_start_seconds <= 0:\n        return False\n    else:\n        raise NotImplementedError(\"별도의 정정 시간에 대한 정책이 명확하지 않습니다.\")",
+  "sha256": "3726ec8a1373fc029ba4d36fef8489ecf1828b86245440dd9c58436631319aab",
+  "plan": "allow_cancel(age_seconds, until_start_seconds) -> bool",
+  "links": [
+    {
+      "quote": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.",
+      "line": "if until_start_seconds >= 86400:\n        return True"
+    },
+    {
+      "quote": "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+      "line": "elif until_start_seconds <= 0:\n        return False"
+    },
+    {
+      "quote": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+      "line": "if until_start_seconds >= 86400:\n        return True"
+    },
+    {
+      "quote": "정정 가능 시간을 재는 기준점은 예약 생성 시각입니다.",
+      "line": "raise NotImplementedError(\"별도의 정정 시간에 대한 정책이 명확하지 않습니다.\")"
+    }
+  ],
+  "main_complete": true,
+  "answer_batches": [
+    1
+  ]
+}

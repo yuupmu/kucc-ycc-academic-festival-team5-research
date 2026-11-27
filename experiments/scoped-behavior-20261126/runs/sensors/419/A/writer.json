@@ -1,0 +1,46 @@
+{
+  "behavior": [
+    {
+      "when": "입력 데이터가 없음 (빈 입력)",
+      "then": "빈 사전을 반환합니다."
+    },
+    {
+      "when": "입력 데이터가 있음",
+      "then": "입력 순서대로 센서 ID(문자열)와 측정값(정수)의 쌍을 순차적으로 처리합니다."
+    },
+    {
+      "when": "처음으로 특정 센서 ID가 등장하거나, 해당 ID에 대한 이전 기록이 없음",
+      "then": "그 센서 ID와 측정값을 사전에 추가합니다."
+    },
+    {
+      "when": "특정 센서 ID가 이미 사전에 존재하고, 새로운 측정값이 들어옴",
+      "then": "기존에 기록된 값 (가장 먼저 받은 값) 을 보존하고, 새로운 측정값은 무시합니다."
+    },
+    {
+      "when": "모든 입력 쌍이 처리됨",
+      "then": "결과 사전을 반환합니다."
+    }
+  ],
+  "calls": [
+    "72f8ba98b15511e1cc13205eb4a47e71ee171f6ebe6d51b5110ce22378a650c4",
+    "87e21357be76deca7c892e5d1bc9f9c8a1d2f6d524c26cf865a593768fc18363",
+    "6c980f10bee2c4b458e9b40ba49741fdedb583cf06acbf443589adec712efb3c"
+  ],
+  "attempts": [
+    {
+      "outcome": "rejected",
+      "call": "87e21357be76deca7c892e5d1bc9f9c8a1d2f6d524c26cf865a593768fc18363",
+      "reason": "수정한 분기에 미구현 지점이 남았습니다."
+    },
+    {
+      "outcome": "rejected",
+      "call": "6c980f10bee2c4b458e9b40ba49741fdedb583cf06acbf443589adec712efb3c",
+      "reason": "수정한 분기에 미구현 지점이 남았습니다."
+    }
+  ],
+  "logs": {
+    "72f8ba98b15511e1cc13205eb4a47e71ee171f6ebe6d51b5110ce22378a650c4": "914aab11e092414bbd4e2e37c0593118a979f02bca8f269835556148fabf50af",
+    "87e21357be76deca7c892e5d1bc9f9c8a1d2f6d524c26cf865a593768fc18363": "cd76f0b0d749730f0be7ff9d3d94bddee2d61eb9b3d77d1e972e87bccedbf145",
+    "6c980f10bee2c4b458e9b40ba49741fdedb583cf06acbf443589adec712efb3c": "5efe05a0b114b663b8f4c6065e87a806557e8f08da443ea94b55e005f4f087eb"
+  }
+}

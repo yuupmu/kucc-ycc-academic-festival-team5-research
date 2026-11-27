@@ -1,0 +1,495 @@
+{
+  "n": 12,
+  "source": "two independent local model proxies",
+  "tokens": {
+    "A": 11225,
+    "B": 11502
+  },
+  "summary": {
+    "A_known": 6,
+    "A_quote_match": 10,
+    "A_vs_old_label": 4,
+    "A_value_correct_given_known": 0,
+    "A_flagged_extra": 12,
+    "A_flag_extra_quote_match": 9,
+    "B_known": 2,
+    "B_quote_match": 2,
+    "B_vs_old_label": 4,
+    "B_flagged_extra": 12,
+    "B_flag_extra_quote_match": 2,
+    "binary_agree": 8,
+    "exact_agree": 6,
+    "scope_agree": 12,
+    "valid_pair": 12,
+    "B_value_correct_given_known": 0
+  },
+  "binary_table": {
+    "known/unknown": 4,
+    "unknown/unknown": 6,
+    "known/known": 2
+  },
+  "kappa": 0.33333333333333326,
+  "rows": [
+    {
+      "item": 1,
+      "key": {
+        "id": 1,
+        "sufficient": false,
+        "expected": true,
+        "source": "family/reservation/self/R28"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "value_json": "{\"allow_cancel\": false}",
+          "quote": "정정 기간은 예약을 생성한 때부터 셉니다. 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+          "reason": "담당자가 정정 가능 기간을 '예약 생성 후 10분 이내'로 명확히 언급했으며, '이용 시작 순간에는 정정 기간이 남아 있어도 거부합니다'라고 명시했습니다. 따라서 until_start_seconds가 0인 경우, 정정은 불가능합니다.",
+          "scope": "over",
+          "excess_quote": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+          "value": {
+            "allow_cancel": false
+          },
+          "value_ok": true,
+          "quote_verified": false,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "정정 가능 기간은 '예약 생성 후 10 분 이내'로 이해하고 구현했습니다. 하지만 안내문에서 '이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다'라고 명시하셨는데, 이는 '이용 시작 순간 (until_start_seconds == 0)' 에서는 정정 불가 (False) 로 처리해야 하는지, 아니면 정정 가능 기간 (10 분) 이 '이용 시작 시간'을 기준으로 계산되어 (예: 예약 생성 후 5 분, 이용 시작 5 분 전) 는 정정 가능 (True) 인지 명확히 확인해 주세요.",
+          "quote": "정정 가능 기간은 '예약 생성 후 10 분 이내'로 이해하고 구현했습니다. 하지만 안내문에서 '이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다'라고 명시하셨는데, 이는 '이용 시작 순간 (until_start_seconds == 0)' 에서는 정정 불가 (False) 로 처리해야 하는지, 아니면 정정 가능 기간 (10 분) 이 '이용 시작 시간'을 기준으로 계산되어 (예: 예약 생성 후 5 분, 이용 시작 5 분 전) 는 정정 가능 (True) 인지 명확히 확인해 주세요.",
+          "reason": "명시된 정정 가능 기간과 이용 시작 시 정정 불가의 원칙에 대한 명확한 구체적인 기준이 제공되지 않았습니다. 따라서 정책의 정확한 구현을 결정할 수 없습니다.",
+          "scope": "over",
+          "excess_quote": "정정 가능 기간은 '예약 생성 후 10 분 이내'로 이해하고 구현했습니다. 하지만 안내문에서 '이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다'라고 명시하셨는데, 이는 '이용 시작 순간 (until_start_seconds == 0)' 에서는 정정 불가 (False) 로 처리해야 하는지, 아니면 정정 가능 기간 (10 분) 이 '이용 시작 시간'을 기준으로 계산되어 (예: 예약 생성 후 5 분, 이용 시작 5 분 전) 는 정정 가능 (True) 인지 명확히 확인해 주세요.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": false,
+      "exact_agree": false
+    },
+    {
+      "item": 2,
+      "key": {
+        "id": 2,
+        "sufficient": true,
+        "expected": true,
+        "source": "pipeline100/live-multi/round1/R28"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "value_json": "{\"allow_cancel\":true}",
+          "quote": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+          "reason": "고객 안내문과 담당자 답변을 바탕으로, 정정 기간이 남아 있는 경우 취소를 허용합니다. 입력값 age_seconds가 10분(600초) 이내이고, until_start_seconds가 정정 기간이 끝나는 순간을 포함하여 10분(600초) 이내인 경우 취소를 허용합니다.",
+          "scope": "over",
+          "excess_quote": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+          "value": {
+            "allow_cancel": true
+          },
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "정정 가능 기간은 10분입니다.",
+          "reason": "정정 기준(10분)이 명확하지 않으며, 정정 가능 기간이 정확히 끝나는 순간도 포함되었는지(예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등)를 명확히 하지 않았기 때문에, 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+          "scope": "over",
+          "excess_quote": "정정 가능 기간은 10분입니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        }
+      },
+      "binary_agree": false,
+      "exact_agree": false
+    },
+    {
+      "item": 3,
+      "key": {
+        "id": 3,
+        "sufficient": false,
+        "expected": "jpg",
+        "source": "scoped/A-self/suffix-06"
+      },
+      "ratings": {
+        "A": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "reason": "담당자가 확장자가 여러 개 있는 파일에 대한 명확한 지침을 제공하지 않았습니다. 마지막 점 뒤의 부분만 확장자로 사용해야 한다는 지시가 있지만, 다른 점이 있는 파일에 대한 처리 방식은 명확하지 않습니다.",
+          "scope": "over",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": ",",
+          "quote": "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다.",
+          "reason": "정확한 정책은 제공되지 않았습니다. 다수 확장자 파일의 경우, 처리 방법에 대한 명확한 지침이 없습니다.",
+          "scope": "over",
+          "excess_quote": "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    },
+    {
+      "item": 4,
+      "key": {
+        "id": 4,
+        "sufficient": true,
+        "expected": "jpg",
+        "source": "scoped/A-abc/suffix-06"
+      },
+      "ratings": {
+        "A": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "담당자가 확장자가 여러 개 있는 파일에 대한 처리 방식에 대한 명확한 지침을 제공했습니다. 특히 마지막 점 뒤의 부분만 확장자로 사용하는 것이 맞는지, 아니면 첫 번째 점 뒤의 부분만 사용하는 것이 맞는지에 대한 질문이 있었습니다. 이 질문은 파일 관리 담당자에게 확인이 필요합니다.",
+          "scope": "over",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "확장자가 여러 개 있는 경우 (예: 'image.png.jpg') 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환해야 하는지 파일 관리 담당자에게 확인이 필요합니다.",
+          "reason": "대화는 여러 답변을 논의하고 있으며, 명확한 정책이 제공되지 않았습니다.",
+          "scope": "over",
+          "excess_quote": "확장자가 여러 개 있는 경우 (예: 'image.png.jpg') 에 대해 'jpg' 를 반환하는 것이 맞는지, 아니면 'png.jpg' 를 반환해야 하는지 파일 관리 담당자에게 확인이 필요합니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    },
+    {
+      "item": 5,
+      "key": {
+        "id": 5,
+        "sufficient": true,
+        "expected": "txt",
+        "source": "scoped/A-abc/suffix-15"
+      },
+      "ratings": {
+        "A": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "담당자가 확장자가 여러 개 있는 파일에 대한 처리 방식에 대한 명확한 지침을 제공했습니다. 특히 마지막 점 뒤의 부분만 확장자로 사용하는 것이 맞는지, 아니면 첫 번째 점 뒤의 부분만 사용하는 것이 맞는지에 대한 질문이 있었습니다. 이 질문은 파일 관리 담당자에게 확인이 필요합니다.",
+          "scope": "over",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "이제 args[",
+          "reason": "문제 설명에는 policy가 포함되지 않았으며, 대화에서 제공된 unclear policy 조언만이 있습니다. 대화에서 policy를 명확히 언급하지 않았기 때문에 policy를 확인할 수 없습니다.",
+          "scope": "over",
+          "excess_quote": "확장자가 여러 개 있는 경우 (예: 'image.png.jpg') 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음을 반환해야 하는지 파일 관리 담당자에게 확인이 필요합니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    },
+    {
+      "item": 6,
+      "key": {
+        "id": 6,
+        "sufficient": true,
+        "expected": "json",
+        "source": "scoped/A-abc/suffix-16"
+      },
+      "ratings": {
+        "A": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "담당자가 확장자가 여러 개인 파일에 대한 처리 기준을 명확히 했습니다. 'image.png.jpg'에 대해 'jpg'를 반환하는 것이 맞는지, 아니면 'png.jpg'를 반환해야 하는지에 대한 질문이 반복적으로 제기되었고, 담당자는 마지막 점 뒤의 부분을 확장자로 사용하는 것이 맞다고 답변했습니다. 따라서 이 정책은 아직 확정되지 않았습니다.",
+          "scope": "over",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "이제 oversized_quote을 사용하지 않습니다.",
+          "reason": "대화는 파일 이름에서 확장자를 추출하는 file_suffix(name) -> str 함수에 대한 구현에 관한 것이지만, policy oversized_quote은 파일 이름을 지정하는 .settings.JSON 파일에 대한 것이므로, policy과 함수 구현 사이의 관련성은 명확하지 않습니다.",
+          "scope": "over",
+          "excess_quote": "policy oversized_quote은 파일 이름을 지정하는 .settings.JSON 파일에 대한 것이므로, policy과 함수 구현 사이의 관련성은 명확하지 않습니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    },
+    {
+      "item": 7,
+      "key": {
+        "id": 7,
+        "sufficient": false,
+        "expected": "",
+        "source": "scoped/A-self/suffix-17"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "value_json": "{\"function_name\": \"file_suffix\", \"input\": \"name\", \"return_type\": \"str\", \"description\": \"파일 이름에서 확장자를 추출합니다. 입력은 경로 구분자 없이 영문 대소문자, 숫자, 점, 하이픈으로만 된 파일 이름입니다. 공백과 빈 문자열은 입력되지 않습니다. 이름 안에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일은 점 다음 부분을 반환합니다. 반환값에 점을 붙이지 않습니다.\"}",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "reason": "정책이 공개 명세에 명확하게 정의되어 있습니다.",
+          "scope": "over",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "value": {
+            "function_name": "file_suffix",
+            "input": "name",
+            "return_type": "str",
+            "description": "파일 이름에서 확장자를 추출합니다. 입력은 경로 구분자 없이 영문 대소문자, 숫자, 점, 하이픈으로만 된 파일 이름입니다. 공백과 빈 문자열은 입력되지 않습니다. 이름 안에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일은 점 다음 부분을 반환합니다. 반환값에 점을 붙이지 않습니다."
+          },
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "args:[",
+          "reason": "명세는 확장자가 여러 개 있는 파일의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지에 대한 명확한 지침이 제공되지 않았습니다. 대화에서 제공된 구절만으로는 결정할 수 없습니다.",
+          "scope": "over",
+          "excess_quote": "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": false,
+      "exact_agree": false
+    },
+    {
+      "item": 8,
+      "key": {
+        "id": 8,
+        "sufficient": false,
+        "expected": true,
+        "source": "scoped/A-self/upload-13"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "value_json": "{\"allow_upload\":true}",
+          "quote": "상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "reason": "담당자가 상한 값(16바이트)과 빈 파일 처리 로직(거부)을 명확하게 확정했습니다. 이 정보를 바탕으로 allow_upload 함수를 구현할 수 있습니다.",
+          "scope": "over",
+          "excess_quote": "상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "value": {
+            "allow_upload": true
+          },
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "known",
+          "value_json": "상한 값은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "quote": "상한 값은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "reason": "상한 값과 빈 파일의 허용 여부는 저장소 담당자에게 확인이 필요하다는 내용이 명시되어 있으며, 상한 값이 16바이트임이 명시되어 있습니다.",
+          "scope": "over",
+          "excess_quote": "상한 값은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 9,
+      "key": {
+        "id": 9,
+        "sufficient": true,
+        "expected": true,
+        "source": "scoped/A-abc/upload-13"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "value_json": "{\"size_limit\": 16, \"allow_zero_byte\": false}",
+          "quote": "상한은 16바이트입니다. 정확히 상한이면 허용하고, 0바이트 빈 파일은 거부합니다.",
+          "reason": "담당자가 상한 값과 0 바이트 파일 허용 여부에 대한 최종 결정을 제공했습니다. 상한은 16 바이트이고, 정확히 16 바이트 파일은 허용하며 0 바이트 파일은 거부합니다.",
+          "scope": "over",
+          "excess_quote": "상한 값이 16 바이트로 확정되었으니, 정확히 16 바이트인 파일은 허용하고 0 바이트 빈 파일은 거부하는 로직으로 코드를 수정해 주실 수 있나요?",
+          "value": {
+            "size_limit": 16,
+            "allow_zero_byte": false
+          },
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "value_json": "현재 코드는 0 바이트를 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 하지만 대화 기록에 따르면 '정확히 16 바이트인 파일은 허용하고, 0 바이트 빈 파일은 거부한다'는 것이 최종 결정 사항입니다. 코드가 이 요구사항을 정확히 반영하고 있는지 담당자에게 최종 확인이 필요합니다.",
+          "quote": "현재 코드는 0 바이트 파일을 거부하고 16 바이트 이하를 허용하는 로직으로 구현되어 있습니다. 하지만 대화 기록에 따르면 '정확히 16 바이트인 파일은 허용하고, 0 바이트 빈 파일은 거부한다'는 것이 최종 결정 사항입니다. 코드가 이 요구사항을 정확히 반영하고 있는지 담당자에게 최종 확인이 필요합니다.",
+          "reason": "코드는 이미 0 바이트와 16 바이트 이하를 거부하고 있습니다. 그러나 최종 결정은 정확히 16 바이트의 파일이 허용되고 0 바이트의 파일이 거부된다고 합니다. 코드가 이 최종 결정에 맞춰야 합니다.",
+          "scope": "over",
+          "excess_quote": "최종 결정 사항은 '정확히 16 바이트인 파일은 허용하고, 0 바이트 빈 파일은 거부한다'입니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 10,
+      "key": {
+        "id": 10,
+        "sufficient": true,
+        "expected": true,
+        "source": "scoped/A-abc/print-10"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "value_json": "{\"width_cm\": 6, \"height_cm\": 4}",
+          "quote": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+          "reason": "The dialogue consistently indicates that the maximum width is 6cm and the maximum height is 4cm, and that lengths equal to the maximum are allowed. The question asks for a function that implements this logic.",
+          "scope": "over",
+          "excess_quote": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+          "value": {
+            "width_cm": 6,
+            "height_cm": 4
+          },
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "인쇄 담당자님, '가로와 세로의 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다'라는 답변에 따르면 상한값과 같은 길이의 처리 기준이 명확하지 않습니다. 또한, '양수이고 각각 자기 상한보다 작으면 허용합니다'라는 조건과 '상한과 같은 길이 허용'이 모순되는지, 그리고 0 길이를 '길이 없음'으로 해석하여 거부하는 것이 올바른지 명확히 확인해 주세요.",
+          "reason": "답변에서 상한값과 같은 길이의 처리 기준이 명확하지 않으며, '상한과 같은 길이'의 처리가 모순되는지, 0 길이의 처리 기준이 명확하지 않습니다.",
+          "scope": "over",
+          "excess_quote": "상한과 정확히 같아도 허용합니다",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": true
+        }
+      },
+      "binary_agree": false,
+      "exact_agree": false
+    },
+    {
+      "item": 11,
+      "key": {
+        "id": 11,
+        "sufficient": true,
+        "expected": "***",
+        "source": "scoped/A-self/mask-09"
+      },
+      "ratings": {
+        "A": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.",
+          "reason": "정책 결정이 담당자 답변에 의존합니다. 공개 비율 및 글자 공개 방식에 대한 구체적인 기준이 공개 명세에 명시되어 있지 않습니다.",
+          "scope": "over",
+          "excess_quote": "현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "operational guidelines for revealing a portion of the code when it is too short have not been provided.",
+          "quote": "operational guidelines for revealing a portion of the code when it is too short have not been provided.",
+          "reason": "The operational guidelines for revealing a portion of the code when it is too short have not been provided, leaving the decision on how to handle cases where the code is too short unclear.",
+          "scope": "over",
+          "excess_quote": "operational guidelines for revealing a portion of the code when it is too short have not been provided.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": false,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    },
+    {
+      "item": 12,
+      "key": {
+        "id": 12,
+        "sufficient": true,
+        "expected": false,
+        "source": "scoped/A-solo/upload-02"
+      },
+      "ratings": {
+        "A": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다.",
+          "reason": "상한 값에 대한 정보가 제공되지 않았습니다. 파일 크기 검사 함수가 허용되는지 여부를 결정하는 데 필요한 정보가 부족합니다.",
+          "scope": "over",
+          "excess_quote": "상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "unknown",
+          "value_json": "",
+          "quote": "상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+          "reason": "정확한 상한 값이 제공되지 않았습니다.",
+          "scope": "over",
+          "excess_quote": "상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+          "value": null,
+          "value_ok": false,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    }
+  ]
+}

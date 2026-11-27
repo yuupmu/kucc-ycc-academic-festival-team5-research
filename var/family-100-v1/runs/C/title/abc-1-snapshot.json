@@ -1,0 +1,24 @@
+{
+  "code": "def clean_title(text):\n    return ''\n",
+  "calls": [
+    "34ed8ff6d2b8459f48ea103234686c68eee04ea1526456581a6ead29e34e9f82",
+    "5883928c7d9ae752ec628877bb4ee6a90a536de7529c61d7ebde7d807202f067",
+    "2be88aa2d01e39a7f961adf625e657f1ef1f5fd9510adbb8245027b6524dc160",
+    "73487a42704e36285418db6102342f3db9bf407099a886238c09309e0ac4f087",
+    "3f39eaa8c88f4edc5d660d7c7a4fc4c4d0fbf3acad2c53e03510a879170d60b7",
+    "8f4d8378f588eb6b2219b0591cca52d7ec018b25cdc17eeb1e86fdeff1d48da7"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "clean_title 함수의 내부 공백, 하이픈, 비어 있는 제목 표시 기준에 대해 논의할 수 있나요?",
+        "clean_title 함수의 구현을 위한 guidelines를 명확히 해주셨지만, 구현 중에 특정한 내부 공백, 하이픈, 비어 있는 제목을 어떻게 처리할지에 대한 구체적인 지침이 필요합니다. 이 점에 대해 편집 담당자에게 추가적인 정보가 필요하신가요?",
+        "clean_title 함수의 구현에 대한 예제 코드를 제공할 수 있나요?"
+      ],
+      "answer": {
+        "text": "연속된 내부 공백은 한 칸으로 줄입니다. 하이픈은 위치와 개수를 그대로 유지합니다. 양끝 공백을 제거한 결과가 빈 문자열이면 untitled를 반환합니다."
+      }
+    }
+  ]
+}

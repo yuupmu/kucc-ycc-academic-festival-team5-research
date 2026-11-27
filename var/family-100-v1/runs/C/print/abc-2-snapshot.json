@@ -1,0 +1,30 @@
+{
+  "code": "def fits_print(width_cm, height_cm):\n    if width_cm <= 0 or height_cm <= 0:\n        return False\n    if width_cm > 6 or height_cm > 4:\n        return False\n    if width_cm == height_cm:\n        return True\n    else:\n        return False\n",
+  "calls": [
+    "b476870ecb28febc66273c341a83ac0c91ed0a492ea1e3ce1f4f1d733fcde97a",
+    "b087ce4e0129f32f29c1d303736d1f3d98d251c077718023163c22cdc9ff8aa6",
+    "e43516b566ee308eb67c76b6f7aa8ff06ef303cd8cde9747c53b701a4cd13e4b",
+    "ae39eccf859ec9dbcc811eb11aa23dfce198c8a987decfc43c440f47e7303b14",
+    "22d82955e875b64ecdb04ec0507d30658cc97ab2d8ce60a126719fdc65a49f6b",
+    "f2bff4260868fc5b60685477d8b650d31b377399e287f1b0d424a8690be2fe60",
+    "e9e66da0f2ea880bcb8385acdeb80161f5e12798207921f47a5e3edabca694cc",
+    "252e9d70e21416ff4dc0e26c356fc71ee25dbca79de94c998b702c2e7e729168",
+    "4d3de7ab2b8b945551803b91c66da2d8c938659e0458a8a8867435b5ea8b1a0d",
+    "97bde7642e78e1fe9369d2b7692524b71dc32b20547060d8e38d66faa02b5af6",
+    "663239e1c007b30c0b08177f7996d0636582d22a8cd4e3048a8116f5d1ba6b6e",
+    "3a1ef164b93e07fb6ae4b22f44a6b90cc2869d362db10c0d748fc5e07316629b"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "가로 길이와 세로 길이의 상한, 상한과 같은 길이, 0인 길이의 경우 어떻게 처리해야 합니까?",
+        "가로 길이 (width_cm)를 0으로 설정했을 때, 세로 길이 (height_cm)를 0으로 설정했을 때, 양수와 음수의 조합을 허용하나요?",
+        "가로 길이와 세로 길이의 상한을 확인해야 합니다. width_cm와 height_cm은 양수여야 합니다. width_cm가 height_cm보다 크거나 세로 길이보다 크면 거부합니다. width_cm와 height_cm가 같은 길이인 경우, 또는 width_cm 또는 height_cm가 0인 경우, 인쇄 담당자에게 확인해야 합니다."
+      ],
+      "answer": {
+        "text": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다. 음수 길이는 거부합니다. 축을 교환하지 않으며 양수는 각 상한보다 작으면 허용하고 하나라도 초과하면 거부합니다."
+      }
+    }
+  ]
+}

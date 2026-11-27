@@ -1,0 +1,159 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    raise NotImplementedError\n"
+    },
+    "review_files": {
+      "solution.py": "MAX_SIZE = 10 * 1024 * 1024\n\ndef allow_upload(size_bytes):\n    if size_bytes <= MAX_SIZE and size_bytes > 0:\n        return True\n    return False"
+    },
+    "calls": [
+      "02f863c51032d3b83bc0cc90cd7820c297f4b5e3e8f20839946928bce65636d3",
+      "5bf1a534c184003e3f1ff02ecd9115b4a672108d87f56ef4d9702fc0527c09ef"
+    ],
+    "attempts": [
+      {
+        "issues": [
+          "missing_executable_line",
+          "missing_executable_line"
+        ],
+        "bindings": [
+          {
+            "reply": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "if size_bytes == MAX_SIZE: return True"
+          },
+          {
+            "reply": "빈 파일에는 거부로 처리합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "if size_bytes == 0: return False"
+          }
+        ]
+      },
+      {
+        "issues": [
+          "missing_executable_line"
+        ],
+        "bindings": [
+          {
+            "reply": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "if size_bytes <= MAX_SIZE and size_bytes > 0: return True"
+          },
+          {
+            "reply": "빈 파일에는 거부로 처리합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return False"
+          }
+        ]
+      }
+    ],
+    "guard": {
+      "held": true,
+      "issues": [
+        "changed_behavior_unverified"
+      ],
+      "unverified": [],
+      "changed_files": [
+        "solution.py"
+      ],
+      "evidenced_files": [
+        "solution.py"
+      ]
+    },
+    "complete": false,
+    "error": null
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "빈 파일 (size_bytes = 0) 처리",
+            "outcome_a": "빈 파일은 거부 (False) 로 처리합니다.",
+            "outcome_b": "빈 파일은 허용 (True) 로 처리합니다.",
+            "question": "빈 파일 (size_bytes = 0) 은 거부해야 하는지 허용해야 하는지 명확히 해주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "빈 파일 (size_bytes = 0) 에 대한 허용 여부",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (size_bytes = 0) 에 대한 허용 여부는 저장소 담당자에게 확인해야 하나요?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "빈 파일 (size_bytes = 0) 처리",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (size_bytes = 0) 은 거부 처리가 맞습니다."
+          },
+          {
+            "situation": "상한 값과 정확히 같은 파일 (size_bytes = MAX_SIZE) 처리",
+            "outcome_a": "상한 값과 정확히 같은 파일은 허용합니다.",
+            "outcome_b": "상한 값과 정확히 같은 파일은 거부합니다.",
+            "question": "상한 값과 정확히 같은 파일은 허용 처리가 맞습니다."
+          },
+          {
+            "situation": "음수 입력 (size_bytes < 0) 처리",
+            "outcome_a": "음수 입력은 거부합니다.",
+            "outcome_b": "음수 입력은 허용합니다.",
+            "question": "음수 입력은 거부 처리가 맞습니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "0a89dccb43f0c1d84b12183c0c48bd174795112d099ca6229c24f62f68945156",
+    "6729d84d619bd54ff52bd1228500b86ceee9449237959f0728b4606fe672ad40",
+    "5da7da6fa3b4c3fafcccfbc9fc722fda7b078a014441832b7833fcead775a70e",
+    "02f863c51032d3b83bc0cc90cd7820c297f4b5e3e8f20839946928bce65636d3",
+    "5bf1a534c184003e3f1ff02ecd9115b4a672108d87f56ef4d9702fc0527c09ef",
+    "41de0a8382584b1f7f22ebfad2462f4bd1e33e812bdfd619979bb9fd309522dc",
+    "6802b21b86e12c340d0a400a784b9a60a528c634d42e22bb098db7d582f452ea",
+    "206a2eb214fc235753a6a4ccba6d7879a83e5091d46fa029c42e5033f24e43cc"
+  ],
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    raise NotImplementedError\n"
+  },
+  "sha256": "e46e23f8a7c25c8c5ef135eff682b75b13c92844f910e89d8e71510c6e618aaa",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "67e8a671677b9e46b59cc98f34d569ca42ba0fdd03efdc64cb907835351304bc",
+      "questions": [
+        {
+          "question": "상한 값과 정확히 일치하는 파일과 빈 파일에 대해, 담당자가 정한 상한보다 작은 양수 파일의 허용 기준과 동일한 방식으로 처리해야 할지 (즉, 상한을 포함하여 허용), 아니면 상한을 포함하여 거부해야 할지 명확히 해주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "파일 크기가 상한과 정확히 같아도 허용합니다.\n빈 파일에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "version": 4,
+  "arm": "multi",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds >= 86400:\n        return True\n    elif until_start_seconds <= 0:\n        return False\n    elif age_seconds < 600:\n        return True\n    else:\n        raise NotImplementedError(\"별도의 정정 시간에 대한 정책이 명확하지 않습니다.\")",
+  "sha256": "9eac6836b84921ff396444a1f226a5b41f105561c1b8032a0fbdbd2937436ea0",
+  "plan": "allow_cancel(age_seconds, until_start_seconds) -> bool",
+  "links": [
+    {
+      "quote": "정정 기간은 예약 생성 후 10분입니다. 정정 기간이 정확히 끝나는 순간도 포함합니다.",
+      "line": "elif age_seconds < 600:\n        return True"
+    },
+    {
+      "quote": "정정 가능 시간을 재는 기준점은 예약 생성 시각입니다.",
+      "line": "elif age_seconds < 600:\n        return True"
+    }
+  ],
+  "main_complete": true,
+  "answer_batches": [
+    1,
+    2,
+    3
+  ]
+}

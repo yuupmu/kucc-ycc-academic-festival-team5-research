@@ -1,0 +1,124 @@
+{
+  "text": "{\"decision\": {\"status\": \"known\", \"result\": false}, \"quote\": \"상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.\",\"reason\": \"현재 코드는 상한 값이 정해지지 않았을 때 모든 양수 파일에 대해 예외를 던지고 있습니다.\",\"scope\": \"within\",\"excess_quote\": \"상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.\"}",
+  "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 124,
+    "prompt_tokens": 556,
+    "total_tokens": 680,
+    "prompt_tokens_details": {
+      "cached_tokens": 335
+    }
+  },
+  "server_timings": {
+    "cache_n": 335,
+    "prompt_n": 221,
+    "prompt_ms": 245.577,
+    "prompt_per_token_ms": 1.1112081447963802,
+    "prompt_per_second": 899.9214095782586,
+    "predicted_n": 124,
+    "predicted_ms": 2692.682,
+    "predicted_per_token_ms": 21.89172357723577,
+    "predicted_per_second": 45.6793635490563
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.97,
+  "request": {
+    "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "운영 담당자의 입장에서 입력 하나를 독립적으로 판정하세요. 공개 명세와 실제 담당자 답변만 근거입니다. 질문자의 설명은 담당자 결정이 아닙니다. 답이 정해지면 decision의 status는 known, result에는 실제 함수 반환값을 넣으세요. 미정이면 status만 unknown으로 고르세요. quote에는 명세나 담당자 답의 근거 구절을 그대로 인용하세요. reason에 값 또는 미정인 이유를 간단히 쓰세요. scope는 담당자 회신이 질문받은 범위를 넘어섰는지 뜻합니다. 회신이 전혀 없으면 no_reply, 범위 안이면 within, 넘으면 over, 애매하면 unclear를 고르세요. over라면 excess_quote에 실제 담당자 답의 해당 구절을 적으세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"공개 명세\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.\",\"실제 문답\":[{\"담당자에게 보낸 질문\":[\"파일 크기의 상한 값과 0 바이트 (빈 파일) 의 허용 여부는 담당자에게 확인이 필요하다고 하셨는데, 현재 코드는 두 경우 모두 NotImplementedError 를 발생시켜 개발을 막고 있습니다. 상한 값과 0 바이트 처리 로직이 확정된 후 코드를 수정할 예정인가요?\",\"현재 코드는 상한 값이 정해지지 않았을 때 모든 양수 파일에 대해 예외를 던지고 있습니다. 만약 상한 값이 나중에 결정되면 이 예외 처리 로직을 어떻게 변경할 계획이신가요?\"],\"담당자의 실제 답변\":\"상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.\"},{\"담당자에게 보낸 질문\":[],\"담당자의 실제 답변\":null},{\"담당자에게 보낸 질문\":[],\"담당자의 실제 답변\":null}],\"입력 인자 목록\":[16],\"공개 반환 형식\":\"boolean\"}"
+      }
+    ],
+    "seed": 937,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 700,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "known"
+                      ]
+                    },
+                    "result": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "unknown"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "quote": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string",
+              "enum": [
+                "no_reply",
+                "within",
+                "over",
+                "unclear"
+              ]
+            },
+            "excess_quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "decision",
+            "quote",
+            "reason",
+            "scope",
+            "excess_quote"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "독립 정책 평가자"
+}

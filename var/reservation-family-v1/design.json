@@ -1,0 +1,46 @@
+{
+  "models": {
+    "A": {
+      "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+      "bytes": 2707513696,
+      "sha256": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c"
+    },
+    "B": {
+      "filename": "google_gemma-3-4b-it-Q4_K_M.gguf",
+      "bytes": 2489758112,
+      "sha256": "4996030242583a40aa151ff93f49ed787ac8c25e4120c3ae4588b2e2a7d1ae94",
+      "revision": "71506238f970075ca85125cd749c28b1b0eee84e"
+    },
+    "C": {
+      "filename": "microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+      "bytes": 2491874688,
+      "sha256": "01999f17c39cc3074afae5e9c539bc82d45f2dd7faa3917c66cbef76fce8c0c2",
+      "revision": "7ff82c2aaa4dde30121698a973765f39be5288c0"
+    }
+  },
+  "tasks": [
+    "reservation",
+    "calendar"
+  ],
+  "seed": 263,
+  "cycles": 3,
+  "question_budget_per_cycle": 3,
+  "conditions": "solo, self, three same-family reviewers for A/B/C; A with A/B/C reviewers",
+  "mixed_roles": "[task_index + round_index + role_index] mod 3, all zero-based",
+  "oracle": "Codex as delegated owner. Only the sorts of decisions a question explicitly requests are answered from the frozen policy cards. Collect questions per cycle into one natural-language reply. Ask for specificity for unanswerable questions.",
+  "scores": "All final submissions locked before independent assessment. Each set scored separately.",
+  "source_sha256": {
+    "experiments/pipeline100/sample.json": "7cf7bdd63a62e16791df58e319d475fa8313bce609b00fd57d8afd21a6790374",
+    "reservation_benchmark/evaluator/cases.json": "6a900e2496bc0990b4e8b395444bc031fe7a47f462f515ea31e33fbb0912aba3",
+    "reservation_benchmark/evaluator/answer_key.json": "d168f1fc0acdf4cb304a258a77fd783796ac5d5a9c89f41bb5fb5daa34738d6a",
+    "reservation_benchmark/evaluator/policy.json": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+    "reservation_benchmark/evaluator/HUMAN_POLICY.md": "f117260237dd7a11f76e8c2dc2ee74d486df39471651ccedfc2c273cd6114e74",
+    "experiments/project-transfer-20261126/public/reservation.json": "48b0baf1b099ea438710bf4b0ca985702867fd2ede9b9a8197b0a83df50cd283",
+    "experiments/project-transfer-20261126/operator-cards.json": "ce8f6bc0864ceb78c745c45b83fe3ee8c5b2a4ffc83e1941e6ec523e873a7a49",
+    "experiments/festival-mini-20261126/operator-variants.json": "7ee5e6ce918f335751e62f49cfa0e20371e9f459019cad87bb31652f5afd459f",
+    "reservation_benchmark/agent/TASK.md": "7258b91653843e7b1b6a2518124680edc58be8424c3a4b949f788782afecc5d4",
+    "reservation_benchmark/agent/solution.py": "092f3b15470f57af72e95407132dea88c875dbe33ff2f42507f7ef2187b4b46c",
+    "experiments/scoped_transfer.py": "8589d93534ebdabb31281a48a87247f45b0656a2262dab3da467a57657a011b7",
+    "backend/allocation_repair.py": "bae7eb8807d459d3f6534c1f90b84342a7c746686d5b040739f6b234bfea2f44"
+  }
+}

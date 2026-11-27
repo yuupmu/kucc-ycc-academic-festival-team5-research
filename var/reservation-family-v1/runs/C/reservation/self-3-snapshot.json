@@ -1,0 +1,48 @@
+{
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds < 0:\n        return False\n    if until_start_seconds < 86400:\n        return True\n    if age_seconds < 0:\n        return False\n    if age_seconds >= 86400:\n        return False\n    if age_seconds < until_start_seconds:\n        return True\n    return False",
+  "calls": [
+    "da1b90e54be2b1c183e786e69f4b8a6b5efa4cd882e35e3bfcebf95224493f7d",
+    "378914cba58410e54581f736fb3c1cd0309936c043dde547e15c1d0e7f51ded1",
+    "a3a52dd02f558c8dcacd5dca40afd430d5143840852671a8c3b44ac23c139cee",
+    "b536aba5b29687e894610d654a1b7c3427ed3ef73835fdb2c98db347a0c5033a",
+    "73de4c58983a9c19de986b5366f0d9a9a126a8149eb21536fa870b70bcef9aab",
+    "572b3ca4597ab72958b8472a4a9d488500632fba896cf610d81393bd72aab328",
+    "f4a41bcf857dd9653c663e6b815049d1d5f2d19bd42ae8edd5db7adf304f34c4",
+    "1974e9746456f6d1ee0883c809c3b3cbcda45a7e15a7e01bed38c856597a185a"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "예약이 시작되기 전 24시간 내에 취소할 수 있나요?",
+        "예약이 시작되었지만 아직 이용되지 않은 경우 취소할 수 있나요?",
+        "예약이 시작되었고 이용 중인 경우 취소할 수 있나요?"
+      ],
+      "answer": {
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다. 정정 가능 기간은 10분입니다. 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다. 이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다. 이용 시작까지 24시간보다 적게 남으면 일반 취소는 마감됩니다."
+      }
+    },
+    {
+      "request_id": "self-2",
+      "questions": [
+        "예약이 시작되기 전 24시간 내에 취소할 수 있나요?",
+        "예약이 시작되었지만 아직 이용되지 않은 경우 취소할 수 있나요?",
+        "예약이 시작되었고 이용 중인 경우 취소할 수 있나요?"
+      ],
+      "answer": {
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다. 정정 가능 기간은 10분입니다. 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다. 이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다. 이용 시작까지 24시간보다 적게 남으면 일반 취소는 마감됩니다."
+      }
+    },
+    {
+      "request_id": "self-3",
+      "questions": [
+        "예약이 시작되기 전 24시간 내에 취소할 수 있나요?",
+        "예약이 시작되었지만 아직 이용되지 않은 경우 취소할 수 있나요?",
+        "예약이 시작되었고 이용 중인 경우 취소할 수 있나요?"
+      ],
+      "answer": {
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다. 정정 가능 기간은 10분입니다. 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다. 이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다. 이용 시작까지 24시간보다 적게 남으면 일반 취소는 마감됩니다."
+      }
+    }
+  ]
+}

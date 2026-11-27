@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "arm": "multi",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    general_deadline = 24 * 3600  # 24시간\n    correction_period = 10 * 60    # 10분\n\n    # 일반 마감: 이용 시작 24시간 전\n    # 정정 기간: 이용 시작 전까지 (예약 생성 후 10분까지)\n    # 이용 시작 시점: until_start_seconds == 0\n    # 이용 시작 이후: until_start_seconds < 0\n\n    # 일반 마감 전: until_start_seconds >= general_deadline\n    if until_start_seconds >= general_deadline:\n        return True\n    # 정정 기간 전: until_start_seconds >= 0\n    # 정정 기간은 예약 생성 후 10분까지\n    # age_seconds는 예약 생성 후 경과한 시간\n    elif age_seconds < correction_period:\n        return True\n    # 이용 시작 시점 이후: until_start_seconds < 0\n    else:\n        return False",
+  "sha256": "dda455a45c4b5856176754b7a32dc72cef077a9352328de3f0daa0837836a401",
+  "plan": "일반 마감과 정정 기간을 구분하여 처리합니다. 일반 마감은 이용 시작 24시간 전까지, 정정 기간은 이용 시작 전까지(예약 생성 후 10분까지)입니다. 정정 기간이 우선합니다. 이용 시작 시점 이후에는 일반 마감과 정정 기간 모두 마감됩니다. 담당자 답변을 기반으로 정정 기간이 10분까지이며, 정확히 10분인 경우도 허용합니다. 이용 시작 시점 이후에는 정정 기간이 남아도 거부합니다.",
+  "human_evidence": {
+    "deadline_edge": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+    "correction_period": "예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다.",
+    "correction_edge": "정확히 10분인 경우도 포함합니다.",
+    "start_priority": "현재 시각이 이용 시작 시각과 같거나 이후면, 정정 시간이 남아 있어도 거부합니다."
+  },
+  "main_complete": true,
+  "answer_batches": [
+    1
+  ]
+}

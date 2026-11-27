@@ -1,0 +1,10 @@
+--- v3
++++ v4
+@@ -3,5 +3,7 @@
+         return True
+     elif until_start_seconds <= 0:
+         return False
++    elif age_seconds < 600:
++        return True
+     else:
+         raise NotImplementedError("별도의 정정 시간에 대한 정책이 명확하지 않습니다.")

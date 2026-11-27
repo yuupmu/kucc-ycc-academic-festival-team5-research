@@ -1,0 +1,92 @@
+{
+  "text": "{\"edits\":[{\"evidence\":\"abc-1/H1\",\"before\":\"raise NotImplementedError\",\"after\":\"return level >= -3\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 28,
+    "prompt_tokens": 292,
+    "total_tokens": 320,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 292,
+    "prompt_ms": 273.258,
+    "prompt_per_token_ms": 0.9358150684931507,
+    "prompt_per_second": 1068.5871959832834,
+    "predicted_n": 28,
+    "predicted_ms": 385.165,
+    "predicted_per_token_ms": 14.265370370370372,
+    "predicted_per_second": 70.09982734672154
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.66,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "직접 받은 답변에 따라 코드의 필요한 위치만 수정하세요. 미구현 위치는 pending의 키를 before로 쓰고 after에 그 위치에 넣을 실행문만 적으세요. 다른 수정은 원본의 정확한 부분을 before로 인용하세요. evidence에서 근거가 되는 답변을 선택하세요. 답변으로 확정할 수 없는 동작을 만들지 마세요. 이미 맞으면 빈 edits를 반환하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"needs_check(level: int) -> bool은 계측값을 다시 확인할지 결정합니다. level은 음수도 유효한 정수입니다. 기준보다 높은 값은 재검(True), 낮은 값은 통과(False)입니다. 기준 수치와 정확히 기준일 때의 처리는 담당자에게 확인하세요.\",\"code\":\"def needs_check(level: int) -> bool:\\n    raise NotImplementedError\\n\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"재검 기준은 얼마이고, 값이 정확히 기준일 때도 재검하나요?\"],\"answer\":{\"text\":\"기준값은 -3입니다. 정확히 기준이면 재검합니다.\"}}],\"review\":[],\"pending\":{\"@pending:2:4\":\"raise NotImplementedError\"},\"evidence\":{\"abc-1/H1\":{\"request_id\":\"abc-1\",\"quote\":\"기준값은 -3입니다. 정확히 기준이면 재검합니다.\"}}}"
+      }
+    ],
+    "seed": 1421,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "edits": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "evidence": {
+                    "type": "string",
+                    "enum": [
+                      "abc-1/H1"
+                    ]
+                  },
+                  "before": {
+                    "type": "string"
+                  },
+                  "after": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence",
+                  "before",
+                  "after"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 6
+            }
+          },
+          "required": [
+            "edits"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-edit"
+}

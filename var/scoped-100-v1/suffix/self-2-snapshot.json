@@ -1,0 +1,31 @@
+{
+  "code": "def file_suffix(name):\n    \"\"\"\n    파일 이름에서 확장자를 추출하는 함수입니다.\n    \n    입력: 경로 구분자 없이 영문 대소문자, 숫자, 점, 하이픈으로만 된 파일 이름\n    출력: 점 다음 부분을 반환 (확장자). 점이 여러 개일 경우, 마지막 점 다음 부분을 반환.\n    \n    예시:\n    file_suffix('report.pdf') -> 'pdf'\n    file_suffix('image.png.jpg') -> 'jpg'\n    file_suffix('file') -> None (확장자가 없음)\n    \"\"\"\n    # 이름에 점이 있는지 확인\n    if '.' not in name:\n        return None\n    \n    # 점이 여러 개일 경우, 마지막 점 다음 부분을 추출\n    # name.rsplit('.', 1) 은 오른쪽에서 첫 번째 점만 기준으로 나누어줌\n    parts = name.rsplit('.', 1)\n    \n    # 두 부분이 있는지 확인 (확장자가 있는지) 및 빈 문자열이 아닌지 확인\n    if len(parts) == 2 and parts[1]:\n        return parts[1]\n    else:\n        return None\n",
+  "calls": [
+    "a05449c81c04d9246ada05002bf160dae73b56ae0ece9764686acda1e36608d6",
+    "08b4dd7338c952d656384fb6b94a25790a1f24191d8ad886bf988deabbf7e1bd",
+    "57e0a584f31a0b1f24fee49d3ebf4bea73ffccc5220452468fa192baff679c89",
+    "5dd0d9329ac13b62f1c9aaa33033da1b60bbd64d954535afc9ff3038dc0dcc25",
+    "0f55609e0cb73e2e69436c2015e7a74175884bf9bf942440403b36a2f7f6ef5c",
+    "69dc9ab95e135362d7fb8c84ba0804d42c919d4f780e5127f540a89138f03d78"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+      ],
+      "answer": {
+        "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다."
+      }
+    },
+    {
+      "request_id": "self-2",
+      "questions": [
+        "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지, 아니면 첫 번째 점 다음 부분을 반환하는 것이 맞는지 담당자에게 확인이 필요합니다."
+      ],
+      "answer": {
+        "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다."
+      }
+    }
+  ]
+}

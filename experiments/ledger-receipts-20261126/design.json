@@ -1,0 +1,22 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "weights": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c",
+  "seed": 273,
+  "comparison": "Same frozen scopes, atomic questions, public rules, implementation, proxy responses, evaluator, and fork gate. Only receipt ingestion changes. The previous raw calls omitted entire sentences and emitted a closing brace for an explicit numeric value. Both protocols are retained and graded after the last submission.",
+  "primary": "Both explicit policies immediately correct with zero questions. Omission defers only the affected input and reuses exactly one atomic stored question. Fork the identical state and answer yes/no only when that question actually asks the intended decision. Each fork changes only that input and equals its corresponding direct submission.",
+  "blocks": "Upload canonical, paraphrases (same policy), and new two-flag fan task. Test all three first replies + both follow-ups in each block; failed question targeting is a recorded failure, never a forced delivery.",
+  "checks": "Official upload 20 inputs scored at actually received policy, separate original inclusive key, 38 controls from -2 to 33 and both million tails, integer equivalence classes for submitted comparisons. All four fan truth assignments. All submissions and receipts sealed before opening evaluator.",
+  "files": {
+    "experiments/decision-ledger-20261126/final-seal.json": "27a6e968991f03b7de1af064b9bf73cc161aed42053afddea514350c58acd136",
+    "experiments/decision-ledger-20261126/agenda-seal.json": "bd7f22853fc8843964a72755e81997dabd219e8dfaa7ba7cd4476795a2f9bbb7",
+    "experiments/decision-ledger-20261126/operator.json": "a23a0d9aed844ea96b3e5383b788edf3b3501fa3a72098faba06ad6eb8f5f753",
+    "experiments/decision-ledger-20261126/assess.py": "d1045ea44211fb60eb89b90032a30a87e164c14e7621e8acea2f6afd61a3351b",
+    "experiments/decision-ledger-20261126/agendas/upload/agenda.json": "4318c317f2f15e0a0a5aefd5b0f3dbafbb8ac28c4b748da3afb1b69ad6338134",
+    "experiments/decision-ledger-20261126/agendas/fan/agenda.json": "d08f412d9d7c3c2d80186472b9c191cc60ba64291218f86984cede60ec91104e",
+    "experiments/receipt_pipeline.py": "9a30e390f8c2529ac91d3b01464510d2a452ff42c65aa22152f8d039a09617de",
+    "experiments/decision_ledger.py": "6b63950b5986962f9c2332f7292e42ed0dd4550de5dd9f07edc8f1964e8c546e",
+    "experiments/ledger-receipts-20261126/trial.py": "bb4bf71e886b7f899fb9d0f2b8a6df98ab53b1896ebec44652f9194ee0fdedd1",
+    "experiments/ledger-receipts-20261126/assess.py": "edbcbb3314c74d8fe0be2ef6b3e7964a9e2ebb9dbd975bf7f487fabaa0a9dced",
+    "experiments/transfer100-20261126/evaluator/cases.json": "98e737af001938824e930d61d9bde2748dc0c5c606e3df30183444ce4d0d25b3"
+  }
+}

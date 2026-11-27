@@ -1,0 +1,244 @@
+{
+  "writer": {
+    "files": {
+      "router.py": "def triage(tags):\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and not set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    raise NotImplementedError\n"
+    },
+    "calls": [
+      "c11a0240d3d35c1046e3bf7749e73f0e15747a96022b81c812a14285d9138551",
+      "d6302d66d0c51a871c37c6fa06f0b23010c1fc17853c08974be8107623727f17"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "T1 함수는 `tags` 리스트를 입력받아 한 개의 팀 이름 문자열을 반환해야 함.",
+        "input": "tags",
+        "still_open": "정해진 팀 매핑 규칙은 없음.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "T1 함수는 입력 리스트의 순서와 중복 횟수에 무관하게 결과를 산출해야 함.",
+        "input": "tags",
+        "still_open": "정해진 팀 매핑 규칙은 없음.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "T1 함수는 정해진 분류 관행에 따라 여러 담당 분야가 겹치거나 모르는 태그가 섞여도 처리해야 함.",
+        "input": "tags",
+        "still_open": "정해진 분류 관행은 없음.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "T1 함수는 입력 순서와 중복 횟수에 영향을 주지 않아야 함.",
+        "input": "tags",
+        "still_open": "정해진 팀 매핑 규칙은 없음.",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 2,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "len",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 3,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "iter",
+              "len",
+              "next",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 4,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "len",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 5,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "iter",
+              "len",
+              "next",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "regions": [
+      {
+        "scope": "T1",
+        "kind": "collection",
+        "rows": [
+          {
+            "region": "empty input",
+            "selected": "defer",
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "issue": null,
+            "implemented": false
+          },
+          {
+            "region": "nonempty, no declared values",
+            "selected": "defer",
+            "sources": [
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "issue": null,
+            "implemented": false
+          },
+          {
+            "region": "exactly one distinct declared value, only declared values",
+            "selected": "sole declared value",
+            "sources": [
+              "P2"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "exactly one distinct declared value, also undeclared values",
+            "selected": "sole declared value",
+            "sources": [
+              "P2"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "several distinct declared values, only declared values",
+            "selected": "defer",
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1"
+            ],
+            "issue": null,
+            "implemented": false
+          },
+          {
+            "region": "several distinct declared values, also undeclared values",
+            "selected": "defer",
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1"
+            ],
+            "issue": null,
+            "implemented": false
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "error": null,
+    "complete": false,
+    "format": "regions"
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "triage 함수가 알 수 없는 태그가 섞여 들어왔을 때, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 명확히 해야 합니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6",
+    "76e63ca36a7d91c966c8330595de7389cd972516da3c6642dc2a1c968983ff28",
+    "c11a0240d3d35c1046e3bf7749e73f0e15747a96022b81c812a14285d9138551",
+    "d6302d66d0c51a871c37c6fa06f0b23010c1fc17853c08974be8107623727f17",
+    "b2f618d19bd9a7742ab3cc9c6f9fe97be3798fa2b3edeaeecf1f67725d9b3731"
+  ],
+  "files": {
+    "router.py": "def triage(tags):\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and not set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    raise NotImplementedError\n"
+  },
+  "sha256": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+  "status": "open_limit",
+  "arm": "self-regions",
+  "initial_sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+  "questions": [
+    {
+      "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+      "proposed_by": [
+        "main-self"
+      ]
+    }
+  ],
+  "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+  "selections": [
+    [
+      "invariant"
+    ]
+  ],
+  "owner_source": "delegated_policy_card"
+}

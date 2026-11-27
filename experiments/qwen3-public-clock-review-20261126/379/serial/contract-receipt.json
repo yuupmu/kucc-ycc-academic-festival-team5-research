@@ -1,0 +1,33 @@
+{
+  "state": "applied",
+  "finish": "stop",
+  "before_sha256": "a0fb1ddb10706017c77815f2422f91c3ffcea71bada1d92340e62e705a797e6b",
+  "after_sha256": "f32f63c96703d29efda7b1fb1c291b97e1f572e7c2333d1655276b39c84bfc3a",
+  "form": {
+    "ordinary_at_deadline": true,
+    "correction_window": {
+      "amount": 5,
+      "unit": "minutes"
+    },
+    "correction_at_window_end": true,
+    "correction_scope": "through_start",
+    "reasons": {
+      "R1": "일반 취소 마감은 이용 시작 24시간 전입니다. 이는 until_start_seconds >= 86400 (24시간)일 때 취소가 허용됩니다. 마감 시점(24시간 전)은 허용됩니다.",
+      "R2": "이용이 시작되면 일반 취소는 마감됩니다. until_start_seconds == 0 (이용 시작 시점)이면 취소가 거부됩니다. 이는 이용 시작 시점은 취소가 불가능한 시점으로 정의됩니다.",
+      "R3": "방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다. 공개 문구에 수치가 없으므로, '방금'이라는 표현에 따라 5분 이내로 정정 가능하게 가정합니다. 정정 기간은 이용 시작 전까지(through_start) 허용됩니다. 정정 기간 끝 시점(5분 후)은 허용됩니다."
+    }
+  },
+  "source_lines": {
+    "R1": [
+      2,
+      3
+    ],
+    "R2": [
+      4
+    ],
+    "R3": [
+      5,
+      6
+    ]
+  }
+}

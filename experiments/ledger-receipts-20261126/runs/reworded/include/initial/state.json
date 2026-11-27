@@ -1,0 +1,94 @@
+{
+  "code": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    if 0 < size_bytes < 16:\n        return True\n    if size_bytes == 16:\n        return True\n    return False",
+  "confirmed": {
+    "ALLOW_EMPTY_FILE": {
+      "value": false,
+      "quote": "빈 파일은 받지 않습니다.",
+      "turn": 1
+    },
+    "MAX_SIZE_BYTES": {
+      "value": 16,
+      "quote": "용량 제한은 16바이트예요.",
+      "turn": 1
+    },
+    "ALLOW_EXACT_MAX": {
+      "value": true,
+      "quote": "한도와 딱 같은 크기도 올릴 수 있어요.",
+      "turn": 1
+    }
+  },
+  "pending": [],
+  "history": [
+    {
+      "ticket": [
+        "MAX_SIZE_BYTES",
+        "ALLOW_EMPTY_FILE",
+        "ALLOW_EXACT_MAX"
+      ],
+      "reply": "빈 파일은 받지 않습니다. 용량 제한은 16바이트예요. 한도와 딱 같은 크기도 올릴 수 있어요.",
+      "statements": [
+        {
+          "quote": "빈 파일은 받지 않습니다.",
+          "candidates": [
+            "ALLOW_EMPTY_FILE",
+            "ALLOW_EXACT_MAX"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "ALLOW_EMPTY_FILE",
+            "value": "False"
+          }
+        },
+        {
+          "quote": "용량 제한은 16바이트예요.",
+          "candidates": [
+            "MAX_SIZE_BYTES"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "MAX_SIZE_BYTES"
+          }
+        },
+        {
+          "quote": "한도와 딱 같은 크기도 올릴 수 있어요.",
+          "candidates": [
+            "ALLOW_EMPTY_FILE",
+            "ALLOW_EXACT_MAX"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "ALLOW_EXACT_MAX",
+            "value": "True"
+          }
+        }
+      ],
+      "calls": [
+        "38741caea81e6d1f522c30815a2d694f58e3983613370db1c8de6b43cdbaa829",
+        "c0a1647786a726e4f66b10d9f22f3af622ae5520edbb9ec0b5e3a1c4a5fa9469",
+        "636c471584b46eb478fca28ba69de6928244f672e6fa25419df224ee6857be87"
+      ],
+      "edits": [
+        {
+          "site": "@pending:8:8",
+          "region": "size_bytes == 0",
+          "value": "False"
+        },
+        {
+          "site": "@pending:12:4",
+          "region": "0 < size_bytes < 16",
+          "value": "True"
+        },
+        {
+          "site": "@pending:12:4",
+          "region": "size_bytes == 16",
+          "value": "True"
+        },
+        {
+          "site": "@pending:12:4",
+          "region": "size_bytes > 16",
+          "value": "False"
+        }
+      ]
+    }
+  ]
+}

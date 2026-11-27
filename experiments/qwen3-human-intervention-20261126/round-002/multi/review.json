@@ -1,0 +1,74 @@
+{
+  "reviews": [
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에 정정 기간이 남아도 정정을 거부하는 이유는 무엇인가요?"
+        }
+      ],
+      "needs_code_revision": false,
+      "reason": "코드는 담당자 답변과 일치하며, 정책을 올바르게 반영하고 있습니다. 모든 경계 조건을 고려하고 있으며, 우선순위도 정확히 처리하고 있습니다."
+    },
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 취소 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 정확히 24시간인 경우에도 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간이 10분인 경우, age_seconds가 정확히 10분인 경우에도 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간이 정확히 끝나는 순간(예약 생성 후 10분이 지나는 순간)에는 허용해야 하나요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후(until_start_seconds < 0)에 정정 기간이 남아도 거부해야 하나요?"
+        }
+      ],
+      "needs_code_revision": true,
+      "reason": "코드는 until_start_seconds >= general_deadline을 일반 마감 전으로 판단하지만, 담당자 답변에 따르면 '이용 시작 24시간 전'이 일반 마감 시점이며, '이용 시작 시점 이후'는 일반 마감과 정정 기간 모두 마감됩니다. 코드는 until_start_seconds >= general_deadline을 True로 처리하지만, 이는 이용 시작 24시간 전이 아닌 '이용 시작 24시간 전'을 의미합니다. 또한, 정정 기간이 10분인 경우, age_seconds가 정확히 10분인 경우도 허용해야 하지만, 코드는 age_seconds < correction_period로 처리하여 정확히 10분인 경우를 제외합니다."
+    },
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에 정정 기간이 남아도 정정을 거부하는 조건은 무엇인가요?"
+        }
+      ],
+      "needs_code_revision": false,
+      "reason": "코드는 담당자 답변과 계획에 부합하며, 정책의 경계 조건을 정확히 반영하고 있습니다. 다만, 정정 기간이 정확히 끝나는 순간(예: age_seconds == correction_period)의 처리 여부에 대한 명확한 조건이 코드에 명시되지 않았으므로, 추가 질문이 필요합니다."
+    }
+  ],
+  "missing_evidence": [
+    "correction_edge"
+  ],
+  "ready": false
+}

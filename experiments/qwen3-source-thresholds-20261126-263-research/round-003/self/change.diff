@@ -1,0 +1,23 @@
+--- v2
++++ v3
+@@ -5,16 +5,12 @@
+         return True
+     if until_start_seconds < 86400:  # [1]
+         return False
+-    if until_start_seconds < 86400:  # [4]
++    if until_start_seconds < 86400 and age_seconds > 600:  # [4]
+         return True
+-    if until_start_seconds == 86400:
++    if until_start_seconds <= 86400 and age_seconds >= 600:
+         raise NotImplementedError("담당자 판단 필요")
+-    if until_start_seconds < 86400:  # [5]
+-        return False
+-    if until_start_seconds == 86400:
++    if until_start_seconds <= 86400 and until_start_seconds == 86400:
+         raise NotImplementedError("담당자 판단 필요")
+-    if until_start_seconds < 86400:  # [6]
+-        return False
+-    if until_start_seconds == 86400:
++    if until_start_seconds <= 86400 and until_start_seconds == 86400:
+         raise NotImplementedError("담당자 판단 필요")
+     raise NotImplementedError("담당자 판단 필요")

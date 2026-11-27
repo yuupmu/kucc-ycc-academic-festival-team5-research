@@ -1,0 +1,102 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def file_suffix(name):\n    raise NotImplementedError\n"
+  },
+  "sha256": "b7807474da7e8282301e87a084aed4660335c099ab60b4a442961412ba2d3d3a",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def file_suffix(name):\n    raise NotImplementedError\n"
+    },
+    "sha256": "b7807474da7e8282301e87a084aed4660335c099ab60b4a442961412ba2d3d3a",
+    "received": [
+      1
+    ],
+    "author_call": "10d328388c0a56252ee2dd06ea45b40e63c7de2a2e70707a8b7f2c988e0c3c9e",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [
+        "solution.py"
+      ],
+      "restored_indent": [],
+      "rejected": [
+        "solution.py"
+      ],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "점과 하이픈이 섞여 있는 이름 (예: `file-name.txt`) 에서 하이픈이 포함된 부분이 확장자로 간주되는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "이 코드는 점으로 시작하거나 점이 여러 개인 경우, 그리고 점이 맨 끝에 있는 경우를 어떻게 처리할지 명확히 정의해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "점의 개수가 1 개인 경우와 여러 개인 경우를 구분하여, 여러 개일 때 마지막 점 뒤의 부분만 반환하는 로직이 구현되었는지 확인 부탁드립니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "20fe1a39473d05f1771985a49145062ecff8ebddfd42699a24fee86a1c3a9cc8",
+    "701c4559d5cbc15d63306dcd20409f5e40fb8fa13d8b50563a1a7263a945d811",
+    "486d9b82423a0e0361c7ae849ad81e71013308406cfa8a8483aa270568b5d2f5",
+    "10d328388c0a56252ee2dd06ea45b40e63c7de2a2e70707a8b7f2c988e0c3c9e",
+    "0073686da3320d8bce88fd1af694ee258072fa032ab319a2a27ebc64a284b6f8",
+    "39b82eb13a3392b6cb3a475caa2cc477ccf9b2b2e4baca8399781d2caa63b560",
+    "cf4d6fa8269fde63ccfb45b4cf8a731f5672d7f88a24ac0e2b7dd07f48e321f4"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "f52bdc1ff24bab1d147fe12081ab4fc8c983d1a7ca5cffe78d0cb45aa0430784",
+      "questions": [
+        {
+          "question": "점과 하이픈이 여러 개 포함된 이름, 점으로 시작하거나 끝나는 이름, 확장자가 없는 이름, 그리고 대소문자 표기에 대한 처리 방식을 정해달라.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "현재 코드에서 NotImplementedError가 발생하므로, 파일 관리 담당자에게 이 함수의 구현 로직을 확인해달라고 요청할 수 있습니다.",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "확장자가 여러 개이거나 점이 여러 개인 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지 확인 부탁드립니다.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.\n점으로 시작하고 그 뒤에 다른 점이 없는 이름은 확장자가 없는 파일로 봅니다. 다른 점이 더 있으면 마지막 점 뒤의 부분을 사용합니다.\n점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.\n반환하는 확장자는 영문 소문자로 통일합니다.\n이 질문만으로는 정할 상황을 특정하기 어렵습니다. 결과가 달라지는 입력이나 처리 기준을 구체적으로 물어봐 주세요.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

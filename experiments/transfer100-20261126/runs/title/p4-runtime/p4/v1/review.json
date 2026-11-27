@@ -1,0 +1,79 @@
+{
+  "calls": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "a5cf994d724f46504ec82b807db4683f8659b7a2f9825a65cb1d5076f0bd96d9",
+    "baccbc2ff83439ee9f469b080bcc454c44906009d47d1f50ab1f078bb6ae0c09",
+    "24b8f6dcc3132bd1353aa8bdebfd66c0e46ac888c4fd6c1aba7e1bfb59e59117",
+    "14d9e504e146361864db516583bf8a132d328e2537f5e4577bf218fbab040951"
+  ],
+  "questions": [
+    {
+      "question": "연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까?",
+      "proposed_by": [
+        "A",
+        "C"
+      ],
+      "basis": "A1"
+    },
+    {
+      "question": "연속된 내부 공백을 하이픈으로 치환하시겠습니까?",
+      "proposed_by": [
+        "B",
+        "C"
+      ],
+      "basis": "B1"
+    },
+    {
+      "question": "연속된 하이픈과 공백이 섞인 경우, 하이픈까지 모두 공백으로 통일하시겠습니까?",
+      "proposed_by": [
+        "C"
+      ],
+      "basis": "C1"
+    }
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'hello--world') 를 하나의 하이픈으로 통일하는지, 아니면 공백으로 치환하는지",
+            "outcome_a": "연속된 하이픈을 하나의 하이픈으로 통일하여 'hello-world'로 반환",
+            "outcome_b": "연속된 하이픈을 공백으로 치환하여 'hello world'로 반환",
+            "question": "연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까? 아니면 공백으로 치환하시겠습니까?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 내부 공백이 하이픈으로 치환되는지 확인",
+            "outcome_a": "연속된 공백이 하이픈으로 치환됩니다.",
+            "outcome_b": "연속된 공백이 공백으로 치환됩니다.",
+            "question": "연속된 내부 공백이 하이픈으로 치환되는지 확인"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈과 공백이 섞여 있는 경우 (예: 'a-- b')",
+            "outcome_a": "정규식 `[\\s-]+` 로 인해 하이픈과 공백이 모두 하나의 공백으로 통일되어 'a b' 가 됨",
+            "outcome_b": "하이픈을 유지하고 공백만 통일하여 'a - b' 가 됨",
+            "question": "연속된 하이픈과 공백이 섞여 있는 경우, 하이픈을 유지하고 공백만 통일해야 하는지, 아니면 하이픈까지 모두 공백으로 통일해야 하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "status": "awaiting_human"
+}

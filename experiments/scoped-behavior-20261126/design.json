@@ -1,0 +1,39 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "model_sha256": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c",
+  "task_seeds": {
+    "upload": [
+      273,
+      419,
+      887
+    ],
+    "sensors": [
+      419
+    ]
+  },
+  "sides": [
+    "A",
+    "B"
+  ],
+  "sampling": {
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "thinking": false
+  },
+  "controls": "Same public brief, draft, three or one archived question(s), owner reply, seed, weights, local patcher and edit output limits.",
+  "grading": "After all eight submissions are frozen. Upload primary 15,16,17 and fixed prior integer grid -2..33. Sensors: prior finite grid of the four readings through length four. Compare fixes, losses, strict typed returns, paired changes and writer tokens.",
+  "files": {
+    "experiments/answer-flip-20261126/frozen/upload.json": "7d345012e39d30854766194e73e732a0851e8144baf3aec50b9a41da0dcfd33b",
+    "experiments/answer-flip-20261126/frozen/sensors.json": "c512b494753d075c85ab3ae69e23c303b3b9bf72e1f1d74589c91fc5c136f7d4",
+    "experiments/scoped_transfer.py": "8589d93534ebdabb31281a48a87247f45b0656a2262dab3da467a57657a011b7",
+    "backend/allocation_repair.py": "bae7eb8807d459d3f6534c1f90b84342a7c746686d5b040739f6b234bfea2f44",
+    "experiments/local_transport.py": "20687f9c04c6a312bb610cc29bd4fdba83e21d36d735d955f5536f9c3423210f",
+    "experiments/festival_protocol.py": "bef0db5da639e34b33b5e0776f816267d98365e0c95da1c4cecdc0a5ec95edf2",
+    "experiments/scoped-behavior-20261126/trial.py": "2afb7a8e6ba42b22dbbc767d1a0f9efc319b08564150085f1de31dc45eabc2a3",
+    "experiments/scoped-behavior-20261126/score.py": "a34bb028ac4d01135eabdfe4f0bd0408c875db9eebc745cdb53905db1a736fb2",
+    "experiments/scoped_reply_writer.py": "55e34e204a1c2fdd081de35d7b5f3448f0e81e7151547a24f4d41c4cac64b1e1",
+    "experiments/scoped_transfer_v2.py": "bcf346656100adac8ec635d856aa904727c7d564da6dde4d46b60ae685537afa",
+    "experiments/answer-flip-20261126/sealed-all.json": "4c8d508e54244ed1e472ad4fc1052e120b5561e0aa255474e07a30ea16535436"
+  }
+}

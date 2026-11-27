@@ -1,0 +1,1026 @@
+{
+  "text": "{\"applicable\": true, \"regions\": {\"age_seconds < 0 and until_start_seconds < 0\": {\"result\": \"False\", \"sources\": [\"P2\", \"H4\", \"H6\"]}, \"age_seconds < 0 and until_start_seconds == 0\": {\"result\": \"False\", \"sources\": [\"P2\", \"H4\", \"H6\"]}, \"age_seconds < 0 and 0 < until_start_seconds < 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H6\"]}, \"age_seconds < 0 and until_start_seconds == 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H6\"]}, \"age_seconds < 0 and until_start_seconds > 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H6\"]}, \"age_seconds == 0 and until_start_seconds < 0\": {\"result\": \"False\", \"sources\": [\"P2\", \"H4\", \"H6\"]}, \"age_seconds == 0 and until_start_seconds == 0\": {\"result\": \"False\", \"sources\": [\"P2\", \"H4\", \"H6\"]}, \"age_seconds == 0 and 0 < until_start_seconds < 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H6\"]}, \"age_seconds == 0 and until_start_seconds == 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H6\"]}, \"age_seconds == 0 and until_start_seconds > 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H6\"]}, \"0 < age_seconds < 600 and until_start_seconds < 0\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"0 < age_seconds < 600 and until_start_seconds == 0\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"0 < age_seconds < 600 and 0 < until_start_seconds < 86400\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"0 < age_seconds < 600 and until_start_seconds == 86400\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"0 < age_seconds < 600 and until_start_seconds > 86400\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"age_seconds == 600 and until_start_seconds < 0\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"age_seconds == 600 and until_start_seconds == 0\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"age_seconds == 600 and 0 < until_start_seconds < 86400\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"age_seconds == 600 and until_start_seconds == 86400\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"age_seconds == 600 and until_start_seconds > 86400\": {\"result\": \"True\", \"sources\": [\"P2\", \"H1\", \"H2\", \"H3\", \"H4\"]}, \"age_seconds > 600 and until_start_seconds < 0\": {\"result\": \"False\", \"sources\": [\"P2\", \"H5\", \"H6\"]}, \"age_seconds > 600 and until_start_seconds == 0\": {\"result\": \"False\", \"sources\": [\"P2\", \"H5\", \"H6\"]}, \"age_seconds > 600 and 0 < until_start_seconds < 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H5\", \"H6\"]}, \"age_seconds > 600 and until_start_seconds == 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H5\", \"H6\"]}, \"age_seconds > 600 and until_start_seconds > 86400\": {\"result\": \"False\", \"sources\": [\"P2\", \"H5\", \"H6\"]}}}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 1108,
+    "prompt_tokens": 1048,
+    "total_tokens": 2156,
+    "prompt_tokens_details": {
+      "cached_tokens": 261
+    }
+  },
+  "server_timings": {
+    "cache_n": 261,
+    "prompt_n": 787,
+    "prompt_ms": 910.458,
+    "prompt_per_token_ms": 1.1568716645489199,
+    "prompt_per_second": 864.4001151069023,
+    "predicted_n": 1108,
+    "predicted_ms": 30478.958,
+    "predicted_per_token_ms": 27.532934056007225,
+    "predicted_per_second": 36.32013929085109
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 31.45,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 프로젝트의 메인 작성자입니다. 공개 원문과 실제 담당자 회신만으로 함수 동작을 구현하세요. 같은 입력을 설명하는 서로 겹치지 않는 영역을 제공합니다. 각 영역 전체에 대하여 원문이 보장하는 결과를 선택하고 관련 원문 번호를 인용하세요. 한 영역 안에서도 아직 가능한 정책에 따라 결과가 달라지면 defer를 고르세요. 조건식을 새로 쓰거나 미정 정책을 추측할 필요가 없습니다. 경계의 정확한 순간과 양옆을 따로 읽으세요. 한 규칙이 닫힌 뒤에도 적용되는 예외가 있으면 그 정보도 사용하세요. 집합에서 단 하나의 알려진 값 자체를 반환하는 선택은 그 값이 단 하나인 영역에만 쓸 수 있습니다. 원문에 주어진 순위 연산은 입력에 있는 값들 중 그 순서로 가장 앞선 값을 반환합니다. 목록만 제시된 순서는 우선순위가 아닙니다. 연산의 근거 번호도 함께 인용하세요. 일반 분기 조건만으로 본래 함수 역할을 표현할 수 없을 때만 applicable을 false로 표시하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"함수\":\"allow_cancel(age_seconds, until_start_seconds)\",\"원문\":{\"P1\":\"작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\",\"P2\":\"이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\",\"P3\":\"직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\",\"H1\":\"정정 시간은 예약을 생성한 때부터 셉니다.\",\"H2\":\"정정 가능 기간은 10분입니다.\",\"H3\":\"정정 기간이 정확히 끝나는 순간도 포함합니다.\",\"H4\":\"이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\",\"H5\":\"정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\",\"H6\":\"일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\"},\"입력영역\":[\"age_seconds < 0 and until_start_seconds < 0\",\"age_seconds < 0 and until_start_seconds == 0\",\"age_seconds < 0 and 0 < until_start_seconds < 86400\",\"age_seconds < 0 and until_start_seconds == 86400\",\"age_seconds < 0 and until_start_seconds > 86400\",\"age_seconds == 0 and until_start_seconds < 0\",\"age_seconds == 0 and until_start_seconds == 0\",\"age_seconds == 0 and 0 < until_start_seconds < 86400\",\"age_seconds == 0 and until_start_seconds == 86400\",\"age_seconds == 0 and until_start_seconds > 86400\",\"0 < age_seconds < 600 and until_start_seconds < 0\",\"0 < age_seconds < 600 and until_start_seconds == 0\",\"0 < age_seconds < 600 and 0 < until_start_seconds < 86400\",\"0 < age_seconds < 600 and until_start_seconds == 86400\",\"0 < age_seconds < 600 and until_start_seconds > 86400\",\"age_seconds == 600 and until_start_seconds < 0\",\"age_seconds == 600 and until_start_seconds == 0\",\"age_seconds == 600 and 0 < until_start_seconds < 86400\",\"age_seconds == 600 and until_start_seconds == 86400\",\"age_seconds == 600 and until_start_seconds > 86400\",\"age_seconds > 600 and until_start_seconds < 0\",\"age_seconds > 600 and until_start_seconds == 0\",\"age_seconds > 600 and 0 < until_start_seconds < 86400\",\"age_seconds > 600 and until_start_seconds == 86400\",\"age_seconds > 600 and until_start_seconds > 86400\"],\"가능한결과\":{\"True\":{\"동작\":\"True\",\"근거\":[]},\"False\":{\"동작\":\"False\",\"근거\":[]},\"defer\":{\"동작\":null,\"근거\":[]}}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2450,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "applicable": {
+              "type": "boolean"
+            },
+            "regions": {
+              "type": "object",
+              "properties": {
+                "age_seconds < 0 and until_start_seconds < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds < 0 and until_start_seconds == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds < 0 and 0 < until_start_seconds < 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds < 0 and until_start_seconds == 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds < 0 and until_start_seconds > 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 0 and until_start_seconds < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 0 and until_start_seconds == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 0 and 0 < until_start_seconds < 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 0 and until_start_seconds == 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 0 and until_start_seconds > 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < age_seconds < 600 and until_start_seconds < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < age_seconds < 600 and until_start_seconds == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < age_seconds < 600 and 0 < until_start_seconds < 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < age_seconds < 600 and until_start_seconds == 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "0 < age_seconds < 600 and until_start_seconds > 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 600 and until_start_seconds < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 600 and until_start_seconds == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 600 and 0 < until_start_seconds < 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 600 and until_start_seconds == 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds == 600 and until_start_seconds > 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds > 600 and until_start_seconds < 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds > 600 and until_start_seconds == 0": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds > 600 and 0 < until_start_seconds < 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds > 600 and until_start_seconds == 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                },
+                "age_seconds > 600 and until_start_seconds > 86400": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "True",
+                        "False",
+                        "defer"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "P1",
+                          "P2",
+                          "P3",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H5",
+                          "H6"
+                        ]
+                      },
+                      "minItems": 0,
+                      "maxItems": 5
+                    }
+                  },
+                  "required": [
+                    "result",
+                    "sources"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "age_seconds < 0 and until_start_seconds < 0",
+                "age_seconds < 0 and until_start_seconds == 0",
+                "age_seconds < 0 and 0 < until_start_seconds < 86400",
+                "age_seconds < 0 and until_start_seconds == 86400",
+                "age_seconds < 0 and until_start_seconds > 86400",
+                "age_seconds == 0 and until_start_seconds < 0",
+                "age_seconds == 0 and until_start_seconds == 0",
+                "age_seconds == 0 and 0 < until_start_seconds < 86400",
+                "age_seconds == 0 and until_start_seconds == 86400",
+                "age_seconds == 0 and until_start_seconds > 86400",
+                "0 < age_seconds < 600 and until_start_seconds < 0",
+                "0 < age_seconds < 600 and until_start_seconds == 0",
+                "0 < age_seconds < 600 and 0 < until_start_seconds < 86400",
+                "0 < age_seconds < 600 and until_start_seconds == 86400",
+                "0 < age_seconds < 600 and until_start_seconds > 86400",
+                "age_seconds == 600 and until_start_seconds < 0",
+                "age_seconds == 600 and until_start_seconds == 0",
+                "age_seconds == 600 and 0 < until_start_seconds < 86400",
+                "age_seconds == 600 and until_start_seconds == 86400",
+                "age_seconds == 600 and until_start_seconds > 86400",
+                "age_seconds > 600 and until_start_seconds < 0",
+                "age_seconds > 600 and until_start_seconds == 0",
+                "age_seconds > 600 and 0 < until_start_seconds < 86400",
+                "age_seconds > 600 and until_start_seconds == 86400",
+                "age_seconds > 600 and until_start_seconds > 86400"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "applicable",
+            "regions"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-region-decisions"
+}

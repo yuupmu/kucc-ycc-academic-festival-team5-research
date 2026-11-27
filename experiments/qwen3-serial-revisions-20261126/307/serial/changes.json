@@ -1,0 +1,291 @@
+[
+  {
+    "role": "B",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "serial/B.json",
+    "before_sha256": "26e5b4c4a2e8685c6580e25114fdd11c781712f6c2982d33f73356d5f67a604c",
+    "after_sha256": "30ee8b58f593d06d54d123b493e648c9e0b744dc49cdc08ff55d901e24454490",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 86400
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 처리합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          },
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 86400
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작은 until_start_seconds가 0이 될 때로 정의합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 600
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 10분 이내 예약한 고객으로 정의합니다."
+      },
+      "otherwise": false
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4,
+        6
+      ],
+      "R3": [
+        8
+      ],
+      "otherwise": [
+        10
+      ]
+    }
+  },
+  {
+    "role": "C",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/C.json",
+    "before_sha256": "30ee8b58f593d06d54d123b493e648c9e0b744dc49cdc08ff55d901e24454490",
+    "after_sha256": "30ee8b58f593d06d54d123b493e648c9e0b744dc49cdc08ff55d901e24454490",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 86400
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 처리합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          },
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 86400
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작은 until_start_seconds가 0이 될 때로 정의합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 600
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 10분 이내 예약한 고객으로 정의합니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4,
+        6
+      ],
+      "R3": [
+        8
+      ],
+      "otherwise": [
+        10
+      ]
+    }
+  },
+  {
+    "role": "D",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/D.json",
+    "before_sha256": "30ee8b58f593d06d54d123b493e648c9e0b744dc49cdc08ff55d901e24454490",
+    "after_sha256": "30ee8b58f593d06d54d123b493e648c9e0b744dc49cdc08ff55d901e24454490",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 86400
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 처리합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          },
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 86400
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작은 until_start_seconds가 0이 될 때로 정의합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 600
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 10분 이내 예약한 고객으로 정의합니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4,
+        6
+      ],
+      "R3": [
+        8
+      ],
+      "otherwise": [
+        10
+      ]
+    }
+  }
+]

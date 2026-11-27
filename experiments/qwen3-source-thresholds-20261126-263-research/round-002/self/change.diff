@@ -1,0 +1,25 @@
+--- v1
++++ v2
+@@ -1,6 +1,20 @@
+ def allow_cancel(age_seconds, until_start_seconds):
+-    if until_start_seconds < 0:
++    if age_seconds <= 600:  # [2, 3]
++        return True
++    if until_start_seconds >= 86400:  # [1]
++        return True
++    if until_start_seconds < 86400:  # [1]
+         return False
+-    if until_start_seconds < 86400:
++    if until_start_seconds < 86400:  # [4]
+         return True
+-    return False+    if until_start_seconds == 86400:
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds < 86400:  # [5]
++        return False
++    if until_start_seconds == 86400:
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds < 86400:  # [6]
++        return False
++    if until_start_seconds == 86400:
++        raise NotImplementedError("담당자 판단 필요")
++    raise NotImplementedError("담당자 판단 필요")

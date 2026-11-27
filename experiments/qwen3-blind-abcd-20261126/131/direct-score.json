@@ -1,0 +1,867 @@
+{
+  "report": {
+    "benchmark_version": "1.0-basic.1",
+    "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+    "score": 30,
+    "total": 40,
+    "accuracy_percent": 75.0,
+    "errors": 0,
+    "categories": {
+      "평일 마감": {
+        "correct": 10,
+        "total": 10
+      },
+      "마감 경계": {
+        "correct": 10,
+        "total": 10
+      },
+      "예약 직후 유예": {
+        "correct": 5,
+        "total": 10
+      },
+      "시작과 유예 우선순위": {
+        "correct": 5,
+        "total": 10
+      }
+    },
+    "labels": {
+      "allow": {
+        "correct": 10,
+        "total": 20
+      },
+      "deny": {
+        "correct": 20,
+        "total": 20
+      }
+    },
+    "results": [
+      {
+        "id": "C001",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C002",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C003",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C004",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C005",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C006",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C007",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C008",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C009",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C010",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C011",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C012",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C013",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C014",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C015",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C016",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C017",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C018",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C019",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C020",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C071",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C072",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C073",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C074",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C075",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C076",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C077",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C078",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C079",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C080",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C081",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C082",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C083",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C084",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C085",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C086",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C087",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C088",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C089",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C090",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      }
+    ]
+  },
+  "transfer": [
+    {
+      "age_seconds": 37,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 37,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 37,
+      "until_start_seconds": 13,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 37,
+      "until_start_seconds": 8937,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 37,
+      "until_start_seconds": 86393,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 37,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 37,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 277,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 277,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 277,
+      "until_start_seconds": 13,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 277,
+      "until_start_seconds": 8937,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 277,
+      "until_start_seconds": 86393,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 277,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 277,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 587,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 587,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 587,
+      "until_start_seconds": 13,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 587,
+      "until_start_seconds": 8937,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 587,
+      "until_start_seconds": 86393,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 587,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 587,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 600,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 600,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 600,
+      "until_start_seconds": 13,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 600,
+      "until_start_seconds": 8937,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 600,
+      "until_start_seconds": 86393,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": false
+    },
+    {
+      "age_seconds": 600,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 600,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 613,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 613,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 613,
+      "until_start_seconds": 13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 613,
+      "until_start_seconds": 8937,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 613,
+      "until_start_seconds": 86393,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 613,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 613,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 1537,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 1537,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 1537,
+      "until_start_seconds": 13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 1537,
+      "until_start_seconds": 8937,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 1537,
+      "until_start_seconds": 86393,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 1537,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 1537,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 7943,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 7943,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 7943,
+      "until_start_seconds": 13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 7943,
+      "until_start_seconds": 8937,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 7943,
+      "until_start_seconds": 86393,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 7943,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 7943,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 169021,
+      "until_start_seconds": -13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 169021,
+      "until_start_seconds": 0,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 169021,
+      "until_start_seconds": 13,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 169021,
+      "until_start_seconds": 8937,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 169021,
+      "until_start_seconds": 86393,
+      "expected": false,
+      "basis": "별도 입력 평가",
+      "actual": false,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 169021,
+      "until_start_seconds": 86400,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    },
+    {
+      "age_seconds": 169021,
+      "until_start_seconds": 86407,
+      "expected": true,
+      "basis": "별도 입력 평가",
+      "actual": true,
+      "error": null,
+      "passed": true
+    }
+  ],
+  "sha256": "69f5a2fd6f9c1a7004591ff3933350ba8f02b64a90fd8e26521e70a40d7f26a3"
+}

@@ -1,0 +1,248 @@
+{
+  "text": "{\"P1\":{\"status\":\"undetermined\",\"input\":\"age_seconds\",\"when\":\"0 이상\",\"effect\":\"undetermined\"},\"P2\":{\"status\":\"undetermined\",\"input\":\"until_start_seconds\",\"when\":\"24 시간 전 (86400 초)\",\"effect\":\"undetermined\"},\"P3\":{\"status\":\"undetermined\",\"input\":\"until_start_seconds\",\"when\":\"음수 (이미 시작)\",\"effect\":\"undetermined\"},\"H1\":{\"status\":\"undetermined\",\"input\":\"none\",\"when\":\"none\",\"effect\":\"undetermined\"},\"H2\":{\"status\":\"undetermined\",\"input\":\"age_seconds\",\"when\":\"none\",\"effect\":\"undetermined\"}}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 138,
+    "prompt_tokens": 502,
+    "total_tokens": 640,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 502,
+    "prompt_ms": 479.858,
+    "prompt_per_token_ms": 0.9558924302788845,
+    "prompt_per_second": 1046.1428172501032,
+    "predicted_n": 138,
+    "predicted_ms": 4044.091,
+    "predicted_per_token_ms": 29.518912408759125,
+    "predicted_per_second": 33.8765868522741
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 4.53,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the MAIN programmer. Turn each exact public statement and owner reply into its specific consequence for the implementation. Use rule for an authorized behavior, context for interface details, and undetermined for a missing decision or a request for clarification. Tie each rule to the input it actually measures. Keep its unit, comparison, order and scope. If a fact confirms only one aspect, state exactly what is known and leave other aspects undecided. Do not use comments or current behavior as policy. Be concise."
+      },
+      {
+        "role": "user",
+        "content": "{\"public_starter\":{\"solution.py\":\"def allow_cancel(age_seconds, until_start_seconds):\\n    if until_start_seconds < 0:\\n        return False\\n    if until_start_seconds < 86400:\\n        return True\\n    return False\"},\"current_implementation\":{\"solution.py\":\"def allow_cancel(age_seconds, until_start_seconds):\\n    if until_start_seconds < 0:\\n        return False\\n    return True\"},\"editable_regions\":{\"T1\":{\"path\":\"solution.py\",\"name\":\"allow_cancel\",\"parameters\":[\"age_seconds\",\"until_start_seconds\"],\"kind\":\"body\"},\"T2\":{\"path\":\"solution.py\",\"name\":\"solution.py\",\"parameters\":[],\"kind\":\"file\"}},\"public_and_owner_sources\":{\"P1\":\"작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\",\"P2\":\"이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\",\"P3\":\"직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\",\"H1\":\"어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\",\"H2\":\"정정 시간은 예약을 생성한 때부터 셉니다.\"}}"
+      }
+    ],
+    "seed": 863,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "P1": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "rule",
+                    "context",
+                    "undetermined"
+                  ]
+                },
+                "input": {
+                  "type": "string",
+                  "enum": [
+                    "age_seconds",
+                    "until_start_seconds",
+                    "none"
+                  ]
+                },
+                "when": {
+                  "type": "string",
+                  "maxLength": 350
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 350
+                }
+              },
+              "required": [
+                "status",
+                "input",
+                "when",
+                "effect"
+              ],
+              "additionalProperties": false
+            },
+            "P2": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "rule",
+                    "context",
+                    "undetermined"
+                  ]
+                },
+                "input": {
+                  "type": "string",
+                  "enum": [
+                    "age_seconds",
+                    "until_start_seconds",
+                    "none"
+                  ]
+                },
+                "when": {
+                  "type": "string",
+                  "maxLength": 350
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 350
+                }
+              },
+              "required": [
+                "status",
+                "input",
+                "when",
+                "effect"
+              ],
+              "additionalProperties": false
+            },
+            "P3": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "rule",
+                    "context",
+                    "undetermined"
+                  ]
+                },
+                "input": {
+                  "type": "string",
+                  "enum": [
+                    "age_seconds",
+                    "until_start_seconds",
+                    "none"
+                  ]
+                },
+                "when": {
+                  "type": "string",
+                  "maxLength": 350
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 350
+                }
+              },
+              "required": [
+                "status",
+                "input",
+                "when",
+                "effect"
+              ],
+              "additionalProperties": false
+            },
+            "H1": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "rule",
+                    "context",
+                    "undetermined"
+                  ]
+                },
+                "input": {
+                  "type": "string",
+                  "enum": [
+                    "age_seconds",
+                    "until_start_seconds",
+                    "none"
+                  ]
+                },
+                "when": {
+                  "type": "string",
+                  "maxLength": 350
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 350
+                }
+              },
+              "required": [
+                "status",
+                "input",
+                "when",
+                "effect"
+              ],
+              "additionalProperties": false
+            },
+            "H2": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "rule",
+                    "context",
+                    "undetermined"
+                  ]
+                },
+                "input": {
+                  "type": "string",
+                  "enum": [
+                    "age_seconds",
+                    "until_start_seconds",
+                    "none"
+                  ]
+                },
+                "when": {
+                  "type": "string",
+                  "maxLength": 350
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 350
+                }
+              },
+              "required": [
+                "status",
+                "input",
+                "when",
+                "effect"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "P1",
+            "P2",
+            "P3",
+            "H1",
+            "H2"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-plan"
+}

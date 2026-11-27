@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "963d07ceccc1d0227d51cc6579f2457ce4ff8ac13dc9efaa9426d631b84d6e47",
+    "2a8e48a42bd1e55a1ca23819103805fa8551b1f59791f65df05f1aa36834879e",
+    "37d00caa6ee89612575a54f9beb1cf758315c5c450bb75b9ef2ccdd503cce92d"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "상한 파일 크기 값과 정확히 상한 크기에 해당하는 파일, 그리고 빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인 후 결정할 수 있습니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "상한 파일 크기와 빈 파일의 허용 여부가 저장소 담당자에게 확인된 사실과 구현 방법이 정해졌는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "상한 파일 크기 값과 정확히 상한 크기에 해당하는 파일, 그리고 빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 하는지 알려주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "상한 파일 크기 값과 정확히 상한 크기에 해당하는 파일, 그리고 빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인 후 결정할 수 있습니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "상한 파일 크기와 빈 파일의 허용 여부가 저장소 담당자에게 확인된 사실과 구현 방법이 정해졌는지 확인해 주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "상한 파일 크기 값과 정확히 상한 크기에 해당하는 파일, 그리고 빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 하는지 알려주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "awaiting_human"
+}

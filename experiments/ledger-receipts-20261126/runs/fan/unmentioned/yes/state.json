@@ -1,0 +1,83 @@
+{
+  "code": "def run_fan(co2_high: bool, quiet_time: bool) -> bool:\n    \"\"\"\n    공부방 환풍기 제어 함수\n    \n    논리:\n    1. 두 신호가 모두 True일 경우 (높은 CO2 + 정숙 시간): \n       - 정숙 시간이 우선시되어 환풍기를 끕니다 (False).\n    2. 두 신호가 모두 False일 경우 (기존 상태): \n       - 기본 운전으로 환풍기를 켭니다 (True).\n    3. co2_high만 True일 경우: 환풍기를 켭니다 (True).\n    4. quiet_time만 True일 경우: 환풍기를 끕니다 (False).\n    \n    Args:\n        co2_high (bool): 이산화탄소 농도가 높다는 신호\n        quiet_time (bool): 정숙 시간이라는 신호\n    \n    Returns:\n        bool: True (켜기), False (끄기)\n    \"\"\"\n    if co2_high and quiet_time:\n        # 정숙 시간 우선 (끄기)\n        return True\n    elif co2_high:\n        # CO2 농도 높음 (켜기)\n        return True\n    elif quiet_time:\n        # 정숙 시간만 (끄기)\n        return False\n    else:\n        # 기본 운전 (켜기)\n        return False\n\n# 테스트 코드 (주석 처리된 예시)\n# assert run_fan(True, True) == False\n# assert run_fan(True, False) == True\n# assert run_fan(False, True) == False\n# assert run_fan(False, False) == True\n\nif __name__ == \"__main__\":\n    print(\"테스트 완료\" if run_fan(True, True) == False else \"테스트 실패\")",
+  "confirmed": {
+    "both_signals_false_default_state": {
+      "value": false,
+      "quote": "두 신호가 모두 없으면 환풍기는 끕니다.",
+      "turn": 1
+    },
+    "co2_high_priority_over_quiet": {
+      "value": true,
+      "quote": "네, 켜 주세요.",
+      "turn": 2
+    }
+  },
+  "pending": [],
+  "history": [
+    {
+      "ticket": [
+        "co2_high_priority_over_quiet",
+        "both_signals_false_default_state"
+      ],
+      "reply": "두 신호가 모두 없으면 환풍기는 끕니다.",
+      "statements": [
+        {
+          "quote": "두 신호가 모두 없으면 환풍기는 끕니다.",
+          "candidates": [
+            "co2_high_priority_over_quiet",
+            "both_signals_false_default_state"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "both_signals_false_default_state",
+            "value": "False"
+          }
+        }
+      ],
+      "calls": [
+        "e173b6c274fc949bc735b4e5fcaed5ede96bda1442d02846fc9f7e635e58e56d"
+      ],
+      "edits": [
+        {
+          "site": "@pending:31:8",
+          "region": "not co2_high and not quiet_time",
+          "value": "False"
+        },
+        {
+          "site": "@pending:22:8",
+          "region": "co2_high and quiet_time",
+          "value": "미정"
+        }
+      ]
+    },
+    {
+      "ticket": [
+        "co2_high_priority_over_quiet"
+      ],
+      "reply": "네, 켜 주세요.",
+      "statements": [
+        {
+          "quote": "네, 켜 주세요.",
+          "candidates": [
+            "co2_high_priority_over_quiet"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "co2_high_priority_over_quiet",
+            "value": "True"
+          }
+        }
+      ],
+      "calls": [
+        "5075ce6a1d87e431e897ab31916b767aea5cc9b424473f6cb97f3d65960143fe"
+      ],
+      "edits": [
+        {
+          "site": "@pending:22:8",
+          "region": "co2_high and quiet_time",
+          "value": "True"
+        }
+      ]
+    }
+  ]
+}

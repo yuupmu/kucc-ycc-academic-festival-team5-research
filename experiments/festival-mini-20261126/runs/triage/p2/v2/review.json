@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "d9e05f575f0c288860f6aa0d82f0fd80cddf865739663bac96d79bd4af61f068",
+    "4fd29b92a594b96dd59b571231b9a67c1ddca104421082d85efc3d156a156e6c",
+    "6b7f6946fafad45ef629455c7fa87408b6ad451884b1c19e640cf978642724b9",
+    "d9cd1463930905a186da6a3311f71c3acc9cfb4fab876b7950eb04552bfa25cf"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "triage 함수가 알 수 없는 태그가 섞여 있을 때 이를 무시하고 알려진 태그만 처리하는 로직이 구현되어 있는지 확인하시오."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "코드에서 알 수 없는 태그를 무시하는 로직이 구현되어 있거나, 알 수 없는 태그가 있을 경우 어떻게 처리해야 하는지 명확히 해야 합니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "알려지지 않은 태그가 섞여 있을 때, 해당 태그가 포함된 요청은 어떻게 처리해야 하는지 명확히 해야 합니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "triage 함수가 알 수 없는 태그가 섞여 있을 때 이를 무시하고 알려진 태그만 처리하는 로직이 구현되어 있는지 확인하시오.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "코드에서 알 수 없는 태그를 무시하는 로직이 구현되어 있거나, 알 수 없는 태그가 있을 경우 어떻게 처리해야 하는지 명확히 해야 합니다.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "알려지지 않은 태그가 섞여 있을 때, 해당 태그가 포함된 요청은 어떻게 처리해야 하는지 명확히 해야 합니다.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

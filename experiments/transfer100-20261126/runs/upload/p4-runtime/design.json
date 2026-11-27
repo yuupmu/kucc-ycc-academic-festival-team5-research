@@ -1,0 +1,29 @@
+{
+  "protocol": "festival-human-review-p4-v2",
+  "project": {
+    "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    raise NotImplementedError\n"
+    }
+  },
+  "seed": 263,
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "arms": [
+    "p4"
+  ],
+  "versions": 2,
+  "questions_per_window": 3,
+  "limits": [
+    2400,
+    950
+  ],
+  "prompts_sha256": "7b4218acf84babe78c8199cfc37237cb8ae6e743118752743d2af19c3780388a",
+  "parent_draft": "e46e23f8a7c25c8c5ef135eff682b75b13c92844f910e89d8e71510c6e618aaa",
+  "parent_review": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "3e083a73633876e924cd281be0ffc112ce9cb6bee0f72725536215c70ac7b621",
+    "0de0b2e388425eefbe101f75ec89dbfc2392f053b8e80a53a49254badbf53e76",
+    "a2b7376555315a13fe063e2d0c09eb391b654cccbee5b42b8600fbac00240f62"
+  ],
+  "refinement_sha256": "53728141c80470befd690caa242b0f2f77c00d71b5cafb0f82ea000a9f2f67e2"
+}

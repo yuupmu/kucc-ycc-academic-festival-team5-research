@@ -1,0 +1,76 @@
+{
+  "text": "{\"questions\": [\"편집 담당자는 연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시하는 것을 선호하시나요? 예를 들어, 공백으로 대체할 건지, 아니면 하이픈으로 연결할 건지, 아니면 다른 방법을 사용할 건지 알려주세요.\"],\"issue\": \"\"}",
+  "model": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 75,
+    "prompt_tokens": 231,
+    "total_tokens": 306,
+    "prompt_tokens_details": {
+      "cached_tokens": 1
+    }
+  },
+  "server_timings": {
+    "cache_n": 1,
+    "prompt_n": 230,
+    "prompt_ms": 298.24,
+    "prompt_per_token_ms": 1.296695652173913,
+    "prompt_per_second": 771.1909871244635,
+    "predicted_n": 75,
+    "predicted_ms": 1783.503,
+    "predicted_per_token_ms": 24.10139189189189,
+    "predicted_per_second": 41.491379605192705
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.09,
+  "request": {
+    "model": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 독립 감시자입니다. 경계 입력과 예외를 검사하세요. 가능한 두 정책의 결과가 갈리는 상황을 찾아 담당자에게 자연어로 물으세요. 질문이 없으면 빈 배열. 이미 확정한 요구와 코드의 불일치만 issue에 적고 없으면 빈 문자열."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"code\":\"def clean_title(text):\\n    raise NotImplementedError\\n\",\"dialogue\":[]}"
+      }
+    ],
+    "seed": 275,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "questions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 0,
+              "maxItems": 1
+            },
+            "issue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "questions",
+            "issue"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "observer-C"
+}

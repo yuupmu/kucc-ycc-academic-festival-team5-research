@@ -1,0 +1,80 @@
+{
+  "text": "{\"item\":\"co2_high_priority_over_quiet\",\"value\":\"False\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 188,
+    "total_tokens": 204,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 188,
+    "prompt_ms": 388.172,
+    "prompt_per_token_ms": 2.064744680851064,
+    "prompt_per_second": 484.32138330430837,
+    "predicted_n": 16,
+    "predicted_ms": 296.94,
+    "predicted_per_token_ms": 19.796,
+    "predicted_per_second": 50.51525560719337
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.7,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "실제 발언 하나가 직접 답하고 있는 항목 하나를 고르세요. 주제가 다르거나 둘 중 어느 항목인지 구분되지 않으면 '해당 없음'입니다.\n보내 놓은 질문은 발언의 문맥일 뿐입니다. 담당자가 말한 내용만 답으로 인정하세요. 수치가 같거나 단어가 비슷하다는 이유로 다른 정책을 닫지 마세요.\nvalue에는 quantity이면 발언의 정수, decision이면 해당 단일 질문에 대한 긍정은 True, 부정은 False, 정할 수 없으면 미정을 적으세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"statement\":\"아니요, 꺼 주세요.\",\"asked_items\":{\"co2_high_priority_over_quiet\":\"두 신호가 동시에 들어왔을 때 환풍기를 켜거나 끄는 우선순위를 어떻게 설정하시나요?\"},\"kind\":\"decision\",\"items_in_sent_ticket\":1}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 110,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "item": {
+              "type": "string",
+              "enum": [
+                "co2_high_priority_over_quiet",
+                "해당 없음"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "True",
+                "False",
+                "미정"
+              ]
+            }
+          },
+          "required": [
+            "item",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "bind-owner-statement"
+}

@@ -1,0 +1,107 @@
+{
+  "reviews": [
+    {
+      "findings": [
+        {
+          "kind": "담당자 질문",
+          "locations": [
+            {
+              "file": "router.py",
+              "line": 3
+            },
+            {
+              "file": "router.py",
+              "line": 4
+            }
+          ],
+          "sources": [
+            "P2",
+            "P3"
+          ],
+          "message": "겹치는 태그나 모호한 태그가 포함된 경우, 담당자 분류 관행에 따라 우선순위를 어떻게 정하는지 명확히 해야 합니다. 예를 들어, 'account'와 'privacy'가 함께 등장할 경우, 어떤 태그가 우선 처리되는지에 대한 기준이 필요합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "담당자 질문",
+          "locations": [
+            {
+              "file": "router.py",
+              "line": 3
+            },
+            {
+              "file": "router.py",
+              "line": 4
+            }
+          ],
+          "sources": [
+            "P2",
+            "P3"
+          ],
+          "message": "겹치는 태그나 모호한 태그가 포함된 경우, 담당자 분류 관행에 따라 우선순위를 어떻게 정하는지 명확히 해야 합니다. 예를 들어, 'account'와 'privacy'가 함께 등장할 경우, 어떤 태그가 우선 처리되는지에 대한 기준이 필요합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "담당자 질문",
+          "locations": [
+            {
+              "file": "router.py",
+              "line": 3
+            },
+            {
+              "file": "router.py",
+              "line": 4
+            }
+          ],
+          "sources": [
+            "P2",
+            "P3"
+          ],
+          "message": "겹치는 태그나 모호한 태그가 포함된 경우, 담당자 분류 관행에 따라 우선순위를 어떻게 정하는지 명확히 해야 합니다. 예를 들어, 'account'와 'privacy'가 함께 등장할 경우, 어떤 태그가 우선 처리되는지에 대한 기준이 필요합니다."
+        }
+      ],
+      "ready": false
+    }
+  ],
+  "main_questions": [
+    "겹치는 태그가 있을 경우, 어떤 태그가 우선적으로 처리되는지 정해진 우선순위가 있나요?",
+    "모호한 태그(예: 'support', 'general')가 포함된 경우, 어떤 팀으로 분류해야 하나요?",
+    "모든 태그가 알리지 않은 태그로만 이루어진 경우, 기본적으로 어떤 팀으로 분류해야 하나요?"
+  ],
+  "questions": [
+    {
+      "question": "겹치는 태그가 있을 경우, 어떤 태그가 우선적으로 처리되는지 정해진 우선순위가 있나요?",
+      "proposed_by": [
+        "main"
+      ]
+    },
+    {
+      "question": "모호한 태그(예: 'support', 'general')가 포함된 경우, 어떤 팀으로 분류해야 하나요?",
+      "proposed_by": [
+        "main"
+      ]
+    },
+    {
+      "question": "모든 태그가 알리지 않은 태그로만 이루어진 경우, 기본적으로 어떤 팀으로 분류해야 하나요?",
+      "proposed_by": [
+        "main"
+      ]
+    },
+    {
+      "question": "겹치는 태그나 모호한 태그가 포함된 경우, 담당자 분류 관행에 따라 우선순위를 어떻게 정하는지 명확히 해야 합니다. 예를 들어, 'account'와 'privacy'가 함께 등장할 경우, 어떤 태그가 우선 처리되는지에 대한 기준이 필요합니다.",
+      "proposed_by": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ]
+    }
+  ],
+  "ready": false
+}

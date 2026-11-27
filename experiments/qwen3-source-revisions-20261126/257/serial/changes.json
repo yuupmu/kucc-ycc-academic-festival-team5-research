@@ -1,0 +1,419 @@
+[
+  {
+    "role": "B",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "serial/B.json",
+    "before_sha256": "a04ceffbf4a8c82509fece7d94d02405493e9fa3a274435dda26afb56d5ee604",
+    "after_sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          },
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "24시간은 86400초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E3",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds == 0으로 정의됨"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 24시간 이내에 예약한 고객으로 정의됨 (T1)"
+      }
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        16,
+        18
+      ],
+      "R2": [
+        24
+      ],
+      "R3": [
+        12
+      ]
+    }
+  },
+  {
+    "role": "C",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/C.json",
+    "before_sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "after_sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          },
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "24시간은 86400초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E3",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds == 0으로 정의됨"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 24시간 이내에 예약한 고객으로 정의됨 (T1)"
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "no_change",
+        "reason": "R2의 조건은 until_start_seconds < 0이 아닌 until_start_seconds == 0 시점에서 취소가 마감된다는 의미로, E3의 조건에서 until_start_seconds < T1(86400초)일 때 False를 반환해야 한다.",
+        "before": {
+          "rank": 2,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점은 until_start_seconds == 0으로 정의됨"
+        },
+        "after": {
+          "rank": 2,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점은 until_start_seconds == 0으로 정의됨"
+        }
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "R3의 조건은 age_seconds < 24시간(86400초)일 때 True를 반환해야 하며, 이는 ENTRY에서 조건을 먼저 검사해야 하므로 수정한다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 24시간 이내에 예약한 고객으로 정의됨 (T1)"
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 24시간 이내에 예약한 고객으로 정의됨 (T1)"
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        16,
+        18
+      ],
+      "R2": [
+        24
+      ],
+      "R3": [
+        12
+      ]
+    }
+  },
+  {
+    "role": "D",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/D.json",
+    "before_sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "after_sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          },
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "24시간은 86400초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E3",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds == 0으로 정의됨"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 24시간 이내에 예약한 고객으로 정의됨 (T1)"
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "no_change",
+        "reason": "R2의 조건은 이용 시작 시점에서 취소가 마감된다는 의미로, until_start_seconds == 0 시점에서 False를 반환해야 하며, 이는 E3의 조건에서 until_start_seconds < T1(86400초)일 때 False를 반환하는 조건과 일치합니다.",
+        "before": {
+          "rank": 2,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점은 until_start_seconds == 0으로 정의됨"
+        },
+        "after": {
+          "rank": 2,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점은 until_start_seconds == 0으로 정의됨"
+        }
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "R3의 조건은 age_seconds < 24시간(86400초)일 때 True를 반환해야 하며, 이는 ENTRY에서 조건을 먼저 검사해야 하므로 수정합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 24시간 이내에 예약한 고객으로 정의됨 (T1)"
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 24시간 이내에 예약한 고객으로 정의됨 (T1)"
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        16,
+        18
+      ],
+      "R2": [
+        24
+      ],
+      "R3": [
+        12
+      ]
+    }
+  }
+]

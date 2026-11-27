@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "def fits_print(width_cm, height_cm):\n    if width_cm < 0 or height_cm < 0:\n        return False\n    \n    if width_cm == 0 or height_cm == 0:\n        return False\n    \n    if width_cm >= 6 or height_cm >= 4:\n        return False\n    \n    return True"
+  },
+  "sha256": "72108532de48fc0e2cfe4b89ba4fb1e17b76bccddde31407c96cda867652ae69",
+  "received": [
+    1
+  ],
+  "author_call": "70f185f6d1b06d5bb9b5dc19f6cc2f2fa1cd2525fc1073ced7a21939912d0949",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  },
+  "attempts": [
+    {
+      "key": "70f185f6d1b06d5bb9b5dc19f6cc2f2fa1cd2525fc1073ced7a21939912d0949",
+      "issues": [],
+      "bindings": [
+        {
+          "reply": "가로 길이 없음에는 거부로 처리합니다.",
+          "status": "present",
+          "file": "solution.py",
+          "line": "if width_cm == 0 or height_cm == 0:"
+        },
+        {
+          "reply": "세로 길이 없음에는 거부로 처리합니다.",
+          "status": "present",
+          "file": "solution.py",
+          "line": "if width_cm == 0 or height_cm == 0:"
+        },
+        {
+          "reply": "가로 길이의 상한은 6센티미터입니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "if width_cm >= 6 or height_cm >= 4:"
+        },
+        {
+          "reply": "세로 길이의 상한은 4센티미터입니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "if width_cm >= 6 or height_cm >= 4:"
+        }
+      ]
+    }
+  ]
+}

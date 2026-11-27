@@ -1,0 +1,41 @@
+{
+  "common_sha256": "97ce3dc902a9758db61f58401b4fe0840bf9a8cfab1ed6866e73260121532f99",
+  "answer_sha256": "239800df4db1edc4f34effdc65f1ea0535d43de275471f28921b38e2476ab372",
+  "source_sha256": "42c1f4c17eb8fd9131b99e00f3fd6c91d41278c695a28e73285a7db34330494b",
+  "attempts": [
+    {
+      "call": "42fb4dbc1848ba3b678394851788edd4bf872862fb6a72184a904ac7b0b9d3b5",
+      "limit": 1100,
+      "seed": 273,
+      "decoded": true,
+      "outcome": "rejected",
+      "reason": "수정한 분기에 미구현 지점이 남았습니다.",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "raise NotImplementedError",
+          "after": "pass"
+        }
+      ]
+    },
+    {
+      "call": "fa5956b5bfd43320257dd0005c1c6220782af3f08a86c25d9156ef7055770020",
+      "limit": 1100,
+      "seed": 274,
+      "decoded": true,
+      "outcome": "applied",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "raise NotImplementedError",
+          "after": "result[sensor] = value"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 726,
+    "completion_tokens": 79,
+    "total_tokens": 805
+  }
+}

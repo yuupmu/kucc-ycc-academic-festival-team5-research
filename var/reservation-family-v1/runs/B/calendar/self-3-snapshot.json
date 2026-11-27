@@ -1,0 +1,43 @@
+{
+  "code": "def can_cancel(now: str, booked_at: str, starts_at: str) -> bool:\n    # 현재 시각이 예약 시작 시각보다 빠르거나 같으면 취소 가능\n    if now <= starts_at:\n        return True\n    else:\n        return False",
+  "calls": [
+    "be23f1286a2c0b012aec6e7a2613992131f96eb5b0dee51ca726c7e8f6d968cb",
+    "44659f1d4e7ac757e04667924c62b696b2e33b20cd5b0299a48bffa9a206770f",
+    "e45edff955895cb0e254b7ccf1062b236059dc98b1650e6fb1214649457b0936",
+    "6de9d2cd8968a282beb79a18dbd76ca633e812114401660c1f83973f719a0ed8",
+    "546ba65b68e2a462247639963f142c6b2f3b69d85095f2ac175381b25138f661",
+    "21dd84068cd028773ebefc16ae65147a490f2331d885193425ab35fefc40361d",
+    "1bca0c10582df221e5e76b417c1507ee284e1af609e9650f6793ccc72b359a9b",
+    "80341108198b5e3d2b11158d2c452730a214fb44f49f8f372129801dd40a6670",
+    "c321f1d3150eb7beb25aea54620e2201611e39e1202603590793ada42adada53"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "예약 취소 정책에 따르면, 예약 시작 시간보다 현재 시간이 늦으면 취소할 수 있나요? 만약 그렇다면, 어떤 경우에 예외가 발생할 수 있나요?"
+      ],
+      "answer": {
+        "text": "이미 이용이 시작된 뒤에는 정정 기간이 남아 있어도 취소할 수 없습니다."
+      }
+    },
+    {
+      "request_id": "self-2",
+      "questions": [
+        "예약 취소 정책에 따르면, 예약 시작 시간보다 현재 시간이 늦으면 취소할 수 있나요? 만약 그렇다면, 어떤 경우에 예외가 발생할 수 있나요?"
+      ],
+      "answer": {
+        "text": "이미 이용이 시작된 뒤에는 정정 기간이 남아 있어도 취소할 수 없습니다."
+      }
+    },
+    {
+      "request_id": "self-3",
+      "questions": [
+        "예약 취소 정책에 따르면, 예약 시작 시간보다 현재 시간이 늦으면 취소할 수 있나요? 만약 그렇다면, 어떤 경우에 예외가 발생할 수 있나요?"
+      ],
+      "answer": {
+        "text": "이미 이용이 시작된 뒤에는 정정 기간이 남아 있어도 취소할 수 없습니다."
+      }
+    }
+  ]
+}

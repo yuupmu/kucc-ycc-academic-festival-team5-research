@@ -1,0 +1,235 @@
+{
+  "cycle": 2,
+  "previous_sha256": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+  "sha256": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+  "files": {
+    "router.py": "def triage(tags):\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and not set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    raise NotImplementedError\n"
+  },
+  "ticket": "507495b208182f95e54c3c23f8ea246e5b2a017800da37d625180bd1015c8e30",
+  "received_cycles": [
+    1,
+    2
+  ],
+  "status": "open_limit",
+  "writer": {
+    "files": {
+      "router.py": "def triage(tags):\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and not set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    raise NotImplementedError\n"
+    },
+    "calls": [
+      "da68348c9a9f4777f8871160488c285bdfdb57762fad9169b3399ca5ef1c869a",
+      "46d4ad304850423fd48b3066b5b174a76eb29d89a7ea7fc8a846dacd64d7a96e"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "T1 함수는 `tags` 리스트를 입력받아 소문자 문자열 태그로 처리하고, 단일 담당 팀 이름을 반환해야 함.",
+        "input": "tags",
+        "still_open": "어떤 태그가 주어졌을 때 구체적인 처리 로직은 정의되지 않음.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "T1 함수는 `account`, `billing`, `privacy` 태그를 인식해야 하며, 이 태그가 단독으로 들어오면 해당 태그 이름과 동일한 팀을 반환해야 함.",
+        "input": "tags",
+        "still_open": "단독 태그가 아닌 경우의 처리는 정의되지 않음.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "T1 함수는 여러 태그가 겹치거나 알려지지 않은 태그가 섞여 들어오더라도, 정해진 분류 관행에 따라 처리해야 함.",
+        "input": "tags",
+        "still_open": "정해진 분류 관행의 구체적인 규칙은 정의되지 않음.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "T1 함수의 로직은 입력 리스트의 순서와 태그의 중복 횟수에 영향을 받지 않아야 함.",
+        "input": "tags",
+        "still_open": "순서와 중복 횟수가 영향을 주지 않는 구체적인 구현 방식은 정의되지 않음.",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "",
+        "input": "tags",
+        "still_open": "어느 경우에 어떤 처리를 할지 구체적으로 물어봐야 함.",
+        "status": "undetermined"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 2,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "len",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 3,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "iter",
+              "len",
+              "next",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 4,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "len",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "router.py",
+            "line": 5,
+            "sources": [
+              "P2"
+            ],
+            "inputs": [
+              "iter",
+              "len",
+              "next",
+              "set",
+              "tags"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "undetermined",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "regions": [
+      {
+        "scope": "T1",
+        "kind": "collection",
+        "rows": [
+          {
+            "region": "empty input",
+            "selected": "defer",
+            "sources": [
+              "P3"
+            ],
+            "issue": null,
+            "implemented": false
+          },
+          {
+            "region": "nonempty, no declared values",
+            "selected": "defer",
+            "sources": [
+              "P3"
+            ],
+            "issue": null,
+            "implemented": false
+          },
+          {
+            "region": "exactly one distinct declared value, only declared values",
+            "selected": "sole declared value",
+            "sources": [
+              "P2"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "exactly one distinct declared value, also undeclared values",
+            "selected": "sole declared value",
+            "sources": [
+              "P2"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "several distinct declared values, only declared values",
+            "selected": "defer",
+            "sources": [
+              "P3"
+            ],
+            "issue": null,
+            "implemented": false
+          },
+          {
+            "region": "several distinct declared values, also undeclared values",
+            "selected": "defer",
+            "sources": [
+              "P3"
+            ],
+            "issue": null,
+            "implemented": false
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "error": null,
+    "complete": false,
+    "format": "regions"
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "중복 태그가 여러 개 섞여 있을 때 (예: ['billing', 'account', 'billing', 'privacy']) 어떤 팀으로 분류할지 결정 기준이 명확하지 않습니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "9d76388b422905bd1674669e30b221c7de8bfacde82261ab5728714d95ef3aaa",
+    "da68348c9a9f4777f8871160488c285bdfdb57762fad9169b3399ca5ef1c869a",
+    "46d4ad304850423fd48b3066b5b174a76eb29d89a7ea7fc8a846dacd64d7a96e",
+    "e644cf8fe95630409de7582191d849a0595c19c642241036fbb003f0c600ff81"
+  ]
+}

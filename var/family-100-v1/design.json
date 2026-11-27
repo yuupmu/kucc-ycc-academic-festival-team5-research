@@ -1,0 +1,26 @@
+{
+  "models": {
+    "A": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "B": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+    "C": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf"
+  },
+  "tasks": [
+    "title",
+    "suffix",
+    "mask",
+    "upload",
+    "print"
+  ],
+  "rounds": 3,
+  "max_questions_per_round": 3,
+  "seed": 263,
+  "groups": [
+    "each main solo, self, own-model A/B/C watchers",
+    "A main plus one reviewer per family"
+  ],
+  "assignment": "same A/B/C role prompts. Mixed family at slot j = (task index + round index + j) mod 3, indices start at zero.",
+  "draft_failure": "same public scaffold if first implementation cannot be decoded or compiled",
+  "oracle": "human proxy assigns canonical policy cards to question text only. Same set receives same natural-language answer.",
+  "no_final_repair": "measure three review rounds identically for every reviewer group",
+  "grading": "only after every submission is sealed"
+}

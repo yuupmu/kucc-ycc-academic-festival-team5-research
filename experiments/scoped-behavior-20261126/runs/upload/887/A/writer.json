@@ -1,0 +1,41 @@
+{
+  "behavior": [
+    {
+      "when": "size_bytes 가 음수인 경우",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes 가 0 인 경우",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes 가 16 보다 작은 양수인 경우",
+      "then": "True 반환 (허용)"
+    },
+    {
+      "when": "size_bytes 가 16 보다 크거나 같은 경우",
+      "then": "True 반환 (허용)"
+    }
+  ],
+  "calls": [
+    "9c88389cfd2b0efa2d4d1b97505e282a598a62780645eba2ccf9f6d405931cb1",
+    "05be1578b845a40f2125ed9d6d313f03664d88f3a23e1ba1f4d718d425852dc0",
+    "e7c2448eaeb52cdee3a610143f509d49aca19636e329fc48245145561b7b9669"
+  ],
+  "attempts": [
+    {
+      "outcome": "rejected",
+      "call": "05be1578b845a40f2125ed9d6d313f03664d88f3a23e1ba1f4d718d425852dc0",
+      "reason": "해당 편집의 파이썬 구문이나 들여쓰기를 확인하세요."
+    },
+    {
+      "outcome": "applied",
+      "call": "e7c2448eaeb52cdee3a610143f509d49aca19636e329fc48245145561b7b9669"
+    }
+  ],
+  "logs": {
+    "9c88389cfd2b0efa2d4d1b97505e282a598a62780645eba2ccf9f6d405931cb1": "19586d71ac93fd2074d4e113ff86abbe657b04a670d411804897f6d646d03ec3",
+    "05be1578b845a40f2125ed9d6d313f03664d88f3a23e1ba1f4d718d425852dc0": "98c1a880176533dda6afd4be142f6f0952fd1a6048616d90e2b976ca9f551daa",
+    "e7c2448eaeb52cdee3a610143f509d49aca19636e329fc48245145561b7b9669": "7c3785af42ccff668336852271ccba4a9e64a5b1dc8d2f2314a935b01e94460d"
+  }
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "age_seconds": 259200,
+    "until_start_seconds": 129600,
+    "expected": true,
+    "basis": "일반 마감 전",
+    "actual": false,
+    "error": null,
+    "passed": false
+  },
+  {
+    "age_seconds": 259200,
+    "until_start_seconds": 21600,
+    "expected": false,
+    "basis": "일반 마감 후 오래된 예약",
+    "actual": false,
+    "error": null,
+    "passed": true
+  },
+  {
+    "age_seconds": 0,
+    "until_start_seconds": 21600,
+    "expected": true,
+    "basis": "같은 시각에 방금 생성한 예약의 정정",
+    "actual": false,
+    "error": null,
+    "passed": false
+  },
+  {
+    "age_seconds": 259200,
+    "until_start_seconds": -3600,
+    "expected": false,
+    "basis": "오래된 예약, 이용 시작 후",
+    "actual": false,
+    "error": null,
+    "passed": true
+  },
+  {
+    "age_seconds": 259200,
+    "until_start_seconds": 86400,
+    "expected": true,
+    "basis": "일반 마감 정각 포함",
+    "actual": false,
+    "error": null,
+    "passed": false
+  },
+  {
+    "age_seconds": 600,
+    "until_start_seconds": 21600,
+    "expected": true,
+    "basis": "정정 기한 정각 포함",
+    "actual": false,
+    "error": null,
+    "passed": false
+  },
+  {
+    "age_seconds": 601,
+    "until_start_seconds": 21600,
+    "expected": false,
+    "basis": "정정 기한 초과",
+    "actual": false,
+    "error": null,
+    "passed": true
+  },
+  {
+    "age_seconds": 90,
+    "until_start_seconds": 0,
+    "expected": false,
+    "basis": "이용 시작 정각 우선",
+    "actual": false,
+    "error": null,
+    "passed": true
+  },
+  {
+    "age_seconds": 90,
+    "until_start_seconds": -30,
+    "expected": false,
+    "basis": "이용 시작 이후 우선",
+    "actual": false,
+    "error": null,
+    "passed": true
+  }
+]

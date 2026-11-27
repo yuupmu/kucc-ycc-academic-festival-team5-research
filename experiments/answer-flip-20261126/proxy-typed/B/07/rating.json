@@ -1,0 +1,15 @@
+{
+  "response": {
+    "decision": {
+      "status": "known",
+      "result": false
+    },
+    "quote": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+    "reason": "입력 인자 width_cm는 6cm이고 세로 길이 height_cm는 2cm입니다. 세로 길이는 자기 상한(4cm)과 정확히 같아도 허용하지만, width_cm는 자기 상한(6cm)보다 작아야 허용하는 조건이 모순됩니다. 따라서 이 조건을 충족하지 않습니다.",
+    "scope": "over",
+    "excess_quote": "width_cm >= MAX_WIDTH"
+  },
+  "calls": [
+    "6579e4bf44388038b677f56d91a69c2baa0b7b4265810cb434a09fe243228633"
+  ]
+}

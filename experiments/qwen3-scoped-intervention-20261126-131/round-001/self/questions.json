@@ -1,0 +1,44 @@
+{
+  "arm": "self",
+  "batch": 1,
+  "issued_at": 1795626926.811296,
+  "groups": [
+    {
+      "question": "일반 취소 마감은 이용 시작 24시간 전입니다. 이는 until_start_seconds의 어떤 값에 해당하나요?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있습니다. 이는 어떤 조건에 해당하나요?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "이용이 시작되면 일반 취소는 마감됩니다. 이는 until_start_seconds가 0 이하일 때 적용되나요?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "일반 마감이 지난 예약에 대해 정정 요청을 받을 수 있는 조건은 무엇인가요?",
+      "sources": [
+        "shared-main"
+      ]
+    },
+    {
+      "question": "일반 마감이 지난 예약에 대한 정정 요청 조건은 무엇인가요? (예: age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등)",
+      "sources": [
+        "self-review-1"
+      ]
+    },
+    {
+      "question": "일반 마감이 지난 예약에 대한 정정 요청 조건은 age_seconds가 특정 값 미만일 때, 또는 until_start_seconds가 특정 값 이상일 때 등으로 정의되어야 하는가요?",
+      "sources": [
+        "self-review-2",
+        "self-review-3"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "def mask_code(code):\n    if not code:\n        return \"\"\n    if len(code) <= 3:\n        return \"*\" * len(code)\n    return \"*\" * (len(code) - 3) + code[-3:]"
+  },
+  "sha256": "7b10d09adba71f3cd4df2dfbfe688961769b4b1d089b455bee6a140cd6c9f368",
+  "received": [
+    1
+  ],
+  "author_call": "ef7651310ebc2fcd7b2d8f8d3336bbbcdbc271192b9f83e79cdd0f7a7955fa6b",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  },
+  "attempts": [
+    {
+      "key": "89678aa145bc1bbad81a636fcf229cf8e6b4212364008ea2fa6432132129413a",
+      "issues": [
+        "syntax",
+        "missing_executable_line",
+        "missing_executable_line",
+        "missing_executable_line"
+      ],
+      "bindings": [
+        {
+          "reply": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "return \"*\" * len(code) - 3 if len(code) > 3 else \"*\" * len(code) if code else \"\""
+        },
+        {
+          "reply": "길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "return \"*\" * len(code) - 3 if len(code) > 3 else \"*\" * len(code) if code else \"\""
+        },
+        {
+          "reply": "빈 코드는 빈 문자열을 반환합니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "return \"*\" * len(code) - 3 if len(code) > 3 else \"*\" * len(code) if code else \"\""
+        }
+      ]
+    },
+    {
+      "key": "ef7651310ebc2fcd7b2d8f8d3336bbbcdbc271192b9f83e79cdd0f7a7955fa6b",
+      "issues": [
+        "missing_executable_line",
+        "missing_executable_line",
+        "missing_executable_line"
+      ],
+      "bindings": [
+        {
+          "reply": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "return \"*\" * len(code) + code[-3:] if len(code) > 3 else \"*\" * len(code) if code else \"\""
+        },
+        {
+          "reply": "길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "return \"*\" * len(code) + code[-3:] if len(code) > 3 else \"*\" * len(code) if code else \"\""
+        },
+        {
+          "reply": "빈 코드는 빈 문자열을 반환합니다.",
+          "status": "changed",
+          "file": "solution.py",
+          "line": "return \"*\" * len(code) + code[-3:] if len(code) > 3 else \"*\" * len(code) if code else \"\""
+        }
+      ]
+    }
+  ]
+}

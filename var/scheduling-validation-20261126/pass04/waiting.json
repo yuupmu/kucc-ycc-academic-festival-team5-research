@@ -1,0 +1,9 @@
+[
+  {
+    "id": "d4df95e766814192a17ebd2feff2c192",
+    "question": "성공한 set_capacity의 code를 capacity_updated로 확정해도 되나요? 기존 용량과 같은 값, 현재 사용량과 같은 값, 사용량이 없는 자원의 0 설정도 모두 같은 성공 코드를 반환하나요?",
+    "reason": "capacity_preemption 답변은 성공 코드를 명시하지 않았다고 밝혔습니다. 출력 규격의 허용 코드 목록만으로 미정 정책을 확정하지 않도록 후속 결정이 필요합니다. 이미 답변된 admitted·waitlist·알림 정책은 재질문 없이 반영해야 합니다.",
+    "clarification": "인간 답변은 '새 용량이 현재 확정 예약의 점유량 이상이면 성공하며 반환 코드는 항상 capacity_updated'이라고 명시했으나, 코드는 L138~L141 에서 `code = 'capacity_updated'`를 할 때 `if op == 'reserve':` 블록을 먼저 처리하여 `code`를 덮어쓰거나 `admitted`를 재계산하는 로직이 혼재되어 있으며, 특히 L142~L148 블록은 `set_capacity` 처리 후 `reserve` 처리를 수행하는 구조로, `set_capacity`의 성공 여부와 `reserve`의 처리가 명확히 분리되지 않았습니다. 또한 L139 에서 용량을 변경한 후 L141 에서 `_allocate`를 호출하여 대기열 승격을 수행하는 로직은 맞지만, L142~L148 블록은 `op == 'reserve'` 조건부 로직이 `set_capacity` 처리 블록 내부에 포함되어 있어, `set_capacity`가 실행된 후 `reserve`가 아닌 다른 사건이 들어왔을 때 `code`가 어떻게 처리되는지 명확하지 않습니다. 인간 답변에 따라 `set_capacity`가 성공할 때 `code`가 `capacity_updated`로 고정되어야 하지만, 현재 코드는 L142~L148 블록에서 `op == 'reserve'`일 때만 `code`를 덮어쓰는 로직이 있어, `set_capacity`가 성공했을 때 `code`가 `capacity_updated`로 유지되는지 확인이 필요합니다. 또한 L139~L141 블록에서 `set_capacity`가 실행된 후 `admitted`를 계산하는 로직은 맞지만, L142~L148 블록은 `set_capacity` 처리 후 `reserve` 처리를 수행하는 구조로, `set_capacity`의 성공 여부와 `reserve`의 처리가 명확히 분리되지 않았습니다.",
+    "status": "needs_example"
+  }
+]

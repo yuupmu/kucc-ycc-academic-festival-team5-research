@@ -1,0 +1,22 @@
+{
+  "code": "def can_cancel(now: str, booked_at: str, starts_at: str) -> bool:\n    raise NotImplementedError(\"운영 정책을 확인한 뒤 구현하세요.\")\n",
+  "calls": [
+    "31725b39792ca5b8ac32ec854085b49fca307d2d222cf88a317625360b8a53e9",
+    "c09667a7fbf0d9a0607673a39dd4e20fa1f12f6356c3950f6c9db69cb5d1580c",
+    "a5186e7be76f661392de93ca74e57af0ee198950298c2aafdf40b88722b7e495",
+    "d283ed8db963ea9d87afb5700434a15b4c151e1e108388f3d1aaa4b4e7edbf2e"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "`can_cancel` 함수의 입력 매개변수 `now`, `booked_at`, `starts_at`의 형식은 무엇입니까?",
+        "입력으로 제공되는 시간대 오프셋이 포함된 ISO 8601 문자열을 사용하여 Python에서 시간대를 어떻게 처리합니까?",
+        "`can_cancel` 함수는 실제 시스템 시간을 읽는 것을 포함합니까 아니면 제공된 입력만 사용합니까?"
+      ],
+      "answer": {
+        "text": "날짜와 시각의 정책 기준은 한국 시간인 UTC+09:00입니다. 세 시각은 시간대 오프셋이 있는 ISO 8601 문자열입니다. 현재 시각은 첫 번째 입력을 사용합니다."
+      }
+    }
+  ]
+}

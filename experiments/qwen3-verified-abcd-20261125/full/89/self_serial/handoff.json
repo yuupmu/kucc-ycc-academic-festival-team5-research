@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "summary": "이 세 개의 검토는 모두 동일한 문제를 지적하고 있습니다. 현재 코드는 '예약 생성 후 10분 이내' 조건을 충족하더라도, '일반 취소 마감 전' 조건이 충족되지 않으면 허용하지 않고 있습니다. 예를 들어, age_seconds가 600(10분)이고 until_start_seconds가 21600(6시간)인 경우, 일반 취소 마감 전에 예약이 생성되었지만, 코드는 이 조건을 충족하지 못해 false를 반환하고 있습니다. 이는 요구 사항에 부합하지 않습니다. '예약 생성 후 10분 이내' 조건은 '일반 취소 마감 전' 조건과는 별개의 조건이며, 두 조건 중 하나라도 충족되면 허용해야 합니다."
+    }
+  ],
+  "verbatim_reviews": {
+    "A": {
+      "question": "일반 취소 마감 전에 예약이 생성된 경우, 예약 생성 후 10분 이내이면 허용해야 하지만, 현재 코드는 이 조건을 충족하지 못하고 있습니다. 예를 들어, age_seconds가 600(10분)이고 until_start_seconds가 21600(6시간)인 경우에도 false로 반환되고 있습니다.",
+      "feedback": "일반 취소 마감 전에 예약이 생성된 경우, age_seconds <= correction_time 조건이 충족되면 True를 반환해야 합니다. 현재 코드는 until_start_seconds >= cancellation_cutoff 조건을 충족하는 경우에만 age_seconds <= correction_time을 검사하고 있습니다. 그러나 until_start_seconds >= cancellation_cutoff 조건이 충족되지 않더라도, 예약 생성 후 10분 이내이면 허용해야 합니다."
+    },
+    "B": {
+      "question": "일반 취소 마감 전에 예약이 생성된 경우, 예약 생성 후 10분 이내이면 허용해야 하지만, 현재 코드는 이 조건을 충족하지 못하고 있습니다. 예를 들어, age_seconds가 600(10분)이고 until_start_seconds가 21600(6시간)인 경우에도 false로 반환되고 있습니다.",
+      "feedback": "일반 취소 마감 전에 예약이 생성된 경우, age_seconds <= correction_time 조건이 충족되면 True를 반환해야 합니다. 현재 코드는 until_start_seconds >= cancellation_cutoff 조건을 충족하는 경우에만 age_seconds <= correction_time을 검사하고 있습니다. 그러나 until_start_seconds >= cancellation_cutoff 조건이 충족되지 않더라도, 예약 생성 후 10분 이내이면 허용해야 합니다."
+    },
+    "C": {
+      "question": "예약 생성 후 10분 이내이면 허용해야 하는 조건이 현재 코드에서 누락되어 있습니다. 예를 들어, age_seconds가 600(10분)이고 until_start_seconds가 21600(6시간)인 경우에도 false로 반환되고 있습니다.",
+      "feedback": "예약 생성 후 10분 이내이면 허용해야 하는 조건은 일반 취소 마감 전에 예약이 생성된 경우에만 적용됩니다. 이 조건은 until_start_seconds >= cancellation_cutoff 조건과 무관하게 적용되어야 합니다. 따라서, until_start_seconds >= cancellation_cutoff 조건이 충족되지 않더라도, age_seconds <= correction_time 조건이 충족되면 True를 반환해야 합니다."
+    }
+  },
+  "fallback_ids": []
+}

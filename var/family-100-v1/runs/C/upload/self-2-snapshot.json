@@ -1,0 +1,31 @@
+{
+  "code": "def allow_upload(size_bytes, max_size=None):\n    if size_bytes < 0: return False\n",
+  "calls": [
+    "aeec8d4eaa18ef93528e40b086be2cc5d417377a35a522c2e39800a2d3ef31fd",
+    "5e288ce878b2bc34b6903cfa455efda4400ec36749e2de7fed75893797e643e2",
+    "f6a36f1f77b937108b8aca5bc3018c1f66e499b04d8ec798af53b3fad5806575",
+    "2ca7ea9bc64d0215634ab8efffd15acf37b7724012ed833ba1954901c89b595d",
+    "08488032db072ad501e4a9a463038bd208050c280e185f9e10aa2c9009eb3bac",
+    "6830e9d7f57d8a966bf93ed47500168587bf2ed3eaba58fa1ca0935d8b544334"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "상한 값과 정확히 상한인 파일과 빈 파일의 허용 여부에 대한 정보가 저장소 담당자에게 확인될 수 있는지 확인할 수 있습니까?"
+      ],
+      "answer": {
+        "text": "상한은 16바이트입니다. 정확히 상한이면 허용합니다. 0바이트 빈 파일은 거부합니다."
+      }
+    },
+    {
+      "request_id": "self-2",
+      "questions": [
+        "상한 값과 정확히 상한인 파일과 빈 파일의 허용 여부에 대한 정보가 저장소 담당자에게 확인될 수 있는지 확인할 수 있습니까?"
+      ],
+      "answer": {
+        "text": "상한은 16바이트입니다. 정확히 상한이면 허용합니다. 0바이트 빈 파일은 거부합니다."
+      }
+    }
+  ]
+}

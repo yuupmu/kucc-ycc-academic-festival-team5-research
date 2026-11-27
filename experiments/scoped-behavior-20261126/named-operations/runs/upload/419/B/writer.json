@@ -1,0 +1,38 @@
+{
+  "behavior": [
+    {
+      "when": "size_bytes < 0",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes = 0",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "0 < size_bytes < 16",
+      "then": "True 반환 (허용)"
+    },
+    {
+      "when": "size_bytes = 16",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes > 16",
+      "then": "False 반환 (거부)"
+    }
+  ],
+  "calls": [
+    "d6a360ab9fd2c5f9cb30b7a6d430c2d7a7c351cad57c460a0f317dbd107ed5ba",
+    "00520c04603d5497c486911eec84ec904e2dfb6f10ba3be4f9285a9f8216dd40"
+  ],
+  "attempts": [
+    {
+      "outcome": "no-edit",
+      "call": "00520c04603d5497c486911eec84ec904e2dfb6f10ba3be4f9285a9f8216dd40"
+    }
+  ],
+  "logs": {
+    "d6a360ab9fd2c5f9cb30b7a6d430c2d7a7c351cad57c460a0f317dbd107ed5ba": "5987522fdacca74dcbf66e46c8bbd7c05b5f0f9c7251b009c14d36864791e897",
+    "00520c04603d5497c486911eec84ec904e2dfb6f10ba3be4f9285a9f8216dd40": "a1856e99622f50d858bc4ba9a7f682a444f7ba6a31961c3d8b68c7327a85c069"
+  }
+}

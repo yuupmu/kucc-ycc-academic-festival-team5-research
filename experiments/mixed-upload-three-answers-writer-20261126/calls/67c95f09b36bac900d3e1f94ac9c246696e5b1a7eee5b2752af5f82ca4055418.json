@@ -1,0 +1,71 @@
+{
+  "text": "{\"note\":\"상한 16 바이트, 0 바이트 거부, 정확히 16 바이트 허용; unresolved_when: size_bytes > 0 and size_bytes < 16\",\"unresolved_when\":\"size_bytes > 0 and size_bytes < 16\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 61,
+    "prompt_tokens": 404,
+    "total_tokens": 465,
+    "prompt_tokens_details": {
+      "cached_tokens": 126
+    }
+  },
+  "server_timings": {
+    "cache_n": 126,
+    "prompt_n": 278,
+    "prompt_ms": 396.577,
+    "prompt_per_token_ms": 1.4265359712230217,
+    "prompt_per_second": 700.9987972070998,
+    "predicted_n": 61,
+    "predicted_ms": 1599.42,
+    "predicted_per_token_ms": 26.657,
+    "predicted_per_second": 37.51359867952132
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.01,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개 명세가 담당자에게 맡긴 결정들을 실제 회신과 대조하세요. 메모에는 어떤 결정을 답했고 어떤 결정을 아직 답하지 않았는지 한 문장으로 정리하세요. 숫자의 값과 그 숫자에서의 행동은 별개일 수 있습니다. 묻기만 한 내용을 답으로 세지 마세요. unresolved_when에는 여전히 두 동작 모두 가능한 정수 입력만 파이썬 비교식 하나로 적으세요. 명세와 회신으로 전부 결정되면 False입니다. 식에는 parameter의 이름, 정수, 비교 연산, and/or/not만 쓰세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"파일 크기의 상한 값을 정해달라.\",\"저장소 담당자가 빈 파일(0 바이트)을 허용하는지 확인해주세요. 그리고 파일 크기의 상한 값도 확인해주세요. 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError를 발생시키는 것은 적절하지 않습니다. 상한 값과 빈 파일 허용 여부를 명확히 해야 합니다.\",\"상한 크기 값과 정확히 상한인 파일의 허용 여부는 저장소 담당자에게 확인할 수 있나요?\"],\"answer\":{\"text\":\"상한은 16바이트입니다. 0바이트 빈 파일은 거부합니다.\"}}],\"parameter\":\"size_bytes\"}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 440,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "note": {
+              "type": "string"
+            },
+            "unresolved_when": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "note",
+            "unresolved_when"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "outstanding-policy"
+}

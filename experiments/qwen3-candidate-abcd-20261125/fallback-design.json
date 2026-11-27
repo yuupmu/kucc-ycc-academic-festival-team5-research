@@ -1,0 +1,12 @@
+{
+  "condition": "chosen candidate fails an available example",
+  "prompt_information": "specification and labeled visible examples only, no previous candidate text",
+  "applies_to": [
+    "self_short",
+    "self_serial",
+    "abcd"
+  ],
+  "max_calls": 1,
+  "max_tokens": 800,
+  "accept": "strict superset of retained passes"
+}

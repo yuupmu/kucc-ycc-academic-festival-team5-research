@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "arm": "self",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if age_seconds < 600 and until_start_seconds > 0:  # [5, 6, 7]\n        return True\n    if age_seconds >= 600 and until_start_seconds > 0:  # [8, 9]\n        return False\n    if until_start_seconds > 86400:  # [1, 3]\n        return True\n    if until_start_seconds <= 0:  # [2]\n        return False\n    raise NotImplementedError(\"담당자 판단 필요\")  # [4]\n",
+  "sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45",
+  "plan": "1. 먼저, 정정 기간이 유효한지 확인합니다. 정정 기간은 예약 생성 후 10분이며, 정정 기간이 끝나는 순간도 포함합니다. 2. 정정 기간이 유효한 경우, 일반 취소 마감이 지난 예약도 정정할 수 있습니다. 3. 정정 기간이 유효하지 않은 경우, 일반 취소 마감을 확인합니다. 일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간이 86,400초인 경우 허용합니다. 4. 이용이 시작된 순간부터 일반 취소는 마감됩니다. 5. 이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다. 6. 현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다. 7. 위 조건에 해당하지 않는 경우, 미정 사항으로 처리합니다.",
+  "links": [
+    {
+      "quote": "정정 기간은 예약 생성 후 10분입니다.",
+      "line": "if age_seconds < 600 and until_start_seconds > 0:"
+    },
+    {
+      "quote": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+      "line": "if age_seconds < 600 and until_start_seconds > 0:"
+    },
+    {
+      "quote": "정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.",
+      "line": "if age_seconds < 600 and until_start_seconds > 0:"
+    },
+    {
+      "quote": "현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다.",
+      "line": "if age_seconds >= 600 and until_start_seconds > 0:"
+    },
+    {
+      "quote": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다.",
+      "line": "if age_seconds >= 600 and until_start_seconds > 0:"
+    },
+    {
+      "quote": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.",
+      "line": "if until_start_seconds > 86400:"
+    },
+    {
+      "quote": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+      "line": "if until_start_seconds > 86400:"
+    },
+    {
+      "quote": "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+      "line": "if until_start_seconds <= 0:"
+    }
+  ],
+  "main_complete": false,
+  "answer_batches": [
+    1
+  ]
+}

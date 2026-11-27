@@ -1,0 +1,65 @@
+{
+  "common_sha256": "b69a2d480efa1c18c1187685e30f9293e3bbd9976075d7142f2abdb5d9ca74a3",
+  "answer_sha256": "48f42701b8e14bdfa7515e6c832a91acfb9fb1921868705f3726eb4b7a88acd1",
+  "source_sha256": "e05d735e66947ecb067e232597a59b2773ea7a34adb3a59f9bedcc2ea36b2643",
+  "attempts": [
+    {
+      "call": "6cbbfce1a7de0188e0cb6eea8418896324fca6b03aaffe43889c42330b9ca58c",
+      "limit": 1100,
+      "seed": 419,
+      "decoded": true,
+      "outcome": "rejected",
+      "reason": "수정 전 코드는 이전 파일에서 정확히 한 번 찾아야 합니다.",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "age_seconds",
+          "after": "age_seconds < 600"
+        },
+        {
+          "evidence": "abc-1/H2",
+          "before": "until_start_seconds >= 86400",
+          "after": "until_start_seconds >= 86400"
+        },
+        {
+          "evidence": "abc-1/H3",
+          "before": "until_start_seconds < 0",
+          "after": "until_start_seconds < 0"
+        },
+        {
+          "evidence": "abc-1/H4",
+          "before": "until_start_seconds >= 0",
+          "after": "until_start_seconds >= 0"
+        },
+        {
+          "evidence": "abc-1/H5",
+          "before": "return True",
+          "after": "return True"
+        },
+        {
+          "evidence": "abc-1/H6",
+          "before": "return False",
+          "after": "return False"
+        }
+      ]
+    },
+    {
+      "call": "6d50b9e4192a9f51d7aa09242a2d8bc1514be8eade5b494e54be9555da3514ff",
+      "limit": 1100,
+      "seed": 420,
+      "decoded": false
+    },
+    {
+      "call": "39750466f016e4801680af83b675f194ec0adfdc0ae71f287a56eca743b0e50e",
+      "limit": 1800,
+      "seed": 420,
+      "decoded": false,
+      "outcome": "invalid-output"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3428,
+    "completion_tokens": 3173,
+    "total_tokens": 6601
+  }
+}

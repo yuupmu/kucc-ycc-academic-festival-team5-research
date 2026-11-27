@@ -1,0 +1,111 @@
+{
+  "code": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    if 0 < size_bytes < 16:\n        return True\n    if size_bytes > 16:\n        return False\n    return False",
+  "confirmed": {
+    "MAX_SIZE_BYTES": {
+      "value": 16,
+      "quote": "상한은 16바이트입니다.",
+      "turn": 1
+    },
+    "ALLOW_EMPTY_FILE": {
+      "value": false,
+      "quote": "0바이트 빈 파일은 거부합니다.",
+      "turn": 1
+    },
+    "ALLOW_EXACT_MAX": {
+      "value": false,
+      "quote": "아니요, 거부합니다.",
+      "turn": 2
+    }
+  },
+  "pending": [],
+  "history": [
+    {
+      "ticket": [
+        "MAX_SIZE_BYTES",
+        "ALLOW_EMPTY_FILE",
+        "ALLOW_EXACT_MAX"
+      ],
+      "reply": "상한은 16바이트입니다. 0바이트 빈 파일은 거부합니다.",
+      "statements": [
+        {
+          "quote": "상한은 16바이트입니다.",
+          "candidates": [
+            "MAX_SIZE_BYTES"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "MAX_SIZE_BYTES"
+          }
+        },
+        {
+          "quote": "0바이트 빈 파일은 거부합니다.",
+          "candidates": [
+            "MAX_SIZE_BYTES",
+            "ALLOW_EMPTY_FILE",
+            "ALLOW_EXACT_MAX"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "ALLOW_EMPTY_FILE",
+            "value": "False"
+          }
+        }
+      ],
+      "calls": [
+        "dd16e7cbb94d9a54a2d9cfacc1e6de1f3f7cfb7d147ae0d6f497c71c29625217",
+        "4f232fcd8b5ac93b8085810c15f57db44770a973a46faa122f6e30aaf8df8d6c"
+      ],
+      "edits": [
+        {
+          "site": "@pending:8:8",
+          "region": "size_bytes == 0",
+          "value": "False"
+        },
+        {
+          "site": "@pending:12:4",
+          "region": "0 < size_bytes < 16",
+          "value": "True"
+        },
+        {
+          "site": "@pending:12:4",
+          "region": "size_bytes == 16",
+          "value": "미정"
+        },
+        {
+          "site": "@pending:12:4",
+          "region": "size_bytes > 16",
+          "value": "False"
+        }
+      ]
+    },
+    {
+      "ticket": [
+        "ALLOW_EXACT_MAX"
+      ],
+      "reply": "아니요, 거부합니다.",
+      "statements": [
+        {
+          "quote": "아니요, 거부합니다.",
+          "candidates": [
+            "ALLOW_EXACT_MAX"
+          ],
+          "status": "matched",
+          "binding": {
+            "item": "ALLOW_EXACT_MAX",
+            "value": "False"
+          }
+        }
+      ],
+      "calls": [
+        "cac6224256c7b3f347c3d986bc30da3d8ea4f3a129ed41f1fcb1a128f271ca56"
+      ],
+      "edits": [
+        {
+          "site": "@pending:16:4",
+          "region": "size_bytes == 16",
+          "value": "False"
+        }
+      ]
+    }
+  ]
+}

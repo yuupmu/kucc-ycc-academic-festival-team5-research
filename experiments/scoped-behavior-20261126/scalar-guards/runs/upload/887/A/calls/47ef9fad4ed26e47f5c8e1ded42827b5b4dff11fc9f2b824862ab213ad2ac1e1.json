@@ -1,0 +1,78 @@
+{
+  "text": "{\n  \"true_when\": \"size_bytes > 0 and size_bytes < 16\",\n  \"false_when\": \"size_bytes <= 0 or size_bytes >= 16\",\n  \"evidence\": \"abc-1/H1\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 57,
+    "prompt_tokens": 526,
+    "total_tokens": 583,
+    "prompt_tokens_details": {
+      "cached_tokens": 125
+    }
+  },
+  "server_timings": {
+    "cache_n": 125,
+    "prompt_n": 401,
+    "prompt_ms": 306.011,
+    "prompt_per_token_ms": 0.7631197007481297,
+    "prompt_per_second": 1310.4104100832976,
+    "predicted_n": 57,
+    "predicted_ms": 774.865,
+    "predicted_per_token_ms": 13.836875000000001,
+    "predicted_per_second": 72.27065359772347
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.08,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자 회신과 공개 명세가 설명하는 함수의 값을 입력 범위로 옮기세요. true_when에는 결과가 True인 정수 전체의 조건, false_when에는 결과가 False인 정수 전체의 조건을 서로 독립된 파이썬 비교식으로 적으세요. parameter에 적힌 이름과 정수, 비교 연산, and/or/not만 사용하세요. 근거가 없는 입력은 양쪽 식에서 제외하세요. 해당하는 입력이 하나도 없으면 False라고 쓰세요. return문은 쓰지 마세요. evidence에는 사용한 담당자 회신을 고르세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"파일 크기의 상한 값을 정해달라.\",\"파일 크기의 상한 값과 정확히 상한 크기에 해당하는 파일의 허용 여부는 저장소 담당자에게 확인이 필요하신가요?\",\"파일 크기의 상한 값과 정확히 상한 크기의 파일은 허용하는지, 0 바이트의 빈 파일은 허용하는지 저장소 담당자에게 확인이 필요한지 알려주세요.\"],\"answer\":{\"text\":\"상한은 16바이트입니다. 정확히 상한이면 허용합니다. 0바이트 빈 파일은 거부합니다.\"}}],\"evidence\":{\"abc-1/H1\":{\"request_id\":\"abc-1\",\"quote\":\"상한은 16바이트입니다. 정확히 상한이면 허용합니다. 0바이트 빈 파일은 거부합니다.\"}},\"parameter\":\"size_bytes\",\"behavior\":[{\"when\":\"size_bytes 가 음수인 경우\",\"then\":\"False 반환 (거부)\"},{\"when\":\"size_bytes 가 0 인 경우\",\"then\":\"False 반환 (거부)\"},{\"when\":\"size_bytes 가 16 보다 작은 양수인 경우\",\"then\":\"True 반환 (허용)\"},{\"when\":\"size_bytes 가 16 보다 크거나 같은 경우\",\"then\":\"True 반환 (허용)\"}]}"
+      }
+    ],
+    "seed": 887,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "true_when": {
+              "type": "string"
+            },
+            "false_when": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string",
+              "enum": [
+                "abc-1/H1"
+              ]
+            }
+          },
+          "required": [
+            "true_when",
+            "false_when",
+            "evidence"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-predicates"
+}

@@ -1,0 +1,242 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def allow_cancel(age_seconds, until_start_seconds):\n    raise NotImplementedError"
+    },
+    "calls": [
+      "9ebab0eff5987343b8b73eafb5889be3ad718b65e5b9084e48f1d513c20bc794",
+      "f2d88bfbe258f08e4bf31fe048405cf7443a4f2666ef4749cdb4548b77972766"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "allow_cancel(age_seconds, until_start_seconds) -> bool; age_seconds >= 0; until_start_seconds <= 0 implies start time passed; time conversion handled by caller",
+        "input": "age_seconds",
+        "still_open": "exact boundary condition for until_start_seconds == 0 (start instant) vs negative (already started); specific logic for 'separate correction time' for 'just wrong reservation'",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "General cancellation deadline is 24 hours before start; general cancellation is closed after start; 'just wrong reservation' has separate correction time",
+        "input": "until_start_seconds",
+        "still_open": "definition of 'just wrong reservation' vs general case; duration of 'separate correction time'",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "Staff accepts correction requests for reservations past general deadline and past start time; return True if allowed, False otherwise",
+        "input": "age_seconds",
+        "still_open": "exact criteria for staff to approve 'just wrong reservation' correction",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "Correction time starts from reservation creation time",
+        "input": "age_seconds",
+        "still_open": "duration of correction time",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "Correction period is 10 minutes",
+        "input": "age_seconds",
+        "still_open": "whether 10 minutes applies to 'just wrong reservation' separately or as part of general correction logic",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "until_start_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {
+          "L_P1_1": {
+            "source": "P1",
+            "kind": "listed",
+            "quote": "age_seconds, until_start_seconds",
+            "value": [
+              "age_seconds",
+              "until_start_seconds"
+            ]
+          },
+          "Q_P2_1_seconds": {
+            "source": "P2",
+            "kind": "quantity",
+            "quote": "24시간",
+            "value": 86400,
+            "unit": "seconds",
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ]
+          },
+          "Q_H2_1_seconds": {
+            "source": "H2",
+            "kind": "quantity",
+            "quote": "10분",
+            "value": 600,
+            "unit": "seconds",
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ]
+          }
+        },
+        "decision": {
+          "rules": [
+            {
+              "when": "age_seconds < Q_H2_1_seconds and age_seconds < Q_P2_1_seconds and age_seconds >= 0",
+              "action": "return",
+              "value": ",",
+              "sources": [
+                "P1",
+                "P2",
+                "H1",
+                "H2"
+              ]
+            },
+            {
+              "when": "age_seconds >= Q_H2_1_seconds",
+              "action": "return",
+              "value": ",",
+              "sources": [
+                "P1",
+                "P2",
+                "H1",
+                "H2"
+              ]
+            },
+            {
+              "when": "until_start_seconds <= 0",
+              "action": "return",
+              "value": ",",
+              "sources": [
+                "P1",
+                "P2",
+                "H1",
+                "H2"
+              ]
+            },
+            {
+              "when": "age_seconds >= Q_P2_1_seconds and age_seconds < Q_H2_1_seconds and until_start_seconds > 0",
+              "action": "return",
+              "value": ",",
+              "sources": [
+                "P1",
+                "P2",
+                "H1",
+                "H2"
+              ]
+            },
+            {
+              "when": "age_seconds >= Q_P2_1_seconds and age_seconds < Q_H2_1_seconds and until_start_seconds <= 0",
+              "action": "return",
+              "value": ",",
+              "sources": [
+                "P1",
+                "P2",
+                "H1",
+                "H2"
+              ]
+            },
+            {
+              "when": "True",
+              "action": "return",
+              "value": ",",
+              "sources": [
+                "P1",
+                "P2",
+                "H1",
+                "H2"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "False",
+            "sources": [
+              "P1",
+              "P2",
+              "H1",
+              "H2"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "1번째 조건 · 수량의 근거가 가리킨 입력 또는 단위와 다름"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "정정 가능 기간이 10 분이라는 답변을 바탕으로, 예약 생성 시간과 이용 시작 시간을 초 단위로 계산하여 정정 가능 여부를 판단하는 로직을 구현해야 하는지 확인 부탁드립니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+    "ccf667a3606131410dee87ccaacca5e7c35f3988e74ea1f0229800eb4cd821eb",
+    "9ebab0eff5987343b8b73eafb5889be3ad718b65e5b9084e48f1d513c20bc794",
+    "f2d88bfbe258f08e4bf31fe048405cf7443a4f2666ef4749cdb4548b77972766",
+    "084ef2ebc552bcf923be8573a49b66419da1826cb0b7c2e67db3fa406c3e746d"
+  ],
+  "files": {
+    "solution.py": "def allow_cancel(age_seconds, until_start_seconds):\n    raise NotImplementedError"
+  },
+  "sha256": "dfe7b226f366f608c1a31c26bcd7ed2f03b4e0f18ff427bfbf496222c46d0c7c",
+  "status": "open_limit",
+  "arm": "self-program",
+  "initial_sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+  "questions": [
+    {
+      "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+      "proposed_by": [
+        "main-self"
+      ]
+    }
+  ],
+  "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+  "owner_source": "delegated_policy_card",
+  "selections": [
+    [
+      "clock",
+      "duration"
+    ]
+  ]
+}

@@ -1,0 +1,41 @@
+--- v1
++++ v2
+@@ -1,14 +1,27 @@
+ def allow_cancel(age_seconds, until_start_seconds):
+-    # 일반 취소 마감은 이용 시작 24시간 전입니다.
+-    if until_start_seconds >= 24 * 3600:
+-        return True
+-    # 이용이 시작되면 일반 취소는 마감됩니다.
++    # 일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.
++    if until_start_seconds >= 86400:
++        return True # [1]
++    # 이용이 시작된 순간부터 일반 취소는 마감됩니다.
+     if until_start_seconds < 0:
+-        return False
+-    # 방금 잘못 예약한 고객에게 별도의 정정 시간이 있습니다.
+-    # 이는 age_seconds가 0에 가까울 때 적용되나요?
+-    if age_seconds <= 1:
+-        return True
+-    # 일반 마감이 지난 예약에 대해 정정 요청을 받을 수 있는 조건은 무엇인가요?
+-    # 이는 담당자에게 문의해야 합니다.
+-    raise NotImplementedError("일반 마감이 지난 예약에 대한 정정 요청 조건은 담당자에게 문의해야 합니다.")+        return False # [2]
++    # 정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.
++    if until_start_seconds == 86400:
++        return True # [3]
++    # 정정 기간은 예약 생성 후 10분입니다.
++    if age_seconds <= 10 * 60:
++        return True # [4]
++    # 정정 기간이 정확히 끝나는 순간도 포함합니다.
++    if age_seconds == 10 * 60:
++        return True # [5]
++    # 정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.
++    if age_seconds <= 10 * 60:
++        return True # [6]
++    # 현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다.
++    if until_start_seconds == 0:
++        return False # [7]
++    # 이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다.
++    if until_start_seconds < 0:
++        return False # [8]
++    # 그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.
++    raise NotImplementedError("일반 마감이 지난 예약에 대한 정정 요청 조건은 담당자에게 문의해야 합니다.") # [9]

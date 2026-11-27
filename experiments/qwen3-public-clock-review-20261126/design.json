@@ -1,0 +1,134 @@
+{
+  "protocol": "public-clock-signoff-v1",
+  "parent_protocol": "serial-source-edits-v2",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "previously_used": [
+    131,
+    157,
+    191,
+    223,
+    257,
+    293
+  ],
+  "new": [
+    307,
+    331,
+    353,
+    379,
+    401,
+    419
+  ],
+  "arms": [
+    "direct",
+    "self_before",
+    "abcd_before",
+    "self_final",
+    "abcd"
+  ],
+  "fixed_calls": {
+    "direct": 1,
+    "self_before": 5,
+    "abcd_before": 5,
+    "self_final": 6,
+    "abcd": 6
+  },
+  "max_tokens_final": 1152,
+  "published_fields": {
+    "R1": {
+      "원문": "일반 취소 마감은 이용 시작 24시간 전입니다.",
+      "기준_입력": "until_start_seconds",
+      "공개_수량": {
+        "source": "R1",
+        "text": "24시간",
+        "amount": 24,
+        "unit": "hours",
+        "seconds": 86400
+      }
+    },
+    "R2": {
+      "원문": "이용이 시작되면 일반 취소는 마감됩니다.",
+      "기준_입력": "until_start_seconds",
+      "계약의_시작_순간": 0
+    },
+    "R3": {
+      "원문": "방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.",
+      "기준_입력": "age_seconds",
+      "기간": "공개 문구에 수치 없음"
+    }
+  },
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "ordinary_at_deadline": {
+        "type": "boolean"
+      },
+      "correction_window": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "seconds",
+              "minutes",
+              "hours",
+              "days"
+            ]
+          }
+        },
+        "required": [
+          "amount",
+          "unit"
+        ],
+        "additionalProperties": false
+      },
+      "correction_at_window_end": {
+        "type": "boolean"
+      },
+      "correction_scope": {
+        "type": "string",
+        "enum": [
+          "before_start",
+          "through_start",
+          "also_after_start"
+        ]
+      },
+      "reasons": {
+        "type": "object",
+        "properties": {
+          "R1": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "R2": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "R3": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "R1",
+          "R2",
+          "R3"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "ordinary_at_deadline",
+      "correction_window",
+      "correction_at_window_end",
+      "correction_scope",
+      "reasons"
+    ],
+    "additionalProperties": false
+  },
+  "constraints": "one unconditional source-only final review per arm, no grading or execution during generation",
+  "evaluation": "seal all five snapshots across all seeds; stop inference; verify requests and grade"
+}

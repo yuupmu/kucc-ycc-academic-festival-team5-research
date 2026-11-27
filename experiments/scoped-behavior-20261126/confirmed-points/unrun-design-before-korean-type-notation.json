@@ -1,0 +1,42 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "weights": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c",
+  "tasks": {
+    "upload": [
+      273,
+      419,
+      887
+    ],
+    "sensors": [
+      419
+    ],
+    "signal": [
+      1421
+    ]
+  },
+  "files": {
+    "experiments/scoped-behavior-20261126/design.json": "b9e4a7c302d54f0df3067387c10125df687deda19c0066778255610147dc8a91",
+    "experiments/scoped-behavior-20261126/sealed.json": "1cc296887dfe089864ab2a6b491052d7094c9d864dfd0ce805b32bf3de71ec4d",
+    "experiments/scoped-behavior-20261126/results.json": "643be2afe487495c30e3dc31f2717cb2521f59adbe6e59d184aadad20fe155f9",
+    "experiments/scoped-behavior-20261126/trial.py": "2afb7a8e6ba42b22dbbc767d1a0f9efc319b08564150085f1de31dc45eabc2a3",
+    "experiments/scoped-behavior-20261126/score.py": "a34bb028ac4d01135eabdfe4f0bd0408c875db9eebc745cdb53905db1a736fb2",
+    "experiments/scoped-behavior-20261126/evaluate.py": "7df7bb4b16b6387bb1d635ac3b049fb4fdbf8e2068a40352cd09486c96153fd9",
+    "experiments/scoped-behavior-20261126/site_trial.py": "302e0a7b545d21d2455c3f739db6ceea24ed5391fd6709ff80c8a16ce944d0d1",
+    "experiments/scoped_sites.py": "d256b627e079388d42d65b9e8becd3d7589f614219be9edb0d0fe0be9ed3faf3",
+    "experiments/scoped-behavior-20261126/named-operations/sealed.json": "53051a72611578bd7b5ddb0b744911ce752ba73f97bcd88f34cdd2c76a251c24",
+    "experiments/scoped-behavior-20261126/named-operations/results.json": "05e29ba00ed3926b962976dcbc6bb99de8174f4be6c02496658bc70950dd92ed",
+    "experiments/scoped-behavior-20261126/named-operations/design.json": "30a1b7ac1b3c8b2a5c5de7386ee6f1f1432e4b7ecac5ece47036ff722ad96826",
+    "experiments/scoped-behavior-20261126/guard_trial.py": "1ab16673c061f356dc771563a020c099464d84ef23e26228d293f798f4a4d63d",
+    "experiments/guarded_reply.py": "fc50fd83d0e59abde77af71bff559d1c77fc536379ce753521cbda6272c89ee9",
+    "experiments/scoped-behavior-20261126/points_trial.py": "8fdc5f29bc3eb0e14b630838b9e9ece394f57e065385fe487248f475c8fc1305",
+    "experiments/confirmed_points.py": "db081d4ef40546525e7615969a08db55632e4541852a94cd4fa8145230434fd1",
+    "experiments/scoped-behavior-20261126/scalar-guards/design.json": "2374f2c8ceb945e81005d1608d2ff2c5de5bca973cb60e2d0fc73ac6a781548f",
+    "experiments/scoped-behavior-20261126/scalar-guards/sealed.json": "cf337f28778ba60a25faf3e106261778c05f8512392d5d6f4a658ed237f28ad4",
+    "experiments/scoped-behavior-20261126/scalar-guards/results.json": "516a377dbfc18ef90f25c7644912f226d53778367f23a1060b86ee98d0068955",
+    "experiments/scoped-behavior-20261126/signal-check/design.json": "f77b87603ee85aefa5a794fcfca12af96223532b10244e17fe516a8abb4fb39a",
+    "experiments/scoped-behavior-20261126/signal-check/sealed.json": "0b9e583a283ce54079e1a334d3ad2ea44754afce6a99dba00ebcaacfa336d5c2",
+    "experiments/scoped-behavior-20261126/signal-check/results.json": "7cef615ec5b5ee05c0c3e296300d3108c6990bc889cbede9f1749a8172616d5e"
+  },
+  "grading": "Same pre-registered panels. All ten final submissions frozen before grading. Signal was already seen in the third trial.",
+  "change": "Predict the values of integer literals explicitly in the public brief or owner reply. Reconcile only exact boundary literals shared with the total guard. Accept declarative equality notation."
+}

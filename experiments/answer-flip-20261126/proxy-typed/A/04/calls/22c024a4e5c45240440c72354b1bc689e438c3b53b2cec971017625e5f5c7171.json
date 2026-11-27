@@ -1,0 +1,124 @@
+{
+  "text": "{\n  \"decision\": {\n    \"status\": \"known\",\n    \"result\": \"***X*”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, 3”, ",
+  "model": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 700,
+    "prompt_tokens": 592,
+    "total_tokens": 1292,
+    "prompt_tokens_details": {
+      "cached_tokens": 78
+    }
+  },
+  "server_timings": {
+    "cache_n": 78,
+    "prompt_n": 514,
+    "prompt_ms": 443.509,
+    "prompt_per_token_ms": 0.8628579766536966,
+    "prompt_per_second": 1158.9392774442006,
+    "predicted_n": 700,
+    "predicted_ms": 15365.673,
+    "predicted_per_token_ms": 21.982364806866954,
+    "predicted_per_second": 45.49101103479164
+  },
+  "finish_reason": "length",
+  "elapsed_seconds": 15.83,
+  "request": {
+    "model": "var/local-models/google_gemma-3-4b-it-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "운영 담당자의 입장에서 입력 하나를 독립적으로 판정하세요. 공개 명세와 실제 담당자 답변만 근거입니다. 질문자의 설명은 담당자 결정이 아닙니다. 답이 정해지면 decision의 status는 known, result에는 실제 함수 반환값을 넣으세요. 미정이면 status만 unknown으로 고르세요. quote에는 명세나 담당자 답의 근거 구절을 그대로 인용하세요. reason에 값 또는 미정인 이유를 간단히 쓰세요. scope는 담당자 회신이 질문받은 범위를 넘어섰는지 뜻합니다. 회신이 전혀 없으면 no_reply, 범위 안이면 within, 넘으면 over, 애매하면 unclear를 고르세요. over라면 excess_quote에 실제 담당자 답의 해당 구절을 적으세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"공개 명세\":\"화면에서 식별코드를 가리는 mask_code(code) -> str 함수를 구현하세요. 입력은 영문 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능합니다.\\n가리는 각 글자를 별표(*) 하나로 바꿉니다. 결과 길이는 입력 길이와 같아야 합니다. 공개하는 글자의 원래 대소문자와 순서는 유지합니다.\\n어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다. 다른 문자나 공백은 입력되지 않습니다.\",\"실제 문답\":[{\"담당자에게 보낸 질문\":[\"현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.\"],\"담당자의 실제 답변\":\"마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.\"},{\"담당자에게 보낸 질문\":[\"현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치하지만, '어느 쪽의 몇 글자를 공개할지'에 대한 운영 담당자의 기준이 명시되지 않았으며, 코드가 짧거나 비었을 때의 공개 비율도 결정되지 않았습니다. 이 부분을 담당자에게 확인해 주세요.\"],\"담당자의 실제 답변\":\"마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.\"},{\"담당자에게 보낸 질문\":[],\"담당자의 실제 답변\":null}],\"입력 인자 목록\":[\"z0X\"],\"공개 반환 형식\":\"string\"}"
+      }
+    ],
+    "seed": 937,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 700,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "known"
+                      ]
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "result"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "unknown"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "quote": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string",
+              "enum": [
+                "no_reply",
+                "within",
+                "over",
+                "unclear"
+              ]
+            },
+            "excess_quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "decision",
+            "quote",
+            "reason",
+            "scope",
+            "excess_quote"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "독립 정책 평가자"
+}

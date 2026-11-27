@@ -1,0 +1,84 @@
+{
+  "questions": [
+    {
+      "question": "0 인 길이는 허용해야 하는가?",
+      "proposed_by": [
+        "A",
+        "C"
+      ],
+      "basis": "A1"
+    },
+    {
+      "question": "인쇄 영역의 가로와 세로 상한값은 무엇인가요?",
+      "proposed_by": [
+        "A",
+        "C"
+      ],
+      "basis": "A2"
+    }
+  ],
+  "calls": [
+    "d28272087a6e54b77afcbdbb627778e611feeb7a01b362f320628283242968ef",
+    "336628ca95043907c9302612e7cd14a9aa1e1764a4fe2ca90635ddcc1684537c",
+    "dd636a95b069b4af920c82cc9d574abbc26d1327af5bb58c3a05b87d11351d0b",
+    "7f18438fcb03ffd5c8dcf449a503516db306a8468a0b6f37310631e8d204dacc",
+    "1798248ce38a6a3c23edae3d8462d67ad527cd2bfe07c7428e618dc7a078b803"
+  ],
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 허용해야 하는지",
+            "outcome_a": "0 인 길이는 '길이 없음'으로 해석되어 거부합니다.",
+            "outcome_b": "0 인 길이는 '길이 없음'이 아니라 '허용되는 최소 길이'로 해석되어 허용합니다.",
+            "question": "0 인 길이는 허용해야 하는지"
+          },
+          {
+            "situation": "상한값이 존재하는지",
+            "outcome_a": "인쇄 담당자가 구체적인 상한값을 제공하지 않았으므로 상한값은 존재하지 않는 것으로 간주합니다.",
+            "outcome_b": "인쇄 담당자가 구체적인 상한값을 제공하지 않았더라도 상한값이 존재하는 것으로 간주합니다.",
+            "question": "상한값이 존재하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이가 허용되는지",
+            "outcome_a": "0 인 길이는 양수가 아니므로 거부합니다.",
+            "outcome_b": "0 인 길이는 '길이 없음'을 의미하므로 허용하거나 무시합니다.",
+            "question": "0 인 길이는 허용되나요?"
+          },
+          {
+            "situation": "상한값이 존재하는지",
+            "outcome_a": "구체적인 상한값이 제공되지 않았으므로 무한대로 가정하고 양수만 허용합니다.",
+            "outcome_b": "상한값은 존재하지만 현재 제공되지 않았으므로, 인쇄 담당자에게 구체적인 상한값을 확인해야 합니다.",
+            "question": "인쇄 영역의 가로와 세로 상한값은 무엇인가요?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "0 인 길이는 '길이 없음'을 의미하므로 허용되어야 하지만, 현재 코드는 0 을 거부하고 있습니다.",
+            "outcome_a": "0 인 길이는 허용합니다.",
+            "outcome_b": "0 인 길이는 거부합니다.",
+            "question": "0 인 길이는 허용해야 하는가?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "invalid": false
+}

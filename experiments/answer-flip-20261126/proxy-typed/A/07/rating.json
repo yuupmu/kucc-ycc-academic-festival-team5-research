@@ -1,0 +1,15 @@
+{
+  "response": {
+    "decision": {
+      "status": "known",
+      "result": true
+    },
+    "quote": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+    "reason": "입력된 `age_seconds` (600 초)는 예약 생성부터 현재까지 10분입니다. `until_start_seconds` (3600 초)는 이용 시작까지 3600초로, 1시간입니다.  담당자 답변에 따르면, 정정 가능 기간은 10분이며, 이 기간 안에 예약 취소가 가능합니다. 따라서, `age_seconds`가 10분 이내이므로 취소를 허용합니다.",
+    "scope": "within",
+    "excess_quote": "no_quote"
+  },
+  "calls": [
+    "110abbe0e876866954339f28e3a024ebb45a4b8bc02de595a48536727661deaa"
+  ]
+}

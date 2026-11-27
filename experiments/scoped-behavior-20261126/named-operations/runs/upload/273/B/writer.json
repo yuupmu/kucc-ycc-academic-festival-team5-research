@@ -1,0 +1,38 @@
+{
+  "behavior": [
+    {
+      "when": "size_bytes < 0",
+      "then": "False 반환 (음수 입력은 잘못된 크기이므로 거부)"
+    },
+    {
+      "when": "size_bytes == 0",
+      "then": "False 반환 (0 바이트 빈 파일은 거부)"
+    },
+    {
+      "when": "0 < size_bytes < 16",
+      "then": "True 반환 (상한보다 작은 양수 파일은 허용)"
+    },
+    {
+      "when": "size_bytes == 16",
+      "then": "False 반환 (정확히 상한인 파일은 거부)"
+    },
+    {
+      "when": "size_bytes > 16",
+      "then": "False 반환 (상한보다 큰 파일은 거부)"
+    }
+  ],
+  "calls": [
+    "22988a6b7e28eda9d8c4f949a481defd17c379ea946229737bfbe7f1d77a6fe9",
+    "49bbacffed9183ac9fde7de9657e4ef1908a92cb52c26009aa98d48896caadc0"
+  ],
+  "attempts": [
+    {
+      "outcome": "no-edit",
+      "call": "49bbacffed9183ac9fde7de9657e4ef1908a92cb52c26009aa98d48896caadc0"
+    }
+  ],
+  "logs": {
+    "22988a6b7e28eda9d8c4f949a481defd17c379ea946229737bfbe7f1d77a6fe9": "1d9fee07637aef81208bd088da957d31202296044eaad8f841bc6544ff639de4",
+    "49bbacffed9183ac9fde7de9657e4ef1908a92cb52c26009aa98d48896caadc0": "476c76b404ea7f50c5c1da5330b1ec96b9ba28e98cdabf615bfb4bb40f0f1617"
+  }
+}

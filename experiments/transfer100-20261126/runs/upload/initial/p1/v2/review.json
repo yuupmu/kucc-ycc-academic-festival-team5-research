@@ -1,0 +1,76 @@
+{
+  "calls": [
+    "aa83db4e30bd121e849e299cf1d11c5c26821af77751407007574bc977301bdd",
+    "194e12ced63077d3c390bd85897b12c16a6f05c9c6d928213f2f733e503a4e0f",
+    "60b1fe6d2e4e698e8319e65b55b44c16f04896e94196f5d84b70b1c7ad729e79",
+    "ef672de146c15ca9691b80dad86909dd0b44ebd6cad55bdc87a0a232a0d49444"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "업로드 파일 크기의 상한값이 16 바이트인지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "업로드 파일 크기의 상한값이 16 바이트로 확정되었는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "업로드 파일 크기의 상한값이 16 바이트로 정해진 것이 맞습니다.",
+          "빈 파일 (0 바이트) 은 거부 처리가 맞습니다.",
+          "상한값인 16 바이트 파일을 허용하는 것이 맞습니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "업로드 파일 크기의 상한값이 16 바이트인지 확인해 주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "업로드 파일 크기의 상한값이 16 바이트로 확정되었는지 확인해주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "업로드 파일 크기의 상한값이 16 바이트로 정해진 것이 맞습니다.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [
+    {
+      "question": "빈 파일 (0 바이트) 은 거부 처리가 맞습니다.",
+      "proposed_by": [
+        "C"
+      ],
+      "reason": "window_limit"
+    },
+    {
+      "question": "상한값인 16 바이트 파일을 허용하는 것이 맞습니다.",
+      "proposed_by": [
+        "C"
+      ],
+      "reason": "window_limit"
+    }
+  ],
+  "status": "open_limit"
+}

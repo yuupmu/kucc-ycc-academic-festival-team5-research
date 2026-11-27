@@ -1,0 +1,80 @@
+{
+  "text": "{\"item\":\"ALLOW_EXACT_MAX\",\"value\": \"False\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 175,
+    "total_tokens": 189,
+    "prompt_tokens_details": {
+      "cached_tokens": 123
+    }
+  },
+  "server_timings": {
+    "cache_n": 123,
+    "prompt_n": 52,
+    "prompt_ms": 170.875,
+    "prompt_per_token_ms": 3.2860576923076925,
+    "prompt_per_second": 304.3160204828091,
+    "predicted_n": 14,
+    "predicted_ms": 388.236,
+    "predicted_per_token_ms": 29.86430769230769,
+    "predicted_per_second": 33.48478760341648
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.56,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "담당자가 실제로 쓴 한 문장과, 이 회신을 받을 때 전달한 질문들입니다. 이 문장이 직접 답하는 항목 하나를 고르세요. 질문과 무관하거나 여러 항목 중 어디에 답한 것인지 알 수 없으면 해당 없음입니다. 행동을 정한 문장이라면 그 상황에서 함수를 실행·허용·켜는 의미는 True, 거절·끄는 의미는 False입니다. 실제 발언의 부정 표현을 정확히 읽으세요. 질문에 들어 있던 설명은 결정의 근거가 아닙니다. 다른 정책을 보충하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"owner_statement\":\"아니요, 거부합니다.\",\"sent_items\":{\"ALLOW_EXACT_MAX\":\"정확히 상한 크기에 해당하는 파일을 허용하는지 확인해주세요.\"},\"ticket_size\":1}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "item": {
+              "type": "string",
+              "enum": [
+                "ALLOW_EXACT_MAX",
+                "해당 없음"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "True",
+                "False",
+                "미정"
+              ]
+            }
+          },
+          "required": [
+            "item",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "receipt-item"
+}

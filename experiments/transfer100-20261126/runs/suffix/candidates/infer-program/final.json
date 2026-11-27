@@ -1,0 +1,452 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def file_suffix(name):\n    if (any((_policy_item in name for _policy_item in ['.'])) and (not name.startswith('.')) and (not name.endswith('.')),):\n        raise NotImplementedError\n    if (not any((_policy_item in name for _policy_item in ['.'])),):\n        raise NotImplementedError\n    if (name.startswith('.') and (not any((_policy_item in name for _policy_item in ['.', '.']))),):\n        raise NotImplementedError\n    if (name.startswith('.') and any((_policy_item in name for _policy_item in ['.', '.'])),):\n        raise NotImplementedError\n    if (name.endswith('.'),):\n        raise NotImplementedError\n    raise NotImplementedError\n"
+    },
+    "calls": [
+      "21a931ac1480f3e201eb3cae918067dddd7413a42b52416ddb2d1bc78095736a",
+      "52c90b79be826bcb451ba2f1593a934a0f448393cf4cd982f03392004eede007"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "file_suffix(name) 함수는 str 타입을 반환하며, 입력은 경로 구분자 없이 영문 대소문자, 숫자, 점, 하이픈으로만 구성된 파일 이름입니다. 공백과 빈 문자열은 입력되지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "이름 안에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일의 경우, 점 다음 부분을 반환합니다. 반환값에는 점을 붙이지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "",
+        "input": "name",
+        "still_open": "대소문자 표기, 점이 여러 개인 이름, 점으로 시작하는 이름, 확장자가 없는 이름의 처리는 파일 관리 담당자에게 확인해야 합니다.",
+        "status": "undetermined"
+      },
+      "H1": {
+        "established": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "점으로 시작하고 그 뒤에 다른 점이 없는 이름은 확장자가 없는 파일로 봅니다. 다른 점이 더 있으면 마지막 점 뒤의 부분을 사용합니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "name",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "undetermined",
+        "input": "name",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P3"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "name",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "name",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "H3"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "H3"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "H3"
+            ],
+            "inputs": [
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "H3"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "_policy_item",
+              "any",
+              "name"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {},
+        "decision": {
+          "rules": [
+            {
+              "when": "has_present(['.'], name) and not name.startswith('.') and not name.endswith('.'), ",
+              "action": "return",
+              "value": "name.split('.')[-1]",
+              "sources": [
+                "P2",
+                "H1"
+              ]
+            },
+            {
+              "when": "not has_present(['.'], name), ",
+              "action": "return",
+              "value": "",
+              "sources": [
+                "H3"
+              ]
+            },
+            {
+              "when": "name.startswith('.') and not has_present(['.', '.'], name), ",
+              "action": "return",
+              "value": "",
+              "sources": [
+                "H2"
+              ]
+            },
+            {
+              "when": "name.startswith('.') and has_present(['.', '.'], name), ",
+              "action": "return",
+              "value": "name.split('.')[-1]",
+              "sources": [
+                "H2"
+              ]
+            },
+            {
+              "when": "name.endswith('.'), ",
+              "action": "return",
+              "value": "",
+              "sources": [
+                "H3"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "",
+            "sources": [
+              "P3"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "허용된 결정 연산이 아님",
+      "표현식이 비어 있음",
+      "표현식이 비어 있음",
+      "허용된 결정 연산이 아님",
+      "표현식이 비어 있음",
+      "표현식이 비어 있음"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "점의 개수를 세는 로직이 누락되어, 여러 점이 있는 경우 마지막 점 뒤 부분을 추출하는 조건을 충족하지 못함.",
+            "outcome_a": "점의 개수를 세는 로직을 추가하여, 여러 점이 있는 경우 마지막 점 뒤 부분을 추출하는 조건을 충족함.",
+            "outcome_b": "점의 개수를 세는 로직을 추가하지 않고, 현재 코드는 모든 점이 있는 경우 NotImplementedError 를 발생시킴.",
+            "question": "점의 개수를 세는 로직을 추가하여, 여러 점이 있는 경우 마지막 점 뒤 부분을 추출하는 조건을 충족함."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "이름에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일의 경우, 'file_suffix' 함수는 현재 NotImplementedError 를 던지며 실패하지만, 담당자 답변에 따르면 점 다음 부분을 반환해야 합니다.",
+            "outcome_a": "함수가 NotImplementedError 를 던져 예외를 발생시킵니다.",
+            "outcome_b": "점 다음 부분을 반환하여 정상적으로 동작합니다.",
+            "question": "이름에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일의 경우, 'file_suffix' 함수는 현재 NotImplementedError 를 던지며 실패하지만, 담당자 답변에 따르면 점 다음 부분을 반환해야 합니다."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "이름에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일의 경우, 반환값에 점을 붙이지 않는 요구사항과, 현재 코드가 모든 조건에서 NotImplementedError 를 던지는 구현 사이의 불일치.",
+            "outcome_a": "요구사항에 따라 점 다음 부분을 반환하는 올바른 구현이 필요합니다.",
+            "outcome_b": "현재 코드가 모든 경우를 NotImplementedError 로 처리하는 것으로 유지하는 것이 맞습니다.",
+            "question": "요구사항에 따라 점 다음 부분을 반환하는 올바른 구현이 필요한지, 아니면 현재 코드가 모든 경우를 NotImplementedError 로 처리하는 것으로 유지하는 것이 맞는지 확인해 주세요."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "5e1b6ea5b89f1d6622230bae9a3f3ba4146ae9bbcda25f8a0bd01b93470591b9",
+    "dd350620acba674f7f162eec18734f5b4159deb56a83ea8d1c5b27d86ff861fb",
+    "b91e864b5e8cfdaa10d396d5fd68c3e08ee50dd5c49e4c0963d6b5210d642a35",
+    "21a931ac1480f3e201eb3cae918067dddd7413a42b52416ddb2d1bc78095736a",
+    "52c90b79be826bcb451ba2f1593a934a0f448393cf4cd982f03392004eede007",
+    "c09376bdc03347d5d83e11a5abaade97d15f3ced974098720ec815b03dbba988",
+    "407b2a1d3ae2a2d478f486002a3c52cef866d36b27fc610edb16391b8303a900",
+    "87528b0f279306464645adc3b312238320acb28e0cdec43d402726d6705ae9d5"
+  ],
+  "files": {
+    "solution.py": "def file_suffix(name):\n    if (any((_policy_item in name for _policy_item in ['.'])) and (not name.startswith('.')) and (not name.endswith('.')),):\n        raise NotImplementedError\n    if (not any((_policy_item in name for _policy_item in ['.'])),):\n        raise NotImplementedError\n    if (name.startswith('.') and (not any((_policy_item in name for _policy_item in ['.', '.']))),):\n        raise NotImplementedError\n    if (name.startswith('.') and any((_policy_item in name for _policy_item in ['.', '.'])),):\n        raise NotImplementedError\n    if (name.endswith('.'),):\n        raise NotImplementedError\n    raise NotImplementedError\n"
+  },
+  "sha256": "4564bc55e76dfec32bba6aa1696f221e7e28fa6d843de9ea0068ac7ee729cbfb",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "d807643e338655b76af439a9f73fba2a8376fff046168dab227379b8a9a802c1",
+      "questions": [
+        {
+          "question": "file_suffix(name) 함수의 동작을 결정하기 위해, 'Test.File.Name.txt'와 같이 점이 여러 개인 경우, 'Test.File' (첫 번째 점 다음) 을 반환해야 하는지, 'File' (마지막 점 다음) 을 반환해야 하는지, 아니면 'File.Name.txt' (마지막 점 다음 부분 전체) 을 반환해야 하는지 명확히 해주세요. 또한, 점으로 시작하거나 끝나는 경우, 그리고 확장자가 없는 경우 (예: 'NoDot') 에 대한 구체적인 기준과 참조점 (reference point) 을 알려주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "확장자가 여러 개인 파일 (예: archive.tar.gz) 의 경우, 최종 확장자만 ('gz') 반환하시는지, 아니면 첫 번째 점 이후부터의 전체 부분을 ('archive.tar.gz') 반환하시는지 명확히 해주시기 바랍니다.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.\n점으로 시작하고 그 뒤에 다른 점이 없는 이름은 확장자가 없는 파일로 봅니다. 다른 점이 더 있으면 마지막 점 뒤의 부분을 사용합니다.\n점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

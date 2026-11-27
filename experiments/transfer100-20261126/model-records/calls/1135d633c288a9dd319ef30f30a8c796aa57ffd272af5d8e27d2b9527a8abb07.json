@@ -1,0 +1,161 @@
+{
+  "text": "{\"rules\":[{\"when\":\"has_present([width_cm, height_cm], 0)\",\"action\":\"return\",\"value\":\",\",\"sources\":[\"H1\",\"H2\"]},{\"when\":\"width_cm >= 6\",\"action\":\"return\",\"value\":\",\",\"sources\":[\"H3\"]},{\"when\":\"height_cm >= 4\",\"action\":\"return\",\"value\":\",\",\"sources\":[\"H4\"]},{\"when\":\"width_cm < 0 or height_cm < 0\",\"action\":\"return\",\"value\":\",\",\"sources\":[\"P2\"]},{\"when\":\"width_cm <= 6 and height_cm <= 4\",\"action\":\"return\",\"value\":\",\",\"sources\":[\"P2\"]},{\"when\":\"True\",\"action\":\"return\",\"value\":\",\",\"sources\":[\"P2\"]}],\"otherwise\":{\"action\":\"return\",\"value\":\",\",\"sources\":[]},\"complete\":false,\"applicable\":false}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 187,
+    "prompt_tokens": 1111,
+    "total_tokens": 1298,
+    "prompt_tokens_details": {
+      "cached_tokens": 272
+    }
+  },
+  "server_timings": {
+    "cache_n": 272,
+    "prompt_n": 839,
+    "prompt_ms": 971.534,
+    "prompt_per_token_ms": 1.1579666269368296,
+    "prompt_per_second": 863.5827464607518,
+    "predicted_n": 187,
+    "predicted_ms": 5158.23,
+    "predicted_per_token_ms": 27.732419354838708,
+    "predicted_per_second": 36.05888066255286
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 6.22,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer implementing this decision function. Choose ordered decision rows, first matching row wins. Write short Python expressions using the actual arguments. Each row and the fallback must cite the source IDs that authorize it. The public text and the exact owner replies are authoritative. Your preliminary notes can be mistaken. The previous code supplies no policy. Order exceptions and general conditions so a broad early return cannot erase a more specific confirmed decision. An ambiguous boundary can be its own narrow row; it does not erase facts on either side. Defer only where different policies consistent with the sources would change the result. Never choose a missing priority, duration, default, exception, or label. Use exact identifiers from the literal table in expressions when available. A quantity is already converted to the argument unit. Bind it to the right input. A listed sequence supplies membership only. An ordered sequence also supplies precedence. has_present(sequence, input) tests overlap; first_present(ordered_sequence, input) returns the highest-priority present item. Usual Python boolean expressions, membership, length and sets also work. Quote string results as Python literals. The action defer takes an empty value. Omit comments and explanations. Mark complete false for any unresolved outcome. Set applicable false if this target needs effects, state changes, or other behavior outside a pure decision function."
+      },
+      {
+        "role": "user",
+        "content": "{\"signature\":\"fits_print(width_cm, height_cm)\",\"public_request\":\"고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\\n가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.\",\"exact_owner_replies\":[\"가로 길이 없음에는 거부로 처리합니다.\",\"세로 길이 없음에는 거부로 처리합니다.\",\"가로 길이의 상한은 6센티미터입니다.\",\"세로 길이의 상한은 4센티미터입니다.\"],\"sources\":{\"P1\":\"고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\",\"P2\":\"한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\",\"P3\":\"가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.\",\"H1\":\"가로 길이 없음에는 거부로 처리합니다.\",\"H2\":\"세로 길이 없음에는 거부로 처리합니다.\",\"H3\":\"가로 길이의 상한은 6센티미터입니다.\",\"H4\":\"세로 길이의 상한은 4센티미터입니다.\"},\"my_preliminary_notes\":{\"P1\":{\"established\":\"fits_print(width_cm, height_cm) -> bool 함수 구현 필요. width_cm, height_cm 은 정수 센티미터. 0 은 길이 없음.\",\"input\":\"width_cm\",\"still_open\":\"0 처리 여부, 음수 처리 여부, 상한 처리 여부, 회전/교환 여부.\"},\"P2\":{\"established\":\"음수 거부. 양수이고 자기 상한보다 작으면 허용. 상한 초과 거부. 회전/교환 하지 않음. True/False 반환.\",\"input\":\"width_cm\",\"still_open\":\"0 처리 여부, 상한 값.\"},\"P3\":{\"established\":\"상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인 필요 (불확실).\",\"input\":\"width_cm\",\"still_open\":\"0 처리, 상한 처리.\"},\"H1\":{\"established\":\"가로 길이 없음 (0) 은 거부.\",\"input\":\"width_cm\",\"still_open\":\"None\"},\"H2\":{\"established\":\"세로 길이 없음 (0) 은 거부.\",\"input\":\"height_cm\",\"still_open\":\"None\"},\"H3\":{\"established\":\"가로 길이 상한은 6cm.\",\"input\":\"width_cm\",\"still_open\":\"None\"},\"H4\":{\"established\":\"세로 길이 상한은 4cm.\",\"input\":\"height_cm\",\"still_open\":\"None\"}},\"literal_table\":{\"L_P1_1\":{\"source\":\"P1\",\"kind\":\"listed\",\"quote\":\"width_cm, height_cm\",\"value\":[\"width_cm\",\"height_cm\"]},\"Q_H3_1_cm\":{\"source\":\"H3\",\"kind\":\"quantity\",\"quote\":\"6센티미터\",\"value\":6,\"unit\":\"cm\",\"inputs\":[\"width_cm\",\"height_cm\"]},\"Q_H4_1_cm\":{\"source\":\"H4\",\"kind\":\"quantity\",\"quote\":\"4센티미터\",\"value\":4,\"unit\":\"cm\",\"inputs\":[\"width_cm\",\"height_cm\"]}}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1650,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "return",
+                      "defer"
+                    ]
+                  },
+                  "value": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P1",
+                        "P2",
+                        "P3",
+                        "H1",
+                        "H2",
+                        "H3",
+                        "H4"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 7
+                  }
+                },
+                "required": [
+                  "when",
+                  "action",
+                  "value",
+                  "sources"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 12
+            },
+            "otherwise": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "return",
+                    "defer"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 550
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "H1",
+                      "H2",
+                      "H3",
+                      "H4"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 7
+                }
+              },
+              "required": [
+                "action",
+                "value",
+                "sources"
+              ],
+              "additionalProperties": false
+            },
+            "complete": {
+              "type": "boolean"
+            },
+            "applicable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "rules",
+            "otherwise",
+            "complete",
+            "applicable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-program"
+}

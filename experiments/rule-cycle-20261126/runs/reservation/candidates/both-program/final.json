@@ -1,0 +1,373 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def allow_cancel(age_seconds, until_start_seconds):\n    raise NotImplementedError"
+    },
+    "calls": [
+      "058b2eb915e68feb012072f781c03b6b40b804bad040ee8bdb64fb64acb4efd5",
+      "7e3d0cf8f207ebe60786820b8df6a0553d33952349ece721326a4955557c02ce"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "allow_cancel(age_seconds, until_start_seconds) -> bool; age_seconds >= 0; until_start_seconds <= 0 (음수는 이미 시작); 시간 변환은 호출자가 처리",
+        "input": "age_seconds",
+        "still_open": "until_start_seconds의 정확성 (0은 시작 순간, 음수는 이미 시작)을 age_seconds와 함께 검증할 수 없음",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "일반 취소 마감은 이용 시작 24시간 전; 이용 시작 시 일반 취소는 마감됨",
+        "input": "until_start_seconds",
+        "still_open": "정정 가능 기간 (10분)과 일반 마감 (24시간)의 관계 (정정 기간이 일반 마감보다 짧은지)를 명시하지 않음",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "일반 마감이 지난 예약과 막 이용이 시작된 예약에 정정 요청 가능; 정정 가능 기간 10분; 정정 기간 끝나는 순간 포함; 이용 시작 순간에는 정정 기간이 남아 있어도 거부; 정정 기간 안이면 일반 마감이 지난 예약도 정정 가능; 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소 불가",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간 (10분)이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "정정 시간은 예약 생성부터 셉니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간의 시작점이 age_seconds와 일치하는지 명시하지 않음",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "정정 가능 기간은 10분입니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "정정 기간이 정확히 끝나는 순간도 포함합니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H4": {
+        "established": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다",
+        "input": "until_start_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H5": {
+        "established": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H6": {
+        "established": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "until_start_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H3": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H4": {
+        "status": "rule",
+        "input": "until_start_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H5": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H6": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {
+          "L_P1_1": {
+            "source": "P1",
+            "kind": "listed",
+            "quote": "age_seconds, until_start_seconds",
+            "value": [
+              "age_seconds",
+              "until_start_seconds"
+            ]
+          },
+          "Q_P2_1_seconds": {
+            "source": "P2",
+            "kind": "quantity",
+            "quote": "24시간",
+            "value": 86400,
+            "unit": "seconds",
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ]
+          },
+          "Q_H2_1_seconds": {
+            "source": "H2",
+            "kind": "quantity",
+            "quote": "10분",
+            "value": 600,
+            "unit": "seconds",
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ]
+          }
+        },
+        "decision": {
+          "rules": [
+            {
+              "when": "has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds < 86400) and (age_seconds < 600) and (until_start_seconds > 0)",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5"
+              ]
+            },
+            {
+              "when": "has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds >= 86400)",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5"
+              ]
+            },
+            {
+              "when": "has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds < 86400) and (age_seconds >= 600) and (until_start_seconds > 0)",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5"
+              ]
+            },
+            {
+              "when": "has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds >= 600) and (until_start_seconds <= 0)",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5"
+              ]
+            },
+            {
+              "when": "has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds < 86400) and (age_seconds < 600) and (until_start_seconds <= 0)",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5"
+              ]
+            },
+            {
+              "when": "has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds)",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "False",
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1",
+              "H2",
+              "H3",
+              "H4",
+              "H5"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "1번째 조건 · 그 입력에 연결된 수량으로 확인되지 않는 문턱값"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "정정 가능 기간이 정확히 끝나는 순간까지를 포함하는지, 아니면 끝나는 순간을 제외하는지 명확하지 않습니다.",
+            "outcome_a": "정정 가능 기간이 정확히 끝나는 순간까지를 포함하여 정정 가능.",
+            "outcome_b": "정정 가능 기간이 정확히 끝나는 순간부터 정정 불가능.",
+            "question": "정정 가능 기간이 정확히 끝나는 순간까지를 포함하는지, 아니면 끝나는 순간을 제외하는지 명확히 해주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "정정 가능 기간이 정확히 끝나는 순간을 포함하는지, 아니면 제외하는지에 대한 명확한 기준이 필요한 경우.",
+            "outcome_a": "정정 가능 기간의 종료 순간을 포함하여 정정이 허용됩니다.",
+            "outcome_b": "정정 가능 기간의 종료 순간을 제외하여 정정이 거부됩니다.",
+            "question": "정정 가능 기간이 정확히 끝나는 순간을 포함하는지 여부를 명확히 해주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "정정 가능 기간이 정확히 끝나는 순간을 포함하는지",
+            "outcome_a": "정정 가능 기간이 정확히 끝나는 순간까지 정정이 가능하므로, age_seconds가 정정 가능 기간의 끝과 같을 때 정정이 허용됩니다.",
+            "outcome_b": "정정 가능 기간이 끝나는 순간은 정정이 불가능한 시점으로 간주하므로, age_seconds가 정정 가능 기간의 끝과 같을 때 정정은 거부됩니다.",
+            "question": "정정 가능 기간이 정확히 끝나는 순간을 포함하는지"
+          },
+          {
+            "situation": "일반 취소 마감과 정정 가능 기간이 모두 지났을 때",
+            "outcome_a": "일반 취소 마감과 정정 가능 기간이 모두 지났을 경우, 정정 요청이 있어도 취소를 허용하지 않습니다.",
+            "outcome_b": "일반 취소 마감이 지난 경우에도 정정 요청이 들어오면 정정 가능 기간이 남아있거나 정정 가능 기간이 끝나는 순간까지 정정을 허용합니다.",
+            "question": "일반 취소 마감과 정정 가능 기간이 모두 지났을 때 정정 요청을 허용하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+    "1ba330ec78c78a7c94038de974fdea188ac8d788f3443a2e45e96bd475752b4e",
+    "de77ac0b10983076182cce92e35f97d53225aeedb13e245fd343b68e6b1974d4",
+    "1ddd1c6f6493af73378c04b603275489dc614786348c39debd40a9cd56cff0e4",
+    "058b2eb915e68feb012072f781c03b6b40b804bad040ee8bdb64fb64acb4efd5",
+    "7e3d0cf8f207ebe60786820b8df6a0553d33952349ece721326a4955557c02ce",
+    "e5fa57ad33ca5b346234bcf4e2d730c6d34a2814e1ce1c601991b72827839d77",
+    "a372fdb82ed6c8ac8dab463f75ca02326e27a492707f2c27f451b5fcaa7cd534",
+    "8368ba205487e1d046a94eafc492eab9d8a2f9952b769c73d5e19ba3b60d0cde"
+  ],
+  "files": {
+    "solution.py": "def allow_cancel(age_seconds, until_start_seconds):\n    raise NotImplementedError"
+  },
+  "sha256": "dfe7b226f366f608c1a31c26bcd7ed2f03b4e0f18ff427bfbf496222c46d0c7c",
+  "status": "open_limit",
+  "arm": "both-program",
+  "initial_sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+  "questions": [
+    {
+      "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+  "owner_source": "delegated_policy_card",
+  "selections": [
+    [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    [
+      "late",
+      "expired"
+    ]
+  ]
+}

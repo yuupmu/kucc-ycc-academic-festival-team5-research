@@ -1,0 +1,492 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    if size_bytes < 0:\n        return False\n    if size_bytes == 0:\n        return False\n    if 0 < size_bytes < 16:\n        return True\n    if size_bytes == 16:\n        return True\n    if size_bytes > 16:\n        return False\n    raise NotImplementedError\n"
+    },
+    "calls": [
+      "f3da21664527b2783d2c129d48248d44e6b69794157f27dff8c0e91c37314018",
+      "9d898d5bff06c391a6f4609109f1c97189fc56aedc47abeb635a96513069b6f7"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "allow_upload(size_bytes) -> bool 함수를 구현해야 함. size_bytes는 정수이며, 0은 빈 파일로 간주함. 음수 입력은 거부함.",
+        "input": "size_bytes",
+        "still_open": "0이 아닌 양수 입력에 대한 구체적인 허용/거부 로직",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "상한보다 작은 양수 파일은 허용 (True), 상한보다 큰 파일은 거부 (False) 함.",
+        "input": "size_bytes",
+        "still_open": "상한 값이 16바이트임을 명시적으로 확인함 (H1 참조)",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "상한 값은 저장소 담당자에게 확인 필요 (현재는 H1을 참조함). 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인 필요.",
+        "input": "size_bytes",
+        "still_open": "빈 파일 (0) 과 정확히 상한 (16) 인 파일의 허용 여부는 H3에 의해 '확인 필요'로 명시됨. 즉, 0과 16에 대한 결정은 현재 정보로 확정 불가.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "업로드 크기의 상한은 16바이트임.",
+        "input": "size_bytes",
+        "still_open": "None",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "파일 크기가 상한 (16) 과 정확히 같아도 허용함.",
+        "input": "size_bytes",
+        "still_open": "None",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "빈 파일 (0) 은 거부로 처리함.",
+        "input": "size_bytes",
+        "still_open": "None",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "H1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "H1",
+              "P2",
+              "H2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "P2",
+              "H2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "H1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P3",
+              "H3"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P3",
+              "H3"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H1": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "H1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "H1",
+              "P2",
+              "H2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "H1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "H1",
+              "P2",
+              "H2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "P2",
+              "H2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P3",
+              "H3"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P3",
+              "H3"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "regions": [
+      {
+        "scope": "T1",
+        "kind": "numeric",
+        "rows": [
+          {
+            "region": "size_bytes < 0",
+            "selected": "False",
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "size_bytes == 0",
+            "selected": "False",
+            "sources": [
+              "P3",
+              "H3"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < size_bytes < 16",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "size_bytes == 16",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H2"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "size_bytes > 16",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H1"
+            ],
+            "issue": null,
+            "implemented": true
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "error": null,
+    "complete": false,
+    "format": "regions"
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "업로드 파일 크기의 상한은 16바이트이고, 빈 파일은 거부하며, 상한과 정확히 같은 파일은 허용하는 것으로 답변이 정해졌는데, 16바이트를 초과하는 파일은 거부하는 구현이 맞는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "14adf5d2086b7d92cec2c4bd6e89b269cf4cf744089739f5b663c8c8cec8c6ad",
+    "f3da21664527b2783d2c129d48248d44e6b69794157f27dff8c0e91c37314018",
+    "9d898d5bff06c391a6f4609109f1c97189fc56aedc47abeb635a96513069b6f7",
+    "601f279a9cbdbbd29ce8ca082a6251f36a49ce37143c4bf0fcbaa626638c0683"
+  ],
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    if size_bytes < 0:\n        return False\n    if size_bytes == 0:\n        return False\n    if 0 < size_bytes < 16:\n        return True\n    if size_bytes == 16:\n        return True\n    if size_bytes > 16:\n        return False\n    raise NotImplementedError\n"
+  },
+  "sha256": "dcf41964037af07645f19a035a3c72221688a155ee729c2c22fdca2e8e31b12b",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "1b802f94d088a6b588a24b9fdb2b431fd3c28bccaa7304381d7a3700ff5c5227",
+      "questions": [
+        {
+          "question": "상한 파일 크기를 정하고, 정확히 그 크기와 0 크기는 허용할지 거부할지 저장소 담당자에게 확인해 주세요.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "업로드 크기의 상한은 16바이트입니다.\n파일 크기가 상한과 정확히 같아도 허용합니다.\n빈 파일에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

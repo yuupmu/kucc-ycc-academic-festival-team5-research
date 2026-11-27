@@ -1,0 +1,48 @@
+{
+  "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    예약 취소 가능 여부를 판단하는 함수.\n    \n    규칙:\n    - 일반 취소 마감은 이용 시작 24시간 전입니다. (24 * 3600 = 86400초)\n    - 정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.\n    - 예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다.\n    - 현재 시각이 이용 시작 시각과 같거나 이후면, 정정 시간이 남아 있어도 거부합니다.\n    - 정정 시간은 예약 생성 후 10분 이내에만 허용됩니다.\n    - 이용 시작 후에는 취소 불가.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    bool: 취소 가능 여부\n    \"\"\"\n    # 일반 취소 마감 시간 (24시간 전)\n    general_cancellation_cutoff = 86400\n    # 정정 기한 (예약 생성 후 10분 이내)\n    correction_period = 600  # 10분 = 600초\n    \n    # 1. 이용 시작 후에는 취소 불가\n    if until_start_seconds < 0:\n        return False\n    \n    # 2. 일반 취소 마감 시간 이전인지 확인\n    if until_start_seconds > general_cancellation_cutoff:\n        return True\n    elif until_start_seconds == general_cancellation_cutoff:\n        return True\n    else:\n        # 일반 취소 마감 시간 이후이면, 정정 기한 내인지 확인\n        if age_seconds <= correction_period:\n            return True\n        else:\n            return False\n```",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 419,
+    "prompt_tokens": 779,
+    "total_tokens": 1198,
+    "prompt_tokens_details": {
+      "cached_tokens": 778
+    }
+  },
+  "server_timings": {
+    "cache_n": 778,
+    "prompt_n": 1,
+    "prompt_ms": 20.725,
+    "prompt_per_token_ms": 20.725,
+    "prompt_per_second": 48.2509047044632,
+    "predicted_n": 419,
+    "predicted_ms": 8137.519,
+    "predicted_per_token_ms": 19.467748803827753,
+    "predicted_per_second": 51.367007560904
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 8.16,
+  "request": {
+    "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 예약 시스템의 Python 개발자입니다. 직접 질문하지 않고 주어진 정보로 전체 함수를 구현합니다."
+      },
+      {
+        "role": "user",
+        "content": "작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n이 과제의 운영 기준은 다음과 같습니다.\n일반 취소 마감은 이용 시작 24시간 전입니다.\n정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.\n예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다.\n현재 시각이 이용 시작 시각과 같거나 이후면, 정정 시간이 남아 있어도 거부합니다.\n휴무일은 없습니다. 모든 입력은 과제에 명시한 형식을 따릅니다. 이 과제에 추가로 적용할 정책은 없습니다.\n\n추가 질의 없이 위 명세를 구현하세요. 표준 라이브러리만 사용하고, 실행 가능한 전체 Python 소스를 하나의 코드 블록으로 제출하세요.\n명세에서 도출한 동작 예시\nallow_cancel(259200, 129600) → True (일반 마감 전)\nallow_cancel(259200, 21600) → False (일반 마감 후 오래된 예약)\nallow_cancel(0, 21600) → True (같은 시각에 방금 생성한 예약의 정정)\nallow_cancel(259200, -3600) → False (오래된 예약, 이용 시작 후)\nallow_cancel(259200, 86400) → True (일반 마감 정각 포함)\nallow_cancel(600, 21600) → True (정정 기한 정각 포함)\nallow_cancel(601, 21600) → False (정정 기한 초과)\nallow_cancel(90, 0) → False (이용 시작 정각 우선)\nallow_cancel(90, -30) → False (이용 시작 이후 우선)\nallow_cancel(1, 14400) → True (방금 만든 예약의 정정 시간은 생성 순간 이후에도 존재)\nallow_cancel(1, 43200) → True (같은 예약 경과 시간, 다른 이용 시작 시각)\n새 대화에서 함수를 처음부터 설계하세요. 규칙이 겹치면 무엇이 우선하는지 결정한 뒤, 모든 입력에 적용되는 짧은 함수만 제출하세요. 시간이 미명시된 경우 실제로 쓸 수 있는 유예 기간을 가정해 주석에 표시하세요."
+      }
+    ],
+    "seed": 293,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 800,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "role": "main"
+}

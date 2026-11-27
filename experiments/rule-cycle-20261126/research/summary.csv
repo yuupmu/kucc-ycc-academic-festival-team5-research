@@ -1,0 +1,14 @@
+﻿condition,arm,model,seed,reservation,triage,correct,wrong,unanswered,unsupported_returns,probes,questions,calls,author_tokens,prompt_tokens,completion_tokens,total_tokens
+① 메인 단독,solo,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,8,2,5,6,0,2,1625,738,887,1625
+② 기존 자체 검토,self,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,8,2,5,6,2,8,3555,3858,2004,5862
+② 같은 답·입력 영역,self-regions,Qwen3.5-4B-Q4_K_M.gguf,263,5,3,8,5,7,4,6,2,10,5923,5365,3194,8559
+③ 기존 P4 보류 포함,current,Qwen3.5-4B-Q4_K_M.gguf,263,6,5,11,8,1,4,6,6,19,3670,10249,4379,14628
+③ 새 질문·기존 작성,infer,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,8,2,2,6,5,18,4923,8141,5509,13650
+③ 기존 질문·입력 영역,apply-regions,Qwen3.5-4B-Q4_K_M.gguf,263,5,4,9,5,6,3,6,6,20,5327,12002,5521,17523
+③ 새 질문·입력 영역,both-regions,Qwen3.5-4B-Q4_K_M.gguf,263,6,8,14,4,2,2,6,5,18,6369,10512,5805,16317
+② 같은 답·일반 코드,self-apply,Qwen3.5-4B-Q4_K_M.gguf,263,6,5,11,7,2,5,6,2,10,7042,5180,4185,9365
+③ 기존 질문·일반 코드,apply,Qwen3.5-4B-Q4_K_M.gguf,263,5,5,10,9,1,4,6,6,20,5886,14047,5599,19646
+③ 새 질문·일반 코드,both,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,8,2,2,6,5,18,8210,9745,7056,16801
+② 같은 답·자유 조건식,self-program,Qwen3.5-4B-Q4_K_M.gguf,263,0,5,5,3,12,2,6,2,11,6145,5802,2303,8105
+③ 기존 질문·자유 조건식,apply-program,Qwen3.5-4B-Q4_K_M.gguf,263,6,5,11,8,1,4,6,6,21,8068,13222,6960,20182
+③ 새 질문·자유 조건식,both-program,Qwen3.5-4B-Q4_K_M.gguf,263,0,0,0,0,20,0,6,5,18,7019,8868,5711,14579

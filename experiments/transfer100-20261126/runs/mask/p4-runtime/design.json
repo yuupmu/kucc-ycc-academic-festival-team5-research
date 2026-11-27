@@ -1,0 +1,29 @@
+{
+  "protocol": "festival-human-review-p4-v2",
+  "project": {
+    "brief": "화면에서 식별코드를 가리는 mask_code(code) -> str 함수를 구현하세요. 입력은 영문 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능합니다.\n가리는 각 글자를 별표(*) 하나로 바꿉니다. 결과 길이는 입력 길이와 같아야 합니다. 공개하는 글자의 원래 대소문자와 순서는 유지합니다.\n어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다. 다른 문자나 공백은 입력되지 않습니다.",
+    "files": {
+      "solution.py": "def mask_code(code):\n    raise NotImplementedError\n"
+    }
+  },
+  "seed": 263,
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "arms": [
+    "p4"
+  ],
+  "versions": 2,
+  "questions_per_window": 3,
+  "limits": [
+    2400,
+    950
+  ],
+  "prompts_sha256": "7b4218acf84babe78c8199cfc37237cb8ae6e743118752743d2af19c3780388a",
+  "parent_draft": "1dd4b8822f96117aa1240390fe9f04f9a417a3de9287ed0e8a6f317d5b9250b0",
+  "parent_review": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "4526f3be8d147ef503c4f81be3a5abf2e80ee113f15816b5717cfb9b5a8bcf96",
+    "44726ee8e17094c2ebc8ecb2ab6ab6f308e95079fc83d3d0b882a014b59c645b",
+    "4e8a9622a26115b20de04a471a3cd968f65d97f1da8e07f58c4becb953fa3259"
+  ],
+  "refinement_sha256": "53728141c80470befd690caa242b0f2f77c00d71b5cafb0f82ea000a9f2f67e2"
+}

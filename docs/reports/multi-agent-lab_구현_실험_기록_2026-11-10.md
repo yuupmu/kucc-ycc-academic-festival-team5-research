@@ -220,22 +220,22 @@ Multi Agent Lab은 **메인 코드 작성 에이전트 1개와 서로 다른 관
 - [초기 데모](<../early/three-branch-demo/README.md>)
 - [예약 취소 설명](<../../reservation_benchmark/README.md>)
 - [자원 배정 설명](<../../resource_allocation_benchmark/README.md>)
-- 예약 취소 정답 구현 기준 점수 (로컬 보관 자료)
+- [예약 취소 정답 구현 기준 점수](<../early/web-pilot/reference.json>)
 
 개발 대화: 「멀티에이전트 인간 개입 설계」(`01a18187-72a9-76d2-992a-ebf83cc8e484`), 「멀티 에이전트 랩 localhost로 실행」(`01a1a120-ac8e-7140-a056-b89b9c0d579d`)의 관련 턴을 확인했다.
 
 | 전체 실행 ID | 저장된 채점 파일 |
 |---|---|
-| `b4825f61f885486884cc5d648ce7a815` | score.json (로컬 보관 자료) |
+| `b4825f61f885486884cc5d648ce7a815` | [score.json](<../early/web-pilot/b4825f61f885486884cc5d648ce7a815/score.json>) |
 | `375e05792ab14cbea05d99338aef71d4` | 없음 |
-| `96e7426ae01b4a4395d5d30a282acb74` | score.json (로컬 보관 자료) |
-| `ed547e89fda341a79e2c21f1b4cbf453` | score.json (로컬 보관 자료) |
+| `96e7426ae01b4a4395d5d30a282acb74` | [score.json](<../early/web-pilot/96e7426ae01b4a4395d5d30a282acb74/score.json>) |
+| `ed547e89fda341a79e2c21f1b4cbf453` | [score.json](<../early/web-pilot/ed547e89fda341a79e2c21f1b4cbf453/score.json>) |
 | `d746b3f2d3fb43b5aaab7c9e7d46af21` | 없음 |
 | `819ed15c02654b93982e07744b1e85bf` | 없음 |
 | `853857bfe33a454c8d97e5b1a71b2374` | 없음 |
 | `4b9d98a8bea64329a68db0f78421b17f` | 없음 |
 | `eac1b9795c9c4d9e97c71942b28f8118` | 없음 |
-| `158f838562954f908c88e15b24b3a396` | score.json (로컬 보관 자료) |
+| `158f838562954f908c88e15b24b3a396` | [score.json](<../early/web-pilot/158f838562954f908c88e15b24b3a396/score.json>) |
 
 과거 내보내기 파일(최종 DB보다 이전 상태일 수 있음):
 

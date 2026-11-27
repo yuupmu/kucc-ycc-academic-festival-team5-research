@@ -1,0 +1,31 @@
+{
+  "cycle": 1,
+  "ticket": "0482c3381b64e276d7cb5eefd72ab0446e00c114d489015eaf29d702c758d026",
+  "questions": [
+    {
+      "question": "0(빈 파일)은 항상 허용되나요?",
+      "proposed_by": [
+        "A",
+        "C"
+      ],
+      "basis": "A1"
+    },
+    {
+      "question": "상한 값과 빈 파일의 허용 여부를 저장소 담당자에게 확인하여, 그 결과를 바탕으로 allow_upload 함수를 구현하시오.",
+      "proposed_by": [
+        "B",
+        "C"
+      ],
+      "basis": "B1"
+    },
+    {
+      "question": "상한 파일 크기를 100MB로 가정하고 상한 이하를 허용할지, 아니면 50MB로 가정하고 상한 이하를 허용할지 결정이 필요합니다.",
+      "proposed_by": [
+        "C"
+      ],
+      "basis": "C1"
+    }
+  ],
+  "text": "빈 파일에는 거부로 처리합니다.\n업로드 크기의 상한은 16바이트입니다.\n파일 크기가 상한과 정확히 같아도 허용합니다.",
+  "source": "delegated_policy_card"
+}

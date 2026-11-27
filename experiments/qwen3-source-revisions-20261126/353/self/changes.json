@@ -1,0 +1,521 @@
+[
+  {
+    "role": "plan",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "self/plan.json",
+    "before_sha256": "133cf80a36b3bb7b7cfe0b4c9027aa8257cfcc4934339f61ac2bf9d4155d46aa",
+    "after_sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 비교합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용이 시작되면 until_start_seconds는 0 미만이 됩니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 1,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+      }
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        17
+      ],
+      "R2": [
+        21
+      ],
+      "R3": [
+        13
+      ]
+    }
+  },
+  {
+    "role": "review1",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review1.json",
+    "before_sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "after_sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 비교합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용이 시작되면 until_start_seconds는 0 미만이 됩니다."
+      },
+      "R3": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 1,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "rule_edit",
+        "reason": "기존 코드에서 R3 조건은 age_seconds < 3600으로 처리되었으나, 명세에 따르면 1시간 이내에 정정이 가능하므로 1시간(3600초)으로 수정해야 합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "hours"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+        },
+        "after": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "hours"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        17
+      ],
+      "R2": [
+        21
+      ],
+      "R3": [
+        13
+      ]
+    }
+  },
+  {
+    "role": "review2",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review2.json",
+    "before_sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "after_sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 비교합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용이 시작되면 until_start_seconds는 0 미만이 됩니다."
+      },
+      "R3": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 1,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "기존 코드에서 R3 조건은 age_seconds < 3600으로 처리되었으나, 명세에 따르면 1시간 이내에 정정이 가능하므로 1시간(3600초)으로 수정해야 합니다.",
+        "before": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "hours"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+        },
+        "after": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "hours"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        17
+      ],
+      "R2": [
+        21
+      ],
+      "R3": [
+        13
+      ]
+    }
+  },
+  {
+    "role": "final",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/final.json",
+    "before_sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "after_sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 비교합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용이 시작되면 until_start_seconds는 0 미만이 됩니다."
+      },
+      "R3": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 1,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "기존 코드에서 R3 조건은 age_seconds < 3600으로 처리되었으나, 명세에 따르면 1시간 이내에 정정이 가능하므로 1시간(3600초)으로 수정해야 합니다.",
+        "before": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "hours"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+        },
+        "after": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "hours"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 1시간 이내에 정정이 가능합니다."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        17
+      ],
+      "R2": [
+        21
+      ],
+      "R3": [
+        13
+      ]
+    }
+  }
+]

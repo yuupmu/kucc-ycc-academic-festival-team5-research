@@ -1,0 +1,88 @@
+"""Matched writer-only replay. The archived questions are treatments held fixed across authors."""
+import argparse
+from pathlib import Path
+
+from backend import answer_contracts
+from experiments import answer_fidelity as fix, festival_mini as mini, repeated_intervention as live, three_cycle_study as old
+from experiments.local_transport import local_server, locked_output, read
+from experiments.project_review import freeze
+from experiments.rule_cycle_calls import Calls
+from experiments.rule_cycle_study import load_public
+
+
+STUDY=Path(__file__).resolve().parent/'answer-fidelity-20261126'
+CONFIG=STUDY/'design.json'
+
+
+def preregister():
+    config=read(CONFIG)
+    parent=old.preregister()
+    if any(parent[k]!=config[k] for k in ('cycles','projects','model','seed')) or list(parent['first_cycle'])!=config['roles']:
+        raise ValueError('기존 연구 조건이 다릅니다.')
+    files=[CONFIG,Path(fix.__file__),Path(answer_contracts.__file__),Path(live.__file__),Path(__file__),
+           old.STUDY/'manifest.json',STUDY/'format-pilot/manifest.json']
+    for task in config['projects']:
+        for role in config['roles']:
+            for n in range(1,config['cycles']+1):
+                ref=old.root(task,role)/f'cycle-{n}'
+                files.extend(ref/name for name in ('intake.json','snapshot.json','answer.json','operator.json') if (ref/name).is_file())
+    freeze(STUDY/'manifest.json',{'files':{str(p.relative_to(mini.ROOT)):mini.checksum(p) for p in files}})
+    return config
+
+
+def run_arm(task,role,port,audit=False):
+    ref=old.root(task,role)
+    out=STUDY/'runs'/task/role
+    earlier,parent,prior,design,draft=load_public(task)
+    old.verify_receipts(task,ref)
+    files=draft['files']
+    receipts=[]
+    previous_writer=None
+    for n in range(1,read(CONFIG)['cycles']+1):
+        origin=ref/f'cycle-{n}'
+        folder=out/f'cycle-{n}'
+        if not audit:
+            folder.mkdir(parents=True,exist_ok=True)
+        intake=read(origin/'intake.json')
+        receipt=read(origin/'answer.json') if intake['questions'] else None
+        if receipt:
+            receipts.append(receipt)
+        baseline=read(origin/'snapshot.json')
+        old_calls=[origin/'calls',earlier/'calls',parent/'calls',prior/'calls']
+        ask=Calls(folder,design,port,old_calls,audit)
+        corrected=fix.revise(design['project'],files,receipts,design['seed'],role,ask,previous_writer)
+        prefix=([draft['author_call']] if n==1 else [])+intake['calls']
+        if baseline['calls'][:len(prefix)]!=prefix:
+            raise ValueError('고정한 초안·질문 호출이 다릅니다.')
+        snap=dict(cycle=n,previous_sha256=live.base.core.digest(files),baseline_sha256=baseline['sha256'],
+                  transcript_sha256=live.base.core.digest([intake['questions'],receipts]),
+                  calls=prefix+corrected['calls'],held_question_calls=prefix,
+                  **{k:corrected[k] for k in ('sha256','files','status','writer','reviews')})
+        if audit and not (folder/'snapshot.json').is_file():
+            raise ValueError('고정된 회차 기록이 없습니다.')
+        freeze(folder/'snapshot.json',snap)
+        files=snap['files']
+        previous_writer=snap['writer']
+    return live.finish(out,snap,audit)
+
+
+def run(port):
+    with locked_output(STUDY/'runs'):
+        config=preregister()
+        with local_server(port,config['model']):
+            for task in config['projects']:
+                for role in config['roles']:
+                    final=run_arm(task,role,port)
+                    print(task,role,final['status'],flush=True)
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('action',choices=('run','report'))
+    parser.add_argument('--port',type=int,default=18771)
+    args=parser.parse_args()
+    if args.action=='run':
+        run(args.port)
+    else:
+        from experiments.answer_fidelity_report import report
+        report()

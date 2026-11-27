@@ -1,0 +1,31 @@
+--- 대조군 마지막 코드
++++ 같은 규칙 행에 시간 조건만 적용
+@@ -1,14 +1,24 @@
+ def allow_cancel(age_seconds, until_start_seconds):
+-    if age_seconds < 600 and until_start_seconds >= 0:  # [2, 3]
++    if age_seconds <= 600 and until_start_seconds > 0:  # [2, 3]
+         return True
++    if age_seconds <= 600 and until_start_seconds == 0:
++        raise NotImplementedError("담당자 판단 필요")
+     if age_seconds < 600 and until_start_seconds < 0:  # [6]
+         return False
+-    if age_seconds >= 600 and until_start_seconds >= 0:  # [4]
++    if age_seconds <= 600 and until_start_seconds <= 0:
++        raise NotImplementedError("담당자 판단 필요")
++    if age_seconds > 600 and until_start_seconds > 0:  # [4]
+         return True
++    if age_seconds >= 600 and until_start_seconds >= 0:
++        raise NotImplementedError("담당자 판단 필요")
+     if until_start_seconds < 0:  # [6]
+         return False
+-    if until_start_seconds < 86400:  # [1]
++    if until_start_seconds == 0:
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds <= 86400:  # [1]
+         return True
+-    if until_start_seconds >= 86400:
++    if until_start_seconds > 86400:
+         return False
++    if until_start_seconds == 86400:
++        raise NotImplementedError("담당자 판단 필요")
+     return False

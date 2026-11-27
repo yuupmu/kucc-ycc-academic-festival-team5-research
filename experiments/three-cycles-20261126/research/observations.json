@@ -1,0 +1,5720 @@
+{
+  "tasks": {
+    "reservation": {
+      "solo": {
+        "0": {
+          "cases": {
+            "C003": {
+              "args": [
+                604799,
+                86401
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C011": {
+              "args": [
+                165600,
+                86400
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C002": {
+              "args": [
+                604801,
+                86399
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C006": {
+              "args": [
+                608400,
+                82800
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C071": {
+              "args": [
+                600,
+                3600
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C072": {
+              "args": [
+                601,
+                3600
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C073": {
+              "args": [
+                600,
+                7200
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C081": {
+              "args": [
+                299,
+                1
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C082": {
+              "args": [
+                300,
+                0
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                30,
+                32
+              ],
+              "exception": null
+            },
+            "C084": {
+              "args": [
+                301,
+                -1
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                30,
+                31
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+          "status": "one_shot",
+          "unsupported_items": [
+            "C011",
+            "C071",
+            "C084"
+          ],
+          "rules": {
+            "정정 600초와 601초의 구분": {
+              "authorized": false,
+              "cases": [
+                "C071",
+                "C072"
+              ],
+              "passed": false,
+              "actual": [
+                true,
+                true
+              ],
+              "missing": [
+                "clock",
+                "duration",
+                "end",
+                "expired",
+                "late"
+              ]
+            },
+            "이용 시작 순간 거부": {
+              "authorized": false,
+              "cases": [
+                "C082"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "start"
+              ]
+            },
+            "정확한 일반 마감": {
+              "authorized": false,
+              "cases": [
+                "C011"
+              ],
+              "passed": true,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "deadline"
+              ]
+            },
+            "이용 시작 후 정정 거부": {
+              "authorized": false,
+              "cases": [
+                "C084"
+              ],
+              "passed": true,
+              "actual": [
+                false
+              ],
+              "missing": [
+                "after"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "reservation",
+            "arm": "solo",
+            "cycle": 0,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "unsupported_returns": 3,
+            "policy_probes": 3,
+            "questions": 0,
+            "owner_windows": 0,
+            "new_reply_sentences": 0,
+            "repeated_reply_sentences": 0,
+            "calls": 1,
+            "prompt_tokens": 424,
+            "completion_tokens": 375,
+            "total_tokens": 799,
+            "cumulative_prompt_tokens": 424,
+            "cumulative_completion_tokens": 375,
+            "cumulative_total_tokens": 799,
+            "cumulative_questions": 0,
+            "cumulative_windows": 0,
+            "cumulative_calls": 1,
+            "status": "one_shot",
+            "same_writer_requests_as_last": null,
+            "same_files_as_last": null
+          },
+          "known_card_ids": [],
+          "role_tokens": {
+            "main-author": {
+              "prompt_tokens": 424,
+              "completion_tokens": 375,
+              "total_tokens": 799
+            }
+          },
+          "model_seconds": 11.58
+        }
+      },
+      "self": {
+        "1": {
+          "cases": {
+            "C003": {
+              "args": [
+                604799,
+                86401
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                50,
+                51
+              ],
+              "exception": null
+            },
+            "C011": {
+              "args": [
+                165600,
+                86400
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                49
+              ],
+              "exception": null
+            },
+            "C002": {
+              "args": [
+                604801,
+                86399
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C006": {
+              "args": [
+                608400,
+                82800
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C071": {
+              "args": [
+                600,
+                3600
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C072": {
+              "args": [
+                601,
+                3600
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C073": {
+              "args": [
+                600,
+                7200
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C081": {
+              "args": [
+                299,
+                1
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                27
+              ],
+              "exception": null
+            },
+            "C082": {
+              "args": [
+                300,
+                0
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                25
+              ],
+              "exception": null
+            },
+            "C084": {
+              "args": [
+                301,
+                -1
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                23
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+          "status": "open_limit",
+          "unsupported_items": [
+            "C011",
+            "C071",
+            "C084"
+          ],
+          "rules": {
+            "정정 600초와 601초의 구분": {
+              "authorized": false,
+              "cases": [
+                "C071",
+                "C072"
+              ],
+              "passed": false,
+              "actual": [
+                true,
+                true
+              ],
+              "missing": [
+                "end",
+                "expired",
+                "late"
+              ]
+            },
+            "이용 시작 순간 거부": {
+              "authorized": false,
+              "cases": [
+                "C082"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "start"
+              ]
+            },
+            "정확한 일반 마감": {
+              "authorized": false,
+              "cases": [
+                "C011"
+              ],
+              "passed": true,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "deadline"
+              ]
+            },
+            "이용 시작 후 정정 거부": {
+              "authorized": false,
+              "cases": [
+                "C084"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "after"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "reservation",
+            "arm": "self",
+            "cycle": 1,
+            "correct": 5,
+            "wrong": 5,
+            "unanswered": 0,
+            "unsupported_returns": 3,
+            "policy_probes": 3,
+            "questions": 1,
+            "owner_windows": 1,
+            "new_reply_sentences": 2,
+            "repeated_reply_sentences": 0,
+            "calls": 5,
+            "prompt_tokens": 3530,
+            "completion_tokens": 2175,
+            "total_tokens": 5705,
+            "cumulative_prompt_tokens": 3530,
+            "cumulative_completion_tokens": 2175,
+            "cumulative_total_tokens": 5705,
+            "cumulative_questions": 1,
+            "cumulative_windows": 1,
+            "cumulative_calls": 5,
+            "status": "open_limit",
+            "same_writer_requests_as_last": null,
+            "same_files_as_last": null
+          },
+          "known_card_ids": [
+            "clock",
+            "duration"
+          ],
+          "role_tokens": {
+            "main-author": {
+              "prompt_tokens": 424,
+              "completion_tokens": 375,
+              "total_tokens": 799
+            },
+            "main-self": {
+              "prompt_tokens": 1721,
+              "completion_tokens": 114,
+              "total_tokens": 1835
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 413,
+              "completion_tokens": 324,
+              "total_tokens": 737
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 972,
+              "completion_tokens": 1362,
+              "total_tokens": 2334
+            }
+          },
+          "model_seconds": 64.07
+        },
+        "2": {
+          "cases": {
+            "C003": {
+              "args": [
+                604799,
+                86401
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                50,
+                51
+              ],
+              "exception": null
+            },
+            "C011": {
+              "args": [
+                165600,
+                86400
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                49
+              ],
+              "exception": null
+            },
+            "C002": {
+              "args": [
+                604801,
+                86399
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C006": {
+              "args": [
+                608400,
+                82800
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C071": {
+              "args": [
+                600,
+                3600
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C072": {
+              "args": [
+                601,
+                3600
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C073": {
+              "args": [
+                600,
+                7200
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C081": {
+              "args": [
+                299,
+                1
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                27
+              ],
+              "exception": null
+            },
+            "C082": {
+              "args": [
+                300,
+                0
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                25
+              ],
+              "exception": null
+            },
+            "C084": {
+              "args": [
+                301,
+                -1
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                23
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+          "status": "open_limit",
+          "unsupported_items": [
+            "C011",
+            "C071",
+            "C084"
+          ],
+          "rules": {
+            "정정 600초와 601초의 구분": {
+              "authorized": false,
+              "cases": [
+                "C071",
+                "C072"
+              ],
+              "passed": false,
+              "actual": [
+                true,
+                true
+              ],
+              "missing": [
+                "end",
+                "late"
+              ]
+            },
+            "이용 시작 순간 거부": {
+              "authorized": false,
+              "cases": [
+                "C082"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "start"
+              ]
+            },
+            "정확한 일반 마감": {
+              "authorized": false,
+              "cases": [
+                "C011"
+              ],
+              "passed": true,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "deadline"
+              ]
+            },
+            "이용 시작 후 정정 거부": {
+              "authorized": false,
+              "cases": [
+                "C084"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "after"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "reservation",
+            "arm": "self",
+            "cycle": 2,
+            "correct": 5,
+            "wrong": 5,
+            "unanswered": 0,
+            "unsupported_returns": 3,
+            "policy_probes": 3,
+            "questions": 1,
+            "owner_windows": 1,
+            "new_reply_sentences": 2,
+            "repeated_reply_sentences": 0,
+            "calls": 4,
+            "prompt_tokens": 3588,
+            "completion_tokens": 2322,
+            "total_tokens": 5910,
+            "cumulative_prompt_tokens": 7118,
+            "cumulative_completion_tokens": 4497,
+            "cumulative_total_tokens": 11615,
+            "cumulative_questions": 2,
+            "cumulative_windows": 2,
+            "cumulative_calls": 9,
+            "status": "open_limit",
+            "same_writer_requests_as_last": false,
+            "same_files_as_last": true
+          },
+          "known_card_ids": [
+            "clock",
+            "duration",
+            "expired",
+            "overlap_allowed"
+          ],
+          "role_tokens": {
+            "main-self": {
+              "prompt_tokens": 2119,
+              "completion_tokens": 150,
+              "total_tokens": 2269
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 455,
+              "completion_tokens": 335,
+              "total_tokens": 790
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 1014,
+              "completion_tokens": 1837,
+              "total_tokens": 2851
+            }
+          },
+          "model_seconds": 64.83
+        },
+        "3": {
+          "cases": {
+            "C003": {
+              "args": [
+                604799,
+                86401
+              ],
+              "actual": false,
+              "expected": true,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                50,
+                51
+              ],
+              "exception": null
+            },
+            "C011": {
+              "args": [
+                165600,
+                86400
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                49
+              ],
+              "exception": null
+            },
+            "C002": {
+              "args": [
+                604801,
+                86399
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C006": {
+              "args": [
+                608400,
+                82800
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C071": {
+              "args": [
+                600,
+                3600
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C072": {
+              "args": [
+                601,
+                3600
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C073": {
+              "args": [
+                600,
+                7200
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C081": {
+              "args": [
+                299,
+                1
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                27
+              ],
+              "exception": null
+            },
+            "C082": {
+              "args": [
+                300,
+                0
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                25
+              ],
+              "exception": null
+            },
+            "C084": {
+              "args": [
+                301,
+                -1
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                23
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "7dfe1c3b37ad4887bee9a06136591920656d850162127c0d4b8c86bd6ba5fb7b",
+          "status": "open_limit",
+          "unsupported_items": [
+            "C011",
+            "C071",
+            "C084"
+          ],
+          "rules": {
+            "정정 600초와 601초의 구분": {
+              "authorized": false,
+              "cases": [
+                "C071",
+                "C072"
+              ],
+              "passed": false,
+              "actual": [
+                true,
+                true
+              ],
+              "missing": [
+                "end"
+              ]
+            },
+            "이용 시작 순간 거부": {
+              "authorized": false,
+              "cases": [
+                "C082"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "start"
+              ]
+            },
+            "정확한 일반 마감": {
+              "authorized": false,
+              "cases": [
+                "C011"
+              ],
+              "passed": true,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "deadline"
+              ]
+            },
+            "이용 시작 후 정정 거부": {
+              "authorized": false,
+              "cases": [
+                "C084"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "after"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "reservation",
+            "arm": "self",
+            "cycle": 3,
+            "correct": 4,
+            "wrong": 6,
+            "unanswered": 0,
+            "unsupported_returns": 3,
+            "policy_probes": 3,
+            "questions": 1,
+            "owner_windows": 1,
+            "new_reply_sentences": 1,
+            "repeated_reply_sentences": 1,
+            "calls": 4,
+            "prompt_tokens": 3702,
+            "completion_tokens": 1564,
+            "total_tokens": 5266,
+            "cumulative_prompt_tokens": 10820,
+            "cumulative_completion_tokens": 6061,
+            "cumulative_total_tokens": 16881,
+            "cumulative_questions": 3,
+            "cumulative_windows": 3,
+            "cumulative_calls": 13,
+            "status": "open_limit",
+            "same_writer_requests_as_last": false,
+            "same_files_as_last": false
+          },
+          "known_card_ids": [
+            "clock",
+            "duration",
+            "expired",
+            "late",
+            "overlap_allowed"
+          ],
+          "role_tokens": {
+            "main-self": {
+              "prompt_tokens": 2193,
+              "completion_tokens": 119,
+              "total_tokens": 2312
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 475,
+              "completion_tokens": 491,
+              "total_tokens": 966
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 1034,
+              "completion_tokens": 954,
+              "total_tokens": 1988
+            }
+          },
+          "model_seconds": 45.94
+        }
+      },
+      "multi": {
+        "1": {
+          "cases": {
+            "C003": {
+              "args": [
+                604799,
+                86401
+              ],
+              "actual": false,
+              "expected": true,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                50,
+                51
+              ],
+              "exception": null
+            },
+            "C011": {
+              "args": [
+                165600,
+                86400
+              ],
+              "actual": false,
+              "expected": true,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                49
+              ],
+              "exception": null
+            },
+            "C002": {
+              "args": [
+                604801,
+                86399
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C006": {
+              "args": [
+                608400,
+                82800
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C071": {
+              "args": [
+                600,
+                3600
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C072": {
+              "args": [
+                601,
+                3600
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C073": {
+              "args": [
+                600,
+                7200
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C081": {
+              "args": [
+                299,
+                1
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                27
+              ],
+              "exception": null
+            },
+            "C082": {
+              "args": [
+                300,
+                0
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                25
+              ],
+              "exception": null
+            },
+            "C084": {
+              "args": [
+                301,
+                -1
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                23
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+          "status": "open_limit",
+          "unsupported_items": [
+            "C011",
+            "C084"
+          ],
+          "rules": {
+            "정정 600초와 601초의 구분": {
+              "authorized": true,
+              "cases": [
+                "C071",
+                "C072"
+              ],
+              "passed": true,
+              "actual": [
+                true,
+                false
+              ],
+              "missing": []
+            },
+            "이용 시작 순간 거부": {
+              "authorized": true,
+              "cases": [
+                "C082"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": []
+            },
+            "정확한 일반 마감": {
+              "authorized": false,
+              "cases": [
+                "C011"
+              ],
+              "passed": false,
+              "actual": [
+                false
+              ],
+              "missing": [
+                "deadline"
+              ]
+            },
+            "이용 시작 후 정정 거부": {
+              "authorized": false,
+              "cases": [
+                "C084"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "after"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "reservation",
+            "arm": "multi",
+            "cycle": 1,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "unsupported_returns": 2,
+            "policy_probes": 3,
+            "questions": 2,
+            "owner_windows": 1,
+            "new_reply_sentences": 6,
+            "repeated_reply_sentences": 0,
+            "calls": 9,
+            "prompt_tokens": 6512,
+            "completion_tokens": 3516,
+            "total_tokens": 10028,
+            "cumulative_prompt_tokens": 6512,
+            "cumulative_completion_tokens": 3516,
+            "cumulative_total_tokens": 10028,
+            "cumulative_questions": 2,
+            "cumulative_windows": 1,
+            "cumulative_calls": 9,
+            "status": "open_limit",
+            "same_writer_requests_as_last": null,
+            "same_files_as_last": null
+          },
+          "known_card_ids": [
+            "clock",
+            "duration",
+            "end",
+            "expired",
+            "late",
+            "start"
+          ],
+          "role_tokens": {
+            "main-author": {
+              "prompt_tokens": 424,
+              "completion_tokens": 375,
+              "total_tokens": 799
+            },
+            "A": {
+              "prompt_tokens": 1521,
+              "completion_tokens": 420,
+              "total_tokens": 1941
+            },
+            "B": {
+              "prompt_tokens": 1513,
+              "completion_tokens": 621,
+              "total_tokens": 2134
+            },
+            "C": {
+              "prompt_tokens": 1517,
+              "completion_tokens": 340,
+              "total_tokens": 1857
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 489,
+              "completion_tokens": 652,
+              "total_tokens": 1141
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 1048,
+              "completion_tokens": 1108,
+              "total_tokens": 2156
+            }
+          },
+          "model_seconds": 103.19
+        },
+        "2": {
+          "cases": {
+            "C003": {
+              "args": [
+                604799,
+                86401
+              ],
+              "actual": false,
+              "expected": true,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                50,
+                51
+              ],
+              "exception": null
+            },
+            "C011": {
+              "args": [
+                165600,
+                86400
+              ],
+              "actual": false,
+              "expected": true,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                49
+              ],
+              "exception": null
+            },
+            "C002": {
+              "args": [
+                604801,
+                86399
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C006": {
+              "args": [
+                608400,
+                82800
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C071": {
+              "args": [
+                600,
+                3600
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C072": {
+              "args": [
+                601,
+                3600
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C073": {
+              "args": [
+                600,
+                7200
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C081": {
+              "args": [
+                299,
+                1
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                27
+              ],
+              "exception": null
+            },
+            "C082": {
+              "args": [
+                300,
+                0
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                25
+              ],
+              "exception": null
+            },
+            "C084": {
+              "args": [
+                301,
+                -1
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                23
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+          "status": "open_limit",
+          "unsupported_items": [
+            "C011",
+            "C084"
+          ],
+          "rules": {
+            "정정 600초와 601초의 구분": {
+              "authorized": true,
+              "cases": [
+                "C071",
+                "C072"
+              ],
+              "passed": true,
+              "actual": [
+                true,
+                false
+              ],
+              "missing": []
+            },
+            "이용 시작 순간 거부": {
+              "authorized": true,
+              "cases": [
+                "C082"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": []
+            },
+            "정확한 일반 마감": {
+              "authorized": false,
+              "cases": [
+                "C011"
+              ],
+              "passed": false,
+              "actual": [
+                false
+              ],
+              "missing": [
+                "deadline"
+              ]
+            },
+            "이용 시작 후 정정 거부": {
+              "authorized": false,
+              "cases": [
+                "C084"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "after"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "reservation",
+            "arm": "multi",
+            "cycle": 2,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "unsupported_returns": 2,
+            "policy_probes": 3,
+            "questions": 2,
+            "owner_windows": 1,
+            "new_reply_sentences": 0,
+            "repeated_reply_sentences": 3,
+            "calls": 8,
+            "prompt_tokens": 8503,
+            "completion_tokens": 3758,
+            "total_tokens": 12261,
+            "cumulative_prompt_tokens": 15015,
+            "cumulative_completion_tokens": 7274,
+            "cumulative_total_tokens": 22289,
+            "cumulative_questions": 4,
+            "cumulative_windows": 2,
+            "cumulative_calls": 17,
+            "status": "open_limit",
+            "same_writer_requests_as_last": true,
+            "same_files_as_last": true
+          },
+          "known_card_ids": [
+            "clock",
+            "duration",
+            "end",
+            "expired",
+            "late",
+            "start"
+          ],
+          "role_tokens": {
+            "A": {
+              "prompt_tokens": 2326,
+              "completion_tokens": 675,
+              "total_tokens": 3001
+            },
+            "B": {
+              "prompt_tokens": 2318,
+              "completion_tokens": 615,
+              "total_tokens": 2933
+            },
+            "C": {
+              "prompt_tokens": 2322,
+              "completion_tokens": 708,
+              "total_tokens": 3030
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 489,
+              "completion_tokens": 652,
+              "total_tokens": 1141
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 1048,
+              "completion_tokens": 1108,
+              "total_tokens": 2156
+            }
+          },
+          "model_seconds": 107.31
+        },
+        "3": {
+          "cases": {
+            "C003": {
+              "args": [
+                604799,
+                86401
+              ],
+              "actual": false,
+              "expected": true,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                50,
+                51
+              ],
+              "exception": null
+            },
+            "C011": {
+              "args": [
+                165600,
+                86400
+              ],
+              "actual": false,
+              "expected": true,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                49
+              ],
+              "exception": null
+            },
+            "C002": {
+              "args": [
+                604801,
+                86399
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C006": {
+              "args": [
+                608400,
+                82800
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C071": {
+              "args": [
+                600,
+                3600
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C072": {
+              "args": [
+                601,
+                3600
+              ],
+              "actual": false,
+              "expected": false,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                47
+              ],
+              "exception": null
+            },
+            "C073": {
+              "args": [
+                600,
+                7200
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                37
+              ],
+              "exception": null
+            },
+            "C081": {
+              "args": [
+                299,
+                1
+              ],
+              "actual": true,
+              "expected": true,
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                27
+              ],
+              "exception": null
+            },
+            "C082": {
+              "args": [
+                300,
+                0
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                25
+              ],
+              "exception": null
+            },
+            "C084": {
+              "args": [
+                301,
+                -1
+              ],
+              "actual": true,
+              "expected": false,
+              "status": "wrong",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                23
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+          "status": "open_limit",
+          "unsupported_items": [
+            "C011",
+            "C084"
+          ],
+          "rules": {
+            "정정 600초와 601초의 구분": {
+              "authorized": true,
+              "cases": [
+                "C071",
+                "C072"
+              ],
+              "passed": true,
+              "actual": [
+                true,
+                false
+              ],
+              "missing": []
+            },
+            "이용 시작 순간 거부": {
+              "authorized": true,
+              "cases": [
+                "C082"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": []
+            },
+            "정확한 일반 마감": {
+              "authorized": false,
+              "cases": [
+                "C011"
+              ],
+              "passed": false,
+              "actual": [
+                false
+              ],
+              "missing": [
+                "deadline"
+              ]
+            },
+            "이용 시작 후 정정 거부": {
+              "authorized": false,
+              "cases": [
+                "C084"
+              ],
+              "passed": false,
+              "actual": [
+                true
+              ],
+              "missing": [
+                "after"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "reservation",
+            "arm": "multi",
+            "cycle": 3,
+            "correct": 6,
+            "wrong": 4,
+            "unanswered": 0,
+            "unsupported_returns": 2,
+            "policy_probes": 3,
+            "questions": 3,
+            "owner_windows": 1,
+            "new_reply_sentences": 0,
+            "repeated_reply_sentences": 5,
+            "calls": 8,
+            "prompt_tokens": 8884,
+            "completion_tokens": 3402,
+            "total_tokens": 12286,
+            "cumulative_prompt_tokens": 23899,
+            "cumulative_completion_tokens": 10676,
+            "cumulative_total_tokens": 34575,
+            "cumulative_questions": 7,
+            "cumulative_windows": 3,
+            "cumulative_calls": 25,
+            "status": "open_limit",
+            "same_writer_requests_as_last": true,
+            "same_files_as_last": true
+          },
+          "known_card_ids": [
+            "clock",
+            "duration",
+            "end",
+            "expired",
+            "late",
+            "start"
+          ],
+          "role_tokens": {
+            "A": {
+              "prompt_tokens": 2453,
+              "completion_tokens": 590,
+              "total_tokens": 3043
+            },
+            "B": {
+              "prompt_tokens": 2445,
+              "completion_tokens": 772,
+              "total_tokens": 3217
+            },
+            "C": {
+              "prompt_tokens": 2449,
+              "completion_tokens": 280,
+              "total_tokens": 2729
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 489,
+              "completion_tokens": 652,
+              "total_tokens": 1141
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 1048,
+              "completion_tokens": 1108,
+              "total_tokens": 2156
+            }
+          },
+          "model_seconds": 98.7
+        }
+      }
+    },
+    "triage": {
+      "solo": {
+        "0": {
+          "cases": {
+            "1": {
+              "args": [
+                [
+                  "account"
+                ]
+              ],
+              "actual": "account",
+              "expected": "account",
+              "status": "correct",
+              "executed": [
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            },
+            "3": {
+              "args": [
+                [
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            },
+            "4": {
+              "args": [
+                [
+                  "misc"
+                ]
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                3,
+                2,
+                5
+              ],
+              "exception": "NotImplementedError"
+            },
+            "5": {
+              "args": [
+                []
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                5
+              ],
+              "exception": "NotImplementedError"
+            },
+            "6": {
+              "args": [
+                [
+                  "account",
+                  "billing"
+                ]
+              ],
+              "actual": "account",
+              "expected": "billing",
+              "status": "wrong",
+              "executed": [
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            },
+            "7": {
+              "args": [
+                [
+                  "billing",
+                  "account"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            },
+            "9": {
+              "args": [
+                [
+                  "account",
+                  "privacy"
+                ]
+              ],
+              "actual": "account",
+              "expected": "privacy",
+              "status": "wrong",
+              "executed": [
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            },
+            "11": {
+              "args": [
+                [
+                  "billing",
+                  "privacy"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "privacy",
+              "status": "wrong",
+              "executed": [
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            },
+            "14": {
+              "args": [
+                [
+                  "misc",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                3,
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            },
+            "15": {
+              "args": [
+                [
+                  "misc",
+                  "account",
+                  "privacy",
+                  "privacy"
+                ]
+              ],
+              "actual": "account",
+              "expected": "privacy",
+              "status": "wrong",
+              "executed": [
+                2,
+                3,
+                2,
+                3,
+                4
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+          "status": "one_shot",
+          "unsupported_items": [
+            "6",
+            "14"
+          ],
+          "rules": {
+            "복수 팀 우선순위": {
+              "authorized": false,
+              "cases": [
+                "6",
+                "7",
+                "9",
+                "11"
+              ],
+              "passed": false,
+              "actual": [
+                "account",
+                "billing",
+                "account",
+                "billing"
+              ],
+              "missing": [
+                "rank"
+              ]
+            },
+            "미등록·등록 태그 혼합": {
+              "authorized": false,
+              "cases": [
+                "14"
+              ],
+              "passed": true,
+              "actual": [
+                "billing"
+              ],
+              "missing": [
+                "unknown"
+              ]
+            },
+            "빈 목록": {
+              "authorized": false,
+              "cases": [
+                "5"
+              ],
+              "passed": false,
+              "actual": [
+                null
+              ],
+              "missing": [
+                "empty_list"
+              ]
+            },
+            "공개된 입력 순서 불변성": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7"
+              ],
+              "missing": [],
+              "passed": false,
+              "actual": [
+                "account",
+                "billing"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "triage",
+            "arm": "solo",
+            "cycle": 0,
+            "correct": 4,
+            "wrong": 4,
+            "unanswered": 2,
+            "unsupported_returns": 2,
+            "policy_probes": 3,
+            "questions": 0,
+            "owner_windows": 0,
+            "new_reply_sentences": 0,
+            "repeated_reply_sentences": 0,
+            "calls": 1,
+            "prompt_tokens": 314,
+            "completion_tokens": 512,
+            "total_tokens": 826,
+            "cumulative_prompt_tokens": 314,
+            "cumulative_completion_tokens": 512,
+            "cumulative_total_tokens": 826,
+            "cumulative_questions": 0,
+            "cumulative_windows": 0,
+            "cumulative_calls": 1,
+            "status": "one_shot",
+            "same_writer_requests_as_last": null,
+            "same_files_as_last": null
+          },
+          "known_card_ids": [],
+          "role_tokens": {
+            "main-author": {
+              "prompt_tokens": 314,
+              "completion_tokens": 512,
+              "total_tokens": 826
+            }
+          },
+          "model_seconds": 13.96
+        }
+      },
+      "self": {
+        "1": {
+          "cases": {
+            "1": {
+              "args": [
+                [
+                  "account"
+                ]
+              ],
+              "actual": "account",
+              "expected": "account",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "3": {
+              "args": [
+                [
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "4": {
+              "args": [
+                [
+                  "misc"
+                ]
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "5": {
+              "args": [
+                []
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "6": {
+              "args": [
+                [
+                  "account",
+                  "billing"
+                ]
+              ],
+              "actual": null,
+              "expected": "billing",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "7": {
+              "args": [
+                [
+                  "billing",
+                  "account"
+                ]
+              ],
+              "actual": null,
+              "expected": "billing",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "9": {
+              "args": [
+                [
+                  "account",
+                  "privacy"
+                ]
+              ],
+              "actual": null,
+              "expected": "privacy",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "11": {
+              "args": [
+                [
+                  "billing",
+                  "privacy"
+                ]
+              ],
+              "actual": null,
+              "expected": "privacy",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "14": {
+              "args": [
+                [
+                  "misc",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                5
+              ],
+              "exception": null
+            },
+            "15": {
+              "args": [
+                [
+                  "misc",
+                  "account",
+                  "privacy",
+                  "privacy"
+                ]
+              ],
+              "actual": null,
+              "expected": "privacy",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            }
+          },
+          "sha256": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+          "status": "open_limit",
+          "unsupported_items": [
+            "14"
+          ],
+          "rules": {
+            "복수 팀 우선순위": {
+              "authorized": false,
+              "cases": [
+                "6",
+                "7",
+                "9",
+                "11"
+              ],
+              "passed": false,
+              "actual": [
+                null,
+                null,
+                null,
+                null
+              ],
+              "missing": [
+                "rank"
+              ]
+            },
+            "미등록·등록 태그 혼합": {
+              "authorized": false,
+              "cases": [
+                "14"
+              ],
+              "passed": true,
+              "actual": [
+                "billing"
+              ],
+              "missing": [
+                "unknown"
+              ]
+            },
+            "빈 목록": {
+              "authorized": false,
+              "cases": [
+                "5"
+              ],
+              "passed": false,
+              "actual": [
+                null
+              ],
+              "missing": [
+                "empty_list"
+              ]
+            },
+            "공개된 입력 순서 불변성": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7"
+              ],
+              "missing": [],
+              "passed": false,
+              "actual": [
+                null,
+                null
+              ]
+            }
+          },
+          "metrics": {
+            "task": "triage",
+            "arm": "self",
+            "cycle": 1,
+            "correct": 3,
+            "wrong": 0,
+            "unanswered": 7,
+            "unsupported_returns": 1,
+            "policy_probes": 3,
+            "questions": 1,
+            "owner_windows": 1,
+            "new_reply_sentences": 1,
+            "repeated_reply_sentences": 0,
+            "calls": 5,
+            "prompt_tokens": 1835,
+            "completion_tokens": 1019,
+            "total_tokens": 2854,
+            "cumulative_prompt_tokens": 1835,
+            "cumulative_completion_tokens": 1019,
+            "cumulative_total_tokens": 2854,
+            "cumulative_questions": 1,
+            "cumulative_windows": 1,
+            "cumulative_calls": 5,
+            "status": "open_limit",
+            "same_writer_requests_as_last": null,
+            "same_files_as_last": null
+          },
+          "known_card_ids": [
+            "invariant"
+          ],
+          "role_tokens": {
+            "main-author": {
+              "prompt_tokens": 314,
+              "completion_tokens": 512,
+              "total_tokens": 826
+            },
+            "main-self": {
+              "prompt_tokens": 688,
+              "completion_tokens": 113,
+              "total_tokens": 801
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 297,
+              "completion_tokens": 230,
+              "total_tokens": 527
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 536,
+              "completion_tokens": 164,
+              "total_tokens": 700
+            }
+          },
+          "model_seconds": 29.31
+        },
+        "2": {
+          "cases": {
+            "1": {
+              "args": [
+                [
+                  "account"
+                ]
+              ],
+              "actual": "account",
+              "expected": "account",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "3": {
+              "args": [
+                [
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "4": {
+              "args": [
+                [
+                  "misc"
+                ]
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "5": {
+              "args": [
+                []
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "6": {
+              "args": [
+                [
+                  "account",
+                  "billing"
+                ]
+              ],
+              "actual": null,
+              "expected": "billing",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "7": {
+              "args": [
+                [
+                  "billing",
+                  "account"
+                ]
+              ],
+              "actual": null,
+              "expected": "billing",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "9": {
+              "args": [
+                [
+                  "account",
+                  "privacy"
+                ]
+              ],
+              "actual": null,
+              "expected": "privacy",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "11": {
+              "args": [
+                [
+                  "billing",
+                  "privacy"
+                ]
+              ],
+              "actual": null,
+              "expected": "privacy",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            },
+            "14": {
+              "args": [
+                [
+                  "misc",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                5
+              ],
+              "exception": null
+            },
+            "15": {
+              "args": [
+                [
+                  "misc",
+                  "account",
+                  "privacy",
+                  "privacy"
+                ]
+              ],
+              "actual": null,
+              "expected": "privacy",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6
+              ],
+              "exception": "NotImplementedError"
+            }
+          },
+          "sha256": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+          "status": "open_limit",
+          "unsupported_items": [
+            "14"
+          ],
+          "rules": {
+            "복수 팀 우선순위": {
+              "authorized": false,
+              "cases": [
+                "6",
+                "7",
+                "9",
+                "11"
+              ],
+              "passed": false,
+              "actual": [
+                null,
+                null,
+                null,
+                null
+              ],
+              "missing": [
+                "rank"
+              ]
+            },
+            "미등록·등록 태그 혼합": {
+              "authorized": false,
+              "cases": [
+                "14"
+              ],
+              "passed": true,
+              "actual": [
+                "billing"
+              ],
+              "missing": [
+                "unknown"
+              ]
+            },
+            "빈 목록": {
+              "authorized": false,
+              "cases": [
+                "5"
+              ],
+              "passed": false,
+              "actual": [
+                null
+              ],
+              "missing": [
+                "empty_list"
+              ]
+            },
+            "공개된 입력 순서 불변성": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7"
+              ],
+              "missing": [],
+              "passed": false,
+              "actual": [
+                null,
+                null
+              ]
+            }
+          },
+          "metrics": {
+            "task": "triage",
+            "arm": "self",
+            "cycle": 2,
+            "correct": 3,
+            "wrong": 0,
+            "unanswered": 7,
+            "unsupported_returns": 1,
+            "policy_probes": 3,
+            "questions": 1,
+            "owner_windows": 1,
+            "new_reply_sentences": 1,
+            "repeated_reply_sentences": 0,
+            "calls": 4,
+            "prompt_tokens": 1727,
+            "completion_tokens": 654,
+            "total_tokens": 2381,
+            "cumulative_prompt_tokens": 3562,
+            "cumulative_completion_tokens": 1673,
+            "cumulative_total_tokens": 5235,
+            "cumulative_questions": 2,
+            "cumulative_windows": 2,
+            "cumulative_calls": 9,
+            "status": "open_limit",
+            "same_writer_requests_as_last": false,
+            "same_files_as_last": true
+          },
+          "known_card_ids": [
+            "clarify",
+            "invariant"
+          ],
+          "role_tokens": {
+            "main-self": {
+              "prompt_tokens": 856,
+              "completion_tokens": 97,
+              "total_tokens": 953
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 316,
+              "completion_tokens": 327,
+              "total_tokens": 643
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 555,
+              "completion_tokens": 230,
+              "total_tokens": 785
+            }
+          },
+          "model_seconds": 19.13
+        },
+        "3": {
+          "cases": {
+            "1": {
+              "args": [
+                [
+                  "account"
+                ]
+              ],
+              "actual": "account",
+              "expected": "account",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "3": {
+              "args": [
+                [
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "4": {
+              "args": [
+                [
+                  "misc"
+                ]
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "5": {
+              "args": [
+                []
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "6": {
+              "args": [
+                [
+                  "account",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "7": {
+              "args": [
+                [
+                  "billing",
+                  "account"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "9": {
+              "args": [
+                [
+                  "account",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "11": {
+              "args": [
+                [
+                  "billing",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "14": {
+              "args": [
+                [
+                  "misc",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                5
+              ],
+              "exception": null
+            },
+            "15": {
+              "args": [
+                [
+                  "misc",
+                  "account",
+                  "privacy",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                9
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+          "status": "open_limit",
+          "unsupported_items": [
+            "14"
+          ],
+          "rules": {
+            "복수 팀 우선순위": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7",
+                "9",
+                "11"
+              ],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing",
+                "privacy",
+                "privacy"
+              ],
+              "missing": []
+            },
+            "미등록·등록 태그 혼합": {
+              "authorized": false,
+              "cases": [
+                "14"
+              ],
+              "passed": true,
+              "actual": [
+                "billing"
+              ],
+              "missing": [
+                "unknown"
+              ]
+            },
+            "빈 목록": {
+              "authorized": false,
+              "cases": [
+                "5"
+              ],
+              "passed": false,
+              "actual": [
+                null
+              ],
+              "missing": [
+                "empty_list"
+              ]
+            },
+            "공개된 입력 순서 불변성": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7"
+              ],
+              "missing": [],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "triage",
+            "arm": "self",
+            "cycle": 3,
+            "correct": 8,
+            "wrong": 0,
+            "unanswered": 2,
+            "unsupported_returns": 1,
+            "policy_probes": 3,
+            "questions": 1,
+            "owner_windows": 1,
+            "new_reply_sentences": 1,
+            "repeated_reply_sentences": 0,
+            "calls": 4,
+            "prompt_tokens": 1984,
+            "completion_tokens": 687,
+            "total_tokens": 2671,
+            "cumulative_prompt_tokens": 5546,
+            "cumulative_completion_tokens": 2360,
+            "cumulative_total_tokens": 7906,
+            "cumulative_questions": 3,
+            "cumulative_windows": 3,
+            "cumulative_calls": 13,
+            "status": "open_limit",
+            "same_writer_requests_as_last": false,
+            "same_files_as_last": false
+          },
+          "known_card_ids": [
+            "clarify",
+            "invariant",
+            "rank"
+          ],
+          "role_tokens": {
+            "main-self": {
+              "prompt_tokens": 1012,
+              "completion_tokens": 172,
+              "total_tokens": 1184
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 343,
+              "completion_tokens": 314,
+              "total_tokens": 657
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 629,
+              "completion_tokens": 201,
+              "total_tokens": 830
+            }
+          },
+          "model_seconds": 20.54
+        }
+      },
+      "multi": {
+        "1": {
+          "cases": {
+            "1": {
+              "args": [
+                [
+                  "account"
+                ]
+              ],
+              "actual": "account",
+              "expected": "account",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "3": {
+              "args": [
+                [
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "4": {
+              "args": [
+                [
+                  "misc"
+                ]
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "5": {
+              "args": [
+                []
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "6": {
+              "args": [
+                [
+                  "account",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "7": {
+              "args": [
+                [
+                  "billing",
+                  "account"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "9": {
+              "args": [
+                [
+                  "account",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "11": {
+              "args": [
+                [
+                  "billing",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "14": {
+              "args": [
+                [
+                  "misc",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                5
+              ],
+              "exception": null
+            },
+            "15": {
+              "args": [
+                [
+                  "misc",
+                  "account",
+                  "privacy",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                9
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+          "status": "open_limit",
+          "unsupported_items": [],
+          "rules": {
+            "복수 팀 우선순위": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7",
+                "9",
+                "11"
+              ],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing",
+                "privacy",
+                "privacy"
+              ],
+              "missing": []
+            },
+            "미등록·등록 태그 혼합": {
+              "authorized": true,
+              "cases": [
+                "14"
+              ],
+              "passed": true,
+              "actual": [
+                "billing"
+              ],
+              "missing": []
+            },
+            "빈 목록": {
+              "authorized": false,
+              "cases": [
+                "5"
+              ],
+              "passed": false,
+              "actual": [
+                null
+              ],
+              "missing": [
+                "empty_list"
+              ]
+            },
+            "공개된 입력 순서 불변성": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7"
+              ],
+              "missing": [],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "triage",
+            "arm": "multi",
+            "cycle": 1,
+            "correct": 8,
+            "wrong": 0,
+            "unanswered": 2,
+            "unsupported_returns": 0,
+            "policy_probes": 3,
+            "questions": 3,
+            "owner_windows": 1,
+            "new_reply_sentences": 3,
+            "repeated_reply_sentences": 0,
+            "calls": 9,
+            "prompt_tokens": 4000,
+            "completion_tokens": 2289,
+            "total_tokens": 6289,
+            "cumulative_prompt_tokens": 4000,
+            "cumulative_completion_tokens": 2289,
+            "cumulative_total_tokens": 6289,
+            "cumulative_questions": 3,
+            "cumulative_windows": 1,
+            "cumulative_calls": 9,
+            "status": "open_limit",
+            "same_writer_requests_as_last": null,
+            "same_files_as_last": null
+          },
+          "known_card_ids": [
+            "rank",
+            "three_known",
+            "unknown"
+          ],
+          "role_tokens": {
+            "main-author": {
+              "prompt_tokens": 314,
+              "completion_tokens": 512,
+              "total_tokens": 826
+            },
+            "A": {
+              "prompt_tokens": 902,
+              "completion_tokens": 428,
+              "total_tokens": 1330
+            },
+            "B": {
+              "prompt_tokens": 894,
+              "completion_tokens": 377,
+              "total_tokens": 1271
+            },
+            "C": {
+              "prompt_tokens": 898,
+              "completion_tokens": 517,
+              "total_tokens": 1415
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 347,
+              "completion_tokens": 308,
+              "total_tokens": 655
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 645,
+              "completion_tokens": 147,
+              "total_tokens": 792
+            }
+          },
+          "model_seconds": 65.95
+        },
+        "2": {
+          "cases": {
+            "1": {
+              "args": [
+                [
+                  "account"
+                ]
+              ],
+              "actual": "account",
+              "expected": "account",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "3": {
+              "args": [
+                [
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "4": {
+              "args": [
+                [
+                  "misc"
+                ]
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "5": {
+              "args": [
+                []
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "6": {
+              "args": [
+                [
+                  "account",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "7": {
+              "args": [
+                [
+                  "billing",
+                  "account"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "9": {
+              "args": [
+                [
+                  "account",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "11": {
+              "args": [
+                [
+                  "billing",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "14": {
+              "args": [
+                [
+                  "misc",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                5
+              ],
+              "exception": null
+            },
+            "15": {
+              "args": [
+                [
+                  "misc",
+                  "account",
+                  "privacy",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                9
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+          "status": "open_limit",
+          "unsupported_items": [],
+          "rules": {
+            "복수 팀 우선순위": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7",
+                "9",
+                "11"
+              ],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing",
+                "privacy",
+                "privacy"
+              ],
+              "missing": []
+            },
+            "미등록·등록 태그 혼합": {
+              "authorized": true,
+              "cases": [
+                "14"
+              ],
+              "passed": true,
+              "actual": [
+                "billing"
+              ],
+              "missing": []
+            },
+            "빈 목록": {
+              "authorized": false,
+              "cases": [
+                "5"
+              ],
+              "passed": false,
+              "actual": [
+                null
+              ],
+              "missing": [
+                "empty_list"
+              ]
+            },
+            "공개된 입력 순서 불변성": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7"
+              ],
+              "missing": [],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "triage",
+            "arm": "multi",
+            "cycle": 2,
+            "correct": 8,
+            "wrong": 0,
+            "unanswered": 2,
+            "unsupported_returns": 0,
+            "policy_probes": 3,
+            "questions": 3,
+            "owner_windows": 1,
+            "new_reply_sentences": 1,
+            "repeated_reply_sentences": 3,
+            "calls": 8,
+            "prompt_tokens": 4917,
+            "completion_tokens": 2291,
+            "total_tokens": 7208,
+            "cumulative_prompt_tokens": 8917,
+            "cumulative_completion_tokens": 4580,
+            "cumulative_total_tokens": 13497,
+            "cumulative_questions": 6,
+            "cumulative_windows": 2,
+            "cumulative_calls": 17,
+            "status": "open_limit",
+            "same_writer_requests_as_last": false,
+            "same_files_as_last": true
+          },
+          "known_card_ids": [
+            "ab",
+            "rank",
+            "three_known",
+            "unknown"
+          ],
+          "role_tokens": {
+            "A": {
+              "prompt_tokens": 1298,
+              "completion_tokens": 1025,
+              "total_tokens": 2323
+            },
+            "B": {
+              "prompt_tokens": 1290,
+              "completion_tokens": 398,
+              "total_tokens": 1688
+            },
+            "C": {
+              "prompt_tokens": 1294,
+              "completion_tokens": 356,
+              "total_tokens": 1650
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 364,
+              "completion_tokens": 361,
+              "total_tokens": 725
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 671,
+              "completion_tokens": 151,
+              "total_tokens": 822
+            }
+          },
+          "model_seconds": 64.69
+        },
+        "3": {
+          "cases": {
+            "1": {
+              "args": [
+                [
+                  "account"
+                ]
+              ],
+              "actual": "account",
+              "expected": "account",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "3": {
+              "args": [
+                [
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                3
+              ],
+              "exception": null
+            },
+            "4": {
+              "args": [
+                [
+                  "misc"
+                ]
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "5": {
+              "args": [
+                []
+              ],
+              "actual": null,
+              "expected": "general",
+              "status": "unanswered",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "exception": "NotImplementedError"
+            },
+            "6": {
+              "args": [
+                [
+                  "account",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "7": {
+              "args": [
+                [
+                  "billing",
+                  "account"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "9": {
+              "args": [
+                [
+                  "account",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "11": {
+              "args": [
+                [
+                  "billing",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                7
+              ],
+              "exception": null
+            },
+            "14": {
+              "args": [
+                [
+                  "misc",
+                  "billing"
+                ]
+              ],
+              "actual": "billing",
+              "expected": "billing",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                5
+              ],
+              "exception": null
+            },
+            "15": {
+              "args": [
+                [
+                  "misc",
+                  "account",
+                  "privacy",
+                  "privacy"
+                ]
+              ],
+              "actual": "privacy",
+              "expected": "privacy",
+              "status": "correct",
+              "executed": [
+                2,
+                4,
+                6,
+                8,
+                9
+              ],
+              "exception": null
+            }
+          },
+          "sha256": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+          "status": "open_limit",
+          "unsupported_items": [],
+          "rules": {
+            "복수 팀 우선순위": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7",
+                "9",
+                "11"
+              ],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing",
+                "privacy",
+                "privacy"
+              ],
+              "missing": []
+            },
+            "미등록·등록 태그 혼합": {
+              "authorized": true,
+              "cases": [
+                "14"
+              ],
+              "passed": true,
+              "actual": [
+                "billing"
+              ],
+              "missing": []
+            },
+            "빈 목록": {
+              "authorized": false,
+              "cases": [
+                "5"
+              ],
+              "passed": false,
+              "actual": [
+                null
+              ],
+              "missing": [
+                "empty_list"
+              ]
+            },
+            "공개된 입력 순서 불변성": {
+              "authorized": true,
+              "cases": [
+                "6",
+                "7"
+              ],
+              "missing": [],
+              "passed": true,
+              "actual": [
+                "billing",
+                "billing"
+              ]
+            }
+          },
+          "metrics": {
+            "task": "triage",
+            "arm": "multi",
+            "cycle": 3,
+            "correct": 8,
+            "wrong": 0,
+            "unanswered": 2,
+            "unsupported_returns": 0,
+            "policy_probes": 3,
+            "questions": 3,
+            "owner_windows": 1,
+            "new_reply_sentences": 0,
+            "repeated_reply_sentences": 3,
+            "calls": 8,
+            "prompt_tokens": 5328,
+            "completion_tokens": 1866,
+            "total_tokens": 7194,
+            "cumulative_prompt_tokens": 14245,
+            "cumulative_completion_tokens": 6446,
+            "cumulative_total_tokens": 20691,
+            "cumulative_questions": 9,
+            "cumulative_windows": 3,
+            "cumulative_calls": 25,
+            "status": "open_limit",
+            "same_writer_requests_as_last": true,
+            "same_files_as_last": true
+          },
+          "known_card_ids": [
+            "ab",
+            "rank",
+            "three_known",
+            "unknown"
+          ],
+          "role_tokens": {
+            "A": {
+              "prompt_tokens": 1435,
+              "completion_tokens": 342,
+              "total_tokens": 1777
+            },
+            "B": {
+              "prompt_tokens": 1427,
+              "completion_tokens": 359,
+              "total_tokens": 1786
+            },
+            "C": {
+              "prompt_tokens": 1431,
+              "completion_tokens": 653,
+              "total_tokens": 2084
+            },
+            "main-rule-plan": {
+              "prompt_tokens": 364,
+              "completion_tokens": 361,
+              "total_tokens": 725
+            },
+            "main-region-decisions": {
+              "prompt_tokens": 671,
+              "completion_tokens": 151,
+              "total_tokens": 822
+            }
+          },
+          "model_seconds": 54.64
+        }
+      }
+    }
+  },
+  "questions": [
+    {
+      "task": "reservation",
+      "arm": "self",
+      "cycle": 1,
+      "questions": [
+        {
+          "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "clock",
+          "duration"
+        ]
+      ],
+      "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+      "new_sentences": [
+        "정정 시간은 예약을 생성한 때부터 셉니다.",
+        "정정 가능 기간은 10분입니다."
+      ],
+      "new_card_ids": [
+        "clock",
+        "duration"
+      ]
+    },
+    {
+      "task": "reservation",
+      "arm": "self",
+      "cycle": 2,
+      "questions": [
+        {
+          "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "overlap_allowed",
+          "expired"
+        ]
+      ],
+      "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+      "new_sentences": [
+        "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.",
+        "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+      ],
+      "new_card_ids": [
+        "expired",
+        "overlap_allowed"
+      ]
+    },
+    {
+      "task": "reservation",
+      "arm": "self",
+      "cycle": 3,
+      "questions": [
+        {
+          "question": "정정 가능 기간이 10 분 (600 초) 일 때, 일반 취소 마감이 끝난 후에도 정정 기간이 남아있는 경우와 정정 기간이 끝난 경우를 어떻게 구분하여 처리해야 하는지 명확히 해야 합니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "late",
+          "expired"
+        ]
+      ],
+      "text": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+      "new_sentences": [
+        "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+      ],
+      "new_card_ids": [
+        "late"
+      ]
+    },
+    {
+      "task": "reservation",
+      "arm": "multi",
+      "cycle": 1,
+      "questions": [
+        {
+          "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "clock",
+          "duration",
+          "end",
+          "start"
+        ],
+        [
+          "late",
+          "expired"
+        ]
+      ],
+      "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+      "new_sentences": [
+        "정정 시간은 예약을 생성한 때부터 셉니다.",
+        "정정 가능 기간은 10분입니다.",
+        "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+        "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+        "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+      ],
+      "new_card_ids": [
+        "clock",
+        "duration",
+        "end",
+        "expired",
+        "late",
+        "start"
+      ]
+    },
+    {
+      "task": "reservation",
+      "arm": "multi",
+      "cycle": 2,
+      "questions": [
+        {
+          "question": "현재 코드와 답변에 따르면, 정정 가능 기간 (10 분) 이 끝난 후 일반 취소 마감 (24 시간 전) 이 지나더라도 정정 요청을 허용하는지, 아니면 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 명확하지 않습니다. 두 규칙 모두 정정 가능 기간 내에서는 허용하고, 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부한다고 해석할 수 있습니다. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나더라도 정정 요청을 허용하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 정정 요청을 허용하는지, 아니면 정",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "정정 가능 기간이 끝나는 순간 (예: 10 분 경과 시점) 에서는 정정이 가능하다고 보시나요? 만약 정정 가능 기간이 일반 마감 (24 시간) 보다 짧은 경우, 정정 가능 기간이 끝나는 순간이 일반 마감보다 먼저 오면 정정이 가능하고, 그 이후에는 정정이 불가능하다고 보시나요? 아니면 정정 가능 기간이 끝나는 순간이 일반 마감보다 늦게 오더라도 정정이 가능하다고 보시나요?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "expired"
+        ],
+        [
+          "end",
+          "late"
+        ]
+      ],
+      "text": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+      "new_sentences": [],
+      "new_card_ids": []
+    },
+    {
+      "task": "reservation",
+      "arm": "multi",
+      "cycle": 3,
+      "questions": [
+        {
+          "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 예약 생성 후 정확히 10 분 경과 시점) 에 정정이 허용되는지 여부를 명확히 해주세요. 정정 가능 기간의 종료 시점을 포함하는지, 아니면 종료 시점 이후로만 허용하는지 기준을 알려주세요. 정정 가능 기간의 기준점 (예: 예약 생성 시점) 과 허용의 경계 조건 (예: 10 분 경과 시점 포함 여부) 을 알려주세요. 안내문과 기존 답변이 모순되지 않는 실제 운영 기준을 알려주세요. 정정 가능 기간이 끝나는 순간에 정정이 허용되는지 여부를 결정할 수 있는 기준을 알려주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "정정 가능 기간은 예약 생성 후 10 분이며, 이 기간이 정확히 끝나는 순간까지 포함합니다. 정정 기간이 끝난 후에도 일반 취소 마감 (이용 시작 24 시간 전) 을 초과하지 않는 한 정정 요청은 허용됩니다. 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용됩니다. 정정 기간이 정확히 끝나는 순간을 포함하는지, 정정 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청을 허용하는지 명확히 해주세요. 정정 가능 기간이 끝난 순간 (예: 10 분 0 초) 에 일반 마감이 지났더라도 정정 요청은 허용되는지, 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용되는지 명확히 해주세요. 정",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "정정 가능 기간이 정확히 끝나는 순간에 취소를 허용해야 하는지, 아니면 거부해야 하는지 결정해 주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "clock",
+          "duration",
+          "end"
+        ],
+        [
+          "end",
+          "late",
+          "expired"
+        ],
+        [
+          "end"
+        ]
+      ],
+      "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+      "new_sentences": [],
+      "new_card_ids": []
+    },
+    {
+      "task": "triage",
+      "arm": "self",
+      "cycle": 1,
+      "questions": [
+        {
+          "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "invariant"
+        ]
+      ],
+      "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+      "new_sentences": [
+        "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+      ],
+      "new_card_ids": [
+        "invariant"
+      ]
+    },
+    {
+      "task": "triage",
+      "arm": "self",
+      "cycle": 2,
+      "questions": [
+        {
+          "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "clarify"
+        ]
+      ],
+      "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+      "new_sentences": [
+        "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+      ],
+      "new_card_ids": [
+        "clarify"
+      ]
+    },
+    {
+      "task": "triage",
+      "arm": "self",
+      "cycle": 3,
+      "questions": [
+        {
+          "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "rank"
+        ]
+      ],
+      "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+      "new_sentences": [
+        "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+      ],
+      "new_card_ids": [
+        "rank"
+      ]
+    },
+    {
+      "task": "triage",
+      "arm": "multi",
+      "cycle": 1,
+      "questions": [
+        {
+          "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "rank",
+          "unknown"
+        ],
+        [
+          "rank"
+        ],
+        [
+          "three_known"
+        ]
+      ],
+      "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+      "new_sentences": [
+        "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+        "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+      ],
+      "new_card_ids": [
+        "rank",
+        "three_known",
+        "unknown"
+      ]
+    },
+    {
+      "task": "triage",
+      "arm": "multi",
+      "cycle": 2,
+      "questions": [
+        {
+          "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "ab"
+        ],
+        [
+          "rank",
+          "three_known"
+        ],
+        [
+          "unknown",
+          "ab"
+        ]
+      ],
+      "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+      "new_sentences": [
+        "account와 billing만 겹치면 billing 팀으로 보냅니다."
+      ],
+      "new_card_ids": [
+        "ab"
+      ]
+    },
+    {
+      "task": "triage",
+      "arm": "multi",
+      "cycle": 3,
+      "questions": [
+        {
+          "question": "현재 triage 로직에서 'billing' 과 'account' 태그가 모두 존재할 때, 알 수 없는 태그가 섞여 있거나 섞이지 않았을 경우 어떻게 처리하시나요? 'billing' 과 'account' 태그가 모두 있는 요청은 'privacy' 팀으로 보내는지, 아니면 'billing' 팀으로 보내시나요? 이 결정의 기준과 경계 조건을 명확히 해주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "현재 triage 함수의 로직은 '모든 태그가 (account, billing, privacy) 에 포함된 경우, 태그 리스트의 순서를 무시하고 고정된 우선순위 (privacy > billing > account) 를 따르나요, 아니면 태그 리스트에서 첫 번째로 등장하는 담당 태그를 반환하나요?",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "입력 태그가 ['account', 'billing', 'unknown_tag'] 인 경우, 알 수 없는 태그는 무시하고 비즈니스 태그가 여러 개일 때 'privacy' 팀으로 보내는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있는 경우를 명시적으로 처리하여 다른 로직을 적용해야 하는지 정해 주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "groups": [
+        [
+          "ab",
+          "unknown"
+        ],
+        [
+          "rank"
+        ],
+        [
+          "unknown",
+          "ab"
+        ]
+      ],
+      "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+      "new_sentences": [],
+      "new_card_ids": []
+    }
+  ],
+  "summary": [
+    {
+      "condition": "① 메인 단독",
+      "arm": "solo",
+      "cycle": 0,
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 4,
+      "correct": 10,
+      "wrong": 8,
+      "unanswered": 2,
+      "unsupported_returns": 5,
+      "policy_probes": 6,
+      "questions": 0,
+      "owner_windows": 0,
+      "new_reply_sentences": 0,
+      "repeated_reply_sentences": 0,
+      "calls": 2,
+      "prompt_tokens": 738,
+      "completion_tokens": 887,
+      "total_tokens": 1625,
+      "cumulative_questions": 0,
+      "cumulative_windows": 0,
+      "cumulative_calls": 2,
+      "cumulative_prompt_tokens": 738,
+      "cumulative_completion_tokens": 887,
+      "cumulative_total_tokens": 1625
+    },
+    {
+      "condition": "② 메인 자체 검토",
+      "arm": "self",
+      "cycle": 1,
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 5,
+      "triage": 3,
+      "correct": 8,
+      "wrong": 5,
+      "unanswered": 7,
+      "unsupported_returns": 4,
+      "policy_probes": 6,
+      "questions": 2,
+      "owner_windows": 2,
+      "new_reply_sentences": 3,
+      "repeated_reply_sentences": 0,
+      "calls": 10,
+      "prompt_tokens": 5365,
+      "completion_tokens": 3194,
+      "total_tokens": 8559,
+      "cumulative_questions": 2,
+      "cumulative_windows": 2,
+      "cumulative_calls": 10,
+      "cumulative_prompt_tokens": 5365,
+      "cumulative_completion_tokens": 3194,
+      "cumulative_total_tokens": 8559
+    },
+    {
+      "condition": "② 메인 자체 검토",
+      "arm": "self",
+      "cycle": 2,
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 5,
+      "triage": 3,
+      "correct": 8,
+      "wrong": 5,
+      "unanswered": 7,
+      "unsupported_returns": 4,
+      "policy_probes": 6,
+      "questions": 2,
+      "owner_windows": 2,
+      "new_reply_sentences": 3,
+      "repeated_reply_sentences": 0,
+      "calls": 8,
+      "prompt_tokens": 5315,
+      "completion_tokens": 2976,
+      "total_tokens": 8291,
+      "cumulative_questions": 4,
+      "cumulative_windows": 4,
+      "cumulative_calls": 18,
+      "cumulative_prompt_tokens": 10680,
+      "cumulative_completion_tokens": 6170,
+      "cumulative_total_tokens": 16850
+    },
+    {
+      "condition": "② 메인 자체 검토",
+      "arm": "self",
+      "cycle": 3,
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 4,
+      "triage": 8,
+      "correct": 12,
+      "wrong": 6,
+      "unanswered": 2,
+      "unsupported_returns": 4,
+      "policy_probes": 6,
+      "questions": 2,
+      "owner_windows": 2,
+      "new_reply_sentences": 2,
+      "repeated_reply_sentences": 1,
+      "calls": 8,
+      "prompt_tokens": 5686,
+      "completion_tokens": 2251,
+      "total_tokens": 7937,
+      "cumulative_questions": 6,
+      "cumulative_windows": 6,
+      "cumulative_calls": 26,
+      "cumulative_prompt_tokens": 16366,
+      "cumulative_completion_tokens": 8421,
+      "cumulative_total_tokens": 24787
+    },
+    {
+      "condition": "③ 메인 + 독립 감시자",
+      "arm": "multi",
+      "cycle": 1,
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 8,
+      "correct": 14,
+      "wrong": 4,
+      "unanswered": 2,
+      "unsupported_returns": 2,
+      "policy_probes": 6,
+      "questions": 5,
+      "owner_windows": 2,
+      "new_reply_sentences": 9,
+      "repeated_reply_sentences": 0,
+      "calls": 18,
+      "prompt_tokens": 10512,
+      "completion_tokens": 5805,
+      "total_tokens": 16317,
+      "cumulative_questions": 5,
+      "cumulative_windows": 2,
+      "cumulative_calls": 18,
+      "cumulative_prompt_tokens": 10512,
+      "cumulative_completion_tokens": 5805,
+      "cumulative_total_tokens": 16317
+    },
+    {
+      "condition": "③ 메인 + 독립 감시자",
+      "arm": "multi",
+      "cycle": 2,
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 8,
+      "correct": 14,
+      "wrong": 4,
+      "unanswered": 2,
+      "unsupported_returns": 2,
+      "policy_probes": 6,
+      "questions": 5,
+      "owner_windows": 2,
+      "new_reply_sentences": 1,
+      "repeated_reply_sentences": 6,
+      "calls": 16,
+      "prompt_tokens": 13420,
+      "completion_tokens": 6049,
+      "total_tokens": 19469,
+      "cumulative_questions": 10,
+      "cumulative_windows": 4,
+      "cumulative_calls": 34,
+      "cumulative_prompt_tokens": 23932,
+      "cumulative_completion_tokens": 11854,
+      "cumulative_total_tokens": 35786
+    },
+    {
+      "condition": "③ 메인 + 독립 감시자",
+      "arm": "multi",
+      "cycle": 3,
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 8,
+      "correct": 14,
+      "wrong": 4,
+      "unanswered": 2,
+      "unsupported_returns": 2,
+      "policy_probes": 6,
+      "questions": 6,
+      "owner_windows": 2,
+      "new_reply_sentences": 0,
+      "repeated_reply_sentences": 8,
+      "calls": 16,
+      "prompt_tokens": 14212,
+      "completion_tokens": 5268,
+      "total_tokens": 19480,
+      "cumulative_questions": 16,
+      "cumulative_windows": 6,
+      "cumulative_calls": 50,
+      "cumulative_prompt_tokens": 38144,
+      "cumulative_completion_tokens": 17122,
+      "cumulative_total_tokens": 55266
+    }
+  ],
+  "transitions": [
+    {
+      "task": "reservation",
+      "arm": "self",
+      "start": 1,
+      "end": 2,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    },
+    {
+      "task": "reservation",
+      "arm": "self",
+      "start": 2,
+      "end": 3,
+      "gained": 0,
+      "lost": 1,
+      "net": -1,
+      "gained_items": "",
+      "lost_items": "C003",
+      "changed_items": "C003"
+    },
+    {
+      "task": "reservation",
+      "arm": "self",
+      "start": 1,
+      "end": 3,
+      "gained": 0,
+      "lost": 1,
+      "net": -1,
+      "gained_items": "",
+      "lost_items": "C003",
+      "changed_items": "C003"
+    },
+    {
+      "task": "reservation",
+      "arm": "multi",
+      "start": 1,
+      "end": 2,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    },
+    {
+      "task": "reservation",
+      "arm": "multi",
+      "start": 2,
+      "end": 3,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    },
+    {
+      "task": "reservation",
+      "arm": "multi",
+      "start": 1,
+      "end": 3,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    },
+    {
+      "task": "triage",
+      "arm": "self",
+      "start": 1,
+      "end": 2,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    },
+    {
+      "task": "triage",
+      "arm": "self",
+      "start": 2,
+      "end": 3,
+      "gained": 5,
+      "lost": 0,
+      "net": 5,
+      "gained_items": "6,7,9,11,15",
+      "lost_items": "",
+      "changed_items": "6,7,9,11,15"
+    },
+    {
+      "task": "triage",
+      "arm": "self",
+      "start": 1,
+      "end": 3,
+      "gained": 5,
+      "lost": 0,
+      "net": 5,
+      "gained_items": "6,7,9,11,15",
+      "lost_items": "",
+      "changed_items": "6,7,9,11,15"
+    },
+    {
+      "task": "triage",
+      "arm": "multi",
+      "start": 1,
+      "end": 2,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    },
+    {
+      "task": "triage",
+      "arm": "multi",
+      "start": 2,
+      "end": 3,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    },
+    {
+      "task": "triage",
+      "arm": "multi",
+      "start": 1,
+      "end": 3,
+      "gained": 0,
+      "lost": 0,
+      "net": 0,
+      "gained_items": "",
+      "lost_items": "",
+      "changed_items": ""
+    }
+  ]
+}

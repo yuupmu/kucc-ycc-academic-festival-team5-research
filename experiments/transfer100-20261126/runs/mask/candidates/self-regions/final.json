@@ -1,0 +1,142 @@
+{
+  "writer": {
+    "calls": [
+      "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+      "dac396d59eaf5fd004bc20401b3289fc3bf807e66d6676dee54d4a31680a8956"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code) 함수를 구현해야 함. 입력은 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능함.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "가리는 글자는 '*'로 바꿈. 결과 길이는 입력 길이와 같아야 함. 공개된 글자의 원래 대소문자와 순서는 유지해야 함.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "어느 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따름. 입력에는 다른 문자나 공백 없음.",
+        "input": "code",
+        "still_open": "어느 글자를 공개할지 결정 규칙",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "마지막 세 글자를 공개하고 그 앞의 글자는 모두 '*'로 가림.",
+        "input": "code",
+        "still_open": "코드가 3 글자 미만일 때의 처리는 운영 담당자의 기준을 따름",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def mask_code(code):",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return code[-3:] + \"*\" * (len(code) - 3) if len(code) >= 3 else code",
+            "sources": [
+              "H1"
+            ]
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def mask_code(code):\n    return code[-3:] + \"*\" * (len(code) - 3) if len(code) >= 3 else code"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": []
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하는 운영 결정이 코드 길이가 3 미만의 빈 문자열이나 짧은 문자열 입력 시 어떻게 처리해야 하는지 명확히 해야 합니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "07cd4e85c9ba15d4be04bf536b04777698c1eeab9d2b66b79f40d5905ccfd30c",
+    "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+    "dac396d59eaf5fd004bc20401b3289fc3bf807e66d6676dee54d4a31680a8956",
+    "3f590b2a55a4aac763c790ccdc9ff8a9ee627ed2f9f77cac32a625ab2247d1b4"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code):\n    return code[-3:] + \"*\" * (len(code) - 3) if len(code) >= 3 else code"
+  },
+  "sha256": "591ea4353a7fd1ce6dcd474ddf5d7f1bac7895670ed78db1e3a9cce880fd3a9a",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "b33cabe1d7f9ed3f89fe28fdec442b0295eb30b9386231d416813229f823b449",
+      "questions": [
+        {
+          "question": "mask_code 함수의 동작 방식 (원본 텍스트를 유지하거나 가리는 방식) 에 대한 운영 결정이 명확하지 않습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

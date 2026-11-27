@@ -1,0 +1,179 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def mask_code(code):\n    if not code:\n        return \"\"\n    if len(code) <= 3:\n        return \"*\" * len(code)\n    return \"*\" * (len(code) - 3) + code[-3:]"
+  },
+  "sha256": "7b10d09adba71f3cd4df2dfbfe688961769b4b1d089b455bee6a140cd6c9f368",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def mask_code(code):\n    if not code:\n        return \"\"\n    if len(code) <= 3:\n        return \"*\" * len(code)\n    return \"*\" * (len(code) - 3) + code[-3:]"
+    },
+    "sha256": "7b10d09adba71f3cd4df2dfbfe688961769b4b1d089b455bee6a140cd6c9f368",
+    "received": [
+      1
+    ],
+    "author_call": "ef7651310ebc2fcd7b2d8f8d3336bbbcdbc271192b9f83e79cdd0f7a7955fa6b",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    },
+    "attempts": [
+      {
+        "key": "89678aa145bc1bbad81a636fcf229cf8e6b4212364008ea2fa6432132129413a",
+        "issues": [
+          "syntax",
+          "missing_executable_line",
+          "missing_executable_line",
+          "missing_executable_line"
+        ],
+        "bindings": [
+          {
+            "reply": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) - 3 if len(code) > 3 else \"*\" * len(code) if code else \"\""
+          },
+          {
+            "reply": "길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) - 3 if len(code) > 3 else \"*\" * len(code) if code else \"\""
+          },
+          {
+            "reply": "빈 코드는 빈 문자열을 반환합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) - 3 if len(code) > 3 else \"*\" * len(code) if code else \"\""
+          }
+        ]
+      },
+      {
+        "key": "ef7651310ebc2fcd7b2d8f8d3336bbbcdbc271192b9f83e79cdd0f7a7955fa6b",
+        "issues": [
+          "missing_executable_line",
+          "missing_executable_line",
+          "missing_executable_line"
+        ],
+        "bindings": [
+          {
+            "reply": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) + code[-3:] if len(code) > 3 else \"*\" * len(code) if code else \"\""
+          },
+          {
+            "reply": "길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) + code[-3:] if len(code) > 3 else \"*\" * len(code) if code else \"\""
+          },
+          {
+            "reply": "빈 코드는 빈 문자열을 반환합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "return \"*\" * len(code) + code[-3:] if len(code) > 3 else \"*\" * len(code) if code else \"\""
+          }
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    [
+      "A",
+      {
+        "questions": [
+          {
+            "situation": "비어 있지 않은 코드가 별표로 가려지는지 여부에 대한 운영 결정",
+            "outcome_a": "비어 있지 않은 코드는 모두 별표로 가립니다.",
+            "outcome_b": "비어 있지 않은 코드는 별표로 가리지 않습니다.",
+            "question": "비어 있지 않은 코드가 모두 별표로 가려지는지 여부에 대한 운영 결정이 명확히 정해졌는지 확인해주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    ],
+    [
+      "B",
+      {
+        "questions": [
+          {
+            "situation": "비어 있지 않은 코드가 별표로 가려져야 하는지",
+            "outcome_a": "비어 있지 않은 코드는 별표로 가려져야 합니다.",
+            "outcome_b": "비어 있지 않은 코드는 빈 문자열로 반환해야 합니다.",
+            "question": "비어 있지 않은 코드가 별표로 가려져야 하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    ],
+    [
+      "C",
+      {
+        "questions": [
+          {
+            "situation": "마지막 세 글자를 공개하는 규칙에 따라 길이가 4 인 코드가 입력되었을 때, 결과 문자열의 마지막 3 글자가 원래 입력과 정확히 일치하는지 확인하세요.",
+            "outcome_a": "결과 문자열의 마지막 3 글자가 원래 입력과 정확히 일치함.",
+            "outcome_b": "결과 문자열의 마지막 3 글자가 원래 입력과 정확히 일치하지 않음.",
+            "question": "결과 문자열의 마지막 3 글자가 원래 입력과 정확히 일치하는지 확인하세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    ]
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "4526f3be8d147ef503c4f81be3a5abf2e80ee113f15816b5717cfb9b5a8bcf96",
+    "44726ee8e17094c2ebc8ecb2ab6ab6f308e95079fc83d3d0b882a014b59c645b",
+    "4e8a9622a26115b20de04a471a3cd968f65d97f1da8e07f58c4becb953fa3259",
+    "e20b2f36292b478c4cdb9a6fc9ec5da5de1e1a3e0e7d5890901fd07808413a83",
+    "89678aa145bc1bbad81a636fcf229cf8e6b4212364008ea2fa6432132129413a",
+    "ef7651310ebc2fcd7b2d8f8d3336bbbcdbc271192b9f83e79cdd0f7a7955fa6b",
+    "26cf82d3027105db8292023ab8b7d29bcb2dfaf71d028da9494c3ae7a0000902",
+    "2031b1a88a943d3f2d32f27f2e4348278a0e7d8821b1412c8b848523b9fd8390",
+    "f0bd338b1c21ef4f3ebb3951ff811b00ef9fc7e5eef6cbb197c46a6418f455df"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "a3083902929bda912ec31da5d398f7af218909074bdaaea09f6936b33b2dee18",
+      "questions": [
+        {
+          "question": "어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다.",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "현재 코드는 모든 글자를 가리는 방식으로 구현되어 있으나, 운영 담당자가 앞뒤 일부만 공개하거나 모든 글자를 가리는 기준 중 어떤 것을 정할지 확인하세요.",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "운영 담당자가 특정 규칙 (예: 앞 2 글자 공개, 뒤 2 글자 공개) 을 정의했을 때, 코드는 해당 규칙을 따르지 않고 모든 글자를 가리는 방식으로 동작합니다.",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.\n길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.\n빈 코드는 빈 문자열을 반환합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

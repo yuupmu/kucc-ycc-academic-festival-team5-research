@@ -1,0 +1,127 @@
+{
+  "status": "completed",
+  "arm_status": {
+    "self": {
+      "status": "completed",
+      "version": 3
+    },
+    "multi": {
+      "status": "completed",
+      "version": 3
+    }
+  },
+  "submissions": {
+    "multi": {
+      "version": 3,
+      "score": 30,
+      "total": 40
+    },
+    "self": {
+      "version": 3,
+      "score": 30,
+      "total": 40
+    }
+  },
+  "versions": [
+    {
+      "version": 1,
+      "arm": "multi",
+      "score": 24,
+      "total": 40,
+      "returned": 40,
+      "corrected": null,
+      "regressed": null,
+      "code_sha256": "bb1867d25393b67d4d0e175a338b03071a85c153a9224abab03fa786980703e6"
+    },
+    {
+      "version": 1,
+      "arm": "self",
+      "score": 24,
+      "total": 40,
+      "returned": 40,
+      "corrected": null,
+      "regressed": null,
+      "code_sha256": "bb1867d25393b67d4d0e175a338b03071a85c153a9224abab03fa786980703e6"
+    },
+    {
+      "version": 2,
+      "arm": "multi",
+      "score": 30,
+      "total": 40,
+      "returned": 40,
+      "corrected": 15,
+      "regressed": 9,
+      "code_sha256": "dda455a45c4b5856176754b7a32dc72cef077a9352328de3f0daa0837836a401"
+    },
+    {
+      "version": 2,
+      "arm": "self",
+      "score": 30,
+      "total": 40,
+      "returned": 40,
+      "corrected": 15,
+      "regressed": 9,
+      "code_sha256": "dda455a45c4b5856176754b7a32dc72cef077a9352328de3f0daa0837836a401"
+    },
+    {
+      "version": 3,
+      "arm": "multi",
+      "score": 30,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "dda455a45c4b5856176754b7a32dc72cef077a9352328de3f0daa0837836a401"
+    },
+    {
+      "version": 3,
+      "arm": "self",
+      "score": 30,
+      "total": 40,
+      "returned": 40,
+      "corrected": 0,
+      "regressed": 0,
+      "code_sha256": "dda455a45c4b5856176754b7a32dc72cef077a9352328de3f0daa0837836a401"
+    }
+  ],
+  "usage": {
+    "self": {
+      "calls": 12,
+      "tokens": 20059,
+      "model_seconds": 105.87,
+      "question_batches": 1,
+      "questions": 5,
+      "replies": 1,
+      "clarification_only": 0,
+      "facts_received": [
+        "age_seconds는 예약 생성부터 현재까지 경과한 시간으로, 이 값이 취소 정책에 영향을 주나요? 코드에서는 age_seconds를 사용하지 않았습니다.",
+        "correction_edge",
+        "correction_period",
+        "deadline_edge",
+        "start_priority"
+      ]
+    },
+    "multi": {
+      "calls": 12,
+      "tokens": 17281,
+      "model_seconds": 97.34,
+      "question_batches": 1,
+      "questions": 5,
+      "replies": 1,
+      "clarification_only": 0,
+      "facts_received": [
+        "age_seconds는 예약 생성부터 현재까지 경과한 시간으로, 이 값이 취소 정책에 영향을 주나요? 코드에서는 age_seconds를 사용하지 않았습니다.",
+        "correction_edge",
+        "correction_period",
+        "deadline_edge",
+        "start_priority"
+      ]
+    }
+  },
+  "human_replies": 0,
+  "delegated_replies": 1,
+  "question_batches": 1,
+  "question_groups": 5,
+  "human_wait_seconds": 0,
+  "delegated_wait_seconds": 168.81
+}

@@ -1,0 +1,444 @@
+{
+  "task_id": "cancellation_basic",
+  "architecture": "main-only",
+  "seed": 43,
+  "endpoint": "127.0.0.1:18751",
+  "model_file": "var/local-models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+  "status": "scored",
+  "calls": [
+    {
+      "text": "없음",
+      "model": "var/local-models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+      "usage": {
+        "completion_tokens": 3,
+        "prompt_tokens": 358,
+        "total_tokens": 361,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "elapsed_seconds": 0.45,
+      "request": {
+        "model": "var/local-models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+        "messages": [
+          {
+            "role": "system",
+            "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+          },
+          {
+            "role": "user",
+            "content": "# 기본 예약 취소\n\n작은 연습실의 온라인 예약 시스템에 `can_cancel(now, booked_at, starts_at) -> bool`을 구현하세요. 입력은 현재, 예약 생성, 이용 시작 순서이며 모두 UTC 오프셋이 있는 유효한 ISO 8601 문자열입니다. 예약은 이용 시작 전이면서 현재보다 늦지 않게 생성됩니다. 외부 패키지와 시스템 시계는 사용하지 않습니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n코드를 쓰기 전에 판정을 바꿀 수 있는 미확정 운영 기준을 담당자에게 한 번에 질문하세요. 필요한 질문만 적고, 없으면 \"없음\"이라고 하세요."
+          }
+        ],
+        "seed": 43,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 450,
+        "stream": false
+      }
+    },
+    {
+      "text": "```python\nfrom datetime import datetime, timedelta\n\ndef can_cancel(now, booked_at, starts_at):\n    # 일반 마감은 이용 시작 24시간 전입니다.\n    if (now - starts_at).total_seconds() / 3600 < 24:\n        return True\n    # 이용이 시작되면 일반 취소는 마감됩니다.\n    elif now < starts_at:\n        return True\n    else:\n        return False\n```",
+      "model": "var/local-models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+      "usage": {
+        "completion_tokens": 96,
+        "prompt_tokens": 420,
+        "total_tokens": 516,
+        "prompt_tokens_details": {
+          "cached_tokens": 419
+        }
+      },
+      "finish_reason": "stop",
+      "elapsed_seconds": 5.2,
+      "request": {
+        "model": "var/local-models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+        "messages": [
+          {
+            "role": "system",
+            "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+          },
+          {
+            "role": "user",
+            "content": "# 기본 예약 취소\n\n작은 연습실의 온라인 예약 시스템에 `can_cancel(now, booked_at, starts_at) -> bool`을 구현하세요. 입력은 현재, 예약 생성, 이용 시작 순서이며 모두 UTC 오프셋이 있는 유효한 ISO 8601 문자열입니다. 예약은 이용 시작 전이면서 현재보다 늦지 않게 생성됩니다. 외부 패키지와 시스템 시계는 사용하지 않습니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n코드를 쓰기 전에 판정을 바꿀 수 있는 미확정 운영 기준을 담당자에게 한 번에 질문하세요. 필요한 질문만 적고, 없으면 \"없음\"이라고 하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "없음"
+          },
+          {
+            "role": "user",
+            "content": "함수를 구현하세요. 답변이 없는 부분은 합리적으로 가정하세요. 표준 라이브러리만 사용하고, 실행 가능한 Python 소스 전체를 하나의 코드 블록으로 반환하세요."
+          }
+        ],
+        "seed": 43,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 1500,
+        "stream": false
+      }
+    }
+  ],
+  "operator_answer": "",
+  "submission": "from datetime import datetime, timedelta\n\ndef can_cancel(now, booked_at, starts_at):\n    # 일반 마감은 이용 시작 24시간 전입니다.\n    if (now - starts_at).total_seconds() / 3600 < 24:\n        return True\n    # 이용이 시작되면 일반 취소는 마감됩니다.\n    elif now < starts_at:\n        return True\n    else:\n        return False\n",
+  "report": {
+    "benchmark_version": "1.0-basic.1",
+    "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+    "score": 0,
+    "total": 40,
+    "accuracy_percent": 0.0,
+    "errors": 40,
+    "categories": {
+      "평일 마감": {
+        "correct": 0,
+        "total": 10
+      },
+      "마감 경계": {
+        "correct": 0,
+        "total": 10
+      },
+      "예약 직후 유예": {
+        "correct": 0,
+        "total": 10
+      },
+      "시작과 유예 우선순위": {
+        "correct": 0,
+        "total": 10
+      }
+    },
+    "labels": {
+      "allow": {
+        "correct": 0,
+        "total": 20
+      },
+      "deny": {
+        "correct": 0,
+        "total": 20
+      }
+    },
+    "results": [
+      {
+        "id": "C001",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C002",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C003",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C004",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C005",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C006",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C007",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C008",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C009",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C010",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C011",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C012",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C013",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C014",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C015",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C016",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C017",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C018",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C019",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C020",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C071",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C072",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C073",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C074",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C075",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C076",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C077",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C078",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C079",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C080",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C081",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C082",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C083",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C084",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C085",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C086",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C087",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C088",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C089",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      },
+      {
+        "id": "C090",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": null,
+        "passed": false,
+        "error": "RuntimeError: 격리된 함수 실행 오류"
+      }
+    ]
+  }
+}

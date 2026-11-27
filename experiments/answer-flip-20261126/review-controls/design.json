@@ -1,0 +1,174 @@
+{
+  "variants": {
+    "upload_same-calls_sequential": {
+      "task": "upload",
+      "regime": "same-calls",
+      "arm": "sequential",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "upload_same-calls_independent": {
+      "task": "upload",
+      "regime": "same-calls",
+      "arm": "independent",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "upload_total-cap_sequential": {
+      "task": "upload",
+      "regime": "total-cap",
+      "arm": "sequential",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "upload_total-cap_independent": {
+      "task": "upload",
+      "regime": "total-cap",
+      "arm": "independent",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "upload_full_593": {
+      "task": "upload",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 593,
+      "doc": "full",
+      "n": 1,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한은 16바이트입니다. 0바이트 빈 파일은 거부합니다. 정확히 상한이면 허용합니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "upload_missing_593": {
+      "task": "upload",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 593,
+      "doc": "missing",
+      "n": 1,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한은 16바이트입니다. 0바이트 빈 파일은 거부합니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "upload_full_811": {
+      "task": "upload",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 811,
+      "doc": "full",
+      "n": 1,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한은 16바이트입니다. 0바이트 빈 파일은 거부합니다. 정확히 상한이면 허용합니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "upload_missing_811": {
+      "task": "upload",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 811,
+      "doc": "missing",
+      "n": 1,
+      "brief": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\n상한은 16바이트입니다. 0바이트 빈 파일은 거부합니다. 파일 내용이나 확장자는 입력에 없습니다.",
+      "code_sha256": "4e5b7bf965fab6f11f9424c22ea52c6ff630c4d3c1ebf946d4203ecff44cad05"
+    },
+    "print_same-calls_sequential": {
+      "task": "print",
+      "regime": "same-calls",
+      "arm": "sequential",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    },
+    "print_same-calls_independent": {
+      "task": "print",
+      "regime": "same-calls",
+      "arm": "independent",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    },
+    "print_total-cap_sequential": {
+      "task": "print",
+      "regime": "total-cap",
+      "arm": "sequential",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    },
+    "print_total-cap_independent": {
+      "task": "print",
+      "regime": "total-cap",
+      "arm": "independent",
+      "seed": 593,
+      "doc": "original",
+      "n": 3,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    },
+    "print_full_593": {
+      "task": "print",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 593,
+      "doc": "full",
+      "n": 1,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로의 상한은 6센티미터입니다. 세로의 상한은 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    },
+    "print_missing_593": {
+      "task": "print",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 593,
+      "doc": "missing",
+      "n": 1,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로의 상한은 6센티미터입니다. 세로의 상한은 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    },
+    "print_full_811": {
+      "task": "print",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 811,
+      "doc": "full",
+      "n": 1,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로의 상한은 6센티미터입니다. 세로의 상한은 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    },
+    "print_missing_811": {
+      "task": "print",
+      "regime": "same-calls",
+      "arm": "main",
+      "seed": 811,
+      "doc": "missing",
+      "n": 1,
+      "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로의 상한은 6센티미터입니다. 세로의 상한은 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다.",
+      "code_sha256": "eb41a462527e2117a45eb7771a79cb358673e1d2f9dbd4b0737ed5c50110b7cf"
+    }
+  },
+  "views": [
+    "결과를 정하는 누락된 정책",
+    "조건 간 상호작용과 우선순위",
+    "경계 입력과 예외"
+  ],
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "budget": "same-calls: each review max 240 output, one edit max 720 output; total-cap: prompt + output per review <=1050, one edit <=1900, total <=5050 including writer; shared archived draft upstream excluded",
+  "human": "up to two distinct requested card items, first-mentioned order, one combined reply, no tests or answers from grading",
+  "quiz": "full versus one omitted policy uses same main question role in both conditions; no code edit or scoring for this question-only control",
+  "source": "5fe4ff3775c22a874e7e68a8efc302161361007f1db1416b71cc85466c2c76b2"
+}

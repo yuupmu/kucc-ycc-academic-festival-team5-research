@@ -1,0 +1,296 @@
+[
+  {
+    "arm": "direct",
+    "seed": 131,
+    "chosen": "draft",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 이용 시작 시간이 이미 지났거나, 마감 시간을 넘었으면 취소 불가\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        return False\n\n    # 별도의 정정 시간이 있는 경우 (예: 방금 잘못 예약한 고객)\n    # 안내문에 따르면, 정정 요청은 가능하므로 True를 반환\n    # 그러나 이 함수는 일반 취소 여부만 판단하므로, 별도의 정정 시간은 고려하지 않음\n    # (문제에 명시된 조건에 따라, 일반 마감이 지난 경우는 False)\n\n    return True\n",
+    "sha256": "69f5a2fd6f9c1a7004591ff3933350ba8f02b64a90fd8e26521e70a40d7f26a3",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "arm": "self_short",
+    "seed": 131,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 86400초\n\n    # 이용 시작 시간이 이미 지났거나, 마감 시간을 넘었으면 취소 불가\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        return False\n\n    # 일반 취소 마감 시간 이전에 취소가 가능\n    return True\n",
+    "sha256": "230b679adf072b15471ebaa9c73cb49a6df09e39e2cee89f5713f043c3f976a3",
+    "calls": [
+      "draft.json",
+      "A.json"
+    ]
+  },
+  {
+    "arm": "abcd",
+    "seed": 131,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 86400초\n\n    # 이용 시작 시간이 이미 지났거나, 마감 시간을 넘었으면 취소 불가\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        return False\n\n    # 일반 취소 마감 시간 이전에 취소가 가능\n    return True\n",
+    "sha256": "230b679adf072b15471ebaa9c73cb49a6df09e39e2cee89f5713f043c3f976a3",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "abcd/B.json",
+      "abcd/C.json",
+      "abcd/D.json"
+    ]
+  },
+  {
+    "arm": "self_serial",
+    "seed": 131,
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 86400초\n\n    # 1. 이용 시작 시간이 이미 지났거나, 마감 시간을 넘었으면 취소 불가\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        return False\n\n    # 2. 일반 마감 시간 이전에 취소가 가능\n    return True\n",
+    "sha256": "0e166dedefa50fcb63519b5523e924e9cdc5edef925f8c8a705663de3bb14a3d",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "self_serial/B.json",
+      "self_serial/C.json",
+      "self_serial/D.json"
+    ]
+  },
+  {
+    "arm": "direct",
+    "seed": 157,
+    "chosen": "draft",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간 이전에 취소가 가능해야 함\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        # 일반 취소 마감 시간 이후에는 취소 불가\n        return False\n    else:\n        # until_start_seconds가 음수인 경우 (이미 시작된 경우)도 취소 불가\n        return False\n",
+    "sha256": "80f09dc5af964107ab56fb700c366ca9f30ba1b88b486bd807e769f620911e06",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "arm": "self_short",
+    "seed": 157,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    # 2. 이용 시작 시점 이후 (0초 이하)는 취소 불가\n    elif until_start_seconds <= 0:\n        return False\n    # 3. 일반 취소 마감 시간 이후 (24시간 전보다 적은 시간)는 취소 불가\n    else:\n        return False\n",
+    "sha256": "51b5d5d1a740afc1bbffc6995e4496f534ba895cc62a31fa8715de4d5ad01843",
+    "calls": [
+      "draft.json",
+      "A.json"
+    ]
+  },
+  {
+    "arm": "self_serial",
+    "seed": 157,
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    # 2. 이용 시작 시점 이후 (0초 이하)는 취소 불가\n    elif until_start_seconds <= 0:\n        return False\n    # 3. 일반 취소 마감 시간 이후 (24시간 전보다 적은 시간)는 취소 불가\n    else:\n        return False\n",
+    "sha256": "51b5d5d1a740afc1bbffc6995e4496f534ba895cc62a31fa8715de4d5ad01843",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "self_serial/B.json",
+      "self_serial/C.json",
+      "self_serial/D.json"
+    ]
+  },
+  {
+    "arm": "abcd",
+    "seed": 157,
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용이 이미 시작된 경우 (until_start_seconds < 0) → 취소 불가\n    if until_start_seconds < 0:\n        return False\n\n    # 2. 이용 시작 24시간 전까지는 취소 가능 (until_start_seconds >= 86400)\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n\n    # 3. 일반 취소 마감 시간 이후 (until_start_seconds < 86400) → 취소 불가\n    return False\n",
+    "sha256": "591fd8c1ed42550e987f9cf36090104b118eb76858802ce0594ad1b5c8194b82",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "abcd/B.json",
+      "abcd/C.json",
+      "abcd/D.json"
+    ]
+  },
+  {
+    "arm": "direct",
+    "seed": 191,
+    "chosen": "draft",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 이용이 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n    \n    # 일반 취소 마감 전에 취소 요청이 들어온 경우 허용\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    \n    # 일반 마감이 지난 경우에도 정정 요청을 받을 수 있음\n    # 예: 고객이 방금 잘못 예약한 경우\n    # 이 경우는 정정 요청을 허용하므로 True 반환\n    return True\n",
+    "sha256": "2bb6d58e5e50a04bbc38cd907b4ee007ccf83466117d808da844a45696e15756",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "arm": "self_short",
+    "seed": 191,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전 (86400초)\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 이용이 이미 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n    \n    # 일반 취소 마감 전에 취소 요청이 들어온 경우 허용\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    \n    # 일반 마감이 지난 경우에도 정정 요청을 받을 수 있음\n    # 예: 고객이 방금 잘못 예약한 경우\n    # 이 경우는 정정 요청을 허용하므로 True 반환\n    return True\n",
+    "sha256": "0671c7f99f6f3627a6e1fee56d442e883e13ef9b0bf9ef2dc0c65dd4403fceb4",
+    "calls": [
+      "draft.json",
+      "A.json"
+    ]
+  },
+  {
+    "arm": "abcd",
+    "seed": 191,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전 (86400초)\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 이용이 이미 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n    \n    # 일반 취소 마감 전에 취소 요청이 들어온 경우 허용\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    \n    # 일반 마감이 지난 경우에도 정정 요청을 받을 수 있음\n    # 예: 고객이 방금 잘못 예약한 경우\n    # 이 경우는 정정 요청을 허용하므로 True 반환\n    return True\n",
+    "sha256": "0671c7f99f6f3627a6e1fee56d442e883e13ef9b0bf9ef2dc0c65dd4403fceb4",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "abcd/B.json",
+      "abcd/C.json",
+      "abcd/D.json"
+    ]
+  },
+  {
+    "arm": "self_serial",
+    "seed": 191,
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전 (86400초)\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용이 이미 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n\n    # 2. 일반 취소 마감 전에 취소 요청이 들어온 경우 허용\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n\n    # 3. 일반 마감이 지난 경우에도 정정 요청을 받을 수 있음\n    # 예: 고객이 방금 잘못 예약한 경우\n    # 이 경우는 정정 요청을 허용하므로 True 반환\n    return True\n",
+    "sha256": "bc0c2283a44357791856f17f6db2cd86652611b8190b4199991c768d6096b995",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "self_serial/B.json",
+      "self_serial/C.json",
+      "self_serial/D.json"
+    ]
+  },
+  {
+    "arm": "direct",
+    "seed": 223,
+    "chosen": "draft",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간을 초로 변환\n\n    # 일반 취소 마감 시간 이전에 취소가 가능한가?\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n\n    # 이용이 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n\n    # \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n    # 이 문장은 일반 취소 마감 시간 이전에 취소가 가능하다는 것을 의미하지만,\n    # 구체적인 조건이 명시되지 않았기 때문에, 일반 취소 마감 시간 이전의 예약은 허용\n    # (이미 위에서 처리했으므로, 이 조건은 추가로 처리하지 않음)\n\n    # 특별한 경우가 아닌 이상, 일반 마감 시간 이후에는 취소 불가\n    return False\n",
+    "sha256": "f7ab6f18bee5c3661897e83570255620a5fbc7cf402d73abadbbd16f034d5486",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "arm": "self_short",
+    "seed": 223,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간을 초로 변환\n\n    # 1. 이용 시작 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n\n    # 2. 이용이 이미 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n\n    # 3. \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n    #    - 이 문장은 일반 취소 마감 시간 이전에 취소가 가능하다는 것을 의미하지만,\n    #    - 구체적인 조건이 명시되지 않았기 때문에, 일반 취소 마감 시간 이전의 예약은 이미 처리됨\n    #    - 따라서 이 조건은 추가로 처리하지 않음\n\n    # 4. 일반 마감 시간 이후에는 취소 불가\n    return False\n",
+    "sha256": "ca070430717be49354a2a3311ba4f04ad6980e173ae07a9d8f20a1c8f9cfb443",
+    "calls": [
+      "draft.json",
+      "A.json"
+    ]
+  },
+  {
+    "arm": "self_serial",
+    "seed": 223,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간을 초로 변환\n\n    # 1. 이용 시작 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n\n    # 2. 이용이 이미 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n\n    # 3. \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n    #    - 이 문장은 일반 취소 마감 시간 이전에 취소가 가능하다는 것을 의미하지만,\n    #    - 구체적인 조건이 명시되지 않았기 때문에, 일반 취소 마감 시간 이전의 예약은 이미 처리됨\n    #    - 따라서 이 조건은 추가로 처리하지 않음\n\n    # 4. 일반 마감 시간 이후에는 취소 불가\n    return False\n",
+    "sha256": "ca070430717be49354a2a3311ba4f04ad6980e173ae07a9d8f20a1c8f9cfb443",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "self_serial/B.json",
+      "self_serial/C.json",
+      "self_serial/D.json"
+    ]
+  },
+  {
+    "arm": "abcd",
+    "seed": 223,
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간을 초로 변환\n\n    # 1. 이용 시작 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n\n    # 2. 이용이 이미 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n\n    # 3. \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n    #    - 이 문장은 일반 취소 마감 시간 이전에 취소가 가능하다는 것을 의미하지만,\n    #    - 구체적인 조건이 명시되지 않았기 때문에, 일반 취소 마감 시간 이전의 예약은 허용\n    #    - 위 조건에서 이미 처리했으므로, 이 조건은 추가로 처리하지 않음\n\n    # 4. 특별한 경우가 아닌 이상, 일반 마감 시간 이후에는 취소 불가\n    return False\n",
+    "sha256": "f67197c2a01aac8607da4a210f8961adbd6c12ef5967a664ab4c8b19f7b30fd5",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "abcd/B.json",
+      "abcd/C.json",
+      "abcd/D.json"
+    ]
+  },
+  {
+    "arm": "direct",
+    "seed": 257,
+    "chosen": "draft",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간을 기준으로 판단\n    if until_start_seconds >= cancellation_deadline:\n        # 24시간 전까지는 취소 가능\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용 시작한 경우, 취소 불가\n        return False\n    else:\n        # 24시간 전 이후, 이용 시작 전이지만, \"방금 잘못 예약한 고객에게 별도의 정정 시간이 있음\"\n        # => 이 경우도 취소 가능 (사용자 요청에 따라)\n        return True\n",
+    "sha256": "a04ceffbf4a8c82509fece7d94d02405493e9fa3a274435dda26afb56d5ee604",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "arm": "self_short",
+    "seed": 257,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_deadline:\n        return True\n\n    # 2. 이미 이용 시작한 경우 (until_start_seconds < 0)는 취소 불가\n    if until_start_seconds < 0:\n        return False\n\n    # 3. 이용 시작 전이지만, 24시간 전 이후에는 일반 취소 마감이 지났으므로\n    #    \"방금 잘못 예약한 고객에게 별도의 정정 시간이 있음\"에 따라\n    #    정정 요청이 가능하므로 True 반환 (사용자 요청에 따라)\n    return True\n",
+    "sha256": "f1fbe65a87efa86048da099a9729100e0e0e3e20ed216b1731bba529cee42895",
+    "calls": [
+      "draft.json",
+      "A.json"
+    ]
+  },
+  {
+    "arm": "abcd",
+    "seed": 257,
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 전이고, 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_deadline:\n        return True\n\n    # 2. 이미 이용 시작한 경우 (until_start_seconds < 0), 취소 불가\n    elif until_start_seconds < 0:\n        return False\n\n    # 3. 이용 시작 전이지만, 24시간 전 이후 (즉, 일반 마감 시간 이후)\n    #    -> \"방금 잘못 예약한 고객에게 별도의 정정 시간이 있음\"\n    #    -> 이 경우도 취소 가능 (사용자 요청에 따라)\n    else:\n        return True\n",
+    "sha256": "379c5665726ed35e8e449e81ca6424bf66bf585bc6ae4c274a8e9cff4dbba481",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "abcd/B.json",
+      "abcd/C.json",
+      "abcd/D.json"
+    ]
+  },
+  {
+    "arm": "self_serial",
+    "seed": 257,
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 24시간 전까지는 취소 가능\n    if until_start_seconds >= cancellation_deadline:\n        return True\n\n    # 2. 이미 이용 시작한 경우 (until_start_seconds < 0)는 취소 불가\n    if until_start_seconds < 0:\n        return False\n\n    # 3. 이용 시작 전이지만, 24시간 전 이후에는 일반 취소 마감이 지났으므로\n    #    \"방금 잘못 예약한 고객에게 별도의 정정 시간이 있음\"에 따라\n    #    정정 요청이 가능하므로 True 반환 (사용자 요청에 따라)\n    return True\n",
+    "sha256": "f1fbe65a87efa86048da099a9729100e0e0e3e20ed216b1731bba529cee42895",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "self_serial/B.json",
+      "self_serial/C.json",
+      "self_serial/D.json"
+    ]
+  },
+  {
+    "arm": "direct",
+    "seed": 293,
+    "chosen": "draft",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간 이전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_deadline:\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용 시작한 경우, 취소 불가\n        return False\n    else:\n        # 이용 시작 전이지만, 일반 마감 시간 이후에는 취소 불가\n        return False\n",
+    "sha256": "a27148659bc1828fc1ffca179aec5a2c59a762ef33570db0ea54ee0602440399",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "arm": "self_short",
+    "seed": 293,
+    "chosen": "A",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 전이고, 일반 취소 마감 시간 이전에 취소 요청\n    if until_start_seconds >= cancellation_deadline:\n        return True\n\n    # 2. 이미 이용 시작한 경우 (until_start_seconds < 0)\n    #    - 일반 취소 마감 시간 이후이므로, 취소 불가\n    elif until_start_seconds < 0:\n        return False\n\n    # 3. 이용 시작 전이지만, 일반 마감 시간 이후 (0 <= until_start_seconds < cancellation_deadline)\n    #    - 일반 취소 마감 시간 이후이므로, 취소 불가\n    else:\n        return False\n",
+    "sha256": "75d65d7280f61d593cb65110a3487f913fb7e61164ea0c9550c268ecbc5dc1b4",
+    "calls": [
+      "draft.json",
+      "A.json"
+    ]
+  },
+  {
+    "arm": "self_serial",
+    "seed": 293,
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 전이고, 일반 취소 마감 시간 이전에 취소 요청\n    if until_start_seconds >= cancellation_deadline:\n        return True\n\n    # 2. 이미 이용 시작한 경우 (until_start_seconds < 0)\n    #    - 일반 취소 마감 시간 이후이므로, 취소 불가\n    elif until_start_seconds < 0:\n        return False\n\n    # 3. 이용 시작 전이지만, 일반 마감 시간 이후 (0 <= until_start_seconds < cancellation_deadline)\n    #    - 일반 취소 마감 시간 이후이므로, 취소 불가\n    else:\n        return False\n",
+    "sha256": "75d65d7280f61d593cb65110a3487f913fb7e61164ea0c9550c268ecbc5dc1b4",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "self_serial/B.json",
+      "self_serial/C.json",
+      "self_serial/D.json"
+    ]
+  },
+  {
+    "arm": "abcd",
+    "seed": 293,
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전 (86400초)\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 1. 이용 시작 전이면서, 일반 취소 마감 시간 이전에 취소 요청\n    if until_start_seconds >= cancellation_deadline:\n        return True\n\n    # 2. 이미 이용 시작한 경우 (until_start_seconds < 0), 취소 불가\n    elif until_start_seconds < 0:\n        return False\n\n    # 3. 이용 시작 전이지만, 일반 마감 시간 이후에는 취소 불가\n    else:\n        return False\n",
+    "sha256": "6d38f95aa3e72f3508911c0ea68e55f60ae1773dd505417d5b87b593e65a5868",
+    "calls": [
+      "draft.json",
+      "A.json",
+      "abcd/B.json",
+      "abcd/C.json",
+      "abcd/D.json"
+    ]
+  }
+]

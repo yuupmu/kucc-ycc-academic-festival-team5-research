@@ -1,0 +1,15 @@
+--- v2
++++ v3
+@@ -1,12 +1,8 @@
+ def allow_cancel(age_seconds, until_start_seconds):
+-    # 일반 취소 마감은 이용 시작 24시간 전입니다.
+     if until_start_seconds >= 86400:
+         return True
+-    # 이용이 시작되면 일반 취소는 마감됩니다.
+     if until_start_seconds < 0:
+         return False
+-    # 정정 기간은 예약 생성 후 10분입니다.
+     if age_seconds <= 600:
+         return True
+-    # 일반 마감이 지난 예약에 대한 정정 요청 조건은 담당자에게 문의해야 합니다.
+     raise NotImplementedError("일반 마감이 지난 예약에 대한 정정 요청 조건은 담당자에게 문의해야 합니다.")

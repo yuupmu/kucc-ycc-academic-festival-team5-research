@@ -1,0 +1,30 @@
+{
+  "cycle": 2,
+  "role": "self",
+  "previous_sha256": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+  "ticket": "507495b208182f95e54c3c23f8ea246e5b2a017800da37d625180bd1015c8e30",
+  "questions": [
+    {
+      "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+      "proposed_by": [
+        "main-self"
+      ]
+    }
+  ],
+  "calls": [
+    "9d76388b422905bd1674669e30b221c7de8bfacde82261ab5728714d95ef3aaa"
+  ],
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다."
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "withheld": [],
+  "invalid": false
+}

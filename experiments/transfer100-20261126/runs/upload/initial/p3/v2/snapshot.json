@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 담당자 답변에 따라 거부합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한 값은 16 바이트입니다.\n    MAX_SIZE = 16\n    \n    # 상한보다 작은 양수 파일은 허용하고, 정확히 상한인 파일도 허용합니다.\n    # 즉, 0 < size_bytes <= MAX_SIZE 인 경우 True 를 반환합니다.\n    return size_bytes <= MAX_SIZE"
+  },
+  "sha256": "e9e1d9640b418161b1649b09c58161382eb84527bfa06a6329293fa210508ab6",
+  "received": [
+    1
+  ],
+  "author_call": "d6cf9297d931c97afe58707bc578e9ba9d0af2c12764f6d47552c519a12100f9",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  }
+}

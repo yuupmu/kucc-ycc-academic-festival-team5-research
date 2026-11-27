@@ -1,0 +1,64 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def mask_code(code):\n    \"\"\"\n    화면에서 식별코드를 가리는 함수입니다.\n    \n    입력: 영문 대소문자와 숫자로만 된 문자열 (빈 문자열 포함)\n    출력: 마지막 세 글자는 그대로 유지하고, 앞의 글자는 별표(*)로 바꾼 문자열\n    \n    동작: \n    1. 입력 문자열의 길이를 확인합니다.\n    2. 길이가 3 이하인 경우: 입력과 동일한 문자열을 반환합니다 (모두 공개).\n    3. 길이가 3 초과인 경우: 마지막 3 개의 글자는 원본을 유지하고, \n       나머지 앞쪽 글자들은 별표(*)로 변환하여 반환합니다.\n    \n    예시:\n    - \"abc\" -> \"abc\"\n    - \"abcd\" -> \"*cd\"\n    - \"12345\" -> \"*345\"\n    - \"\" -> \"\"\n    \"\"\"\n    if len(code) <= 3:\n        return code\n    else:\n        masked_prefix = \"*\" * (len(code) - 3)\n        return masked_prefix + code[-3:]"
+  },
+  "sha256": "741492d6af6fae21cd9732fd1876b4577b2a2bf52291970d34df11c16f6a8eb8",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def mask_code(code):\n    \"\"\"\n    화면에서 식별코드를 가리는 함수입니다.\n    \n    입력: 영문 대소문자와 숫자로만 된 문자열 (빈 문자열 포함)\n    출력: 마지막 세 글자는 그대로 유지하고, 앞의 글자는 별표(*)로 바꾼 문자열\n    \n    동작: \n    1. 입력 문자열의 길이를 확인합니다.\n    2. 길이가 3 이하인 경우: 입력과 동일한 문자열을 반환합니다 (모두 공개).\n    3. 길이가 3 초과인 경우: 마지막 3 개의 글자는 원본을 유지하고, \n       나머지 앞쪽 글자들은 별표(*)로 변환하여 반환합니다.\n    \n    예시:\n    - \"abc\" -> \"abc\"\n    - \"abcd\" -> \"*cd\"\n    - \"12345\" -> \"*345\"\n    - \"\" -> \"\"\n    \"\"\"\n    if len(code) <= 3:\n        return code\n    else:\n        masked_prefix = \"*\" * (len(code) - 3)\n        return masked_prefix + code[-3:]"
+    },
+    "sha256": "741492d6af6fae21cd9732fd1876b4577b2a2bf52291970d34df11c16f6a8eb8",
+    "received": [
+      1
+    ],
+    "author_call": "e95e99217e8ebd4523a6a2af1ad20bc97099007ca2498d06eb513a5aeba337c4",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하는 운영 결정이 모든 코드 길이에 적용되도록 하더라도, 길이가 3 이하인 경우를 모두 공개하는 로직이 이미 구현되어 있더라도 운영 결정과 충돌할 수 있는지 확인하고 싶습니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "07cd4e85c9ba15d4be04bf536b04777698c1eeab9d2b66b79f40d5905ccfd30c",
+    "e95e99217e8ebd4523a6a2af1ad20bc97099007ca2498d06eb513a5aeba337c4",
+    "2c284095c448c85886c5e65af0eab312d64b0cc96493e7b13bc25a7f5dee6a71"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "b33cabe1d7f9ed3f89fe28fdec442b0295eb30b9386231d416813229f823b449",
+      "questions": [
+        {
+          "question": "mask_code 함수의 동작 방식 (원본 텍스트를 유지하거나 가리는 방식) 에 대한 운영 결정이 명확하지 않습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+--- v2
++++ v3
+@@ -1,7 +1,13 @@
+ def allow_cancel(age_seconds, until_start_seconds):
+-    if until_start_seconds < 0 and until_start_seconds > 86400:  # [1, 2]
++    if age_seconds < 600 and until_start_seconds > 0:  # [3, 4, 5]
++        return True
++    if until_start_seconds == 0:  # [6]
+         return False
+-    if age_seconds < 600 and until_start_seconds > 0:  # [3, 4, 5]
++    if until_start_seconds < 0:  # [7]
++        return False
++    if until_start_seconds > 0 and age_seconds > 600:  # [1, 2]
++        return False
++    if until_start_seconds > 0 and age_seconds < 600:  # [3, 4, 5]
+         return True
+     if until_start_seconds == 0 and age_seconds < 600:  # [6]
+         return False

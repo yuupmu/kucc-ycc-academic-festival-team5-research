@@ -1,0 +1,294 @@
+{
+  "writer": {
+    "calls": [
+      "52fac72c2050d88612dec426b3642ffce4dc4c3bf22f062667fbca601fa3a863",
+      "4e9f3514fd2f69392ad7e28cda80d81e6980e35252ec07f27c75a91459aaad91"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code) -> str",
+        "input": "code",
+        "still_open": "code is alphanumeric string (including empty)",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "replaces hidden chars with '*', preserves original case and order of visible chars",
+        "input": "code",
+        "still_open": "none",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "input contains only alphanumeric chars and no spaces",
+        "input": "code",
+        "still_open": "number of visible chars at start/end is determined by operator",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "last 3 chars are visible, preceding chars are masked with '*'",
+        "input": "code",
+        "still_open": "none",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "non-empty code with length <= 3 is fully masked with '*'",
+        "input": "code",
+        "still_open": "none",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def mask_code(code: str) -> str:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if len(code) == 0:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return code",
+            "sources": [
+              "P1",
+              "H1"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "    if len(code) <= 3:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return \"*\" * len(code)",
+            "sources": [
+              "P2",
+              "H2"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "    return code[-3:] + \"*\" * (len(code) - 3)",
+            "sources": [
+              "P1",
+              "H2",
+              "H1"
+            ]
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def mask_code(code: str) -> str:\n    if len(code) == 0:\n        return code\n    if len(code) <= 3:\n        return \"*\" * len(code)\n    return code[-3:] + \"*\" * (len(code) - 3)"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "H2",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "H2",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "H2",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": []
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하고 나머지는 별표로 가리는 로직에서, 길이가 3 이하인 경우를 별표로 처리하는 조건이 이미 구현되어 있으나, 운영 담당자가 '비어 있지 않은 코드'에 대해 별표 처리를 지시한 점을 고려할 때, 빈 문자열 처리 로직이 명시적으로 구현되어 있는지 검증이 필요합니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "11fca64831ce206c706e54480bb8bef6d5e7895591f8d8fd7d993750d7ee48df",
+    "52fac72c2050d88612dec426b3642ffce4dc4c3bf22f062667fbca601fa3a863",
+    "4e9f3514fd2f69392ad7e28cda80d81e6980e35252ec07f27c75a91459aaad91",
+    "c4c077f89ff2b8d656d80a0f64ab03736a83b91f4ac8e8539bd35646b92ce9be"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code: str) -> str:\n    if len(code) == 0:\n        return code\n    if len(code) <= 3:\n        return \"*\" * len(code)\n    return code[-3:] + \"*\" * (len(code) - 3)"
+  },
+  "sha256": "5520e0361cf1cb0b41986c52bd5256fb7fd0c46cec281390c9a6b51411766d32",
+  "status": "open_limit",
+  "cycle": 2,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "b33cabe1d7f9ed3f89fe28fdec442b0295eb30b9386231d416813229f823b449",
+      "questions": [
+        {
+          "question": "mask_code 함수의 동작 방식 (원본 텍스트를 유지하거나 가리는 방식) 에 대한 운영 결정이 명확하지 않습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    },
+    {
+      "cycle": 2,
+      "ticket": "fccfa900d25c8dca55fc243b4a6957bf4d466350c534edececf82dfb2cb65cf9",
+      "questions": [
+        {
+          "question": "마지막 3 글자를 공개하는 운영 결정이 코드 길이가 3 미만의 경우를 어떻게 처리하는지 명확히 해야 합니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ],
+  "previous_sha256": "591ea4353a7fd1ce6dcd474ddf5d7f1bac7895670ed78db1e3a9cce880fd3a9a",
+  "dialogue": "runs/mask/dialogues/self-regions-3/cycle-2"
+}

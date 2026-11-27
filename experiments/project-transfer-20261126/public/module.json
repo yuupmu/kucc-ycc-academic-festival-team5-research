@@ -1,0 +1,7 @@
+{
+  "brief": "문자열에 표식을 붙이는 자바스크립트 모듈입니다. src/frame.js의 frame(text)는 입력 문자열 앞에 [ 하나, 뒤에 ] 하나를 붙여 반환합니다. 입력은 항상 문자열이며 빈 문자열, 공백, 대소문자, 유니코드 문자를 그대로 보존합니다.\nsrc/index.js는 이 함수를 같은 이름으로 다시 내보냅니다. 두 파일의 이 동작을 확인하세요.",
+  "files": {
+    "src/frame.js": "export function frame(text) {\n  return '[' + text + ']';\n}\n",
+    "src/index.js": "export { frame } from './frame.js';\n"
+  }
+}

@@ -1,0 +1,3741 @@
+{
+  "cycle": 3,
+  "previous_sha256": "9badb517a45d2e06d944fdf4f745738f3cfb1a44a6665bab88bc29280d94d199",
+  "baseline_sha256": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+  "transcript_sha256": "527790e56b09a42e98bb49cc38ffcc12ef74dff7e9fff694eedb08468333180a",
+  "calls": [
+    "efa09a86ee57cea7bfa11de30f78bf438c31a5deaa0d94fd3a0f1222ac103716",
+    "4b63324974eb7881134c59aa096bb670307fa7a98354137ee479494c8156c61e",
+    "3160fc162e27ceb5b6087553fb59bf57e93a91cdc6aead7a8cf7331e60f2f188",
+    "058b2eb915e68feb012072f781c03b6b40b804bad040ee8bdb64fb64acb4efd5",
+    "9201369d44889c7ffce00813bcc07d76090cfa16a60f06f680df9e51c2039562",
+    "b3a18bc1d92b703f783e4fbe4ccab19fb0861423363ef83b572afe211672f24a",
+    "953b3a7180c2ac4e98c3c2e7142cfd4c432f4a8012eb2c3dd427c909da7d8a01",
+    "668fa2b30a8c84cfcfd0de3e4011a34bff36df8dc35c9ea8d34b65f0c869379c",
+    "5c2911df227be45c7e8ec956ca5dc0bb605ff6c8e734dac946b384809546c6fd"
+  ],
+  "held_question_calls": [
+    "efa09a86ee57cea7bfa11de30f78bf438c31a5deaa0d94fd3a0f1222ac103716",
+    "4b63324974eb7881134c59aa096bb670307fa7a98354137ee479494c8156c61e",
+    "3160fc162e27ceb5b6087553fb59bf57e93a91cdc6aead7a8cf7331e60f2f188"
+  ],
+  "sha256": "05c8d10e5cb56591e1587bb6357e93b032086a118495d590478df46ff62a5bce",
+  "files": {
+    "solution.py": "def allow_cancel(age_seconds, until_start_seconds):\n    if age_seconds < 0 and until_start_seconds < 0:\n        return False\n    if age_seconds < 0 and until_start_seconds == 0:\n        return False\n    if age_seconds < 0 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds < 0 and until_start_seconds == 86400:\n        return False\n    if age_seconds < 0 and until_start_seconds > 86400:\n        return False\n    if age_seconds == 0 and until_start_seconds < 0:\n        return False\n    if age_seconds == 0 and until_start_seconds == 0:\n        return False\n    if age_seconds == 0 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds == 0 and until_start_seconds == 86400:\n        return False\n    if age_seconds == 0 and until_start_seconds > 86400:\n        return False\n    if 0 < age_seconds < 600 and until_start_seconds < 0:\n        return True\n    if 0 < age_seconds < 600 and until_start_seconds == 0:\n        return True\n    if 0 < age_seconds < 600 and 0 < until_start_seconds < 86400:\n        return True\n    if 0 < age_seconds < 600 and until_start_seconds == 86400:\n        return True\n    if 0 < age_seconds < 600 and until_start_seconds > 86400:\n        return True\n    if age_seconds == 600 and until_start_seconds < 0:\n        return True\n    if age_seconds == 600 and until_start_seconds == 0:\n        return False\n    if age_seconds == 600 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds == 600 and until_start_seconds == 86400:\n        return False\n    if age_seconds == 600 and until_start_seconds > 86400:\n        return False\n    if age_seconds > 600 and until_start_seconds < 0:\n        return True\n    if age_seconds > 600 and until_start_seconds == 0:\n        return False\n    if age_seconds > 600 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds > 600 and until_start_seconds == 86400:\n        return False\n    if age_seconds > 600 and until_start_seconds > 86400:\n        return False\n    raise NotImplementedError"
+  },
+  "status": "open_limit",
+  "writer": {
+    "files": {
+      "solution.py": "def allow_cancel(age_seconds, until_start_seconds):\n    if age_seconds < 0 and until_start_seconds < 0:\n        return False\n    if age_seconds < 0 and until_start_seconds == 0:\n        return False\n    if age_seconds < 0 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds < 0 and until_start_seconds == 86400:\n        return False\n    if age_seconds < 0 and until_start_seconds > 86400:\n        return False\n    if age_seconds == 0 and until_start_seconds < 0:\n        return False\n    if age_seconds == 0 and until_start_seconds == 0:\n        return False\n    if age_seconds == 0 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds == 0 and until_start_seconds == 86400:\n        return False\n    if age_seconds == 0 and until_start_seconds > 86400:\n        return False\n    if 0 < age_seconds < 600 and until_start_seconds < 0:\n        return True\n    if 0 < age_seconds < 600 and until_start_seconds == 0:\n        return True\n    if 0 < age_seconds < 600 and 0 < until_start_seconds < 86400:\n        return True\n    if 0 < age_seconds < 600 and until_start_seconds == 86400:\n        return True\n    if 0 < age_seconds < 600 and until_start_seconds > 86400:\n        return True\n    if age_seconds == 600 and until_start_seconds < 0:\n        return True\n    if age_seconds == 600 and until_start_seconds == 0:\n        return False\n    if age_seconds == 600 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds == 600 and until_start_seconds == 86400:\n        return False\n    if age_seconds == 600 and until_start_seconds > 86400:\n        return False\n    if age_seconds > 600 and until_start_seconds < 0:\n        return True\n    if age_seconds > 600 and until_start_seconds == 0:\n        return False\n    if age_seconds > 600 and 0 < until_start_seconds < 86400:\n        return False\n    if age_seconds > 600 and until_start_seconds == 86400:\n        return False\n    if age_seconds > 600 and until_start_seconds > 86400:\n        return False\n    raise NotImplementedError"
+    },
+    "calls": [
+      "058b2eb915e68feb012072f781c03b6b40b804bad040ee8bdb64fb64acb4efd5",
+      "9201369d44889c7ffce00813bcc07d76090cfa16a60f06f680df9e51c2039562",
+      "b3a18bc1d92b703f783e4fbe4ccab19fb0861423363ef83b572afe211672f24a"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "allow_cancel(age_seconds, until_start_seconds) -> bool; age_seconds >= 0; until_start_seconds <= 0 (음수는 이미 시작); 시간 변환은 호출자가 처리",
+        "input": "age_seconds",
+        "still_open": "until_start_seconds의 정확성 (0은 시작 순간, 음수는 이미 시작)을 age_seconds와 함께 검증할 수 없음",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "일반 취소 마감은 이용 시작 24시간 전; 이용 시작 시 일반 취소는 마감됨",
+        "input": "until_start_seconds",
+        "still_open": "정정 가능 기간 (10분)과 일반 마감 (24시간)의 관계 (정정 기간이 일반 마감보다 짧은지)를 명시하지 않음",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "일반 마감이 지난 예약과 막 이용이 시작된 예약에 정정 요청 가능; 정정 가능 기간 10분; 정정 기간 끝나는 순간 포함; 이용 시작 순간에는 정정 기간이 남아 있어도 거부; 정정 기간 안이면 일반 마감이 지난 예약도 정정 가능; 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소 불가",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간 (10분)이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "정정 시간은 예약 생성부터 셉니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간의 시작점이 age_seconds와 일치하는지 명시하지 않음",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "정정 가능 기간은 10분입니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "정정 기간이 정확히 끝나는 순간도 포함합니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H4": {
+        "established": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다",
+        "input": "until_start_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H5": {
+        "established": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      },
+      "H6": {
+        "established": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다",
+        "input": "age_seconds",
+        "still_open": "정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "until_start_seconds",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 16,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 18,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 20,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "H2",
+              "H6",
+              "P2",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "H2",
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "H2",
+              "H6",
+              "P2",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "H2",
+              "H6",
+              "P2",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "H2",
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "H2",
+              "H6",
+              "P2",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H4": {
+        "status": "rule",
+        "input": "until_start_seconds",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 22,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 23,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 24,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 25,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 26,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 27,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 28,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 29,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 30,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 31,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 32,
+            "sources": [
+              "H2",
+              "P2",
+              "H1",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 33,
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H5": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "H2",
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H6": {
+        "status": "rule",
+        "input": "age_seconds",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 9,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 10,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 11,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 12,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 13,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 14,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 15,
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 16,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 17,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 18,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 19,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 20,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 21,
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 34,
+            "sources": [
+              "H2",
+              "H6",
+              "P2",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 35,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 36,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 37,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 38,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 39,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 40,
+            "sources": [
+              "H2",
+              "P2",
+              "H6",
+              "H1",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 41,
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 42,
+            "sources": [
+              "H2",
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 43,
+            "sources": [
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 44,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 45,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 46,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 47,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 48,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 49,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 50,
+            "sources": [
+              "H2",
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 51,
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "inputs": [
+              "age_seconds",
+              "until_start_seconds"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "regions": [
+      {
+        "scope": "T1",
+        "kind": "numeric",
+        "rows": [
+          {
+            "region": "age_seconds < 0 and until_start_seconds < 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds < 0 and until_start_seconds == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds < 0 and 0 < until_start_seconds < 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds < 0 and until_start_seconds == 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds < 0 and until_start_seconds > 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 0 and until_start_seconds < 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 0 and until_start_seconds == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H4",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 0 and 0 < until_start_seconds < 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 0 and until_start_seconds == 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 0 and until_start_seconds > 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < age_seconds < 600 and until_start_seconds < 0",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < age_seconds < 600 and until_start_seconds == 0",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < age_seconds < 600 and 0 < until_start_seconds < 86400",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < age_seconds < 600 and until_start_seconds == 86400",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "0 < age_seconds < 600 and until_start_seconds > 86400",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 600 and until_start_seconds < 0",
+            "selected": "True",
+            "sources": [
+              "P2",
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 600 and until_start_seconds == 0",
+            "selected": "False",
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 600 and 0 < until_start_seconds < 86400",
+            "selected": "False",
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 600 and until_start_seconds == 86400",
+            "selected": "False",
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds == 600 and until_start_seconds > 86400",
+            "selected": "False",
+            "sources": [
+              "H6",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds > 600 and until_start_seconds < 0",
+            "selected": "True",
+            "sources": [
+              "H5",
+              "P2",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds > 600 and until_start_seconds == 0",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds > 600 and 0 < until_start_seconds < 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds > 600 and until_start_seconds == 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          },
+          {
+            "region": "age_seconds > 600 and until_start_seconds > 86400",
+            "selected": "False",
+            "sources": [
+              "P2",
+              "H5",
+              "H6"
+            ],
+            "issue": null,
+            "implemented": true
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "error": null,
+    "complete": false,
+    "format": "regions",
+    "answer_application": [
+      {
+        "call": "b3a18bc1d92b703f783e4fbe4ccab19fb0861423363ef83b572afe211672f24a",
+        "rules": {
+          "edits": [
+            {
+              "reply": "R1.1",
+              "quote": "정정 시간은 예약을 생성한 때부터 셉니다.",
+              "result": "True",
+              "when": {
+                "age_seconds": "*",
+                "until_start_seconds": "*"
+              }
+            },
+            {
+              "reply": "R1.2",
+              "quote": "정정 가능 기간은 10 분입니다.",
+              "result": "True",
+              "when": {
+                "age_seconds": "age_seconds < 600",
+                "until_start_seconds": "*"
+              }
+            },
+            {
+              "reply": "R1.3",
+              "quote": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+              "result": "True",
+              "when": {
+                "age_seconds": "age_seconds == 600",
+                "until_start_seconds": "*"
+              }
+            },
+            {
+              "reply": "R1.4",
+              "quote": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+              "result": "False",
+              "when": {
+                "age_seconds": "age_seconds < 0",
+                "until_start_seconds": "*"
+              }
+            },
+            {
+              "reply": "R1.5",
+              "quote": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+              "result": "True",
+              "when": {
+                "age_seconds": "age_seconds >= 600",
+                "until_start_seconds": "until_start_seconds < 0"
+              }
+            },
+            {
+              "reply": "R1.6",
+              "quote": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+              "result": "False",
+              "when": {
+                "age_seconds": "age_seconds >= 600",
+                "until_start_seconds": "until_start_seconds >= 0"
+              }
+            }
+          ]
+        },
+        "changes": [
+          {
+            "region": "age_seconds == 600 and until_start_seconds == 0",
+            "before": "True",
+            "after": "False",
+            "replies": [
+              "R1.6"
+            ],
+            "conflict": false
+          },
+          {
+            "region": "age_seconds == 600 and 0 < until_start_seconds < 86400",
+            "before": "True",
+            "after": "False",
+            "replies": [
+              "R1.6"
+            ],
+            "conflict": false
+          },
+          {
+            "region": "age_seconds == 600 and until_start_seconds == 86400",
+            "before": "True",
+            "after": "False",
+            "replies": [
+              "R1.6"
+            ],
+            "conflict": false
+          },
+          {
+            "region": "age_seconds == 600 and until_start_seconds > 86400",
+            "before": "True",
+            "after": "False",
+            "replies": [
+              "R1.6"
+            ],
+            "conflict": false
+          },
+          {
+            "region": "age_seconds > 600 and until_start_seconds < 0",
+            "before": "False",
+            "after": "True",
+            "replies": [
+              "R1.5"
+            ],
+            "conflict": false
+          }
+        ],
+        "issues": [
+          "회신 결과와 공개 반환 규약의 직접 대응이 없음",
+          "회신 원문에 없는 인용",
+          "회신 결과와 공개 반환 규약의 직접 대응이 없음",
+          "정확한 순간에 해당하는 단일 경계를 특정하지 못함"
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "정정 가능 기간이 정확히 끝나는 순간 (age_seconds == 600) 을 포함하는지 확인",
+            "outcome_a": "정정 가능 기간이 정확히 끝나는 순간을 포함하여 True",
+            "outcome_b": "정정 가능 기간이 정확히 끝나는 순간을 포함하지 않아서 False",
+            "question": "정정 가능 기간이 정확히 끝나는 순간을 포함하는지 확인"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "정정 가능 기간이 정확히 끝나는 순간 (age_seconds == 600) 에 대해 안내문과 코드가 다른 결과를 반환합니다.",
+            "outcome_a": "정정 가능 기간이 정확히 끝나는 순간도 포함하므로 True",
+            "outcome_b": "정정 가능 기간이 정확히 끝나는 순간은 제외하므로 False",
+            "question": "정정 가능 기간이 정확히 끝나는 순간 (age_seconds == 600) 에 대해 안내문과 코드가 다른 결과를 반환합니다. 안내문은 '정정 기간이 정확히 끝나는 순간도 포함합니다'라고 명시하고, 코드는 age_seconds == 600 일 때 until_start_seconds < 0, == 0, 0 < until_start_seconds < 86400, == 86400 에 대해 True 를 반환하지만, until_start_seconds > 86400 에 대해 False 를 반환합니다. 안내문과 코드가 일치하는 경우와 일치하지 않는 경우를 구분하여 질문해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "정정 가능 기간이 정확히 끝나는 순간 (age_seconds == 600) 을 포함해야 하지만, 현재 코드는 age_seconds == 600 일 때 except 0 < until_start_seconds < 86400 을 제외하고 처리하고 있습니다.",
+            "outcome_a": "정정 가능 기간이 정확히 끝나는 순간을 포함하여 취소 허용 (True)",
+            "outcome_b": "정정 가능 기간이 정확히 끝나는 순간을 제외하여 취소 거부 (False) ",
+            "question": "정정 가능 기간이 정확히 끝나는 순간 (age_seconds == 600) 을 포함하여 취소 허용 (True) 해야 하는지, 아니면 제외하여 거부 (False) 해야 하는지 명확히 해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ]
+}

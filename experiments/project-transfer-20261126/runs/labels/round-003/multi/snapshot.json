@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "files": {
+    "labels.py": "def merge_labels(base, incoming):\n    result = []\n    for item in base + incoming:\n        label = item.strip()\nif label.casefold() not in result:\n            result.append(label)\n    return result\n"
+  },
+  "sha256": "19df0ece6b6e17bb7317a7c42aacfbbcbba28076af59970345bc03bb26481c5b",
+  "plan": "기존 코드는 `if label not in result` 조건으로 중복을 제거하지만, 공개 명세와 담당자 답변에 따르면 대소문자 구분 없이 비교하고, 가장 최근의 표기를 유지해야 합니다. 따라서 `label not in result` 조건을 `label.casefold() not in result`로 수정해야 합니다. 또한, `strip()`을 사용한 라벨을 기준으로 비교해야 하므로, `label = item.strip()`을 유지합니다. 기존 코드의 `if label not in result` 조건을 `if label.casefold() not in result`로 수정하고, `label`을 `item.strip()`으로 설정한 후 비교합니다.",
+  "complete": true,
+  "applied_edits": [
+    {
+      "file": "labels.py",
+      "first": 5,
+      "last": 5,
+      "sources": [
+        "P2",
+        "A1.2",
+        "A1.3"
+      ],
+      "text": "if label.casefold() not in result:"
+    }
+  ],
+  "edit_error": null,
+  "received": [
+    1,
+    2
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "writer": {
+    "calls": [
+      "cb8064055543913d398068859e58e14306594e2eabcf51efa1006554838936ae",
+      "8143533301464c0f92fe494e2ec04f14e41c648f2e55870cf47258152e41b133"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code: str) -> str",
+        "input": "code",
+        "still_open": "code is str of alphanumeric chars (case-sensitive), empty string allowed",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "mask each hidden char with '*', preserve original case and order of revealed chars",
+        "input": "code",
+        "still_open": "none",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "input contains only alphanumeric chars and no spaces",
+        "input": "code",
+        "still_open": "none",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "reveal last 3 chars, mask all preceding chars with '*', if code length < 3 handle based on operator guidelines",
+        "input": "code",
+        "still_open": "operator guidelines for length < 3",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def mask_code(code: str) -> str:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if len(code) <= 3:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return code",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return \"*\" * (len(code) - 3) + code[-3:]",
+            "sources": [
+              "P1",
+              "H1"
+            ]
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def mask_code(code: str) -> str:\n    if len(code) <= 3:\n        return code\n    return \"*\" * (len(code) - 3) + code[-3:]"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": [],
+    "answer_application": [
+      {
+        "mode": "native",
+        "scope": "solution.py",
+        "issues": []
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하는 운영 결정이 코드에 반영되었는지 확인했습니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "07cd4e85c9ba15d4be04bf536b04777698c1eeab9d2b66b79f40d5905ccfd30c",
+    "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+    "10b3065d3506d669161cb8bbfaa8956de3500621d8df186a39533cdd7eb545ab",
+    "351b8daba0e73ec2a241317386beebeab7cb35649396a66639f604f0cdfdb06b",
+    "4f1da32fdb1663a743048e9932056ec657a5806598452ae894234cd5364c265b",
+    "16cbd7899acba5996bf5764a45a0dbbbecbfe52b45e0dc5f85bfa981495ebf7d",
+    "2184be87d82c5036e0a61b214fd0b26ce3f975060f9bb48ad7c0d962b664f704",
+    "5ca097b229a5754b60233d21f623217d634327f078396ce8453dae7430e6ac41",
+    "865d004cca8c05ae96aadfadeec2d44e0a101558aba8fc837df8314c98fff782",
+    "cb8064055543913d398068859e58e14306594e2eabcf51efa1006554838936ae",
+    "8143533301464c0f92fe494e2ec04f14e41c648f2e55870cf47258152e41b133",
+    "b9647bb69c5e5ba7cbde3f875060b4c7577d147ee17497aea278ac5d28e137d6"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code: str) -> str:\n    if len(code) <= 3:\n        return code\n    return \"*\" * (len(code) - 3) + code[-3:]"
+  },
+  "sha256": "c58cc5f0299f0bcbfc9c3b6b57684732a9984ecdfc1a93b6431d0e5e8cea8c5d",
+  "status": "open_limit",
+  "cycle": 3,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "b33cabe1d7f9ed3f89fe28fdec442b0295eb30b9386231d416813229f823b449",
+      "questions": [
+        {
+          "question": "mask_code 함수의 동작 방식 (원본 텍스트를 유지하거나 가리는 방식) 에 대한 운영 결정이 명확하지 않습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    },
+    {
+      "cycle": 2,
+      "ticket": "63a7d8a7c3df0d6e4b52b4411808e32b354ec44f0912b1dc22af1c9fe7b40d97",
+      "questions": [
+        {
+          "question": "마지막 세 글자를 공개하는 운영 결정이 코드에 반영되었는지 확인합니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    },
+    {
+      "cycle": 3,
+      "ticket": "b7b751e492e89d601cc82bf31f06e8ca4c41ed3de7966ce255304dd555a5900a",
+      "questions": [
+        {
+          "question": "코드가 길어졌을 때 마지막 3 글자를 공개하는 규칙이 변경되지 않았는지 확인하고, 변경되지 않았다면 코드를 수정하지 말고, 변경되었다면 수정을 요청하세요.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ],
+  "previous_sha256": "c58cc5f0299f0bcbfc9c3b6b57684732a9984ecdfc1a93b6431d0e5e8cea8c5d",
+  "dialogue": "runs/mask/dialogues/self-fidelity-3/cycle-3"
+}

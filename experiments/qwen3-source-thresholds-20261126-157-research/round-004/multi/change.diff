@@ -1,0 +1,45 @@
+--- v3
++++ v4
+@@ -1,18 +1,36 @@
+ def allow_cancel(age_seconds, until_start_seconds):
+-    if until_start_seconds <= 86400 and age_seconds <= 600:  # [1, 2, 3, 4, 5, 6, 7]
++    if until_start_seconds <= 86400 and age_seconds <= 600:  # [1, 2, 3, 4, 5, 6]
+         return True
+-    if until_start_seconds < 86400 and age_seconds > 600:  # [1, 2, 3, 4, 5, 6, 7]
++    if until_start_seconds < 86400 and age_seconds > 600:  # [1, 2, 3, 4, 5, 6]
+         return False
+-    if until_start_seconds > 86400 and age_seconds < 600:  # [2, 3, 8, 9]
++    if until_start_seconds > 86400 and age_seconds < 600:  # [2, 3, 7, 8, 9]
+         return False
+     if until_start_seconds > 86400 and age_seconds == 600:
+         raise NotImplementedError("담당자 판단 필요")
+-    if until_start_seconds > 86400 and age_seconds > 600:  # [2, 3, 8, 9]
++    if until_start_seconds >= 86400 and age_seconds == 600:
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds <= 86400 and age_seconds == 600:
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds > 86400 and age_seconds > 600:  # [2, 3, 7, 8, 9]
+         return False
+     if until_start_seconds > 86400 and age_seconds == 600:
+         raise NotImplementedError("담당자 판단 필요")
+-    if until_start_seconds < 86400 and age_seconds < 600:  # [7]
++    if until_start_seconds == 86400:
+         raise NotImplementedError("담당자 판단 필요")
+-    if until_start_seconds <= 86400 and age_seconds <= 600:
++    if until_start_seconds < 86400:  # [1]
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds == 86400:
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds > 86400:  # [2]
++        raise NotImplementedError("담당자 판단 필요")
++    if until_start_seconds == 86400:
++        raise NotImplementedError("담당자 판단 필요")
++    if age_seconds < 600:  # [4]
++        raise NotImplementedError("담당자 판단 필요")
++    if age_seconds == 600:
++        raise NotImplementedError("담당자 판단 필요")
++    if age_seconds > 600:  # [5]
++        raise NotImplementedError("담당자 판단 필요")
++    if age_seconds == 600:
+         raise NotImplementedError("담당자 판단 필요")
+     raise NotImplementedError("담당자 판단 필요")

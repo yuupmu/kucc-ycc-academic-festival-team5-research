@@ -1,0 +1,42 @@
+{
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds < 0:\n        return False\n    if until_start_seconds >= 0:\n        return True\n    return False",
+  "calls": [
+    "7fe6a1d0567c7b9441a0728a14578211a782f18c75cbd4f7ca6006c20a3670d2",
+    "64a669706dc3a0d2d845a65f2c040022be9cf69e46973dd56b14fda946e0e65b",
+    "dcd52708a574f7e0f0a511ea151a9d222b7da7dce5af668137cdb3a0fc4bf8ed",
+    "2370e9cb0e1cffb025fded794b7ebf34ad6666fb9dee473d1ee3f1b9ce2fbde8",
+    "0845befb9a39fae8943cf03a925096961ffceab983ab1f859f40766d6aafb303",
+    "94087376082286dd51fe6c2a76bc1dd668947611c5ec213c0c1a8a7cc6989979",
+    "1e79e0249ad3e54dd81acd3f970a6f0f5f19c268b98b10070f175fffd4f5871d",
+    "65a2d14fc49099d13cef255ef51fd66de163e5a46a7f6d545044a81707455920"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "이용이 시작된 직후에 정정 요청을 받는 고객에게 취소를 허용해야 할까요?"
+      ],
+      "answer": {
+        "text": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다."
+      }
+    },
+    {
+      "request_id": "self-2",
+      "questions": [
+        "이용이 시작된 직후에 정정 요청을 받는 고객에게 취소를 허용해야 할까요?"
+      ],
+      "answer": {
+        "text": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다."
+      }
+    },
+    {
+      "request_id": "self-3",
+      "questions": [
+        "이용이 시작된 직후에 정정 요청을 받는 고객에게 취소를 허용해야 할까요?"
+      ],
+      "answer": {
+        "text": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다."
+      }
+    }
+  ]
+}

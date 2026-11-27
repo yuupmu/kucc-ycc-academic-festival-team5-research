@@ -1,0 +1,1835 @@
+[
+  {
+    "id": "R01",
+    "task": "reservation",
+    "kind": "R1",
+    "type": "일반 취소 마감 전 · 정정 만료",
+    "inputs": [
+      604799,
+      86401
+    ],
+    "expected": true,
+    "old_id": "C003",
+    "owner_paths": []
+  },
+  {
+    "id": "R02",
+    "task": "reservation",
+    "kind": "R1",
+    "type": "일반 취소 마감 전 · 정정 만료",
+    "inputs": [
+      601,
+      86401
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R03",
+    "task": "reservation",
+    "kind": "R1",
+    "type": "일반 취소 마감 전 · 정정 만료",
+    "inputs": [
+      601,
+      86402
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R04",
+    "task": "reservation",
+    "kind": "R1",
+    "type": "일반 취소 마감 전 · 정정 만료",
+    "inputs": [
+      1800,
+      90000
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R05",
+    "task": "reservation",
+    "kind": "R1",
+    "type": "일반 취소 마감 전 · 정정 만료",
+    "inputs": [
+      86400,
+      172800
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R06",
+    "task": "reservation",
+    "kind": "R1",
+    "type": "일반 취소 마감 전 · 정정 만료",
+    "inputs": [
+      1209600,
+      259200
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R07",
+    "task": "reservation",
+    "kind": "R2",
+    "type": "일반 마감 정확히 24시간 전",
+    "inputs": [
+      165600,
+      86400
+    ],
+    "expected": true,
+    "old_id": "C011",
+    "owner_paths": [
+      [
+        "deadline"
+      ]
+    ]
+  },
+  {
+    "id": "R08",
+    "task": "reservation",
+    "kind": "R2",
+    "type": "일반 마감 정확히 24시간 전",
+    "inputs": [
+      601,
+      86400
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "deadline"
+      ]
+    ]
+  },
+  {
+    "id": "R09",
+    "task": "reservation",
+    "kind": "R2",
+    "type": "일반 마감 정확히 24시간 전",
+    "inputs": [
+      602,
+      86400
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "deadline"
+      ]
+    ]
+  },
+  {
+    "id": "R10",
+    "task": "reservation",
+    "kind": "R2",
+    "type": "일반 마감 정확히 24시간 전",
+    "inputs": [
+      3600,
+      86400
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "deadline"
+      ]
+    ]
+  },
+  {
+    "id": "R11",
+    "task": "reservation",
+    "kind": "R2",
+    "type": "일반 마감 정확히 24시간 전",
+    "inputs": [
+      604800,
+      86400
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "deadline"
+      ]
+    ]
+  },
+  {
+    "id": "R12",
+    "task": "reservation",
+    "kind": "R3",
+    "type": "일반·정정 기한 모두 만료",
+    "inputs": [
+      604801,
+      86399
+    ],
+    "expected": false,
+    "old_id": "C002",
+    "owner_paths": [
+      [
+        "expired",
+        "duration",
+        "clock"
+      ]
+    ]
+  },
+  {
+    "id": "R13",
+    "task": "reservation",
+    "kind": "R3",
+    "type": "일반·정정 기한 모두 만료",
+    "inputs": [
+      608400,
+      82800
+    ],
+    "expected": false,
+    "old_id": "C006",
+    "owner_paths": [
+      [
+        "expired",
+        "duration",
+        "clock"
+      ]
+    ]
+  },
+  {
+    "id": "R14",
+    "task": "reservation",
+    "kind": "R3",
+    "type": "일반·정정 기한 모두 만료",
+    "inputs": [
+      601,
+      3600
+    ],
+    "expected": false,
+    "old_id": "C072",
+    "owner_paths": [
+      [
+        "expired",
+        "duration",
+        "clock"
+      ]
+    ]
+  },
+  {
+    "id": "R15",
+    "task": "reservation",
+    "kind": "R3",
+    "type": "일반·정정 기한 모두 만료",
+    "inputs": [
+      601,
+      1
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "expired",
+        "duration",
+        "clock"
+      ]
+    ]
+  },
+  {
+    "id": "R16",
+    "task": "reservation",
+    "kind": "R3",
+    "type": "일반·정정 기한 모두 만료",
+    "inputs": [
+      602,
+      86399
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "expired",
+        "duration",
+        "clock"
+      ]
+    ]
+  },
+  {
+    "id": "R17",
+    "task": "reservation",
+    "kind": "R3",
+    "type": "일반·정정 기한 모두 만료",
+    "inputs": [
+      86401,
+      60
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "expired",
+        "duration",
+        "clock"
+      ]
+    ]
+  },
+  {
+    "id": "R18",
+    "task": "reservation",
+    "kind": "R4",
+    "type": "예약 생성 바로 그 순간",
+    "inputs": [
+      0,
+      1
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R19",
+    "task": "reservation",
+    "kind": "R4",
+    "type": "예약 생성 바로 그 순간",
+    "inputs": [
+      0,
+      60
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R20",
+    "task": "reservation",
+    "kind": "R4",
+    "type": "예약 생성 바로 그 순간",
+    "inputs": [
+      0,
+      3599
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R21",
+    "task": "reservation",
+    "kind": "R4",
+    "type": "예약 생성 바로 그 순간",
+    "inputs": [
+      0,
+      3600
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R22",
+    "task": "reservation",
+    "kind": "R4",
+    "type": "예약 생성 바로 그 순간",
+    "inputs": [
+      0,
+      86399
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R23",
+    "task": "reservation",
+    "kind": "R5",
+    "type": "정정 기간 안 · 이용 시작 전",
+    "inputs": [
+      299,
+      1
+    ],
+    "expected": true,
+    "old_id": "C081",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R24",
+    "task": "reservation",
+    "kind": "R5",
+    "type": "정정 기간 안 · 이용 시작 전",
+    "inputs": [
+      1,
+      3600
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R25",
+    "task": "reservation",
+    "kind": "R5",
+    "type": "정정 기간 안 · 이용 시작 전",
+    "inputs": [
+      599,
+      1
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R26",
+    "task": "reservation",
+    "kind": "R5",
+    "type": "정정 기간 안 · 이용 시작 전",
+    "inputs": [
+      1,
+      86399
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R27",
+    "task": "reservation",
+    "kind": "R5",
+    "type": "정정 기간 안 · 이용 시작 전",
+    "inputs": [
+      300,
+      1800
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration"
+      ]
+    ]
+  },
+  {
+    "id": "R28",
+    "task": "reservation",
+    "kind": "R6",
+    "type": "정정 기간 끝점 600초",
+    "inputs": [
+      600,
+      3600
+    ],
+    "expected": true,
+    "old_id": "C071",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "R29",
+    "task": "reservation",
+    "kind": "R6",
+    "type": "정정 기간 끝점 600초",
+    "inputs": [
+      600,
+      7200
+    ],
+    "expected": true,
+    "old_id": "C073",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "R30",
+    "task": "reservation",
+    "kind": "R6",
+    "type": "정정 기간 끝점 600초",
+    "inputs": [
+      600,
+      1
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "R31",
+    "task": "reservation",
+    "kind": "R6",
+    "type": "정정 기간 끝점 600초",
+    "inputs": [
+      600,
+      86399
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "R32",
+    "task": "reservation",
+    "kind": "R6",
+    "type": "정정 기간 끝점 600초",
+    "inputs": [
+      600,
+      60
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "late",
+        "clock",
+        "duration",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "R33",
+    "task": "reservation",
+    "kind": "R7",
+    "type": "일반 취소와 정정 모두 가능",
+    "inputs": [
+      0,
+      86401
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R34",
+    "task": "reservation",
+    "kind": "R7",
+    "type": "일반 취소와 정정 모두 가능",
+    "inputs": [
+      1,
+      172800
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R35",
+    "task": "reservation",
+    "kind": "R7",
+    "type": "일반 취소와 정정 모두 가능",
+    "inputs": [
+      599,
+      86401
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R36",
+    "task": "reservation",
+    "kind": "R7",
+    "type": "일반 취소와 정정 모두 가능",
+    "inputs": [
+      600,
+      259200
+    ],
+    "expected": true,
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "R37",
+    "task": "reservation",
+    "kind": "R8",
+    "type": "이용 시작 정각",
+    "inputs": [
+      300,
+      0
+    ],
+    "expected": false,
+    "old_id": "C082",
+    "owner_paths": [
+      [
+        "start"
+      ]
+    ]
+  },
+  {
+    "id": "R38",
+    "task": "reservation",
+    "kind": "R8",
+    "type": "이용 시작 정각",
+    "inputs": [
+      30,
+      0
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "start"
+      ]
+    ]
+  },
+  {
+    "id": "R39",
+    "task": "reservation",
+    "kind": "R8",
+    "type": "이용 시작 정각",
+    "inputs": [
+      1,
+      0
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "start"
+      ]
+    ]
+  },
+  {
+    "id": "R40",
+    "task": "reservation",
+    "kind": "R8",
+    "type": "이용 시작 정각",
+    "inputs": [
+      299,
+      0
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "start"
+      ]
+    ]
+  },
+  {
+    "id": "R41",
+    "task": "reservation",
+    "kind": "R8",
+    "type": "이용 시작 정각",
+    "inputs": [
+      599,
+      0
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "start"
+      ]
+    ]
+  },
+  {
+    "id": "R42",
+    "task": "reservation",
+    "kind": "R8",
+    "type": "이용 시작 정각",
+    "inputs": [
+      600,
+      0
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "start"
+      ]
+    ]
+  },
+  {
+    "id": "R43",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      301,
+      -1
+    ],
+    "expected": false,
+    "old_id": "C084",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "R44",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      15,
+      -1
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "R45",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      2,
+      -1
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "R46",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      300,
+      -10
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "R47",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      599,
+      -1
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "R48",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      600,
+      -1
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "R49",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      120,
+      -60
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "R50",
+    "task": "reservation",
+    "kind": "R9",
+    "type": "이용을 이미 시작한 뒤",
+    "inputs": [
+      600,
+      -300
+    ],
+    "expected": false,
+    "old_id": "",
+    "owner_paths": [
+      [
+        "after"
+      ]
+    ]
+  },
+  {
+    "id": "T01",
+    "task": "triage",
+    "kind": "T1",
+    "type": "알려진 태그 하나",
+    "inputs": [
+      "account"
+    ],
+    "expected": "account",
+    "old_id": "1",
+    "owner_paths": []
+  },
+  {
+    "id": "T02",
+    "task": "triage",
+    "kind": "T1",
+    "type": "알려진 태그 하나",
+    "inputs": [
+      "billing"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "T03",
+    "task": "triage",
+    "kind": "T1",
+    "type": "알려진 태그 하나",
+    "inputs": [
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "3",
+    "owner_paths": []
+  },
+  {
+    "id": "T04",
+    "task": "triage",
+    "kind": "T2",
+    "type": "같은 담당 태그 중복",
+    "inputs": [
+      "account",
+      "account"
+    ],
+    "expected": "account",
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "T05",
+    "task": "triage",
+    "kind": "T2",
+    "type": "같은 담당 태그 중복",
+    "inputs": [
+      "billing",
+      "billing"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "T06",
+    "task": "triage",
+    "kind": "T2",
+    "type": "같은 담당 태그 중복",
+    "inputs": [
+      "privacy",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "T07",
+    "task": "triage",
+    "kind": "T2",
+    "type": "같은 담당 태그 중복",
+    "inputs": [
+      "account",
+      "account",
+      "account"
+    ],
+    "expected": "account",
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "T08",
+    "task": "triage",
+    "kind": "T2",
+    "type": "같은 담당 태그 중복",
+    "inputs": [
+      "billing",
+      "billing",
+      "billing"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": []
+  },
+  {
+    "id": "T09",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "account",
+      "billing"
+    ],
+    "expected": "billing",
+    "old_id": "6",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "ab"
+      ]
+    ]
+  },
+  {
+    "id": "T10",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "billing",
+      "account"
+    ],
+    "expected": "billing",
+    "old_id": "7",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "ab"
+      ]
+    ]
+  },
+  {
+    "id": "T11",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "account",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "9",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "ap"
+      ]
+    ]
+  },
+  {
+    "id": "T12",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "privacy",
+      "account"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "ap"
+      ]
+    ]
+  },
+  {
+    "id": "T13",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "billing",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "11",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "bp"
+      ]
+    ]
+  },
+  {
+    "id": "T14",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "privacy",
+      "billing"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "bp"
+      ]
+    ]
+  },
+  {
+    "id": "T15",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "account",
+      "billing",
+      "account"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "ab"
+      ]
+    ]
+  },
+  {
+    "id": "T16",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "privacy",
+      "account",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "ap"
+      ]
+    ]
+  },
+  {
+    "id": "T17",
+    "task": "triage",
+    "kind": "T3",
+    "type": "두 담당 태그의 우선순위",
+    "inputs": [
+      "billing",
+      "privacy",
+      "billing"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "bp"
+      ]
+    ]
+  },
+  {
+    "id": "T18",
+    "task": "triage",
+    "kind": "T4",
+    "type": "세 담당 태그 순서 바꿈",
+    "inputs": [
+      "account",
+      "billing",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "three_known"
+      ]
+    ]
+  },
+  {
+    "id": "T19",
+    "task": "triage",
+    "kind": "T4",
+    "type": "세 담당 태그 순서 바꿈",
+    "inputs": [
+      "account",
+      "privacy",
+      "billing"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "three_known"
+      ]
+    ]
+  },
+  {
+    "id": "T20",
+    "task": "triage",
+    "kind": "T4",
+    "type": "세 담당 태그 순서 바꿈",
+    "inputs": [
+      "billing",
+      "account",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "three_known"
+      ]
+    ]
+  },
+  {
+    "id": "T21",
+    "task": "triage",
+    "kind": "T4",
+    "type": "세 담당 태그 순서 바꿈",
+    "inputs": [
+      "billing",
+      "privacy",
+      "account"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "three_known"
+      ]
+    ]
+  },
+  {
+    "id": "T22",
+    "task": "triage",
+    "kind": "T4",
+    "type": "세 담당 태그 순서 바꿈",
+    "inputs": [
+      "privacy",
+      "account",
+      "billing"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "three_known"
+      ]
+    ]
+  },
+  {
+    "id": "T23",
+    "task": "triage",
+    "kind": "T4",
+    "type": "세 담당 태그 순서 바꿈",
+    "inputs": [
+      "privacy",
+      "billing",
+      "account"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank"
+      ],
+      [
+        "three_known"
+      ]
+    ]
+  },
+  {
+    "id": "T24",
+    "task": "triage",
+    "kind": "T5",
+    "type": "한 담당 팀과 미등록 태그",
+    "inputs": [
+      "misc",
+      "billing"
+    ],
+    "expected": "billing",
+    "old_id": "14",
+    "owner_paths": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T25",
+    "task": "triage",
+    "kind": "T5",
+    "type": "한 담당 팀과 미등록 태그",
+    "inputs": [
+      "billing",
+      "misc"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T26",
+    "task": "triage",
+    "kind": "T5",
+    "type": "한 담당 팀과 미등록 태그",
+    "inputs": [
+      "misc",
+      "account"
+    ],
+    "expected": "account",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T27",
+    "task": "triage",
+    "kind": "T5",
+    "type": "한 담당 팀과 미등록 태그",
+    "inputs": [
+      "privacy",
+      "misc"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T28",
+    "task": "triage",
+    "kind": "T5",
+    "type": "한 담당 팀과 미등록 태그",
+    "inputs": [
+      "misc",
+      "billing",
+      "billing"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T29",
+    "task": "triage",
+    "kind": "T5",
+    "type": "한 담당 팀과 미등록 태그",
+    "inputs": [
+      "external",
+      "privacy",
+      "misc"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T30",
+    "task": "triage",
+    "kind": "T5",
+    "type": "한 담당 팀과 미등록 태그",
+    "inputs": [
+      "account",
+      "external",
+      "account"
+    ],
+    "expected": "account",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T31",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "misc",
+      "account",
+      "privacy",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "15",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "ap",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T32",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "misc",
+      "account",
+      "billing"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "ab",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T33",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "billing",
+      "misc",
+      "account"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "ab",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T34",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "external",
+      "account",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "ap",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T35",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "privacy",
+      "account",
+      "external"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "ap",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T36",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "billing",
+      "privacy",
+      "misc"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "bp",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T37",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "external",
+      "privacy",
+      "billing"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "bp",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T38",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "privacy",
+      "external",
+      "account",
+      "privacy"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "ap",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T39",
+    "task": "triage",
+    "kind": "T6",
+    "type": "두 담당 팀과 미등록 태그",
+    "inputs": [
+      "billing",
+      "misc",
+      "account",
+      "account"
+    ],
+    "expected": "billing",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "ab",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T40",
+    "task": "triage",
+    "kind": "T7",
+    "type": "미등록 태그만 있음",
+    "inputs": [
+      "misc"
+    ],
+    "expected": "general",
+    "old_id": "4",
+    "owner_paths": [
+      [
+        "unknown_only"
+      ],
+      [
+        "empty"
+      ]
+    ]
+  },
+  {
+    "id": "T41",
+    "task": "triage",
+    "kind": "T7",
+    "type": "미등록 태그만 있음",
+    "inputs": [
+      "external"
+    ],
+    "expected": "general",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown_only"
+      ],
+      [
+        "empty"
+      ]
+    ]
+  },
+  {
+    "id": "T42",
+    "task": "triage",
+    "kind": "T7",
+    "type": "미등록 태그만 있음",
+    "inputs": [
+      "other"
+    ],
+    "expected": "general",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown_only"
+      ],
+      [
+        "empty"
+      ]
+    ]
+  },
+  {
+    "id": "T43",
+    "task": "triage",
+    "kind": "T7",
+    "type": "미등록 태그만 있음",
+    "inputs": [
+      "misc",
+      "external"
+    ],
+    "expected": "general",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown_only"
+      ],
+      [
+        "empty"
+      ]
+    ]
+  },
+  {
+    "id": "T44",
+    "task": "triage",
+    "kind": "T7",
+    "type": "미등록 태그만 있음",
+    "inputs": [
+      "external",
+      "misc"
+    ],
+    "expected": "general",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown_only"
+      ],
+      [
+        "empty"
+      ]
+    ]
+  },
+  {
+    "id": "T45",
+    "task": "triage",
+    "kind": "T7",
+    "type": "미등록 태그만 있음",
+    "inputs": [
+      "misc",
+      "misc"
+    ],
+    "expected": "general",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "unknown_only"
+      ],
+      [
+        "empty"
+      ]
+    ]
+  },
+  {
+    "id": "T46",
+    "task": "triage",
+    "kind": "T8",
+    "type": "빈 목록",
+    "inputs": [],
+    "expected": "general",
+    "old_id": "5",
+    "owner_paths": [
+      [
+        "empty_list"
+      ],
+      [
+        "empty"
+      ]
+    ]
+  },
+  {
+    "id": "T47",
+    "task": "triage",
+    "kind": "T9",
+    "type": "세 담당 팀과 미등록 태그",
+    "inputs": [
+      "account",
+      "billing",
+      "privacy",
+      "misc"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "three_known",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T48",
+    "task": "triage",
+    "kind": "T9",
+    "type": "세 담당 팀과 미등록 태그",
+    "inputs": [
+      "misc",
+      "privacy",
+      "billing",
+      "account"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "three_known",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T49",
+    "task": "triage",
+    "kind": "T9",
+    "type": "세 담당 팀과 미등록 태그",
+    "inputs": [
+      "external",
+      "billing",
+      "privacy",
+      "account",
+      "billing"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "three_known",
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "T50",
+    "task": "triage",
+    "kind": "T9",
+    "type": "세 담당 팀과 미등록 태그",
+    "inputs": [
+      "privacy",
+      "misc",
+      "account",
+      "external",
+      "billing"
+    ],
+    "expected": "privacy",
+    "old_id": "",
+    "owner_paths": [
+      [
+        "rank",
+        "unknown"
+      ],
+      [
+        "three_known",
+        "unknown"
+      ]
+    ]
+  }
+]

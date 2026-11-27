@@ -1,0 +1,45 @@
+{
+  "behavior": [
+    {
+      "when": "size_bytes < 0",
+      "then": "False 반환"
+    },
+    {
+      "when": "size_bytes == 0",
+      "then": "False 반환"
+    },
+    {
+      "when": "0 < size_bytes < 16",
+      "then": "True 반환"
+    },
+    {
+      "when": "size_bytes == 16",
+      "then": "True 반환"
+    },
+    {
+      "when": "size_bytes > 16",
+      "then": "False 반환"
+    }
+  ],
+  "calls": [
+    "1ef162d8c1a611a44be7d61080ef0a67c747c67e4716cd10453ac14d206b40af",
+    "4b2fe3007d1cb2b86ec9def62f8e9fc01dc18b3a70f4f4cc5abffd98c0d2cb47",
+    "dba1409121c8dbe1907ae41c09c659da9b88000eacaf33b7990148c57190a189"
+  ],
+  "attempts": [
+    {
+      "outcome": "rejected",
+      "call": "4b2fe3007d1cb2b86ec9def62f8e9fc01dc18b3a70f4f4cc5abffd98c0d2cb47",
+      "reason": "빈 인용이나 빈 코드로 수정할 수 없습니다."
+    },
+    {
+      "outcome": "applied",
+      "call": "dba1409121c8dbe1907ae41c09c659da9b88000eacaf33b7990148c57190a189"
+    }
+  ],
+  "logs": {
+    "1ef162d8c1a611a44be7d61080ef0a67c747c67e4716cd10453ac14d206b40af": "5011e005f472ef75426efc654f9f5d5b1b09fc23466847161fac12d3d8a68ada",
+    "4b2fe3007d1cb2b86ec9def62f8e9fc01dc18b3a70f4f4cc5abffd98c0d2cb47": "71e26ed84fa1fc1f9c4b5ad31f52ea978b7331d6b65fc21f2dcfcb3b5a8b74e1",
+    "dba1409121c8dbe1907ae41c09c659da9b88000eacaf33b7990148c57190a189": "4bfedf9543c09a2a133e265f57980c3796ef3bba9757b36d4a5982e6c60a7404"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "code": "def fits_print(width_cm, height_cm):\n    if width_cm <= 0 or height_cm <= 0:\n        return False\n\n    max_width_cm = 200  # 예시 값, 실제 값으로 변경 필요\n    max_height_cm = 150 # 예시 값, 실제 값으로 변경 필요\n\n    if width_cm > max_width_cm or height_cm > max_height_cm:\n        return False\n\n    return True",
+  "calls": [
+    "fbe26b67ded8e0123829e67c1ba056fac3be5f78247223f7356b9d8c1694825e",
+    "8edb31ec01de0d6541b0cb4b39b579c5ac97a1f7f16471d6a0325c4073b8f27d",
+    "8fa321dd690642595750e9f799a878141f7f78bf2dda998f6fdbdec9b007524a",
+    "92e1daf0c0feda32b55f69e46361280200887deb6f9e61e9793a6b4b2c2192af",
+    "a61a1cfb7d5b507664a3d1bb74a73085b51c75c1e6614c39d94e09ba57514b70",
+    "d32215d14fa0a291f5a2312f6df5fa955c53256c2f4a76118aa819abb1b6b18e"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "max_width_cm와 max_height_cm의 실제 값을 어떻게 결정해야 할까요? 인쇄 담당자의 요구사항에 맞춰 적절한 상한 값을 설정하는 기준이 필요합니다.",
+        "max_width_cm와 max_height_cm의 실제 값은 얼마인가요?"
+      ],
+      "answer": {
+        "text": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다."
+      }
+    }
+  ]
+}

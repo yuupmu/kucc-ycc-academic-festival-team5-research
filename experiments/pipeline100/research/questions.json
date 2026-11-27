@@ -1,0 +1,6120 @@
+[
+  {
+    "arm": "self",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p2",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "직원이 '이용 시작 24 시간 전' 기준을 적용할 때, age_seconds(예약 생성 경과 시간)를 고려하여 정정 시간 (예: 24 시간 이내) 을 적용할 수 있는지 확인이 필요합니다.",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p2-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p2",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "직원이 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문의 제 3 조항을 '이용 시작 24 시간 전까지'의 범위 내에서 별도의 정정 시간을 적용한다는 의미로 해석하여, `until_start_seconds`가 0 이상 86400 미만의 경우에도 취소를 허용하는 로직을 구현했는지 확인해 주세요.",
+    "facts": [
+      "late"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p2-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late"
+    ],
+    "kinds": [
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p2",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "현재 코드에서 `age_seconds` (예약 생성부터 경과한 시간) 를 고려하지 않고, `until_start_seconds >= 0` 일 때 무조건 `True` 를 반환하는 로직이, 안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 조건을 제대로 반영하고 있는가?",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p2-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p3",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "안내문의 문구와 일치하는 운영 기준이 없으므로, 현재 코드가 정정 시간을 고려하지 않고 단순 시간 기준으로만 판단하는 것이 맞습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p3-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p3",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않으며, 현재 코드는 이를 반영하지 않고 0 초 이상의 모든 경우를 취소 허용으로 처리하고 있습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p3-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p3",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p3-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p4",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p4",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B·C",
+    "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p4",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [
+      "R12",
+      "R13",
+      "R17"
+    ],
+    "lost": [],
+    "gain_types": {
+      "R3": 3
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "p1",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있는지, 그리고 그 시간의 기준 (예: 예약 생성 후 몇 초 이내) 을 명확히 해주세요.",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/pipeline100/runs/reservation/p1/cycle-1/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p1",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있다는 안내문 조항과, 직원이 이를 적용하지 않고 모든 0 초 이상 예약을 허용하는 구현이 맞는지 확인하기 위해, 0 초 이하의 age_seconds (예: -10 초) 와 0 초의 until_start_seconds 조합에 대해 정정 시간이 적용되는지 구체적으로 질문해야 하는지 판단합니다.",
+    "facts": [
+      "inputs",
+      "start"
+    ],
+    "answer": "예약 생성 이후를 대상으로 하고, 시간 인자는 정수 초입니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/pipeline100/runs/reservation/p1/cycle-1/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [
+      "inputs",
+      "start"
+    ],
+    "kinds": [
+      "R4",
+      "R8"
+    ],
+    "sufficient": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p1",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "'방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문과 직원의 답변에 따라, 이용 시작 24 시간 전 (until_start_seconds >= 86400) 부터 이용 시작 순간 (until_start_seconds = 0) 까지까지의 구간에서 취소를 허용하는 기준은 무엇인가요?",
+    "facts": [
+      "deadline",
+      "late",
+      "start"
+    ],
+    "answer": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/pipeline100/runs/reservation/p1/cycle-1/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [
+      "deadline",
+      "late",
+      "start"
+    ],
+    "kinds": [
+      "R2",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "current",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "current",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B·C",
+    "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "current",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "infer",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+    "facts": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "infer",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "C",
+    "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late",
+      "expired"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "self-apply",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B·C",
+    "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [
+      "R14",
+      "R15",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R23",
+      "R24",
+      "R25",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R32"
+    ],
+    "gain_types": {
+      "R3": 3
+    },
+    "loss_types": {
+      "R4": 4,
+      "R5": 4,
+      "R6": 4
+    }
+  },
+  {
+    "arm": "both",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+    "facts": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "both",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "C",
+    "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late",
+      "expired"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "self-program",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "R4": 5,
+      "R5": 5,
+      "R6": 5
+    }
+  },
+  {
+    "arm": "apply-program",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply-program",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B·C",
+    "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply-program",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "both-program",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+    "facts": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "R4": 5,
+      "R5": 5,
+      "R6": 5
+    }
+  },
+  {
+    "arm": "both-program",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "C",
+    "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late",
+      "expired"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gained": [],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "R4": 5,
+      "R5": 5,
+      "R6": 5
+    }
+  },
+  {
+    "arm": "self-regions",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply-regions",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply-regions",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "B·C",
+    "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply-regions",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+    "facts": [
+      "clock"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.",
+    "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gain_types": {
+      "R3": 6
+    },
+    "loss_types": {
+      "R4": 5,
+      "R5": 5,
+      "R6": 5
+    }
+  },
+  {
+    "arm": "both-regions",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+    "facts": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "both-regions",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "C",
+    "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late",
+      "expired"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "old-self",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-self",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 1,
+    "by": "main-self",
+    "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+    "facts": [
+      "overlap_allowed",
+      "expired"
+    ],
+    "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "overlap_allowed",
+      "expired"
+    ],
+    "kinds": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-self",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 1,
+    "by": "main-self",
+    "question": "정정 가능 기간이 10 분 (600 초) 일 때, 일반 취소 마감이 끝난 후에도 정정 기간이 남아있는 경우와 정정 기간이 끝난 경우를 어떻게 구분하여 처리해야 하는지 명확히 해야 합니다.",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+    "facts": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "old-multi",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "C",
+    "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late",
+      "expired"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "old-multi",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 1,
+    "by": "B",
+    "question": "현재 코드와 답변에 따르면, 정정 가능 기간 (10 분) 이 끝난 후 일반 취소 마감 (24 시간 전) 이 지나더라도 정정 요청을 허용하는지, 아니면 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 명확하지 않습니다. 두 규칙 모두 정정 가능 기간 내에서는 허용하고, 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부한다고 해석할 수 있습니다. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나더라도 정정 요청을 허용하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 정정 요청을 허용하는지, 아니면 정",
+    "facts": [
+      "expired"
+    ],
+    "answer": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R3"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 2,
+    "by": "C",
+    "question": "정정 가능 기간이 끝나는 순간 (예: 10 분 경과 시점) 에서는 정정이 가능하다고 보시나요? 만약 정정 가능 기간이 일반 마감 (24 시간) 보다 짧은 경우, 정정 가능 기간이 끝나는 순간이 일반 마감보다 먼저 오면 정정이 가능하고, 그 이후에는 정정이 불가능하다고 보시나요? 아니면 정정 가능 기간이 끝나는 순간이 일반 마감보다 늦게 오더라도 정정이 가능하다고 보시나요?",
+    "facts": [
+      "end",
+      "late"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 1,
+    "by": "A",
+    "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 예약 생성 후 정확히 10 분 경과 시점) 에 정정이 허용되는지 여부를 명확히 해주세요. 정정 가능 기간의 종료 시점을 포함하는지, 아니면 종료 시점 이후로만 허용하는지 기준을 알려주세요. 정정 가능 기간의 기준점 (예: 예약 생성 시점) 과 허용의 경계 조건 (예: 10 분 경과 시점 포함 여부) 을 알려주세요. 안내문과 기존 답변이 모순되지 않는 실제 운영 기준을 알려주세요. 정정 가능 기간이 끝나는 순간에 정정이 허용되는지 여부를 결정할 수 있는 기준을 알려주세요.",
+    "facts": [
+      "clock",
+      "duration",
+      "end"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 2,
+    "by": "B",
+    "question": "정정 가능 기간은 예약 생성 후 10 분이며, 이 기간이 정확히 끝나는 순간까지 포함합니다. 정정 기간이 끝난 후에도 일반 취소 마감 (이용 시작 24 시간 전) 을 초과하지 않는 한 정정 요청은 허용됩니다. 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용됩니다. 정정 기간이 정확히 끝나는 순간을 포함하는지, 정정 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청을 허용하는지 명확히 해주세요. 정정 가능 기간이 끝난 순간 (예: 10 분 0 초) 에 일반 마감이 지났더라도 정정 요청은 허용되는지, 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용되는지 명확히 해주세요. 정",
+    "facts": [
+      "end",
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 3,
+    "by": "C",
+    "question": "정정 가능 기간이 정확히 끝나는 순간에 취소를 허용해야 하는지, 아니면 거부해야 하는지 결정해 주세요.",
+    "facts": [
+      "end"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-self",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-self",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 1,
+    "by": "main-self",
+    "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+    "facts": [
+      "overlap_allowed",
+      "expired"
+    ],
+    "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "overlap_allowed",
+      "expired"
+    ],
+    "kinds": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-self",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 1,
+    "by": "main-self",
+    "question": "정정 가능 기간이 10 분 (600 초) 일 때, 일반 취소 마감이 끝난 후에도 정정 기간이 남아있는 경우와 정정 기간이 끝난 경우를 어떻게 구분하여 처리해야 하는지 명확히 해야 합니다.",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+    "facts": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6,
+      "R8": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "C",
+    "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "late",
+      "expired"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 1,
+    "by": "B",
+    "question": "현재 코드와 답변에 따르면, 정정 가능 기간 (10 분) 이 끝난 후 일반 취소 마감 (24 시간 전) 이 지나더라도 정정 요청을 허용하는지, 아니면 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 명확하지 않습니다. 두 규칙 모두 정정 가능 기간 내에서는 허용하고, 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부한다고 해석할 수 있습니다. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나더라도 정정 요청을 허용하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 정정 요청을 허용하는지, 아니면 정",
+    "facts": [
+      "expired"
+    ],
+    "answer": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R3"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 2,
+    "by": "C",
+    "question": "정정 가능 기간이 끝나는 순간 (예: 10 분 경과 시점) 에서는 정정이 가능하다고 보시나요? 만약 정정 가능 기간이 일반 마감 (24 시간) 보다 짧은 경우, 정정 가능 기간이 끝나는 순간이 일반 마감보다 먼저 오면 정정이 가능하고, 그 이후에는 정정이 불가능하다고 보시나요? 아니면 정정 가능 기간이 끝나는 순간이 일반 마감보다 늦게 오더라도 정정이 가능하다고 보시나요?",
+    "facts": [
+      "end",
+      "late"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 1,
+    "by": "A",
+    "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 예약 생성 후 정확히 10 분 경과 시점) 에 정정이 허용되는지 여부를 명확히 해주세요. 정정 가능 기간의 종료 시점을 포함하는지, 아니면 종료 시점 이후로만 허용하는지 기준을 알려주세요. 정정 가능 기간의 기준점 (예: 예약 생성 시점) 과 허용의 경계 조건 (예: 10 분 경과 시점 포함 여부) 을 알려주세요. 안내문과 기존 답변이 모순되지 않는 실제 운영 기준을 알려주세요. 정정 가능 기간이 끝나는 순간에 정정이 허용되는지 여부를 결정할 수 있는 기준을 알려주세요.",
+    "facts": [
+      "clock",
+      "duration",
+      "end"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 2,
+    "by": "B",
+    "question": "정정 가능 기간은 예약 생성 후 10 분이며, 이 기간이 정확히 끝나는 순간까지 포함합니다. 정정 기간이 끝난 후에도 일반 취소 마감 (이용 시작 24 시간 전) 을 초과하지 않는 한 정정 요청은 허용됩니다. 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용됩니다. 정정 기간이 정확히 끝나는 순간을 포함하는지, 정정 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청을 허용하는지 명확히 해주세요. 정정 가능 기간이 끝난 순간 (예: 10 분 0 초) 에 일반 마감이 지났더라도 정정 요청은 허용되는지, 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용되는지 명확히 해주세요. 정",
+    "facts": [
+      "end",
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 3,
+    "by": "C",
+    "question": "정정 가능 기간이 정확히 끝나는 순간에 취소를 허용해야 하는지, 아니면 거부해야 하는지 결정해 주세요.",
+    "facts": [
+      "end"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-self",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+    "facts": [
+      "clock",
+      "duration"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-self/cycle-1/operator.json",
+    "origin": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+    "fresh": [
+      "clock",
+      "duration"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-self",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 1,
+    "by": "main-self",
+    "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+    "facts": [
+      "overlap_allowed",
+      "expired"
+    ],
+    "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-self/cycle-2/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/answer.json",
+    "fresh": [
+      "overlap_allowed",
+      "expired"
+    ],
+    "kinds": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-self",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 1,
+    "by": "main-self",
+    "question": "정정 가능 기간이 10 분 (600 초) 일 때, 일반 취소 마감이 끝난 후에도 정정 기간이 남아있는 경우와 정정 기간이 끝난 경우를 어떻게 구분하여 처리해야 하는지 명확히 해야 합니다.",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-self/cycle-3/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/reservation/self/cycle-3/answer.json",
+    "fresh": [
+      "late"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+    "facts": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/operator.json",
+    "origin": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "fresh": [
+      "clock",
+      "duration",
+      "end",
+      "start"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R37",
+      "R38",
+      "R39",
+      "R40",
+      "R41",
+      "R42"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6,
+      "R8": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "live-multi",
+    "task": "reservation",
+    "cycle": 1,
+    "order": 2,
+    "by": "C",
+    "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+    "facts": [
+      "late",
+      "expired"
+    ],
+    "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/operator.json",
+    "origin": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+    "fresh": [
+      "late",
+      "expired"
+    ],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gained": [
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17"
+    ],
+    "lost": [
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22"
+    ],
+    "gain_types": {
+      "R3": 6
+    },
+    "loss_types": {
+      "R4": 5
+    }
+  },
+  {
+    "arm": "live-multi",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 1,
+    "by": "B",
+    "question": "정정 가능 기간 (10 분) 이 만료된 후에도 일반 취소 마감 (이용 시작 24 시간 전) 이 지나지 않은 경우, 정정 요청을 허용하시나요? (Rule 1 은 허용하지 않고, Rule 2 는 허용합니다.)",
+    "facts": [
+      "overlap_allowed"
+    ],
+    "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-2/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [
+      "overlap_allowed"
+    ],
+    "kinds": [
+      "R1",
+      "R2"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "reservation",
+    "cycle": 2,
+    "order": 2,
+    "by": "C",
+    "question": "위 상황 (정정 기간이 정확히 끝난 순간이자 이용 시작 순간) 에서 정정을 허용하는지, 아니면 거부하는지 명확히 해주세요. 정정 기간이 끝난 순간에 정정을 허용하더라도, 일반 마감이 지났을 경우에도 정정을 허용하나요?",
+    "facts": [
+      "start",
+      "end",
+      "late"
+    ],
+    "answer": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-2/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [],
+    "kinds": [
+      "R4",
+      "R5",
+      "R6",
+      "R8"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "R32"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "R6": 5
+    }
+  },
+  {
+    "arm": "live-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 1,
+    "by": "A",
+    "question": "정정 가능 기간의 종료 시점 기준을 명확히 해주세요. '10 분 경과 시점' (정정 불가) 과 '10 분 경과 전까지' (정정 가능) 중 어떤 것이 맞는지, 혹은 '10 분 0 초' 시점에 정정이 허용되는지 여부를 결정해 주세요. 이는 정정 가능 시간의 경계 (boundary) 를 정의하는 데 필요합니다.",
+    "facts": [
+      "end"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-3/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [],
+    "kinds": [
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 2,
+    "by": "B",
+    "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 예약 생성 후 10 분 0 초) 에는 정정을 허용하시나요? 정정 가능 기간이 지나간 후 (예: 10 분 1 초) 에는 일반 마감이 지난 예약이라도 정정 가능 기간이 남아 있다면 정정을 허용하시나요? 두 경우 모두 정정 가능 기간이 남아 있다면 허용하시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 1",
+    "facts": [
+      "end",
+      "expired",
+      "late"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-3/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [],
+    "kinds": [
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "reservation",
+    "cycle": 3,
+    "order": 3,
+    "by": "C",
+    "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 10 분 0 초) 에 정정 요청을 받으면 허용해야 하는지, 아니면 그 순간부터는 거부해야 하는지 명확히 해주세요.",
+    "facts": [
+      "end"
+    ],
+    "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-3/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [],
+    "kinds": [
+      "R6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "self",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p2",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "중복된 태그가 입력될 경우, 첫 번째로 발견된 태그를 반환하는 것이 맞나요?",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p2-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p2",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "triage 함수가 여러 태그가 들어올 경우 첫 번째로 찾은 태그만 반환하는 구현이, '중복 횟수'나 '입력 순서'에 따라 결과가 달라지지 않는지 확인하세요.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p2-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p2",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "코드에서 여러 태그가 들어올 경우 첫 번째로 발견된 태그만 반환하고 나머지는 무시하며, 알 수 없는 태그가 섞여도 예외를 던지지 않고 첫 번째 유효 태그를 반환하는 로직이 분류 관행과 일치하는지 확인해야 합니다.",
+    "facts": [
+      "invariant",
+      "unknown"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p2-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant",
+      "unknown"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p3",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p3-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p3",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "중복 태그가 포함된 입력 시, 코드는 첫 번째로 발견된 태그를 반환하는지 마지막에 발견된 태그를 반환하는지 명확히 해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p3-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p3",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "중복 태그가 포함된 입력 시, triage 함수는 첫 번째로 발견된 태그를 반환하는 것이 맞나요?",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p3-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p4",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p4",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "A·C",
+    "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+    "facts": [
+      "unknown"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "unknown"
+    ],
+    "kinds": [
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "p4",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "A·C",
+    "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+    "facts": [
+      "empty_list"
+    ],
+    "answer": "빈 목록은 general 팀으로 보냅니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "empty_list"
+    ],
+    "kinds": [
+      "T8"
+    ],
+    "sufficient": [
+      "T46"
+    ],
+    "gained": [
+      "T46"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T8": 1
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "p1",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "triage 함수는 여러 태그가 들어올 때 첫 번째로 발견된 태그만 반환하는 구현이 맞는지 확인하고, 알 수 없는 태그가 섞여도 전체 입력을 처리해야 하는지 확인하세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/pipeline100/runs/triage/p1/cycle-1/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T11",
+      "T13",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [
+      "T10",
+      "T24",
+      "T25",
+      "T26",
+      "T28",
+      "T30",
+      "T33",
+      "T39"
+    ],
+    "gain_types": {
+      "T3": 3,
+      "T4": 4,
+      "T6": 3,
+      "T9": 2
+    },
+    "loss_types": {
+      "T3": 1,
+      "T5": 5,
+      "T6": 2
+    }
+  },
+  {
+    "arm": "p1",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "triage 함수가 입력 리스트에 포함된 모든 태그를 처리하여 최종 팀을 결정하는 로직이 구현되어 있거나, 여러 태그가 있을 때 어떻게 분류해야 하는지 명확히 해주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/pipeline100/runs/triage/p1/cycle-1/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T11",
+      "T13",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [
+      "T10",
+      "T33",
+      "T39"
+    ],
+    "gain_types": {
+      "T3": 3,
+      "T4": 4,
+      "T6": 3,
+      "T9": 2
+    },
+    "loss_types": {
+      "T3": 1,
+      "T6": 2
+    }
+  },
+  {
+    "arm": "p1",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "triage 함수는 입력 리스트의 순서나 중복 횟수에 따라 결과가 달라지지 않도록 해야 하는데, 현재 구현은 첫 번째 매칭된 태그만 반환하고 나머지는 무시하므로 이 요구사항을 충족하지 못합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/pipeline100/runs/triage/p1/cycle-1/operator.json",
+    "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T11",
+      "T13",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [
+      "T04",
+      "T05",
+      "T07",
+      "T08",
+      "T10",
+      "T24",
+      "T25",
+      "T26",
+      "T28",
+      "T30",
+      "T33",
+      "T39"
+    ],
+    "gain_types": {
+      "T3": 3,
+      "T4": 4,
+      "T6": 3,
+      "T9": 2
+    },
+    "loss_types": {
+      "T2": 4,
+      "T3": 1,
+      "T5": 5,
+      "T6": 2
+    }
+  },
+  {
+    "arm": "current",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "current",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "A·C",
+    "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+    "facts": [
+      "unknown"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "unknown"
+    ],
+    "kinds": [
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "current",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "A·C",
+    "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+    "facts": [
+      "empty_list"
+    ],
+    "answer": "빈 목록은 general 팀으로 보냅니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "empty_list"
+    ],
+    "kinds": [
+      "T8"
+    ],
+    "sufficient": [
+      "T46"
+    ],
+    "gained": [
+      "T46"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T8": 1
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "infer",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "infer",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "infer",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+    "facts": [
+      "three_known"
+    ],
+    "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "three_known"
+    ],
+    "kinds": [
+      "T4",
+      "T9"
+    ],
+    "sufficient": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "self-apply",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [
+      "T09",
+      "T15",
+      "T32",
+      "T49"
+    ],
+    "lost": [
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T35",
+      "T37",
+      "T38",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {
+      "T3": 2,
+      "T6": 1,
+      "T9": 1
+    },
+    "loss_types": {
+      "T3": 3,
+      "T4": 2,
+      "T6": 3,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "apply",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "A·C",
+    "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+    "facts": [
+      "unknown"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "unknown"
+    ],
+    "kinds": [
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "A·C",
+    "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+    "facts": [
+      "empty_list"
+    ],
+    "answer": "빈 목록은 general 팀으로 보냅니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "empty_list"
+    ],
+    "kinds": [
+      "T8"
+    ],
+    "sufficient": [
+      "T46"
+    ],
+    "gained": [
+      "T46"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T8": 1
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "both",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "both",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "both",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+    "facts": [
+      "three_known"
+    ],
+    "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "three_known"
+    ],
+    "kinds": [
+      "T4",
+      "T9"
+    ],
+    "sufficient": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "self-program",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [
+      "T09",
+      "T15",
+      "T32",
+      "T49"
+    ],
+    "lost": [
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T35",
+      "T37",
+      "T38",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {
+      "T3": 2,
+      "T6": 1,
+      "T9": 1
+    },
+    "loss_types": {
+      "T3": 3,
+      "T4": 2,
+      "T6": 3,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "apply-program",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply-program",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "A·C",
+    "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+    "facts": [
+      "unknown"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "unknown"
+    ],
+    "kinds": [
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "apply-program",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "A·C",
+    "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+    "facts": [
+      "empty_list"
+    ],
+    "answer": "빈 목록은 general 팀으로 보냅니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "empty_list"
+    ],
+    "kinds": [
+      "T8"
+    ],
+    "sufficient": [
+      "T46"
+    ],
+    "gained": [
+      "T46"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T8": 1
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "both-program",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [
+      "T10",
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T3": 4,
+      "T4": 2,
+      "T5": 7,
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "both-program",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [
+      "T10",
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T3": 4,
+      "T4": 2,
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "both-program",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+    "facts": [
+      "three_known"
+    ],
+    "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "three_known"
+    ],
+    "kinds": [
+      "T4",
+      "T9"
+    ],
+    "sufficient": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [],
+    "lost": [
+      "T22",
+      "T23",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T4": 2,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "self-regions",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [
+      "T10",
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T3": 4,
+      "T4": 2,
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "apply-regions",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A·C",
+    "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [
+      "T10",
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T3": 4,
+      "T4": 2,
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "apply-regions",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "A·C",
+    "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+    "facts": [
+      "unknown"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "unknown"
+    ],
+    "kinds": [
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30"
+    ],
+    "gained": [],
+    "lost": [
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "apply-regions",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "A·C",
+    "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+    "facts": [
+      "empty_list"
+    ],
+    "answer": "빈 목록은 general 팀으로 보냅니다.",
+    "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "empty_list"
+    ],
+    "kinds": [
+      "T8"
+    ],
+    "sufficient": [
+      "T46"
+    ],
+    "gained": [
+      "T46"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T8": 1
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "both-regions",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "both-regions",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "both-regions",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+    "facts": [
+      "three_known"
+    ],
+    "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "three_known"
+    ],
+    "kinds": [
+      "T4",
+      "T9"
+    ],
+    "sufficient": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T4": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "old-self",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [
+      "T10",
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T3": 4,
+      "T4": 2,
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "old-self",
+    "task": "triage",
+    "cycle": 2,
+    "order": 1,
+    "by": "main-self",
+    "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-self",
+    "task": "triage",
+    "cycle": 3,
+    "order": 1,
+    "by": "main-self",
+    "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23"
+    ],
+    "gained": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 9,
+      "T4": 6,
+      "T6": 9,
+      "T9": 4
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+    "facts": [
+      "three_known"
+    ],
+    "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "three_known"
+    ],
+    "kinds": [
+      "T4",
+      "T9"
+    ],
+    "sufficient": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T4": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 1,
+    "by": "A",
+    "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+    "facts": [
+      "ab"
+    ],
+    "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "ab"
+    ],
+    "kinds": [
+      "T3",
+      "T6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+    "facts": [
+      "rank",
+      "three_known"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 3,
+    "by": "C",
+    "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+    "facts": [
+      "unknown",
+      "ab"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "ab"
+    ],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 1,
+    "by": "A",
+    "question": "현재 triage 로직에서 'billing' 과 'account' 태그가 모두 존재할 때, 알 수 없는 태그가 섞여 있거나 섞이지 않았을 경우 어떻게 처리하시나요? 'billing' 과 'account' 태그가 모두 있는 요청은 'privacy' 팀으로 보내는지, 아니면 'billing' 팀으로 보내시나요? 이 결정의 기준과 경계 조건을 명확히 해주세요.",
+    "facts": [
+      "ab",
+      "unknown"
+    ],
+    "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 2,
+    "by": "B",
+    "question": "현재 triage 함수의 로직은 '모든 태그가 (account, billing, privacy) 에 포함된 경우, 태그 리스트의 순서를 무시하고 고정된 우선순위 (privacy > billing > account) 를 따르나요, 아니면 태그 리스트에서 첫 번째로 등장하는 담당 태그를 반환하나요?",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "old-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 3,
+    "by": "C",
+    "question": "입력 태그가 ['account', 'billing', 'unknown_tag'] 인 경우, 알 수 없는 태그는 무시하고 비즈니스 태그가 여러 개일 때 'privacy' 팀으로 보내는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있는 경우를 명시적으로 처리하여 다른 로직을 적용해야 하는지 정해 주세요.",
+    "facts": [
+      "unknown",
+      "ab"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-self",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [
+      "T10",
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T3": 4,
+      "T4": 2,
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "fixed-self",
+    "task": "triage",
+    "cycle": 2,
+    "order": 1,
+    "by": "main-self",
+    "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-self",
+    "task": "triage",
+    "cycle": 3,
+    "order": 1,
+    "by": "main-self",
+    "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23"
+    ],
+    "gained": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 9,
+      "T4": 6,
+      "T6": 9,
+      "T9": 4
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+    "facts": [
+      "three_known"
+    ],
+    "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "three_known"
+    ],
+    "kinds": [
+      "T4",
+      "T9"
+    ],
+    "sufficient": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T4": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 1,
+    "by": "A",
+    "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+    "facts": [
+      "ab"
+    ],
+    "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "ab"
+    ],
+    "kinds": [
+      "T3",
+      "T6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+    "facts": [
+      "rank",
+      "three_known"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 3,
+    "by": "C",
+    "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+    "facts": [
+      "unknown",
+      "ab"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [
+      "ab"
+    ],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 1,
+    "by": "A",
+    "question": "현재 triage 로직에서 'billing' 과 'account' 태그가 모두 존재할 때, 알 수 없는 태그가 섞여 있거나 섞이지 않았을 경우 어떻게 처리하시나요? 'billing' 과 'account' 태그가 모두 있는 요청은 'privacy' 팀으로 보내는지, 아니면 'billing' 팀으로 보내시나요? 이 결정의 기준과 경계 조건을 명확히 해주세요.",
+    "facts": [
+      "ab",
+      "unknown"
+    ],
+    "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 2,
+    "by": "B",
+    "question": "현재 triage 함수의 로직은 '모든 태그가 (account, billing, privacy) 에 포함된 경우, 태그 리스트의 순서를 무시하고 고정된 우선순위 (privacy > billing > account) 를 따르나요, 아니면 태그 리스트에서 첫 번째로 등장하는 담당 태그를 반환하나요?",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "fixed-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 3,
+    "by": "C",
+    "question": "입력 태그가 ['account', 'billing', 'unknown_tag'] 인 경우, 알 수 없는 태그는 무시하고 비즈니스 태그가 여러 개일 때 'privacy' 팀으로 보내는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있는 경우를 명시적으로 처리하여 다른 로직을 적용해야 하는지 정해 주세요.",
+    "facts": [
+      "unknown",
+      "ab"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+    "origin": "보존된 실제 회신",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-self",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "main-self",
+    "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+    "facts": [
+      "invariant"
+    ],
+    "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+    "source": "experiments/pipeline100/runs/triage/live-self/cycle-1/operator.json",
+    "origin": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+    "fresh": [
+      "invariant"
+    ],
+    "kinds": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [
+      "T10",
+      "T12",
+      "T14",
+      "T16",
+      "T22",
+      "T23",
+      "T33",
+      "T35",
+      "T37",
+      "T38",
+      "T39",
+      "T48",
+      "T50"
+    ],
+    "gain_types": {},
+    "loss_types": {
+      "T3": 4,
+      "T4": 2,
+      "T6": 5,
+      "T9": 2
+    }
+  },
+  {
+    "arm": "live-self",
+    "task": "triage",
+    "cycle": 2,
+    "order": 1,
+    "by": "main-self",
+    "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+    "facts": [
+      "clarify"
+    ],
+    "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+    "source": "experiments/pipeline100/runs/triage/live-self/cycle-2/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/answer.json",
+    "fresh": [
+      "clarify"
+    ],
+    "kinds": [],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-self",
+    "task": "triage",
+    "cycle": 3,
+    "order": 1,
+    "by": "main-self",
+    "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/pipeline100/runs/triage/live-self/cycle-3/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/self/cycle-3/answer.json",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23"
+    ],
+    "gained": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 9,
+      "T4": 6,
+      "T6": 9,
+      "T9": 4
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 1,
+    "by": "A",
+    "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+    "facts": [
+      "rank",
+      "unknown"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-1/operator.json",
+    "origin": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "fresh": [
+      "rank",
+      "unknown"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T24",
+      "T25",
+      "T26",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-1/operator.json",
+    "origin": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "fresh": [
+      "rank"
+    ],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T31",
+      "T32",
+      "T33",
+      "T34",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T39",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T09",
+      "T11",
+      "T13",
+      "T15",
+      "T17",
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T31",
+      "T32",
+      "T34",
+      "T36",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T3": 5,
+      "T4": 4,
+      "T6": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 1,
+    "order": 3,
+    "by": "C",
+    "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+    "facts": [
+      "three_known"
+    ],
+    "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-1/operator.json",
+    "origin": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+    "fresh": [
+      "three_known"
+    ],
+    "kinds": [
+      "T4",
+      "T9"
+    ],
+    "sufficient": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T22",
+      "T23",
+      "T47",
+      "T48",
+      "T49",
+      "T50"
+    ],
+    "gained": [
+      "T18",
+      "T19",
+      "T20",
+      "T21",
+      "T47",
+      "T49"
+    ],
+    "lost": [],
+    "gain_types": {
+      "T4": 4,
+      "T9": 2
+    },
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 1,
+    "by": "A",
+    "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+    "facts": [
+      "ab"
+    ],
+    "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-2/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/answer.json",
+    "fresh": [
+      "ab"
+    ],
+    "kinds": [
+      "T3",
+      "T6"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 2,
+    "by": "B",
+    "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+    "facts": [
+      "rank",
+      "three_known"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-2/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/answer.json",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 2,
+    "order": 3,
+    "by": "C",
+    "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+    "facts": [
+      "unknown",
+      "ab"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-2/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/answer.json",
+    "fresh": [
+      "ab"
+    ],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 1,
+    "by": "A",
+    "question": "현재 triage 로직에서 'billing' 과 'account' 태그가 모두 존재할 때, 알 수 없는 태그가 섞여 있거나 섞이지 않았을 경우 어떻게 처리하시나요? 'billing' 과 'account' 태그가 모두 있는 요청은 'privacy' 팀으로 보내는지, 아니면 'billing' 팀으로 보내시나요? 이 결정의 기준과 경계 조건을 명확히 해주세요.",
+    "facts": [
+      "ab",
+      "unknown"
+    ],
+    "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-3/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/answer.json",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 2,
+    "by": "B",
+    "question": "현재 triage 함수의 로직은 '모든 태그가 (account, billing, privacy) 에 포함된 경우, 태그 리스트의 순서를 무시하고 고정된 우선순위 (privacy > billing > account) 를 따르나요, 아니면 태그 리스트에서 첫 번째로 등장하는 담당 태그를 반환하나요?",
+    "facts": [
+      "rank"
+    ],
+    "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-3/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/answer.json",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T4",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  },
+  {
+    "arm": "live-multi",
+    "task": "triage",
+    "cycle": 3,
+    "order": 3,
+    "by": "C",
+    "question": "입력 태그가 ['account', 'billing', 'unknown_tag'] 인 경우, 알 수 없는 태그는 무시하고 비즈니스 태그가 여러 개일 때 'privacy' 팀으로 보내는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있는 경우를 명시적으로 처리하여 다른 로직을 적용해야 하는지 정해 주세요.",
+    "facts": [
+      "unknown",
+      "ab"
+    ],
+    "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다.",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-3/operator.json",
+    "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/answer.json",
+    "fresh": [],
+    "kinds": [
+      "T3",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "sufficient": [],
+    "gained": [],
+    "lost": [],
+    "gain_types": {},
+    "loss_types": {}
+  }
+]

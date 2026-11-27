@@ -1,0 +1,17 @@
+{
+  "protocol": "human-intervention-v1",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "seed": 131,
+  "public_task": "작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n",
+  "initial_policy": "",
+  "arms": [
+    "self",
+    "multi"
+  ],
+  "source_of_policy": "public brief and verbatim human replies only",
+  "revision_limit_per_new_answer": 3,
+  "author_token_limit": 2200,
+  "reviewer_token_limit": 850,
+  "comparison": "shared first draft, paired human information, three equally budgeted review calls",
+  "observer": "separate process scores every saved version; scores never enter generation or routing"
+}

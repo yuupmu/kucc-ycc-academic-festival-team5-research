@@ -1,0 +1,26 @@
+{
+  "version": 6,
+  "files": {
+    "router.py": "def triage(tags):\nfor tag in sorted(tags, key=lambda x: (1 if x == 'privacy' else 0, 1 if x == 'billing' else 0, 1 if x == 'account' else 0))\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    return 'general'\n"
+  },
+  "sha256": "c8e06c5f79d92211fc2cd3686ad81b4fcf4add86a776cb07716b1732bf34893d",
+  "plan": "기존 코드에서 태그 정렬 로직을 수정하여 담당자의 우선순위(privacy > billing > account)에 맞게 정렬합니다. 또한, 알 수 없는 태그는 무시하고, 태그가 없으면 general 팀으로 보냅니다. 기존 코드의 정렬 로직이 담당자의 우선순위와 일치하지 않으므로 수정합니다.",
+  "complete": true,
+  "applied_edits": [
+    {
+      "file": "router.py",
+      "first": 2,
+      "last": 2,
+      "sources": [
+        "A1.1",
+        "P1",
+        "P2"
+      ],
+      "text": "for tag in sorted(tags, key=lambda x: (1 if x == 'privacy' else 0, 1 if x == 'billing' else 0, 1 if x == 'account' else 0))"
+    }
+  ],
+  "edit_error": null,
+  "received": [
+    1
+  ]
+}

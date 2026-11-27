@@ -1,0 +1,148 @@
+{
+  "text": "{\"decision_conditions\":{\"co2_high_priority_over_quiet\":\"co2_high and quiet_time\",\"both_signals_false_default_state\":\"not co2_high and not quiet_time\"},\"public_rules\":[]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 39,
+    "prompt_tokens": 448,
+    "total_tokens": 487,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 448,
+    "prompt_ms": 697.946,
+    "prompt_per_token_ms": 1.5579151785714287,
+    "prompt_per_second": 641.8834694947745,
+    "predicted_n": 39,
+    "predicted_ms": 1095.409,
+    "predicted_per_token_ms": 28.82655263157895,
+    "predicted_per_second": 34.690238988359596
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.8,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 이 함수의 작성자입니다. 각 미정 행동에 대해 그 질문이 적용되는 입력 조건 하나를 골라 decision_conditions에 넣으세요.\npublic_rules에는 공개 문장에서 이미 방향이 정해진 입력에 대해서만 조건과 반환값, 출처 번호를 적으세요.\n조건 후보에 등장하는 수치 변수는 담당자가 나중에 채웁니다. 수치를 아직 몰라도 공개된 부등식과 반환값을 미리 기록할 수 있습니다.\n질문에서 정하기로 한 상황은 decision_conditions에서 처리하므로 public_rules에서 다시 정하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"public\":{\"P1\":\"공부방 환풍기 제어 함수 run_fan(co2_high: bool, quiet_time: bool) -> bool을 작성하세요.\",\"P2\":\"True를 반환하면 환풍기를 켜고 False를 반환하면 끕니다.\",\"P3\":\"두 입력은 각각 이산화탄소 농도가 높다는 신호와 정숙 시간이라는 신호입니다.\",\"P4\":\"높은 농도 신호만 있으면 환풍기를 켭니다.\",\"P5\":\"정숙 시간 신호만 있으면 환풍기를 끕니다.\",\"P6\":\"두 신호가 동시에 들어왔을 때의 우선순위와 두 신호가 모두 없을 때의 기본 운전 여부는 각각 시설 담당자가 정합니다.\"},\"decisions\":{\"co2_high_priority_over_quiet\":{\"key\":\"co2_high_priority_over_quiet\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"두 신호가 동시에 들어왔을 때 환풍기를 켜거나 끄는 우선순위를 어떻게 설정하시나요?\"},\"both_signals_false_default_state\":{\"key\":\"both_signals_false_default_state\",\"kind\":\"decision\",\"origin\":\"Q1\",\"question\":\"두 신호가 모두 False일 때 환풍기를 켜거나 끄는 기본 상태를 어떻게 설정하시나요?\"}},\"input_conditions\":[\"not co2_high and not quiet_time\",\"not co2_high and quiet_time\",\"co2_high and not quiet_time\",\"co2_high and quiet_time\",\"co2_high\",\"quiet_time\",\"not co2_high\",\"not quiet_time\"]}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1400,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision_conditions": {
+              "type": "object",
+              "properties": {
+                "co2_high_priority_over_quiet": {
+                  "type": "string",
+                  "enum": [
+                    "not co2_high and not quiet_time",
+                    "not co2_high and quiet_time",
+                    "co2_high and not quiet_time",
+                    "co2_high and quiet_time",
+                    "co2_high",
+                    "quiet_time",
+                    "not co2_high",
+                    "not quiet_time"
+                  ]
+                },
+                "both_signals_false_default_state": {
+                  "type": "string",
+                  "enum": [
+                    "not co2_high and not quiet_time",
+                    "not co2_high and quiet_time",
+                    "co2_high and not quiet_time",
+                    "co2_high and quiet_time",
+                    "co2_high",
+                    "quiet_time",
+                    "not co2_high",
+                    "not quiet_time"
+                  ]
+                }
+              },
+              "required": [
+                "co2_high_priority_over_quiet",
+                "both_signals_false_default_state"
+              ],
+              "additionalProperties": false
+            },
+            "public_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "enum": [
+                      "not co2_high and not quiet_time",
+                      "not co2_high and quiet_time",
+                      "co2_high and not quiet_time",
+                      "co2_high and quiet_time",
+                      "co2_high",
+                      "quiet_time",
+                      "not co2_high",
+                      "not quiet_time"
+                    ]
+                  },
+                  "then": {
+                    "type": "string",
+                    "enum": [
+                      "True",
+                      "False"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4",
+                      "P5",
+                      "P6"
+                    ]
+                  }
+                },
+                "required": [
+                  "when",
+                  "then",
+                  "source"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "decision_conditions",
+            "public_rules"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "public-decision-rules"
+}

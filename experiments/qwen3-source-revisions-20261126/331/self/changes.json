@@ -1,0 +1,521 @@
+[
+  {
+    "role": "plan",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "self/plan.json",
+    "before_sha256": "23d5b059249a1cd35cc1fe53266baa3e8501cb394f26b6d6b2f0c7b7c6a38a1e",
+    "after_sha256": "026e80a557fcc5e37dff389a266de85605ca1ba98a77e6a1547220376d01e56a",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 계산합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds가 0이므로, 음수는 이미 시작된 경우로 간주합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "E3",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 1,
+                  "unit": "minutes"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있으므로, 예약 생성 후 1분 이내는 허용합니다."
+      }
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        18
+      ],
+      "R3": [
+        22
+      ]
+    }
+  },
+  {
+    "role": "review1",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review1.json",
+    "before_sha256": "026e80a557fcc5e37dff389a266de85605ca1ba98a77e6a1547220376d01e56a",
+    "after_sha256": "026e80a557fcc5e37dff389a266de85605ca1ba98a77e6a1547220376d01e56a",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 계산합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds가 0이므로, 음수는 이미 시작된 경우로 간주합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "E3",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 1,
+                  "unit": "minutes"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있으므로, 예약 생성 후 1분 이내는 허용합니다."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "기존 코드는 age_seconds < 60으로 조건을 설정했으나, 명세에서는 1분 이내를 허용하므로 60초 대신 60초 이하로 수정해야 합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "minutes"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있으므로, 예약 생성 후 1분 이내는 허용합니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "minutes"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있으므로, 예약 생성 후 1분 이내는 허용합니다."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        18
+      ],
+      "R3": [
+        22
+      ]
+    }
+  },
+  {
+    "role": "review2",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review2.json",
+    "before_sha256": "026e80a557fcc5e37dff389a266de85605ca1ba98a77e6a1547220376d01e56a",
+    "after_sha256": "026e80a557fcc5e37dff389a266de85605ca1ba98a77e6a1547220376d01e56a",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 계산합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds가 0이므로, 음수는 이미 시작된 경우로 간주합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "E3",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 60,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "명세에서는 1분 이내를 허용하므로, 예약 생성 후 60초 이내는 허용합니다."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "rule_edit",
+        "reason": "기존 코드는 age_seconds < 60으로 조건을 설정했으나, 명세에서는 1분 이내를 허용하므로 60초 대신 60초 이하로 수정해야 합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 1,
+                    "unit": "minutes"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있으므로, 예약 생성 후 1분 이내는 허용합니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 60,
+                    "unit": "seconds"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "명세에서는 1분 이내를 허용하므로, 예약 생성 후 60초 이내는 허용합니다."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        18
+      ],
+      "R3": [
+        22
+      ]
+    }
+  },
+  {
+    "role": "final",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/final.json",
+    "before_sha256": "026e80a557fcc5e37dff389a266de85605ca1ba98a77e6a1547220376d01e56a",
+    "after_sha256": "14bac176bf2787e47118674ad4f02d5b150fdb101ce8be0c4b6e4e2939e6d1ca",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              },
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 24,
+                  "unit": "hours"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 변환하여 계산합니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": {
+                  "amount": 0,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds가 0이므로, 음수는 이미 시작된 경우로 간주합니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "E3",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<=",
+                "bound": {
+                  "amount": 60,
+                  "unit": "seconds"
+                }
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "명세에서는 1분 이내를 허용하므로, 예약 생성 후 60초 이하로 수정해야 합니다."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "rule_edit",
+        "reason": "기존 코드는 age_seconds < 60으로 조건을 설정했으나, 명세에서는 1분 이내를 허용하므로 60초 대신 60초 이하로 수정해야 합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": {
+                    "amount": 60,
+                    "unit": "seconds"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "명세에서는 1분 이내를 허용하므로, 예약 생성 후 60초 이내는 허용합니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "E3",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<=",
+                  "bound": {
+                    "amount": 60,
+                    "unit": "seconds"
+                  }
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "명세에서는 1분 이내를 허용하므로, 예약 생성 후 60초 이하로 수정해야 합니다."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        18
+      ],
+      "R3": [
+        22
+      ]
+    }
+  }
+]

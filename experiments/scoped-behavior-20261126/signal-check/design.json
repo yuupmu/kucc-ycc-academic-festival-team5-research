@@ -1,0 +1,60 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "weights": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c",
+  "seed": 1421,
+  "state": {
+    "brief": "needs_check(level: int) -> bool은 계측값을 다시 확인할지 결정합니다. level은 음수도 유효한 정수입니다. 기준보다 높은 값은 재검(True), 낮은 값은 통과(False)입니다. 기준 수치와 정확히 기준일 때의 처리는 담당자에게 확인하세요.",
+    "code": "def needs_check(level: int) -> bool:\n    raise NotImplementedError\n",
+    "review": [],
+    "questions": [
+      "재검 기준은 얼마이고, 값이 정확히 기준일 때도 재검하나요?"
+    ],
+    "answers": {
+      "A": "기준값은 -3입니다. 정확히 기준이면 재검합니다.",
+      "B": "기준값은 -3입니다. 정확히 기준이면 통과시킵니다."
+    }
+  },
+  "pipeline": "fc50fd83d0e59abde77af71bff559d1c77fc536379ce753521cbda6272c89ee9",
+  "parent": "2374f2c8ceb945e81005d1608d2ff2c5de5bca973cb60e2d0fc73ac6a781548f",
+  "script": "8f8d44580633fbdb02004fc7dd3c60b83c2a04d4eddf6a1c87c7d54378bdf361",
+  "evaluate_after": "all four submissions sealed",
+  "inputs": [
+    -12,
+    -11,
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "order": [
+    [
+      "old",
+      "A"
+    ],
+    [
+      "new",
+      "B"
+    ],
+    [
+      "new",
+      "A"
+    ],
+    [
+      "old",
+      "B"
+    ]
+  ]
+}

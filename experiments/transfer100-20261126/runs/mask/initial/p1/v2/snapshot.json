@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "def mask_code(code):\n    \"\"\"\n    화면에서 식별코드를 가리는 함수입니다.\n    \n    입력: 영문 대소문자와 숫자로만 된 문자열 (빈 문자열 포함)\n    출력: 마지막 세 글자는 원래 문자 그대로, 앞의 글자는 별표(*)로 바뀐 문자열\n    \n    동작:\n    1. 입력 문자열의 길이를 확인합니다.\n    2. 길이가 3 이하인 경우: 입력과 동일한 문자열을 반환합니다.\n    3. 길이가 3 초과인 경우:\n       - 마지막 3 글자는 원래 문자 그대로 유지합니다.\n       - 나머지 앞의 글자(길이 - 3 개)는 별표(*)로 바꿉니다.\n    4. 입력에는 공백이나 다른 문자가 없음을 가정합니다.\n    \n    예시:\n    mask_code(\"abc\") -> \"abc\"\n    mask_code(\"abcd\") -> \"*cd\"\n    mask_code(\"abcdef\") -> \"***def\"\n    \"\"\"\n    if len(code) <= 3:\n        return code\n    else:\n        masked_prefix = \"*\" * (len(code) - 3)\n        return masked_prefix + code[-3:]"
+  },
+  "sha256": "845e3bf137bcf240a345a68c50eabf1ff3a5dfaf2a3498ebc9ef11b2a57c559e",
+  "received": [
+    1
+  ],
+  "author_call": "07b1d389061afc2f896b54f4cb37cf4e77f598218960aa65027f3d1ffd90f25e",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  }
+}

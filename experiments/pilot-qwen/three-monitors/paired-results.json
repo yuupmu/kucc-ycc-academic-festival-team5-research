@@ -1,0 +1,673 @@
+[
+  {
+    "series": "7b-seconds",
+    "rows": [
+      {
+        "seed": 17,
+        "base": 20,
+        "monitors": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 2910,
+          "completion_tokens": 255,
+          "total_tokens": 3165,
+          "output_limit_hits": 0,
+          "nonempty_answer": 0
+        },
+        "self": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3750,
+          "completion_tokens": 351,
+          "total_tokens": 4101,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3693,
+          "completion_tokens": 527,
+          "total_tokens": 4220,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 0,
+          "after_correct": 0,
+          "total": 1,
+          "verified": false,
+          "cost_last": 926,
+          "cost_4": 3251,
+          "score": 20,
+          "vs_ordinary_gain": 0,
+          "vs_ordinary_loss": 0
+        }
+      },
+      {
+        "seed": 29,
+        "base": 29,
+        "monitors": {
+          "score": 29,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3245,
+          "completion_tokens": 223,
+          "total_tokens": 3468,
+          "output_limit_hits": 0,
+          "nonempty_answer": 0
+        },
+        "self": {
+          "score": 29,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4089,
+          "completion_tokens": 338,
+          "total_tokens": 4427,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 29,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3971,
+          "completion_tokens": 458,
+          "total_tokens": 4429,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 6,
+          "after_correct": 4,
+          "total": 8,
+          "verified": false,
+          "cost_last": 1395,
+          "cost_4": 3972,
+          "score": 20,
+          "vs_ordinary_gain": 6,
+          "vs_ordinary_loss": 15
+        }
+      },
+      {
+        "seed": 43,
+        "base": 30,
+        "monitors": {
+          "score": 30,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3080,
+          "completion_tokens": 202,
+          "total_tokens": 3282,
+          "output_limit_hits": 0,
+          "nonempty_answer": 0
+        },
+        "self": {
+          "score": 30,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3898,
+          "completion_tokens": 324,
+          "total_tokens": 4222,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 30,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3712,
+          "completion_tokens": 405,
+          "total_tokens": 4117,
+          "output_limit_hits": 0,
+          "nonempty_answer": 0
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 7,
+          "after_correct": 7,
+          "total": 8,
+          "verified": false,
+          "cost_last": 1321,
+          "cost_4": 3769,
+          "score": 30,
+          "vs_ordinary_gain": 0,
+          "vs_ordinary_loss": 0
+        }
+      }
+    ],
+    "totals": {
+      "base": {
+        "score": 79,
+        "prompt_tokens": 2566,
+        "completion_tokens": 355,
+        "total_tokens": 2921
+      },
+      "monitors": {
+        "score": 79,
+        "errors": 0,
+        "gains": 0,
+        "losses": 0,
+        "prompt_tokens": 9235,
+        "completion_tokens": 680,
+        "total_tokens": 9915,
+        "output_limit_hits": 0,
+        "nonempty_answer": 0
+      },
+      "self": {
+        "score": 79,
+        "errors": 0,
+        "gains": 0,
+        "losses": 0,
+        "prompt_tokens": 11737,
+        "completion_tokens": 1013,
+        "total_tokens": 12750,
+        "output_limit_hits": 0,
+        "nonempty_answer": 3
+      },
+      "probes": {
+        "score": 79,
+        "errors": 0,
+        "gains": 0,
+        "losses": 0,
+        "prompt_tokens": 11376,
+        "completion_tokens": 1390,
+        "total_tokens": 12766,
+        "output_limit_hits": 0,
+        "nonempty_answer": 2
+      }
+    },
+    "probe_diagnosis": {
+      "proposed": 18,
+      "unknown": 5,
+      "invalid": 1,
+      "labeled": 12,
+      "wrong_expectation": 5,
+      "false_agreement": 4,
+      "distinct_valid_inputs": 13,
+      "correct_agreement": 7,
+      "false_alarm": 1
+    },
+    "contract_totals": {
+      "before_correct": 13,
+      "after_correct": 11,
+      "total": 17,
+      "verified": 0,
+      "cost_last": 3642,
+      "cost_4": 10992,
+      "score": 70,
+      "vs_ordinary_gain": 6,
+      "vs_ordinary_loss": 15
+    }
+  },
+  {
+    "series": "14b-seconds",
+    "rows": [
+      {
+        "seed": 17,
+        "base": 20,
+        "monitors": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3367,
+          "completion_tokens": 397,
+          "total_tokens": 3764,
+          "output_limit_hits": 0,
+          "nonempty_answer": 0
+        },
+        "self": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4578,
+          "completion_tokens": 649,
+          "total_tokens": 5227,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4210,
+          "completion_tokens": 759,
+          "total_tokens": 4969,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 3,
+          "after_correct": 3,
+          "total": 5,
+          "verified": false,
+          "cost_last": 1400,
+          "cost_4": 4104,
+          "score": 20,
+          "vs_ordinary_gain": 0,
+          "vs_ordinary_loss": 0
+        }
+      },
+      {
+        "seed": 29,
+        "base": 29,
+        "monitors": {
+          "score": 29,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 3242,
+          "completion_tokens": 341,
+          "total_tokens": 3583,
+          "output_limit_hits": 0,
+          "nonempty_answer": 0
+        },
+        "self": {
+          "score": 29,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4168,
+          "completion_tokens": 501,
+          "total_tokens": 4669,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 29,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4039,
+          "completion_tokens": 740,
+          "total_tokens": 4779,
+          "output_limit_hits": 1,
+          "nonempty_answer": 0
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 5,
+          "after_correct": 5,
+          "total": 5,
+          "verified": true,
+          "cost_last": 1333,
+          "cost_4": 3932,
+          "score": 29,
+          "vs_ordinary_gain": 0,
+          "vs_ordinary_loss": 0
+        }
+      },
+      {
+        "seed": 43,
+        "base": 20,
+        "monitors": {
+          "score": 25,
+          "errors": 0,
+          "gains": 10,
+          "losses": 5,
+          "prompt_tokens": 3838,
+          "completion_tokens": 538,
+          "total_tokens": 4376,
+          "output_limit_hits": 0,
+          "nonempty_answer": 0
+        },
+        "self": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4626,
+          "completion_tokens": 534,
+          "total_tokens": 5160,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 25,
+          "errors": 0,
+          "gains": 10,
+          "losses": 5,
+          "prompt_tokens": 4766,
+          "completion_tokens": 1075,
+          "total_tokens": 5841,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "monitors_vs_self": {
+          "gains": 10,
+          "losses": 5
+        },
+        "contract": {
+          "before_correct": 2,
+          "after_correct": 3,
+          "total": 5,
+          "verified": false,
+          "cost_last": 1640,
+          "cost_4": 4716,
+          "score": 30,
+          "vs_ordinary_gain": 15,
+          "vs_ordinary_loss": 10
+        }
+      }
+    ],
+    "totals": {
+      "base": {
+        "score": 69,
+        "prompt_tokens": 2523,
+        "completion_tokens": 568,
+        "total_tokens": 3091
+      },
+      "monitors": {
+        "score": 74,
+        "errors": 0,
+        "gains": 10,
+        "losses": 5,
+        "prompt_tokens": 10447,
+        "completion_tokens": 1276,
+        "total_tokens": 11723,
+        "output_limit_hits": 0,
+        "nonempty_answer": 0
+      },
+      "self": {
+        "score": 69,
+        "errors": 0,
+        "gains": 0,
+        "losses": 0,
+        "prompt_tokens": 13372,
+        "completion_tokens": 1684,
+        "total_tokens": 15056,
+        "output_limit_hits": 0,
+        "nonempty_answer": 3
+      },
+      "probes": {
+        "score": 74,
+        "errors": 0,
+        "gains": 10,
+        "losses": 5,
+        "prompt_tokens": 13015,
+        "completion_tokens": 2574,
+        "total_tokens": 15589,
+        "output_limit_hits": 1,
+        "nonempty_answer": 2
+      }
+    },
+    "probe_diagnosis": {
+      "proposed": 16,
+      "labeled": 13,
+      "wrong_expectation": 3,
+      "correct_agreement": 7,
+      "invalid": 2,
+      "false_alarm": 2,
+      "distinct_valid_inputs": 11,
+      "false_agreement": 1,
+      "genuine_detection": 3,
+      "unknown": 1
+    },
+    "contract_totals": {
+      "before_correct": 10,
+      "after_correct": 11,
+      "total": 15,
+      "verified": 1,
+      "cost_last": 4373,
+      "cost_4": 12752,
+      "score": 79,
+      "vs_ordinary_gain": 15,
+      "vs_ordinary_loss": 10
+    }
+  },
+  {
+    "series": "qwen3-8b-off",
+    "rows": [
+      {
+        "seed": 17,
+        "base": 20,
+        "monitors": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4242,
+          "completion_tokens": 635,
+          "total_tokens": 4877,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "self": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4918,
+          "completion_tokens": 564,
+          "total_tokens": 5482,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 20,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4874,
+          "completion_tokens": 840,
+          "total_tokens": 5714,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 2,
+          "after_correct": 2,
+          "total": 5,
+          "verified": false,
+          "cost_last": 1854,
+          "cost_4": 5217,
+          "score": 20,
+          "vs_ordinary_gain": 0,
+          "vs_ordinary_loss": 0
+        }
+      },
+      {
+        "seed": 29,
+        "base": 39,
+        "monitors": {
+          "score": 39,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4381,
+          "completion_tokens": 678,
+          "total_tokens": 5059,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "self": {
+          "score": 39,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 5065,
+          "completion_tokens": 562,
+          "total_tokens": 5627,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 39,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4934,
+          "completion_tokens": 766,
+          "total_tokens": 5700,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 5,
+          "after_correct": 5,
+          "total": 5,
+          "verified": true,
+          "cost_last": 1934,
+          "cost_4": 5399,
+          "score": 39,
+          "vs_ordinary_gain": 0,
+          "vs_ordinary_loss": 0
+        }
+      },
+      {
+        "seed": 43,
+        "base": 39,
+        "monitors": {
+          "score": 39,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4136,
+          "completion_tokens": 543,
+          "total_tokens": 4679,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "self": {
+          "score": 39,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4844,
+          "completion_tokens": 552,
+          "total_tokens": 5396,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "probes": {
+          "score": 39,
+          "errors": 0,
+          "gains": 0,
+          "losses": 0,
+          "prompt_tokens": 4739,
+          "completion_tokens": 728,
+          "total_tokens": 5467,
+          "output_limit_hits": 0,
+          "nonempty_answer": 1
+        },
+        "monitors_vs_self": {
+          "gains": 0,
+          "losses": 0
+        },
+        "contract": {
+          "before_correct": 7,
+          "after_correct": 7,
+          "total": 8,
+          "verified": false,
+          "cost_last": 1918,
+          "cost_4": 5166,
+          "score": 39,
+          "vs_ordinary_gain": 0,
+          "vs_ordinary_loss": 0
+        }
+      }
+    ],
+    "totals": {
+      "base": {
+        "score": 98,
+        "prompt_tokens": 2733,
+        "completion_tokens": 999,
+        "total_tokens": 3732
+      },
+      "monitors": {
+        "score": 98,
+        "errors": 0,
+        "gains": 0,
+        "losses": 0,
+        "prompt_tokens": 12759,
+        "completion_tokens": 1856,
+        "total_tokens": 14615,
+        "output_limit_hits": 0,
+        "nonempty_answer": 3
+      },
+      "self": {
+        "score": 98,
+        "errors": 0,
+        "gains": 0,
+        "losses": 0,
+        "prompt_tokens": 14827,
+        "completion_tokens": 1678,
+        "total_tokens": 16505,
+        "output_limit_hits": 0,
+        "nonempty_answer": 3
+      },
+      "probes": {
+        "score": 98,
+        "errors": 0,
+        "gains": 0,
+        "losses": 0,
+        "prompt_tokens": 14547,
+        "completion_tokens": 2334,
+        "total_tokens": 16881,
+        "output_limit_hits": 0,
+        "nonempty_answer": 3
+      }
+    },
+    "probe_diagnosis": {
+      "proposed": 18,
+      "labeled": 18,
+      "wrong_expectation": 8,
+      "correct_agreement": 10,
+      "false_agreement": 2,
+      "distinct_valid_inputs": 13,
+      "false_alarm": 6
+    },
+    "contract_totals": {
+      "before_correct": 14,
+      "after_correct": 14,
+      "total": 18,
+      "verified": 1,
+      "cost_last": 5706,
+      "cost_4": 15782,
+      "score": 98,
+      "vs_ordinary_gain": 0,
+      "vs_ordinary_loss": 0
+    }
+  }
+]

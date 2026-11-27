@@ -1,0 +1,1009 @@
+{
+  "pairs": [
+    {
+      "control": "qwen3-clause-ordered-20261126-157",
+      "candidate": "qwen3-source-thresholds-20261126-157",
+      "candidate_protocol": "human-intervention-source-thresholds-v1",
+      "seed": 157,
+      "arms": {
+        "self": {
+          "control": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "d0bcf1b13159bdaae94fccad30a5ea700b5f7ab61dba23b0a3c6efd6ffed4e45",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 25,
+            "wrong": 15,
+            "unanswered": 0,
+            "score_history": [
+              15,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned_history": [
+              15,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 10,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 49417,
+            "questions": 19,
+            "question_batches": 2,
+            "human_replies": 0,
+            "proxy_replies": 2,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            }
+          },
+          "candidate": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "06ac48eb89a3a113441f2258601af83357bc82685333ed8181d6a9d2ab5226ce",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 25,
+            "wrong": 9,
+            "unanswered": 6,
+            "score_history": [
+              15,
+              11,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned_history": [
+              15,
+              31,
+              34,
+              34,
+              34,
+              34
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 10,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 5,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 55905,
+            "questions": 18,
+            "question_batches": 1,
+            "human_replies": 0,
+            "proxy_replies": 1,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            },
+            "last_time_conditions": {
+              "conditions": 14,
+              "missing_limit": 0,
+              "unresolved_equality": 8
+            }
+          },
+          "net": 0,
+          "transitions": {
+            "오답 → 미판정": 6,
+            "오답 → 오답": 4,
+            "오답 → 정답": 5,
+            "정답 → 오답": 5,
+            "정답 → 정답": 20
+          },
+          "same_first_questions": true,
+          "same_first_reply": true,
+          "same_first_revision_request": false,
+          "same_first_revision_output": false,
+          "same_author_rows": {
+            "correct": 29,
+            "wrong": 10,
+            "unanswered": 1,
+            "transitions": {
+              "오답 → 오답": 10,
+              "오답 → 정답": 5,
+              "정답 → 미판정": 1,
+              "정답 → 정답": 24
+            },
+            "code_sha256": "376da95f6968e7ff222e37e699e60cf1f830a15c478fcb1c403f9d22e92714fb"
+          }
+        },
+        "multi": {
+          "control": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "5b6aec231f69e004fb2a2034fef08982835d24e929d7aaeee6cb45cdae409752",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 25,
+            "wrong": 15,
+            "unanswered": 0,
+            "score_history": [
+              15,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned_history": [
+              15,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 10,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 41756,
+            "questions": 19,
+            "question_batches": 1,
+            "human_replies": 0,
+            "proxy_replies": 1,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            }
+          },
+          "candidate": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "34f67e5982ef283bc0878f6e08932d3d1d2c5fb0b38d7ab92f1f772a8d8f6bda",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 25,
+            "wrong": 9,
+            "unanswered": 6,
+            "score_history": [
+              15,
+              11,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned_history": [
+              15,
+              31,
+              34,
+              34,
+              34,
+              34
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 10,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 5,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 46555,
+            "questions": 19,
+            "question_batches": 1,
+            "human_replies": 0,
+            "proxy_replies": 1,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            },
+            "last_time_conditions": {
+              "conditions": 14,
+              "missing_limit": 0,
+              "unresolved_equality": 7
+            }
+          },
+          "net": 0,
+          "transitions": {
+            "오답 → 미판정": 6,
+            "오답 → 오답": 4,
+            "오답 → 정답": 5,
+            "정답 → 오답": 5,
+            "정답 → 정답": 20
+          },
+          "same_first_questions": true,
+          "same_first_reply": true,
+          "same_first_revision_request": false,
+          "same_first_revision_output": false,
+          "same_author_rows": {
+            "correct": 29,
+            "wrong": 10,
+            "unanswered": 1,
+            "transitions": {
+              "오답 → 오답": 10,
+              "오답 → 정답": 5,
+              "정답 → 미판정": 1,
+              "정답 → 정답": 24
+            },
+            "code_sha256": "9f8cd82099dba9fd8c4b36f2aa1ff1de6201ce836f761a484a144cd9608e529f"
+          }
+        }
+      },
+      "audit": {
+        "qwen3-clause-ordered-20261126-157": {
+          "recorded_calls": 47,
+          "answer_batches": 3
+        },
+        "qwen3-source-thresholds-20261126-157": {
+          "recorded_calls": 47,
+          "answer_batches": 2
+        }
+      }
+    },
+    {
+      "control": "qwen3-clause-ordered-20261126-263",
+      "candidate": "qwen3-source-thresholds-20261126-263",
+      "candidate_protocol": "human-intervention-source-thresholds-v1",
+      "seed": 263,
+      "arms": {
+        "self": {
+          "control": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "04eaba551003c5c3d2a60415932ea8915cbfabcb9c8f4aaf8db2d0f453cf2ca2",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 24,
+            "wrong": 16,
+            "unanswered": 0,
+            "score_history": [
+              14,
+              24,
+              24,
+              24,
+              24,
+              24
+            ],
+            "returned_history": [
+              40,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 9,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 47989,
+            "questions": 14,
+            "question_batches": 2,
+            "human_replies": 0,
+            "proxy_replies": 2,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": false,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            }
+          },
+          "candidate": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "505b4077496b6dca93d77780dbbcd0acf73b0ee4e41cd9f0183afa394650a95c",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 20,
+            "wrong": 5,
+            "unanswered": 15,
+            "score_history": [
+              14,
+              35,
+              35,
+              5,
+              20,
+              20
+            ],
+            "returned_history": [
+              40,
+              40,
+              40,
+              10,
+              25,
+              25
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 5,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 47177,
+            "questions": 13,
+            "question_batches": 2,
+            "human_replies": 0,
+            "proxy_replies": 2,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            },
+            "last_time_conditions": {
+              "conditions": 9,
+              "missing_limit": 0,
+              "unresolved_equality": 7
+            }
+          },
+          "net": -4,
+          "transitions": {
+            "오답 → 미판정": 15,
+            "오답 → 오답": 1,
+            "정답 → 오답": 4,
+            "정답 → 정답": 20
+          },
+          "same_first_questions": true,
+          "same_first_reply": true,
+          "same_first_revision_request": false,
+          "same_first_revision_output": false,
+          "same_author_rows": {
+            "correct": 24,
+            "wrong": 15,
+            "unanswered": 1,
+            "transitions": {
+              "오답 → 미판정": 1,
+              "오답 → 오답": 15,
+              "정답 → 정답": 24
+            },
+            "code_sha256": "a40f9988c720e196033a4840327ac800988ebbcff46ee8b9d301e0499e1e3f6e"
+          }
+        },
+        "multi": {
+          "control": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "2827c1bc4b3d001465cc3f768e49748b45629954c4bbb7b831d0f0791b7a1e5f",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 25,
+            "wrong": 15,
+            "unanswered": 0,
+            "score_history": [
+              14,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned_history": [
+              40,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 10,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 41808,
+            "questions": 17,
+            "question_batches": 1,
+            "human_replies": 0,
+            "proxy_replies": 1,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            }
+          },
+          "candidate": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "59bfa1f92bc344ee4e84a62574b61b53fe0a713017280e856ea605cc988fe965",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 16,
+            "wrong": 24,
+            "unanswered": 0,
+            "score_history": [
+              14,
+              16,
+              20,
+              16,
+              35,
+              16
+            ],
+            "returned_history": [
+              40,
+              40,
+              35,
+              40,
+              40,
+              40
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 1,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 5,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 44065,
+            "questions": 21,
+            "question_batches": 4,
+            "human_replies": 0,
+            "proxy_replies": 3,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": false,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": true
+            },
+            "last_time_conditions": {
+              "conditions": 24,
+              "missing_limit": 0,
+              "unresolved_equality": 21
+            }
+          },
+          "net": -9,
+          "transitions": {
+            "오답 → 오답": 4,
+            "오답 → 정답": 11,
+            "정답 → 오답": 20,
+            "정답 → 정답": 5
+          },
+          "same_first_questions": true,
+          "same_first_reply": true,
+          "same_first_revision_request": false,
+          "same_first_revision_output": false,
+          "same_author_rows": {
+            "correct": 29,
+            "wrong": 10,
+            "unanswered": 1,
+            "transitions": {
+              "오답 → 오답": 10,
+              "오답 → 정답": 5,
+              "정답 → 미판정": 1,
+              "정답 → 정답": 24
+            },
+            "code_sha256": "60cdcdb895f57c7cc9b7a5b50744807e2f87ca816d859d25991b4f860115f993"
+          }
+        }
+      },
+      "audit": {
+        "qwen3-clause-ordered-20261126-263": {
+          "recorded_calls": 47,
+          "answer_batches": 3
+        },
+        "qwen3-source-thresholds-20261126-263": {
+          "recorded_calls": 47,
+          "answer_batches": 5
+        }
+      }
+    },
+    {
+      "control": "qwen3-clause-ordered-20261126-263",
+      "candidate": "qwen3-bound-ordered-20261126-263",
+      "candidate_protocol": "human-intervention-bound-ordered-v1",
+      "seed": 263,
+      "arms": {
+        "self": {
+          "control": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "04eaba551003c5c3d2a60415932ea8915cbfabcb9c8f4aaf8db2d0f453cf2ca2",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 24,
+            "wrong": 16,
+            "unanswered": 0,
+            "score_history": [
+              14,
+              24,
+              24,
+              24,
+              24,
+              24
+            ],
+            "returned_history": [
+              40,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 9,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 47989,
+            "questions": 14,
+            "question_batches": 2,
+            "human_replies": 0,
+            "proxy_replies": 2,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": false,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            }
+          },
+          "candidate": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "f96b93deb0bdbfd71eed4f162b3ef5baa4fd7bbc4abbcd251ae476b67246a562",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 24,
+            "wrong": 15,
+            "unanswered": 1,
+            "score_history": [
+              14,
+              24,
+              24,
+              24,
+              24,
+              24
+            ],
+            "returned_history": [
+              40,
+              39,
+              39,
+              39,
+              39,
+              39
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 9,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 53120,
+            "questions": 13,
+            "question_batches": 2,
+            "human_replies": 0,
+            "proxy_replies": 2,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": false,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            },
+            "last_time_conditions": {
+              "conditions": 13,
+              "missing_limit": 0,
+              "unresolved_equality": 11
+            }
+          },
+          "net": 0,
+          "transitions": {
+            "오답 → 미판정": 1,
+            "오답 → 오답": 15,
+            "정답 → 정답": 24
+          },
+          "same_first_questions": true,
+          "same_first_reply": true,
+          "same_first_revision_request": true,
+          "same_first_revision_output": true
+        },
+        "multi": {
+          "control": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "2827c1bc4b3d001465cc3f768e49748b45629954c4bbb7b831d0f0791b7a1e5f",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 25,
+            "wrong": 15,
+            "unanswered": 0,
+            "score_history": [
+              14,
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "returned_history": [
+              40,
+              40,
+              40,
+              40,
+              40,
+              40
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 5,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 10,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 41808,
+            "questions": 17,
+            "question_batches": 1,
+            "human_replies": 0,
+            "proxy_replies": 1,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            }
+          },
+          "candidate": {
+            "status": "incomplete_limit",
+            "version": 6,
+            "code_sha256": "d059b326a2b2c473bb1c118ee86c552d5a4add5dc945c7d13b46c12b498fc22d",
+            "grade_version": "1.0-basic.1",
+            "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+            "total": 40,
+            "correct": 29,
+            "wrong": 10,
+            "unanswered": 1,
+            "score_history": [
+              14,
+              29,
+              29,
+              29,
+              29,
+              29
+            ],
+            "returned_history": [
+              40,
+              39,
+              39,
+              39,
+              39,
+              39
+            ],
+            "categories": {
+              "평일 마감": {
+                "correct": 5,
+                "total": 10
+              },
+              "마감 경계": {
+                "correct": 5,
+                "total": 10
+              },
+              "예약 직후 유예": {
+                "correct": 10,
+                "total": 10
+              },
+              "시작과 유예 우선순위": {
+                "correct": 9,
+                "total": 10
+              }
+            },
+            "calls": 24,
+            "tokens": 42327,
+            "questions": 17,
+            "question_batches": 1,
+            "human_replies": 0,
+            "proxy_replies": 1,
+            "received_policy_decisions": [
+              "after_start",
+              "at_start",
+              "correction_edge",
+              "correction_period",
+              "deadline_edge",
+              "past_deadline"
+            ],
+            "last_review": {
+              "author_complete": true,
+              "reviewers_requesting_revision": 3,
+              "all_received_decisions_cited": true,
+              "missing_decisions": [],
+              "questions_to_operator": false
+            },
+            "last_time_conditions": {
+              "conditions": 9,
+              "missing_limit": 0,
+              "unresolved_equality": 7
+            }
+          },
+          "net": 4,
+          "transitions": {
+            "오답 → 오답": 10,
+            "오답 → 정답": 5,
+            "정답 → 미판정": 1,
+            "정답 → 정답": 24
+          },
+          "same_first_questions": true,
+          "same_first_reply": true,
+          "same_first_revision_request": true,
+          "same_first_revision_output": true
+        }
+      },
+      "audit": {
+        "qwen3-clause-ordered-20261126-263": {
+          "recorded_calls": 47,
+          "answer_batches": 3
+        },
+        "qwen3-bound-ordered-20261126-263": {
+          "recorded_calls": 47,
+          "answer_batches": 3
+        }
+      }
+    }
+  ],
+  "compiler_sha256": "2e233e4fe5c7712be1e5a7a853cb37d4f77b9983dad562022ae085c6af9dae7d",
+  "authored_rows_adapter_sha256": "13b43a39bbb0b32bee8aa7074ae8e2f6b85618af5fd11c78e4d19b5c0620fc4f",
+  "endpoint": "last saved, reviewed version per arm; status records submission separately"
+}

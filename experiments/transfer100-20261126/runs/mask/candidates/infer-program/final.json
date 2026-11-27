@@ -1,0 +1,328 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def mask_code(code):\n    if len(code) == 0:\n        raise NotImplementedError\n    if len(code) <= 3:\n        raise NotImplementedError\n    if len(code) > 3:\n        raise NotImplementedError\n    raise NotImplementedError"
+    },
+    "calls": [
+      "b9973ad4f5025903d39b0278c501c3d7dad0972635f5020c88f41b0960fe7a9f",
+      "78b70169032a331415bd3bf4d5edced60012e3493e33a5cdaf7deeb8c3c79063"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code) 함수를 구현해야 함. 입력은 영문 대소문자 및 숫자 문자열 (빈 문자열 포함).",
+        "input": "code",
+        "still_open": "어떤 글자를 공개할지 결정 기준",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "공개된 글자는 원래 대소문자와 순서를 유지해야 함. 비공개 글자는 '*' 로 바꿈. 결과 길이는 입력 길이와 같아야 함.",
+        "input": "code",
+        "still_open": "어떤 글자를 공개할지 결정 기준",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "입력에는 다른 문자나 공백이 없음.",
+        "input": "code",
+        "still_open": "어느 쪽의 몇 글자를 공개할지 결정 기준",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "마지막 3 글자는 공개함. 그 앞의 글자는 모두 '*' 로 가림.",
+        "input": "code",
+        "still_open": "코드가 3 글자 이하일 때의 처리 (H3 와 충돌 가능성)",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "빈 문자열 입력 시 빈 문자열 반환.",
+        "input": "code",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "길이 3 이하인 비어 있지 않은 코드는 전부 '*' 로 가림.",
+        "input": "code",
+        "still_open": "H1 과의 우선순위 및 충돌 해결 (예: 길이 3 인 경우)",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P3"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "H1"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 7,
+            "sources": [
+              "H1"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "H3"
+            ],
+            "inputs": [
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "H3"
+            ],
+            "inputs": [
+              "NotImplementedError",
+              "code",
+              "len"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {},
+        "decision": {
+          "rules": [
+            {
+              "when": "len(code) == 0",
+              "action": "return",
+              "value": "",
+              "sources": [
+                "H2"
+              ]
+            },
+            {
+              "when": "len(code) <= 3",
+              "action": "return",
+              "value": "'*'*len(code)",
+              "sources": [
+                "H3"
+              ]
+            },
+            {
+              "when": "len(code) > 3",
+              "action": "return",
+              "value": "'*'*len(code)-3 + code[-3:]",
+              "sources": [
+                "H1"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "false",
+            "sources": [
+              "P3"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "표현식이 비어 있음",
+      "원문에 없는 문자열 결과 또는 분기값",
+      "원문에 없는 문자열 결과 또는 분기값",
+      "입력·근거표에 없는 이름 false"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "비어 있지 않은 코드가 길이가 3 글자 이하일 때, 담당자 답변에 따라 '전부 별표로 가림'과 'NotImplementedError 를 던짐' 중 어떤 결과가 허용되는지.",
+            "outcome_a": "전부 별표로 가림",
+            "outcome_b": "NotImplementedError 를 던짐",
+            "question": "비어 있지 않은 코드가 길이가 3 글자 이하일 때, 담당자 답변에 따라 '전부 별표로 가림'과 'NotImplementedError 를 던짐' 중 어떤 결과가 허용되는지."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "현재 코드는 모든 입력에 대해 NotImplementedError 를 발생시키며, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙에 따라 실제 가리는 글자 수와 공개되는 글자 수를 계산하지 않고 있습니다.",
+            "outcome_a": "코드가 모든 입력에 대해 예외를 발생시켜 함수가 실패하는 결과",
+            "outcome_b": "마지막 세 글자를 공개하고 나머지 글자를 별표로 가리는 방식으로 함수가 정상적으로 작동하는 결과",
+            "question": "현재 코드가 모든 입력에 대해 NotImplementedError 를 발생시키며, 운영 담당자가 정한 '마지막 세 글자 공개' 규칙에 따라 실제 가리는 글자 수와 공개되는 글자 수를 계산하지 않고 있습니다."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "코드가 길이가 3 이하인 경우를 별표로 가리는 로직을 구현하지 않고 NotImplementedError 를 던지고 있습니다.",
+            "outcome_a": "코드가 길이가 3 이하인 경우를 별표로 가리는 로직을 구현하지 않고 NotImplementedError 를 던지고 있습니다.",
+            "outcome_b": "코드가 길이가 3 이하인 경우를 별표로 가리는 로직을 구현하지 않고 NotImplementedError 를 던지고 있습니다.",
+            "question": "코드가 길이가 3 이하인 경우를 별표로 가리는 로직을 구현하지 않고 NotImplementedError 를 던지고 있습니다."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "c826dd99b02a20e42bf2cf5d2b133159572d3d55fc48eb78971724dc1d508742",
+    "61184d7af207c481b030d0f4a21b69480c0009127311dd5c149ea1b261f8b062",
+    "679f05a910af3243283b654e3ee9c1a7f31c3d5a59af69bf7b857d7c5d62891f",
+    "b9973ad4f5025903d39b0278c501c3d7dad0972635f5020c88f41b0960fe7a9f",
+    "78b70169032a331415bd3bf4d5edced60012e3493e33a5cdaf7deeb8c3c79063",
+    "e9dada3baa7fe619b6a0e7f65fd0a7b8a1c595f26b2fd88ef6f6049a1d058c1a",
+    "be6bcffd0ae6bc237fbd7ddc6b83e694d4054625519407730cdfcd7ea5a9e2cd",
+    "17e4432507de85e44c40b3f82423b8afec5e37f2199f0c76139e4dd36c0afe29"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code):\n    if len(code) == 0:\n        raise NotImplementedError\n    if len(code) <= 3:\n        raise NotImplementedError\n    if len(code) > 3:\n        raise NotImplementedError\n    raise NotImplementedError"
+  },
+  "sha256": "0ea7efbf30b257e1b6ba11d9f6a9a6fb3a83ffc67cd9837fd0ac4d73401c90ab",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "a5fea5d99eccaf9dd69ff40dc08fca82882165272fff49b3cbacac232edf629e",
+      "questions": [
+        {
+          "question": "현재 운영 기준에 따라 'A1B2C3' 와 같은 6 자 이상의 코드를 가릴 때, 앞뒤 몇 글자를 공개해야 하는지 정해져 있나요? (예: 앞뒤 1 자, 앞뒤 2 자 등) 또한 빈 문자열이나 1~4 자인 코드는 어떻게 처리하나요? 이 기준과 그 적용 기준 (reference point) 이 명확히 정의되어야 합니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "입력 코드가 'AB' 일 때, 운영 담당자가 정한 공개 기준에 따라 결과 문자열이 'AB' 가 되는지, 아니면 '**' 가 되는지 명확히 해주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.\n빈 코드는 빈 문자열을 반환합니다.\n길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

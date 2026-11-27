@@ -1,0 +1,85 @@
+{
+  "text": "{\n  \"behavior\": [\n    {\n      \"when\": \"입력 데이터가 없음 (빈 입력)\",\n      \"then\": \"빈 사전 ({})\"\n    },\n    {\n      \"when\": \"입력 데이터가 있고, 같은 센서 ID에 동일한 측정값이 반복됨\",\n      \"then\": \"반복된 값은 하나로 합쳐서 기록함\"\n    },\n    {\n      \"when\": \"입력 데이터가 있고, 같은 센서 ID에 서로 다른 측정값이 여러 번 들어옴\",\n      \"then\": \"가장 나중에 들어온 측정값을 보존하여 기록함\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 146,
+    "prompt_tokens": 276,
+    "total_tokens": 422,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 276,
+    "prompt_ms": 406.143,
+    "prompt_per_token_ms": 1.4715326086956522,
+    "prompt_per_second": 679.563601982553,
+    "predicted_n": 146,
+    "predicted_ms": 3627.278,
+    "predicted_per_token_ms": 25.015710344827585,
+    "predicted_per_second": 39.97487923451139
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 4.04,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개 명세와 실제 담당자 회신을 함께 읽고, 작성할 함수의 동작을 입력 조건별로 정리하세요. 답변이 적용되는 경우와 그 옆에서 기존 규칙이 계속 적용되는 경우를 모두 포함하세요. 수치 경계라면 경계 미만·같음·초과, 반복 입력이라면 해당 항목과 그 뒤의 다른 항목을 구분하세요. 각 조건에는 함수가 돌려줄 값이나 계속 수행할 동작을 하나씩 적으세요. 원문만으로 결정할 수 없으면 \"미정\"으로 적으세요. 코드는 쓰지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"sensor_values(readings)는 입력 순서대로 센서 ID(문자열)와 측정값(정수)의 쌍을 읽고 ID별 측정값을 담은 사전을 반환합니다. 빈 입력은 빈 사전입니다. 같은 ID에 같은 값이 반복되면 하나로 합칩니다. 같은 ID의 값들이 다를 때 어떤 값을 보존하는지는 현장 담당자가 정합니다.\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"같은 센서 ID에 서로 다른 값이 여러 번 들어올 때, 어느 값을 기록해야 하나요?\"],\"answer\":{\"text\":\"같은 센서에 서로 다른 측정값이 들어오면 가장 나중에 받은 값을 보존해 주세요.\"}}]}"
+      }
+    ],
+    "seed": 419,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "behavior": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string"
+                  },
+                  "then": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "when",
+                  "then"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "behavior"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-behavior"
+}

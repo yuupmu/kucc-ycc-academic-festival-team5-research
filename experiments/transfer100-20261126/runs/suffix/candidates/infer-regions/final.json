@@ -1,0 +1,229 @@
+{
+  "writer": {
+    "calls": [
+      "21a931ac1480f3e201eb3cae918067dddd7413a42b52416ddb2d1bc78095736a",
+      "c10af2dc562cd1a877de4e6efb0622c8df3f84fa212e0aa9922ab08cd4a97011"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "file_suffix(name) 함수는 str 타입을 반환하며, 입력은 경로 구분자 없이 영문 대소문자, 숫자, 점, 하이픈으로만 구성된 파일 이름입니다. 공백과 빈 문자열은 입력되지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "이름 안에 점이 정확히 하나 있고 맨 앞이나 맨 끝에 있지 않은 보통 파일의 경우, 점 다음 부분을 반환합니다. 반환값에는 점을 붙이지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "",
+        "input": "name",
+        "still_open": "대소문자 표기, 점이 여러 개인 이름, 점으로 시작하는 이름, 확장자가 없는 이름의 처리는 파일 관리 담당자에게 확인해야 합니다.",
+        "status": "undetermined"
+      },
+      "H1": {
+        "established": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "점으로 시작하고 그 뒤에 다른 점이 없는 이름은 확장자가 없는 파일로 봅니다. 다른 점이 더 있으면 마지막 점 뒤의 부분을 사용합니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.",
+        "input": "name",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def file_suffix(name: str) -> str:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if '.' not in name or name.endswith('.') or name.startswith('.'):",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return \"\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    parts = name.split('.')",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if len(parts) == 2 and not name.startswith('.') and '.' not in name[parts[0]]:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return parts[1]",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return parts[-1]",
+            "sources": []
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def file_suffix(name: str) -> str:\n    if '.' not in name or name.endswith('.') or name.startswith('.'):\n        return \"\"\n    parts = name.split('.')\n    if len(parts) == 2 and not name.startswith('.') and '.' not in name[parts[0]]:\n        return parts[1]\n    return parts[-1]\n"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "undetermined",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      },
+      "H3": {
+        "status": "rule",
+        "input": "name",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": []
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "점 여러 개가 있는 보통 파일 (예: 'test.tar.gz') 의 경우, 담당자 답변은 마지막 점 뒤의 부분만 ('gz') 을 반환하되, 현재 코드는 split 후 마지막 요소만 반환하여 ('gz') 를 올바르게 처리하고 있습니다.",
+            "outcome_a": "코드가 담당자 요구사항 (마지막 점 뒤 부분만 반환) 을 올바르게 구현했습니다.",
+            "outcome_b": "코드가 'test.tar.gz' 와 같은 경우 'tar.gz' 를 반환하여 복합 확장자를 합치는 오류가 발생했습니다.",
+            "question": "복합 확장자를 합치지 않고 마지막 점 뒤 부분만 반환하는 요구사항이 코드에 올바르게 구현되었는지 확인합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "점 여러 개가 있는 보통 파일 (예: 'a.b.c') 에 대해, 담당자 답변은 'c'를 반환하되, 현재 코드는 'c'를 반환하는지 확인해야 합니다.",
+            "outcome_a": "코드는 'c'를 반환합니다.",
+            "outcome_b": "코드는 'a'를 반환합니다.",
+            "question": "점 여러 개가 있는 보통 파일 (예: 'a.b.c') 에 대해, 담당자 답변은 'c'를 반환하되, 현재 코드는 'c'를 반환하는지 확인해야 합니다."
+          },
+          {
+            "situation": "점 없이 끝나는 이름 (예: 'abc.') 에 대해, 담당자 답변은 빈 문자열을 반환하되, 현재 코드는 빈 문자열을 반환하는지 확인해야 합니다.",
+            "outcome_a": "코드는 빈 문자열을 반환합니다.",
+            "outcome_b": "코드는 '.' 을 반환합니다.",
+            "question": "점 없이 끝나는 이름 (예: 'abc.') 에 대해, 담당자 답변은 빈 문자열을 반환하되, 현재 코드는 빈 문자열을 반환하는지 확인해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "점 여러 개가 있는 보통 파일의 경우, 담당자 답변은 '마지막 점 뒤의 부분'을 반환하되 '복합 확장자를 합치지 않는다'고 명시했으나, 현재 코드는 `parts[-1]`로 항상 마지막 부분만 반환하여 복합 확장자 (예: `file.tar.gz` -> `gz`) 를 분리하는 로직과 일치합니다. 이는 요구사항의 '마지막 점 뒤' 정의와 일치하지만, '복합 확장자를 합치지 않는다'는 표현이 '각각의 확장자를 분리해서 사용한다'는 의미인지, 아니면 '여러 개의 확장자를 하나의 문자열로 붙여주는 것을 하지 않는다'는 의미인지 명확하지 않습니다.",
+            "outcome_a": "복합 확장자를 분리하여 마지막 부분만 반환 (예: `file.tar.gz` -> `gz`)",
+            "outcome_b": "복합 확장자를 분리하지 않고 마지막 점 뒤의 전체 문자열을 반환 (예: `file.tar.gz` -> `tar.gz`)",
+            "question": "점 여러 개가 있는 보통 파일에 대해, '마지막 점 뒤의 부분'을 반환할 때 '복합 확장자를 합치지 않는다'는 문맥상 마지막 부분만 반환하는 것이 맞는지, 아니면 마지막 점과 그 이후의 모든 문자열을 반환하는 것이 맞는지 확인해 주세요."
+          },
+          {
+            "situation": "점 없이 끝나는 이름 (예: `abc.`) 에 대해, 담당자 답변은 '빈 문자열을 반환'한다고 명시했으나, 현재 코드는 `name.endswith('.')` 조건으로 빈 문자열을 반환합니다. 이는 요구사항과 일치합니다. 다만, '점이 없거나 마지막 글자가 점인 이름'이라는 표현에서 '점이 없는 이름'에 대해 명시적으로 빈 문자열을 반환하는지, 아니면 '점이 없거나'라는 조건이 '마지막 글자가 점인 경우'만 처리하는지 문법적 해석이 다를 수 있습니다.",
+            "outcome_a": "점이 없거나 마지막 글자가 점인 경우 모두 빈 문자열 반환",
+            "outcome_b": "점이 없거나 마지막 글자가 점인 경우 중, '점이 없는 경우'는 빈 문자열이 아닌 다른 처리 (예: 원본 반환 또는 에러) 를 할 수 있습니다.",
+            "question": "점이 없거나 마지막 글자가 점인 이름에 대해, '빈 문자열을 반환'하는 것이 맞는지, 아니면 '점이 없는 경우'와 '마지막 글자가 점인 경우'를 구분하여 다른 처리를 할 것인지 확인해 주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "5e1b6ea5b89f1d6622230bae9a3f3ba4146ae9bbcda25f8a0bd01b93470591b9",
+    "dd350620acba674f7f162eec18734f5b4159deb56a83ea8d1c5b27d86ff861fb",
+    "b91e864b5e8cfdaa10d396d5fd68c3e08ee50dd5c49e4c0963d6b5210d642a35",
+    "21a931ac1480f3e201eb3cae918067dddd7413a42b52416ddb2d1bc78095736a",
+    "c10af2dc562cd1a877de4e6efb0622c8df3f84fa212e0aa9922ab08cd4a97011",
+    "b70f594cf9f86bcc392f135a7da2a0a3aac9c7e45efec06b44d49ae1a3ccaf04",
+    "1fa79629d714f4e250d1a676961bd46a9b46d4cc7cadcfa1ef20671a7e8dc393",
+    "ecb8e49d750950659ca47e34b09e18c74e8a76f67e273b7ec7dc138e528c32a5"
+  ],
+  "files": {
+    "solution.py": "def file_suffix(name: str) -> str:\n    if '.' not in name or name.endswith('.') or name.startswith('.'):\n        return \"\"\n    parts = name.split('.')\n    if len(parts) == 2 and not name.startswith('.') and '.' not in name[parts[0]]:\n        return parts[1]\n    return parts[-1]\n"
+  },
+  "sha256": "2896594a7fa959483de943627e9d2803e019325c86a44f1b39c1c1344a689a28",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "d807643e338655b76af439a9f73fba2a8376fff046168dab227379b8a9a802c1",
+      "questions": [
+        {
+          "question": "file_suffix(name) 함수의 동작을 결정하기 위해, 'Test.File.Name.txt'와 같이 점이 여러 개인 경우, 'Test.File' (첫 번째 점 다음) 을 반환해야 하는지, 'File' (마지막 점 다음) 을 반환해야 하는지, 아니면 'File.Name.txt' (마지막 점 다음 부분 전체) 을 반환해야 하는지 명확히 해주세요. 또한, 점으로 시작하거나 끝나는 경우, 그리고 확장자가 없는 경우 (예: 'NoDot') 에 대한 구체적인 기준과 참조점 (reference point) 을 알려주세요.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "확장자가 여러 개인 파일 (예: archive.tar.gz) 의 경우, 최종 확장자만 ('gz') 반환하시는지, 아니면 첫 번째 점 이후부터의 전체 부분을 ('archive.tar.gz') 반환하시는지 명확히 해주시기 바랍니다.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.\n점으로 시작하고 그 뒤에 다른 점이 없는 이름은 확장자가 없는 파일로 봅니다. 다른 점이 더 있으면 마지막 점 뒤의 부분을 사용합니다.\n점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def file_suffix(name):\n    raise NotImplementedError\n"
+  },
+  "sha256": "b7807474da7e8282301e87a084aed4660335c099ab60b4a442961412ba2d3d3a",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def file_suffix(name):\n    raise NotImplementedError\n"
+    },
+    "sha256": "b7807474da7e8282301e87a084aed4660335c099ab60b4a442961412ba2d3d3a",
+    "received": [
+      1
+    ],
+    "author_call": "68ec16dcf3398a7f3db7e1702085f2f8e12a3a065c30f350298e50037d0e357b",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [
+        "solution.py"
+      ],
+      "restored_indent": [],
+      "rejected": [
+        "solution.py"
+      ],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "점과 하이픈이 포함된 이름에서 확장자를 추출할 때, 점과 하이픈을 구분하는 기준이 명확하지 않아 구현 시 혼란이 발생할 수 있습니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "6cf529781a51dd51273c07e0a1f61ef06c0337bb583c6f8f61d1017f656a0431",
+    "68ec16dcf3398a7f3db7e1702085f2f8e12a3a065c30f350298e50037d0e357b",
+    "b320ea9a9227640e85a4ea5ec1b9a422f655decc18270c4da20e4dba24da7c3d"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "d361619a38873acad52de32ec631e78251360221fe8c3cb5a9ae00315f5f2d3a",
+      "questions": [
+        {
+          "question": "file_suffix 함수의 확장자 추출 로직과 여러 점 처리 규칙은 파일 관리 담당자에게 확인이 필요한 것으로 명시되어 있으나, 해당 담당자와의 구체적인 확인 사항이나 확인 시점을 정하지 않았습니다.",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

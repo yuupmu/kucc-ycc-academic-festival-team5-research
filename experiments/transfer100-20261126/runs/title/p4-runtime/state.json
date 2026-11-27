@@ -1,0 +1,41 @@
+{
+  "arms": {
+    "p4": {
+      "version": 2,
+      "status": "open_limit"
+    }
+  },
+  "answers": [
+    {
+      "arm": "p4",
+      "version": 1,
+      "text": "하이픈은 개수와 위치를 그대로 유지합니다.\n내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.",
+      "source": "delegated_policy_card",
+      "questions": [
+        {
+          "question": "연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까?",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "연속된 내부 공백을 하이픈으로 치환하시겠습니까?",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "연속된 하이픈과 공백이 섞인 경우, 하이픈까지 모두 공백으로 통일하시겠습니까?",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ]
+    }
+  ]
+}

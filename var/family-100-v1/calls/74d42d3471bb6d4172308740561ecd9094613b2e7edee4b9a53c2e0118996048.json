@@ -1,0 +1,76 @@
+{
+  "text": "{\"questions\": [\"clean_title 함수의 구현에 대한 예제 코드를 제공할 수 있나요? 이 함수는 입력 문자열을 정리하여 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 구성된 문자열을 반환해야 합니다. 또한, 빈 문자열도 처리해야 합니다. 내부 공백은 하나의 단어 사이를 유지하지만, 연속된 내부 공백, 하이픈, 비어 있는 제목은 편집 담당자의 기준에 따라 표시됩니다. 길이 제한은 없습니다.\"],\"issue\": \"clean_title 함수의 구현이 제공되지 않았습니다. 구현이 필요합니다.\"}",
+  "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 135,
+    "prompt_tokens": 227,
+    "total_tokens": 362,
+    "prompt_tokens_details": {
+      "cached_tokens": 1
+    }
+  },
+  "server_timings": {
+    "cache_n": 1,
+    "prompt_n": 226,
+    "prompt_ms": 174.897,
+    "prompt_per_token_ms": 0.7738805309734513,
+    "prompt_per_second": 1292.1891170231622,
+    "predicted_n": 135,
+    "predicted_ms": 2817.532,
+    "predicted_per_token_ms": 21.026358208955227,
+    "predicted_per_second": 47.55935336315612
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.01,
+  "request": {
+    "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 작성자입니다. 전체 정책, 경계, 상호작용를 검사하세요. 가능한 두 정책의 결과가 갈리는 상황을 찾아 담당자에게 자연어로 물으세요. 질문이 없으면 빈 배열. 이미 확정한 요구와 코드의 불일치만 issue에 적고 없으면 빈 문자열."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"code\":\"def clean_title(text):\\n    raise NotImplementedError\\n\",\"dialogue\":[]}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "questions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 0,
+              "maxItems": 3
+            },
+            "issue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "questions",
+            "issue"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-review"
+}

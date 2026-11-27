@@ -1,0 +1,355 @@
+[
+  {
+    "role": "plan",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "self/plan.json",
+    "before_sha256": "f7ab6f18bee5c3661897e83570255620a5fbc7cf402d73abadbbd16f034d5486",
+    "after_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 일반 취소 마감 시간(24시간 전)을 기준으로 합니다. 24시간 전까지는 취소가 허용됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용 시작 시점 이후에는 취소가 불가능합니다. until_start_seconds <= 0은 이미 시작 또는 시작 후입니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 이 규칙은 코드에 반영하지 않습니다."
+      },
+      "otherwise": false
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "review1",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review1.json",
+    "before_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "after_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 일반 취소 마감 시간(24시간 전)을 기준으로 합니다. 24시간 전까지는 취소가 허용됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용 시작 시점 이후에는 취소가 불가능합니다. until_start_seconds <= 0은 이미 시작 또는 시작 후입니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 이 규칙은 코드에 반영하지 않습니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "R3은 명세에 구체적인 조건이 없으므로 코드에 반영하지 않음.",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 이 규칙은 코드에 반영하지 않습니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 이 규칙은 코드에 반영하지 않습니다."
+        }
+      },
+      "otherwise": {
+        "status": "no_change",
+        "reason": "otherwise는 기본값으로 false로 설정하며, 모든 조건이 충족되지 않을 경우 False를 반환합니다.",
+        "before": false,
+        "after": false
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "review2",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review2.json",
+    "before_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "after_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 일반 취소 마감 시간(24시간 전)을 기준으로 합니다. 24시간 전까지는 취소가 허용됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용 시작 시점 이후에는 취소가 불가능합니다. until_start_seconds <= 0은 이미 시작 또는 시작 후입니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 코드에 반영하지 않습니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "note_only",
+        "reason": "R3은 명세에 구체적인 조건이 없으므로 코드에 반영하지 않음.",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 이 규칙은 코드에 반영하지 않습니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 코드에 반영하지 않습니다."
+        }
+      },
+      "otherwise": {
+        "status": "no_change",
+        "reason": "otherwise는 기본값으로 false로 설정하며, 모든 조건이 충족되지 않을 경우 False를 반환합니다.",
+        "before": false,
+        "after": false
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "final",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/final.json",
+    "before_sha256": "abb58b6dc43c9ea741721bfc061c245e5338907e776353fb489e71a833b2989b",
+    "after_sha256": "40f92eaf2c57f93203d9d1ee45e2df2d0c60f3ecbf8e879c81fde99c1448f8ce",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 일반 취소 마감 시간(24시간 전)을 기준으로 합니다. 24시간 전까지는 취소가 허용됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용 시작 시점 이후에는 취소가 불가능합니다. until_start_seconds <= 0은 이미 시작 또는 시작 후입니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 300
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하며, 이는 예약 생성 후 5분 이내의 경우를 의미합니다. 명세에 구체적인 조건이 없으므로, 5분 이내의 예약은 정정이 가능하다고 가정합니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "rule_edit",
+        "reason": "명세에 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'라는 문구가 있으므로, 이는 예약 생성 후 짧은 시간 내에 예약을 취소할 수 있는 경우를 포함합니다. 구체적인 조건이 없으므로, 5분 이내의 예약을 정정 가능으로 가정합니다.",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하지만, 명세에 구체적인 조건이 없으므로 코드에 반영하지 않습니다."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "seconds": 300
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "R3은 '방금 잘못 예약한 고객'에 대한 별도 정정 시간을 언급하며, 이는 예약 생성 후 5분 이내의 경우를 의미합니다. 명세에 구체적인 조건이 없으므로, 5분 이내의 예약은 정정이 가능하다고 가정합니다."
+        }
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "no_change"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [
+        6
+      ],
+      "otherwise": [
+        8
+      ]
+    }
+  }
+]

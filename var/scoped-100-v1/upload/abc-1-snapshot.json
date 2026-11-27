@@ -1,0 +1,23 @@
+{
+  "code": "def allow_upload(size_bytes):\n    # 음수 입력은 잘못된 크기이므로 거부합니다.\n    if size_bytes < 0:\n        return False\n    \n    # 0 은 빈 파일로, 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    if size_bytes == 0:\n        return False\n    \n    # 상한 값은 저장소 담당자에게 확인이 필요하므로 미정 경로로 처리합니다.\n    # 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError 를 발생시킵니다.\n    return size_bytes <= 16",
+  "calls": [
+    "e24d897f2105242f8c58c7bc42b69515f6a542e00768e6c61f82a37197b99aae",
+    "d724aebf966bdc6c97adc45d62feeaf04f8bf14384440fa732dd133e7fc3d70c",
+    "5c4e33c1a7a9170366f4696416d5cb9cc03888179863d8a96610656ef831039e",
+    "5c3ff2d3b07f87689de4f58d0a9a3b6f5883bc43967c1bc5ded3f339f33ec85a",
+    "b92e983de08c7698398f4f8ddbeb516aabf19e0c54d8e9e273aefbe8e085f50e"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "파일 크기의 상한 값을 정해달라.",
+        "파일 크기의 상한 값과 정확히 상한 크기에 해당하는 파일의 허용 여부는 저장소 담당자에게 확인이 필요하신가요?",
+        "파일 크기의 상한 값과 정확히 상한 크기의 파일은 허용하는지, 0 바이트의 빈 파일은 허용하는지 저장소 담당자에게 확인이 필요한지 알려주세요."
+      ],
+      "answer": {
+        "text": "상한은 16바이트입니다. 정확히 상한이면 허용하고, 0바이트 빈 파일은 거부합니다."
+      }
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+[
+  {
+    "role": "B",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "serial/B.json",
+    "before_sha256": "2bb6d58e5e50a04bbc38cd907b4ee007ccf83466117d808da844a45696e15756",
+    "after_sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              },
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 24*3600초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds = 0으로 간주됨"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 age_seconds < 24시간으로 정의됨 (T1)"
+      }
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        20
+      ],
+      "R2": [
+        16
+      ],
+      "R3": [
+        12
+      ]
+    }
+  },
+  {
+    "role": "C",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/C.json",
+    "before_sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "after_sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              },
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 24*3600초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds = 0으로 간주됨"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 age_seconds < 24시간으로 정의됨 (T1)"
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "기존 코드에서 R3 조건이 ENTRY에서 age_seconds < 86400 조건으로 처리되었으나, 이는 R1과 R2의 조건과 충돌이 발생할 수 있음. R3의 조건을 ENTRY에서 처리하고, age_seconds < 24시간으로 정의하여 충돌을 방지",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 age_seconds < 24시간으로 정의됨 (T1)"
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 age_seconds < 24시간으로 정의됨 (T1)"
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        20
+      ],
+      "R2": [
+        16
+      ],
+      "R3": [
+        12
+      ]
+    }
+  },
+  {
+    "role": "D",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/D.json",
+    "before_sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "after_sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              },
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 24*3600초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds = 0으로 간주됨"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객은 age_seconds < 24시간으로 정의됨 (T1)"
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근 basis"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "기존 코드에서 R3 조건이 ENTRY에서 age_seconds < 86400 조건으로 처리되었으나, 이는 R1과 R2의 조건과 충돌이 발생할 수 있음. R3의 조건을 ENTRY에서 처리하고, age_seconds < 24시간으로 정의하여 충돌을 방지",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 age_seconds < 24시간으로 정의됨 (T1)"
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객은 age_seconds < 24시간으로 정의됨 (T1)"
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        20
+      ],
+      "R2": [
+        16
+      ],
+      "R3": [
+        12
+      ]
+    }
+  }
+]

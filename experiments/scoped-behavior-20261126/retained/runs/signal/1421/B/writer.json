@@ -1,0 +1,30 @@
+{
+  "behavior": [
+    {
+      "when": "계측값이 기준 (-3) 보다 높은 경우",
+      "then": "재검 (True) 수행"
+    },
+    {
+      "when": "계측값이 기준 (-3) 보다 낮은 경우",
+      "then": "통과 (False) 수행"
+    },
+    {
+      "when": "계측값이 기준 (-3) 과 정확히 같을 경우",
+      "then": "통과 (False) 수행"
+    }
+  ],
+  "calls": [
+    "9e1d50993cb4130fe4fb5efc9a589ec5a393e7b84c391d2b016952651591d2c3",
+    "e43cf4f233fb4ab33e12aede1813215d03a511d77ddc8e1edcb9925c20a1d291"
+  ],
+  "attempts": [
+    {
+      "outcome": "applied",
+      "call": "e43cf4f233fb4ab33e12aede1813215d03a511d77ddc8e1edcb9925c20a1d291"
+    }
+  ],
+  "logs": {
+    "9e1d50993cb4130fe4fb5efc9a589ec5a393e7b84c391d2b016952651591d2c3": "d81d112660ec1a567b2e3ce1799a5463f12ede064f655087317436d1c7656de8",
+    "e43cf4f233fb4ab33e12aede1813215d03a511d77ddc8e1edcb9925c20a1d291": "d3995fc87d3b989147d5f3b13c015d713285be2084ab168ce5ddaaa6d5bfe1f2"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "files": {
+    "router.py": "def triage(tags):\n    for tag in tags:\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    raise NotImplementedError\n"
+  },
+  "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+  "plan": "담당자의 분류 관행을 반영해야 한다고 명시되었으나, 초안에서는 겹치는 태그나 모호한 태그에 대한 처리 방식이 명시되지 않았습니다. 이로 인해 여러 태그가 겹치거나 모호한 태그가 포함된 경우 어떻게 처리할지 불확실합니다. 이에 따라, 겹치는 태그의 우선순위와 모호한 태그의 처리 방식에 대한 추가 정보가 필요합니다.",
+  "complete": false,
+  "applied_edits": [],
+  "edit_error": null,
+  "received": []
+}

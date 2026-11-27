@@ -1,0 +1,256 @@
+{
+  "mode": "offline_rules",
+  "case": "bug",
+  "personas": {
+    "requirements": "요구사항 분석가: 명세에 없는 정책만 인간에게 질문한다.",
+    "verification": "검증 엔지니어: 확정된 정책과 구현을 비교하고 오류는 자동 수정시킨다.",
+    "impact": "변경 영향 분석가: 답변의 버전·내용과 알림 동작까지 확인한다."
+  },
+  "steps": [
+    {
+      "snapshot": {
+        "policy": {
+          "hours": 24,
+          "inclusive": true
+        },
+        "source": "document",
+        "version": 1,
+        "inject_bug": true,
+        "implementation": {
+          "hours": 24,
+          "inclusive": false,
+          "version": 1,
+          "owner_only": true,
+          "suppress_cancelled": true
+        }
+      },
+      "reviews": [
+        {
+          "role": "requirements",
+          "decision": "pass",
+          "reason": "정책 출처: document. 추가 질문 없이 진행합니다.",
+          "tests": []
+        },
+        {
+          "role": "verification",
+          "decision": "revise",
+          "reason": "확정된 명세와 불일치. 인간 질문 없이 수정합니다.",
+          "tests": [
+            {
+              "name": "마감 1시간 전",
+              "expected": true,
+              "actual": true,
+              "passed": true
+            },
+            {
+              "name": "마감 1초 전",
+              "expected": true,
+              "actual": true,
+              "passed": true
+            },
+            {
+              "name": "정확한 마감 시각",
+              "expected": true,
+              "actual": false,
+              "passed": false
+            },
+            {
+              "name": "마감 1초 후",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "마감 1시간 후",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "다른 사용자의 예약",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "이미 취소된 예약",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "role": "impact",
+          "decision": "revise",
+          "reason": "정책 반영 또는 알림 동작을 수정해야 합니다.",
+          "tests": [
+            {
+              "name": "정책 버전 반영",
+              "expected": 1,
+              "actual": 1,
+              "passed": true
+            },
+            {
+              "name": "정책 내용 반영",
+              "expected": {
+                "hours": 24,
+                "inclusive": true
+              },
+              "actual": {
+                "hours": 24,
+                "inclusive": false
+              },
+              "passed": false
+            },
+            {
+              "name": "취소된 예약의 알림 차단",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "정상 예약의 알림 유지",
+              "expected": true,
+              "actual": true,
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "trace_id": "Y4WFL8CJ3n8ExKq3"
+    },
+    {
+      "snapshot": {
+        "policy": {
+          "hours": 24,
+          "inclusive": true
+        },
+        "source": "document",
+        "version": 1,
+        "inject_bug": false,
+        "implementation": {
+          "hours": 24,
+          "inclusive": true,
+          "version": 1,
+          "owner_only": true,
+          "suppress_cancelled": true
+        }
+      },
+      "reviews": [
+        {
+          "role": "requirements",
+          "decision": "pass",
+          "reason": "정책 출처: document. 추가 질문 없이 진행합니다.",
+          "tests": []
+        },
+        {
+          "role": "verification",
+          "decision": "pass",
+          "reason": "취소 기능 검증 통과.",
+          "tests": [
+            {
+              "name": "마감 1시간 전",
+              "expected": true,
+              "actual": true,
+              "passed": true
+            },
+            {
+              "name": "마감 1초 전",
+              "expected": true,
+              "actual": true,
+              "passed": true
+            },
+            {
+              "name": "정확한 마감 시각",
+              "expected": true,
+              "actual": true,
+              "passed": true
+            },
+            {
+              "name": "마감 1초 후",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "마감 1시간 후",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "다른 사용자의 예약",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "이미 취소된 예약",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "role": "impact",
+          "decision": "pass",
+          "reason": "정책 반영 및 알림 영향 검증 통과.",
+          "tests": [
+            {
+              "name": "정책 버전 반영",
+              "expected": 1,
+              "actual": 1,
+              "passed": true
+            },
+            {
+              "name": "정책 내용 반영",
+              "expected": {
+                "hours": 24,
+                "inclusive": true
+              },
+              "actual": {
+                "hours": 24,
+                "inclusive": true
+              },
+              "passed": true
+            },
+            {
+              "name": "취소된 예약의 알림 차단",
+              "expected": false,
+              "actual": false,
+              "passed": true
+            },
+            {
+              "name": "정상 예약의 알림 유지",
+              "expected": true,
+              "actual": true,
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "trace_id": "LAYfBXaKvFgFffXN"
+    }
+  ],
+  "human_answers": [],
+  "human_questions": 0,
+  "repairs": 1,
+  "status": "completed",
+  "implementation": {
+    "hours": 24,
+    "inclusive": true,
+    "version": 1,
+    "owner_only": true,
+    "suppress_cancelled": true
+  },
+  "metrics": {
+    "checks_passed": 11,
+    "checks_total": 11,
+    "worker_rounds": 2,
+    "human_questions": 0,
+    "auto_repairs": 1
+  },
+  "answer_mode": "interactive"
+}

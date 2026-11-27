@@ -1,0 +1,90 @@
+{
+  "decisions": [
+    {
+      "region": "size_bytes == 0",
+      "interpretation": {
+        "근거": "H1.3",
+        "반환": "False"
+      },
+      "calls": [
+        "6f176a317fd74a8d5c4c96b3465dda705ab217cb9dd6c14dadb4560a0f448cf2",
+        "8abb2a15560efe4e76884453f16f3d920f18666b8a94b01b84d79686fad85d12"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "0바이트 빈 파일은 거부합니다.",
+      "site": "@pending:8:8"
+    },
+    {
+      "region": "0 < size_bytes < 16",
+      "interpretation": {
+        "근거": "P4",
+        "반환": "False"
+      },
+      "calls": [
+        "40bdb58af68e30ce61aeb19f01a5cac7021f87554ea4b2f73ef5e3431d00b11f",
+        "f1a5fafc67dd5b3212ed44fd485e6ca7a53b8f323bea9c56cb3a08dad2c99d60"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다.",
+      "site": "@pending:12:4"
+    },
+    {
+      "region": "size_bytes == 16",
+      "interpretation": {
+        "근거": "H1.1",
+        "반환": "False"
+      },
+      "calls": [
+        "4bc681b1c91432d89193ab554b38fd9a78ea9c8dd85d839798a06eca8bdd019e",
+        "aaf3cedf3c801edfeec350b8a0cf75ee03025243955e9258b16b6a3b680fcd26"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "상한은 16바이트입니다.",
+      "site": "@pending:12:4"
+    },
+    {
+      "region": "size_bytes > 16",
+      "interpretation": {
+        "근거": "H1.1",
+        "반환": "False"
+      },
+      "calls": [
+        "ae51c4364a78e27edcc49ca3e918da0b02070def06e72c0d6140907ee63aa2e0",
+        "81701b762160129bdcb2b632d8e84078cb3a0759467ee62a09dc5bba1dcaa744"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "상한은 16바이트입니다.",
+      "site": "@pending:12:4"
+    }
+  ],
+  "unresolved": [
+    "size_bytes == 0",
+    "0 < size_bytes < 16",
+    "size_bytes == 16",
+    "size_bytes > 16"
+  ],
+  "calls": [
+    "db58850968ab300dc4ea554c8fef460bb6fc45dc00e2410425154507dfc4eac5",
+    "6f176a317fd74a8d5c4c96b3465dda705ab217cb9dd6c14dadb4560a0f448cf2",
+    "8abb2a15560efe4e76884453f16f3d920f18666b8a94b01b84d79686fad85d12",
+    "40bdb58af68e30ce61aeb19f01a5cac7021f87554ea4b2f73ef5e3431d00b11f",
+    "f1a5fafc67dd5b3212ed44fd485e6ca7a53b8f323bea9c56cb3a08dad2c99d60",
+    "4bc681b1c91432d89193ab554b38fd9a78ea9c8dd85d839798a06eca8bdd019e",
+    "aaf3cedf3c801edfeec350b8a0cf75ee03025243955e9258b16b6a3b680fcd26",
+    "ae51c4364a78e27edcc49ca3e918da0b02070def06e72c0d6140907ee63aa2e0",
+    "81701b762160129bdcb2b632d8e84078cb3a0759467ee62a09dc5bba1dcaa744"
+  ],
+  "route": "request clarification"
+}

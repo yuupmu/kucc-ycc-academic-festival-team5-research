@@ -1,0 +1,277 @@
+{
+  "writer": {
+    "files": {
+      "router.py": "def triage(tags):\n    raise NotImplementedError\n"
+    },
+    "calls": [
+      "7dd5ebf2e9f9a68285dbad9aa4d4c374cc4e372b8863a3e3e7bc696094d1e43b",
+      "7c5b87589bab2b37628cef2d09d6c808e787bcd076203e0e371f1dfd1ed522c2"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "T1의 triage 함수는 소문자 문자열 리스트를 입력받아 담당 팀 이름 문자열을 반환해야 한다.",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "T1의 triage 함수는 입력 리스트의 순서나 중복 횟수에 무관하게, account, billing, privacy 태그가 존재할 때 해당 팀을 반환해야 한다.",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "T1의 triage 함수는 알 수 없는 태그는 무시하고, 알려진 태그 중 하나라도 있으면 담당 팀을 반환해야 한다.",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "T1의 triage 함수는 여러 알려진 태그가 있으면, privacy, billing, account 순으로 가장 앞선 태그에 해당하는 팀을 반환해야 한다.",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "T1의 triage 함수는 알 수 없는 태그는 무시한다.",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "T1의 triage 함수는 billing, account, privacy 태그가 모두 포함된 경우 privacy 팀을 반환한다.",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      },
+      "H3": {
+        "status": "rule",
+        "input": "tags",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {
+          "L_P2_1": {
+            "source": "P2",
+            "kind": "listed",
+            "quote": "account, billing, privacy",
+            "value": [
+              "account",
+              "billing",
+              "privacy"
+            ]
+          },
+          "L_H1_1": {
+            "source": "H1",
+            "kind": "ordered",
+            "quote": "privacy, billing, account",
+            "value": [
+              "privacy",
+              "billing",
+              "account"
+            ]
+          },
+          "L_H3_1": {
+            "source": "H3",
+            "kind": "listed",
+            "quote": "billing, account, privacy",
+            "value": [
+              "billing",
+              "account",
+              "privacy"
+            ]
+          }
+        },
+        "decision": {
+          "rules": [
+            {
+              "when": "has_present(L_P2_1.value, tags)",
+              "action": "return",
+              "value": "account",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "has_present(L_P2_1.value, tags) and not has_present(L_P2_1.value, tags)",
+              "action": "return",
+              "value": "billing",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "has_present(L_P2_1.value, tags) and not has_present(L_P2_1.value, tags)",
+              "action": "return",
+              "value": "privacy",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "not has_present(L_P2_1.value, tags)",
+              "action": "return",
+              "value": "false",
+              "sources": [
+                "P3"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "false",
+            "sources": [
+              "P3"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "1번째 조건 · 허용된 순수 메서드가 아님"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "요구사항에 명시된 'billing, account, privacy' 태그가 모두 포함된 경우, 담당자 답변의 마지막 문장에 따라 'privacy' 팀으로 보낼 것을 명시하고 있으나, 일반적인 '가장 앞선 팀' 선택 규칙과 충돌할 수 있습니다.",
+            "outcome_a": "모든 태그가 있을 경우, 규칙에 따라 가장 앞선 태그인 'billing' 팀을 선택합니다.",
+            "outcome_b": "모든 태그가 있을 경우, 명시된 예외 규칙에 따라 'privacy' 팀을 선택합니다.",
+            "question": "모든 태그가 포함된 경우, 가장 앞선 태그를 선택할지, 아니면 명시된 예외 규칙을 우선시할지"
+          },
+          {
+            "situation": "알 수 없는 태그가 섞여 있는 경우, 담당자 답변에서 이를 무시하라고 명시하고 있으나, 코드가 이를 처리하는 방식이 명확하지 않습니다.",
+            "outcome_a": "알 수 없는 태그는 무시하고, 알 수 있는 태그만 필터링한 후 가장 앞선 팀을 선택합니다.",
+            "outcome_b": "알 수 없는 태그가 포함된 경우, 전체 입력을 무시하거나 에러를 발생시킵니다.",
+            "question": "알 수 없는 태그가 섞여 있는 경우, 이를 무시하고 처리할지, 아니면 에러를 발생시킬지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "알려진 태그가 여러 개 섞여 있을 때, 담당자 답변은 '가장 앞선 팀'을 선택하되, 프로젝트 코드는 아직 구현되지 않은 NotImplementedError 를 반환합니다.",
+            "outcome_a": "알려진 태그가 여러 개 섞여 있을 때, 담당자 답변은 '가장 앞선 팀'을 선택합니다.",
+            "outcome_b": "알려진 태그가 여러 개 섞여 있을 때, 프로젝트 코드는 아직 구현되지 않은 NotImplementedError 를 반환합니다.",
+            "question": "알려진 태그가 여러 개 섞여 있을 때, 담당자 답변은 '가장 앞선 팀'을 선택하고, 프로젝트 코드는 아직 구현되지 않은 NotImplementedError 를 반환합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "알 수 없는 태그가 섞여 있을 때, 담당자가 정한 분류 관행에 따라 알 수 없는 태그를 무시하고 처리해야 한다는 요구사항이 명확히 명시되어 있으나, 현재 구현은 NotImplementedError 가 발생하여 실제 로직이 실행되지 않고 있습니다.",
+            "outcome_a": "알 수 없는 태그를 무시하고 알려진 태그만 필터링한 후, 알 수 없는 태그가 존재하는지 여부를 체크하여 에러를 발생시키거나, 모든 태그가 알 수 없는 경우 빈 리스트를 반환하는 로직을 구현해야 합니다.",
+            "outcome_b": "알 수 없는 태그를 무시하고 알려진 태그만 필터링한 후, 알려진 태그가 없는 경우 빈 리스트를 반환하거나, 알려진 태그가 있는 경우 정렬된 첫 번째 팀을 반환하는 로직을 구현해야 합니다.",
+            "question": "알 수 없는 태그가 섞여 있을 때, 담당자가 정한 분류 관행에 따라 알 수 없는 태그를 무시하고 처리해야 한다는 요구사항이 명확히 명시되어 있으나, 현재 구현은 NotImplementedError 가 발생하여 실제 로직이 실행되지 않고 있습니다."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "056ed8257da1ceaeef266377791aa1cd20e595499ff7f7a2b6b2694cc09a19b6",
+    "ef21c8f6992e05e04b24b2991b4edf4b1a3d91cbff79d148ce4db4cf79d96d33",
+    "562d28f9caa7076663af648062be3ed51806cab772b3979d09b64e0310436d07",
+    "98325750b2d57d11a6ee5ee89a54a8dedaf00b1ab4481063a29bb85638efc41a",
+    "7dd5ebf2e9f9a68285dbad9aa4d4c374cc4e372b8863a3e3e7bc696094d1e43b",
+    "7c5b87589bab2b37628cef2d09d6c808e787bcd076203e0e371f1dfd1ed522c2",
+    "0fd02de749b72516c99a4e1021ae0717e6f86e0f2bf6bb942be4364fd5d6a9e5",
+    "ef02314f36e940f5a6d2f115819125d7640c3dda10d11d5740de1fdfcb1cadf4",
+    "d5a5ce9876ed02e24557e7e5d30d7be95ec3ce4f18e1e4e017056a72347d1903"
+  ],
+  "files": {
+    "router.py": "def triage(tags):\n    raise NotImplementedError\n"
+  },
+  "sha256": "864f554418eb3ffb6d490d2a1b799d9162eeb2c412836e0fc53daaceca3bd57a",
+  "status": "open_limit",
+  "arm": "both-program",
+  "initial_sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+  "questions": [
+    {
+      "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "reply": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+  "owner_source": "delegated_policy_card",
+  "selections": [
+    [
+      "rank",
+      "unknown"
+    ],
+    [
+      "rank"
+    ],
+    [
+      "three_known"
+    ]
+  ]
+}

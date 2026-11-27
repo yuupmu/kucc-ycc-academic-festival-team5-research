@@ -1,0 +1,57 @@
+"""The main author's two fixed steps: extract authorized decisions, then edit their executable scope."""
+from backend import scoped_implementation as edits
+from backend.structured_output import obj
+from experiments import festival_protocol as base
+from experiments.festival_refinement import revision_view
+
+
+PLAN = ('You are the MAIN programmer. Turn each exact public statement and owner reply into its specific consequence for the implementation. '
+        'Use rule for an authorized behavior, context for interface details, and undetermined for a missing decision or a request for clarification. '
+        'Tie each rule to the input it actually measures. Keep its unit, comparison, order and scope. If a fact confirms only one aspect, '
+        'state exactly what is known and leave other aspects undecided. Do not use comments or current behavior as policy. Be concise.')
+WRITE = ('You are the same MAIN programmer. Implement the public contract and actual owner decisions in executable statements. '
+         'Use your notes as a working sketch and resolve any disagreement in favor of the exact original wording. '
+         'Trace the first return for each relevant condition. Preserve separately confirmed general behavior and exception precedence. '
+         'Do not pick arbitrary values, tie-breaks, or inclusive bounds. If missing policy would change an outcome, abstain only on that path. '
+         'Prefer editing the named function body. For a body target the function declaration and base indentation are provided by the editor. '
+         'Write only its body. Each item is one physical source line, depth 0 at the top of the selected region, depth 1 one level inside it. '
+         'Put no leading spaces or newlines in code. Cite the source IDs on the actual predicate, selection or return implementing them. '
+         'Keep code short. Do not add explanatory docstrings, comments, sample calls or tests. Set complete only if all required decisions are settled.')
+
+
+def evidence(brief, reply_text):
+    sources = base.core.sources(brief, [])
+    distinct = dict.fromkeys(s.strip() for s in (reply_text or '').splitlines() if s.strip())
+    sources.update({f'H{i}':text for i,text in enumerate(distinct,1)})
+    return sources
+
+
+def write(project, previous, reply_text, seed, ask):
+    sources = evidence(project['brief'],reply_text)
+    regions = edits.targets(previous,project['files'])
+    public_regions = {key:{k:r[k] for k in ('path','name','parameters','kind')} for key,r in regions.items()}
+    params = list(dict.fromkeys(p for r in regions.values() for p in r['parameters']))
+    detail = obj({'status':{'type':'string','enum':['rule','context','undetermined']},
+                  'input':{'type':'string','enum':[*[p for p in params if p != 'none'],'none']},
+                  'when':base.TEXT, 'effect':base.TEXT})
+    source_schema = obj({k:detail for k in sources})
+    aliases = {path:revision_view(path, code, project['files'][path]) for path,code in previous.items()}
+    packet = {'public_starter':project['files'], 'current_implementation':aliases, 'editable_regions':public_regions,
+              'public_and_owner_sources':sources}
+    k1, decisions = ask('main-rule-plan',PLAN,packet,source_schema,seed+600,2000)
+    plan = decisions or {}
+    k2, authored = ask('main-author',WRITE,{**packet,'my_source_notes':plan},edits.schema(regions,sources),
+                       seed+1000,base.AUTHOR_LIMIT)
+    result = dict(calls=[k1,k2], decisions=plan, proposed=authored, files=previous, bindings={}, error=None, complete=False)
+    if decisions is None or authored is None:
+        result['error'] = 'invalid_model_output'
+        return result
+    try:
+        files, receipts = edits.apply(previous,regions,authored['edits'],decisions)
+    except (ValueError,SyntaxError,RecursionError) as exc:
+        result['error'] = str(exc)
+        return result
+    result.update(files=files,bindings=receipts,complete=bool(authored['complete'] and all(
+        r['status'] != 'undetermined' and (r['status'] != 'rule' or receipts[k]['structural_support'])
+        for k,r in plan.items())))
+    return result

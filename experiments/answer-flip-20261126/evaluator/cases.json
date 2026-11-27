@@ -1,0 +1,2518 @@
+[
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-01",
+    "args": [
+      599,
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-02",
+    "args": [
+      600,
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-03",
+    "args": [
+      601,
+      1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-04",
+    "args": [
+      599,
+      3600
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-05",
+    "args": [
+      600,
+      3600
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-06",
+    "args": [
+      601,
+      3600
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-07",
+    "args": [
+      599,
+      86399
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-08",
+    "args": [
+      600,
+      86399
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-09",
+    "args": [
+      601,
+      86399
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-10",
+    "args": [
+      599,
+      90000
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-11",
+    "args": [
+      600,
+      90000
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-12",
+    "args": [
+      601,
+      90000
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-13",
+    "args": [
+      599,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-14",
+    "args": [
+      600,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-15",
+    "args": [
+      601,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-16",
+    "args": [
+      599,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-17",
+    "args": [
+      600,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "diagnostic",
+    "id": "reservation-18",
+    "args": [
+      601,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-01",
+    "args": [
+      -2
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-02",
+    "args": [
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-03",
+    "args": [
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-04",
+    "args": [
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-05",
+    "args": [
+      8
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-06",
+    "args": [
+      15
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-07",
+    "args": [
+      16
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-08",
+    "args": [
+      17
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-09",
+    "args": [
+      18
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "diagnostic",
+    "id": "upload-10",
+    "args": [
+      999
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-01",
+    "args": [
+      [
+        "account",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-02",
+    "args": [
+      [
+        "billing",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-03",
+    "args": [
+      [
+        "account",
+        "misc",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-04",
+    "args": [
+      [
+        "billing",
+        "account",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-05",
+    "args": [
+      [
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "account",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-06",
+    "args": [
+      [
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-07",
+    "args": [
+      [
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-08",
+    "args": [
+      [
+        "account",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-09",
+    "args": [
+      [
+        "privacy",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-10",
+    "args": [
+      [
+        "account",
+        "billing",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-11",
+    "args": [
+      [
+        "misc",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "diagnostic",
+    "id": "triage-12",
+    "args": [
+      [
+        "account",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "account",
+      "B": "account"
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-01",
+    "args": [
+      []
+    ],
+    "expected": {
+      "A": {},
+      "B": {}
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-02",
+    "args": [
+      [
+        [
+          "x",
+          1
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 1
+      },
+      "B": {
+        "x": 1
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-03",
+    "args": [
+      [
+        [
+          "x",
+          1
+        ],
+        [
+          "x",
+          1
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 1
+      },
+      "B": {
+        "x": 1
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-04",
+    "args": [
+      [
+        [
+          "x",
+          1
+        ],
+        [
+          "y",
+          2
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 1,
+        "y": 2
+      },
+      "B": {
+        "x": 1,
+        "y": 2
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-05",
+    "args": [
+      [
+        [
+          "x",
+          0
+        ],
+        [
+          "y",
+          0
+        ],
+        [
+          "x",
+          0
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 0,
+        "y": 0
+      },
+      "B": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-06",
+    "args": [
+      [
+        [
+          "q",
+          -2
+        ],
+        [
+          "q",
+          -2
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "q": -2
+      },
+      "B": {
+        "q": -2
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-07",
+    "args": [
+      [
+        [
+          "x",
+          1
+        ],
+        [
+          "x",
+          2
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 1
+      },
+      "B": {
+        "x": 2
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-08",
+    "args": [
+      [
+        [
+          "x",
+          2
+        ],
+        [
+          "x",
+          1
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 2
+      },
+      "B": {
+        "x": 1
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-09",
+    "args": [
+      [
+        [
+          "x",
+          1
+        ],
+        [
+          "y",
+          8
+        ],
+        [
+          "x",
+          3
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 1,
+        "y": 8
+      },
+      "B": {
+        "x": 3,
+        "y": 8
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-10",
+    "args": [
+      [
+        [
+          "a",
+          1
+        ],
+        [
+          "b",
+          2
+        ],
+        [
+          "a",
+          9
+        ],
+        [
+          "b",
+          7
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "a": 1,
+        "b": 2
+      },
+      "B": {
+        "a": 9,
+        "b": 7
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-11",
+    "args": [
+      [
+        [
+          "s",
+          3
+        ],
+        [
+          "s",
+          -1
+        ],
+        [
+          "s",
+          5
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "s": 3
+      },
+      "B": {
+        "s": 5
+      }
+    }
+  },
+  {
+    "task": "sensors",
+    "panel": "diagnostic",
+    "id": "sensors-12",
+    "args": [
+      [
+        [
+          "x",
+          3
+        ],
+        [
+          "x",
+          4
+        ],
+        [
+          "x",
+          3
+        ]
+      ]
+    ],
+    "expected": {
+      "A": {
+        "x": 3
+      },
+      "B": {
+        "x": 3
+      }
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R01",
+    "args": [
+      604799,
+      86401
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R02",
+    "args": [
+      601,
+      86401
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R03",
+    "args": [
+      601,
+      86402
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R04",
+    "args": [
+      1800,
+      90000
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R05",
+    "args": [
+      86400,
+      172800
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R06",
+    "args": [
+      1209600,
+      259200
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R07",
+    "args": [
+      165600,
+      86400
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R08",
+    "args": [
+      601,
+      86400
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R09",
+    "args": [
+      602,
+      86400
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R10",
+    "args": [
+      3600,
+      86400
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R11",
+    "args": [
+      604800,
+      86400
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R12",
+    "args": [
+      604801,
+      86399
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R13",
+    "args": [
+      608400,
+      82800
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R14",
+    "args": [
+      601,
+      3600
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R15",
+    "args": [
+      601,
+      1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R16",
+    "args": [
+      602,
+      86399
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R17",
+    "args": [
+      86401,
+      60
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R18",
+    "args": [
+      0,
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R19",
+    "args": [
+      0,
+      60
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R20",
+    "args": [
+      0,
+      3599
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R21",
+    "args": [
+      0,
+      3600
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R22",
+    "args": [
+      0,
+      86399
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R23",
+    "args": [
+      299,
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R24",
+    "args": [
+      1,
+      3600
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R25",
+    "args": [
+      599,
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R26",
+    "args": [
+      1,
+      86399
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R27",
+    "args": [
+      300,
+      1800
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R28",
+    "args": [
+      600,
+      3600
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R29",
+    "args": [
+      600,
+      7200
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R30",
+    "args": [
+      600,
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R31",
+    "args": [
+      600,
+      86399
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R32",
+    "args": [
+      600,
+      60
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R33",
+    "args": [
+      0,
+      86401
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R34",
+    "args": [
+      1,
+      172800
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R35",
+    "args": [
+      599,
+      86401
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R36",
+    "args": [
+      600,
+      259200
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R37",
+    "args": [
+      300,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R38",
+    "args": [
+      30,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R39",
+    "args": [
+      1,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R40",
+    "args": [
+      299,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R41",
+    "args": [
+      599,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R42",
+    "args": [
+      600,
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R43",
+    "args": [
+      301,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R44",
+    "args": [
+      15,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R45",
+    "args": [
+      2,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R46",
+    "args": [
+      300,
+      -10
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R47",
+    "args": [
+      599,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R48",
+    "args": [
+      600,
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R49",
+    "args": [
+      120,
+      -60
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "reservation",
+    "panel": "archive",
+    "id": "R50",
+    "args": [
+      600,
+      -300
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T01",
+    "args": [
+      [
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "account",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T02",
+    "args": [
+      [
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T03",
+    "args": [
+      [
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T04",
+    "args": [
+      [
+        "account",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "account",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T05",
+    "args": [
+      [
+        "billing",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T06",
+    "args": [
+      [
+        "privacy",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T07",
+    "args": [
+      [
+        "account",
+        "account",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "account",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T08",
+    "args": [
+      [
+        "billing",
+        "billing",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T09",
+    "args": [
+      [
+        "account",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T10",
+    "args": [
+      [
+        "billing",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T11",
+    "args": [
+      [
+        "account",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T12",
+    "args": [
+      [
+        "privacy",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T13",
+    "args": [
+      [
+        "billing",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T14",
+    "args": [
+      [
+        "privacy",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T15",
+    "args": [
+      [
+        "account",
+        "billing",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T16",
+    "args": [
+      [
+        "privacy",
+        "account",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T17",
+    "args": [
+      [
+        "billing",
+        "privacy",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T18",
+    "args": [
+      [
+        "account",
+        "billing",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T19",
+    "args": [
+      [
+        "account",
+        "privacy",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T20",
+    "args": [
+      [
+        "billing",
+        "account",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T21",
+    "args": [
+      [
+        "billing",
+        "privacy",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T22",
+    "args": [
+      [
+        "privacy",
+        "account",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T23",
+    "args": [
+      [
+        "privacy",
+        "billing",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T24",
+    "args": [
+      [
+        "misc",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T25",
+    "args": [
+      [
+        "billing",
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T26",
+    "args": [
+      [
+        "misc",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "account",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T27",
+    "args": [
+      [
+        "privacy",
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T28",
+    "args": [
+      [
+        "misc",
+        "billing",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "billing"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T29",
+    "args": [
+      [
+        "external",
+        "privacy",
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T30",
+    "args": [
+      [
+        "account",
+        "external",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "account",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T31",
+    "args": [
+      [
+        "misc",
+        "account",
+        "privacy",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T32",
+    "args": [
+      [
+        "misc",
+        "account",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T33",
+    "args": [
+      [
+        "billing",
+        "misc",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T34",
+    "args": [
+      [
+        "external",
+        "account",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T35",
+    "args": [
+      [
+        "privacy",
+        "account",
+        "external"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T36",
+    "args": [
+      [
+        "billing",
+        "privacy",
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T37",
+    "args": [
+      [
+        "external",
+        "privacy",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T38",
+    "args": [
+      [
+        "privacy",
+        "external",
+        "account",
+        "privacy"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T39",
+    "args": [
+      [
+        "billing",
+        "misc",
+        "account",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "billing",
+      "B": "account"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T40",
+    "args": [
+      [
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "general",
+      "B": "general"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T41",
+    "args": [
+      [
+        "external"
+      ]
+    ],
+    "expected": {
+      "A": "general",
+      "B": "general"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T42",
+    "args": [
+      [
+        "other"
+      ]
+    ],
+    "expected": {
+      "A": "general",
+      "B": "general"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T43",
+    "args": [
+      [
+        "misc",
+        "external"
+      ]
+    ],
+    "expected": {
+      "A": "general",
+      "B": "general"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T44",
+    "args": [
+      [
+        "external",
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "general",
+      "B": "general"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T45",
+    "args": [
+      [
+        "misc",
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "general",
+      "B": "general"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T46",
+    "args": [
+      []
+    ],
+    "expected": {
+      "A": "general",
+      "B": "general"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T47",
+    "args": [
+      [
+        "account",
+        "billing",
+        "privacy",
+        "misc"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T48",
+    "args": [
+      [
+        "misc",
+        "privacy",
+        "billing",
+        "account"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T49",
+    "args": [
+      [
+        "external",
+        "billing",
+        "privacy",
+        "account",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "triage",
+    "panel": "archive",
+    "id": "T50",
+    "args": [
+      [
+        "privacy",
+        "misc",
+        "account",
+        "external",
+        "billing"
+      ]
+    ],
+    "expected": {
+      "A": "privacy",
+      "B": "privacy"
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-01",
+    "args": [
+      -1
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-02",
+    "args": [
+      -2
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-03",
+    "args": [
+      -7
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-04",
+    "args": [
+      -16
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-05",
+    "args": [
+      0
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-06",
+    "args": [
+      1
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-07",
+    "args": [
+      2
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-08",
+    "args": [
+      4
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-09",
+    "args": [
+      8
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-10",
+    "args": [
+      12
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-11",
+    "args": [
+      14
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-12",
+    "args": [
+      15
+    ],
+    "expected": {
+      "A": true,
+      "B": true
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-13",
+    "args": [
+      16
+    ],
+    "expected": {
+      "A": true,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-14",
+    "args": [
+      17
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-15",
+    "args": [
+      18
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-16",
+    "args": [
+      20
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-17",
+    "args": [
+      24
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-18",
+    "args": [
+      32
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-19",
+    "args": [
+      64
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  },
+  {
+    "task": "upload",
+    "panel": "archive",
+    "id": "upload-20",
+    "args": [
+      100
+    ],
+    "expected": {
+      "A": false,
+      "B": false
+    }
+  }
+]

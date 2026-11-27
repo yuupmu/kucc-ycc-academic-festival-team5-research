@@ -1,0 +1,7410 @@
+{
+  "tasks": {
+    "reservation": {
+      "solo": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "solo",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 0,
+          "calls": 1,
+          "author_tokens": 799,
+          "prompt_tokens": 424,
+          "completion_tokens": 375,
+          "total_tokens": 799,
+          "status": "one_shot",
+          "owner_facts": ""
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              30,
+              31
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": [
+              "clock",
+              "duration",
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "questions": [],
+        "reply": null,
+        "writer_error": null
+      },
+      "self": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "self",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 1,
+          "calls": 4,
+          "author_tokens": 1925,
+          "prompt_tokens": 2610,
+          "completion_tokens": 893,
+          "total_tokens": 3503,
+          "status": "open_limit",
+          "owner_facts": "clock,duration"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              30,
+              31
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": [
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "questions": [
+          {
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "writer_error": null
+      },
+      "self-regions": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "self-regions",
+          "correct": 5,
+          "wrong": 5,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 1,
+          "calls": 5,
+          "author_tokens": 3870,
+          "prompt_tokens": 3530,
+          "completion_tokens": 2175,
+          "total_tokens": 5705,
+          "status": "open_limit",
+          "owner_facts": "clock,duration"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              48,
+              50,
+              51
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              48,
+              49
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              37
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              37
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              25
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              23
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": [
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+        "questions": [
+          {
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "writer_error": null
+      },
+      "current": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "current",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 3,
+          "calls": 10,
+          "author_tokens": 2229,
+          "prompt_tokens": 6102,
+          "completion_tokens": 2032,
+          "total_tokens": 8134,
+          "status": "open_limit",
+          "owner_facts": "clarify,clock"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              30,
+              31
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": [
+              "duration",
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "questions": [
+          {
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "proposed_by": [
+              "B",
+              "C"
+            ],
+            "basis": "B1"
+          },
+          {
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "proposed_by": [
+              "C"
+            ],
+            "basis": "C1"
+          }
+        ],
+        "reply": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "writer_error": null
+      },
+      "infer": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "infer",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 2,
+          "probes": 3,
+          "questions": 2,
+          "calls": 9,
+          "author_tokens": 2661,
+          "prompt_tokens": 4502,
+          "completion_tokens": 3025,
+          "total_tokens": 7527,
+          "status": "open_limit",
+          "owner_facts": "clock,duration,end,expired,late,start"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              30,
+              31
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": true,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": []
+          },
+          "이용 시작 순간 거부": {
+            "authorized": true,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": []
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "questions": [
+          {
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "writer_error": null
+      },
+      "apply-regions": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "apply-regions",
+          "correct": 5,
+          "wrong": 5,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 3,
+          "calls": 10,
+          "author_tokens": 3014,
+          "prompt_tokens": 7126,
+          "completion_tokens": 2669,
+          "total_tokens": 9795,
+          "status": "open_limit",
+          "owner_facts": "clarify,clock"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              31
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              29
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              25
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              23
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              false,
+              false
+            ],
+            "missing": [
+              "duration",
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": false,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "7f6da002463d76f083c85b08678efce5e2446cef27c7edc3e6563279647aa8c8",
+        "questions": [
+          {
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "proposed_by": [
+              "B",
+              "C"
+            ],
+            "basis": "B1"
+          },
+          {
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "proposed_by": [
+              "C"
+            ],
+            "basis": "C1"
+          }
+        ],
+        "reply": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "writer_error": null
+      },
+      "both-regions": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "both-regions",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 2,
+          "probes": 3,
+          "questions": 2,
+          "calls": 9,
+          "author_tokens": 4096,
+          "prompt_tokens": 6512,
+          "completion_tokens": 3516,
+          "total_tokens": 10028,
+          "status": "open_limit",
+          "owner_facts": "clock,duration,end,expired,late,start"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              48,
+              50,
+              51
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              48,
+              49
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              37
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              37
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              27
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              25
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              23
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": true,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": true,
+            "actual": [
+              true,
+              false
+            ],
+            "missing": []
+          },
+          "이용 시작 순간 거부": {
+            "authorized": true,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": []
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": false,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+        "questions": [
+          {
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "writer_error": null
+      },
+      "self-apply": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "self-apply",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 1,
+          "calls": 5,
+          "author_tokens": 4919,
+          "prompt_tokens": 3255,
+          "completion_tokens": 3242,
+          "total_tokens": 6497,
+          "status": "open_limit",
+          "owner_facts": "clock,duration"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              30,
+              31
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": [
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "questions": [
+          {
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "writer_error": "코드 응답이 완성되지 않음"
+      },
+      "apply": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "apply",
+          "correct": 5,
+          "wrong": 5,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 3,
+          "calls": 10,
+          "author_tokens": 3521,
+          "prompt_tokens": 9189,
+          "completion_tokens": 2776,
+          "total_tokens": 11965,
+          "status": "open_limit",
+          "owner_facts": "clarify,clock"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              46,
+              47
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              46,
+              55
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              46,
+              55
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              46,
+              55
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": false,
+            "expected": true,
+            "status": "wrong",
+            "executed": [
+              46,
+              55
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              46,
+              55
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              46,
+              55
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              false,
+              false
+            ],
+            "missing": [
+              "duration",
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "dbb6b01b8429ef88600e8153f358c32f683fb855f7a0ab27a32a6965b365eaf7",
+        "questions": [
+          {
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "proposed_by": [
+              "B",
+              "C"
+            ],
+            "basis": "B1"
+          },
+          {
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "proposed_by": [
+              "C"
+            ],
+            "basis": "C1"
+          }
+        ],
+        "reply": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "writer_error": null
+      },
+      "both": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "both",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 2,
+          "probes": 3,
+          "questions": 2,
+          "calls": 9,
+          "author_tokens": 5751,
+          "prompt_tokens": 6017,
+          "completion_tokens": 4720,
+          "total_tokens": 10737,
+          "status": "open_limit",
+          "owner_facts": "clock,duration,end,expired,late,start"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              30,
+              31
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": true,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": []
+          },
+          "이용 시작 순간 거부": {
+            "authorized": true,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": []
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "questions": [
+          {
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "writer_error": "코드 응답이 완성되지 않음"
+      },
+      "self-program": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "self-program",
+          "correct": 0,
+          "wrong": 0,
+          "unanswered": 10,
+          "unsupported_returns": 0,
+          "probes": 3,
+          "questions": 1,
+          "calls": 5,
+          "author_tokens": 3011,
+          "prompt_tokens": 3102,
+          "completion_tokens": 1124,
+          "total_tokens": 4226,
+          "status": "open_limit",
+          "owner_facts": "clock,duration"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              null,
+              null
+            ],
+            "missing": [
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "dfe7b226f366f608c1a31c26bcd7ed2f03b4e0f18ff427bfbf496222c46d0c7c",
+        "questions": [
+          {
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "writer_error": null
+      },
+      "apply-program": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "apply-program",
+          "correct": 6,
+          "wrong": 4,
+          "unanswered": 0,
+          "unsupported_returns": 3,
+          "probes": 3,
+          "questions": 3,
+          "calls": 10,
+          "author_tokens": 4352,
+          "prompt_tokens": 7463,
+          "completion_tokens": 3687,
+          "total_tokens": 11150,
+          "status": "invalid_output",
+          "owner_facts": "clarify,clock"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": true,
+            "expected": true,
+            "status": "correct",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": true,
+            "expected": false,
+            "status": "wrong",
+            "executed": [
+              30,
+              32
+            ],
+            "exception": null
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": false,
+            "expected": false,
+            "status": "correct",
+            "executed": [
+              30,
+              31
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": false,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              true,
+              true
+            ],
+            "missing": [
+              "duration",
+              "end",
+              "expired",
+              "late"
+            ]
+          },
+          "이용 시작 순간 거부": {
+            "authorized": false,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "start"
+            ]
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": true,
+            "actual": [
+              true
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": true,
+            "actual": [
+              false
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "questions": [
+          {
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "proposed_by": [
+              "B",
+              "C"
+            ],
+            "basis": "B1"
+          },
+          {
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "proposed_by": [
+              "C"
+            ],
+            "basis": "C1"
+          }
+        ],
+        "reply": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "writer_error": "invalid_model_output"
+      },
+      "both-program": {
+        "metrics": {
+          "task": "reservation",
+          "arm": "both-program",
+          "correct": 0,
+          "wrong": 0,
+          "unanswered": 10,
+          "unsupported_returns": 0,
+          "probes": 3,
+          "questions": 2,
+          "calls": 9,
+          "author_tokens": 4371,
+          "prompt_tokens": 5196,
+          "completion_tokens": 3253,
+          "total_tokens": 8449,
+          "status": "open_limit",
+          "owner_facts": "clock,duration,end,expired,late,start"
+        },
+        "cases": {
+          "C003": {
+            "args": [
+              604799,
+              86401
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C011": {
+            "args": [
+              165600,
+              86400
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C002": {
+            "args": [
+              604801,
+              86399
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C006": {
+            "args": [
+              608400,
+              82800
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C071": {
+            "args": [
+              600,
+              3600
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C072": {
+            "args": [
+              601,
+              3600
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C073": {
+            "args": [
+              600,
+              7200
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C081": {
+            "args": [
+              299,
+              1
+            ],
+            "actual": null,
+            "expected": true,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C082": {
+            "args": [
+              300,
+              0
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "C084": {
+            "args": [
+              301,
+              -1
+            ],
+            "actual": null,
+            "expected": false,
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          }
+        },
+        "rules": {
+          "정정 600초와 601초의 구분": {
+            "authorized": true,
+            "cases": [
+              "C071",
+              "C072"
+            ],
+            "passed": false,
+            "actual": [
+              null,
+              null
+            ],
+            "missing": []
+          },
+          "이용 시작 순간 거부": {
+            "authorized": true,
+            "cases": [
+              "C082"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": []
+          },
+          "정확한 일반 마감": {
+            "authorized": false,
+            "cases": [
+              "C011"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "deadline"
+            ]
+          },
+          "이용 시작 후 정정 거부": {
+            "authorized": false,
+            "cases": [
+              "C084"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "after"
+            ]
+          }
+        },
+        "sha256": "dfe7b226f366f608c1a31c26bcd7ed2f03b4e0f18ff427bfbf496222c46d0c7c",
+        "questions": [
+          {
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "writer_error": null
+      }
+    },
+    "triage": {
+      "solo": {
+        "metrics": {
+          "task": "triage",
+          "arm": "solo",
+          "correct": 4,
+          "wrong": 4,
+          "unanswered": 2,
+          "unsupported_returns": 2,
+          "probes": 3,
+          "questions": 0,
+          "calls": 1,
+          "author_tokens": 826,
+          "prompt_tokens": 314,
+          "completion_tokens": 512,
+          "total_tokens": 826,
+          "status": "one_shot",
+          "owner_facts": ""
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              3,
+              2,
+              5
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              5
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "account",
+            "expected": "billing",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": false,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": [
+              "unknown"
+            ]
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+        "questions": [],
+        "reply": null,
+        "writer_error": null
+      },
+      "self": {
+        "metrics": {
+          "task": "triage",
+          "arm": "self",
+          "correct": 4,
+          "wrong": 4,
+          "unanswered": 2,
+          "unsupported_returns": 2,
+          "probes": 3,
+          "questions": 1,
+          "calls": 4,
+          "author_tokens": 1630,
+          "prompt_tokens": 1248,
+          "completion_tokens": 1111,
+          "total_tokens": 2359,
+          "status": "open_limit",
+          "owner_facts": "invariant"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              3,
+              2,
+              5
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              5
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "account",
+            "expected": "billing",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": false,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": [
+              "unknown"
+            ]
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+        "questions": [
+          {
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "writer_error": null
+      },
+      "self-regions": {
+        "metrics": {
+          "task": "triage",
+          "arm": "self-regions",
+          "correct": 3,
+          "wrong": 0,
+          "unanswered": 7,
+          "unsupported_returns": 1,
+          "probes": 3,
+          "questions": 1,
+          "calls": 5,
+          "author_tokens": 2053,
+          "prompt_tokens": 1835,
+          "completion_tokens": 1019,
+          "total_tokens": 2854,
+          "status": "open_limit",
+          "owner_facts": "invariant"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": null,
+            "expected": "billing",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6
+            ],
+            "exception": "NotImplementedError"
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": null,
+            "expected": "billing",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6
+            ],
+            "exception": "NotImplementedError"
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6
+            ],
+            "exception": "NotImplementedError"
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6
+            ],
+            "exception": "NotImplementedError"
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6
+            ],
+            "exception": "NotImplementedError"
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              null,
+              null,
+              null,
+              null
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": false,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": [
+              "unknown"
+            ]
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              null,
+              null
+            ]
+          }
+        },
+        "sha256": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+        "questions": [
+          {
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "writer_error": null
+      },
+      "current": {
+        "metrics": {
+          "task": "triage",
+          "arm": "current",
+          "correct": 5,
+          "wrong": 4,
+          "unanswered": 1,
+          "unsupported_returns": 1,
+          "probes": 3,
+          "questions": 3,
+          "calls": 9,
+          "author_tokens": 1441,
+          "prompt_tokens": 4147,
+          "completion_tokens": 2347,
+          "total_tokens": 6494,
+          "status": "open_limit",
+          "owner_facts": "empty_list,invariant,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              7
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": "general",
+            "expected": "general",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "account",
+            "expected": "billing",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": true,
+            "cases": [
+              "5"
+            ],
+            "passed": true,
+            "actual": [
+              "general"
+            ],
+            "missing": []
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "653b25914fdd741a5908eb240cc89d93cff149bf881f8ff83d10940ffe64e6c3",
+        "questions": [
+          {
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A2"
+          },
+          {
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A3"
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "writer_error": null
+      },
+      "infer": {
+        "metrics": {
+          "task": "triage",
+          "arm": "infer",
+          "correct": 4,
+          "wrong": 4,
+          "unanswered": 2,
+          "unsupported_returns": 0,
+          "probes": 3,
+          "questions": 3,
+          "calls": 9,
+          "author_tokens": 2262,
+          "prompt_tokens": 3639,
+          "completion_tokens": 2484,
+          "total_tokens": 6123,
+          "status": "open_limit",
+          "owner_facts": "rank,three_known,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              3,
+              2,
+              5
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              5
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "account",
+            "expected": "billing",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": []
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+        "questions": [
+          {
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "proposed_by": [
+              "B"
+            ]
+          },
+          {
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "writer_error": null
+      },
+      "apply-regions": {
+        "metrics": {
+          "task": "triage",
+          "arm": "apply-regions",
+          "correct": 4,
+          "wrong": 0,
+          "unanswered": 6,
+          "unsupported_returns": 0,
+          "probes": 3,
+          "questions": 3,
+          "calls": 10,
+          "author_tokens": 2313,
+          "prompt_tokens": 4876,
+          "completion_tokens": 2852,
+          "total_tokens": 7728,
+          "status": "open_limit",
+          "owner_facts": "empty_list,invariant,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": "general",
+            "expected": "general",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": null,
+            "expected": "billing",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "exception": "NotImplementedError"
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": null,
+            "expected": "billing",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "exception": "NotImplementedError"
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "exception": "NotImplementedError"
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "exception": "NotImplementedError"
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "exception": "NotImplementedError"
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              null,
+              null,
+              null,
+              null
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": true,
+            "cases": [
+              "5"
+            ],
+            "passed": true,
+            "actual": [
+              "general"
+            ],
+            "missing": []
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              null,
+              null
+            ]
+          }
+        },
+        "sha256": "b0975910c7410491de1e673d06d58070fec046424c984966678036cfc0cf8c61",
+        "questions": [
+          {
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A2"
+          },
+          {
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A3"
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "writer_error": null
+      },
+      "both-regions": {
+        "metrics": {
+          "task": "triage",
+          "arm": "both-regions",
+          "correct": 8,
+          "wrong": 0,
+          "unanswered": 2,
+          "unsupported_returns": 0,
+          "probes": 3,
+          "questions": 3,
+          "calls": 9,
+          "author_tokens": 2273,
+          "prompt_tokens": 4000,
+          "completion_tokens": 2289,
+          "total_tokens": 6289,
+          "status": "open_limit",
+          "owner_facts": "rank,three_known,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              10
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              6,
+              8,
+              9
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": true,
+            "actual": [
+              "billing",
+              "billing",
+              "privacy",
+              "privacy"
+            ],
+            "missing": []
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": true,
+            "actual": [
+              "billing",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+        "questions": [
+          {
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "proposed_by": [
+              "B"
+            ]
+          },
+          {
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "writer_error": null
+      },
+      "self-apply": {
+        "metrics": {
+          "task": "triage",
+          "arm": "self-apply",
+          "correct": 5,
+          "wrong": 3,
+          "unanswered": 2,
+          "unsupported_returns": 2,
+          "probes": 3,
+          "questions": 1,
+          "calls": 5,
+          "author_tokens": 2123,
+          "prompt_tokens": 1925,
+          "completion_tokens": 943,
+          "total_tokens": 2868,
+          "status": "open_limit",
+          "owner_facts": "invariant"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              5,
+              8
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "billing",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": false,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": [
+              "unknown"
+            ]
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": true,
+            "actual": [
+              "billing",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "ba79c1972825d077dad7f297b68d84e8a4ce6ba8bc4cbb02ed4b87e37a114428",
+        "questions": [
+          {
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "writer_error": null
+      },
+      "apply": {
+        "metrics": {
+          "task": "triage",
+          "arm": "apply",
+          "correct": 5,
+          "wrong": 4,
+          "unanswered": 1,
+          "unsupported_returns": 1,
+          "probes": 3,
+          "questions": 3,
+          "calls": 10,
+          "author_tokens": 2365,
+          "prompt_tokens": 4858,
+          "completion_tokens": 2823,
+          "total_tokens": 7681,
+          "status": "open_limit",
+          "owner_facts": "empty_list,invariant,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              7
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": "general",
+            "expected": "general",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "account",
+            "expected": "billing",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": true,
+            "cases": [
+              "5"
+            ],
+            "passed": true,
+            "actual": [
+              "general"
+            ],
+            "missing": []
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "dbc64f4e844819587653694ffc97b15e1632f4077a57862ffcc5e7442ae6296d",
+        "questions": [
+          {
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A2"
+          },
+          {
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A3"
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "writer_error": null
+      },
+      "both": {
+        "metrics": {
+          "task": "triage",
+          "arm": "both",
+          "correct": 4,
+          "wrong": 4,
+          "unanswered": 2,
+          "unsupported_returns": 0,
+          "probes": 3,
+          "questions": 3,
+          "calls": 9,
+          "author_tokens": 2459,
+          "prompt_tokens": 3728,
+          "completion_tokens": 2336,
+          "total_tokens": 6064,
+          "status": "open_limit",
+          "owner_facts": "rank,three_known,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4,
+              6,
+              8,
+              9
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              3,
+              2,
+              10
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              10
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "account",
+            "expected": "billing",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4,
+              6,
+              8,
+              9
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4,
+              6,
+              8,
+              9
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              3,
+              2,
+              3,
+              4,
+              6,
+              8,
+              9
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": []
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "9102550811ef0f803a0b255a25d427ca7a28d648418d3077f7a915ab523a34d5",
+        "questions": [
+          {
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "proposed_by": [
+              "B"
+            ]
+          },
+          {
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "writer_error": null
+      },
+      "self-program": {
+        "metrics": {
+          "task": "triage",
+          "arm": "self-program",
+          "correct": 5,
+          "wrong": 3,
+          "unanswered": 2,
+          "unsupported_returns": 2,
+          "probes": 3,
+          "questions": 1,
+          "calls": 6,
+          "author_tokens": 3134,
+          "prompt_tokens": 2700,
+          "completion_tokens": 1179,
+          "total_tokens": 3879,
+          "status": "open_limit",
+          "owner_facts": "invariant"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              5,
+              8
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6,
+              5,
+              6,
+              7
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "billing",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": false,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": [
+              "unknown"
+            ]
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": true,
+            "actual": [
+              "billing",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "ba79c1972825d077dad7f297b68d84e8a4ce6ba8bc4cbb02ed4b87e37a114428",
+        "questions": [
+          {
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "proposed_by": [
+              "main-self"
+            ]
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "writer_error": null
+      },
+      "apply-program": {
+        "metrics": {
+          "task": "triage",
+          "arm": "apply-program",
+          "correct": 5,
+          "wrong": 4,
+          "unanswered": 1,
+          "unsupported_returns": 1,
+          "probes": 3,
+          "questions": 3,
+          "calls": 11,
+          "author_tokens": 3716,
+          "prompt_tokens": 5759,
+          "completion_tokens": 3273,
+          "total_tokens": 9032,
+          "status": "open_limit",
+          "owner_facts": "empty_list,invariant,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": "account",
+            "expected": "account",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": "privacy",
+            "expected": "privacy",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              7
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": "general",
+            "expected": "general",
+            "status": "correct",
+            "executed": [
+              2,
+              3
+            ],
+            "exception": null
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": "account",
+            "expected": "billing",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": "billing",
+            "expected": "billing",
+            "status": "correct",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": "account",
+            "expected": "privacy",
+            "status": "wrong",
+            "executed": [
+              2,
+              4,
+              5,
+              4,
+              5,
+              6
+            ],
+            "exception": null
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": false,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing",
+              "account",
+              "billing"
+            ],
+            "missing": [
+              "rank"
+            ]
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": true,
+            "actual": [
+              "billing"
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": true,
+            "cases": [
+              "5"
+            ],
+            "passed": true,
+            "actual": [
+              "general"
+            ],
+            "missing": []
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              "account",
+              "billing"
+            ]
+          }
+        },
+        "sha256": "dbc64f4e844819587653694ffc97b15e1632f4077a57862ffcc5e7442ae6296d",
+        "questions": [
+          {
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A1"
+          },
+          {
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A2"
+          },
+          {
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "proposed_by": [
+              "A",
+              "C"
+            ],
+            "basis": "A3"
+          }
+        ],
+        "reply": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "writer_error": null
+      },
+      "both-program": {
+        "metrics": {
+          "task": "triage",
+          "arm": "both-program",
+          "correct": 0,
+          "wrong": 0,
+          "unanswered": 10,
+          "unsupported_returns": 0,
+          "probes": 3,
+          "questions": 3,
+          "calls": 9,
+          "author_tokens": 2648,
+          "prompt_tokens": 3672,
+          "completion_tokens": 2458,
+          "total_tokens": 6130,
+          "status": "open_limit",
+          "owner_facts": "rank,three_known,unknown"
+        },
+        "cases": {
+          "1": {
+            "args": [
+              [
+                "account"
+              ]
+            ],
+            "actual": null,
+            "expected": "account",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "3": {
+            "args": [
+              [
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "4": {
+            "args": [
+              [
+                "misc"
+              ]
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "5": {
+            "args": [
+              []
+            ],
+            "actual": null,
+            "expected": "general",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "6": {
+            "args": [
+              [
+                "account",
+                "billing"
+              ]
+            ],
+            "actual": null,
+            "expected": "billing",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "7": {
+            "args": [
+              [
+                "billing",
+                "account"
+              ]
+            ],
+            "actual": null,
+            "expected": "billing",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "9": {
+            "args": [
+              [
+                "account",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "11": {
+            "args": [
+              [
+                "billing",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "14": {
+            "args": [
+              [
+                "misc",
+                "billing"
+              ]
+            ],
+            "actual": null,
+            "expected": "billing",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          },
+          "15": {
+            "args": [
+              [
+                "misc",
+                "account",
+                "privacy",
+                "privacy"
+              ]
+            ],
+            "actual": null,
+            "expected": "privacy",
+            "status": "unanswered",
+            "executed": [
+              2
+            ],
+            "exception": "NotImplementedError"
+          }
+        },
+        "rules": {
+          "복수 팀 우선순위": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7",
+              "9",
+              "11"
+            ],
+            "passed": false,
+            "actual": [
+              null,
+              null,
+              null,
+              null
+            ],
+            "missing": []
+          },
+          "미등록·등록 태그 혼합": {
+            "authorized": true,
+            "cases": [
+              "14"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": []
+          },
+          "빈 목록": {
+            "authorized": false,
+            "cases": [
+              "5"
+            ],
+            "passed": false,
+            "actual": [
+              null
+            ],
+            "missing": [
+              "empty_list"
+            ]
+          },
+          "공개된 입력 순서 불변성": {
+            "authorized": true,
+            "cases": [
+              "6",
+              "7"
+            ],
+            "missing": [],
+            "passed": false,
+            "actual": [
+              null,
+              null
+            ]
+          }
+        },
+        "sha256": "864f554418eb3ffb6d490d2a1b799d9162eeb2c412836e0fc53daaceca3bd57a",
+        "questions": [
+          {
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "proposed_by": [
+              "A"
+            ]
+          },
+          {
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "proposed_by": [
+              "B"
+            ]
+          },
+          {
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "proposed_by": [
+              "C"
+            ]
+          }
+        ],
+        "reply": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "writer_error": null
+      }
+    }
+  },
+  "summary": [
+    {
+      "condition": "① 메인 단독",
+      "arm": "solo",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 4,
+      "correct": 10,
+      "wrong": 8,
+      "unanswered": 2,
+      "unsupported_returns": 5,
+      "probes": 6,
+      "questions": 0,
+      "calls": 2,
+      "author_tokens": 1625,
+      "prompt_tokens": 738,
+      "completion_tokens": 887,
+      "total_tokens": 1625
+    },
+    {
+      "condition": "② 기존 자체 검토",
+      "arm": "self",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 4,
+      "correct": 10,
+      "wrong": 8,
+      "unanswered": 2,
+      "unsupported_returns": 5,
+      "probes": 6,
+      "questions": 2,
+      "calls": 8,
+      "author_tokens": 3555,
+      "prompt_tokens": 3858,
+      "completion_tokens": 2004,
+      "total_tokens": 5862
+    },
+    {
+      "condition": "② 같은 답·입력 영역",
+      "arm": "self-regions",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 5,
+      "triage": 3,
+      "correct": 8,
+      "wrong": 5,
+      "unanswered": 7,
+      "unsupported_returns": 4,
+      "probes": 6,
+      "questions": 2,
+      "calls": 10,
+      "author_tokens": 5923,
+      "prompt_tokens": 5365,
+      "completion_tokens": 3194,
+      "total_tokens": 8559
+    },
+    {
+      "condition": "③ 기존 P4 보류 포함",
+      "arm": "current",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 5,
+      "correct": 11,
+      "wrong": 8,
+      "unanswered": 1,
+      "unsupported_returns": 4,
+      "probes": 6,
+      "questions": 6,
+      "calls": 19,
+      "author_tokens": 3670,
+      "prompt_tokens": 10249,
+      "completion_tokens": 4379,
+      "total_tokens": 14628
+    },
+    {
+      "condition": "③ 새 질문·기존 작성",
+      "arm": "infer",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 4,
+      "correct": 10,
+      "wrong": 8,
+      "unanswered": 2,
+      "unsupported_returns": 2,
+      "probes": 6,
+      "questions": 5,
+      "calls": 18,
+      "author_tokens": 4923,
+      "prompt_tokens": 8141,
+      "completion_tokens": 5509,
+      "total_tokens": 13650
+    },
+    {
+      "condition": "③ 기존 질문·입력 영역",
+      "arm": "apply-regions",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 5,
+      "triage": 4,
+      "correct": 9,
+      "wrong": 5,
+      "unanswered": 6,
+      "unsupported_returns": 3,
+      "probes": 6,
+      "questions": 6,
+      "calls": 20,
+      "author_tokens": 5327,
+      "prompt_tokens": 12002,
+      "completion_tokens": 5521,
+      "total_tokens": 17523
+    },
+    {
+      "condition": "③ 새 질문·입력 영역",
+      "arm": "both-regions",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 8,
+      "correct": 14,
+      "wrong": 4,
+      "unanswered": 2,
+      "unsupported_returns": 2,
+      "probes": 6,
+      "questions": 5,
+      "calls": 18,
+      "author_tokens": 6369,
+      "prompt_tokens": 10512,
+      "completion_tokens": 5805,
+      "total_tokens": 16317
+    },
+    {
+      "condition": "② 같은 답·일반 코드",
+      "arm": "self-apply",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 5,
+      "correct": 11,
+      "wrong": 7,
+      "unanswered": 2,
+      "unsupported_returns": 5,
+      "probes": 6,
+      "questions": 2,
+      "calls": 10,
+      "author_tokens": 7042,
+      "prompt_tokens": 5180,
+      "completion_tokens": 4185,
+      "total_tokens": 9365
+    },
+    {
+      "condition": "③ 기존 질문·일반 코드",
+      "arm": "apply",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 5,
+      "triage": 5,
+      "correct": 10,
+      "wrong": 9,
+      "unanswered": 1,
+      "unsupported_returns": 4,
+      "probes": 6,
+      "questions": 6,
+      "calls": 20,
+      "author_tokens": 5886,
+      "prompt_tokens": 14047,
+      "completion_tokens": 5599,
+      "total_tokens": 19646
+    },
+    {
+      "condition": "③ 새 질문·일반 코드",
+      "arm": "both",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 4,
+      "correct": 10,
+      "wrong": 8,
+      "unanswered": 2,
+      "unsupported_returns": 2,
+      "probes": 6,
+      "questions": 5,
+      "calls": 18,
+      "author_tokens": 8210,
+      "prompt_tokens": 9745,
+      "completion_tokens": 7056,
+      "total_tokens": 16801
+    },
+    {
+      "condition": "② 같은 답·자유 조건식",
+      "arm": "self-program",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 0,
+      "triage": 5,
+      "correct": 5,
+      "wrong": 3,
+      "unanswered": 12,
+      "unsupported_returns": 2,
+      "probes": 6,
+      "questions": 2,
+      "calls": 11,
+      "author_tokens": 6145,
+      "prompt_tokens": 5802,
+      "completion_tokens": 2303,
+      "total_tokens": 8105
+    },
+    {
+      "condition": "③ 기존 질문·자유 조건식",
+      "arm": "apply-program",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 6,
+      "triage": 5,
+      "correct": 11,
+      "wrong": 8,
+      "unanswered": 1,
+      "unsupported_returns": 4,
+      "probes": 6,
+      "questions": 6,
+      "calls": 21,
+      "author_tokens": 8068,
+      "prompt_tokens": 13222,
+      "completion_tokens": 6960,
+      "total_tokens": 20182
+    },
+    {
+      "condition": "③ 새 질문·자유 조건식",
+      "arm": "both-program",
+      "model": "Qwen3.5-4B-Q4_K_M.gguf",
+      "seed": 263,
+      "reservation": 0,
+      "triage": 0,
+      "correct": 0,
+      "wrong": 0,
+      "unanswered": 20,
+      "unsupported_returns": 0,
+      "probes": 6,
+      "questions": 5,
+      "calls": 18,
+      "author_tokens": 7019,
+      "prompt_tokens": 8868,
+      "completion_tokens": 5711,
+      "total_tokens": 14579
+    }
+  ],
+  "costs": {
+    "new_completed_calls": {
+      "calls": 74,
+      "prompt_tokens": 49646,
+      "completion_tokens": 25950,
+      "total_tokens": 75596
+    },
+    "borrowed_calls": {
+      "calls": 28,
+      "prompt_tokens": 15709,
+      "completion_tokens": 6119,
+      "total_tokens": 21828
+    },
+    "format_pilot_only": {
+      "calls": 4,
+      "prompt_tokens": 2699,
+      "completion_tokens": 977,
+      "total_tokens": 3676
+    }
+  },
+  "changes": [
+    {
+      "before": "solo",
+      "after": "both-regions",
+      "gained": 7,
+      "lost": 3,
+      "net": 4,
+      "gained_items": "reservation/C002, reservation/C006, reservation/C072, triage/6, triage/9, triage/11, triage/15",
+      "lost_items": "reservation/C003, reservation/C011, reservation/C084"
+    },
+    {
+      "before": "self",
+      "after": "self-regions",
+      "gained": 0,
+      "lost": 2,
+      "net": -2,
+      "gained_items": "",
+      "lost_items": "reservation/C084, triage/7"
+    },
+    {
+      "before": "self-regions",
+      "after": "both-regions",
+      "gained": 8,
+      "lost": 2,
+      "net": 6,
+      "gained_items": "reservation/C002, reservation/C006, reservation/C072, triage/6, triage/7, triage/9, triage/11, triage/15",
+      "lost_items": "reservation/C003, reservation/C011"
+    },
+    {
+      "before": "current",
+      "after": "infer",
+      "gained": 0,
+      "lost": 1,
+      "net": -1,
+      "gained_items": "",
+      "lost_items": "triage/5"
+    },
+    {
+      "before": "current",
+      "after": "apply-regions",
+      "gained": 4,
+      "lost": 6,
+      "net": -2,
+      "gained_items": "reservation/C002, reservation/C006, reservation/C072, reservation/C082",
+      "lost_items": "reservation/C003, reservation/C011, reservation/C071, reservation/C073, reservation/C081, triage/7"
+    },
+    {
+      "before": "infer",
+      "after": "both-regions",
+      "gained": 7,
+      "lost": 3,
+      "net": 4,
+      "gained_items": "reservation/C002, reservation/C006, reservation/C072, triage/6, triage/9, triage/11, triage/15",
+      "lost_items": "reservation/C003, reservation/C011, reservation/C084"
+    },
+    {
+      "before": "apply-regions",
+      "after": "both-regions",
+      "gained": 8,
+      "lost": 3,
+      "net": 5,
+      "gained_items": "reservation/C071, reservation/C073, reservation/C081, triage/6, triage/7, triage/9, triage/11, triage/15",
+      "lost_items": "reservation/C082, reservation/C084, triage/5"
+    },
+    {
+      "before": "current",
+      "after": "both-regions",
+      "gained": 7,
+      "lost": 4,
+      "net": 3,
+      "gained_items": "reservation/C002, reservation/C006, reservation/C072, triage/6, triage/9, triage/11, triage/15",
+      "lost_items": "reservation/C003, reservation/C011, reservation/C084, triage/5"
+    }
+  ],
+  "python_hash_seed": 0
+}

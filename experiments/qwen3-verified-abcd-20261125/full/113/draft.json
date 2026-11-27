@@ -1,0 +1,48 @@
+{
+  "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds) -> bool:\n    # 일반 취소 마감은 이용 시작 24시간 전입니다.\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 1. 이용 시작 시간이 이미 지났거나, 정확히 시작 시점이면 거부\n    if until_start_seconds <= 0:\n        return False\n    \n    # 2. 일반 취소 마감 시간 이전에 취소 가능\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    \n    # 3. 예약 생성 후 10분 이내는 일반 취소 마감이 지나도 허용\n    if age_seconds <= 10 * 60:\n        return True\n    \n    # 위 조건에 해당하지 않으면 거부\n    return False\n```",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 198,
+    "prompt_tokens": 403,
+    "total_tokens": 601,
+    "prompt_tokens_details": {
+      "cached_tokens": 402
+    }
+  },
+  "server_timings": {
+    "cache_n": 402,
+    "prompt_n": 1,
+    "prompt_ms": 20.295,
+    "prompt_per_token_ms": 20.295,
+    "prompt_per_second": 49.27322000492732,
+    "predicted_n": 198,
+    "predicted_ms": 3872.09,
+    "predicted_per_token_ms": 19.65527918781726,
+    "predicted_per_second": 50.87691660059554
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.94,
+  "request": {
+    "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+      },
+      {
+        "role": "user",
+        "content": "작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n이 과제의 운영 기준은 다음과 같습니다.\n일반 취소 마감은 이용 시작 24시간 전입니다.\n정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.\n예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다.\n현재 시각이 이용 시작 시각과 같거나 이후면, 정정 시간이 남아 있어도 거부합니다.\n휴무일은 없습니다. 모든 입력은 과제에 명시한 형식을 따릅니다. 이 과제에 추가로 적용할 정책은 없습니다.\n\n추가 질의 없이 위 명세를 구현하세요. 표준 라이브러리만 사용하고, 실행 가능한 전체 Python 소스를 하나의 코드 블록으로 제출하세요."
+      }
+    ],
+    "seed": 113,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1500,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "role": "main"
+}

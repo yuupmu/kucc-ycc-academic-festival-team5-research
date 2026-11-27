@@ -1,0 +1,8 @@
+{
+  "cycle": 3,
+  "status": "open_limit",
+  "sha256": "20a4de0e5cedd69092daf671c16092827bf1f63f5e145911c6e321ecdbb1790a",
+  "files": {
+    "router.py": "def triage(tags):\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and not set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) == 1 and set(tags).difference(('account', 'billing', 'privacy')):\n        return next(iter(set(tags).intersection(('account', 'billing', 'privacy'))))\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) > 1 and set(tags).difference(('account', 'billing', 'privacy')):\n        return next(v for v in ('privacy', 'billing', 'account') if v in tags)\n    raise NotImplementedError\n"
+  }
+}

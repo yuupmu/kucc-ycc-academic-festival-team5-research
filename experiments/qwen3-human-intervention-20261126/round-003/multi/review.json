@@ -1,0 +1,72 @@
+{
+  "reviews": [
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간이 정확히 10분인 경우, age_seconds 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간이 정확히 끝나는 순간, age_seconds 값은 얼마인가요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에 정정 기간이 남아도 정정을 거부해야 하는데, until_start_seconds 값이 어떤 조건을 만족해야 하나요?"
+        }
+      ],
+      "needs_code_revision": false,
+      "reason": "코드는 담당자 답변과 일치하며, 공개 과제의 요구사항을 충분히 반영하고 있습니다."
+    },
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 취소 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간이 정확히 10분인 경우, age_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에 정정 기간이 남아도 정정을 거부해야 하는데, until_start_seconds의 값이 어떤 조건을 만족해야 하는가요?"
+        }
+      ],
+      "needs_code_revision": false,
+      "reason": "코드는 담당자 답변과 일치하며, 모든 경계 조건을 고려하고 있습니다. 정정 기간이 10분까지, 이용 시작 시점 이후에는 거부하는 조건이 명확히 반영되어 있습니다."
+    },
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 마감이 정확히 이용 시작 24시간 전인 경우, until_start_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간이 10분인 경우, age_seconds의 최대 허용 값은 얼마인가요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간이 정확히 끝나는 순간, age_seconds의 값은 얼마인가요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에 정정 기간이 남아도 정정을 거부하는 조건은 무엇인가요?"
+        }
+      ],
+      "needs_code_revision": false,
+      "reason": "코드는 담당자의 답변과 계획에 부합하며, 정책의 경계 조건을 정확히 반영하고 있습니다. 다만, '정정 기간이 정확히 끝나는 순간'에 대한 처리가 명시적으로 표현되지 않았으므로, 해당 조건을 명확히 구현해야 할 수 있습니다."
+    }
+  ],
+  "missing_evidence": [],
+  "ready": true
+}

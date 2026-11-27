@@ -1,0 +1,175 @@
+{
+  "origin": "3bb569cdd8611001bf267da6738a7e34c9d4393a5aad83c8067952658bb45f2f",
+  "cap": 5050,
+  "policy": "first come, shared pool, no per-step allocation; replay only exact admitted requests",
+  "rows": [
+    {
+      "condition": "upload_same-calls_sequential",
+      "served": [
+        {
+          "role": "review1",
+          "call": "937d9691080a2f1fb5fe3fd8d30efaa089a08fd22951ee6e43cb54d793742d35",
+          "tokens": 571
+        },
+        {
+          "role": "review2",
+          "call": "50b0e61c6a556c1b451d88d1f55112969a6e37305773c986cc54e8f9a54a732a",
+          "tokens": 668
+        },
+        {
+          "role": "review3",
+          "call": "90862934115abad0f18002088d134909e94f677d83f7693eade253541dda36c1",
+          "tokens": 760
+        },
+        {
+          "role": "writer",
+          "call": "ff5acef46b79e2a5bc35444505d62720b8a64e7df515e3cb637b7a00b06d048d",
+          "tokens": 1044
+        }
+      ],
+      "skipped": [],
+      "tokens": 3043,
+      "cap": 5050,
+      "score": 5,
+      "proposed": [
+        "z",
+        "b"
+      ],
+      "received": [
+        "z",
+        "b"
+      ],
+      "implemented": {
+        "z": {
+          "before": false,
+          "after": true,
+          "n": 1
+        }
+      }
+    },
+    {
+      "condition": "upload_same-calls_independent",
+      "served": [
+        {
+          "role": "review1",
+          "call": "937d9691080a2f1fb5fe3fd8d30efaa089a08fd22951ee6e43cb54d793742d35",
+          "tokens": 571
+        },
+        {
+          "role": "review2",
+          "call": "3dd002e5311d3dd4f8a07191455d4fe88b5e51a0c9442e5ac7aab22b3a845536",
+          "tokens": 419
+        },
+        {
+          "role": "review3",
+          "call": "70beb380e0df5b888464dac9e0c0d2db11f33ce6f7b3b4aee52a5352e3dedde9",
+          "tokens": 520
+        },
+        {
+          "role": "writer",
+          "call": "9f6927620ca18f1deea447442bf472c91eb11f7470c10fe28884e8275f184515",
+          "tokens": 1050
+        }
+      ],
+      "skipped": [],
+      "tokens": 2560,
+      "cap": 5050,
+      "score": 13,
+      "proposed": [
+        "z",
+        "b",
+        "l"
+      ],
+      "received": [
+        "z",
+        "b"
+      ],
+      "implemented": {
+        "z": {
+          "before": false,
+          "after": true,
+          "n": 1
+        }
+      }
+    },
+    {
+      "condition": "print_same-calls_sequential",
+      "served": [
+        {
+          "role": "review1",
+          "call": "67848dbdc1187b8bcdaece3bb1b2e2a987da28bce270387189f9459506c60c3e",
+          "tokens": 1218
+        },
+        {
+          "role": "review2",
+          "call": "1c52caada32bc6dd8688b2f32d69e04348bc2fb16f9a58db6239ff0c8dbe61f9",
+          "tokens": 1318
+        },
+        {
+          "role": "review3",
+          "call": "ba79e51a0d5f29f311041f416c4a077540cfc88fad28df24837f74f3bd16a931",
+          "tokens": 1413
+        }
+      ],
+      "skipped": [
+        {
+          "role": "writer",
+          "remaining": 1101,
+          "minimum": 1528
+        }
+      ],
+      "tokens": 3949,
+      "cap": 5050,
+      "score": 14,
+      "proposed": [
+        "w",
+        "h"
+      ],
+      "received": [
+        "w",
+        "h"
+      ],
+      "implemented": {}
+    },
+    {
+      "condition": "print_same-calls_independent",
+      "served": [
+        {
+          "role": "review1",
+          "call": "67848dbdc1187b8bcdaece3bb1b2e2a987da28bce270387189f9459506c60c3e",
+          "tokens": 1218
+        },
+        {
+          "role": "review2",
+          "call": "69b5be9b44fb48f0e6b2806cb27bf5086d63ea358be229275b21eb8eb335d276",
+          "tokens": 1206
+        },
+        {
+          "role": "review3",
+          "call": "faa07e73e5a3ece34c11ddec44e2561a91df7b743ca4aae1c1b47000f8ec5e29",
+          "tokens": 1191
+        }
+      ],
+      "skipped": [
+        {
+          "role": "writer",
+          "remaining": 1435,
+          "minimum": 1490
+        }
+      ],
+      "tokens": 3615,
+      "cap": 5050,
+      "score": 14,
+      "proposed": [
+        "w",
+        "h",
+        "z"
+      ],
+      "received": [
+        "w",
+        "h"
+      ],
+      "implemented": {}
+    }
+  ]
+}

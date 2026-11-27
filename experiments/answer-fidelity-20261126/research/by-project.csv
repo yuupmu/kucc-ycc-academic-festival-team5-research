@@ -1,0 +1,15 @@
+﻿task,arm,cycle,before,after,wrong,unanswered,unsupported,probes,gained,lost,other_outcome_changes,questions,calls,writer_calls,added_writer_calls,original_writer_requests,held,physical,physically_generated_tokens,prompt_tokens,completion_tokens,total_tokens,cum_prompt_tokens,cum_completion_tokens,cum_total_tokens,cum_calls,cum_questions,cum_physical,cum_physically_generated_tokens,before_cum_tokens,status
+reservation,solo,0,6,6,4,0,3,3,0,0,0,0,1,0,0,True,0,0,0,424,375,799,424,375,799,1,0,0,0,799,one_shot
+reservation,self,1,5,5,5,0,3,3,0,0,0,1,5,2,0,True,2,0,0,3530,2175,5705,3530,2175,5705,5,1,0,0,5705,open_limit
+reservation,self,2,5,5,5,0,3,3,0,0,0,1,4,2,0,True,1,0,0,3588,2322,5910,7118,4497,11615,9,2,0,0,11615,open_limit
+reservation,self,3,4,5,5,0,3,3,1,0,0,1,4,2,0,True,1,1,1156,3702,1578,5280,10820,6075,16895,13,3,1,1156,16881,open_limit
+reservation,multi,1,6,7,3,0,2,3,1,0,0,2,9,2,0,True,4,3,3814,6512,3464,9976,6512,3464,9976,9,2,3,3814,10028,open_limit
+reservation,multi,2,6,7,3,0,2,3,1,0,0,2,8,2,0,True,3,3,4131,8503,3645,12148,15015,7109,22124,17,4,6,7945,22289,open_limit
+reservation,multi,3,6,7,3,0,2,3,1,0,0,3,8,2,0,True,3,3,4295,8884,3422,12306,23899,10531,34430,25,7,9,12240,34575,open_limit
+triage,solo,0,4,4,4,2,2,3,0,0,0,0,1,0,0,True,0,0,0,314,512,826,314,512,826,1,0,0,0,826,one_shot
+triage,self,1,3,3,0,7,1,3,0,0,0,1,5,2,0,True,2,0,0,1835,1019,2854,1835,1019,2854,5,1,0,0,2854,open_limit
+triage,self,2,3,3,0,7,1,3,0,0,0,1,4,2,0,True,1,0,0,1727,654,2381,3562,1673,5235,9,2,0,0,5235,open_limit
+triage,self,3,8,8,0,2,1,3,0,0,0,1,4,2,0,True,1,0,0,1984,687,2671,5546,2360,7906,13,3,0,0,7906,open_limit
+triage,multi,1,8,8,0,2,0,3,0,0,0,3,9,2,0,True,4,0,0,4000,2289,6289,4000,2289,6289,9,3,0,0,6289,open_limit
+triage,multi,2,8,8,0,2,0,3,0,0,0,3,8,2,0,True,3,0,0,4917,2291,7208,8917,4580,13497,17,6,0,0,13497,open_limit
+triage,multi,3,8,8,0,2,0,3,0,0,0,3,8,2,0,True,3,0,0,5328,1866,7194,14245,6446,20691,25,9,0,0,20691,open_limit

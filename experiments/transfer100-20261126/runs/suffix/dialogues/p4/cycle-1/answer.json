@@ -1,0 +1,31 @@
+{
+  "cycle": 1,
+  "ticket": "0a33db5f88e8c807925198eb68d735651c3f41b3a44b949e5cdca691d34efdd0",
+  "questions": [
+    {
+      "question": "여러 개의 점이 있는 파일 이름 (예: archive.tar.gz) 에 대해 점 다음 부분을 반환할지, 마지막 점 다음 부분을 반환할지",
+      "proposed_by": [
+        "A",
+        "C"
+      ],
+      "basis": "A1"
+    },
+    {
+      "question": "확장자가 없는 이름에 대해 NotImplementedError 를 발생시키고 실패할지, 아니면 다른 처리 로직을 적용하여 실패하지 않을지",
+      "proposed_by": [
+        "B",
+        "C"
+      ],
+      "basis": "B1"
+    },
+    {
+      "question": "확장자가 없는 이름 (예: readme) 을 입력했을 때 반환값이 빈 문자열인지, 아니면 예외를 던지는지",
+      "proposed_by": [
+        "C"
+      ],
+      "basis": "C1"
+    }
+  ],
+  "text": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 복합 확장자를 합치지 않습니다.\n점이 없거나 마지막 글자가 점인 이름은 빈 문자열을 반환합니다.",
+  "source": "delegated_policy_card"
+}

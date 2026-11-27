@@ -1,0 +1,193 @@
+{
+  "text": "{\"scopes\": [\"T1\", \"T2\"], \"notes\": {\"P1\": {\"established\": \"mask_code(code: str) -> str\", \"input\": \"code\", \"still_open\": \"code is str of alphanumeric chars (case-sensitive), empty string allowed\"}, \"P2\": {\"established\": \"mask each hidden char with '*', preserve original case and order of revealed chars\", \"input\": \"code\", \"still_open\": \"none\"}, \"P3\": {\"established\": \"input contains only alphanumeric chars and no spaces\", \"input\": \"code\", \"still_open\": \"none\"}, \"H1\": {\"established\": \"reveal last 3 chars, mask all preceding chars with '*', if code length < 3 handle based on operator guidelines\", \"input\": \"code\", \"still_open\": \"operator guidelines for length < 3\"}}}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 182,
+    "prompt_tokens": 321,
+    "total_tokens": 503,
+    "prompt_tokens_details": {
+      "cached_tokens": 97
+    }
+  },
+  "server_timings": {
+    "cache_n": 97,
+    "prompt_n": 224,
+    "prompt_ms": 304.219,
+    "prompt_per_token_ms": 1.3581205357142856,
+    "prompt_per_second": 736.3116702112623,
+    "predicted_n": 182,
+    "predicted_ms": 4936.069,
+    "predicted_per_token_ms": 27.271099447513816,
+    "predicted_per_second": 36.66885531786529
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 5.26,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer planning a revision. For each verbatim source, write separately what it establishes and what it still leaves open. A missing detail never erases a confirmed one. Select the actual input that the established fact governs. Preserve any stated number, units, equality, precedence or invariant. A request for clarification supplies no new decision. Use empty strings where nothing is established or nothing remains open. Keep notes short. Select the smallest editable scopes."
+      },
+      {
+        "role": "user",
+        "content": "{\"editable_scopes\":{\"T1\":{\"path\":\"solution.py\",\"name\":\"mask_code\",\"parameters\":[\"code\"],\"kind\":\"body\",\"signature\":\"code: str\"},\"T2\":{\"path\":\"solution.py\",\"name\":\"solution.py\",\"parameters\":[],\"kind\":\"file\",\"signature\":\"\"}},\"public_and_owner_sources\":{\"P1\":\"화면에서 식별코드를 가리는 mask_code(code) -> str 함수를 구현하세요. 입력은 영문 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능합니다.\",\"P2\":\"가리는 각 글자를 별표(*) 하나로 바꿉니다. 결과 길이는 입력 길이와 같아야 합니다. 공개하는 글자의 원래 대소문자와 순서는 유지합니다.\",\"P3\":\"어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다. 다른 문자나 공백은 입력되지 않습니다.\",\"H1\":\"마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.\"}}"
+      }
+    ],
+    "seed": 863,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "T1",
+                  "T2"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2
+            },
+            "notes": {
+              "type": "object",
+              "properties": {
+                "P1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "code"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "code"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P3": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "code"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "code"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "P1",
+                "P2",
+                "P3",
+                "H1"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "scopes",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-plan"
+}

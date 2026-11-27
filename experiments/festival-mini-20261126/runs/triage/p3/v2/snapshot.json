@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "files": {
+    "router.py": "def triage(tags):\n    for tag in tags:\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    raise NotImplementedError\n"
+  },
+  "sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+  "received": [
+    1
+  ],
+  "author_call": "45ad4799a19d588251e5838d61c604f7c6bf7ba40e4c843157e224f0364ae129",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "router.py": "valid"
+    },
+    "proposed_invalid": [
+      "router.py"
+    ],
+    "restored_indent": [],
+    "rejected": [
+      "router.py"
+    ],
+    "verified": {
+      "router.py": "valid"
+    }
+  }
+}

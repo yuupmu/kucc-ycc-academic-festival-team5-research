@@ -1,0 +1,12 @@
+{
+  "seed": 263,
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "projects": ["reservation", "triage"],
+  "reference": "festival-mini-20261126",
+  "arms": {"current":"P4 questions, P4 writer and edit guard", "apply":"P4 questions, scoped rule implementation", "infer":"counterfactual questions, P4 writer and edit guard", "both":"counterfactual questions, scoped rule implementation", "self-apply":"archived main's own questions, scoped rule implementation"},
+  "human_windows": 1,
+  "questions_per_window": 3,
+  "primary": "같은 20개 고정 문항의 마지막 코드에서 정답·오답·미판정, 이전 정답의 퇴행 및 실제 모델 입력·출력 토큰",
+  "secondary": "종전 필수 근거 6문항과 실제로 받은 원문, 같은 순서 불변성 입력쌍 6·7번, 정정 경계 71·72번의 실제 동작. 반환 보류를 성과로 세지 않는다.",
+  "controls": "각 행은 동일 초안에서 시작한다. 질문 방식별 담당자 회신은 작성 방식 두 개가 바이트 단위로 공유한다. 미확정 가설과 평가 자료는 메인 입력에서 제외한다. 모든 후보 고정 전에는 관찰 채점을 실행하지 않는다."
+}

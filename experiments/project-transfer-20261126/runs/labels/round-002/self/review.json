@@ -1,0 +1,112 @@
+{
+  "reviews": [
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3"
+          ],
+          "message": "label not in result 조건에서 대소문자 구분 없이 비교해야 합니다. 현재 코드는 item.strip()만 사용하고 있으므로, casefold()를 적용해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.1"
+          ],
+          "message": "같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 현재 코드는 if label not in result 조건으로 처음 등장한 라벨만 유지하므로, 이 조건을 수정해야 합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3"
+          ],
+          "message": "label not in result 조건에서 대소문자 구분 없이 비교해야 합니다. 현재 코드는 item.strip()만 사용하고 있으므로, casefold()를 적용해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.1"
+          ],
+          "message": "같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 현재 코드는 if label not in result 조건으로 처음 등장한 라벨만 유지하므로, 이 조건을 수정해야 합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.2",
+            "A1.3"
+          ],
+          "message": "label not in result 조건에서 대소문자 구분 없이 비교해야 합니다. 현재 코드는 item.strip()만 사용하고 있으므로, casefold()를 적용해야 합니다."
+        },
+        {
+          "kind": "구현 수정",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            }
+          ],
+          "sources": [
+            "A1.1"
+          ],
+          "message": "같은 태그가 반복되면 가장 마지막에 받은 표기를 표시해야 합니다. 현재 코드는 if label not in result 조건으로 처음 등장한 라벨만 유지하므로, 이 조건을 수정해야 합니다."
+        }
+      ],
+      "ready": false
+    }
+  ],
+  "main_questions": [
+    "기존 코드의 'if label not in result' 조건을 수정해야 하는데, 'label' 대신 'label.casefold()'를 사용해야 하는지, 또는 'label'을 casefold한 값을 저장하고 비교해야 하는지에 대한 명확한 지침이 필요합니다."
+  ],
+  "questions": [
+    {
+      "question": "기존 코드의 'if label not in result' 조건을 수정해야 하는데, 'label' 대신 'label.casefold()'를 사용해야 하는지, 또는 'label'을 casefold한 값을 저장하고 비교해야 하는지에 대한 명확한 지침이 필요합니다.",
+      "proposed_by": [
+        "main"
+      ]
+    }
+  ],
+  "ready": false
+}

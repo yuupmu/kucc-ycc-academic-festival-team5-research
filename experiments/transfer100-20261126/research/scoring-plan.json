@@ -1,0 +1,17 @@
+{
+  "scorer": "f838cca2e38132c81f20266244a2cc97756f768e9a6732aa61504b961da52195",
+  "inputs": "98e737af001938824e930d61d9bde2748dc0c5c606e3df30183444ce4d0d25b3",
+  "final_submissions": "d6f2833c231190c6ef68e1cac956532b3c4375c1a4c83847fe2f60a947231f4d",
+  "missing_policy_rule": "print에서 두 축 모두 초과하면 어느 한 축의 상한만 알아도 거부 근거가 충분하다.",
+  "classify": "정보 충족 여부는 사전 required와 실제 회신으로 정한다. 모호한 자유 문장 의미의 완전한 증명을 뜻하지 않는다. 점수는 마지막 제출, 시드 하나.",
+  "stages": {
+    "correct_grounded": "근거 확보·정답",
+    "correct_unsupported": "답 확보 전 정답 반환",
+    "missing_wrong": "필요 정책 미수신·오답",
+    "missing_defer": "필요 정책 미수신·보류",
+    "known_wrong": "근거 확보·구현 오답",
+    "known_defer": "근거 확보·구현 보류",
+    "public_wrong": "공개 요구 구현 오답",
+    "public_defer": "공개 요구 구현 보류"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "conditions": [
+    "A-solo",
+    "A-self",
+    "A-abc",
+    "B-solo",
+    "B-self",
+    "B-abc",
+    "C-solo",
+    "C-self",
+    "C-abc",
+    "mixed"
+  ],
+  "tasks": {
+    "transfer": [
+      "title",
+      "suffix",
+      "mask",
+      "upload",
+      "print"
+    ],
+    "booking": [
+      "reservation",
+      "calendar"
+    ]
+  },
+  "seed": 263,
+  "cycles": 3,
+  "owner": "Archived question-to-card labels; Codex codes new questions against the same cards before grading.",
+  "reuse": "Unchanged drafts, reviews, direct edits and scores retain their verified archives. Skip unused reader on direct edits. Cache only exact model requests. Grade after sealing all 70.",
+  "weights": {
+    "A": {
+      "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+      "bytes": 2707513696,
+      "sha256": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c"
+    },
+    "B": {
+      "filename": "google_gemma-3-4b-it-Q4_K_M.gguf",
+      "bytes": 2489758112,
+      "sha256": "4996030242583a40aa151ff93f49ed787ac8c25e4120c3ae4588b2e2a7d1ae94",
+      "revision": "71506238f970075ca85125cd749c28b1b0eee84e"
+    },
+    "C": {
+      "filename": "microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+      "bytes": 2491874688,
+      "sha256": "01999f17c39cc3074afae5e9c539bc82d45f2dd7faa3917c66cbef76fce8c0c2",
+      "revision": "7ff82c2aaa4dde30121698a973765f39be5288c0"
+    }
+  },
+  "files": {
+    "experiments/family-reply-delta-20261126/run.py": "2be266de27dae9c94420da1ad0cbaa98aa338f311ab291ba2339664f902ff64a",
+    "experiments/family-reply-delta-20261126/score.py": "cff2dd9c5d795ee789b7640562bf8c2378115e08e8388de8867729df9849dd9c",
+    "experiments/scoped-behavior-20261126/retained/sealed.json": "14c7c81c20575de2eb4272c5139366d4f6f518bfbe12cfcbb0bc724e8d66a110",
+    "var/family-100-v1/weights.json": "458dabc7b39f82d8ba1a93649fe8f3617f2724dc29937011345a93a730d50577",
+    "experiments/transfer100-20261126/evaluator/cases.json": "98e737af001938824e930d61d9bde2748dc0c5c606e3df30183444ce4d0d25b3",
+    "experiments/pipeline100/sample.json": "7cf7bdd63a62e16791df58e319d475fa8313bce609b00fd57d8afd21a6790374",
+    "reservation_benchmark/evaluator/cases.json": "6a900e2496bc0990b4e8b395444bc031fe7a47f462f515ea31e33fbb0912aba3",
+    "reservation_benchmark/evaluator/answer_key.json": "d168f1fc0acdf4cb304a258a77fd783796ac5d5a9c89f41bb5fb5daa34738d6a",
+    "var/family-100-v1/audit.py": "d075371688ea42ac702c97d56f0a14ab908bbda64a2f503c2b8e7a7d8e1a565a",
+    "experiments/transfer100_report.py": "f838cca2e38132c81f20266244a2cc97756f768e9a6732aa61504b961da52195",
+    "backend/allocation_repair.py": "bae7eb8807d459d3f6534c1f90b84342a7c746686d5b040739f6b234bfea2f44",
+    "backend/isolated.py": "e1cdf7773d53802e3773b85622a99852abd256a7370ac51a50a91874a65d5e61",
+    "experiments/scoped_transfer.py": "8589d93534ebdabb31281a48a87247f45b0656a2262dab3da467a57657a011b7",
+    "experiments/local_transport.py": "20687f9c04c6a312bb610cc29bd4fdba83e21d36d735d955f5536f9c3423210f",
+    "experiments/festival_protocol.py": "bef0db5da639e34b33b5e0776f816267d98365e0c95da1c4cecdc0a5ec95edf2",
+    "reservation_benchmark/score.py": "6292ce8c0522d301fc9143fba752e2e771b0e1c6a52531fc3a5b65458c088a1d",
+    "reservation_benchmark/evaluator/policy.json": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+    "experiments/reply_pipeline.py": "a2010a43c1a7a91b57291552b671a2f99ed604ed7418ad74a45c1b714e83452c",
+    "experiments/guarded_reply.py": "fc50fd83d0e59abde77af71bff559d1c77fc536379ce753521cbda6272c89ee9",
+    "experiments/scoped_reply_writer.py": "55e34e204a1c2fdd081de35d7b5f3448f0e81e7151547a24f4d41c4cac64b1e1",
+    "experiments/scoped_transfer_v2.py": "bcf346656100adac8ec635d856aa904727c7d564da6dde4d46b60ae685537afa",
+    "var/family-100-v1/design.json": "76695fd1657c60ef62192eaa723caab9f538ff894ea0cf66ebe665046f672a43",
+    "var/family-100-v1/cards.json": "6b8452ae0450702de55343a001dc2f786fb4370ca977ece8ae87b3281c137230",
+    "var/family-100-v1/labels.json": "1b09366156a017381468a3db2107883dc3ccd5e9e803f65c79fc669173aff98c",
+    "var/family-100-v1/sealed-all.json": "de767aa066fa1a5de6bb617ee4bb0bb6efbb143c3c882c8bfbb9c419cec5acdd",
+    "var/family-100-v1/study.py": "473ba45a1b7999604cf890b683912f45a4c03fea8fd4e416ae099e80bb112c0e",
+    "var/reservation-family-v1/design.json": "bf5a38f3f63dfd46e3edb083e7277ae6d1446bc537997585d9fb6cd2230ca137",
+    "var/reservation-family-v1/cards.json": "2076153da44a06439172a22fd1b0777e02bf6143588397e140d0ca042a29b999",
+    "var/reservation-family-v1/labels.json": "c469d4e16e6d35a221ef7ef6b41be0cba7fe94b196baa0b7684b3c1b6dbb5d86",
+    "var/reservation-family-v1/sealed-all.json": "3dd77f1a2e4812fb1e0e44e4fe4f89f136a1972d3364158031a2595199b49524",
+    "var/reservation-family-v1/study.py": "835d8c8df15c42bee596ba0aa921600c38b2eb5ad395718612dc83d0ab91197e",
+    "var/family-100-v1/results.json": "cac5253bea3f5f0c13b7af1c4f74f75bd5d015b09b60ca206892c6340343f310",
+    "var/reservation-family-v1/scores.json": "9301fa815a4a92577bd70797661acc3ca99871270e3411b04bcff099eabbbe0d",
+    "var/reservation-family-v1/details.json": "cf28f48601a681d01c035f04e0ebb2cbb7170e535ad5cabeaf468664625dbb16"
+  }
+}

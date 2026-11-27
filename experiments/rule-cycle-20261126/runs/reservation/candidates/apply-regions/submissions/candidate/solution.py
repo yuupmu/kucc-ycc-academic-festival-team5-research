@@ -1,0 +1,32 @@
+def allow_cancel(age_seconds, until_start_seconds):
+    if age_seconds < 0 and until_start_seconds < 0:
+        return False
+    if age_seconds < 0 and until_start_seconds == 0:
+        return False
+    if age_seconds < 0 and 0 < until_start_seconds < 86400:
+        return False
+    if age_seconds < 0 and until_start_seconds == 86400:
+        return False
+    if age_seconds < 0 and until_start_seconds > 86400:
+        return False
+    if age_seconds == 0 and until_start_seconds < 0:
+        return False
+    if age_seconds == 0 and until_start_seconds == 0:
+        return False
+    if age_seconds == 0 and 0 < until_start_seconds < 86400:
+        return False
+    if age_seconds == 0 and until_start_seconds == 86400:
+        return False
+    if age_seconds == 0 and until_start_seconds > 86400:
+        return False
+    if age_seconds > 0 and until_start_seconds < 0:
+        return False
+    if age_seconds > 0 and until_start_seconds == 0:
+        return False
+    if age_seconds > 0 and 0 < until_start_seconds < 86400:
+        return False
+    if age_seconds > 0 and until_start_seconds == 86400:
+        return False
+    if age_seconds > 0 and until_start_seconds > 86400:
+        return False
+    raise NotImplementedError

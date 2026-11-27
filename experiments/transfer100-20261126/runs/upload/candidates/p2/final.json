@@ -1,0 +1,102 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    raise NotImplementedError\n"
+  },
+  "sha256": "e46e23f8a7c25c8c5ef135eff682b75b13c92844f910e89d8e71510c6e618aaa",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    raise NotImplementedError\n"
+    },
+    "sha256": "e46e23f8a7c25c8c5ef135eff682b75b13c92844f910e89d8e71510c6e618aaa",
+    "received": [
+      1
+    ],
+    "author_call": "83c38e66b9389c2bc691a8009a38b2e8d0e8de7339197eb2a31b55dc436ddc0b",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [
+        "solution.py"
+      ],
+      "restored_indent": [],
+      "rejected": [
+        "solution.py"
+      ],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "업로드 파일 크기의 상한은 16바이트입니다. 빈 파일 (0 바이트) 은 거부하고, 16 바이트 이하의 양수 파일은 허용합니다. 이 규칙에 따라 코드를 수정할 수 있습니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "해당 코드는 상한값이 16바이트인 경우를 제외하고는 상한값을 어떻게 처리해야 하는지 명확히 정의할 수 없습니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "업로드 파일 크기의 상한은 16 바이트이며, 빈 파일 (0 바이트) 은 거부하고, 상한과 정확히 같은 파일은 허용하도록 구현해야 하는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "5c915543c8e1fb76226499044100a24390db98c95da69bd0096eb1049a6fcb74",
+    "0f6c536c6023bac01510ddace4e1a1afa96a935f3f75c2c406d7a962f5f18204",
+    "bbcdb057f6fe99bad7d90be00ccb3a064acc7de9312768780120a41881849115",
+    "83c38e66b9389c2bc691a8009a38b2e8d0e8de7339197eb2a31b55dc436ddc0b",
+    "410e44547b887bac0e6a09503254a7721ceaa1c6635f843056d79bbc2f11587e",
+    "84182481cd70efe44c056cfb91879430a8acff3cb702c8882c2023c82e4ac30f",
+    "53202ff2457b117270de797d5cede76297652fd5bae40851a6c3f56cfb0aa8f9"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "84c4decfa3fbffa94e59811bd83b2fccd19ab36bf1b17a8d07d357e63fc555ce",
+      "questions": [
+        {
+          "question": "업로드 허용 상한값과 빈 파일(0 바이트)의 허용 여부는 저장소 담당자에게 확인해야 하는지, 아니면 코드를 작성하는 독립 감시자로서 판단해야 하는지 명확히 해야 합니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "상한 파일 크기는 얼마이며, 정확히 이 크기와 0 바이트인 파일은 허용되나요?",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "업로드 상한 파일 크기는 얼마이며, 정확히 그 크기와 0 바이트인 빈 파일은 허용되나요?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "업로드 크기의 상한은 16바이트입니다.\n빈 파일에는 거부로 처리합니다.\n파일 크기가 상한과 정확히 같아도 허용합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

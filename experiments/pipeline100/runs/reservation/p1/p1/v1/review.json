@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "bc0fbc416ddbc9d0b3aabff094052607110cb11888e9987ada270823e07eb920",
+    "bfe3414ba970218147d7221f517274e8cbb842878d7013888117f4a9514044b1",
+    "fac62946598ccba2da8cc9264b67b61d178e3e076b7f1607bfb51fe96866e33e",
+    "6fdd73aee16772a727c264bc14783296c1b2747223fd6c206c9ddb04de8d9ac1"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "방금 잘못 예약한 고객에게 별도의 정정 시간이 있는지, 그리고 그 시간의 기준 (예: 예약 생성 후 몇 초 이내) 을 명확히 해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "방금 잘못 예약한 고객에게 별도의 정정 시간이 있다는 안내문 조항과, 직원이 이를 적용하지 않고 모든 0 초 이상 예약을 허용하는 구현이 맞는지 확인하기 위해, 0 초 이하의 age_seconds (예: -10 초) 와 0 초의 until_start_seconds 조합에 대해 정정 시간이 적용되는지 구체적으로 질문해야 하는지 판단합니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "'방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문과 직원의 답변에 따라, 이용 시작 24 시간 전 (until_start_seconds >= 86400) 부터 이용 시작 순간 (until_start_seconds = 0) 까지까지의 구간에서 취소를 허용하는 기준은 무엇인가요?"
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있는지, 그리고 그 시간의 기준 (예: 예약 생성 후 몇 초 이내) 을 명확히 해주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있다는 안내문 조항과, 직원이 이를 적용하지 않고 모든 0 초 이상 예약을 허용하는 구현이 맞는지 확인하기 위해, 0 초 이하의 age_seconds (예: -10 초) 와 0 초의 until_start_seconds 조합에 대해 정정 시간이 적용되는지 구체적으로 질문해야 하는지 판단합니다.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "'방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문과 직원의 답변에 따라, 이용 시작 24 시간 전 (until_start_seconds >= 86400) 부터 이용 시작 순간 (until_start_seconds = 0) 까지까지의 구간에서 취소를 허용하는 기준은 무엇인가요?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "awaiting_human"
+}

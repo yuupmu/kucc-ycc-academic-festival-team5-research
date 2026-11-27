@@ -1,0 +1,168 @@
+{
+  "seal": "60bd44e87237c9e9796142d67c004b0aeec4360cf35a7c12e757148542ffb67a",
+  "tasks": {
+    "upload": {
+      "panels": {
+        "domain": {
+          "kept": 119,
+          "fixed": 63,
+          "lost": 34
+        },
+        "boundary": {
+          "fixed": 5,
+          "kept": 10,
+          "lost": 3
+        }
+      },
+      "submissions": {
+        "upload/273/B": {
+          "domain": {
+            "kept": 20,
+            "fixed": 16
+          },
+          "boundary": {
+            "fixed": 2,
+            "kept": 1
+          }
+        },
+        "upload/273/A": {
+          "domain": {
+            "kept": 2,
+            "lost": 34
+          },
+          "boundary": {
+            "lost": 3
+          }
+        },
+        "upload/419/A": {
+          "domain": {
+            "kept": 36
+          },
+          "boundary": {
+            "kept": 3
+          }
+        },
+        "upload/419/B": {
+          "domain": {
+            "kept": 21,
+            "fixed": 15
+          },
+          "boundary": {
+            "fixed": 1,
+            "kept": 2
+          }
+        },
+        "upload/887/B": {
+          "domain": {
+            "kept": 4,
+            "fixed": 32
+          },
+          "boundary": {
+            "fixed": 2,
+            "kept": 1
+          }
+        },
+        "upload/887/A": {
+          "domain": {
+            "kept": 36
+          },
+          "boundary": {
+            "kept": 3
+          }
+        }
+      },
+      "usage": {
+        "old": {
+          "calls": 6,
+          "prompt_tokens": 3816,
+          "completion_tokens": 721,
+          "total_tokens": 4537
+        },
+        "new": {
+          "calls": 12,
+          "prompt_tokens": 4686,
+          "completion_tokens": 440,
+          "total_tokens": 5126
+        }
+      },
+      "code_equal": []
+    },
+    "sensors": {
+      "panels": {
+        "domain": {
+          "kept": 618,
+          "still_wrong": 64
+        }
+      },
+      "submissions": {
+        "sensors/419/B": {
+          "domain": {
+            "kept": 341
+          }
+        },
+        "sensors/419/A": {
+          "domain": {
+            "kept": 277,
+            "still_wrong": 64
+          }
+        }
+      },
+      "usage": {
+        "old": {
+          "calls": 4,
+          "prompt_tokens": 1452,
+          "completion_tokens": 158,
+          "total_tokens": 1610
+        },
+        "new": {
+          "calls": 6,
+          "prompt_tokens": 2004,
+          "completion_tokens": 495,
+          "total_tokens": 2499
+        }
+      },
+      "code_equal": [
+        "sensors/419/B",
+        "sensors/419/A"
+      ]
+    },
+    "signal": {
+      "panels": {
+        "domain": {
+          "kept": 29,
+          "lost": 9
+        }
+      },
+      "submissions": {
+        "signal/1421/B": {
+          "domain": {
+            "kept": 19
+          }
+        },
+        "signal/1421/A": {
+          "domain": {
+            "kept": 10,
+            "lost": 9
+          }
+        }
+      },
+      "usage": {
+        "old": {
+          "calls": 2,
+          "prompt_tokens": 588,
+          "completion_tokens": 56,
+          "total_tokens": 644
+        },
+        "new": {
+          "calls": 4,
+          "prompt_tokens": 1006,
+          "completion_tokens": 108,
+          "total_tokens": 1114
+        }
+      },
+      "code_equal": [
+        "signal/1421/B"
+      ]
+    }
+  }
+}

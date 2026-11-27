@@ -1,0 +1,297 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    if size_bytes < 0:\n        return False\n    if size_bytes == 0:\n        return False\n    raise NotImplementedError\n"
+    },
+    "calls": [
+      "4f2d3f7b3fd55175c2e884329ab2e4bd9a257728d04f7801b5832ffa121ce432",
+      "b3bf08ec33e25c8feb002dd03c9b9b0b3ae747a7816e37905068a0229e322162"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "allow_upload(size_bytes) 함수는 정수 타입의 size_bytes를 입력받음. 0은 빈 파일로 간주함. 음수 입력은 거부함.",
+        "input": "size_bytes",
+        "still_open": "정수 타입의 구체적 제약 (예: 최대값) 이나 0 처리의 상세 로직 (빈 파일 거부 여부) 이 명확하지 않음.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "파일 크기가 담당자 정한 상한보다 작거나 같으면 허용 (True), 상한보다 크면 거부 (False) 함.",
+        "input": "size_bytes",
+        "still_open": "상한 값의 구체적 정의나 저장소 담당자에게 확인해야 할 조건이 명확하지 않음.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "파일 내용이나 확장자는 입력에 없음.",
+        "input": "size_bytes",
+        "still_open": "상한 값의 정의가 명확하지 않음.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "파일 크기가 상한과 정확히 같아도 허용함.",
+        "input": "size_bytes",
+        "still_open": "상한 값의 구체적 정의가 명확하지 않음.",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "빈 파일 (size_bytes == 0) 은 거부함.",
+        "input": "size_bytes",
+        "still_open": "상한 값의 구체적 정의가 명확하지 않음.",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 3,
+            "sources": [
+              "P1",
+              "P2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "size_bytes",
+        "locations": [
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 4,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          },
+          {
+            "target": "T1",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "H2"
+            ],
+            "inputs": [
+              "size_bytes"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {},
+        "decision": {
+          "rules": [
+            {
+              "when": "size_bytes < 0",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P1",
+                "P2"
+              ]
+            },
+            {
+              "when": "size_bytes == 0",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "H2"
+              ]
+            },
+            {
+              "when": "size_bytes > MAX_UPLOAD_SIZE",
+              "action": "return",
+              "value": "False",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "size_bytes <= MAX_UPLOAD_SIZE",
+              "action": "return",
+              "value": "True",
+              "sources": [
+                "P2",
+                "H1"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "False",
+            "sources": [
+              "P1",
+              "P2"
+            ]
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "3번째 조건 · 입력·근거표에 없는 이름 MAX_UPLOAD_SIZE"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "상한 값이 정해지지 않았을 때, allow_upload 함수는 상한보다 작은 양수 파일에 대해 NotImplementedError 를 던져야 합니다.",
+            "outcome_a": "상한 값이 아직 정해지지 않았으므로, 상한보다 작은 양수 파일에 대해 NotImplementedError 를 던져야 합니다.",
+            "outcome_b": "상한 값이 아직 정해지지 않았으므로, 상한보다 작은 양수 파일에 대해 NotImplementedError 를 던져야 합니다.",
+            "question": "상한 값이 아직 정해지지 않았을 때, allow_upload 함수는 상한보다 작은 양수 파일에 대해 NotImplementedError 를 던져야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "상한 값이 정확히 일치하는 파일의 허용 여부에 대한 판단",
+            "outcome_a": "담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다.",
+            "outcome_b": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+            "question": "상한 값이 정확히 일치하는 파일은 허용하시겠습니까?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "상한 값이 정해지지 않았을 때",
+            "outcome_a": "상한 값이 정해지지 않았으므로 상한과 정확히 같은 파일은 거부해야 합니다.",
+            "outcome_b": "상한 값이 정해지지 않았으므로 상한과 정확히 같은 파일은 허용해야 합니다.",
+            "question": "상한 값이 정해지지 않았을 때, 상한과 정확히 같은 파일은 거부해야 하는지 허용해야 하는지?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "0a89dccb43f0c1d84b12183c0c48bd174795112d099ca6229c24f62f68945156",
+    "6729d84d619bd54ff52bd1228500b86ceee9449237959f0728b4606fe672ad40",
+    "5da7da6fa3b4c3fafcccfbc9fc722fda7b078a014441832b7833fcead775a70e",
+    "4f2d3f7b3fd55175c2e884329ab2e4bd9a257728d04f7801b5832ffa121ce432",
+    "b3bf08ec33e25c8feb002dd03c9b9b0b3ae747a7816e37905068a0229e322162",
+    "6399d9c3bd69537e4657b67d0dea8be88c0ac31eb578aa9b11bbc9bfe6c22fb5",
+    "ec66e3cd92b129a6daa19d1a5440398cb9cae9d3047be9ce7c0dc00bb00e78c9",
+    "ff660dacb1feb87b404788204b16fe7882099a5f0f4389bcbd29101b571bfa6a"
+  ],
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    if size_bytes < 0:\n        return False\n    if size_bytes == 0:\n        return False\n    raise NotImplementedError\n"
+  },
+  "sha256": "cc0cee69f58782ab8e75bc8704b2e848956c51da87b7ff1431f40323a8188f2b",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "67e8a671677b9e46b59cc98f34d569ca42ba0fdd03efdc64cb907835351304bc",
+      "questions": [
+        {
+          "question": "상한 값과 정확히 일치하는 파일과 빈 파일에 대해, 담당자가 정한 상한보다 작은 양수 파일의 허용 기준과 동일한 방식으로 처리해야 할지 (즉, 상한을 포함하여 허용), 아니면 상한을 포함하여 거부해야 할지 명확히 해주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "파일 크기가 상한과 정확히 같아도 허용합니다.\n빈 파일에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

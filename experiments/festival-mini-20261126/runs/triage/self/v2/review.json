@@ -1,0 +1,27 @@
+{
+  "calls": [
+    "45ad4799a19d588251e5838d61c604f7c6bf7ba40e4c843157e224f0364ae129",
+    "feb84e26b1c4f901a1b401674d32fef7553a4eb7cd415bbac5465d9a97017f7e"
+  ],
+  "reviewers": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "triage 함수가 여러 태그가 들어올 때 첫 번째 매칭된 태그만 반환하고 나머지는 처리하지 않는다는 점을 고려하여, 미처리된 태그가 오류를 유발하지 않도록 처리하는 로직이 누락되었습니다."
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "triage 함수가 여러 태그가 들어올 때 첫 번째 매칭된 태그만 반환하고 나머지는 처리하지 않는다는 점을 고려하여, 미처리된 태그가 오류를 유발하지 않도록 처리하는 로직이 누락되었습니다.",
+      "proposed_by": [
+        "main-self"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

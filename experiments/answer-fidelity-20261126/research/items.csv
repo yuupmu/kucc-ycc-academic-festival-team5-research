@@ -1,0 +1,141 @@
+﻿task,arm,cycle,item,inputs,expected,before,before_status,after,after_status,changed
+reservation,solo,0,C003,"[604799, 86401]",True,True,correct,True,correct,False
+reservation,solo,0,C011,"[165600, 86400]",True,True,correct,True,correct,False
+reservation,solo,0,C002,"[604801, 86399]",False,True,wrong,True,wrong,False
+reservation,solo,0,C006,"[608400, 82800]",False,True,wrong,True,wrong,False
+reservation,solo,0,C071,"[600, 3600]",True,True,correct,True,correct,False
+reservation,solo,0,C072,"[601, 3600]",False,True,wrong,True,wrong,False
+reservation,solo,0,C073,"[600, 7200]",True,True,correct,True,correct,False
+reservation,solo,0,C081,"[299, 1]",True,True,correct,True,correct,False
+reservation,solo,0,C082,"[300, 0]",False,True,wrong,True,wrong,False
+reservation,solo,0,C084,"[301, -1]",False,False,correct,False,correct,False
+reservation,self,1,C003,"[604799, 86401]",True,True,correct,True,correct,False
+reservation,self,1,C011,"[165600, 86400]",True,True,correct,True,correct,False
+reservation,self,1,C002,"[604801, 86399]",False,True,wrong,True,wrong,False
+reservation,self,1,C006,"[608400, 82800]",False,True,wrong,True,wrong,False
+reservation,self,1,C071,"[600, 3600]",True,True,correct,True,correct,False
+reservation,self,1,C072,"[601, 3600]",False,True,wrong,True,wrong,False
+reservation,self,1,C073,"[600, 7200]",True,True,correct,True,correct,False
+reservation,self,1,C081,"[299, 1]",True,True,correct,True,correct,False
+reservation,self,1,C082,"[300, 0]",False,True,wrong,True,wrong,False
+reservation,self,1,C084,"[301, -1]",False,True,wrong,True,wrong,False
+reservation,self,2,C003,"[604799, 86401]",True,True,correct,True,correct,False
+reservation,self,2,C011,"[165600, 86400]",True,True,correct,True,correct,False
+reservation,self,2,C002,"[604801, 86399]",False,True,wrong,True,wrong,False
+reservation,self,2,C006,"[608400, 82800]",False,True,wrong,True,wrong,False
+reservation,self,2,C071,"[600, 3600]",True,True,correct,True,correct,False
+reservation,self,2,C072,"[601, 3600]",False,True,wrong,True,wrong,False
+reservation,self,2,C073,"[600, 7200]",True,True,correct,True,correct,False
+reservation,self,2,C081,"[299, 1]",True,True,correct,True,correct,False
+reservation,self,2,C082,"[300, 0]",False,True,wrong,True,wrong,False
+reservation,self,2,C084,"[301, -1]",False,True,wrong,True,wrong,False
+reservation,self,3,C003,"[604799, 86401]",True,False,wrong,True,correct,True
+reservation,self,3,C011,"[165600, 86400]",True,True,correct,True,correct,False
+reservation,self,3,C002,"[604801, 86399]",False,True,wrong,True,wrong,False
+reservation,self,3,C006,"[608400, 82800]",False,True,wrong,True,wrong,False
+reservation,self,3,C071,"[600, 3600]",True,True,correct,True,correct,False
+reservation,self,3,C072,"[601, 3600]",False,True,wrong,True,wrong,False
+reservation,self,3,C073,"[600, 7200]",True,True,correct,True,correct,False
+reservation,self,3,C081,"[299, 1]",True,True,correct,True,correct,False
+reservation,self,3,C082,"[300, 0]",False,True,wrong,True,wrong,False
+reservation,self,3,C084,"[301, -1]",False,True,wrong,True,wrong,False
+reservation,multi,1,C003,"[604799, 86401]",True,False,wrong,False,wrong,False
+reservation,multi,1,C011,"[165600, 86400]",True,False,wrong,False,wrong,False
+reservation,multi,1,C002,"[604801, 86399]",False,False,correct,False,correct,False
+reservation,multi,1,C006,"[608400, 82800]",False,False,correct,False,correct,False
+reservation,multi,1,C071,"[600, 3600]",True,True,correct,True,correct,False
+reservation,multi,1,C072,"[601, 3600]",False,False,correct,False,correct,False
+reservation,multi,1,C073,"[600, 7200]",True,True,correct,True,correct,False
+reservation,multi,1,C081,"[299, 1]",True,True,correct,True,correct,False
+reservation,multi,1,C082,"[300, 0]",False,True,wrong,False,correct,True
+reservation,multi,1,C084,"[301, -1]",False,True,wrong,True,wrong,False
+reservation,multi,2,C003,"[604799, 86401]",True,False,wrong,False,wrong,False
+reservation,multi,2,C011,"[165600, 86400]",True,False,wrong,False,wrong,False
+reservation,multi,2,C002,"[604801, 86399]",False,False,correct,False,correct,False
+reservation,multi,2,C006,"[608400, 82800]",False,False,correct,False,correct,False
+reservation,multi,2,C071,"[600, 3600]",True,True,correct,True,correct,False
+reservation,multi,2,C072,"[601, 3600]",False,False,correct,False,correct,False
+reservation,multi,2,C073,"[600, 7200]",True,True,correct,True,correct,False
+reservation,multi,2,C081,"[299, 1]",True,True,correct,True,correct,False
+reservation,multi,2,C082,"[300, 0]",False,True,wrong,False,correct,True
+reservation,multi,2,C084,"[301, -1]",False,True,wrong,True,wrong,False
+reservation,multi,3,C003,"[604799, 86401]",True,False,wrong,False,wrong,False
+reservation,multi,3,C011,"[165600, 86400]",True,False,wrong,False,wrong,False
+reservation,multi,3,C002,"[604801, 86399]",False,False,correct,False,correct,False
+reservation,multi,3,C006,"[608400, 82800]",False,False,correct,False,correct,False
+reservation,multi,3,C071,"[600, 3600]",True,True,correct,True,correct,False
+reservation,multi,3,C072,"[601, 3600]",False,False,correct,False,correct,False
+reservation,multi,3,C073,"[600, 7200]",True,True,correct,True,correct,False
+reservation,multi,3,C081,"[299, 1]",True,True,correct,True,correct,False
+reservation,multi,3,C082,"[300, 0]",False,True,wrong,False,correct,True
+reservation,multi,3,C084,"[301, -1]",False,True,wrong,True,wrong,False
+triage,solo,0,1,[['account']],account,account,correct,account,correct,False
+triage,solo,0,3,[['privacy']],privacy,privacy,correct,privacy,correct,False
+triage,solo,0,4,[['misc']],general,,unanswered,,unanswered,False
+triage,solo,0,5,[[]],general,,unanswered,,unanswered,False
+triage,solo,0,6,"[['account', 'billing']]",billing,account,wrong,account,wrong,False
+triage,solo,0,7,"[['billing', 'account']]",billing,billing,correct,billing,correct,False
+triage,solo,0,9,"[['account', 'privacy']]",privacy,account,wrong,account,wrong,False
+triage,solo,0,11,"[['billing', 'privacy']]",privacy,billing,wrong,billing,wrong,False
+triage,solo,0,14,"[['misc', 'billing']]",billing,billing,correct,billing,correct,False
+triage,solo,0,15,"[['misc', 'account', 'privacy', 'privacy']]",privacy,account,wrong,account,wrong,False
+triage,self,1,1,[['account']],account,account,correct,account,correct,False
+triage,self,1,3,[['privacy']],privacy,privacy,correct,privacy,correct,False
+triage,self,1,4,[['misc']],general,,unanswered,,unanswered,False
+triage,self,1,5,[[]],general,,unanswered,,unanswered,False
+triage,self,1,6,"[['account', 'billing']]",billing,,unanswered,,unanswered,False
+triage,self,1,7,"[['billing', 'account']]",billing,,unanswered,,unanswered,False
+triage,self,1,9,"[['account', 'privacy']]",privacy,,unanswered,,unanswered,False
+triage,self,1,11,"[['billing', 'privacy']]",privacy,,unanswered,,unanswered,False
+triage,self,1,14,"[['misc', 'billing']]",billing,billing,correct,billing,correct,False
+triage,self,1,15,"[['misc', 'account', 'privacy', 'privacy']]",privacy,,unanswered,,unanswered,False
+triage,self,2,1,[['account']],account,account,correct,account,correct,False
+triage,self,2,3,[['privacy']],privacy,privacy,correct,privacy,correct,False
+triage,self,2,4,[['misc']],general,,unanswered,,unanswered,False
+triage,self,2,5,[[]],general,,unanswered,,unanswered,False
+triage,self,2,6,"[['account', 'billing']]",billing,,unanswered,,unanswered,False
+triage,self,2,7,"[['billing', 'account']]",billing,,unanswered,,unanswered,False
+triage,self,2,9,"[['account', 'privacy']]",privacy,,unanswered,,unanswered,False
+triage,self,2,11,"[['billing', 'privacy']]",privacy,,unanswered,,unanswered,False
+triage,self,2,14,"[['misc', 'billing']]",billing,billing,correct,billing,correct,False
+triage,self,2,15,"[['misc', 'account', 'privacy', 'privacy']]",privacy,,unanswered,,unanswered,False
+triage,self,3,1,[['account']],account,account,correct,account,correct,False
+triage,self,3,3,[['privacy']],privacy,privacy,correct,privacy,correct,False
+triage,self,3,4,[['misc']],general,,unanswered,,unanswered,False
+triage,self,3,5,[[]],general,,unanswered,,unanswered,False
+triage,self,3,6,"[['account', 'billing']]",billing,billing,correct,billing,correct,False
+triage,self,3,7,"[['billing', 'account']]",billing,billing,correct,billing,correct,False
+triage,self,3,9,"[['account', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,self,3,11,"[['billing', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,self,3,14,"[['misc', 'billing']]",billing,billing,correct,billing,correct,False
+triage,self,3,15,"[['misc', 'account', 'privacy', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,1,1,[['account']],account,account,correct,account,correct,False
+triage,multi,1,3,[['privacy']],privacy,privacy,correct,privacy,correct,False
+triage,multi,1,4,[['misc']],general,,unanswered,,unanswered,False
+triage,multi,1,5,[[]],general,,unanswered,,unanswered,False
+triage,multi,1,6,"[['account', 'billing']]",billing,billing,correct,billing,correct,False
+triage,multi,1,7,"[['billing', 'account']]",billing,billing,correct,billing,correct,False
+triage,multi,1,9,"[['account', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,1,11,"[['billing', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,1,14,"[['misc', 'billing']]",billing,billing,correct,billing,correct,False
+triage,multi,1,15,"[['misc', 'account', 'privacy', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,2,1,[['account']],account,account,correct,account,correct,False
+triage,multi,2,3,[['privacy']],privacy,privacy,correct,privacy,correct,False
+triage,multi,2,4,[['misc']],general,,unanswered,,unanswered,False
+triage,multi,2,5,[[]],general,,unanswered,,unanswered,False
+triage,multi,2,6,"[['account', 'billing']]",billing,billing,correct,billing,correct,False
+triage,multi,2,7,"[['billing', 'account']]",billing,billing,correct,billing,correct,False
+triage,multi,2,9,"[['account', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,2,11,"[['billing', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,2,14,"[['misc', 'billing']]",billing,billing,correct,billing,correct,False
+triage,multi,2,15,"[['misc', 'account', 'privacy', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,3,1,[['account']],account,account,correct,account,correct,False
+triage,multi,3,3,[['privacy']],privacy,privacy,correct,privacy,correct,False
+triage,multi,3,4,[['misc']],general,,unanswered,,unanswered,False
+triage,multi,3,5,[[]],general,,unanswered,,unanswered,False
+triage,multi,3,6,"[['account', 'billing']]",billing,billing,correct,billing,correct,False
+triage,multi,3,7,"[['billing', 'account']]",billing,billing,correct,billing,correct,False
+triage,multi,3,9,"[['account', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,3,11,"[['billing', 'privacy']]",privacy,privacy,correct,privacy,correct,False
+triage,multi,3,14,"[['misc', 'billing']]",billing,billing,correct,billing,correct,False
+triage,multi,3,15,"[['misc', 'account', 'privacy', 'privacy']]",privacy,privacy,correct,privacy,correct,False

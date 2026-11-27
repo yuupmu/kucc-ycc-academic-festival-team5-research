@@ -1,0 +1,25 @@
+{
+  "code": "\"\"\"에이전트가 구현할 제출 틀. 외부 라이브러리는 사용하지 않습니다.\"\"\"\n\n\ndef can_cancel(now: str, booked_at: str, starts_at: str) -> bool:\n    if now >= starts_at:\n        return False\n    \n    if now >= booked_at + timedelta(minutes=10):\n        return False\n    \n    if now >= starts_at - timedelta(hours=24):\n        return True\n    \n    return False\n",
+  "calls": [
+    "ec2d688ba5af32256dee15cb458a3c1fd3a03385d5712cca85ed82c345393100",
+    "c029aa8a3fc2140338fccfaef5e67706556b06821a723253138260873b0604b2",
+    "e9f07fc855fec5bbcdf977d2dbc28165b6e8c4e7bd9860723254eb5e2d8afa37",
+    "8c60967a2e095a3ef58e04cd89cc4e811918cf88c061082debbed2cb736fbf52",
+    "7749fa4e015b7f8ada591589c57022b331c3b1908f26c3cecb3dfd523db584b4",
+    "1e3e6774f0c54346ac47bbffd830341e936dbafe90cc5ec2e78b1c2139f05ec6",
+    "71e94758c810e616c90c6096c3a925820e470f9ae27a8e0d1125761f297a133b"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "취소 정책에 따라, 예약이 시작되기 직전에 취소할 수 있는지 여부를 결정하는 기준은 무엇인가요? 예를 들어, 예약 시작 1분 전에는 취소할 수 있는지, 아니면 예약 시작 1시간 전에는 취소할 수 없는지 등 구체적인 시간 기준이 있나요?",
+        "예약 취소 허용 정책에 따라 예약 취소가 허용되는지 확인할 수 있습니까? 예약 생성 시각, 이용 시작 시각 및 현재 시각을 기반으로 결정해야 합니다.",
+        "현재 예약 취소 허용 여부를 결정하는 운영 정책이 문서에 명시되어 있지 않습니다. 취소 조건 (예: 예약 후 X 시간 이내 불가, 시작 시간까지 X 시간 전까지 가능 등) 을 확인할 수 있는 사용자 프롬프트나 인간 답변을 알려주세요."
+      ],
+      "answer": {
+        "text": "일반 취소는 예약 이용 시작 24시간 전까지 가능합니다. 예약 직후 정정 시간은 예약을 생성한 때부터 셉니다. 예약 직후 정정할 수 있는 시간은 10분입니다. 정정 기간 안이면 일반 마감이 지났어도 시작 전에는 취소할 수 있습니다."
+      }
+    }
+  ]
+}

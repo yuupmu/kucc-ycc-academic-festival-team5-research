@@ -1,0 +1,11 @@
+--- v5
++++ v6
+@@ -23,8 +23,6 @@
+         return False
+     if until_start_seconds == 86400:
+         raise NotImplementedError("담당자 판단 필요")
+-    if until_start_seconds == 0:
+-        raise NotImplementedError("담당자 판단 필요")
+     if until_start_seconds < 0:  # [6]
+         return False
+     if until_start_seconds == 0:

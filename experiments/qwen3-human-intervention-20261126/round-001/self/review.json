@@ -1,0 +1,89 @@
+{
+  "reviews": [
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 마감 시점인 '이용 시작 24시간 전'은 until_start_seconds가 정확히 24*3600일 때만 허용되나요? 아니면 24*3600 초 이상일 때도 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간은 '이용 시작 전까지'로 해석되며, until_start_seconds >= 0일 때만 허용되나요? 또는 until_start_seconds > 0일 때만 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간의 끝 경계는 '이용 시작 시점'인 until_start_seconds == 0일 때로 해석되나요? 또는 until_start_seconds < 0일 때로 해석해야 하나요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에는 일반 마감과 정정 기간 모두 마감됩니다. 이는 until_start_seconds < 0일 때만 거부해야 하나요? 아니면 until_start_seconds == 0일 때도 거부해야 하나요?"
+        },
+        {
+          "topic": "other",
+          "question": "age_seconds는 예약 생성부터 현재까지 경과한 시간으로, 이 값이 취소 정책에 영향을 주나요? 코드에서는 age_seconds를 사용하지 않았습니다."
+        }
+      ],
+      "needs_code_revision": true,
+      "reason": "age_seconds가 사용되지 않았으며, 정정 기간의 정확한 경계 조건이 명확하지 않아 코드 수정이 필요합니다."
+    },
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 마감 시점인 '이용 시작 24시간 전'은 until_start_seconds가 정확히 24*3600일 때만 허용되나요? 아니면 24*3600 초 이상일 때도 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간은 '이용 시작 전까지'로 해석되며, until_start_seconds >= 0일 때만 허용되나요? 또는 until_start_seconds > 0일 때만 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간의 끝 경계는 '이용 시작 시점'인 until_start_seconds == 0일 때로 해석되나요? 또는 until_start_seconds < 0일 때로 해석해야 하나요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에는 일반 마감과 정정 기간 모두 마감됩니다. 이는 until_start_seconds < 0일 때만 거부해야 하나요? 아니면 until_start_seconds == 0일 때도 거부해야 하나요?"
+        },
+        {
+          "topic": "other",
+          "question": "age_seconds는 예약 생성부터 현재까지 경과한 시간으로, 이 값이 취소 정책에 영향을 주나요? 코드에서는 age_seconds를 사용하지 않았습니다."
+        }
+      ],
+      "needs_code_revision": true,
+      "reason": "age_seconds가 사용되지 않았으며, 정정 기간의 정확한 경계 조건이 명확하지 않아 코드 수정이 필요합니다."
+    },
+    {
+      "questions": [
+        {
+          "topic": "deadline_edge",
+          "question": "일반 마감 시점인 '이용 시작 24시간 전'은 until_start_seconds가 정확히 24*3600일 때만 허용되나요? 아니면 24*3600 초 이상일 때도 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_period",
+          "question": "정정 기간은 '이용 시작 전까지'로 해석되며, until_start_seconds >= 0일 때만 허용되나요? 또는 until_start_seconds > 0일 때만 허용해야 하나요?"
+        },
+        {
+          "topic": "correction_edge",
+          "question": "정정 기간의 끝 경계는 '이용 시작 시점'인 until_start_seconds == 0일 때로 해석되나요? 또는 until_start_seconds < 0일 때로 해석해야 하나요?"
+        },
+        {
+          "topic": "start_priority",
+          "question": "이용 시작 시점 이후에는 일반 마감과 정정 기간 모두 마감됩니다. 이는 until_start_seconds < 0일 때만 거부해야 하나요? 아니면 until_start_seconds == 0일 때도 거부해야 하나요?"
+        },
+        {
+          "topic": "other",
+          "question": "age_seconds는 예약 생성부터 현재까지 경과한 시간으로, 이 값이 취소 정책에 영향을 주나요? 코드에서는 age_seconds를 사용하지 않았습니다."
+        }
+      ],
+      "needs_code_revision": true,
+      "reason": "age_seconds가 사용되지 않았으며, 정정 기간의 정확한 경계 조건이 명확하지 않아 코드 수정이 필요합니다."
+    }
+  ],
+  "missing_evidence": [
+    "deadline_edge",
+    "correction_period",
+    "correction_edge",
+    "start_priority"
+  ],
+  "ready": false
+}

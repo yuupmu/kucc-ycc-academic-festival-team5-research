@@ -1,0 +1,52 @@
+{
+  "code": "def can_cancel(now: str, booked_at: str, starts_at: str) -> bool:\n    return False\n",
+  "calls": [
+    "31725b39792ca5b8ac32ec854085b49fca307d2d222cf88a317625360b8a53e9",
+    "c642da4226708af027172ce2a6b8452cd0c781054995349ee14287dd7659ff84",
+    "ca2ecc6b2f123e98b329235761b9fb46f33aedc66deafcf56ffa59f46766dda9",
+    "b81a0833ab11e19fbab3ff6f4f7f7ac4a6a8927d2c4bcdd3dd34bc2eb7a2ca77",
+    "7cf8224992c39b46590b01124659833aab6a0883ac208bec8695c138e602ef8d",
+    "c49ba64f4f2afa1c6acd5bd2e90e4acc3371df7a4d94549c3b00e8b92fb8be13",
+    "ae9931bea2ef248debf77ab3da99da741c6d10905a688c090af96472c9d68400",
+    "2ce1af282825e0dbf099137198dda4697e3602fedd3aac2d3daa7475cb557e07",
+    "58dac3a3b6be58052e0981c838f0e896d928d9d450f4769275ab70b5df9d49a8",
+    "0f20383274bd0059556fbe9b1711b0a1b973992fce17e3fed82f09aa34da5726",
+    "d8863395d3e6a7b2d9eeec9e48a5fb7b6c8eb608290701f8504276aa074d09d2",
+    "6304b654bf50894e8763779d4b0f3101400cac60dcf28fec2ef48101100c302f",
+    "55af047893b94852dff0af35c8a95e85f24a2bf58eb20ed7e4aa03dd3e8d0463",
+    "bdd1aaeb8e1271dcf395a3101bad877bf08f6ec8179b4f36a5cc6244cfe906fe"
+  ],
+  "dialogue": [
+    {
+      "request_id": "abc-1",
+      "questions": [
+        "예약 취소 정책에 따르면 예약을 생성한 시각과 예약 이용 시작 시각 사이의 최소 시간 간격은 얼마입니까?",
+        "예약 취소 정책에 따라 예약을 취소할 수 있는지 결정하는 데 필요한 추가 정보는 무엇입니까?",
+        "예약 취소 정책에 따라 예약을 취소할 수 있는지 여부를 결정하는 데 필요한 추가 정보는 무엇입니까?"
+      ],
+      "answer": {
+        "text": "예약 생성 시각이 이용 시작 시각과 같거나 그보다 나중이면 거부합니다."
+      }
+    },
+    {
+      "request_id": "abc-2",
+      "questions": [
+        "예약 취소 정책에 따라 예약을 생성한 시각과 예약 이용 시작 시각 사이의 최소 시간 간격은 얼마입니까?",
+        "예약 취소 정책에 따르면 예약을 생성한 시각과 예약 이용 시작 시각 사이의 최소 시간 간격은 얼마입니까?"
+      ],
+      "answer": {
+        "text": "예약 생성 시각이 이용 시작 시각과 같거나 그보다 나중이면 거부합니다."
+      }
+    },
+    {
+      "request_id": "abc-3",
+      "questions": [
+        "예약 생성 시각과 예약 이용 시작 시각 사이의 최소 시간 간격은 얼마입니까?",
+        "예약 취소 정책에 따라 예약을 생성한 시각과 예약 이용 시작 시각 사이의 최소 시간 간격은 얼마입니까?"
+      ],
+      "answer": {
+        "text": "예약 생성 시각이 이용 시작 시각과 같거나 그보다 나중이면 거부합니다."
+      }
+    }
+  ]
+}

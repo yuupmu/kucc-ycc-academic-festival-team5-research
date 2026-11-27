@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "summary": "코드는 `until_start_seconds <= 0` 조건만으로 이용 시작 시점 이후를 거부하지만, `age_seconds <= 10 * 60` 조건이 우선 처리되어, `until_start_seconds`가 0 또는 음수이면서도 `age_seconds`가 10분 이내인 경우를 제대로 처리하지 못하고 있습니다. 또한, `until_start_seconds`가 `cancellation_deadline`보다 작거나 같은 경우에도 `age_seconds`가 10분 이내이면 허용해야 하는 정책이 제대로 반영되지 않았습니다. 이로 인해 일부 테스트 케이스에서 예상과 다른 결과가 발생했습니다."
+    }
+  ],
+  "verbatim_reviews": {
+    "A": {
+      "question": "왜 age_seconds=90, until_start_seconds=0과 age_seconds=90, until_start_seconds=-30의 경우, 예상 결과가 false인데 실제 결과가 true로 나타났나요?",
+      "feedback": "이 두 경우 모두 이용 시작 시점이거나 이미 시작된 상태입니다. 명세에 따르면 '현재 시각이 이용 시작 시각과 같거나 이후면, 정정 시간이 남아 있어도 거부합니다.' 이 조건이 충족되었음에도 불구하고, 코드는 until_start_seconds <= 0일 때만 거부하고, age_seconds <= 10*60 조건에 해당하는 경우를 우선 처리하고 있습니다. 이로 인해 until_start_seconds=0과 -30의 경우, age_seconds=90이 10분 이내가 아니므로, '그 외는 거부합니다.' 조건으로 처리되어 true가 반환되었습니다. 이는 명세와 상반됩니다."
+    },
+    "B": {
+      "question": "이용 시작 정각과 예약 생성 후 10분 이내의 조건이 겹치는 경우, 어떤 조건이 우선 적용되는지 명확히 해야 합니다.",
+      "feedback": "예약 생성 후 10분 이내의 조건은 '일반 취소 마감이 지나도 허용'이라는 정책을 반영해야 합니다. 하지만 현재 코드에서는 '이용 시작 24시간 전' 조건이 먼저 실행되어, '예약 생성 후 10분 이내' 조건이 무시될 수 있습니다. 이로 인해 '이용 시작 정각' 조건이 우선 적용되는 문제가 발생합니다."
+    },
+    "C": {
+      "question": "예약 생성 후 10분 이내의 경우, 일반 취소 마감이 지나도 허용하는 정책이 적용되지 않는 경우가 있습니다. 이는 어떤 조건에서 발생하는가?",
+      "feedback": "현재 코드는 `until_start_seconds < cancellation_deadline` 조건에서만 `age_seconds <= 10 * 60`을 검사하므로, `until_start_seconds`가 `cancellation_deadline`보다 작거나 같은 경우에도 `age_seconds`가 10분 이내이면 허용해야 합니다. 그러나 `until_start_seconds`가 `cancellation_deadline`보다 작거나 같은 경우, `until_start_seconds >= cancellation_deadline` 조건이 거짓이므로, `age_seconds <= 10 * 60` 조건이 실행되지 않습니다. 따라서 `until_start_seconds`가 `cancellation_deadline`보다 작거나 같은 경우에도 `age_seconds`가 10분 이내이면 허용해야 하는 정책이 제대로 반영되지 않았습니다."
+    }
+  },
+  "fallback_ids": []
+}

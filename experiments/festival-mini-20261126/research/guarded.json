@@ -1,0 +1,128 @@
+{
+  "tasks": {
+    "reservation": {
+      "guard": {
+        "status": "held_for_review",
+        "held": true,
+        "issues": [
+          "changed_behavior_unverified",
+          "claimed_change_on_unchanged_line",
+          "unresolved_reply_and_unsupported_edit"
+        ],
+        "unverified": [
+          "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+        ],
+        "changed_files": [
+          "solution.py"
+        ],
+        "evidenced_files": [],
+        "author_call": "a04f8698b54e5c9a8d599381cc6de1b6886747bbad1c8aa15674d86a89c11006",
+        "previous_sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "proposed_sha256": "60735a194b26890ac81ca32009b420f2f044527924e7aa265c3966b18c665bf3",
+        "retained_sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+        "additional_model_calls": 0,
+        "additional_tokens": 0
+      },
+      "verdict_source": {
+        "arm": "solo",
+        "version": 1
+      },
+      "metrics": {
+        "task": "reservation",
+        "arm": "p4-guarded",
+        "model": "Qwen3.5-4B-Q4_K_M.gguf",
+        "seed": 263,
+        "correct": 6,
+        "total": 10,
+        "wrong": 4,
+        "unanswered": 0,
+        "status": "held_for_review",
+        "versions": 2,
+        "human_windows": 1,
+        "questions_answered": 3,
+        "calls": 10,
+        "author_tokens": 2229,
+        "main_self_review_tokens": 0,
+        "watcher_tokens": 5905,
+        "prompt_tokens": 6102,
+        "completion_tokens": 2032,
+        "total_tokens": 8134,
+        "unsupported_returns": 3,
+        "policy_probes": 3,
+        "gained": 0,
+        "regressed": 0,
+        "additional_model_calls": 0,
+        "additional_tokens": 0
+      }
+    },
+    "triage": {
+      "guard": {
+        "status": "open_evidence",
+        "held": false,
+        "issues": [],
+        "unverified": [
+          "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+        ],
+        "changed_files": [
+          "router.py"
+        ],
+        "evidenced_files": [
+          "router.py"
+        ],
+        "author_call": "8952ede29806d48320fd10df7d3fd2de6688e2d4caa1d9104d1f0127bd95e363",
+        "previous_sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+        "proposed_sha256": "653b25914fdd741a5908eb240cc89d93cff149bf881f8ff83d10940ffe64e6c3",
+        "retained_sha256": "653b25914fdd741a5908eb240cc89d93cff149bf881f8ff83d10940ffe64e6c3",
+        "additional_model_calls": 0,
+        "additional_tokens": 0
+      },
+      "verdict_source": {
+        "arm": "p4",
+        "version": 2
+      },
+      "metrics": {
+        "task": "triage",
+        "arm": "p4-guarded",
+        "model": "Qwen3.5-4B-Q4_K_M.gguf",
+        "seed": 263,
+        "correct": 5,
+        "total": 10,
+        "wrong": 4,
+        "unanswered": 1,
+        "status": "open_evidence",
+        "versions": 2,
+        "human_windows": 1,
+        "questions_answered": 3,
+        "calls": 9,
+        "author_tokens": 1441,
+        "main_self_review_tokens": 0,
+        "watcher_tokens": 5053,
+        "prompt_tokens": 4147,
+        "completion_tokens": 2347,
+        "total_tokens": 6494,
+        "unsupported_returns": 1,
+        "policy_probes": 3,
+        "gained": 1,
+        "regressed": 0,
+        "additional_model_calls": 0,
+        "additional_tokens": 0
+      }
+    }
+  },
+  "totals": {
+    "correct": 11,
+    "total": 20,
+    "wrong": 8,
+    "unanswered": 1,
+    "gained": 1,
+    "regressed": 0,
+    "unsupported_returns": 4,
+    "policy_probes": 6,
+    "prompt_tokens": 10249,
+    "completion_tokens": 4379,
+    "total_tokens": 14628,
+    "additional_model_calls": 0,
+    "additional_tokens": 0
+  },
+  "type": "post_hoc_replay_of_frozen_outputs"
+}

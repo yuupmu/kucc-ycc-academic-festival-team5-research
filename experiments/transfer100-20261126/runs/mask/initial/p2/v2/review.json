@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "5f09be68b4a64385575a4d5bbad2c2debc41cc9ac4f5df99a9537287a4dea06d",
+    "56f7421fa627c2907ad2e7f516bd462cfa13dfe5479416d796417381156f8531",
+    "1daf8a6d92ba8c2ab7e228a56545df428dc6b16f2e252d781e637fa5cd95ab24",
+    "f9ee1fbd57f6d428293a405a3b85ff903dcd7d123c146f95ef89781dd323193d"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "마지막 세 글자만 공개하고 나머지는 별표로 가리는 로직을 구현하지 않은 경우를 수정해야 합니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "마지막 3 글자만 공개하고 나머지는 별표로 가리는 로직이 구현되지 않았나요?"
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "마지막 세 글자를 공개하고 나머지는 별표로 가리는 로직이 구현되지 않았으며, 모든 글자를 별표로 덮어씌우는 현재 동작이 요구사항과 다릅니다."
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "마지막 세 글자만 공개하고 나머지는 별표로 가리는 로직을 구현하지 않은 경우를 수정해야 합니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "마지막 3 글자만 공개하고 나머지는 별표로 가리는 로직이 구현되지 않았나요?",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "마지막 세 글자를 공개하고 나머지는 별표로 가리는 로직이 구현되지 않았으며, 모든 글자를 별표로 덮어씌우는 현재 동작이 요구사항과 다릅니다.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

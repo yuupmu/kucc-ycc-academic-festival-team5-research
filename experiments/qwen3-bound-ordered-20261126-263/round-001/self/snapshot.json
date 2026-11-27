@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "arm": "self",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds < 0:\n        return False\n    if until_start_seconds < 86400:\n        return True\n    return False",
+  "sha256": "52d51cb26eba5382efcb9fd6ceb96c49493fd7bc84577ba1bc4abc4c924978a4",
+  "plan": "allow_cancel(age_seconds, until_start_seconds) -> bool",
+  "links": [
+    {
+      "quote": "일반 취소 마감은 이용 시작 24시간 전입니다.",
+      "line": "if until_start_seconds < 86400:\n        return True"
+    },
+    {
+      "quote": "이용이 시작되면 일반 취소는 마감됩니다.",
+      "line": "if until_start_seconds < 0:\n        return False"
+    },
+    {
+      "quote": "방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.",
+      "line": "return True"
+    },
+    {
+      "quote": "일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다.",
+      "line": "return True"
+    }
+  ],
+  "main_complete": true,
+  "answer_batches": []
+}

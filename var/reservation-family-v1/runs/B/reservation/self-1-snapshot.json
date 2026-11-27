@@ -1,0 +1,20 @@
+{
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if until_start_seconds < 0:\n        return False\n    if until_start_seconds < 86400:\n        return True\n    return False",
+  "calls": [
+    "7fe6a1d0567c7b9441a0728a14578211a782f18c75cbd4f7ca6006c20a3670d2",
+    "64a669706dc3a0d2d845a65f2c040022be9cf69e46973dd56b14fda946e0e65b",
+    "dcd52708a574f7e0f0a511ea151a9d222b7da7dce5af668137cdb3a0fc4bf8ed",
+    "2370e9cb0e1cffb025fded794b7ebf34ad6666fb9dee473d1ee3f1b9ce2fbde8"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "이용이 시작된 직후에 정정 요청을 받는 고객에게 취소를 허용해야 할까요?"
+      ],
+      "answer": {
+        "text": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다."
+      }
+    }
+  ]
+}

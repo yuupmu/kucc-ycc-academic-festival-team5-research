@@ -1,0 +1,20 @@
+{
+  "code": "def allow_upload(size_bytes):\n    if size_bytes < 0:\n        return False\n    \n    # 상한 값은 저장소 담당자가 결정합니다.\n    # 여기서는 10MB (1024000 바이트)로 설정합니다.\n    max_size_bytes = 16\n    \n    if size_bytes <= max_size_bytes:\n        return True\n    else:\n        return False\n",
+  "calls": [
+    "9d2443f924e18cc1ce70eaf7b8dd18d25a238818674b819d8d69f11d41278912",
+    "abe5cec6d6525ecb77ad9a8731858eadc33795f7605d3d940a8fbfa3164fa695",
+    "171250ae8efb358b6906387b3450d4be10dbc49d9c57efd0c9365b4ae110b7f1"
+  ],
+  "dialogue": [
+    {
+      "request_id": "self-1",
+      "questions": [
+        "저장소 담당자에게 상한 값(max_size_bytes)이 10MB(1024000 바이트)로 설정되었는지 확인해주세요.",
+        "상한 값보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부하는 정책이 맞는지 확인해주세요."
+      ],
+      "answer": {
+        "text": "상한은 16바이트입니다. 양수 파일은 상한 미만이면 허용하고 초과하면 거부합니다. 음수 크기는 거부합니다."
+      }
+    }
+  ]
+}

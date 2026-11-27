@@ -1,0 +1,366 @@
+[
+  {
+    "role": "B",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "serial/B.json",
+    "before_sha256": "69f5a2fd6f9c1a7004591ff3933350ba8f02b64a90fd8e26521e70a40d7f26a3",
+    "after_sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              },
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          },
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간 전의 정확한 시점은 until_start_seconds의 값에 따라 결정됨. T1은 24시간을 초로 변환한 값."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds = 0으로 정의됨."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객의 정의 및 정정 시간은 명시되지 않음. 그러나 '방금'이라는 단어는 24시간 이내의 예약을 의미할 수 있으므로, age_seconds가 24시간 이내인 경우를 별도로 허용."
+      }
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        21,
+        16
+      ],
+      "R2": [
+        18
+      ],
+      "R3": [
+        12
+      ]
+    }
+  },
+  {
+    "role": "C",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/C.json",
+    "before_sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "after_sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              },
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          },
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간 전의 정확한 시점은 until_start_seconds의 값에 따라 결정됨. T1은 24시간을 초로 변환한 값."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds = 0으로 정의됨."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객의 정의 및 정정 시간은 명시되지 않음. 그러나 '방금'이라는 단어는 24시간 이내의 예약을 의미할 수 있으므로, age_seconds가 24시간 이내인 경우를 별도로 허용."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "R3의 조건이 ENTRY에서 age_seconds < T1(24시간)일 때 True를 반환하도록 수정해야 함. 기존 코드는 R3.1에서 age_seconds < 86400일 때 return True로 처리하고 있으나, 이는 R1과 R2의 조건과 충돌할 수 있음.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객의 정의 및 정정 시간은 명시되지 않음. 그러나 '방금'이라는 단어는 24시간 이내의 예약을 의미할 수 있으므로, age_seconds가 24시간 이내인 경우를 별도로 허용."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객의 정의 및 정정 시간은 명시되지 않음. 그러나 '방금'이라는 단어는 24시간 이내의 예약을 의미할 수 있으므로, age_seconds가 24시간 이내인 경우를 별도로 허용."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        21,
+        16
+      ],
+      "R2": [
+        18
+      ],
+      "R3": [
+        12
+      ]
+    }
+  },
+  {
+    "role": "D",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "serial/D.json",
+    "before_sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "after_sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              },
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          },
+          {
+            "at": "E2",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간 전의 정확한 시점은 until_start_seconds의 값에 따라 결정됨. T1은 24시간을 초로 변환한 값."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점은 until_start_seconds = 0으로 정의됨."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "at": "ENTRY",
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "방금 잘못 예약한 고객의 정의 및 정정 시간은 명시되지 않음. 그러나 '방금'이라는 단어는 24시간 이내의 예약을 의미할 수 있으므로, age_seconds가 24시간 이내인 경우를 별도로 허용."
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "기존 코드는 R3.1에서 age_seconds < 86400일 때 return True로 처리하고 있으나, 이는 R1과 R2의 조건과 충돌할 수 있음. R3의 조건을 ENTRY에서 age_seconds < T1(24시간)일 때 True를 반환하도록 수정해야 함.",
+        "before": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객의 정의 및 정정 시간은 명시되지 않음. 그러나 '방금'이라는 단어는 24시간 이내의 예약을 의미할 수 있으므로, age_seconds가 24시간 이내인 경우를 별도로 허용."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [
+            {
+              "at": "ENTRY",
+              "when": [
+                {
+                  "input": "age_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "방금 잘못 예약한 고객의 정의 및 정정 시간은 명시되지 않음. 그러나 '방금'이라는 단어는 24시간 이내의 예약을 의미할 수 있으므로, age_seconds가 24시간 이내인 경우를 별도로 허용."
+        }
+      }
+    },
+    "source_lines": {
+      "R1": [
+        21,
+        16
+      ],
+      "R2": [
+        18
+      ],
+      "R3": [
+        12
+      ]
+    }
+  }
+]

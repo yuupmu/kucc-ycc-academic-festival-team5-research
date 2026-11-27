@@ -1,0 +1,54 @@
+{
+  "calls": [
+    "0387a1a8abdccda9d77ba3c53e5df22153197f875d2158fdfbc575dd073e9d3f",
+    "b1bf0ad7134b6162f47fe247adda1bba5cdf10fde60cb8c05ab1a603ce4f70ec",
+    "4d760a87fe6c44daf6a0ab1dc1cd82a455cfba741e213036084597b8ff2bcde5",
+    "2b72b4379fa619d2ca21ef0c5427eff3d59305909a7dadd79d546a7b42b70d0e"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "가로 길이의 상한은 6센티미터이고 세로 길이의 상한은 4센티미터입니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "가로 길이의 상한은 6센티미터이고 세로 길이의 상한은 4센티미터입니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "가로 길이의 상한은 6센티미터이고 세로 길이의 상한은 4센티미터입니다. 현재 코드는 상한값이 없으므로 무한대를 가정하고 양수이면 허용하는 로직으로 작성되어 있습니다. 상한값을 사용하여 비교 로직을 수정할 수 있나요?"
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "가로 길이의 상한은 6센티미터이고 세로 길이의 상한은 4센티미터입니다.",
+      "proposed_by": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "question": "가로 길이의 상한은 6센티미터이고 세로 길이의 상한은 4센티미터입니다. 현재 코드는 상한값이 없으므로 무한대를 가정하고 양수이면 허용하는 로직으로 작성되어 있습니다. 상한값을 사용하여 비교 로직을 수정할 수 있나요?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

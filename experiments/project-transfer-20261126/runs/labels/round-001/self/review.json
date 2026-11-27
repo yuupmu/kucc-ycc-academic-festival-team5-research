@@ -1,0 +1,78 @@
+{
+  "reviews": [
+    {
+      "findings": [
+        {
+          "kind": "담당자 질문",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            },
+            {
+              "file": "labels.py",
+              "line": 6
+            }
+          ],
+          "sources": [
+            "P3"
+          ],
+          "message": "같은 태그를 판별하는 방식과 표기 겹침 시 우선순위에 대한 기준이 명시되지 않았습니다. 이에 대한 구체적인 기준이 필요합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [
+        {
+          "kind": "담당자 질문",
+          "locations": [
+            {
+              "file": "labels.py",
+              "line": 5
+            },
+            {
+              "file": "labels.py",
+              "line": 6
+            }
+          ],
+          "sources": [
+            "P3"
+          ],
+          "message": "같은 태그를 판별하는 방식과 표기 겹침 시 우선순위에 대한 기준이 명시되지 않았습니다. 이에 대한 구체적인 기준이 필요합니다."
+        }
+      ],
+      "ready": false
+    },
+    {
+      "findings": [],
+      "ready": true
+    }
+  ],
+  "main_questions": [
+    "겹치는 태그를 처리할 때, 기존 목록의 태그와 새 목록의 태그 중 어떤 것이 우선 처리되나요?",
+    "표기가 겹치는 경우, 어떤 태그를 표시할지에 대한 기준은 무엇인가요?"
+  ],
+  "questions": [
+    {
+      "question": "겹치는 태그를 처리할 때, 기존 목록의 태그와 새 목록의 태그 중 어떤 것이 우선 처리되나요?",
+      "proposed_by": [
+        "main"
+      ]
+    },
+    {
+      "question": "표기가 겹치는 경우, 어떤 태그를 표시할지에 대한 기준은 무엇인가요?",
+      "proposed_by": [
+        "main"
+      ]
+    },
+    {
+      "question": "같은 태그를 판별하는 방식과 표기 겹침 시 우선순위에 대한 기준이 명시되지 않았습니다. 이에 대한 구체적인 기준이 필요합니다.",
+      "proposed_by": [
+        "review-1",
+        "review-2"
+      ]
+    }
+  ],
+  "ready": false
+}

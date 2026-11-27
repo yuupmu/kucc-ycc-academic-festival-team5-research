@@ -1,0 +1,44 @@
+{
+  "protocol": "verified-candidates-v1",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "development": [
+    17,
+    29,
+    43,
+    71,
+    89,
+    113
+  ],
+  "fresh": [
+    131,
+    157,
+    191,
+    223,
+    257,
+    293
+  ],
+  "stages": [
+    "direct",
+    "self_short",
+    "self_serial",
+    "abcd"
+  ],
+  "extra_notice_examples": [
+    [
+      1,
+      14400,
+      true,
+      "방금 만든 예약의 정정 시간은 생성 순간 이후에도 존재"
+    ],
+    [
+      1,
+      43200,
+      true,
+      "같은 예약 경과 시간, 다른 이용 시작 시각"
+    ]
+  ],
+  "candidate_limit": 800,
+  "selection": "preserve all draft passes, maximize passed examples, D decides ties, otherwise retain draft",
+  "score_feedback": false,
+  "thinking": "off"
+}

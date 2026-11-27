@@ -1,0 +1,8 @@
+--- v3
++++ v4
+@@ -7,4 +7,4 @@
+         return True
+     if until_start_seconds <= 0:  # [2]
+         return False
+-    raise NotImplementedError("담당자 판단 필요")  # [4]
++    return False  # [4]

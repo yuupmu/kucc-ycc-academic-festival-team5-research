@@ -1,0 +1,44 @@
+{
+  "questions_sha256": "4747fbf2639a72ccfd4cbae2fe15ab5f807cd2458b3563781c4e78313f94c3f2",
+  "questions": [
+    {
+      "question": "정정 시간이 10분이라는 조건은 어떻게 구현해야 하나요?",
+      "proposed_by": [
+        "main"
+      ]
+    },
+    {
+      "question": "막 이용이 시작된 예약에 대한 처리는 어떻게 구현해야 하나요?",
+      "proposed_by": [
+        "main"
+      ]
+    },
+    {
+      "question": "정정 시간은 예약 생성부터 셉니다. 그러나 현재 코드는 until_start_seconds를 기준으로 정정 가능 여부를 판단하고 있습니다. 정정 시간은 age_seconds를 기준으로 판단해야 하며, until_start_seconds와 age_seconds의 관계를 명확히 해야 합니다.",
+      "proposed_by": [
+        "review-2"
+      ]
+    },
+    {
+      "question": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다. 그러나 현재 코드는 until_start_seconds < 600일 경우 True를 반환하고 있습니다. until_start_seconds가 0일 경우(이용 시작 순간)에도 True를 반환하고 있어, 이 조건이 충돌합니다.",
+      "proposed_by": [
+        "review-2"
+      ]
+    }
+  ],
+  "selections": [
+    [
+      "clock",
+      "duration"
+    ],
+    [
+      "start"
+    ],
+    [
+      "P1"
+    ],
+    [
+      "start"
+    ]
+  ]
+}

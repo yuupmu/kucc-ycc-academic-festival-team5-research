@@ -1,0 +1,29 @@
+{
+  "protocol": "festival-human-review-p4-v2",
+  "project": {
+    "brief": "표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.",
+    "files": {
+      "solution.py": "def clean_title(text):\n    raise NotImplementedError\n"
+    }
+  },
+  "seed": 263,
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "arms": [
+    "p4"
+  ],
+  "versions": 2,
+  "questions_per_window": 3,
+  "limits": [
+    2400,
+    950
+  ],
+  "prompts_sha256": "7b4218acf84babe78c8199cfc37237cb8ae6e743118752743d2af19c3780388a",
+  "parent_draft": "b2dcbc4bf05c9047bf1c1a62a84a96fcf2d61a61a05319c225e95f73a915fe31",
+  "parent_review": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "a5cf994d724f46504ec82b807db4683f8659b7a2f9825a65cb1d5076f0bd96d9",
+    "baccbc2ff83439ee9f469b080bcc454c44906009d47d1f50ab1f078bb6ae0c09",
+    "24b8f6dcc3132bd1353aa8bdebfd66c0e46ac888c4fd6c1aba7e1bfb59e59117"
+  ],
+  "refinement_sha256": "53728141c80470befd690caa242b0f2f77c00d71b5cafb0f82ea000a9f2f67e2"
+}

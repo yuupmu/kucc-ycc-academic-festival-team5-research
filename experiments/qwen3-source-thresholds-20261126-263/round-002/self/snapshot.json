@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "arm": "self",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if age_seconds <= 600:  # [2, 3]\n        return True\n    if until_start_seconds >= 86400:  # [1]\n        return True\n    if until_start_seconds < 86400:  # [1]\n        return False\n    if until_start_seconds < 86400:  # [4]\n        return True\n    if until_start_seconds == 86400:\n        raise NotImplementedError(\"담당자 판단 필요\")\n    if until_start_seconds < 86400:  # [5]\n        return False\n    if until_start_seconds == 86400:\n        raise NotImplementedError(\"담당자 판단 필요\")\n    if until_start_seconds < 86400:  # [6]\n        return False\n    if until_start_seconds == 86400:\n        raise NotImplementedError(\"담당자 판단 필요\")\n    raise NotImplementedError(\"담당자 판단 필요\")\n",
+  "sha256": "8b89075daa265315ede2e160b822a173893d1a9cfb5edbaed3137a83d5366e83",
+  "plan": "1. 정정 기간이 유효한지 확인 (예약 생성 후 10분 이내, 포함)\n2. 일반 취소 마감 시간(24시간 전)이 유효한지 확인\n3. 이용 시작 시각과 현재 시각의 관계 확인\n4. 이용이 이미 시작된 경우 처리\n5. 위 조건에 따라 True/False 반환",
+  "links": [
+    {
+      "quote": "정정 기간은 예약 생성 후 10분입니다.",
+      "line": "if age_seconds <= 600:"
+    },
+    {
+      "quote": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+      "line": "if age_seconds <= 600:"
+    },
+    {
+      "quote": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+      "line": "if until_start_seconds >= 86400:"
+    },
+    {
+      "quote": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+      "line": "if until_start_seconds < 86400:"
+    },
+    {
+      "quote": "정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.",
+      "line": "if until_start_seconds < 86400:"
+    },
+    {
+      "quote": "현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다.",
+      "line": "if until_start_seconds < 86400:"
+    },
+    {
+      "quote": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다.",
+      "line": "if until_start_seconds < 86400:"
+    }
+  ],
+  "main_complete": true,
+  "answer_batches": [
+    1
+  ]
+}

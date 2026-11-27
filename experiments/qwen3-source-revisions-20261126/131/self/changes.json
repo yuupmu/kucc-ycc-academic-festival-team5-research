@@ -1,0 +1,379 @@
+[
+  {
+    "role": "plan",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "self/plan.json",
+    "before_sha256": "69f5a2fd6f9c1a7004591ff3933350ba8f02b64a90fd8e26521e70a40d7f26a3",
+    "after_sha256": "a0bfea1d28d0294113518f50d51584789bf41fc7f53077066f2d2b94d7a1ba97",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 추가 조건이 없으므로 처리하지 않음"
+      }
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        16
+      ],
+      "R3": []
+    }
+  },
+  {
+    "role": "review1",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review1.json",
+    "before_sha256": "a0bfea1d28d0294113518f50d51584789bf41fc7f53077066f2d2b94d7a1ba97",
+    "after_sha256": "a0bfea1d28d0294113518f50d51584789bf41fc7f53077066f2d2b94d7a1ba97",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 추가 조건이 없으므로 처리하지 않음"
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "rule_edit",
+        "reason": "기존 코드에서 R2 조건이 잘못 적용되어, until_start_seconds <= 0 조건을 제거하고 R2 조건을 우선순위로 올려서 정확하게 반영.",
+        "before": {
+          "rank": 2,
+          "branches": [
+            {
+              "at": "E1",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<=",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+        },
+        "after": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "E1",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<=",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+        }
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "유지 근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        16
+      ],
+      "R3": []
+    }
+  },
+  {
+    "role": "review2",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review2.json",
+    "before_sha256": "a0bfea1d28d0294113518f50d51584789bf41fc7f53077066f2d2b94d7a1ba97",
+    "after_sha256": "4dc79c7445f27fac7127991c66314c19069cdb70d825974d5c8e8ebf40f76745",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 추가 조건이 없으므로 처리하지 않음"
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "rule_edit",
+        "reason": "기존 조건이 잘못 적용되어, until_start_seconds > 86400 조건으로 수정하여 R1을 정확하게 반영",
+        "before": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "E1",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "24시간은 86400초로 계산됨 (T1)"
+        },
+        "after": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "E1",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": ">",
+                  "bound": "T1"
+                }
+              ],
+              "allow": true
+            }
+          ],
+          "assumption": "24시간은 86400초로 계산됨 (T1)"
+        }
+      },
+      "R2": {
+        "status": "no_change",
+        "reason": "R2 조건이 기존 코드에서 잘못 적용되어, until_start_seconds <= 86400 조건으로 수정하여 R2를 정확하게 반영",
+        "before": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "E1",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<=",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+        },
+        "after": {
+          "rank": 1,
+          "branches": [
+            {
+              "at": "E1",
+              "when": [
+                {
+                  "input": "until_start_seconds",
+                  "op": "<=",
+                  "bound": "T1"
+                }
+              ],
+              "allow": false
+            }
+          ],
+          "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+        }
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "유지 근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        16
+      ],
+      "R3": []
+    }
+  },
+  {
+    "role": "final",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/final.json",
+    "before_sha256": "4dc79c7445f27fac7127991c66314c19069cdb70d825974d5c8e8ebf40f76745",
+    "after_sha256": "4dc79c7445f27fac7127991c66314c19069cdb70d825974d5c8e8ebf40f76745",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">",
+                "bound": "T1"
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "24시간은 86400초로 계산됨 (T1)"
+      },
+      "R2": {
+        "rank": 1,
+        "branches": [
+          {
+            "at": "E1",
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<=",
+                "bound": "T1"
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "이용 시작 시점 이후에는 취소 불가 (R2)"
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 추가 조건이 없으므로 처리하지 않음"
+      }
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "유지 근거"
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "유지 근거"
+      }
+    },
+    "source_lines": {
+      "R1": [
+        14
+      ],
+      "R2": [
+        16
+      ],
+      "R3": []
+    }
+  }
+]

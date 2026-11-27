@@ -1,0 +1,165 @@
+{
+  "text": "{\"rules\":[{\"when\":\"has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds < 86400) and (age_seconds < 600) and (until_start_seconds > 0)\",\"action\":\"return\",\"value\":\"True\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\",\"H2\",\"H3\",\"H4\",\"H5\"]},{\"when\":\"has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds >= 86400)\",\"action\":\"return\",\"value\":\"False\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\",\"H2\",\"H3\",\"H4\",\"H5\"]},{\"when\":\"has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds < 86400) and (age_seconds >= 600) and (until_start_seconds > 0)\",\"action\":\"return\",\"value\":\"True\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\",\"H2\",\"H3\",\"H4\",\"H5\"]},{\"when\":\"has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds >= 600) and (until_start_seconds <= 0)\",\"action\":\"return\",\"value\":\"False\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\",\"H2\",\"H3\",\"H4\",\"H5\"]},{\"when\":\"has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds) and has_present(['Q_P2_1_seconds'], 86400) and has_present(['Q_H2_1_seconds'], 600) and has_present(['H4'], True) and has_present(['H5'], True) and has_present(['H6'], True) and (age_seconds < 86400) and (age_seconds < 600) and (until_start_seconds <= 0)\",\"action\":\"return\",\"value\":\"False\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\",\"H2\",\"H3\",\"H4\",\"H5\"]},{\"when\":\"has_present(['age_seconds'], age_seconds) and has_present(['until_start_seconds'], until_start_seconds)\",\"action\":\"return\",\"value\":\"False\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\",\"H2\",\"H3\",\"H4\",\"H5\"]}],\"otherwise\":{\"action\":\"return\",\"value\":\"False\",\"sources\":[\"P1\",\"P2\",\"P3\",\"H1\",\"H2\",\"H3\",\"H4\",\"H5\"]},\"complete\":true,\"applicable\":true}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 839,
+    "prompt_tokens": 1592,
+    "total_tokens": 2431,
+    "prompt_tokens_details": {
+      "cached_tokens": 272
+    }
+  },
+  "server_timings": {
+    "cache_n": 272,
+    "prompt_n": 1320,
+    "prompt_ms": 1446.272,
+    "prompt_per_token_ms": 1.095660606060606,
+    "prompt_per_second": 912.6913886184618,
+    "predicted_n": 839,
+    "predicted_ms": 23500.042,
+    "predicted_per_token_ms": 28.04300954653938,
+    "predicted_per_second": 35.659510736193575
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 24.97,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer implementing this decision function. Choose ordered decision rows, first matching row wins. Write short Python expressions using the actual arguments. Each row and the fallback must cite the source IDs that authorize it. The public text and the exact owner replies are authoritative. Your preliminary notes can be mistaken. The previous code supplies no policy. Order exceptions and general conditions so a broad early return cannot erase a more specific confirmed decision. An ambiguous boundary can be its own narrow row; it does not erase facts on either side. Defer only where different policies consistent with the sources would change the result. Never choose a missing priority, duration, default, exception, or label. Use exact identifiers from the literal table in expressions when available. A quantity is already converted to the argument unit. Bind it to the right input. A listed sequence supplies membership only. An ordered sequence also supplies precedence. has_present(sequence, input) tests overlap; first_present(ordered_sequence, input) returns the highest-priority present item. Usual Python boolean expressions, membership, length and sets also work. Quote string results as Python literals. The action defer takes an empty value. Omit comments and explanations. Mark complete false for any unresolved outcome. Set applicable false if this target needs effects, state changes, or other behavior outside a pure decision function."
+      },
+      {
+        "role": "user",
+        "content": "{\"signature\":\"allow_cancel(age_seconds, until_start_seconds)\",\"public_request\":\"작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\\n\\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\\n\\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\\n\",\"exact_owner_replies\":[\"정정 시간은 예약을 생성한 때부터 셉니다.\",\"정정 가능 기간은 10분입니다.\",\"정정 기간이 정확히 끝나는 순간도 포함합니다.\",\"이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\",\"정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\",\"일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\"],\"sources\":{\"P1\":\"작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\",\"P2\":\"이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\",\"P3\":\"직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\",\"H1\":\"정정 시간은 예약을 생성한 때부터 셉니다.\",\"H2\":\"정정 가능 기간은 10분입니다.\",\"H3\":\"정정 기간이 정확히 끝나는 순간도 포함합니다.\",\"H4\":\"이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\",\"H5\":\"정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\",\"H6\":\"일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\"},\"my_preliminary_notes\":{\"P1\":{\"established\":\"allow_cancel(age_seconds, until_start_seconds) -> bool; age_seconds >= 0; until_start_seconds <= 0 (음수는 이미 시작); 시간 변환은 호출자가 처리\",\"input\":\"age_seconds\",\"still_open\":\"until_start_seconds의 정확성 (0은 시작 순간, 음수는 이미 시작)을 age_seconds와 함께 검증할 수 없음\"},\"P2\":{\"established\":\"일반 취소 마감은 이용 시작 24시간 전; 이용 시작 시 일반 취소는 마감됨\",\"input\":\"until_start_seconds\",\"still_open\":\"정정 가능 기간 (10분)과 일반 마감 (24시간)의 관계 (정정 기간이 일반 마감보다 짧은지)를 명시하지 않음\"},\"P3\":{\"established\":\"일반 마감이 지난 예약과 막 이용이 시작된 예약에 정정 요청 가능; 정정 가능 기간 10분; 정정 기간 끝나는 순간 포함; 이용 시작 순간에는 정정 기간이 남아 있어도 거부; 정정 기간 안이면 일반 마감이 지난 예약도 정정 가능; 일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소 불가\",\"input\":\"age_seconds\",\"still_open\":\"정정 가능 기간 (10분)이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"},\"H1\":{\"established\":\"정정 시간은 예약 생성부터 셉니다\",\"input\":\"age_seconds\",\"still_open\":\"정정 가능 기간의 시작점이 age_seconds와 일치하는지 명시하지 않음\"},\"H2\":{\"established\":\"정정 가능 기간은 10분입니다\",\"input\":\"age_seconds\",\"still_open\":\"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"},\"H3\":{\"established\":\"정정 기간이 정확히 끝나는 순간도 포함합니다\",\"input\":\"age_seconds\",\"still_open\":\"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"},\"H4\":{\"established\":\"이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다\",\"input\":\"until_start_seconds\",\"still_open\":\"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"},\"H5\":{\"established\":\"정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다\",\"input\":\"age_seconds\",\"still_open\":\"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"},\"H6\":{\"established\":\"일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다\",\"input\":\"age_seconds\",\"still_open\":\"정정 가능 기간이 일반 마감 (24시간)보다 짧은지 명시하지 않음\"}},\"literal_table\":{\"L_P1_1\":{\"source\":\"P1\",\"kind\":\"listed\",\"quote\":\"age_seconds, until_start_seconds\",\"value\":[\"age_seconds\",\"until_start_seconds\"]},\"Q_P2_1_seconds\":{\"source\":\"P2\",\"kind\":\"quantity\",\"quote\":\"24시간\",\"value\":86400,\"unit\":\"seconds\",\"inputs\":[\"age_seconds\",\"until_start_seconds\"]},\"Q_H2_1_seconds\":{\"source\":\"H2\",\"kind\":\"quantity\",\"quote\":\"10분\",\"value\":600,\"unit\":\"seconds\",\"inputs\":[\"age_seconds\",\"until_start_seconds\"]}}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1650,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "return",
+                      "defer"
+                    ]
+                  },
+                  "value": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P1",
+                        "P2",
+                        "P3",
+                        "H1",
+                        "H2",
+                        "H3",
+                        "H4",
+                        "H5",
+                        "H6"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 8
+                  }
+                },
+                "required": [
+                  "when",
+                  "action",
+                  "value",
+                  "sources"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 12
+            },
+            "otherwise": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "return",
+                    "defer"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 550
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "H1",
+                      "H2",
+                      "H3",
+                      "H4",
+                      "H5",
+                      "H6"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 8
+                }
+              },
+              "required": [
+                "action",
+                "value",
+                "sources"
+              ],
+              "additionalProperties": false
+            },
+            "complete": {
+              "type": "boolean"
+            },
+            "applicable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "rules",
+            "otherwise",
+            "complete",
+            "applicable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-program"
+}

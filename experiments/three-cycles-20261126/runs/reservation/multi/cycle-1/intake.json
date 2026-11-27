@@ -1,0 +1,64 @@
+{
+  "cycle": 1,
+  "role": "multi",
+  "previous_sha256": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+  "ticket": "1a04216fad42ff52e4199f64d70f9f688f398522d7f24e613f8cda14098cd242",
+  "reviews": [
+    {
+      "role": "A",
+      "call": "1ba330ec78c78a7c94038de974fdea188ac8d788f3443a2e45e96bd475752b4e",
+      "analysis": {
+        "needed": true,
+        "quote": "방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.",
+        "possible_rule_1": "만약 `until_start_seconds` 가 0 보다 작거나 같다면 (이미 시작했거나 시작 순간), `age_seconds` 가 0 이거나 매우 작은 값 (예: 0 초) 일 때만 정정 시간을 적용하여 취소 허용.",
+        "possible_rule_2": "만약 `until_start_seconds` 가 0 보다 작거나 같다면 (이미 시작했거나 시작 순간), `age_seconds` 가 임의의 값 (예: 10 초) 일 때에도 정정 시간을 적용하여 취소 허용.",
+        "distinguishing_situation": "예약 생성 후 5 초 지점 (`age_seconds`=5), 이용 시작 1 초 전 (`until_start_seconds`=-1) 의 경우.",
+        "owner_question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다."
+      }
+    },
+    {
+      "role": "B",
+      "call": "de77ac0b10983076182cce92e35f97d53225aeedb13e245fd343b68e6b1974d4",
+      "analysis": {
+        "needed": false,
+        "quote": "일반 취소 마감은 이용 시작 24 시간 전입니다.",
+        "possible_rule_1": "만약 until_start_seconds >= 0 이고, (24 * 3600) - until_start_seconds > age_seconds 인 경우에만 True 를 반환합니다. (즉, 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的预约可取消)",
+        "possible_rule_2": "만약 until_start_seconds >= 0 이고, (24 * 3600) - until_start_seconds < age_seconds 인 경우만 True 를 반환합니다. (즉, 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的预约不可取消)",
+        "distinguishing_situation": "예정이 10:00 에 시작 (until_start_seconds = 0) 하고, 현재 시간이 09:00 에 해당 (age_seconds = 3600) 인 경우입니다. Rule 1 은 24 시간 기준을 age_seconds 와 비교하여 True 를, Rule 2 는 24 시간 기준을 age_seconds 와 비교하여 False 를 반환할 수 있습니다.",
+        "owner_question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요."
+      }
+    },
+    {
+      "role": "C",
+      "call": "1ddd1c6f6493af73378c04b603275489dc614786348c39debd40a9cd56cff0e4",
+      "analysis": {
+        "needed": true,
+        "quote": "방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.",
+        "possible_rule_1": "일반 취소 마감 (24 시간 전) 이 지난 후라도, 직원이 정정 요청을 받으면 항상 True 를 반환한다.",
+        "possible_rule_2": "일반 취소 마감 (24 시간 전) 이 지난 후라도, 직원이 정정 요청을 받으면 운영 기준에 따라 True 또는 False 를 반환한다.",
+        "distinguishing_situation": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받는다.",
+        "owner_question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "calls": [
+    "1ba330ec78c78a7c94038de974fdea188ac8d788f3443a2e45e96bd475752b4e",
+    "de77ac0b10983076182cce92e35f97d53225aeedb13e245fd343b68e6b1974d4",
+    "1ddd1c6f6493af73378c04b603275489dc614786348c39debd40a9cd56cff0e4"
+  ],
+  "invalid": false
+}

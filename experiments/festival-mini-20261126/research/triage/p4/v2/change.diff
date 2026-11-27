@@ -1,0 +1,11 @@
+--- v1/router.py
++++ v2/router.py
+@@ -1,5 +1,7 @@
+ def triage(tags):
++    if not tags:
++        return 'general'
+     for tag in tags:
+         if tag in ('account', 'billing', 'privacy'):
+             return tag
+-    raise NotImplementedError
++    raise NotImplementedError

@@ -1,0 +1,197 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def allow_upload(size_bytes):\n    raise NotImplementedError\n"
+  },
+  "sha256": "e46e23f8a7c25c8c5ef135eff682b75b13c92844f910e89d8e71510c6e618aaa",
+  "status": "held_for_review",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def allow_upload(size_bytes):\n    if size_bytes <= 0:\n        return False\n    if size_bytes > 16:\n        return False\n    return True"
+    },
+    "sha256": "8b1a5183044957a01ff641cfc0a5df24ce4d51a39c8610fadfedd92e8fd7b220",
+    "received": [
+      1
+    ],
+    "author_call": "f63077535004802d9d557d142e7e7ec1d5c3c0ddb9e6e1d78da56368f48caa2f",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    },
+    "attempts": [
+      {
+        "key": "5e239b765585272b61a3ad085d52f16e528262828fdc7096c137deb773d947b7",
+        "issues": [
+          "missing_executable_line",
+          "missing_executable_line"
+        ],
+        "bindings": [
+          {
+            "reply": "빈 파일에는 거부로 처리합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "if size_bytes == 0: return False"
+          },
+          {
+            "reply": "업로드 크기의 상한은 16바이트입니다.",
+            "status": "present",
+            "file": "solution.py",
+            "line": "if size_bytes > 16: return False"
+          },
+          {
+            "reply": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+            "status": "present",
+            "file": "solution.py",
+            "line": "return True"
+          }
+        ]
+      },
+      {
+        "key": "f63077535004802d9d557d142e7e7ec1d5c3c0ddb9e6e1d78da56368f48caa2f",
+        "issues": [
+          "missing_executable_line",
+          "missing_executable_line"
+        ],
+        "bindings": [
+          {
+            "reply": "빈 파일에는 거부로 처리합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "    if size_bytes == 0:\n        return False"
+          },
+          {
+            "reply": "업로드 크기의 상한은 16바이트입니다.",
+            "status": "present",
+            "file": "solution.py",
+            "line": "    if size_bytes > 16:\n        return False"
+          },
+          {
+            "reply": "파일 크기가 상한과 정확히 같아도 허용합니다.",
+            "status": "present",
+            "file": "solution.py",
+            "line": "    return True"
+          }
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    [
+      "A",
+      {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 은 거부해야 하지만, 현재 코드는 0 을 포함한 음수 값만 거부하고 0 은 허용합니다.",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 에 대한 허용 여부를 어떻게 처리해야 합니까?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ],
+    [
+      "B",
+      {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 에 대한 허용 여부",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 은 거부해야 하나요?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    ],
+    [
+      "C",
+      {
+        "questions": [
+          {
+            "situation": "빈 파일 (0 바이트) 에 대한 허용 여부",
+            "outcome_a": "빈 파일은 거부합니다.",
+            "outcome_b": "빈 파일은 허용합니다.",
+            "question": "빈 파일 (0 바이트) 은 거부 처리가 맞나요?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ]
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "3e083a73633876e924cd281be0ffc112ce9cb6bee0f72725536215c70ac7b621",
+    "0de0b2e388425eefbe101f75ec89dbfc2392f053b8e80a53a49254badbf53e76",
+    "a2b7376555315a13fe063e2d0c09eb391b654cccbee5b42b8600fbac00240f62",
+    "0c32b9e10e83d0bab8a8523f1afd469f4a0ae4f510feed46a9002180d2cee86c",
+    "5e239b765585272b61a3ad085d52f16e528262828fdc7096c137deb773d947b7",
+    "f63077535004802d9d557d142e7e7ec1d5c3c0ddb9e6e1d78da56368f48caa2f",
+    "f142df8c006ef2403a05b5efa24d4503a901240a27c9fd25f0b7f7d6db153bf3",
+    "f6af3b5be666817200749a65f7580fc6e0e17753994ab3bba871952e0a13841c",
+    "95e8732e1edda5139443bf90e16830fef371813d0c47cf14b389ec61ad6b49c6"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "0482c3381b64e276d7cb5eefd72ab0446e00c114d489015eaf29d702c758d026",
+      "questions": [
+        {
+          "question": "0(빈 파일)은 항상 허용되나요?",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "상한 값과 빈 파일의 허용 여부를 저장소 담당자에게 확인하여, 그 결과를 바탕으로 allow_upload 함수를 구현하시오.",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "상한 파일 크기를 100MB로 가정하고 상한 이하를 허용할지, 아니면 50MB로 가정하고 상한 이하를 허용할지 결정이 필요합니다.",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "빈 파일에는 거부로 처리합니다.\n업로드 크기의 상한은 16바이트입니다.\n파일 크기가 상한과 정확히 같아도 허용합니다.",
+      "source": "delegated_policy_card"
+    }
+  ],
+  "guard": {
+    "status": "held_for_review",
+    "held": true,
+    "issues": [
+      "changed_behavior_unverified",
+      "unresolved_reply_and_unsupported_edit"
+    ],
+    "unverified": [
+      "업로드 크기의 상한은 16바이트입니다."
+    ],
+    "changed_files": [
+      "solution.py"
+    ],
+    "evidenced_files": [],
+    "author_call": "f63077535004802d9d557d142e7e7ec1d5c3c0ddb9e6e1d78da56368f48caa2f",
+    "previous_sha256": "e46e23f8a7c25c8c5ef135eff682b75b13c92844f910e89d8e71510c6e618aaa",
+    "proposed_sha256": "8b1a5183044957a01ff641cfc0a5df24ce4d51a39c8610fadfedd92e8fd7b220",
+    "retained_sha256": "e46e23f8a7c25c8c5ef135eff682b75b13c92844f910e89d8e71510c6e618aaa",
+    "additional_model_calls": 0,
+    "additional_tokens": 0
+  }
+}

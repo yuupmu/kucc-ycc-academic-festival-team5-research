@@ -1,0 +1,54 @@
+{
+  "version": 4,
+  "arm": "multi",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if age_seconds < 600 and until_start_seconds >= 0:  # [4, 5, 6]\n        return True\n    if age_seconds == 600 and until_start_seconds >= 0:  # [5]\n        return True\n    if until_start_seconds == 0:  # [7]\n        return False\n    if until_start_seconds < 0:  # [8]\n        return False\n    if until_start_seconds == 86400 and until_start_seconds < 0:  # [1, 3]\n        return True\n    if until_start_seconds > 86400 and until_start_seconds < 0:  # [2]\n        return False\n    if age_seconds >= 600:  # [9]\n        raise NotImplementedError(\"담당자 판단 필요\")\n    raise NotImplementedError(\"담당자 판단 필요\")  # [9]\n",
+  "sha256": "a5763fa9a8aa7efbdc612c550b34aef1c304fb842662fa818befd9dfca5e3019",
+  "plan": "기본적으로 정정 기간 조건이 우선 처리됩니다. 정정 기간 내에 있으면 일반 취소 마감 조건이 무시됩니다. 정정 기간이 끝나면 일반 취소 마감 조건이 우선합니다. 아무 조건에도 해당하지 않을 때는 미정으로 처리합니다.",
+  "links": [
+    {
+      "quote": "정정 기간은 예약 생성 후 10분입니다.",
+      "line": "if age_seconds < 600 and until_start_seconds >= 0:"
+    },
+    {
+      "quote": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+      "line": "if age_seconds < 600 and until_start_seconds >= 0:"
+    },
+    {
+      "quote": "정정 기간 안이면 일반 취소 마감이 지난 예약도 정정할 수 있습니다.",
+      "line": "if age_seconds < 600 and until_start_seconds >= 0:"
+    },
+    {
+      "quote": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+      "line": "if age_seconds == 600 and until_start_seconds >= 0:"
+    },
+    {
+      "quote": "현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다.",
+      "line": "if until_start_seconds == 0:"
+    },
+    {
+      "quote": "이용이 이미 시작된 뒤에는 정정 기간이 남아 있어도 거부합니다.",
+      "line": "if until_start_seconds < 0:"
+    },
+    {
+      "quote": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다.",
+      "line": "if until_start_seconds == 86400 and until_start_seconds < 0:"
+    },
+    {
+      "quote": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+      "line": "if until_start_seconds == 86400 and until_start_seconds < 0:"
+    },
+    {
+      "quote": "이용이 시작된 순간부터 일반 취소는 마감됩니다.",
+      "line": "if until_start_seconds > 86400 and until_start_seconds < 0:"
+    },
+    {
+      "quote": "그 밖의 질문은 어떤 상황의 운영 기준을 정해야 하는지 구체적으로 말씀해 주세요.",
+      "line": "if age_seconds >= 600:"
+    }
+  ],
+  "main_complete": true,
+  "answer_batches": [
+    1,
+    2
+  ]
+}

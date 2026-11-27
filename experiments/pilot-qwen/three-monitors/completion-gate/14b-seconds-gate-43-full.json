@@ -1,0 +1,1072 @@
+{
+  "source": "14b-seconds-contract-43.json",
+  "source_sha256": "aa18f100aec1a6a84ea5b4830b725816c1859dedb15e1b5ada2fccc4db6c9560",
+  "arm": "gate",
+  "seed": 43,
+  "calls": [
+    {
+      "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```",
+      "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+      "usage": {
+        "completion_tokens": 165,
+        "prompt_tokens": 1842,
+        "total_tokens": 2007,
+        "prompt_tokens_details": {
+          "cached_tokens": 1684
+        }
+      },
+      "server_timings": {
+        "cache_n": 1684,
+        "prompt_n": 158,
+        "prompt_ms": 454.185,
+        "prompt_per_token_ms": 2.8745886075949367,
+        "prompt_per_second": 347.8758655613902,
+        "predicted_n": 165,
+        "predicted_ms": 5609.888,
+        "predicted_per_token_ms": 34.206634146341464,
+        "predicted_per_second": 29.234095226143552
+      },
+      "finish_reason": "stop",
+      "elapsed_seconds": 6.07,
+      "request": {
+        "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+        "messages": [
+          {
+            "role": "system",
+            "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+          },
+          {
+            "role": "user",
+            "content": "# 기본 예약 취소\n\n작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n코드를 쓰기 전에 판정을 바꿀 수 있는 미확정 운영 기준을 담당자에게 한 번에 질문하세요. 필요한 질문만 적고, 없으면 \"없음\"이라고 하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "1. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다. 이 정정 시간은 얼마나 되는가요?\n2. 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받습니다. 이 경우 정정 요청은 언제까지 허용되나요?"
+          },
+          {
+            "role": "user",
+            "content": "예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다.\n함수를 구현하세요. 답변이 없는 부분은 합리적으로 가정하세요. 표준 라이브러리만 사용하고, 실행 가능한 Python 소스 전체를 하나의 코드 블록으로 반환하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n```"
+          },
+          {
+            "role": "user",
+            "content": "아래 세 검토 의견은 오류가 있을 수 있습니다. 고객 안내문과 담당자 답변에 비추어 필요한 변경만 반영하세요. 정상 동작하는 부분을 보존하고, 수정할 부분이 없어도 전체 실행 가능한 Python 함수를 하나의 코드 블록으로 제출하세요.\n검토 의견\n[{\"question\": \"\", \"feedback\": \"함수 구현이 적절합니다. 다만, 예약 생성 후 10분 이내인 경우 취소를 허용하는 로직이 일반 취소 마감이 지난 예약에도 적용되어야 할 것 같습니다. 이 부분을 확인해주세요.\"}, {\"question\": \"\", \"feedback\": \"함수의 로직은 명확하지만, 예약 생성 후 10분 이내의 정정 시간이 일반 취소 마감이 지나도 허용되는 부분이 명확하지 않습니다. 예약 생성 후 10분 이내의 정정 시간은 일반 취소 마감이 지나도 허용되지만, 이 정정 시간이 24시간 이내의 이용 시작에만 적용되는지, 아니면 모든 경우에 적용되는지 구체적으로 확인이 필요합니다.\"}, {\"question\": \"\", \"feedback\": \"코드는 주어진 조건에 따라 예약 취소를 허용하는지 거부하는지 정확하게 구현하고 있습니다. 다만, '방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다'는 부분이 구체화되지 않았습니다. 예약 생성 후 10분 이내인 경우 취소를 허용한다고 명시했지만, 이는 '방금 잘못 예약한 고객'을 정확히 정의하지 않습니다. 담당자에게 '방금 잘못 예약한 고객'이란 정확히 어떤 상황을 의미하는지 구체적으로 알려달아야 할 것 같습니다.\"}]\n다음 사례의 기대값은 위 안내문과 이 대화에서 담당자가 확인해 준 규칙에서 도출했습니다. actual은 초안 실행 결과입니다. 불일치를 고치고 기존에 맞는 사례도 보존하세요.\n[{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 601, \"until_start_seconds\": 7200, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": true}, {\"age_seconds\": 172800, \"until_start_seconds\": 86399, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간 경과\", \"actual\": false, \"error\": null, \"passed\": true}]"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          }
+        ],
+        "seed": 43,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 1500,
+        "stream": false
+      }
+    },
+    {
+      "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```",
+      "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+      "usage": {
+        "completion_tokens": 196,
+        "prompt_tokens": 2209,
+        "total_tokens": 2405,
+        "prompt_tokens_details": {
+          "cached_tokens": 1684
+        }
+      },
+      "server_timings": {
+        "cache_n": 1684,
+        "prompt_n": 525,
+        "prompt_ms": 1197.272,
+        "prompt_per_token_ms": 2.280518095238095,
+        "prompt_per_second": 438.4968495045403,
+        "predicted_n": 196,
+        "predicted_ms": 8422.067,
+        "predicted_per_token_ms": 43.19008717948717,
+        "predicted_per_second": 23.153461020910903
+      },
+      "finish_reason": "stop",
+      "elapsed_seconds": 9.62,
+      "request": {
+        "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+        "messages": [
+          {
+            "role": "system",
+            "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+          },
+          {
+            "role": "user",
+            "content": "# 기본 예약 취소\n\n작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n코드를 쓰기 전에 판정을 바꿀 수 있는 미확정 운영 기준을 담당자에게 한 번에 질문하세요. 필요한 질문만 적고, 없으면 \"없음\"이라고 하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "1. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다. 이 정정 시간은 얼마나 되는가요?\n2. 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받습니다. 이 경우 정정 요청은 언제까지 허용되나요?"
+          },
+          {
+            "role": "user",
+            "content": "예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다.\n함수를 구현하세요. 답변이 없는 부분은 합리적으로 가정하세요. 표준 라이브러리만 사용하고, 실행 가능한 Python 소스 전체를 하나의 코드 블록으로 반환하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n```"
+          },
+          {
+            "role": "user",
+            "content": "아래 세 검토 의견은 오류가 있을 수 있습니다. 고객 안내문과 담당자 답변에 비추어 필요한 변경만 반영하세요. 정상 동작하는 부분을 보존하고, 수정할 부분이 없어도 전체 실행 가능한 Python 함수를 하나의 코드 블록으로 제출하세요.\n검토 의견\n[{\"question\": \"\", \"feedback\": \"함수 구현이 적절합니다. 다만, 예약 생성 후 10분 이내인 경우 취소를 허용하는 로직이 일반 취소 마감이 지난 예약에도 적용되어야 할 것 같습니다. 이 부분을 확인해주세요.\"}, {\"question\": \"\", \"feedback\": \"함수의 로직은 명확하지만, 예약 생성 후 10분 이내의 정정 시간이 일반 취소 마감이 지나도 허용되는 부분이 명확하지 않습니다. 예약 생성 후 10분 이내의 정정 시간은 일반 취소 마감이 지나도 허용되지만, 이 정정 시간이 24시간 이내의 이용 시작에만 적용되는지, 아니면 모든 경우에 적용되는지 구체적으로 확인이 필요합니다.\"}, {\"question\": \"\", \"feedback\": \"코드는 주어진 조건에 따라 예약 취소를 허용하는지 거부하는지 정확하게 구현하고 있습니다. 다만, '방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다'는 부분이 구체화되지 않았습니다. 예약 생성 후 10분 이내인 경우 취소를 허용한다고 명시했지만, 이는 '방금 잘못 예약한 고객'을 정확히 정의하지 않습니다. 담당자에게 '방금 잘못 예약한 고객'이란 정확히 어떤 상황을 의미하는지 구체적으로 알려달아야 할 것 같습니다.\"}]\n다음 사례의 기대값은 위 안내문과 이 대화에서 담당자가 확인해 준 규칙에서 도출했습니다. actual은 초안 실행 결과입니다. 불일치를 고치고 기존에 맞는 사례도 보존하세요.\n[{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 601, \"until_start_seconds\": 7200, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": true}, {\"age_seconds\": 172800, \"until_start_seconds\": 86399, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간 경과\", \"actual\": false, \"error\": null, \"passed\": true}]"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          }
+        ],
+        "seed": 43,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 1500,
+        "stream": false
+      }
+    },
+    {
+      "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```",
+      "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+      "usage": {
+        "completion_tokens": 196,
+        "prompt_tokens": 2557,
+        "total_tokens": 2753,
+        "prompt_tokens_details": {
+          "cached_tokens": 2404
+        }
+      },
+      "server_timings": {
+        "cache_n": 2404,
+        "prompt_n": 153,
+        "prompt_ms": 835.007,
+        "prompt_per_token_ms": 5.457562091503267,
+        "prompt_per_second": 183.23199685751138,
+        "predicted_n": 196,
+        "predicted_ms": 15465.178,
+        "predicted_per_token_ms": 79.30860512820513,
+        "predicted_per_second": 12.608972234267204
+      },
+      "finish_reason": "stop",
+      "elapsed_seconds": 16.3,
+      "request": {
+        "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+        "messages": [
+          {
+            "role": "system",
+            "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+          },
+          {
+            "role": "user",
+            "content": "# 기본 예약 취소\n\n작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n코드를 쓰기 전에 판정을 바꿀 수 있는 미확정 운영 기준을 담당자에게 한 번에 질문하세요. 필요한 질문만 적고, 없으면 \"없음\"이라고 하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "1. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다. 이 정정 시간은 얼마나 되는가요?\n2. 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받습니다. 이 경우 정정 요청은 언제까지 허용되나요?"
+          },
+          {
+            "role": "user",
+            "content": "예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다.\n함수를 구현하세요. 답변이 없는 부분은 합리적으로 가정하세요. 표준 라이브러리만 사용하고, 실행 가능한 Python 소스 전체를 하나의 코드 블록으로 반환하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n```"
+          },
+          {
+            "role": "user",
+            "content": "아래 세 검토 의견은 오류가 있을 수 있습니다. 고객 안내문과 담당자 답변에 비추어 필요한 변경만 반영하세요. 정상 동작하는 부분을 보존하고, 수정할 부분이 없어도 전체 실행 가능한 Python 함수를 하나의 코드 블록으로 제출하세요.\n검토 의견\n[{\"question\": \"\", \"feedback\": \"함수 구현이 적절합니다. 다만, 예약 생성 후 10분 이내인 경우 취소를 허용하는 로직이 일반 취소 마감이 지난 예약에도 적용되어야 할 것 같습니다. 이 부분을 확인해주세요.\"}, {\"question\": \"\", \"feedback\": \"함수의 로직은 명확하지만, 예약 생성 후 10분 이내의 정정 시간이 일반 취소 마감이 지나도 허용되는 부분이 명확하지 않습니다. 예약 생성 후 10분 이내의 정정 시간은 일반 취소 마감이 지나도 허용되지만, 이 정정 시간이 24시간 이내의 이용 시작에만 적용되는지, 아니면 모든 경우에 적용되는지 구체적으로 확인이 필요합니다.\"}, {\"question\": \"\", \"feedback\": \"코드는 주어진 조건에 따라 예약 취소를 허용하는지 거부하는지 정확하게 구현하고 있습니다. 다만, '방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다'는 부분이 구체화되지 않았습니다. 예약 생성 후 10분 이내인 경우 취소를 허용한다고 명시했지만, 이는 '방금 잘못 예약한 고객'을 정확히 정의하지 않습니다. 담당자에게 '방금 잘못 예약한 고객'이란 정확히 어떤 상황을 의미하는지 구체적으로 알려달아야 할 것 같습니다.\"}]\n다음 사례의 기대값은 위 안내문과 이 대화에서 담당자가 확인해 준 규칙에서 도출했습니다. actual은 초안 실행 결과입니다. 불일치를 고치고 기존에 맞는 사례도 보존하세요.\n[{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 601, \"until_start_seconds\": 7200, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": true}, {\"age_seconds\": 172800, \"until_start_seconds\": 86399, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간 경과\", \"actual\": false, \"error\": null, \"passed\": true}]"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          }
+        ],
+        "seed": 43,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 1500,
+        "stream": false
+      }
+    },
+    {
+      "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```",
+      "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+      "usage": {
+        "completion_tokens": 196,
+        "prompt_tokens": 2905,
+        "total_tokens": 3101,
+        "prompt_tokens_details": {
+          "cached_tokens": 2752
+        }
+      },
+      "server_timings": {
+        "cache_n": 2752,
+        "prompt_n": 153,
+        "prompt_ms": 782.136,
+        "prompt_per_token_ms": 5.112,
+        "prompt_per_second": 195.61815336463224,
+        "predicted_n": 196,
+        "predicted_ms": 15119.952,
+        "predicted_per_token_ms": 77.53821538461538,
+        "predicted_per_second": 12.89686633925822
+      },
+      "finish_reason": "stop",
+      "elapsed_seconds": 15.91,
+      "request": {
+        "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+        "messages": [
+          {
+            "role": "system",
+            "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+          },
+          {
+            "role": "user",
+            "content": "# 기본 예약 취소\n\n작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n코드를 쓰기 전에 판정을 바꿀 수 있는 미확정 운영 기준을 담당자에게 한 번에 질문하세요. 필요한 질문만 적고, 없으면 \"없음\"이라고 하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "1. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다. 이 정정 시간은 얼마나 되는가요?\n2. 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받습니다. 이 경우 정정 요청은 언제까지 허용되나요?"
+          },
+          {
+            "role": "user",
+            "content": "예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다.\n함수를 구현하세요. 답변이 없는 부분은 합리적으로 가정하세요. 표준 라이브러리만 사용하고, 실행 가능한 Python 소스 전체를 하나의 코드 블록으로 반환하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n```"
+          },
+          {
+            "role": "user",
+            "content": "아래 세 검토 의견은 오류가 있을 수 있습니다. 고객 안내문과 담당자 답변에 비추어 필요한 변경만 반영하세요. 정상 동작하는 부분을 보존하고, 수정할 부분이 없어도 전체 실행 가능한 Python 함수를 하나의 코드 블록으로 제출하세요.\n검토 의견\n[{\"question\": \"\", \"feedback\": \"함수 구현이 적절합니다. 다만, 예약 생성 후 10분 이내인 경우 취소를 허용하는 로직이 일반 취소 마감이 지난 예약에도 적용되어야 할 것 같습니다. 이 부분을 확인해주세요.\"}, {\"question\": \"\", \"feedback\": \"함수의 로직은 명확하지만, 예약 생성 후 10분 이내의 정정 시간이 일반 취소 마감이 지나도 허용되는 부분이 명확하지 않습니다. 예약 생성 후 10분 이내의 정정 시간은 일반 취소 마감이 지나도 허용되지만, 이 정정 시간이 24시간 이내의 이용 시작에만 적용되는지, 아니면 모든 경우에 적용되는지 구체적으로 확인이 필요합니다.\"}, {\"question\": \"\", \"feedback\": \"코드는 주어진 조건에 따라 예약 취소를 허용하는지 거부하는지 정확하게 구현하고 있습니다. 다만, '방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다'는 부분이 구체화되지 않았습니다. 예약 생성 후 10분 이내인 경우 취소를 허용한다고 명시했지만, 이는 '방금 잘못 예약한 고객'을 정확히 정의하지 않습니다. 담당자에게 '방금 잘못 예약한 고객'이란 정확히 어떤 상황을 의미하는지 구체적으로 알려달아야 할 것 같습니다.\"}]\n다음 사례의 기대값은 위 안내문과 이 대화에서 담당자가 확인해 준 규칙에서 도출했습니다. actual은 초안 실행 결과입니다. 불일치를 고치고 기존에 맞는 사례도 보존하세요.\n[{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 601, \"until_start_seconds\": 7200, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": true}, {\"age_seconds\": 172800, \"until_start_seconds\": 86399, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간 경과\", \"actual\": false, \"error\": null, \"passed\": true}]"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          }
+        ],
+        "seed": 43,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 1500,
+        "stream": false
+      }
+    },
+    {
+      "text": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```",
+      "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+      "usage": {
+        "completion_tokens": 196,
+        "prompt_tokens": 3253,
+        "total_tokens": 3449,
+        "prompt_tokens_details": {
+          "cached_tokens": 3100
+        }
+      },
+      "server_timings": {
+        "cache_n": 3100,
+        "prompt_n": 153,
+        "prompt_ms": 803.189,
+        "prompt_per_token_ms": 5.249601307189542,
+        "prompt_per_second": 190.49065662004836,
+        "predicted_n": 196,
+        "predicted_ms": 15102.785,
+        "predicted_per_token_ms": 77.45017948717948,
+        "predicted_per_second": 12.911525920550416
+      },
+      "finish_reason": "stop",
+      "elapsed_seconds": 15.91,
+      "request": {
+        "model": "var/local-models/qwen2.5-coder-14b-instruct-q4_k_m.gguf",
+        "messages": [
+          {
+            "role": "system",
+            "content": "당신은 예약 시스템의 Python 개발자입니다. 주어진 안내문과 담당자의 답을 사용하세요."
+          },
+          {
+            "role": "user",
+            "content": "# 기본 예약 취소\n\n작은 연습실의 예약 취소 정책 함수 `allow_cancel(age_seconds, until_start_seconds) -> bool`을 구현하세요. 두 입력은 정수 초입니다. age_seconds는 예약 생성부터 현재까지 경과한 시간(0 이상), until_start_seconds는 이용 시작까지 남은 시간(0은 시작 순간, 음수는 이미 시작)입니다. 시간 변환은 호출자가 처리합니다.\n\n이 지점은 매일 영업합니다. 고객 안내문에는 “일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.”라고 적혀 있습니다.\n\n직원은 일반 마감이 지난 예약과 막 이용이 시작된 예약에 대해서도 정정 요청을 받습니다. 결과를 바꿀 수 있는 운영 기준이 필요하면 담당자에게 구체적으로 질문할 수 있습니다. 안내문과 답변을 근거로, 취소를 허용하면 True, 거부하면 False를 반환하세요.\n\n\n코드를 쓰기 전에 판정을 바꿀 수 있는 미확정 운영 기준을 담당자에게 한 번에 질문하세요. 필요한 질문만 적고, 없으면 \"없음\"이라고 하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "1. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다. 이 정정 시간은 얼마나 되는가요?\n2. 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받습니다. 이 경우 정정 요청은 언제까지 허용되나요?"
+          },
+          {
+            "role": "user",
+            "content": "예약 생성 후 10분까지는 일반 취소 마감이 지나도 허용합니다. 정확히 10분인 경우도 포함합니다.\n함수를 구현하세요. 답변이 없는 부분은 합리적으로 가정하세요. 표준 라이브러리만 사용하고, 실행 가능한 Python 소스 전체를 하나의 코드 블록으로 반환하세요."
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n```"
+          },
+          {
+            "role": "user",
+            "content": "아래 세 검토 의견은 오류가 있을 수 있습니다. 고객 안내문과 담당자 답변에 비추어 필요한 변경만 반영하세요. 정상 동작하는 부분을 보존하고, 수정할 부분이 없어도 전체 실행 가능한 Python 함수를 하나의 코드 블록으로 제출하세요.\n검토 의견\n[{\"question\": \"\", \"feedback\": \"함수 구현이 적절합니다. 다만, 예약 생성 후 10분 이내인 경우 취소를 허용하는 로직이 일반 취소 마감이 지난 예약에도 적용되어야 할 것 같습니다. 이 부분을 확인해주세요.\"}, {\"question\": \"\", \"feedback\": \"함수의 로직은 명확하지만, 예약 생성 후 10분 이내의 정정 시간이 일반 취소 마감이 지나도 허용되는 부분이 명확하지 않습니다. 예약 생성 후 10분 이내의 정정 시간은 일반 취소 마감이 지나도 허용되지만, 이 정정 시간이 24시간 이내의 이용 시작에만 적용되는지, 아니면 모든 경우에 적용되는지 구체적으로 확인이 필요합니다.\"}, {\"question\": \"\", \"feedback\": \"코드는 주어진 조건에 따라 예약 취소를 허용하는지 거부하는지 정확하게 구현하고 있습니다. 다만, '방금 잘못 예약한 고객에게는 별도의 정정 시간이 주어집니다'는 부분이 구체화되지 않았습니다. 예약 생성 후 10분 이내인 경우 취소를 허용한다고 명시했지만, 이는 '방금 잘못 예약한 고객'을 정확히 정의하지 않습니다. 담당자에게 '방금 잘못 예약한 고객'이란 정확히 어떤 상황을 의미하는지 구체적으로 알려달아야 할 것 같습니다.\"}]\n다음 사례의 기대값은 위 안내문과 이 대화에서 담당자가 확인해 준 규칙에서 도출했습니다. actual은 초안 실행 결과입니다. 불일치를 고치고 기존에 맞는 사례도 보존하세요.\n[{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 601, \"until_start_seconds\": 7200, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": true}, {\"age_seconds\": 172800, \"until_start_seconds\": 86399, \"expected\": \"deny\", \"rule\": \"일반 마감 후 정정 시간 경과\", \"actual\": false, \"error\": null, \"passed\": true}]"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 이내인 경우 취소 허용\n    if until_start_seconds >= 24 * 3600 and age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 599, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}, {\"age_seconds\": 600, \"until_start_seconds\": 7200, \"expected\": \"allow\", \"rule\": \"일반 마감 후 정정 시간\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "```python\ndef allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n```"
+          },
+          {
+            "role": "user",
+            "content": "같은 요구사항과 담당자 답을 다시 검토해 필요한 분기와 경계를 수정하세요. 전체 함수를 하나의 Python 코드 블록으로 제출하세요.\n{\"instruction\": \"실패한 입력의 기대값과 실제값을 비교해 분기와 경계를 수정하세요. 이미 통과한 검사도 다시 실행합니다.\", \"failures\": [{\"age_seconds\": 172800, \"until_start_seconds\": 172800, \"expected\": \"allow\", \"rule\": \"일반 취소 마감 전\", \"actual\": false, \"error\": null, \"passed\": false}]}"
+          }
+        ],
+        "seed": 43,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 1500,
+        "stream": false
+      }
+    }
+  ],
+  "history": [
+    [
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 172800,
+        "expected": "allow",
+        "rule": "일반 취소 마감 전",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 599,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 600,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 601,
+        "until_start_seconds": 7200,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 86399,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간 경과",
+        "actual": false,
+        "error": null,
+        "passed": true
+      }
+    ],
+    [
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 172800,
+        "expected": "allow",
+        "rule": "일반 취소 마감 전",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 599,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 600,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 601,
+        "until_start_seconds": 7200,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 86399,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간 경과",
+        "actual": false,
+        "error": null,
+        "passed": true
+      }
+    ],
+    [
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 172800,
+        "expected": "allow",
+        "rule": "일반 취소 마감 전",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 599,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 600,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 601,
+        "until_start_seconds": 7200,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 86399,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간 경과",
+        "actual": false,
+        "error": null,
+        "passed": true
+      }
+    ],
+    [
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 172800,
+        "expected": "allow",
+        "rule": "일반 취소 마감 전",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 599,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 600,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 601,
+        "until_start_seconds": 7200,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 86399,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간 경과",
+        "actual": false,
+        "error": null,
+        "passed": true
+      }
+    ],
+    [
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 172800,
+        "expected": "allow",
+        "rule": "일반 취소 마감 전",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 599,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 600,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 601,
+        "until_start_seconds": 7200,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 86399,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간 경과",
+        "actual": false,
+        "error": null,
+        "passed": true
+      }
+    ],
+    [
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 172800,
+        "expected": "allow",
+        "rule": "일반 취소 마감 전",
+        "actual": false,
+        "error": null,
+        "passed": false
+      },
+      {
+        "age_seconds": 599,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 600,
+        "until_start_seconds": 7200,
+        "expected": "allow",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": true,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 601,
+        "until_start_seconds": 7200,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간",
+        "actual": false,
+        "error": null,
+        "passed": true
+      },
+      {
+        "age_seconds": 172800,
+        "until_start_seconds": 86399,
+        "expected": "deny",
+        "rule": "일반 마감 후 정정 시간 경과",
+        "actual": false,
+        "error": null,
+        "passed": true
+      }
+    ]
+  ],
+  "submission": "def allow_cancel(age_seconds, until_start_seconds):\n    # 10분을 초로 변환\n    correction_time = 10 * 60\n    \n    # 예약 생성 후 10분 이내인 경우 취소 허용\n    if age_seconds <= correction_time:\n        return True\n    # 이용 시작이 24시간 전이고, 예약 생성 후 10분 초과인 경우 취소 거부\n    elif until_start_seconds >= 24 * 3600 and age_seconds > correction_time:\n        return False\n    # 이용 시작이 24시간 이내인 경우 취소 거부\n    elif until_start_seconds < 24 * 3600:\n        return False\n    # 일반 취소 마감이 지난 예약에 대해서도 정정 요청을 받을 수 있도록 수정\n    else:\n        return True\n",
+  "status": "paused",
+  "report": {
+    "benchmark_version": "1.0-basic.1",
+    "policy_sha256": "340f1f1a3deb12c8e4480a4225af65de5fd5fc2ba1898cbea3aab1b77a2fe224",
+    "score": 25,
+    "total": 40,
+    "accuracy_percent": 62.5,
+    "errors": 0,
+    "categories": {
+      "평일 마감": {
+        "correct": 5,
+        "total": 10
+      },
+      "마감 경계": {
+        "correct": 5,
+        "total": 10
+      },
+      "예약 직후 유예": {
+        "correct": 10,
+        "total": 10
+      },
+      "시작과 유예 우선순위": {
+        "correct": 5,
+        "total": 10
+      }
+    },
+    "labels": {
+      "allow": {
+        "correct": 10,
+        "total": 20
+      },
+      "deny": {
+        "correct": 15,
+        "total": 20
+      }
+    },
+    "results": [
+      {
+        "id": "C001",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C002",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C003",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C004",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C005",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C006",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C007",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C008",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C009",
+        "category": "평일 마감",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C010",
+        "category": "평일 마감",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C011",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C012",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C013",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C014",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C015",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C016",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C017",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C018",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C019",
+        "category": "마감 경계",
+        "expected": true,
+        "actual": false,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C020",
+        "category": "마감 경계",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C071",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C072",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C073",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C074",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C075",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C076",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C077",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C078",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C079",
+        "category": "예약 직후 유예",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C080",
+        "category": "예약 직후 유예",
+        "expected": false,
+        "actual": false,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C081",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C082",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C083",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C084",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C085",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C086",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C087",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C088",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      },
+      {
+        "id": "C089",
+        "category": "시작과 유예 우선순위",
+        "expected": true,
+        "actual": true,
+        "passed": true,
+        "error": null
+      },
+      {
+        "id": "C090",
+        "category": "시작과 유예 우선순위",
+        "expected": false,
+        "actual": true,
+        "passed": false,
+        "error": null
+      }
+    ]
+  }
+}

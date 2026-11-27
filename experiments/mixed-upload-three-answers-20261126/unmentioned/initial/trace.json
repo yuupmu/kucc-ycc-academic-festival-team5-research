@@ -1,0 +1,90 @@
+{
+  "decisions": [
+    {
+      "region": "size_bytes == 0",
+      "interpretation": {
+        "근거": "P3",
+        "반환": "False"
+      },
+      "calls": [
+        "75c98522eaac558085d234ff0e7dc021e55d2ae967b34b6d5c0e9f7def8ce147",
+        "d9586ad611ecb4b35663390ef262d8f270871a09315e2287c67103624f53ecac"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "음수 입력은 잘못된 크기이므로 거부합니다.",
+      "site": "@pending:8:8"
+    },
+    {
+      "region": "0 < size_bytes < 16",
+      "interpretation": {
+        "근거": "P4",
+        "반환": "False"
+      },
+      "calls": [
+        "4699c6ca0ddc17838f328ec6d71bfa78b11afcf0d1da02ae45f92df6a1716818",
+        "9f02abab52a74a6fe9d10b066cd3827908b0c26fe25644f58335c1b62bc26bb2"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다.",
+      "site": "@pending:12:4"
+    },
+    {
+      "region": "size_bytes == 16",
+      "interpretation": {
+        "근거": "P3",
+        "반환": "False"
+      },
+      "calls": [
+        "600033aa9b651571dfd4463aef2cdf4cdf3affcb480954930acdb2a243234855",
+        "85fab724282f713d5fafccf1fec90cd78b111f79bd094ba3c7b26cbd902cf39f"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "음수 입력은 잘못된 크기이므로 거부합니다.",
+      "site": "@pending:12:4"
+    },
+    {
+      "region": "size_bytes > 16",
+      "interpretation": {
+        "근거": "H1.2",
+        "반환": "False"
+      },
+      "calls": [
+        "49ea0bcfd2dea13843bf9a8c858958bbc58d299b54dca77537f8420180e44c16",
+        "8dc511c96f220f9794da790ae4991f251ad5451b464c61d53236f9e63ccd0856"
+      ],
+      "value": "미정",
+      "verification": {
+        "판정": "근거 부족"
+      },
+      "quote": "0바이트 빈 파일은 거부합니다.",
+      "site": "@pending:12:4"
+    }
+  ],
+  "unresolved": [
+    "size_bytes == 0",
+    "0 < size_bytes < 16",
+    "size_bytes == 16",
+    "size_bytes > 16"
+  ],
+  "calls": [
+    "db58850968ab300dc4ea554c8fef460bb6fc45dc00e2410425154507dfc4eac5",
+    "75c98522eaac558085d234ff0e7dc021e55d2ae967b34b6d5c0e9f7def8ce147",
+    "d9586ad611ecb4b35663390ef262d8f270871a09315e2287c67103624f53ecac",
+    "4699c6ca0ddc17838f328ec6d71bfa78b11afcf0d1da02ae45f92df6a1716818",
+    "9f02abab52a74a6fe9d10b066cd3827908b0c26fe25644f58335c1b62bc26bb2",
+    "600033aa9b651571dfd4463aef2cdf4cdf3affcb480954930acdb2a243234855",
+    "85fab724282f713d5fafccf1fec90cd78b111f79bd094ba3c7b26cbd902cf39f",
+    "49ea0bcfd2dea13843bf9a8c858958bbc58d299b54dca77537f8420180e44c16",
+    "8dc511c96f220f9794da790ae4991f251ad5451b464c61d53236f9e63ccd0856"
+  ],
+  "route": "request clarification"
+}

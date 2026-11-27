@@ -1,0 +1,72 @@
+{
+  "text": "{\"-3\": \"False\"}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 194,
+    "total_tokens": 202,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 194,
+    "prompt_ms": 232.322,
+    "prompt_per_token_ms": 1.1975360824742267,
+    "prompt_per_second": 835.0479076454232,
+    "predicted_n": 8,
+    "predicted_ms": 106.737,
+    "predicted_per_token_ms": 15.248142857142856,
+    "predicted_per_second": 65.58175702895903
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.34,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개 명세와 실제 담당자 회신만 보고 입력값 각각에서 함수가 반환해야 할 값을 고르세요. True, False, 미정 중 하나입니다. 주어진 내용으로 결정되지 않는 입력에는 미정을 선택하세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"needs_check(level: int) -> bool은 계측값을 다시 확인할지 결정합니다. level은 음수도 유효한 정수입니다. 기준보다 높은 값은 재검(True), 낮은 값은 통과(False)입니다. 기준 수치와 정확히 기준일 때의 처리는 담당자에게 확인하세요.\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"재검 기준은 얼마이고, 값이 정확히 기준일 때도 재검하나요?\"],\"answer\":{\"text\":\"기준값은 -3입니다. 정확히 기준이면 통과시킵니다.\"}}],\"inputs\":[-3]}"
+      }
+    ],
+    "seed": 1421,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "-3": {
+              "type": "string",
+              "enum": [
+                "True",
+                "False",
+                "미정"
+              ]
+            }
+          },
+          "required": [
+            "-3"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-point-values"
+}

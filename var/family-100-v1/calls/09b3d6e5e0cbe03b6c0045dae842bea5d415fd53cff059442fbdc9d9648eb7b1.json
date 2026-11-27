@@ -1,0 +1,67 @@
+{
+  "text": "{\"code\": \"def mask_code(code):\\n    raise NotImplementedError\\n\"}",
+  "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 206,
+    "total_tokens": 230,
+    "prompt_tokens_details": {
+      "cached_tokens": 1
+    }
+  },
+  "server_timings": {
+    "cache_n": 1,
+    "prompt_n": 205,
+    "prompt_ms": 238.404,
+    "prompt_per_token_ms": 1.1629463414634147,
+    "prompt_per_second": 859.884901260046,
+    "predicted_n": 24,
+    "predicted_ms": 386.294,
+    "predicted_per_token_ms": 16.795391304347824,
+    "predicted_per_second": 59.54014299989127
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.64,
+  "request": {
+    "model": "var/local-models/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개된 내용으로 구현한 전체 파이썬 소스를 code에 쓰세요. 근거 있는 경로는 구현하고 미정인 경로만 raise NotImplementedError로 남기세요. 정책을 추측하지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"화면에서 식별코드를 가리는 mask_code(code) -> str 함수를 구현하세요. 입력은 영문 대소문자와 숫자로만 된 문자열이며 빈 문자열도 가능합니다.\\n가리는 각 글자를 별표(*) 하나로 바꿉니다. 결과 길이는 입력 길이와 같아야 합니다. 공개하는 글자의 원래 대소문자와 순서는 유지합니다.\\n어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다. 다른 문자나 공백은 입력되지 않습니다.\",\"files\":{\"solution.py\":\"def mask_code(code):\\n    raise NotImplementedError\\n\"}}"
+      }
+    ],
+    "seed": 263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main"
+}

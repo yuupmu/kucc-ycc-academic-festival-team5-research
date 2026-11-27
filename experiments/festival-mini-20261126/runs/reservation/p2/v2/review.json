@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "e3ca96461e7c47326ebe1880632c9ae65db425b0b2c7c6397f118f450fcc23f0",
+    "fa19a341fe184de16a412dea4b92e7106ab5ad57a7416d0fba66d424413e1c8c",
+    "deb8ef2656ce4e957d36656aa1d6c14a89b3638ec48504f144d4c6fbfa7aea1f",
+    "a541d999e8590b22dfd05b56d434167f608382373adb9e3d72d1f77de64b0ebb"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "정정 시간 (age_seconds 기준) 을 고려하여 취소 허용 여부를 결정하는 로직이 구현되어 있지 않습니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "정정 시간의 기준이 '예약 생성 시점'인지 '이용 시작 24 시간 전'인지 명확히 해야 합니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "정정 기간이 '예약 생성부터' 시작한다는 답변과 안내문의 '이용 시작 24 시간 전' 기준이 충돌할 때, 정정 기간을 적용할 수 있는 구체적인 운영 기준을 담당자에게 질문해야 하는지 확인합니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "정정 시간 (age_seconds 기준) 을 고려하여 취소 허용 여부를 결정하는 로직이 구현되어 있지 않습니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "정정 시간의 기준이 '예약 생성 시점'인지 '이용 시작 24 시간 전'인지 명확히 해야 합니다.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "정정 기간이 '예약 생성부터' 시작한다는 답변과 안내문의 '이용 시작 24 시간 전' 기준이 충돌할 때, 정정 기간을 적용할 수 있는 구체적인 운영 기준을 담당자에게 질문해야 하는지 확인합니다.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

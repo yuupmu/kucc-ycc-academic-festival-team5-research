@@ -1,0 +1,374 @@
+{
+  "writer": {
+    "calls": [
+      "34cc5fb98a9aace9437c41a2edd99913f6d744b079a89680def1f69f3b2b482f",
+      "f97cd0e8e9a272f1bd50dd63dda66ef4a0b4168901e0a5e5a4deca2d89813827",
+      "c052c5985115e4b5abd773d5e9db75708ba7149793211e4806b4332d7ae05399"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "clean_title(text) 함수를 구현해야 함. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백만 포함. 빈 문자열 처리 가능.",
+        "input": "text",
+        "still_open": "구현 로직 세부사항",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "양끝 공백 제거, 영문자 소문자화, 숫자 유지, 단어 사이 단일 공백 유지.",
+        "input": "text",
+        "still_open": "연속된 내부 공백 처리 기준",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "연속 내부 공백, 하이픈, 빈 제목 처리는 편집 담당자 기준에 따름. 길이 제한 없음.",
+        "input": "text",
+        "still_open": "구체적인 편집 담당자 기준 정의",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "하이픈의 개수와 위치는 유지.",
+        "input": "text",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "내부 연속 공백은 하나로 줄임.",
+        "input": "text",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def clean_title(text: str) -> str:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 1. 양끝 공백 제거 및 영문자 소문자화, 숫자 유지",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    text = text.rstrip().lower()",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 2. 연속된 내부 공백을 하나로 줄임 (H2)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    text = re.sub(r'\\s+', ' ', text)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 3. 하이픈은 개수와 위치를 그대로 유지함 (H1)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 빈 문자열은 이미 rstrip 처리 후 빈 문자열로 유지됨",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return text",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "import re",
+            "sources": []
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def clean_title(text: str) -> str:\n    # 1. 양끝 공백 제거 및 영문자 소문자화, 숫자 유지\n    text = text.rstrip().lower()\n    \n    # 2. 연속된 내부 공백을 하나로 줄임 (H2)\n    text = re.sub(r'\\s+', ' ', text)\n    \n    # 3. 하이픈은 개수와 위치를 그대로 유지함 (H1)\n    # 빈 문자열은 이미 rstrip 처리 후 빈 문자열로 유지됨\n    \n    return text\n\nimport re"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "error": null,
+    "complete": false,
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {},
+        "decision": {
+          "rules": [
+            {
+              "when": "has_present(['P2', 'H2'], 'text') and not has_present(['P3'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "P2",
+                "H2"
+              ]
+            },
+            {
+              "when": "has_present(['P3'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "P3"
+              ]
+            },
+            {
+              "when": "has_present(['P1'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "P1"
+              ]
+            },
+            {
+              "when": "has_present(['P1', 'P2', 'P3'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "P1",
+                "P2",
+                "P3"
+              ]
+            },
+            {
+              "when": "has_present(['H1'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H1"
+              ]
+            },
+            {
+              "when": "has_present(['H1', 'H2'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H1",
+                "H2"
+              ]
+            },
+            {
+              "when": "has_present(['H1', 'P2', 'P3'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H1",
+                "P2",
+                "P3"
+              ]
+            },
+            {
+              "when": "has_present(['H1', 'P2'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H1",
+                "P2"
+              ]
+            },
+            {
+              "when": "has_present(['H1', 'P1'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H1",
+                "P1"
+              ]
+            },
+            {
+              "when": "has_present(['H1', 'P1', 'P2'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H1",
+                "P1",
+                "P2"
+              ]
+            },
+            {
+              "when": "has_present(['H1', 'P1', 'P2', 'P3'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H1",
+                "P1",
+                "P2",
+                "P3"
+              ]
+            },
+            {
+              "when": "has_present(['H2'], 'text')",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "H2"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "",
+            "sources": []
+          },
+          "complete": true,
+          "applicable": false
+        }
+      }
+    ],
+    "issues": [],
+    "format": "native"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 내부 공백을 하나로 줄이는 규칙은 담당자가 정했지만, 하이픈이 연속된 공백과 함께 나타날 때 하이픈이 공백 하나로 줄어든 후 다시 붙어 하이픈이 두 개로 인식되는지, 아니면 하이픈이 공백과 함께 연속된 문자열로 처리되어 하나의 하이픈으로 유지되는지 명확하지 않습니다.",
+            "outcome_a": "연속된 공백과 하이픈이 모두 제거되어 'a--b' 형태가 되는 경우",
+            "outcome_b": "연속된 공백과 하이픈이 모두 유지되어 'a - - b' 형태가 되는 경우",
+            "question": "연속된 내부 공백을 하나로 줄이는 규칙은 하이픈과 함께 적용될 때 하이픈이 두 개로 인식되는지, 하나의 하이픈으로 유지되는지 명확히 해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 내부 공백을 하나로 줄이는 규칙과 하이픈의 위치를 그대로 유지하는 규칙이 충돌할 때, 현재 코드는 하이픈을 '연속된 내부 공백' 처리 대상에 포함시켜 하이픈을 제거하거나 위치를 변경할 수 있습니다.",
+            "outcome_a": "하이픈을 제거하거나 위치가 변경됩니다.",
+            "outcome_b": "하이픈이 제거되거나 위치가 변경되지 않고 그대로 유지됩니다.",
+            "question": "하이픈이 연속된 공백과 함께 처리될 때, 하이픈이 제거되거나 위치가 변경되는지 여부에 대해 명확히 해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'hello--world')",
+            "outcome_a": "하이픈이 그대로 유지되어 'hello--world'가 됩니다.",
+            "outcome_b": "연속된 하이픈이 하나로 줄어든 'hello-world'가 됩니다.",
+            "question": "연속된 하이픈이 있는 경우, 편집 담당자의 기준에 따라 하나를 줄이는 것이 맞는지, 아니면 그대로 유지하는 것이 맞는지 확인 부탁드립니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "a5cf994d724f46504ec82b807db4683f8659b7a2f9825a65cb1d5076f0bd96d9",
+    "baccbc2ff83439ee9f469b080bcc454c44906009d47d1f50ab1f078bb6ae0c09",
+    "24b8f6dcc3132bd1353aa8bdebfd66c0e46ac888c4fd6c1aba7e1bfb59e59117",
+    "14d9e504e146361864db516583bf8a132d328e2537f5e4577bf218fbab040951",
+    "34cc5fb98a9aace9437c41a2edd99913f6d744b079a89680def1f69f3b2b482f",
+    "f97cd0e8e9a272f1bd50dd63dda66ef4a0b4168901e0a5e5a4deca2d89813827",
+    "c052c5985115e4b5abd773d5e9db75708ba7149793211e4806b4332d7ae05399",
+    "5e1a20c46f23868c45be6f3c1a9350b99566fae678b52cce94cab9fe2e312fcb",
+    "f3d6214fbf45f14a0c8ae0d75653ac9e425633775de9d7cb8e6aa7f51c3d9d21",
+    "262676153ee737007d1669feb80d4f744fc5a43ce415ed0ee1b6786e5e31e737"
+  ],
+  "files": {
+    "solution.py": "def clean_title(text: str) -> str:\n    # 1. 양끝 공백 제거 및 영문자 소문자화, 숫자 유지\n    text = text.rstrip().lower()\n    \n    # 2. 연속된 내부 공백을 하나로 줄임 (H2)\n    text = re.sub(r'\\s+', ' ', text)\n    \n    # 3. 하이픈은 개수와 위치를 그대로 유지함 (H1)\n    # 빈 문자열은 이미 rstrip 처리 후 빈 문자열로 유지됨\n    \n    return text\n\nimport re"
+  },
+  "sha256": "91be5f7b9677468fb02e80401a8a5f0aae7aad646b0913742b4d7d0642972011",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "4c4ed63b058d1e9d1aeceb242f183359f207463b9c9ef6ecb2f39e0899671560",
+      "questions": [
+        {
+          "question": "연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까?",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "연속된 내부 공백을 하이픈으로 치환하시겠습니까?",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "연속된 하이픈과 공백이 섞인 경우, 하이픈까지 모두 공백으로 통일하시겠습니까?",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "하이픈은 개수와 위치를 그대로 유지합니다.\n내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

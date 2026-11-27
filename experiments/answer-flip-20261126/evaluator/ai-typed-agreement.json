@@ -1,0 +1,471 @@
+{
+  "n": 12,
+  "source": "two independent local model proxies",
+  "tokens": {
+    "A": 13506,
+    "B": 10924
+  },
+  "summary": {
+    "A_known": 11,
+    "A_quote_match": 11,
+    "A_vs_old_label": 7,
+    "A_value_correct_given_known": 5,
+    "B_known": 12,
+    "B_quote_match": 12,
+    "B_vs_old_label": 8,
+    "B_value_correct_given_known": 3,
+    "binary_agree": 11,
+    "exact_agree": 2,
+    "scope_agree": 10,
+    "valid_pair": 11,
+    "B_flagged_extra": 1,
+    "B_flag_extra_quote_match": 0
+  },
+  "binary_table": {
+    "known/known": 11,
+    "invalid/known": 1
+  },
+  "kappa": null,
+  "rows": [
+    {
+      "item": 1,
+      "key": {
+        "id": 1,
+        "sufficient": false,
+        "expected": true,
+        "source": "family/reservation/self/R28"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "정정 시간은 예약을 생성한 때부터 셉니다. 정정 가능 기간은 10분입니다. 정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다. 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+          "reason": "until_start_seconds가 0이므로 이용 시작 시점에 정정 가능 여부를 판단해야 합니다. 담당자는 이용 시작 시점에는 정정 불가(False)라고 명확히 밝혔습니다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": " 이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.",
+          "reason": "until_start_seconds == 0",
+          "scope": "within",
+          "excess_quote": "utilization has started; therefore, the cancellation grace period does not apply.",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    },
+    {
+      "item": 2,
+      "key": {
+        "id": 2,
+        "sufficient": true,
+        "expected": true,
+        "source": "pipeline100/live-multi/round1/R28"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+          "reason": "입력된 `age_seconds` (600 초)는 예약 생성부터 현재까지 10분입니다. `until_start_seconds` (3600 초)는 이용 시작까지 3600초로, 1시간입니다.  담당자 답변에 따르면, 정정 가능 기간은 10분이며, 이 기간 안에 예약 취소가 가능합니다. 따라서, `age_seconds`가 10분 이내이므로 취소를 허용합니다.",
+          "scope": "within",
+          "excess_quote": "no_quote",
+          "value_json": "true",
+          "value": true,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "정정 가능 기간은 10분입니다.",
+          "reason": "정정 기간이 남아있을 때 이용이 시작된 예약은 거부합니다.",
+          "scope": "within",
+          "excess_quote": "정정 기간이 남아있을 때 이용이 시작된 예약은 거부합니다.",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 3,
+      "key": {
+        "id": 3,
+        "sufficient": false,
+        "expected": "jpg",
+        "source": "scoped/A-self/suffix-06"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "reason": "공개 명세 및 담당자 답변에 따라 마지막 점 뒤의 부분을 확장자로 반환해야 합니다.",
+          "scope": "within",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "value_json": "\"JpG\"",
+          "value": "JpG",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "reason": "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "scope": "within",
+          "excess_quote": "jpg",
+          "value_json": "\"jpg\"",
+          "value": "jpg",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 4,
+      "key": {
+        "id": 4,
+        "sufficient": true,
+        "expected": "jpg",
+        "source": "scoped/A-abc/suffix-06"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "입력 파일 이름 'photo.JpG'에서 마지막 점 뒤의 'JpG'가 확장자로 추출됩니다. 담당자가 명시한 '점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용'이라는 답변에 근거합니다.",
+          "scope": "within",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "value_json": "\"JpG\"",
+          "value": "JpG",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "확장자가 여러 개 있는 경우 마지막 점 뒤의 부분만 사용됩니다.",
+          "scope": "within",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "value_json": "\"jpg\"",
+          "value": "jpg",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 5,
+      "key": {
+        "id": 5,
+        "sufficient": true,
+        "expected": "txt",
+        "source": "scoped/A-abc/suffix-15"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "입력 파일 이름은 '.local.txt'이며, 마지막 점 뒤에 'txt'가 있습니다. 담당자는 점이 여러 개 있는 경우 마지막 점 뒤의 부분만 확장자로 사용한다고 답변했습니다.",
+          "scope": "within",
+          "excess_quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "value_json": "\".txt\"",
+          "value": ".txt",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        },
+        "B": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "확장자가 여러 개 있는 경우 마지막 점 뒤의 부분만 사용됩니다.",
+          "scope": "within",
+          "excess_quote": "jpg",
+          "value_json": "\"jpg\"",
+          "value": "jpg",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 6,
+      "key": {
+        "id": 6,
+        "sufficient": true,
+        "expected": "json",
+        "source": "scoped/A-abc/suffix-16"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "담당자가 확장자가 여러 개 있는 경우 마지막 점 뒤의 부분만 확장자로 반환한다고 명확하게 밝혔습니다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "\".JSON\"",
+          "value": ".JSON",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다. 이 예에서는 jpg입니다.",
+          "reason": "확장자가 여러 개 있는 경우 마지막 점 뒤의 부분만 사용됩니다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "\"jpg\"",
+          "value": "jpg",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 7,
+      "key": {
+        "id": 7,
+        "sufficient": false,
+        "expected": "",
+        "source": "scoped/A-self/suffix-17"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "reason": "담당자가 명확하게 마지막 점 뒤의 부분을 확장자로 사용하도록 지시했습니다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "\"README\"",
+          "value": "README",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "점이 여러 개인 보통 파일은 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "reason": "확장자가 여러 개 있는 파일 (예: 'image.png.jpg') 의 경우, 마지막 점 뒤의 부분만 확장자로 사용합니다.",
+          "scope": "within",
+          "excess_quote": "jpg",
+          "value_json": "\"jpg\"",
+          "value": "jpg",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 8,
+      "key": {
+        "id": 8,
+        "sufficient": false,
+        "expected": true,
+        "source": "scoped/A-self/upload-13"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "reason": "입력 크기 16 바이트는 상한 값 16 바이트보다 작으므로 허용됩니다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "true",
+          "value": true,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "reason": "현재 코드는 상한 값이 정해지지 않았을 때 모든 양수 파일에 대해 예외를 던지고 있습니다.",
+          "scope": "within",
+          "excess_quote": "상한은 16바이트이고 빈 파일은 거부합니다. 양수 파일은 정해진 상한을 기준으로 판단합니다.",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 9,
+      "key": {
+        "id": 9,
+        "sufficient": true,
+        "expected": true,
+        "source": "scoped/A-abc/upload-13"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "상한은 16바이트입니다. 정확히 상한이면 허용하고, 0바이트 빈 파일은 거부합니다.",
+          "reason": "담당자가 상한을 16바이트로 명확히 정하고, 정확히 16바이트 파일은 허용하며 0바이트 파일은 거부한다고 답변했으므로, 입력 16 바이트는 상한을 넘지 않으므로 허용된다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "true",
+          "value": true,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "상한은 16바이트입니다. 정확히 상한이면 허용하고, 0바이트 빈 파일은 거부합니다.",
+          "reason": "0 바이트의 파일은 거부해야 합니다.",
+          "scope": "within",
+          "excess_quote": "0 바이트 빈 파일은 거부합니다.",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 10,
+      "key": {
+        "id": 10,
+        "sufficient": true,
+        "expected": true,
+        "source": "scoped/A-abc/print-10"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+          "reason": "담당자의 답변을 바탕으로, width_cm가 6cm 이하이고 height_cm가 4cm 이하이며, 둘 중 하나라도 0이면 False를 반환하고, 나머지는 True를 반환하는 로직을 구현할 수 있습니다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "true",
+          "value": true,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.",
+          "reason": "입력 인자 width_cm는 6cm이고 세로 길이 height_cm는 2cm입니다. 세로 길이는 자기 상한(4cm)과 정확히 같아도 허용하지만, width_cm는 자기 상한(6cm)보다 작아야 허용하는 조건이 모순됩니다. 따라서 이 조건을 충족하지 않습니다.",
+          "scope": "over",
+          "excess_quote": "width_cm >= MAX_WIDTH",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": false
+    },
+    {
+      "item": 11,
+      "key": {
+        "id": 11,
+        "sufficient": true,
+        "expected": "***",
+        "source": "scoped/A-self/mask-09"
+      },
+      "ratings": {
+        "A": {
+          "decision": "invalid",
+          "value": null,
+          "scope": "invalid",
+          "quote_verified": false,
+          "value_ok": false,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.",
+          "reason": "현재 구현은 모든 글자를 별표로 바꾼다는 규칙과 일치합니다.",
+          "scope": "within",
+          "excess_quote": "마지막 세 글자를 공개하고 그 앞은 별표로 가립니다. 길이가 세 글자 이하이면 전부 가립니다. 빈 코드는 빈 문자열을 반환합니다.",
+          "value_json": "\"z*0*X\"",
+          "value": "z*0*X",
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": true
+        }
+      },
+      "binary_agree": false,
+      "exact_agree": false
+    },
+    {
+      "item": 12,
+      "key": {
+        "id": 12,
+        "sufficient": true,
+        "expected": false,
+        "source": "scoped/A-solo/upload-02"
+      },
+      "ratings": {
+        "A": {
+          "decision": "known",
+          "quote": "업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.",
+          "reason": "입력값이 음수이므로 잘못된 크기로 판단하여 거부합니다.",
+          "scope": "within",
+          "excess_quote": "",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        },
+        "B": {
+          "decision": "known",
+          "quote": "음수 입력은 잘못된 크기이므로 거부합니다.",
+          "reason": "입력 인자 -2는 정수 바이트 수가 아닌 음수이므로 거부합니다.",
+          "scope": "within",
+          "excess_quote": "음수 입력은 잘못된 크기이므로 거부합니다.",
+          "value_json": "false",
+          "value": false,
+          "value_ok": true,
+          "quote_verified": true,
+          "excess_quote_verified": false
+        }
+      },
+      "binary_agree": true,
+      "exact_agree": true
+    }
+  ]
+}

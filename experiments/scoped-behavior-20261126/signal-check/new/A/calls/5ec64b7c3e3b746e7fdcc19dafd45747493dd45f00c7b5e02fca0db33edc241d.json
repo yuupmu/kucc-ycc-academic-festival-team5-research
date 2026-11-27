@@ -1,0 +1,85 @@
+{
+  "text": "{\"behavior\": [{ \"when\": \"계측값이 기준 (-3) 보다 높은 경우\", \"then\": \"재검 (True) 수행\"},\n\t\t{\"when\": \"계측값이 기준 (-3) 보다 낮은 경우\", \"then\": \"통과 (False) 수행\"},\n\t\t{\"when\": \"계측값이 기준 (-3) 과 정확히 같음\", \"then\": \"재검 (True) 수행\"}\n\t]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 105,
+    "prompt_tokens": 255,
+    "total_tokens": 360,
+    "prompt_tokens_details": {
+      "cached_tokens": 123
+    }
+  },
+  "server_timings": {
+    "cache_n": 123,
+    "prompt_n": 132,
+    "prompt_ms": 121.132,
+    "prompt_per_token_ms": 0.9176666666666667,
+    "prompt_per_second": 1089.7203051216852,
+    "predicted_n": 105,
+    "predicted_ms": 1491.9,
+    "predicted_per_token_ms": 14.345192307692308,
+    "predicted_per_second": 69.70976607011194
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.63,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개 명세와 실제 담당자 회신을 함께 읽고, 작성할 함수의 동작을 입력 조건별로 정리하세요. 답변이 적용되는 경우와 그 옆에서 기존 규칙이 계속 적용되는 경우를 모두 포함하세요. 수치 경계라면 경계 미만·같음·초과, 반복 입력이라면 해당 항목과 그 뒤의 다른 항목을 구분하세요. 각 조건에는 함수가 돌려줄 값이나 계속 수행할 동작을 하나씩 적으세요. 원문만으로 결정할 수 없으면 \"미정\"으로 적으세요. 코드는 쓰지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"needs_check(level: int) -> bool은 계측값을 다시 확인할지 결정합니다. level은 음수도 유효한 정수입니다. 기준보다 높은 값은 재검(True), 낮은 값은 통과(False)입니다. 기준 수치와 정확히 기준일 때의 처리는 담당자에게 확인하세요.\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"재검 기준은 얼마이고, 값이 정확히 기준일 때도 재검하나요?\"],\"answer\":{\"text\":\"기준값은 -3입니다. 정확히 기준이면 재검합니다.\"}}]}"
+      }
+    ],
+    "seed": 1421,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "behavior": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string"
+                  },
+                  "then": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "when",
+                  "then"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "behavior"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-behavior"
+}

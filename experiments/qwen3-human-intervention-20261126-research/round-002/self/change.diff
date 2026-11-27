@@ -1,0 +1,37 @@
+--- v1
++++ v2
+@@ -1,25 +1,20 @@
+ def allow_cancel(age_seconds, until_start_seconds):
++    general_deadline = 24 * 3600  # 24시간
++    correction_period = 10 * 60    # 10분
++
+     # 일반 마감: 이용 시작 24시간 전
+-    general_deadline = 24 * 3600
+-    # 정정 기간: 이용 시작 전까지
+-    correction_period = 0
+-
+-    # 일반 마감 시점: until_start_seconds >= general_deadline
+-    # 정정 기간 시점: until_start_seconds >= 0
++    # 정정 기간: 이용 시작 전까지 (예약 생성 후 10분까지)
+     # 이용 시작 시점: until_start_seconds == 0
+     # 이용 시작 이후: until_start_seconds < 0
+ 
+     # 일반 마감 전: until_start_seconds >= general_deadline
+-    # 정정 기간 전: until_start_seconds >= 0
+-    # 이용 시작 시점: until_start_seconds == 0
+-    # 이용 시작 이후: until_start_seconds < 0
+-
+-    # 일반 마감 전에 취소 가능
+     if until_start_seconds >= general_deadline:
+         return True
+-    # 이용 시작 전까지 정정 가능
+-    elif until_start_seconds >= 0:
++    # 정정 기간 전: until_start_seconds >= 0
++    # 정정 기간은 예약 생성 후 10분까지
++    # age_seconds는 예약 생성 후 경과한 시간
++    elif age_seconds < correction_period:
+         return True
+-    # 이용 시작 시점 이후에는 일반 마감과 정정 기간 모두 마감
++    # 이용 시작 시점 이후: until_start_seconds < 0
+     else:
+         return False

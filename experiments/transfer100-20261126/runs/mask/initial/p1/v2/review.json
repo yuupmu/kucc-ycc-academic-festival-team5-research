@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "07b1d389061afc2f896b54f4cb37cf4e77f598218960aa65027f3d1ffd90f25e",
+    "e3ecac918c8f4fd995e5f779a58331c1021829ab780049b0367ba800d8513e79",
+    "8656a74ff3565148e64e36fc195dc0acfad29833b27845ebb030ad0d1c1dd134",
+    "3cb47a9e6213b5046524cd1e77c98a5a77fc102c53c962ae526ab111451af169"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "마지막 세 글자를 공개하는 규칙이 코드에서 어떻게 구현되었는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "마지막 3 글자를 공개하는 기준이 운영 결정에 따라 달라질 수 있습니다. 현재 코드는 항상 마지막 3 글자를 공개하도록 구현되어 있는데, 이 공개 글자 수를 변경할 계획이 있는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "마지막 세 글자를 공개하는 운영 결정이 코드에 반영되었는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "마지막 세 글자를 공개하는 규칙이 코드에서 어떻게 구현되었는지 확인해주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "마지막 3 글자를 공개하는 기준이 운영 결정에 따라 달라질 수 있습니다. 현재 코드는 항상 마지막 3 글자를 공개하도록 구현되어 있는데, 이 공개 글자 수를 변경할 계획이 있는지 확인해주세요.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "마지막 세 글자를 공개하는 운영 결정이 코드에 반영되었는지 확인해주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

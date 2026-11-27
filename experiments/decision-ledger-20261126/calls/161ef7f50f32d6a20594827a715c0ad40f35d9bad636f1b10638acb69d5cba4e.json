@@ -1,0 +1,72 @@
+{
+  "text": "{\n  \"kind\": \"일반의견\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 94,
+    "total_tokens": 108,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 94,
+    "prompt_ms": 225.457,
+    "prompt_per_token_ms": 2.398478723404255,
+    "prompt_per_second": 416.9309447034246,
+    "predicted_n": 14,
+    "predicted_ms": 231.033,
+    "predicted_per_token_ms": 17.77176923076923,
+    "predicted_per_second": 56.26901784593543
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.46,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "이 질문을 읽고 답의 종류를 분류하세요. 숫자를 실제로 요구하면 정수값, 특정 상황의 실행 여부를 요구하면 행동결정, 그 밖에 일반적인 의견·예상 문제를 물으면 일반의견입니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"question\":\"환풍기 제어 로직을 구현할 때 발생할 수 있는 예상되는 문제점이나 고려해야 할 사항이 있나요?\"}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 70,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "정수값",
+                "행동결정",
+                "일반의견"
+              ]
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "question-answer-type"
+}

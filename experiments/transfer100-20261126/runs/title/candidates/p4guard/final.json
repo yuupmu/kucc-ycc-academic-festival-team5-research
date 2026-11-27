@@ -1,0 +1,190 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "def clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열을 하나의 공백으로 통일\n    # 정규식: 공백, 하이픈, 빈 문자열 (\\s) 을 하나씩 묶어서 하나의 공백으로 치환\n    # \\s+ 는 하나 이상의 공백을 의미하므로, 이를 하나의 공백으로 줄여줌\n    # 하이픈도 연속된 경우를 하나의 하이픈으로 줄여줌\n    # 빈 문자열 (두 공백 사이) 도 하나의 공백으로 치환됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\nimport re\n  "
+  },
+  "sha256": "b2dcbc4bf05c9047bf1c1a62a84a96fcf2d61a61a05319c225e95f73a915fe31",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "def clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열을 하나의 공백으로 통일\n    # 정규식: 공백, 하이픈, 빈 문자열 (\\s) 을 하나씩 묶어서 하나의 공백으로 치환\n    # \\s+ 는 하나 이상의 공백을 의미하므로, 이를 하나의 공백으로 줄여줌\n    # 하이픈도 연속된 경우를 하나의 하이픈으로 줄여줌\n    # 빈 문자열 (두 공백 사이) 도 하나의 공백으로 치환됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\nimport re\n  "
+    },
+    "sha256": "b2dcbc4bf05c9047bf1c1a62a84a96fcf2d61a61a05319c225e95f73a915fe31",
+    "received": [
+      1
+    ],
+    "author_call": "d9878bd03d7ca833bd2741d26d627bf7ac607f5705fe2f779747eefb80efa853",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [
+        "solution.py"
+      ],
+      "restored_indent": [],
+      "rejected": [
+        "solution.py"
+      ],
+      "verified": {
+        "solution.py": "valid"
+      }
+    },
+    "attempts": [
+      {
+        "key": "b4d9e9daf56cfb532b0874642c8cc0d3c34c9853857ce2b60cfce323555ad139",
+        "issues": [
+          "missing_or_duplicate_reply",
+          "missing_executable_line",
+          "claimed_change_on_unchanged_line"
+        ],
+        "bindings": [
+          {
+            "reply": "하이픈은 개수와 위치를 그대로 유지합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "text = re.sub(r'[\\s-]+', ' ', text)"
+          }
+        ]
+      },
+      {
+        "key": "d9878bd03d7ca833bd2741d26d627bf7ac607f5705fe2f779747eefb80efa853",
+        "issues": [
+          "syntax",
+          "missing_or_duplicate_reply",
+          "claimed_change_on_unchanged_line"
+        ],
+        "bindings": [
+          {
+            "reply": "하이픈은 개수와 위치를 그대로 유지합니다.",
+            "status": "changed",
+            "file": "solution.py",
+            "line": "text = re.sub(r'[\\s-]+', ' ', text)"
+          }
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    [
+      "A",
+      {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'hello---world')를 하나의 하이픈으로 통일해야 하는지, 아니면 하이픈 개수와 위치를 그대로 유지해야 하는지",
+            "outcome_a": "연속된 하이픈을 하나의 하이픈으로 통일합니다.",
+            "outcome_b": "연속된 하이픈은 개수와 위치를 그대로 유지합니다.",
+            "question": "연속된 하이픈을 하나의 하이픈으로 통일해야 하는지, 아니면 하이픈 개수와 위치를 그대로 유지해야 하는지"
+          },
+          {
+            "situation": "빈 문자열 (input: '') 을 처리할 때, rstrip() 후 빈 문자열이 되는지, 아니면 정규식 처리 후 빈 문자열이 되는지",
+            "outcome_a": "빈 문자열은 빈 문자열로 반환합니다.",
+            "outcome_b": "빈 문자열은 빈 문자열로 반환합니다.",
+            "question": ""
+          }
+        ],
+        "needs_code_fix": false
+      }
+    ],
+    [
+      "B",
+      {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'a--b')",
+            "outcome_a": "편집 담당자의 기준에 따라 하이픈 개수를 그대로 유지할 경우",
+            "outcome_b": "담당자 답변 원문의 규칙에 따라 하이픈을 하나로 줄일 경우",
+            "question": "연속된 하이픈을 하나의 하이픈으로 통일하는지, 아니면 편집 담당자의 기준에 따라 개수를 유지하는지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ],
+    [
+      "C",
+      {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'hello--world')를 어떻게 처리할지",
+            "outcome_a": "하이픈이 연속되어 있으면 하나의 하이픈으로 줄인다.",
+            "outcome_b": "하이픈이 연속되어 있으면 그대로 두어 위치를 유지한다.",
+            "question": "연속된 하이픈이 있는 경우 (예: 'hello--world')를 어떻게 처리할지"
+          },
+          {
+            "situation": "연속된 공백이 있는 경우 (예: 'hello  world')를 어떻게 처리할지",
+            "outcome_a": "공백이 연속되어 있으면 하나의 공백으로 줄인다.",
+            "outcome_b": "공백이 연속되어 있으면 그대로 두어 위치를 유지한다.",
+            "question": "연속된 공백이 있는 경우 (예: 'hello  world')를 어떻게 처리할지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    ]
+  ],
+  "calls": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "a5cf994d724f46504ec82b807db4683f8659b7a2f9825a65cb1d5076f0bd96d9",
+    "baccbc2ff83439ee9f469b080bcc454c44906009d47d1f50ab1f078bb6ae0c09",
+    "24b8f6dcc3132bd1353aa8bdebfd66c0e46ac888c4fd6c1aba7e1bfb59e59117",
+    "14d9e504e146361864db516583bf8a132d328e2537f5e4577bf218fbab040951",
+    "b4d9e9daf56cfb532b0874642c8cc0d3c34c9853857ce2b60cfce323555ad139",
+    "d9878bd03d7ca833bd2741d26d627bf7ac607f5705fe2f779747eefb80efa853",
+    "1690f875fc2d11fd341ec87dbe4e92015504c225b43c158a7fdaa04441b47170",
+    "af13a9d78ec132dcff89feafd1a7f20e6efe275ec10564c3ca181faf5a533cde",
+    "1455e333da1432a46aa73d5df829a374073b92221d8b365d816f11359df51360"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "4c4ed63b058d1e9d1aeceb242f183359f207463b9c9ef6ecb2f39e0899671560",
+      "questions": [
+        {
+          "question": "연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까?",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "연속된 내부 공백을 하이픈으로 치환하시겠습니까?",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "연속된 하이픈과 공백이 섞인 경우, 하이픈까지 모두 공백으로 통일하시겠습니까?",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "하이픈은 개수와 위치를 그대로 유지합니다.\n내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.",
+      "source": "delegated_policy_card"
+    }
+  ],
+  "guard": {
+    "status": "open_limit",
+    "held": false,
+    "issues": [
+      "changed_behavior_unverified",
+      "claimed_change_on_unchanged_line",
+      "missing_or_duplicate_reply",
+      "reply_coverage",
+      "syntax"
+    ],
+    "unverified": [],
+    "changed_files": [],
+    "evidenced_files": [],
+    "author_call": "d9878bd03d7ca833bd2741d26d627bf7ac607f5705fe2f779747eefb80efa853",
+    "previous_sha256": "b2dcbc4bf05c9047bf1c1a62a84a96fcf2d61a61a05319c225e95f73a915fe31",
+    "proposed_sha256": "b2dcbc4bf05c9047bf1c1a62a84a96fcf2d61a61a05319c225e95f73a915fe31",
+    "retained_sha256": "b2dcbc4bf05c9047bf1c1a62a84a96fcf2d61a61a05319c225e95f73a915fe31",
+    "additional_model_calls": 0,
+    "additional_tokens": 0
+  }
+}

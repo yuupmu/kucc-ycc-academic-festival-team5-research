@@ -1,0 +1,1801 @@
+﻿before,after,task,id,category,old_status,new_status,old_actual,new_actual,gained,lost,old_missing,new_missing
+solo,self,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+solo,self,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+solo,self,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+solo,self,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+solo,self,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,spaces,spaces
+solo,self,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,spaces,spaces
+solo,self,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,spaces,spaces
+solo,self,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,spaces,spaces
+solo,self,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+solo,self,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+solo,self,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+solo,self,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,hyphen,
+solo,self,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,hyphen,
+solo,self,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,hyphen,
+solo,self,title,title-15,하이픈 보존,wrong,wrong,,,False,False,hyphen,
+solo,self,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,"hyphen,spaces",spaces
+solo,self,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,"hyphen,spaces",spaces
+solo,self,title,title-18,변환 결합,wrong,wrong,a,a,False,False,"hyphen,spaces",spaces
+solo,self,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,"hyphen,spaces",spaces
+solo,self,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+solo,self,suffix,suffix-01,공개 기본 추출,unanswered,unanswered,,,False,False,,
+solo,self,suffix,suffix-02,공개 기본 추출,unanswered,unanswered,,,False,False,,
+solo,self,suffix,suffix-03,공개 기본 추출,unanswered,unanswered,,,False,False,,
+solo,self,suffix,suffix-04,공개 기본 추출,unanswered,unanswered,,,False,False,,
+solo,self,suffix,suffix-05,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+solo,self,suffix,suffix-06,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+solo,self,suffix,suffix-07,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+solo,self,suffix,suffix-08,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+solo,self,suffix,suffix-09,여러 점,unanswered,unanswered,,,False,False,multi,
+solo,self,suffix,suffix-10,여러 점,unanswered,unanswered,,,False,False,multi,
+solo,self,suffix,suffix-11,여러 점,unanswered,unanswered,,,False,False,multi,
+solo,self,suffix,suffix-12,여러 점,unanswered,unanswered,,,False,False,"case,multi",case
+solo,self,suffix,suffix-13,숨김 이름,unanswered,unanswered,,,False,False,hidden,hidden
+solo,self,suffix,suffix-14,숨김 이름,unanswered,unanswered,,,False,False,hidden,hidden
+solo,self,suffix,suffix-15,숨김 이름,unanswered,unanswered,,,False,False,hidden,hidden
+solo,self,suffix,suffix-16,숨김 이름,unanswered,unanswered,,,False,False,"case,hidden","case,hidden"
+solo,self,suffix,suffix-17,확장자 없음,unanswered,unanswered,,,False,False,missing,missing
+solo,self,suffix,suffix-18,확장자 없음,unanswered,unanswered,,,False,False,missing,missing
+solo,self,suffix,suffix-19,확장자 없음,unanswered,unanswered,,,False,False,missing,missing
+solo,self,suffix,suffix-20,확장자 없음,unanswered,unanswered,,,False,False,missing,missing
+solo,self,mask,mask-01,일반 코드,wrong,correct,****,*BCD,True,False,visible,
+solo,self,mask,mask-02,일반 코드,wrong,correct,*****,**CDE,True,False,visible,
+solo,self,mask,mask-03,일반 코드,wrong,correct,******,***456,True,False,visible,
+solo,self,mask,mask-04,일반 코드,wrong,correct,******,***2CD,True,False,visible,
+solo,self,mask,mask-05,일반 코드,wrong,correct,*******,****ty7,True,False,visible,
+solo,self,mask,mask-06,세 글자 경계,correct,wrong,***,ABC,False,True,short,short
+solo,self,mask,mask-07,세 글자 경계,correct,wrong,***,123,False,True,short,short
+solo,self,mask,mask-08,세 글자 경계,correct,wrong,***,aB9,False,True,short,short
+solo,self,mask,mask-09,세 글자 경계,correct,wrong,***,z0X,False,True,short,short
+solo,self,mask,mask-10,짧은 코드,correct,wrong,*,A,False,True,short,short
+solo,self,mask,mask-11,짧은 코드,correct,wrong,*,0,False,True,short,short
+solo,self,mask,mask-12,짧은 코드,correct,wrong,**,AB,False,True,short,short
+solo,self,mask,mask-13,짧은 코드,correct,wrong,**,a1,False,True,short,short
+solo,self,mask,mask-14,짧은 코드,correct,wrong,**,9Z,False,True,short,short
+solo,self,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+solo,self,mask,mask-16,길이·표기 보존,wrong,correct,*****,**CdE,True,False,visible,
+solo,self,mask,mask-17,길이·표기 보존,wrong,correct,********,*****000,True,False,visible,
+solo,self,mask,mask-18,길이·표기 보존,wrong,correct,****,*yZ9,True,False,visible,
+solo,self,mask,mask-19,길이·표기 보존,wrong,correct,*********,******GHI,True,False,visible,
+solo,self,mask,mask-20,길이·표기 보존,wrong,correct,********,*****4cD,True,False,visible,
+solo,self,upload,upload-01,음수 입력,unanswered,correct,,False,True,False,,
+solo,self,upload,upload-02,음수 입력,unanswered,correct,,False,True,False,,
+solo,self,upload,upload-03,음수 입력,unanswered,correct,,False,True,False,,
+solo,self,upload,upload-04,음수 입력,unanswered,correct,,False,True,False,,
+solo,self,upload,upload-05,빈 파일,unanswered,correct,,False,True,False,empty,
+solo,self,upload,upload-06,상한 아래,unanswered,correct,,True,True,False,limit,
+solo,self,upload,upload-07,상한 아래,unanswered,correct,,True,True,False,limit,
+solo,self,upload,upload-08,상한 아래,unanswered,correct,,True,True,False,limit,
+solo,self,upload,upload-09,상한 아래,unanswered,correct,,True,True,False,limit,
+solo,self,upload,upload-10,상한 아래,unanswered,correct,,True,True,False,limit,
+solo,self,upload,upload-11,상한 아래,unanswered,correct,,True,True,False,limit,
+solo,self,upload,upload-12,상한 아래,unanswered,correct,,True,True,False,limit,
+solo,self,upload,upload-13,상한 일치,unanswered,correct,,True,True,False,"equal,limit",
+solo,self,upload,upload-14,상한 초과,unanswered,correct,,False,True,False,limit,
+solo,self,upload,upload-15,상한 초과,unanswered,correct,,False,True,False,limit,
+solo,self,upload,upload-16,상한 초과,unanswered,correct,,False,True,False,limit,
+solo,self,upload,upload-17,상한 초과,unanswered,correct,,False,True,False,limit,
+solo,self,upload,upload-18,상한 초과,unanswered,correct,,False,True,False,limit,
+solo,self,upload,upload-19,상한 초과,unanswered,correct,,False,True,False,limit,
+solo,self,upload,upload-20,상한 초과,unanswered,correct,,False,True,False,limit,
+solo,self,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+solo,self,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+solo,self,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+solo,self,print,print-04,0인 길이,correct,correct,False,False,False,False,zero,
+solo,self,print,print-05,0인 길이,correct,correct,False,False,False,False,zero,
+solo,self,print,print-06,0인 길이,correct,correct,False,False,False,False,zero,
+solo,self,print,print-07,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+solo,self,print,print-08,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+solo,self,print,print-09,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+solo,self,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width","equal,height,width"
+solo,self,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width","equal,height,width"
+solo,self,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width","equal,height,width"
+solo,self,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width","equal,height,width"
+solo,self,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width","equal,height,width"
+solo,self,print,print-15,초과·고정 방향,wrong,wrong,True,True,False,False,width,width
+solo,self,print,print-16,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+solo,self,print,print-17,초과·고정 방향,wrong,wrong,True,True,False,False,width OR height,width OR height
+solo,self,print,print-18,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+solo,self,print,print-19,초과·고정 방향,wrong,wrong,True,True,False,False,width,width
+solo,self,print,print-20,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+self,p2,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+self,p2,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+self,p2,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+self,p2,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+self,p2,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,spaces,spaces
+self,p2,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,spaces,spaces
+self,p2,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,spaces,spaces
+self,p2,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,spaces,spaces
+self,p2,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+self,p2,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+self,p2,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+self,p2,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+self,p2,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,,
+self,p2,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+self,p2,title,title-15,하이픈 보존,wrong,wrong,,,False,False,,
+self,p2,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,spaces,spaces
+self,p2,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,spaces,spaces
+self,p2,title,title-18,변환 결합,wrong,wrong,a,a,False,False,spaces,spaces
+self,p2,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,spaces,spaces
+self,p2,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+self,p2,suffix,suffix-01,공개 기본 추출,unanswered,unanswered,,,False,False,,
+self,p2,suffix,suffix-02,공개 기본 추출,unanswered,unanswered,,,False,False,,
+self,p2,suffix,suffix-03,공개 기본 추출,unanswered,unanswered,,,False,False,,
+self,p2,suffix,suffix-04,공개 기본 추출,unanswered,unanswered,,,False,False,,
+self,p2,suffix,suffix-05,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+self,p2,suffix,suffix-06,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+self,p2,suffix,suffix-07,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+self,p2,suffix,suffix-08,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+self,p2,suffix,suffix-09,여러 점,unanswered,unanswered,,,False,False,,
+self,p2,suffix,suffix-10,여러 점,unanswered,unanswered,,,False,False,,
+self,p2,suffix,suffix-11,여러 점,unanswered,unanswered,,,False,False,,
+self,p2,suffix,suffix-12,여러 점,unanswered,unanswered,,,False,False,case,
+self,p2,suffix,suffix-13,숨김 이름,unanswered,unanswered,,,False,False,hidden,
+self,p2,suffix,suffix-14,숨김 이름,unanswered,unanswered,,,False,False,hidden,
+self,p2,suffix,suffix-15,숨김 이름,unanswered,unanswered,,,False,False,hidden,
+self,p2,suffix,suffix-16,숨김 이름,unanswered,unanswered,,,False,False,"case,hidden",
+self,p2,suffix,suffix-17,확장자 없음,unanswered,unanswered,,,False,False,missing,
+self,p2,suffix,suffix-18,확장자 없음,unanswered,unanswered,,,False,False,missing,
+self,p2,suffix,suffix-19,확장자 없음,unanswered,unanswered,,,False,False,missing,
+self,p2,suffix,suffix-20,확장자 없음,unanswered,unanswered,,,False,False,missing,
+self,p2,mask,mask-01,일반 코드,correct,wrong,*BCD,****,False,True,,
+self,p2,mask,mask-02,일반 코드,correct,wrong,**CDE,*****,False,True,,
+self,p2,mask,mask-03,일반 코드,correct,wrong,***456,******,False,True,,
+self,p2,mask,mask-04,일반 코드,correct,wrong,***2CD,******,False,True,,
+self,p2,mask,mask-05,일반 코드,correct,wrong,****ty7,*******,False,True,,
+self,p2,mask,mask-06,세 글자 경계,wrong,correct,ABC,***,True,False,short,short
+self,p2,mask,mask-07,세 글자 경계,wrong,correct,123,***,True,False,short,short
+self,p2,mask,mask-08,세 글자 경계,wrong,correct,aB9,***,True,False,short,short
+self,p2,mask,mask-09,세 글자 경계,wrong,correct,z0X,***,True,False,short,short
+self,p2,mask,mask-10,짧은 코드,wrong,correct,A,*,True,False,short,short
+self,p2,mask,mask-11,짧은 코드,wrong,correct,0,*,True,False,short,short
+self,p2,mask,mask-12,짧은 코드,wrong,correct,AB,**,True,False,short,short
+self,p2,mask,mask-13,짧은 코드,wrong,correct,a1,**,True,False,short,short
+self,p2,mask,mask-14,짧은 코드,wrong,correct,9Z,**,True,False,short,short
+self,p2,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+self,p2,mask,mask-16,길이·표기 보존,correct,wrong,**CdE,*****,False,True,,
+self,p2,mask,mask-17,길이·표기 보존,correct,wrong,*****000,********,False,True,,
+self,p2,mask,mask-18,길이·표기 보존,correct,wrong,*yZ9,****,False,True,,
+self,p2,mask,mask-19,길이·표기 보존,correct,wrong,******GHI,*********,False,True,,
+self,p2,mask,mask-20,길이·표기 보존,correct,wrong,*****4cD,********,False,True,,
+self,p2,upload,upload-01,음수 입력,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-02,음수 입력,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-03,음수 입력,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-04,음수 입력,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-05,빈 파일,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-06,상한 아래,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-07,상한 아래,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-08,상한 아래,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-09,상한 아래,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-10,상한 아래,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-11,상한 아래,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-12,상한 아래,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-13,상한 일치,correct,unanswered,True,,False,True,,
+self,p2,upload,upload-14,상한 초과,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-15,상한 초과,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-16,상한 초과,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-17,상한 초과,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-18,상한 초과,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-19,상한 초과,correct,unanswered,False,,False,True,,
+self,p2,upload,upload-20,상한 초과,correct,unanswered,False,,False,True,,
+self,p2,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+self,p2,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+self,p2,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+self,p2,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+self,p2,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+self,p2,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+self,p2,print,print-07,영역 내부,correct,correct,True,True,False,False,"height,width",
+self,p2,print,print-08,영역 내부,correct,correct,True,True,False,False,"height,width",
+self,p2,print,print-09,영역 내부,correct,correct,True,True,False,False,"height,width",
+self,p2,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",equal
+self,p2,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",equal
+self,p2,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",equal
+self,p2,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",equal
+self,p2,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",equal
+self,p2,print,print-15,초과·고정 방향,wrong,wrong,True,True,False,False,width,
+self,p2,print,print-16,초과·고정 방향,wrong,wrong,True,True,False,False,height,
+self,p2,print,print-17,초과·고정 방향,wrong,wrong,True,True,False,False,width OR height,
+self,p2,print,print-18,초과·고정 방향,wrong,wrong,True,True,False,False,height,
+self,p2,print,print-19,초과·고정 방향,wrong,wrong,True,True,False,False,width,
+self,p2,print,print-20,초과·고정 방향,wrong,wrong,True,True,False,False,height,
+p1,p2,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p1,p2,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+p1,p2,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p1,p2,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p1,p2,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,spaces,spaces
+p1,p2,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,spaces,spaces
+p1,p2,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,spaces,spaces
+p1,p2,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,spaces,spaces
+p1,p2,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+p1,p2,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+p1,p2,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+p1,p2,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p1,p2,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,,
+p1,p2,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p1,p2,title,title-15,하이픈 보존,wrong,wrong,,,False,False,,
+p1,p2,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,spaces,spaces
+p1,p2,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,spaces,spaces
+p1,p2,title,title-18,변환 결합,wrong,wrong,a,a,False,False,spaces,spaces
+p1,p2,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,spaces,spaces
+p1,p2,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p1,p2,suffix,suffix-01,공개 기본 추출,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-02,공개 기본 추출,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-03,공개 기본 추출,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-04,공개 기본 추출,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-05,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+p1,p2,suffix,suffix-06,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+p1,p2,suffix,suffix-07,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+p1,p2,suffix,suffix-08,확장자 대소문자,unanswered,unanswered,,,False,False,case,
+p1,p2,suffix,suffix-09,여러 점,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-10,여러 점,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-11,여러 점,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-12,여러 점,unanswered,unanswered,,,False,False,case,
+p1,p2,suffix,suffix-13,숨김 이름,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-14,숨김 이름,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-15,숨김 이름,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-16,숨김 이름,unanswered,unanswered,,,False,False,case,
+p1,p2,suffix,suffix-17,확장자 없음,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-18,확장자 없음,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-19,확장자 없음,unanswered,unanswered,,,False,False,,
+p1,p2,suffix,suffix-20,확장자 없음,unanswered,unanswered,,,False,False,,
+p1,p2,mask,mask-01,일반 코드,correct,wrong,*BCD,****,False,True,,
+p1,p2,mask,mask-02,일반 코드,correct,wrong,**CDE,*****,False,True,,
+p1,p2,mask,mask-03,일반 코드,correct,wrong,***456,******,False,True,,
+p1,p2,mask,mask-04,일반 코드,correct,wrong,***2CD,******,False,True,,
+p1,p2,mask,mask-05,일반 코드,correct,wrong,****ty7,*******,False,True,,
+p1,p2,mask,mask-06,세 글자 경계,wrong,correct,ABC,***,True,False,short,short
+p1,p2,mask,mask-07,세 글자 경계,wrong,correct,123,***,True,False,short,short
+p1,p2,mask,mask-08,세 글자 경계,wrong,correct,aB9,***,True,False,short,short
+p1,p2,mask,mask-09,세 글자 경계,wrong,correct,z0X,***,True,False,short,short
+p1,p2,mask,mask-10,짧은 코드,wrong,correct,A,*,True,False,short,short
+p1,p2,mask,mask-11,짧은 코드,wrong,correct,0,*,True,False,short,short
+p1,p2,mask,mask-12,짧은 코드,wrong,correct,AB,**,True,False,short,short
+p1,p2,mask,mask-13,짧은 코드,wrong,correct,a1,**,True,False,short,short
+p1,p2,mask,mask-14,짧은 코드,wrong,correct,9Z,**,True,False,short,short
+p1,p2,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p1,p2,mask,mask-16,길이·표기 보존,correct,wrong,**CdE,*****,False,True,,
+p1,p2,mask,mask-17,길이·표기 보존,correct,wrong,*****000,********,False,True,,
+p1,p2,mask,mask-18,길이·표기 보존,correct,wrong,*yZ9,****,False,True,,
+p1,p2,mask,mask-19,길이·표기 보존,correct,wrong,******GHI,*********,False,True,,
+p1,p2,mask,mask-20,길이·표기 보존,correct,wrong,*****4cD,********,False,True,,
+p1,p2,upload,upload-01,음수 입력,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-02,음수 입력,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-03,음수 입력,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-04,음수 입력,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-05,빈 파일,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-06,상한 아래,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-07,상한 아래,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-08,상한 아래,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-09,상한 아래,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-10,상한 아래,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-11,상한 아래,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-12,상한 아래,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-13,상한 일치,correct,unanswered,True,,False,True,,
+p1,p2,upload,upload-14,상한 초과,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-15,상한 초과,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-16,상한 초과,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-17,상한 초과,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-18,상한 초과,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-19,상한 초과,correct,unanswered,False,,False,True,,
+p1,p2,upload,upload-20,상한 초과,correct,unanswered,False,,False,True,,
+p1,p2,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p1,p2,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p1,p2,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p1,p2,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p1,p2,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p1,p2,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p1,p2,print,print-07,영역 내부,correct,correct,True,True,False,False,,
+p1,p2,print,print-08,영역 내부,correct,correct,True,True,False,False,,
+p1,p2,print,print-09,영역 내부,correct,correct,True,True,False,False,,
+p1,p2,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,equal,equal
+p1,p2,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,equal,equal
+p1,p2,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,equal,equal
+p1,p2,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,equal,equal
+p1,p2,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,equal,equal
+p1,p2,print,print-15,초과·고정 방향,wrong,wrong,True,True,False,False,,
+p1,p2,print,print-16,초과·고정 방향,wrong,wrong,True,True,False,False,,
+p1,p2,print,print-17,초과·고정 방향,wrong,wrong,True,True,False,False,,
+p1,p2,print,print-18,초과·고정 방향,wrong,wrong,True,True,False,False,,
+p1,p2,print,print-19,초과·고정 방향,wrong,wrong,True,True,False,False,,
+p1,p2,print,print-20,초과·고정 방향,wrong,wrong,True,True,False,False,,
+p2,p3,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p2,p3,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+p2,p3,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p2,p3,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p2,p3,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,spaces,
+p2,p3,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,spaces,
+p2,p3,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,spaces,
+p2,p3,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,spaces,
+p2,p3,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+p2,p3,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+p2,p3,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+p2,p3,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p2,p3,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,,
+p2,p3,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p2,p3,title,title-15,하이픈 보존,wrong,wrong,,,False,False,,
+p2,p3,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,spaces,
+p2,p3,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,spaces,
+p2,p3,title,title-18,변환 결합,wrong,wrong,a,a,False,False,spaces,
+p2,p3,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,spaces,
+p2,p3,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p2,p3,suffix,suffix-01,공개 기본 추출,unanswered,correct,,txt,True,False,,
+p2,p3,suffix,suffix-02,공개 기본 추출,unanswered,correct,,csv,True,False,,
+p2,p3,suffix,suffix-03,공개 기본 추출,unanswered,correct,,json,True,False,,
+p2,p3,suffix,suffix-04,공개 기본 추출,unanswered,correct,,123,True,False,,
+p2,p3,suffix,suffix-05,확장자 대소문자,unanswered,wrong,,TXT,False,False,,case
+p2,p3,suffix,suffix-06,확장자 대소문자,unanswered,wrong,,JpG,False,False,,case
+p2,p3,suffix,suffix-07,확장자 대소문자,unanswered,wrong,,CSV,False,False,,case
+p2,p3,suffix,suffix-08,확장자 대소문자,unanswered,wrong,,Json,False,False,,case
+p2,p3,suffix,suffix-09,여러 점,unanswered,correct,,gz,True,False,,
+p2,p3,suffix,suffix-10,여러 점,unanswered,correct,,c,True,False,,
+p2,p3,suffix,suffix-11,여러 점,unanswered,correct,,txt,True,False,,
+p2,p3,suffix,suffix-12,여러 점,unanswered,wrong,,CSV,False,False,,case
+p2,p3,suffix,suffix-13,숨김 이름,unanswered,wrong,,env,False,False,,hidden
+p2,p3,suffix,suffix-14,숨김 이름,unanswered,wrong,,profile,False,False,,hidden
+p2,p3,suffix,suffix-15,숨김 이름,unanswered,correct,,txt,True,False,,hidden
+p2,p3,suffix,suffix-16,숨김 이름,unanswered,wrong,,JSON,False,False,,"case,hidden"
+p2,p3,suffix,suffix-17,확장자 없음,unanswered,correct,,,True,False,,
+p2,p3,suffix,suffix-18,확장자 없음,unanswered,correct,,,True,False,,
+p2,p3,suffix,suffix-19,확장자 없음,unanswered,correct,,,True,False,,
+p2,p3,suffix,suffix-20,확장자 없음,unanswered,correct,,,True,False,,
+p2,p3,mask,mask-01,일반 코드,wrong,wrong,****,****,False,False,,
+p2,p3,mask,mask-02,일반 코드,wrong,wrong,*****,*****,False,False,,
+p2,p3,mask,mask-03,일반 코드,wrong,wrong,******,******,False,False,,
+p2,p3,mask,mask-04,일반 코드,wrong,wrong,******,******,False,False,,
+p2,p3,mask,mask-05,일반 코드,wrong,wrong,*******,*******,False,False,,
+p2,p3,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,short,
+p2,p3,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,short,
+p2,p3,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,short,
+p2,p3,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,short,
+p2,p3,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,short,
+p2,p3,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,short,
+p2,p3,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,short,
+p2,p3,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,short,
+p2,p3,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,short,
+p2,p3,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p2,p3,mask,mask-16,길이·표기 보존,wrong,wrong,*****,*****,False,False,,
+p2,p3,mask,mask-17,길이·표기 보존,wrong,wrong,********,********,False,False,,
+p2,p3,mask,mask-18,길이·표기 보존,wrong,wrong,****,****,False,False,,
+p2,p3,mask,mask-19,길이·표기 보존,wrong,wrong,*********,*********,False,False,,
+p2,p3,mask,mask-20,길이·표기 보존,wrong,wrong,********,********,False,False,,
+p2,p3,upload,upload-01,음수 입력,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-02,음수 입력,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-03,음수 입력,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-04,음수 입력,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-05,빈 파일,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-06,상한 아래,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-07,상한 아래,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-08,상한 아래,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-09,상한 아래,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-10,상한 아래,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-11,상한 아래,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-12,상한 아래,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-13,상한 일치,unanswered,correct,,True,True,False,,
+p2,p3,upload,upload-14,상한 초과,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-15,상한 초과,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-16,상한 초과,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-17,상한 초과,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-18,상한 초과,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-19,상한 초과,unanswered,correct,,False,True,False,,
+p2,p3,upload,upload-20,상한 초과,unanswered,correct,,False,True,False,,
+p2,p3,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p2,p3,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p2,p3,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p2,p3,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p2,p3,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p2,p3,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p2,p3,print,print-07,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p2,p3,print,print-08,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p2,p3,print,print-09,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p2,p3,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,equal,"equal,height,width"
+p2,p3,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,equal,"equal,height,width"
+p2,p3,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,equal,"equal,height,width"
+p2,p3,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,equal,"equal,height,width"
+p2,p3,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,equal,"equal,height,width"
+p2,p3,print,print-15,초과·고정 방향,wrong,wrong,True,True,False,False,,width
+p2,p3,print,print-16,초과·고정 방향,wrong,wrong,True,True,False,False,,height
+p2,p3,print,print-17,초과·고정 방향,wrong,wrong,True,True,False,False,,width OR height
+p2,p3,print,print-18,초과·고정 방향,wrong,wrong,True,True,False,False,,height
+p2,p3,print,print-19,초과·고정 방향,wrong,wrong,True,True,False,False,,width
+p2,p3,print,print-20,초과·고정 방향,wrong,wrong,True,True,False,False,,height
+p3,p4,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p3,p4,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+p3,p4,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p3,p4,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p3,p4,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+p3,p4,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,
+p3,p4,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+p3,p4,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+p3,p4,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+p3,p4,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+p3,p4,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+p3,p4,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p3,p4,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,,
+p3,p4,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p3,p4,title,title-15,하이픈 보존,wrong,wrong,,,False,False,,
+p3,p4,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,,
+p3,p4,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,,
+p3,p4,title,title-18,변환 결합,wrong,wrong,a,a,False,False,,
+p3,p4,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,,
+p3,p4,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p3,p4,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+p3,p4,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+p3,p4,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+p3,p4,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+p3,p4,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+p3,p4,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+p3,p4,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+p3,p4,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+p3,p4,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+p3,p4,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+p3,p4,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+p3,p4,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+p3,p4,suffix,suffix-13,숨김 이름,wrong,wrong,env,env,False,False,hidden,hidden
+p3,p4,suffix,suffix-14,숨김 이름,wrong,wrong,profile,profile,False,False,hidden,hidden
+p3,p4,suffix,suffix-15,숨김 이름,correct,correct,txt,txt,False,False,hidden,hidden
+p3,p4,suffix,suffix-16,숨김 이름,wrong,wrong,JSON,JSON,False,False,"case,hidden","case,hidden"
+p3,p4,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+p3,p4,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+p3,p4,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+p3,p4,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+p3,p4,mask,mask-01,일반 코드,wrong,correct,****,*BCD,True,False,,
+p3,p4,mask,mask-02,일반 코드,wrong,correct,*****,**CDE,True,False,,
+p3,p4,mask,mask-03,일반 코드,wrong,correct,******,***456,True,False,,
+p3,p4,mask,mask-04,일반 코드,wrong,correct,******,***2CD,True,False,,
+p3,p4,mask,mask-05,일반 코드,wrong,correct,*******,****ty7,True,False,,
+p3,p4,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+p3,p4,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+p3,p4,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+p3,p4,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+p3,p4,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+p3,p4,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+p3,p4,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+p3,p4,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+p3,p4,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+p3,p4,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p3,p4,mask,mask-16,길이·표기 보존,wrong,correct,*****,**CdE,True,False,,
+p3,p4,mask,mask-17,길이·표기 보존,wrong,correct,********,*****000,True,False,,
+p3,p4,mask,mask-18,길이·표기 보존,wrong,correct,****,*yZ9,True,False,,
+p3,p4,mask,mask-19,길이·표기 보존,wrong,correct,*********,******GHI,True,False,,
+p3,p4,mask,mask-20,길이·표기 보존,wrong,correct,********,*****4cD,True,False,,
+p3,p4,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-06,상한 아래,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-07,상한 아래,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-08,상한 아래,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-09,상한 아래,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-10,상한 아래,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-11,상한 아래,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-12,상한 아래,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-13,상한 일치,correct,correct,True,True,False,False,,
+p3,p4,upload,upload-14,상한 초과,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-15,상한 초과,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-16,상한 초과,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-17,상한 초과,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-18,상한 초과,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-19,상한 초과,correct,correct,False,False,False,False,,
+p3,p4,upload,upload-20,상한 초과,correct,correct,False,False,False,False,,
+p3,p4,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p3,p4,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p3,p4,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p3,p4,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p3,p4,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p3,p4,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p3,p4,print,print-07,영역 내부,correct,correct,True,True,False,False,"height,width",
+p3,p4,print,print-08,영역 내부,correct,correct,True,True,False,False,"height,width",
+p3,p4,print,print-09,영역 내부,correct,correct,True,True,False,False,"height,width",
+p3,p4,print,print-10,상한 선·모서리,correct,wrong,True,False,False,True,"equal,height,width",equal
+p3,p4,print,print-11,상한 선·모서리,correct,wrong,True,False,False,True,"equal,height,width",equal
+p3,p4,print,print-12,상한 선·모서리,correct,wrong,True,False,False,True,"equal,height,width",equal
+p3,p4,print,print-13,상한 선·모서리,correct,wrong,True,False,False,True,"equal,height,width",equal
+p3,p4,print,print-14,상한 선·모서리,correct,wrong,True,False,False,True,"equal,height,width",equal
+p3,p4,print,print-15,초과·고정 방향,wrong,correct,True,False,True,False,width,
+p3,p4,print,print-16,초과·고정 방향,wrong,correct,True,False,True,False,height,
+p3,p4,print,print-17,초과·고정 방향,wrong,correct,True,False,True,False,width OR height,
+p3,p4,print,print-18,초과·고정 방향,wrong,correct,True,False,True,False,height,
+p3,p4,print,print-19,초과·고정 방향,wrong,correct,True,False,True,False,width,
+p3,p4,print,print-20,초과·고정 방향,wrong,correct,True,False,True,False,height,
+p4,p4guard,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p4,p4guard,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+p4,p4guard,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p4,p4guard,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p4,p4guard,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+p4,p4guard,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,
+p4,p4guard,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+p4,p4guard,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+p4,p4guard,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4,p4guard,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4,p4guard,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4,p4guard,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p4,p4guard,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,,
+p4,p4guard,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p4,p4guard,title,title-15,하이픈 보존,wrong,wrong,,,False,False,,
+p4,p4guard,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,,
+p4,p4guard,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,,
+p4,p4guard,title,title-18,변환 결합,wrong,wrong,a,a,False,False,,
+p4,p4guard,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,,
+p4,p4guard,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p4,p4guard,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+p4,p4guard,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+p4,p4guard,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+p4,p4guard,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+p4,p4guard,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+p4,p4guard,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+p4,p4guard,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+p4,p4guard,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+p4,p4guard,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+p4,p4guard,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+p4,p4guard,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+p4,p4guard,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+p4,p4guard,suffix,suffix-13,숨김 이름,wrong,wrong,env,env,False,False,hidden,hidden
+p4,p4guard,suffix,suffix-14,숨김 이름,wrong,wrong,profile,profile,False,False,hidden,hidden
+p4,p4guard,suffix,suffix-15,숨김 이름,correct,correct,txt,txt,False,False,hidden,hidden
+p4,p4guard,suffix,suffix-16,숨김 이름,wrong,wrong,JSON,JSON,False,False,"case,hidden","case,hidden"
+p4,p4guard,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+p4,p4guard,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+p4,p4guard,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+p4,p4guard,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+p4,p4guard,mask,mask-01,일반 코드,correct,wrong,*BCD,****,False,True,,
+p4,p4guard,mask,mask-02,일반 코드,correct,wrong,**CDE,*****,False,True,,
+p4,p4guard,mask,mask-03,일반 코드,correct,wrong,***456,******,False,True,,
+p4,p4guard,mask,mask-04,일반 코드,correct,wrong,***2CD,******,False,True,,
+p4,p4guard,mask,mask-05,일반 코드,correct,wrong,****ty7,*******,False,True,,
+p4,p4guard,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+p4,p4guard,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+p4,p4guard,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+p4,p4guard,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+p4,p4guard,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+p4,p4guard,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+p4,p4guard,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+p4,p4guard,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+p4,p4guard,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+p4,p4guard,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p4,p4guard,mask,mask-16,길이·표기 보존,correct,wrong,**CdE,*****,False,True,,
+p4,p4guard,mask,mask-17,길이·표기 보존,correct,wrong,*****000,********,False,True,,
+p4,p4guard,mask,mask-18,길이·표기 보존,correct,wrong,*yZ9,****,False,True,,
+p4,p4guard,mask,mask-19,길이·표기 보존,correct,wrong,******GHI,*********,False,True,,
+p4,p4guard,mask,mask-20,길이·표기 보존,correct,wrong,*****4cD,********,False,True,,
+p4,p4guard,upload,upload-01,음수 입력,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-02,음수 입력,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-03,음수 입력,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-04,음수 입력,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-05,빈 파일,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-06,상한 아래,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-07,상한 아래,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-08,상한 아래,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-09,상한 아래,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-10,상한 아래,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-11,상한 아래,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-12,상한 아래,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-13,상한 일치,correct,unanswered,True,,False,True,,
+p4,p4guard,upload,upload-14,상한 초과,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-15,상한 초과,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-16,상한 초과,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-17,상한 초과,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-18,상한 초과,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-19,상한 초과,correct,unanswered,False,,False,True,,
+p4,p4guard,upload,upload-20,상한 초과,correct,unanswered,False,,False,True,,
+p4,p4guard,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-07,영역 내부,correct,correct,True,True,False,False,,
+p4,p4guard,print,print-08,영역 내부,correct,correct,True,True,False,False,,
+p4,p4guard,print,print-09,영역 내부,correct,correct,True,True,False,False,,
+p4,p4guard,print,print-10,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4,p4guard,print,print-11,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4,p4guard,print,print-12,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4,p4guard,print,print-13,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4,p4guard,print,print-14,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4,p4guard,print,print-15,초과·고정 방향,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-16,초과·고정 방향,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-17,초과·고정 방향,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-18,초과·고정 방향,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-19,초과·고정 방향,correct,correct,False,False,False,False,,
+p4,p4guard,print,print-20,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,infer-legacy,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p4guard,infer-legacy,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+p4guard,infer-legacy,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p4guard,infer-legacy,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p4guard,infer-legacy,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+p4guard,infer-legacy,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,
+p4guard,infer-legacy,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+p4guard,infer-legacy,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+p4guard,infer-legacy,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,
+p4guard,infer-legacy,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,
+p4guard,infer-legacy,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,
+p4guard,infer-legacy,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p4guard,infer-legacy,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,,
+p4guard,infer-legacy,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+p4guard,infer-legacy,title,title-15,하이픈 보존,wrong,wrong,,,False,False,,
+p4guard,infer-legacy,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,,
+p4guard,infer-legacy,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,,
+p4guard,infer-legacy,title,title-18,변환 결합,wrong,wrong,a,a,False,False,,
+p4guard,infer-legacy,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,,
+p4guard,infer-legacy,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p4guard,infer-legacy,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+p4guard,infer-legacy,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+p4guard,infer-legacy,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+p4guard,infer-legacy,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+p4guard,infer-legacy,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+p4guard,infer-legacy,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+p4guard,infer-legacy,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,infer-legacy,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+p4guard,infer-legacy,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+p4guard,infer-legacy,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+p4guard,infer-legacy,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+p4guard,infer-legacy,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,infer-legacy,suffix,suffix-13,숨김 이름,wrong,correct,env,,True,False,hidden,
+p4guard,infer-legacy,suffix,suffix-14,숨김 이름,wrong,correct,profile,,True,False,hidden,
+p4guard,infer-legacy,suffix,suffix-15,숨김 이름,correct,correct,txt,txt,False,False,hidden,
+p4guard,infer-legacy,suffix,suffix-16,숨김 이름,wrong,wrong,JSON,JSON,False,False,"case,hidden",case
+p4guard,infer-legacy,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+p4guard,infer-legacy,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+p4guard,infer-legacy,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+p4guard,infer-legacy,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+p4guard,infer-legacy,mask,mask-01,일반 코드,wrong,correct,****,*BCD,True,False,,
+p4guard,infer-legacy,mask,mask-02,일반 코드,wrong,correct,*****,**CDE,True,False,,
+p4guard,infer-legacy,mask,mask-03,일반 코드,wrong,correct,******,***456,True,False,,
+p4guard,infer-legacy,mask,mask-04,일반 코드,wrong,correct,******,***2CD,True,False,,
+p4guard,infer-legacy,mask,mask-05,일반 코드,wrong,correct,*******,****ty7,True,False,,
+p4guard,infer-legacy,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,infer-legacy,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,infer-legacy,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,infer-legacy,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,infer-legacy,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+p4guard,infer-legacy,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+p4guard,infer-legacy,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,infer-legacy,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,infer-legacy,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,infer-legacy,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p4guard,infer-legacy,mask,mask-16,길이·표기 보존,wrong,correct,*****,**CdE,True,False,,
+p4guard,infer-legacy,mask,mask-17,길이·표기 보존,wrong,correct,********,*****000,True,False,,
+p4guard,infer-legacy,mask,mask-18,길이·표기 보존,wrong,correct,****,*yZ9,True,False,,
+p4guard,infer-legacy,mask,mask-19,길이·표기 보존,wrong,correct,*********,******GHI,True,False,,
+p4guard,infer-legacy,mask,mask-20,길이·표기 보존,wrong,correct,********,*****4cD,True,False,,
+p4guard,infer-legacy,upload,upload-01,음수 입력,unanswered,unanswered,,,False,False,,
+p4guard,infer-legacy,upload,upload-02,음수 입력,unanswered,unanswered,,,False,False,,
+p4guard,infer-legacy,upload,upload-03,음수 입력,unanswered,unanswered,,,False,False,,
+p4guard,infer-legacy,upload,upload-04,음수 입력,unanswered,unanswered,,,False,False,,
+p4guard,infer-legacy,upload,upload-05,빈 파일,unanswered,unanswered,,,False,False,,
+p4guard,infer-legacy,upload,upload-06,상한 아래,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-07,상한 아래,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-08,상한 아래,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-09,상한 아래,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-10,상한 아래,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-11,상한 아래,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-12,상한 아래,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-13,상한 일치,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-14,상한 초과,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-15,상한 초과,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-16,상한 초과,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-17,상한 초과,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-18,상한 초과,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-19,상한 초과,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,upload,upload-20,상한 초과,unanswered,unanswered,,,False,False,,limit
+p4guard,infer-legacy,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,infer-legacy,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,infer-legacy,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,infer-legacy,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p4guard,infer-legacy,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p4guard,infer-legacy,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p4guard,infer-legacy,print,print-07,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p4guard,infer-legacy,print,print-08,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p4guard,infer-legacy,print,print-09,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p4guard,infer-legacy,print,print-10,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4guard,infer-legacy,print,print-11,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4guard,infer-legacy,print,print-12,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4guard,infer-legacy,print,print-13,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4guard,infer-legacy,print,print-14,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4guard,infer-legacy,print,print-15,초과·고정 방향,correct,wrong,False,True,False,True,,width
+p4guard,infer-legacy,print,print-16,초과·고정 방향,correct,wrong,False,True,False,True,,height
+p4guard,infer-legacy,print,print-17,초과·고정 방향,correct,wrong,False,True,False,True,,width OR height
+p4guard,infer-legacy,print,print-18,초과·고정 방향,correct,wrong,False,True,False,True,,height
+p4guard,infer-legacy,print,print-19,초과·고정 방향,correct,wrong,False,True,False,True,,width
+p4guard,infer-legacy,print,print-20,초과·고정 방향,correct,wrong,False,True,False,True,,height
+p4guard,p4-native,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p4guard,p4-native,title,title-02,공개 기본 변환,correct,wrong,news, news,False,True,,
+p4guard,p4-native,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p4guard,p4-native,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p4guard,p4-native,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+p4guard,p4-native,title,title-06,연속 내부 공백,correct,wrong,a b, a b,False,True,,
+p4guard,p4-native,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+p4guard,p4-native,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+p4guard,p4-native,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-native,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-native,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-native,title,title-12,하이픈 보존,wrong,correct,a b,a-b,True,False,,
+p4guard,p4-native,title,title-13,하이픈 보존,wrong,correct,x,--x--,True,False,,
+p4guard,p4-native,title,title-14,하이픈 보존,wrong,correct,a b,a--b,True,False,,
+p4guard,p4-native,title,title-15,하이픈 보존,wrong,wrong,, -,False,False,,
+p4guard,p4-native,title,title-16,변환 결합,wrong,wrong,a b c, a--b c,False,False,,
+p4guard,p4-native,title,title-17,변환 결합,wrong,correct,x y,x - y,True,False,,
+p4guard,p4-native,title,title-18,변환 결합,wrong,wrong,a, -- a,False,False,,
+p4guard,p4-native,title,title-19,변환 결합,wrong,correct,9 z,9 -z,True,False,,
+p4guard,p4-native,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p4guard,p4-native,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+p4guard,p4-native,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+p4guard,p4-native,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+p4guard,p4-native,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+p4guard,p4-native,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+p4guard,p4-native,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+p4guard,p4-native,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,p4-native,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+p4guard,p4-native,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+p4guard,p4-native,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+p4guard,p4-native,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+p4guard,p4-native,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,p4-native,suffix,suffix-13,숨김 이름,wrong,correct,env,,True,False,hidden,hidden
+p4guard,p4-native,suffix,suffix-14,숨김 이름,wrong,correct,profile,,True,False,hidden,hidden
+p4guard,p4-native,suffix,suffix-15,숨김 이름,correct,wrong,txt,,False,True,hidden,hidden
+p4guard,p4-native,suffix,suffix-16,숨김 이름,wrong,wrong,JSON,,False,False,"case,hidden","case,hidden"
+p4guard,p4-native,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-native,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-native,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-native,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-native,mask,mask-01,일반 코드,wrong,correct,****,*BCD,True,False,,
+p4guard,p4-native,mask,mask-02,일반 코드,wrong,correct,*****,**CDE,True,False,,
+p4guard,p4-native,mask,mask-03,일반 코드,wrong,correct,******,***456,True,False,,
+p4guard,p4-native,mask,mask-04,일반 코드,wrong,correct,******,***2CD,True,False,,
+p4guard,p4-native,mask,mask-05,일반 코드,wrong,correct,*******,****ty7,True,False,,
+p4guard,p4-native,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-native,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-native,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-native,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-native,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+p4guard,p4-native,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+p4guard,p4-native,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,p4-native,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,p4-native,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,p4-native,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p4guard,p4-native,mask,mask-16,길이·표기 보존,wrong,correct,*****,**CdE,True,False,,
+p4guard,p4-native,mask,mask-17,길이·표기 보존,wrong,correct,********,*****000,True,False,,
+p4guard,p4-native,mask,mask-18,길이·표기 보존,wrong,correct,****,*yZ9,True,False,,
+p4guard,p4-native,mask,mask-19,길이·표기 보존,wrong,correct,*********,******GHI,True,False,,
+p4guard,p4-native,mask,mask-20,길이·표기 보존,wrong,correct,********,*****4cD,True,False,,
+p4guard,p4-native,upload,upload-01,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-02,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-03,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-04,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-05,빈 파일,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-06,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-07,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-08,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-09,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-10,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-11,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-12,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-13,상한 일치,unanswered,correct,,True,True,False,,
+p4guard,p4-native,upload,upload-14,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-15,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-16,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-17,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-18,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-19,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-native,upload,upload-20,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-native,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-07,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-native,print,print-08,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-native,print,print-09,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-native,print,print-10,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-native,print,print-11,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-native,print,print-12,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-native,print,print-13,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-native,print,print-14,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-native,print,print-15,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-16,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-17,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-18,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-19,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-native,print,print-20,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-program,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p4guard,p4-program,title,title-02,공개 기본 변환,correct,wrong,news, news,False,True,,
+p4guard,p4-program,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p4guard,p4-program,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p4guard,p4-program,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+p4guard,p4-program,title,title-06,연속 내부 공백,correct,wrong,a b, a b,False,True,,
+p4guard,p4-program,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+p4guard,p4-program,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+p4guard,p4-program,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-program,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-program,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-program,title,title-12,하이픈 보존,wrong,correct,a b,a-b,True,False,,
+p4guard,p4-program,title,title-13,하이픈 보존,wrong,correct,x,--x--,True,False,,
+p4guard,p4-program,title,title-14,하이픈 보존,wrong,correct,a b,a--b,True,False,,
+p4guard,p4-program,title,title-15,하이픈 보존,wrong,wrong,, -,False,False,,
+p4guard,p4-program,title,title-16,변환 결합,wrong,wrong,a b c, a--b c,False,False,,
+p4guard,p4-program,title,title-17,변환 결합,wrong,correct,x y,x - y,True,False,,
+p4guard,p4-program,title,title-18,변환 결합,wrong,wrong,a, -- a,False,False,,
+p4guard,p4-program,title,title-19,변환 결합,wrong,correct,9 z,9 -z,True,False,,
+p4guard,p4-program,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p4guard,p4-program,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+p4guard,p4-program,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+p4guard,p4-program,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+p4guard,p4-program,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+p4guard,p4-program,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+p4guard,p4-program,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+p4guard,p4-program,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,p4-program,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+p4guard,p4-program,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+p4guard,p4-program,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+p4guard,p4-program,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+p4guard,p4-program,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,p4-program,suffix,suffix-13,숨김 이름,wrong,correct,env,,True,False,hidden,hidden
+p4guard,p4-program,suffix,suffix-14,숨김 이름,wrong,correct,profile,,True,False,hidden,hidden
+p4guard,p4-program,suffix,suffix-15,숨김 이름,correct,wrong,txt,,False,True,hidden,hidden
+p4guard,p4-program,suffix,suffix-16,숨김 이름,wrong,wrong,JSON,,False,False,"case,hidden","case,hidden"
+p4guard,p4-program,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-program,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-program,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-program,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-program,mask,mask-01,일반 코드,wrong,unanswered,****,,False,False,,
+p4guard,p4-program,mask,mask-02,일반 코드,wrong,unanswered,*****,,False,False,,
+p4guard,p4-program,mask,mask-03,일반 코드,wrong,unanswered,******,,False,False,,
+p4guard,p4-program,mask,mask-04,일반 코드,wrong,unanswered,******,,False,False,,
+p4guard,p4-program,mask,mask-05,일반 코드,wrong,unanswered,*******,,False,False,,
+p4guard,p4-program,mask,mask-06,세 글자 경계,correct,unanswered,***,,False,True,,
+p4guard,p4-program,mask,mask-07,세 글자 경계,correct,unanswered,***,,False,True,,
+p4guard,p4-program,mask,mask-08,세 글자 경계,correct,unanswered,***,,False,True,,
+p4guard,p4-program,mask,mask-09,세 글자 경계,correct,unanswered,***,,False,True,,
+p4guard,p4-program,mask,mask-10,짧은 코드,correct,unanswered,*,,False,True,,
+p4guard,p4-program,mask,mask-11,짧은 코드,correct,unanswered,*,,False,True,,
+p4guard,p4-program,mask,mask-12,짧은 코드,correct,unanswered,**,,False,True,,
+p4guard,p4-program,mask,mask-13,짧은 코드,correct,unanswered,**,,False,True,,
+p4guard,p4-program,mask,mask-14,짧은 코드,correct,unanswered,**,,False,True,,
+p4guard,p4-program,mask,mask-15,빈 코드,correct,unanswered,,,False,True,,
+p4guard,p4-program,mask,mask-16,길이·표기 보존,wrong,unanswered,*****,,False,False,,
+p4guard,p4-program,mask,mask-17,길이·표기 보존,wrong,unanswered,********,,False,False,,
+p4guard,p4-program,mask,mask-18,길이·표기 보존,wrong,unanswered,****,,False,False,,
+p4guard,p4-program,mask,mask-19,길이·표기 보존,wrong,unanswered,*********,,False,False,,
+p4guard,p4-program,mask,mask-20,길이·표기 보존,wrong,unanswered,********,,False,False,,
+p4guard,p4-program,upload,upload-01,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-02,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-03,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-04,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-05,빈 파일,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-06,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-07,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-08,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-09,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-10,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-11,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-12,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-13,상한 일치,unanswered,correct,,True,True,False,,
+p4guard,p4-program,upload,upload-14,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-15,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-16,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-17,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-18,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-19,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-program,upload,upload-20,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-program,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-07,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-program,print,print-08,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-program,print,print-09,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-program,print,print-10,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-program,print,print-11,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-program,print,print-12,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-program,print,print-13,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-program,print,print-14,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-program,print,print-15,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-16,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-17,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-18,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-19,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-program,print,print-20,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-regions,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p4guard,p4-regions,title,title-02,공개 기본 변환,correct,wrong,news, news,False,True,,
+p4guard,p4-regions,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p4guard,p4-regions,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p4guard,p4-regions,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+p4guard,p4-regions,title,title-06,연속 내부 공백,correct,wrong,a b, a b,False,True,,
+p4guard,p4-regions,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+p4guard,p4-regions,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+p4guard,p4-regions,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-regions,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-regions,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+p4guard,p4-regions,title,title-12,하이픈 보존,wrong,correct,a b,a-b,True,False,,
+p4guard,p4-regions,title,title-13,하이픈 보존,wrong,correct,x,--x--,True,False,,
+p4guard,p4-regions,title,title-14,하이픈 보존,wrong,correct,a b,a--b,True,False,,
+p4guard,p4-regions,title,title-15,하이픈 보존,wrong,wrong,, -,False,False,,
+p4guard,p4-regions,title,title-16,변환 결합,wrong,wrong,a b c, a--b c,False,False,,
+p4guard,p4-regions,title,title-17,변환 결합,wrong,correct,x y,x - y,True,False,,
+p4guard,p4-regions,title,title-18,변환 결합,wrong,wrong,a, -- a,False,False,,
+p4guard,p4-regions,title,title-19,변환 결합,wrong,correct,9 z,9 -z,True,False,,
+p4guard,p4-regions,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p4guard,p4-regions,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+p4guard,p4-regions,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+p4guard,p4-regions,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+p4guard,p4-regions,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+p4guard,p4-regions,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+p4guard,p4-regions,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+p4guard,p4-regions,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,p4-regions,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+p4guard,p4-regions,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+p4guard,p4-regions,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+p4guard,p4-regions,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+p4guard,p4-regions,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+p4guard,p4-regions,suffix,suffix-13,숨김 이름,wrong,correct,env,,True,False,hidden,hidden
+p4guard,p4-regions,suffix,suffix-14,숨김 이름,wrong,correct,profile,,True,False,hidden,hidden
+p4guard,p4-regions,suffix,suffix-15,숨김 이름,correct,wrong,txt,,False,True,hidden,hidden
+p4guard,p4-regions,suffix,suffix-16,숨김 이름,wrong,wrong,JSON,,False,False,"case,hidden","case,hidden"
+p4guard,p4-regions,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-regions,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-regions,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-regions,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+p4guard,p4-regions,mask,mask-01,일반 코드,wrong,correct,****,*BCD,True,False,,
+p4guard,p4-regions,mask,mask-02,일반 코드,wrong,correct,*****,**CDE,True,False,,
+p4guard,p4-regions,mask,mask-03,일반 코드,wrong,correct,******,***456,True,False,,
+p4guard,p4-regions,mask,mask-04,일반 코드,wrong,correct,******,***2CD,True,False,,
+p4guard,p4-regions,mask,mask-05,일반 코드,wrong,correct,*******,****ty7,True,False,,
+p4guard,p4-regions,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-regions,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-regions,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-regions,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+p4guard,p4-regions,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+p4guard,p4-regions,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+p4guard,p4-regions,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,p4-regions,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,p4-regions,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+p4guard,p4-regions,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p4guard,p4-regions,mask,mask-16,길이·표기 보존,wrong,correct,*****,**CdE,True,False,,
+p4guard,p4-regions,mask,mask-17,길이·표기 보존,wrong,correct,********,*****000,True,False,,
+p4guard,p4-regions,mask,mask-18,길이·표기 보존,wrong,correct,****,*yZ9,True,False,,
+p4guard,p4-regions,mask,mask-19,길이·표기 보존,wrong,correct,*********,******GHI,True,False,,
+p4guard,p4-regions,mask,mask-20,길이·표기 보존,wrong,correct,********,*****4cD,True,False,,
+p4guard,p4-regions,upload,upload-01,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-02,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-03,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-04,음수 입력,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-05,빈 파일,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-06,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-07,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-08,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-09,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-10,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-11,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-12,상한 아래,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-13,상한 일치,unanswered,correct,,True,True,False,,
+p4guard,p4-regions,upload,upload-14,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-15,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-16,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-17,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-18,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-19,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,upload,upload-20,상한 초과,unanswered,correct,,False,True,False,,
+p4guard,p4-regions,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-07,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-regions,print,print-08,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-regions,print,print-09,영역 내부,correct,correct,True,True,False,False,,
+p4guard,p4-regions,print,print-10,상한 선·모서리,wrong,correct,False,True,True,False,equal,equal
+p4guard,p4-regions,print,print-11,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-regions,print,print-12,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-regions,print,print-13,상한 선·모서리,wrong,correct,False,True,True,False,equal,equal
+p4guard,p4-regions,print,print-14,상한 선·모서리,wrong,wrong,False,False,False,False,equal,equal
+p4guard,p4-regions,print,print-15,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-16,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-17,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-18,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-19,초과·고정 방향,correct,correct,False,False,False,False,,
+p4guard,p4-regions,print,print-20,초과·고정 방향,correct,correct,False,False,False,False,,
+infer-legacy,infer-native,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+infer-legacy,infer-native,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+infer-legacy,infer-native,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+infer-legacy,infer-native,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+infer-legacy,infer-native,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+infer-legacy,infer-native,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,
+infer-legacy,infer-native,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+infer-legacy,infer-native,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+infer-legacy,infer-native,title,title-09,빈 제목,wrong,correct,,untitled,True,False,,
+infer-legacy,infer-native,title,title-10,빈 제목,wrong,correct,,untitled,True,False,,
+infer-legacy,infer-native,title,title-11,빈 제목,wrong,correct,,untitled,True,False,,
+infer-legacy,infer-native,title,title-12,하이픈 보존,wrong,correct,a b,a-b,True,False,,
+infer-legacy,infer-native,title,title-13,하이픈 보존,wrong,correct,x,--x--,True,False,,
+infer-legacy,infer-native,title,title-14,하이픈 보존,wrong,correct,a b,a--b,True,False,,
+infer-legacy,infer-native,title,title-15,하이픈 보존,wrong,correct,,-,True,False,,
+infer-legacy,infer-native,title,title-16,변환 결합,wrong,correct,a b c,a--b c,True,False,,
+infer-legacy,infer-native,title,title-17,변환 결합,wrong,correct,x y,x - y,True,False,,
+infer-legacy,infer-native,title,title-18,변환 결합,wrong,correct,a,-- a,True,False,,
+infer-legacy,infer-native,title,title-19,변환 결합,wrong,correct,9 z,9 -z,True,False,,
+infer-legacy,infer-native,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+infer-legacy,infer-native,suffix,suffix-01,공개 기본 추출,correct,unanswered,txt,,False,True,,
+infer-legacy,infer-native,suffix,suffix-02,공개 기본 추출,correct,unanswered,csv,,False,True,,
+infer-legacy,infer-native,suffix,suffix-03,공개 기본 추출,correct,unanswered,json,,False,True,,
+infer-legacy,infer-native,suffix,suffix-04,공개 기본 추출,correct,unanswered,123,,False,True,,
+infer-legacy,infer-native,suffix,suffix-05,확장자 대소문자,wrong,unanswered,TXT,,False,False,case,case
+infer-legacy,infer-native,suffix,suffix-06,확장자 대소문자,wrong,unanswered,JpG,,False,False,case,case
+infer-legacy,infer-native,suffix,suffix-07,확장자 대소문자,wrong,unanswered,CSV,,False,False,case,case
+infer-legacy,infer-native,suffix,suffix-08,확장자 대소문자,wrong,unanswered,Json,,False,False,case,case
+infer-legacy,infer-native,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+infer-legacy,infer-native,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+infer-legacy,infer-native,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+infer-legacy,infer-native,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+infer-legacy,infer-native,suffix,suffix-13,숨김 이름,correct,correct,,,False,False,,
+infer-legacy,infer-native,suffix,suffix-14,숨김 이름,correct,correct,,,False,False,,
+infer-legacy,infer-native,suffix,suffix-15,숨김 이름,correct,wrong,txt,,False,True,,
+infer-legacy,infer-native,suffix,suffix-16,숨김 이름,wrong,wrong,JSON,,False,False,case,case
+infer-legacy,infer-native,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+infer-legacy,infer-native,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+infer-legacy,infer-native,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+infer-legacy,infer-native,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+infer-legacy,infer-native,mask,mask-01,일반 코드,correct,correct,*BCD,*BCD,False,False,,
+infer-legacy,infer-native,mask,mask-02,일반 코드,correct,correct,**CDE,**CDE,False,False,,
+infer-legacy,infer-native,mask,mask-03,일반 코드,correct,correct,***456,***456,False,False,,
+infer-legacy,infer-native,mask,mask-04,일반 코드,correct,correct,***2CD,***2CD,False,False,,
+infer-legacy,infer-native,mask,mask-05,일반 코드,correct,correct,****ty7,****ty7,False,False,,
+infer-legacy,infer-native,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+infer-legacy,infer-native,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+infer-legacy,infer-native,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+infer-legacy,infer-native,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+infer-legacy,infer-native,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+infer-legacy,infer-native,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+infer-legacy,infer-native,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+infer-legacy,infer-native,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+infer-legacy,infer-native,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+infer-legacy,infer-native,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+infer-legacy,infer-native,mask,mask-16,길이·표기 보존,correct,correct,**CdE,**CdE,False,False,,
+infer-legacy,infer-native,mask,mask-17,길이·표기 보존,correct,correct,*****000,*****000,False,False,,
+infer-legacy,infer-native,mask,mask-18,길이·표기 보존,correct,correct,*yZ9,*yZ9,False,False,,
+infer-legacy,infer-native,mask,mask-19,길이·표기 보존,correct,correct,******GHI,******GHI,False,False,,
+infer-legacy,infer-native,mask,mask-20,길이·표기 보존,correct,correct,*****4cD,*****4cD,False,False,,
+infer-legacy,infer-native,upload,upload-01,음수 입력,unanswered,correct,,False,True,False,,
+infer-legacy,infer-native,upload,upload-02,음수 입력,unanswered,correct,,False,True,False,,
+infer-legacy,infer-native,upload,upload-03,음수 입력,unanswered,correct,,False,True,False,,
+infer-legacy,infer-native,upload,upload-04,음수 입력,unanswered,correct,,False,True,False,,
+infer-legacy,infer-native,upload,upload-05,빈 파일,unanswered,correct,,False,True,False,,
+infer-legacy,infer-native,upload,upload-06,상한 아래,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-07,상한 아래,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-08,상한 아래,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-09,상한 아래,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-10,상한 아래,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-11,상한 아래,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-12,상한 아래,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-13,상한 일치,unanswered,correct,,True,True,False,limit,limit
+infer-legacy,infer-native,upload,upload-14,상한 초과,unanswered,wrong,,True,False,False,limit,limit
+infer-legacy,infer-native,upload,upload-15,상한 초과,unanswered,wrong,,True,False,False,limit,limit
+infer-legacy,infer-native,upload,upload-16,상한 초과,unanswered,wrong,,True,False,False,limit,limit
+infer-legacy,infer-native,upload,upload-17,상한 초과,unanswered,wrong,,True,False,False,limit,limit
+infer-legacy,infer-native,upload,upload-18,상한 초과,unanswered,wrong,,True,False,False,limit,limit
+infer-legacy,infer-native,upload,upload-19,상한 초과,unanswered,wrong,,True,False,False,limit,limit
+infer-legacy,infer-native,upload,upload-20,상한 초과,unanswered,wrong,,True,False,False,limit,limit
+infer-legacy,infer-native,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-legacy,infer-native,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-legacy,infer-native,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-legacy,infer-native,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+infer-legacy,infer-native,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+infer-legacy,infer-native,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+infer-legacy,infer-native,print,print-07,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-08,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-09,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-legacy,infer-native,print,print-15,초과·고정 방향,wrong,wrong,True,True,False,False,width,width
+infer-legacy,infer-native,print,print-16,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+infer-legacy,infer-native,print,print-17,초과·고정 방향,wrong,wrong,True,True,False,False,width OR height,width OR height
+infer-legacy,infer-native,print,print-18,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+infer-legacy,infer-native,print,print-19,초과·고정 방향,wrong,wrong,True,True,False,False,width,width
+infer-legacy,infer-native,print,print-20,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+infer-native,infer-program,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+infer-native,infer-program,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+infer-native,infer-program,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+infer-native,infer-program,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+infer-native,infer-program,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+infer-native,infer-program,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,
+infer-native,infer-program,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+infer-native,infer-program,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+infer-native,infer-program,title,title-09,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-native,infer-program,title,title-10,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-native,infer-program,title,title-11,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-native,infer-program,title,title-12,하이픈 보존,correct,correct,a-b,a-b,False,False,,
+infer-native,infer-program,title,title-13,하이픈 보존,correct,correct,--x--,--x--,False,False,,
+infer-native,infer-program,title,title-14,하이픈 보존,correct,correct,a--b,a--b,False,False,,
+infer-native,infer-program,title,title-15,하이픈 보존,correct,correct,-,-,False,False,,
+infer-native,infer-program,title,title-16,변환 결합,correct,correct,a--b c,a--b c,False,False,,
+infer-native,infer-program,title,title-17,변환 결합,correct,correct,x - y,x - y,False,False,,
+infer-native,infer-program,title,title-18,변환 결합,correct,correct,-- a,-- a,False,False,,
+infer-native,infer-program,title,title-19,변환 결합,correct,correct,9 -z,9 -z,False,False,,
+infer-native,infer-program,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+infer-native,infer-program,suffix,suffix-01,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-program,suffix,suffix-02,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-program,suffix,suffix-03,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-program,suffix,suffix-04,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-program,suffix,suffix-05,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-program,suffix,suffix-06,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-program,suffix,suffix-07,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-program,suffix,suffix-08,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-program,suffix,suffix-09,여러 점,correct,unanswered,gz,,False,True,,
+infer-native,infer-program,suffix,suffix-10,여러 점,correct,unanswered,c,,False,True,,
+infer-native,infer-program,suffix,suffix-11,여러 점,correct,unanswered,txt,,False,True,,
+infer-native,infer-program,suffix,suffix-12,여러 점,wrong,unanswered,CSV,,False,False,case,case
+infer-native,infer-program,suffix,suffix-13,숨김 이름,correct,unanswered,,,False,True,,
+infer-native,infer-program,suffix,suffix-14,숨김 이름,correct,unanswered,,,False,True,,
+infer-native,infer-program,suffix,suffix-15,숨김 이름,wrong,unanswered,,,False,False,,
+infer-native,infer-program,suffix,suffix-16,숨김 이름,wrong,unanswered,,,False,False,case,case
+infer-native,infer-program,suffix,suffix-17,확장자 없음,correct,unanswered,,,False,True,,
+infer-native,infer-program,suffix,suffix-18,확장자 없음,correct,unanswered,,,False,True,,
+infer-native,infer-program,suffix,suffix-19,확장자 없음,correct,unanswered,,,False,True,,
+infer-native,infer-program,suffix,suffix-20,확장자 없음,correct,unanswered,,,False,True,,
+infer-native,infer-program,mask,mask-01,일반 코드,correct,unanswered,*BCD,,False,True,,
+infer-native,infer-program,mask,mask-02,일반 코드,correct,unanswered,**CDE,,False,True,,
+infer-native,infer-program,mask,mask-03,일반 코드,correct,unanswered,***456,,False,True,,
+infer-native,infer-program,mask,mask-04,일반 코드,correct,unanswered,***2CD,,False,True,,
+infer-native,infer-program,mask,mask-05,일반 코드,correct,unanswered,****ty7,,False,True,,
+infer-native,infer-program,mask,mask-06,세 글자 경계,correct,unanswered,***,,False,True,,
+infer-native,infer-program,mask,mask-07,세 글자 경계,correct,unanswered,***,,False,True,,
+infer-native,infer-program,mask,mask-08,세 글자 경계,correct,unanswered,***,,False,True,,
+infer-native,infer-program,mask,mask-09,세 글자 경계,correct,unanswered,***,,False,True,,
+infer-native,infer-program,mask,mask-10,짧은 코드,correct,unanswered,*,,False,True,,
+infer-native,infer-program,mask,mask-11,짧은 코드,correct,unanswered,*,,False,True,,
+infer-native,infer-program,mask,mask-12,짧은 코드,correct,unanswered,**,,False,True,,
+infer-native,infer-program,mask,mask-13,짧은 코드,correct,unanswered,**,,False,True,,
+infer-native,infer-program,mask,mask-14,짧은 코드,correct,unanswered,**,,False,True,,
+infer-native,infer-program,mask,mask-15,빈 코드,correct,unanswered,,,False,True,,
+infer-native,infer-program,mask,mask-16,길이·표기 보존,correct,unanswered,**CdE,,False,True,,
+infer-native,infer-program,mask,mask-17,길이·표기 보존,correct,unanswered,*****000,,False,True,,
+infer-native,infer-program,mask,mask-18,길이·표기 보존,correct,unanswered,*yZ9,,False,True,,
+infer-native,infer-program,mask,mask-19,길이·표기 보존,correct,unanswered,******GHI,,False,True,,
+infer-native,infer-program,mask,mask-20,길이·표기 보존,correct,unanswered,*****4cD,,False,True,,
+infer-native,infer-program,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-program,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-program,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-program,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-program,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+infer-native,infer-program,upload,upload-06,상한 아래,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-07,상한 아래,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-08,상한 아래,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-09,상한 아래,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-10,상한 아래,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-11,상한 아래,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-12,상한 아래,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-13,상한 일치,correct,unanswered,True,,False,True,limit,limit
+infer-native,infer-program,upload,upload-14,상한 초과,wrong,unanswered,True,,False,False,limit,limit
+infer-native,infer-program,upload,upload-15,상한 초과,wrong,unanswered,True,,False,False,limit,limit
+infer-native,infer-program,upload,upload-16,상한 초과,wrong,unanswered,True,,False,False,limit,limit
+infer-native,infer-program,upload,upload-17,상한 초과,wrong,unanswered,True,,False,False,limit,limit
+infer-native,infer-program,upload,upload-18,상한 초과,wrong,unanswered,True,,False,False,limit,limit
+infer-native,infer-program,upload,upload-19,상한 초과,wrong,unanswered,True,,False,False,limit,limit
+infer-native,infer-program,upload,upload-20,상한 초과,wrong,unanswered,True,,False,False,limit,limit
+infer-native,infer-program,print,print-01,공개 음수 거부,correct,unanswered,False,,False,True,,
+infer-native,infer-program,print,print-02,공개 음수 거부,correct,unanswered,False,,False,True,,
+infer-native,infer-program,print,print-03,공개 음수 거부,correct,unanswered,False,,False,True,,
+infer-native,infer-program,print,print-04,0인 길이,correct,unanswered,False,,False,True,,
+infer-native,infer-program,print,print-05,0인 길이,correct,unanswered,False,,False,True,,
+infer-native,infer-program,print,print-06,0인 길이,correct,unanswered,False,,False,True,,
+infer-native,infer-program,print,print-07,영역 내부,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-08,영역 내부,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-09,영역 내부,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-10,상한 선·모서리,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-11,상한 선·모서리,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-12,상한 선·모서리,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-13,상한 선·모서리,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-14,상한 선·모서리,correct,unanswered,True,,False,True,"height,width","height,width"
+infer-native,infer-program,print,print-15,초과·고정 방향,wrong,unanswered,True,,False,False,width,width
+infer-native,infer-program,print,print-16,초과·고정 방향,wrong,unanswered,True,,False,False,height,height
+infer-native,infer-program,print,print-17,초과·고정 방향,wrong,unanswered,True,,False,False,width OR height,width OR height
+infer-native,infer-program,print,print-18,초과·고정 방향,wrong,unanswered,True,,False,False,height,height
+infer-native,infer-program,print,print-19,초과·고정 방향,wrong,unanswered,True,,False,False,width,width
+infer-native,infer-program,print,print-20,초과·고정 방향,wrong,unanswered,True,,False,False,height,height
+infer-native,infer-regions,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+infer-native,infer-regions,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+infer-native,infer-regions,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+infer-native,infer-regions,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+infer-native,infer-regions,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+infer-native,infer-regions,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,
+infer-native,infer-regions,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+infer-native,infer-regions,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+infer-native,infer-regions,title,title-09,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-native,infer-regions,title,title-10,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-native,infer-regions,title,title-11,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-native,infer-regions,title,title-12,하이픈 보존,correct,correct,a-b,a-b,False,False,,
+infer-native,infer-regions,title,title-13,하이픈 보존,correct,correct,--x--,--x--,False,False,,
+infer-native,infer-regions,title,title-14,하이픈 보존,correct,correct,a--b,a--b,False,False,,
+infer-native,infer-regions,title,title-15,하이픈 보존,correct,correct,-,-,False,False,,
+infer-native,infer-regions,title,title-16,변환 결합,correct,correct,a--b c,a--b c,False,False,,
+infer-native,infer-regions,title,title-17,변환 결합,correct,correct,x - y,x - y,False,False,,
+infer-native,infer-regions,title,title-18,변환 결합,correct,correct,-- a,-- a,False,False,,
+infer-native,infer-regions,title,title-19,변환 결합,correct,correct,9 -z,9 -z,False,False,,
+infer-native,infer-regions,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+infer-native,infer-regions,suffix,suffix-01,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-regions,suffix,suffix-02,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-regions,suffix,suffix-03,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-regions,suffix,suffix-04,공개 기본 추출,unanswered,unanswered,,,False,False,,
+infer-native,infer-regions,suffix,suffix-05,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-regions,suffix,suffix-06,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-regions,suffix,suffix-07,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-regions,suffix,suffix-08,확장자 대소문자,unanswered,unanswered,,,False,False,case,case
+infer-native,infer-regions,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+infer-native,infer-regions,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+infer-native,infer-regions,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+infer-native,infer-regions,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+infer-native,infer-regions,suffix,suffix-13,숨김 이름,correct,correct,,,False,False,,
+infer-native,infer-regions,suffix,suffix-14,숨김 이름,correct,correct,,,False,False,,
+infer-native,infer-regions,suffix,suffix-15,숨김 이름,wrong,wrong,,,False,False,,
+infer-native,infer-regions,suffix,suffix-16,숨김 이름,wrong,wrong,,,False,False,case,case
+infer-native,infer-regions,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+infer-native,infer-regions,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+infer-native,infer-regions,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+infer-native,infer-regions,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+infer-native,infer-regions,mask,mask-01,일반 코드,correct,correct,*BCD,*BCD,False,False,,
+infer-native,infer-regions,mask,mask-02,일반 코드,correct,correct,**CDE,**CDE,False,False,,
+infer-native,infer-regions,mask,mask-03,일반 코드,correct,correct,***456,***456,False,False,,
+infer-native,infer-regions,mask,mask-04,일반 코드,correct,correct,***2CD,***2CD,False,False,,
+infer-native,infer-regions,mask,mask-05,일반 코드,correct,correct,****ty7,****ty7,False,False,,
+infer-native,infer-regions,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+infer-native,infer-regions,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+infer-native,infer-regions,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+infer-native,infer-regions,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+infer-native,infer-regions,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+infer-native,infer-regions,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+infer-native,infer-regions,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+infer-native,infer-regions,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+infer-native,infer-regions,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+infer-native,infer-regions,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+infer-native,infer-regions,mask,mask-16,길이·표기 보존,correct,correct,**CdE,**CdE,False,False,,
+infer-native,infer-regions,mask,mask-17,길이·표기 보존,correct,correct,*****000,*****000,False,False,,
+infer-native,infer-regions,mask,mask-18,길이·표기 보존,correct,correct,*yZ9,*yZ9,False,False,,
+infer-native,infer-regions,mask,mask-19,길이·표기 보존,correct,correct,******GHI,******GHI,False,False,,
+infer-native,infer-regions,mask,mask-20,길이·표기 보존,correct,correct,*****4cD,*****4cD,False,False,,
+infer-native,infer-regions,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-regions,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-regions,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-regions,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+infer-native,infer-regions,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+infer-native,infer-regions,upload,upload-06,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-07,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-08,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-09,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-10,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-11,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-12,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-13,상한 일치,correct,correct,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-14,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-15,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-16,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-17,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-18,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-19,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-native,infer-regions,upload,upload-20,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-native,infer-regions,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-native,infer-regions,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-native,infer-regions,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-native,infer-regions,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+infer-native,infer-regions,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+infer-native,infer-regions,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+infer-native,infer-regions,print,print-07,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-08,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-09,영역 내부,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,"height,width","height,width"
+infer-native,infer-regions,print,print-15,초과·고정 방향,wrong,wrong,True,True,False,False,width,width
+infer-native,infer-regions,print,print-16,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+infer-native,infer-regions,print,print-17,초과·고정 방향,wrong,wrong,True,True,False,False,width OR height,width OR height
+infer-native,infer-regions,print,print-18,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+infer-native,infer-regions,print,print-19,초과·고정 방향,wrong,wrong,True,True,False,False,width,width
+infer-native,infer-regions,print,print-20,초과·고정 방향,wrong,wrong,True,True,False,False,height,height
+p4-regions,infer-regions,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+p4-regions,infer-regions,title,title-02,공개 기본 변환,wrong,correct, news,news,True,False,,
+p4-regions,infer-regions,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+p4-regions,infer-regions,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+p4-regions,infer-regions,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+p4-regions,infer-regions,title,title-06,연속 내부 공백,wrong,correct, a b,a b,True,False,,
+p4-regions,infer-regions,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+p4-regions,infer-regions,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+p4-regions,infer-regions,title,title-09,빈 제목,wrong,correct,,untitled,True,False,empty,
+p4-regions,infer-regions,title,title-10,빈 제목,wrong,correct,,untitled,True,False,empty,
+p4-regions,infer-regions,title,title-11,빈 제목,wrong,correct,,untitled,True,False,empty,
+p4-regions,infer-regions,title,title-12,하이픈 보존,correct,correct,a-b,a-b,False,False,,
+p4-regions,infer-regions,title,title-13,하이픈 보존,correct,correct,--x--,--x--,False,False,,
+p4-regions,infer-regions,title,title-14,하이픈 보존,correct,correct,a--b,a--b,False,False,,
+p4-regions,infer-regions,title,title-15,하이픈 보존,wrong,correct, -,-,True,False,,
+p4-regions,infer-regions,title,title-16,변환 결합,wrong,correct, a--b c,a--b c,True,False,,
+p4-regions,infer-regions,title,title-17,변환 결합,correct,correct,x - y,x - y,False,False,,
+p4-regions,infer-regions,title,title-18,변환 결합,wrong,correct, -- a,-- a,True,False,,
+p4-regions,infer-regions,title,title-19,변환 결합,correct,correct,9 -z,9 -z,False,False,,
+p4-regions,infer-regions,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+p4-regions,infer-regions,suffix,suffix-01,공개 기본 추출,correct,unanswered,txt,,False,True,,
+p4-regions,infer-regions,suffix,suffix-02,공개 기본 추출,correct,unanswered,csv,,False,True,,
+p4-regions,infer-regions,suffix,suffix-03,공개 기본 추출,correct,unanswered,json,,False,True,,
+p4-regions,infer-regions,suffix,suffix-04,공개 기본 추출,correct,unanswered,123,,False,True,,
+p4-regions,infer-regions,suffix,suffix-05,확장자 대소문자,wrong,unanswered,TXT,,False,False,case,case
+p4-regions,infer-regions,suffix,suffix-06,확장자 대소문자,wrong,unanswered,JpG,,False,False,case,case
+p4-regions,infer-regions,suffix,suffix-07,확장자 대소문자,wrong,unanswered,CSV,,False,False,case,case
+p4-regions,infer-regions,suffix,suffix-08,확장자 대소문자,wrong,unanswered,Json,,False,False,case,case
+p4-regions,infer-regions,suffix,suffix-09,여러 점,correct,correct,gz,gz,False,False,,
+p4-regions,infer-regions,suffix,suffix-10,여러 점,correct,correct,c,c,False,False,,
+p4-regions,infer-regions,suffix,suffix-11,여러 점,correct,correct,txt,txt,False,False,,
+p4-regions,infer-regions,suffix,suffix-12,여러 점,wrong,wrong,CSV,CSV,False,False,case,case
+p4-regions,infer-regions,suffix,suffix-13,숨김 이름,correct,correct,,,False,False,hidden,
+p4-regions,infer-regions,suffix,suffix-14,숨김 이름,correct,correct,,,False,False,hidden,
+p4-regions,infer-regions,suffix,suffix-15,숨김 이름,wrong,wrong,,,False,False,hidden,
+p4-regions,infer-regions,suffix,suffix-16,숨김 이름,wrong,wrong,,,False,False,"case,hidden",case
+p4-regions,infer-regions,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+p4-regions,infer-regions,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+p4-regions,infer-regions,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+p4-regions,infer-regions,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+p4-regions,infer-regions,mask,mask-01,일반 코드,correct,correct,*BCD,*BCD,False,False,,
+p4-regions,infer-regions,mask,mask-02,일반 코드,correct,correct,**CDE,**CDE,False,False,,
+p4-regions,infer-regions,mask,mask-03,일반 코드,correct,correct,***456,***456,False,False,,
+p4-regions,infer-regions,mask,mask-04,일반 코드,correct,correct,***2CD,***2CD,False,False,,
+p4-regions,infer-regions,mask,mask-05,일반 코드,correct,correct,****ty7,****ty7,False,False,,
+p4-regions,infer-regions,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+p4-regions,infer-regions,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+p4-regions,infer-regions,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+p4-regions,infer-regions,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+p4-regions,infer-regions,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+p4-regions,infer-regions,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+p4-regions,infer-regions,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+p4-regions,infer-regions,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+p4-regions,infer-regions,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+p4-regions,infer-regions,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+p4-regions,infer-regions,mask,mask-16,길이·표기 보존,correct,correct,**CdE,**CdE,False,False,,
+p4-regions,infer-regions,mask,mask-17,길이·표기 보존,correct,correct,*****000,*****000,False,False,,
+p4-regions,infer-regions,mask,mask-18,길이·표기 보존,correct,correct,*yZ9,*yZ9,False,False,,
+p4-regions,infer-regions,mask,mask-19,길이·표기 보존,correct,correct,******GHI,******GHI,False,False,,
+p4-regions,infer-regions,mask,mask-20,길이·표기 보존,correct,correct,*****4cD,*****4cD,False,False,,
+p4-regions,infer-regions,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,upload,upload-06,상한 아래,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-07,상한 아래,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-08,상한 아래,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-09,상한 아래,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-10,상한 아래,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-11,상한 아래,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-12,상한 아래,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-13,상한 일치,correct,correct,True,True,False,False,,limit
+p4-regions,infer-regions,upload,upload-14,상한 초과,correct,wrong,False,True,False,True,,limit
+p4-regions,infer-regions,upload,upload-15,상한 초과,correct,wrong,False,True,False,True,,limit
+p4-regions,infer-regions,upload,upload-16,상한 초과,correct,wrong,False,True,False,True,,limit
+p4-regions,infer-regions,upload,upload-17,상한 초과,correct,wrong,False,True,False,True,,limit
+p4-regions,infer-regions,upload,upload-18,상한 초과,correct,wrong,False,True,False,True,,limit
+p4-regions,infer-regions,upload,upload-19,상한 초과,correct,wrong,False,True,False,True,,limit
+p4-regions,infer-regions,upload,upload-20,상한 초과,correct,wrong,False,True,False,True,,limit
+p4-regions,infer-regions,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+p4-regions,infer-regions,print,print-07,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p4-regions,infer-regions,print,print-08,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p4-regions,infer-regions,print,print-09,영역 내부,correct,correct,True,True,False,False,,"height,width"
+p4-regions,infer-regions,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,equal,"height,width"
+p4-regions,infer-regions,print,print-11,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4-regions,infer-regions,print,print-12,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4-regions,infer-regions,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,equal,"height,width"
+p4-regions,infer-regions,print,print-14,상한 선·모서리,wrong,correct,False,True,True,False,equal,"height,width"
+p4-regions,infer-regions,print,print-15,초과·고정 방향,correct,wrong,False,True,False,True,,width
+p4-regions,infer-regions,print,print-16,초과·고정 방향,correct,wrong,False,True,False,True,,height
+p4-regions,infer-regions,print,print-17,초과·고정 방향,correct,wrong,False,True,False,True,,width OR height
+p4-regions,infer-regions,print,print-18,초과·고정 방향,correct,wrong,False,True,False,True,,height
+p4-regions,infer-regions,print,print-19,초과·고정 방향,correct,wrong,False,True,False,True,,width
+p4-regions,infer-regions,print,print-20,초과·고정 방향,correct,wrong,False,True,False,True,,height
+self-regions,self-regions-3,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+self-regions,self-regions-3,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+self-regions,self-regions-3,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+self-regions,self-regions-3,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+self-regions,self-regions-3,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,spaces,
+self-regions,self-regions-3,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,spaces,
+self-regions,self-regions-3,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,spaces,
+self-regions,self-regions-3,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,spaces,
+self-regions,self-regions-3,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+self-regions,self-regions-3,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+self-regions,self-regions-3,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+self-regions,self-regions-3,title,title-12,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+self-regions,self-regions-3,title,title-13,하이픈 보존,wrong,wrong,x,x,False,False,,
+self-regions,self-regions-3,title,title-14,하이픈 보존,wrong,wrong,a b,a b,False,False,,
+self-regions,self-regions-3,title,title-15,하이픈 보존,wrong,wrong,,,False,False,,
+self-regions,self-regions-3,title,title-16,변환 결합,wrong,wrong,a b c,a b c,False,False,spaces,
+self-regions,self-regions-3,title,title-17,변환 결합,wrong,wrong,x y,x y,False,False,spaces,
+self-regions,self-regions-3,title,title-18,변환 결합,wrong,wrong,a,a,False,False,spaces,
+self-regions,self-regions-3,title,title-19,변환 결합,wrong,wrong,9 z,9 z,False,False,spaces,
+self-regions,self-regions-3,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+self-regions,self-regions-3,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+self-regions,self-regions-3,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+self-regions,self-regions-3,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+self-regions,self-regions-3,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+self-regions,self-regions-3,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+self-regions,self-regions-3,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+self-regions,self-regions-3,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+self-regions,self-regions-3,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+self-regions,self-regions-3,suffix,suffix-09,여러 점,wrong,wrong,archive.tar.gz,archive.tar.gz,False,False,,
+self-regions,self-regions-3,suffix,suffix-10,여러 점,wrong,wrong,a.b.c,a.b.c,False,False,,
+self-regions,self-regions-3,suffix,suffix-11,여러 점,wrong,wrong,a..txt,a..txt,False,False,,
+self-regions,self-regions-3,suffix,suffix-12,여러 점,wrong,wrong,x.v2.CSV,x.v2.CSV,False,False,case,case
+self-regions,self-regions-3,suffix,suffix-13,숨김 이름,wrong,wrong,.env,.env,False,False,hidden,hidden
+self-regions,self-regions-3,suffix,suffix-14,숨김 이름,wrong,wrong,.profile,.profile,False,False,hidden,hidden
+self-regions,self-regions-3,suffix,suffix-15,숨김 이름,wrong,wrong,.local.txt,.local.txt,False,False,hidden,hidden
+self-regions,self-regions-3,suffix,suffix-16,숨김 이름,wrong,wrong,.settings.JSON,.settings.JSON,False,False,"case,hidden","case,hidden"
+self-regions,self-regions-3,suffix,suffix-17,확장자 없음,wrong,wrong,README,README,False,False,missing,missing
+self-regions,self-regions-3,suffix,suffix-18,확장자 없음,wrong,wrong,file.,file.,False,False,missing,missing
+self-regions,self-regions-3,suffix,suffix-19,확장자 없음,wrong,wrong,a.b.,a.b.,False,False,missing,missing
+self-regions,self-regions-3,suffix,suffix-20,확장자 없음,wrong,wrong,.,.,False,False,missing,missing
+self-regions,self-regions-3,mask,mask-01,일반 코드,wrong,wrong,BCD*,BCD*,False,False,,
+self-regions,self-regions-3,mask,mask-02,일반 코드,wrong,wrong,CDE**,CDE**,False,False,,
+self-regions,self-regions-3,mask,mask-03,일반 코드,wrong,wrong,456***,456***,False,False,,
+self-regions,self-regions-3,mask,mask-04,일반 코드,wrong,wrong,2CD***,2CD***,False,False,,
+self-regions,self-regions-3,mask,mask-05,일반 코드,wrong,wrong,ty7****,ty7****,False,False,,
+self-regions,self-regions-3,mask,mask-06,세 글자 경계,wrong,correct,ABC,***,True,False,short,
+self-regions,self-regions-3,mask,mask-07,세 글자 경계,wrong,correct,123,***,True,False,short,
+self-regions,self-regions-3,mask,mask-08,세 글자 경계,wrong,correct,aB9,***,True,False,short,
+self-regions,self-regions-3,mask,mask-09,세 글자 경계,wrong,correct,z0X,***,True,False,short,
+self-regions,self-regions-3,mask,mask-10,짧은 코드,wrong,correct,A,*,True,False,short,
+self-regions,self-regions-3,mask,mask-11,짧은 코드,wrong,correct,0,*,True,False,short,
+self-regions,self-regions-3,mask,mask-12,짧은 코드,wrong,correct,AB,**,True,False,short,
+self-regions,self-regions-3,mask,mask-13,짧은 코드,wrong,correct,a1,**,True,False,short,
+self-regions,self-regions-3,mask,mask-14,짧은 코드,wrong,correct,9Z,**,True,False,short,
+self-regions,self-regions-3,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+self-regions,self-regions-3,mask,mask-16,길이·표기 보존,wrong,wrong,CdE**,CdE**,False,False,,
+self-regions,self-regions-3,mask,mask-17,길이·표기 보존,wrong,wrong,000*****,000*****,False,False,,
+self-regions,self-regions-3,mask,mask-18,길이·표기 보존,wrong,wrong,yZ9*,yZ9*,False,False,,
+self-regions,self-regions-3,mask,mask-19,길이·표기 보존,wrong,wrong,GHI******,GHI******,False,False,,
+self-regions,self-regions-3,mask,mask-20,길이·표기 보존,wrong,wrong,4cD*****,4cD*****,False,False,,
+self-regions,self-regions-3,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-06,상한 아래,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-07,상한 아래,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-08,상한 아래,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-09,상한 아래,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-10,상한 아래,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-11,상한 아래,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-12,상한 아래,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-13,상한 일치,correct,correct,True,True,False,False,,
+self-regions,self-regions-3,upload,upload-14,상한 초과,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-15,상한 초과,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-16,상한 초과,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-17,상한 초과,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-18,상한 초과,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-19,상한 초과,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,upload,upload-20,상한 초과,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+self-regions,self-regions-3,print,print-07,영역 내부,correct,correct,True,True,False,False,"height,width",
+self-regions,self-regions-3,print,print-08,영역 내부,correct,correct,True,True,False,False,"height,width",
+self-regions,self-regions-3,print,print-09,영역 내부,correct,correct,True,True,False,False,"height,width",
+self-regions,self-regions-3,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",
+self-regions,self-regions-3,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",
+self-regions,self-regions-3,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",
+self-regions,self-regions-3,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",
+self-regions,self-regions-3,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,"equal,height,width",
+self-regions,self-regions-3,print,print-15,초과·고정 방향,wrong,correct,True,False,True,False,width,
+self-regions,self-regions-3,print,print-16,초과·고정 방향,wrong,correct,True,False,True,False,height,
+self-regions,self-regions-3,print,print-17,초과·고정 방향,wrong,correct,True,False,True,False,width OR height,
+self-regions,self-regions-3,print,print-18,초과·고정 방향,wrong,correct,True,False,True,False,height,
+self-regions,self-regions-3,print,print-19,초과·고정 방향,wrong,correct,True,False,True,False,width,
+self-regions,self-regions-3,print,print-20,초과·고정 방향,wrong,correct,True,False,True,False,height,
+infer-regions,multi-regions-3,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+infer-regions,multi-regions-3,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+infer-regions,multi-regions-3,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+infer-regions,multi-regions-3,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+infer-regions,multi-regions-3,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+infer-regions,multi-regions-3,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,
+infer-regions,multi-regions-3,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+infer-regions,multi-regions-3,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+infer-regions,multi-regions-3,title,title-09,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-regions,multi-regions-3,title,title-10,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-regions,multi-regions-3,title,title-11,빈 제목,correct,correct,untitled,untitled,False,False,,
+infer-regions,multi-regions-3,title,title-12,하이픈 보존,correct,correct,a-b,a-b,False,False,,
+infer-regions,multi-regions-3,title,title-13,하이픈 보존,correct,correct,--x--,--x--,False,False,,
+infer-regions,multi-regions-3,title,title-14,하이픈 보존,correct,correct,a--b,a--b,False,False,,
+infer-regions,multi-regions-3,title,title-15,하이픈 보존,correct,correct,-,-,False,False,,
+infer-regions,multi-regions-3,title,title-16,변환 결합,correct,correct,a--b c,a--b c,False,False,,
+infer-regions,multi-regions-3,title,title-17,변환 결합,correct,correct,x - y,x - y,False,False,,
+infer-regions,multi-regions-3,title,title-18,변환 결합,correct,correct,-- a,-- a,False,False,,
+infer-regions,multi-regions-3,title,title-19,변환 결합,correct,correct,9 -z,9 -z,False,False,,
+infer-regions,multi-regions-3,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-01,공개 기본 추출,unanswered,wrong,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-02,공개 기본 추출,unanswered,wrong,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-03,공개 기본 추출,unanswered,wrong,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-04,공개 기본 추출,unanswered,wrong,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-05,확장자 대소문자,unanswered,wrong,,,False,False,case,case
+infer-regions,multi-regions-3,suffix,suffix-06,확장자 대소문자,unanswered,wrong,,,False,False,case,case
+infer-regions,multi-regions-3,suffix,suffix-07,확장자 대소문자,unanswered,wrong,,,False,False,case,case
+infer-regions,multi-regions-3,suffix,suffix-08,확장자 대소문자,unanswered,wrong,,,False,False,case,case
+infer-regions,multi-regions-3,suffix,suffix-09,여러 점,correct,wrong,gz,,False,True,,
+infer-regions,multi-regions-3,suffix,suffix-10,여러 점,correct,wrong,c,,False,True,,
+infer-regions,multi-regions-3,suffix,suffix-11,여러 점,correct,wrong,txt,,False,True,,
+infer-regions,multi-regions-3,suffix,suffix-12,여러 점,wrong,wrong,CSV,,False,False,case,case
+infer-regions,multi-regions-3,suffix,suffix-13,숨김 이름,correct,correct,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-14,숨김 이름,correct,correct,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-15,숨김 이름,wrong,wrong,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-16,숨김 이름,wrong,wrong,,,False,False,case,case
+infer-regions,multi-regions-3,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+infer-regions,multi-regions-3,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+infer-regions,multi-regions-3,mask,mask-01,일반 코드,correct,correct,*BCD,*BCD,False,False,,
+infer-regions,multi-regions-3,mask,mask-02,일반 코드,correct,correct,**CDE,**CDE,False,False,,
+infer-regions,multi-regions-3,mask,mask-03,일반 코드,correct,correct,***456,***456,False,False,,
+infer-regions,multi-regions-3,mask,mask-04,일반 코드,correct,correct,***2CD,***2CD,False,False,,
+infer-regions,multi-regions-3,mask,mask-05,일반 코드,correct,correct,****ty7,****ty7,False,False,,
+infer-regions,multi-regions-3,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+infer-regions,multi-regions-3,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+infer-regions,multi-regions-3,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+infer-regions,multi-regions-3,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+infer-regions,multi-regions-3,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+infer-regions,multi-regions-3,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+infer-regions,multi-regions-3,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+infer-regions,multi-regions-3,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+infer-regions,multi-regions-3,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+infer-regions,multi-regions-3,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+infer-regions,multi-regions-3,mask,mask-16,길이·표기 보존,correct,correct,**CdE,**CdE,False,False,,
+infer-regions,multi-regions-3,mask,mask-17,길이·표기 보존,correct,correct,*****000,*****000,False,False,,
+infer-regions,multi-regions-3,mask,mask-18,길이·표기 보존,correct,correct,*yZ9,*yZ9,False,False,,
+infer-regions,multi-regions-3,mask,mask-19,길이·표기 보존,correct,correct,******GHI,******GHI,False,False,,
+infer-regions,multi-regions-3,mask,mask-20,길이·표기 보존,correct,correct,*****4cD,*****4cD,False,False,,
+infer-regions,multi-regions-3,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,upload,upload-06,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-07,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-08,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-09,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-10,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-11,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-12,상한 아래,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-13,상한 일치,correct,correct,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-14,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-15,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-16,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-17,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-18,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-19,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,upload,upload-20,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+infer-regions,multi-regions-3,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+infer-regions,multi-regions-3,print,print-07,영역 내부,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-08,영역 내부,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-09,영역 내부,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,"height,width",
+infer-regions,multi-regions-3,print,print-15,초과·고정 방향,wrong,correct,True,False,True,False,width,
+infer-regions,multi-regions-3,print,print-16,초과·고정 방향,wrong,correct,True,False,True,False,height,
+infer-regions,multi-regions-3,print,print-17,초과·고정 방향,wrong,correct,True,False,True,False,width OR height,
+infer-regions,multi-regions-3,print,print-18,초과·고정 방향,wrong,correct,True,False,True,False,height,
+infer-regions,multi-regions-3,print,print-19,초과·고정 방향,wrong,correct,True,False,True,False,width,
+infer-regions,multi-regions-3,print,print-20,초과·고정 방향,wrong,correct,True,False,True,False,height,
+self-regions-3,self-fidelity-3,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+self-regions-3,self-fidelity-3,title,title-02,공개 기본 변환,correct,correct,news,news,False,False,,
+self-regions-3,self-fidelity-3,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+self-regions-3,self-fidelity-3,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+self-regions-3,self-fidelity-3,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,spaces
+self-regions-3,self-fidelity-3,title,title-06,연속 내부 공백,correct,correct,a b,a b,False,False,,spaces
+self-regions-3,self-fidelity-3,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,spaces
+self-regions-3,self-fidelity-3,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,spaces
+self-regions-3,self-fidelity-3,title,title-09,빈 제목,wrong,wrong,,,False,False,empty,empty
+self-regions-3,self-fidelity-3,title,title-10,빈 제목,wrong,wrong,,,False,False,empty,empty
+self-regions-3,self-fidelity-3,title,title-11,빈 제목,wrong,wrong,,,False,False,empty,empty
+self-regions-3,self-fidelity-3,title,title-12,하이픈 보존,wrong,correct,a b,a-b,True,False,,
+self-regions-3,self-fidelity-3,title,title-13,하이픈 보존,wrong,correct,x,--x--,True,False,,
+self-regions-3,self-fidelity-3,title,title-14,하이픈 보존,wrong,correct,a b,a--b,True,False,,
+self-regions-3,self-fidelity-3,title,title-15,하이픈 보존,wrong,correct,,-,True,False,,
+self-regions-3,self-fidelity-3,title,title-16,변환 결합,wrong,correct,a b c,a--b c,True,False,,spaces
+self-regions-3,self-fidelity-3,title,title-17,변환 결합,wrong,wrong,x y,x  -  y,False,False,,spaces
+self-regions-3,self-fidelity-3,title,title-18,변환 결합,wrong,wrong,a,--  a,False,False,,spaces
+self-regions-3,self-fidelity-3,title,title-19,변환 결합,wrong,wrong,9 z,9  -z,False,False,,spaces
+self-regions-3,self-fidelity-3,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-01,공개 기본 추출,correct,correct,txt,txt,False,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-02,공개 기본 추출,correct,correct,csv,csv,False,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-03,공개 기본 추출,correct,correct,json,json,False,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-04,공개 기본 추출,correct,correct,123,123,False,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-05,확장자 대소문자,wrong,wrong,TXT,TXT,False,False,case,case
+self-regions-3,self-fidelity-3,suffix,suffix-06,확장자 대소문자,wrong,wrong,JpG,JpG,False,False,case,case
+self-regions-3,self-fidelity-3,suffix,suffix-07,확장자 대소문자,wrong,wrong,CSV,CSV,False,False,case,case
+self-regions-3,self-fidelity-3,suffix,suffix-08,확장자 대소문자,wrong,wrong,Json,Json,False,False,case,case
+self-regions-3,self-fidelity-3,suffix,suffix-09,여러 점,wrong,correct,archive.tar.gz,gz,True,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-10,여러 점,wrong,correct,a.b.c,c,True,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-11,여러 점,wrong,correct,a..txt,txt,True,False,,
+self-regions-3,self-fidelity-3,suffix,suffix-12,여러 점,wrong,wrong,x.v2.CSV,CSV,False,False,case,case
+self-regions-3,self-fidelity-3,suffix,suffix-13,숨김 이름,wrong,wrong,.env,env,False,False,hidden,hidden
+self-regions-3,self-fidelity-3,suffix,suffix-14,숨김 이름,wrong,wrong,.profile,profile,False,False,hidden,hidden
+self-regions-3,self-fidelity-3,suffix,suffix-15,숨김 이름,wrong,correct,.local.txt,txt,True,False,hidden,hidden
+self-regions-3,self-fidelity-3,suffix,suffix-16,숨김 이름,wrong,wrong,.settings.JSON,JSON,False,False,"case,hidden","case,hidden"
+self-regions-3,self-fidelity-3,suffix,suffix-17,확장자 없음,wrong,correct,README,,True,False,missing,missing
+self-regions-3,self-fidelity-3,suffix,suffix-18,확장자 없음,wrong,correct,file.,,True,False,missing,missing
+self-regions-3,self-fidelity-3,suffix,suffix-19,확장자 없음,wrong,correct,a.b.,,True,False,missing,missing
+self-regions-3,self-fidelity-3,suffix,suffix-20,확장자 없음,wrong,correct,.,,True,False,missing,missing
+self-regions-3,self-fidelity-3,mask,mask-01,일반 코드,wrong,correct,BCD*,*BCD,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-02,일반 코드,wrong,correct,CDE**,**CDE,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-03,일반 코드,wrong,correct,456***,***456,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-04,일반 코드,wrong,correct,2CD***,***2CD,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-05,일반 코드,wrong,correct,ty7****,****ty7,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-06,세 글자 경계,correct,wrong,***,ABC,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-07,세 글자 경계,correct,wrong,***,123,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-08,세 글자 경계,correct,wrong,***,aB9,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-09,세 글자 경계,correct,wrong,***,z0X,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-10,짧은 코드,correct,wrong,*,A,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-11,짧은 코드,correct,wrong,*,0,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-12,짧은 코드,correct,wrong,**,AB,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-13,짧은 코드,correct,wrong,**,a1,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-14,짧은 코드,correct,wrong,**,9Z,False,True,,short
+self-regions-3,self-fidelity-3,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+self-regions-3,self-fidelity-3,mask,mask-16,길이·표기 보존,wrong,correct,CdE**,**CdE,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-17,길이·표기 보존,wrong,correct,000*****,*****000,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-18,길이·표기 보존,wrong,correct,yZ9*,*yZ9,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-19,길이·표기 보존,wrong,correct,GHI******,******GHI,True,False,,
+self-regions-3,self-fidelity-3,mask,mask-20,길이·표기 보존,wrong,correct,4cD*****,*****4cD,True,False,,
+self-regions-3,self-fidelity-3,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-06,상한 아래,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-07,상한 아래,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-08,상한 아래,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-09,상한 아래,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-10,상한 아래,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-11,상한 아래,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-12,상한 아래,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-13,상한 일치,correct,correct,True,True,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-14,상한 초과,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-15,상한 초과,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-16,상한 초과,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-17,상한 초과,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-18,상한 초과,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-19,상한 초과,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,upload,upload-20,상한 초과,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,print,print-01,공개 음수 거부,correct,wrong,False,True,False,True,,
+self-regions-3,self-fidelity-3,print,print-02,공개 음수 거부,correct,wrong,False,True,False,True,,
+self-regions-3,self-fidelity-3,print,print-03,공개 음수 거부,correct,wrong,False,True,False,True,,
+self-regions-3,self-fidelity-3,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+self-regions-3,self-fidelity-3,print,print-07,영역 내부,correct,correct,True,True,False,False,,"height,width"
+self-regions-3,self-fidelity-3,print,print-08,영역 내부,correct,correct,True,True,False,False,,"height,width"
+self-regions-3,self-fidelity-3,print,print-09,영역 내부,correct,correct,True,True,False,False,,"height,width"
+self-regions-3,self-fidelity-3,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,,"equal,height,width"
+self-regions-3,self-fidelity-3,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,,"equal,height,width"
+self-regions-3,self-fidelity-3,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,,"equal,height,width"
+self-regions-3,self-fidelity-3,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,,"equal,height,width"
+self-regions-3,self-fidelity-3,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,,"equal,height,width"
+self-regions-3,self-fidelity-3,print,print-15,초과·고정 방향,correct,wrong,False,True,False,True,,width
+self-regions-3,self-fidelity-3,print,print-16,초과·고정 방향,correct,wrong,False,True,False,True,,height
+self-regions-3,self-fidelity-3,print,print-17,초과·고정 방향,correct,wrong,False,True,False,True,,width OR height
+self-regions-3,self-fidelity-3,print,print-18,초과·고정 방향,correct,wrong,False,True,False,True,,height
+self-regions-3,self-fidelity-3,print,print-19,초과·고정 방향,correct,wrong,False,True,False,True,,width
+self-regions-3,self-fidelity-3,print,print-20,초과·고정 방향,correct,wrong,False,True,False,True,,height
+multi-regions-3,multi-fidelity-3,title,title-01,공개 기본 변환,correct,correct,hello,hello,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-02,공개 기본 변환,correct,wrong,news, news,False,True,,
+multi-regions-3,multi-fidelity-3,title,title-03,공개 기본 변환,correct,correct,release 2,release 2,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-04,공개 기본 변환,correct,correct,2026,2026,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-05,연속 내부 공백,correct,correct,blue sky,blue sky,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-06,연속 내부 공백,correct,wrong,a b, a b,False,True,,
+multi-regions-3,multi-fidelity-3,title,title-07,연속 내부 공백,correct,correct,a 2,a 2,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-08,연속 내부 공백,correct,correct,one two three,one two three,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-09,빈 제목,correct,correct,untitled,untitled,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-10,빈 제목,correct,correct,untitled,untitled,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-11,빈 제목,correct,correct,untitled,untitled,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-12,하이픈 보존,correct,correct,a-b,a-b,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-13,하이픈 보존,correct,correct,--x--,--x--,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-14,하이픈 보존,correct,correct,a--b,a--b,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-15,하이픈 보존,correct,wrong,-, -,False,True,,
+multi-regions-3,multi-fidelity-3,title,title-16,변환 결합,correct,wrong,a--b c, a--b c,False,True,,
+multi-regions-3,multi-fidelity-3,title,title-17,변환 결합,correct,correct,x - y,x - y,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-18,변환 결합,correct,wrong,-- a, -- a,False,True,,
+multi-regions-3,multi-fidelity-3,title,title-19,변환 결합,correct,correct,9 -z,9 -z,False,False,,
+multi-regions-3,multi-fidelity-3,title,title-20,공개 기본 변환,correct,correct,a b c,a b c,False,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-01,공개 기본 추출,wrong,correct,,txt,True,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-02,공개 기본 추출,wrong,correct,,csv,True,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-03,공개 기본 추출,wrong,correct,,json,True,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-04,공개 기본 추출,wrong,correct,,123,True,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-05,확장자 대소문자,wrong,wrong,,TXT,False,False,case,case
+multi-regions-3,multi-fidelity-3,suffix,suffix-06,확장자 대소문자,wrong,wrong,,JpG,False,False,case,case
+multi-regions-3,multi-fidelity-3,suffix,suffix-07,확장자 대소문자,wrong,wrong,,CSV,False,False,case,case
+multi-regions-3,multi-fidelity-3,suffix,suffix-08,확장자 대소문자,wrong,wrong,,Json,False,False,case,case
+multi-regions-3,multi-fidelity-3,suffix,suffix-09,여러 점,wrong,correct,,gz,True,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-10,여러 점,wrong,correct,,c,True,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-11,여러 점,wrong,correct,,txt,True,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-12,여러 점,wrong,wrong,,CSV,False,False,case,case
+multi-regions-3,multi-fidelity-3,suffix,suffix-13,숨김 이름,correct,correct,,,False,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-14,숨김 이름,correct,correct,,,False,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-15,숨김 이름,wrong,wrong,,,False,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-16,숨김 이름,wrong,wrong,,,False,False,case,case
+multi-regions-3,multi-fidelity-3,suffix,suffix-17,확장자 없음,correct,correct,,,False,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-18,확장자 없음,correct,correct,,,False,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-19,확장자 없음,correct,correct,,,False,False,,
+multi-regions-3,multi-fidelity-3,suffix,suffix-20,확장자 없음,correct,correct,,,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-01,일반 코드,correct,correct,*BCD,*BCD,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-02,일반 코드,correct,correct,**CDE,**CDE,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-03,일반 코드,correct,correct,***456,***456,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-04,일반 코드,correct,correct,***2CD,***2CD,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-05,일반 코드,correct,correct,****ty7,****ty7,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-06,세 글자 경계,correct,correct,***,***,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-07,세 글자 경계,correct,correct,***,***,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-08,세 글자 경계,correct,correct,***,***,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-09,세 글자 경계,correct,correct,***,***,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-10,짧은 코드,correct,correct,*,*,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-11,짧은 코드,correct,correct,*,*,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-12,짧은 코드,correct,correct,**,**,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-13,짧은 코드,correct,correct,**,**,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-14,짧은 코드,correct,correct,**,**,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-15,빈 코드,correct,correct,,,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-16,길이·표기 보존,correct,correct,**CdE,**CdE,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-17,길이·표기 보존,correct,correct,*****000,*****000,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-18,길이·표기 보존,correct,correct,*yZ9,*yZ9,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-19,길이·표기 보존,correct,correct,******GHI,******GHI,False,False,,
+multi-regions-3,multi-fidelity-3,mask,mask-20,길이·표기 보존,correct,correct,*****4cD,*****4cD,False,False,,
+multi-regions-3,multi-fidelity-3,upload,upload-01,음수 입력,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,upload,upload-02,음수 입력,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,upload,upload-03,음수 입력,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,upload,upload-04,음수 입력,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,upload,upload-05,빈 파일,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,upload,upload-06,상한 아래,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-07,상한 아래,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-08,상한 아래,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-09,상한 아래,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-10,상한 아래,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-11,상한 아래,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-12,상한 아래,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-13,상한 일치,correct,correct,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-14,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-15,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-16,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-17,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-18,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-19,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,upload,upload-20,상한 초과,wrong,wrong,True,True,False,False,limit,limit
+multi-regions-3,multi-fidelity-3,print,print-01,공개 음수 거부,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-02,공개 음수 거부,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-03,공개 음수 거부,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-04,0인 길이,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-05,0인 길이,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-06,0인 길이,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-07,영역 내부,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-08,영역 내부,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-09,영역 내부,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-10,상한 선·모서리,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-11,상한 선·모서리,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-12,상한 선·모서리,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-13,상한 선·모서리,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-14,상한 선·모서리,correct,correct,True,True,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-15,초과·고정 방향,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-16,초과·고정 방향,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-17,초과·고정 방향,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-18,초과·고정 방향,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-19,초과·고정 방향,correct,correct,False,False,False,False,,
+multi-regions-3,multi-fidelity-3,print,print-20,초과·고정 방향,correct,correct,False,False,False,False,,

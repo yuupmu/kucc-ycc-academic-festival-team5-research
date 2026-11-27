@@ -1,0 +1,41 @@
+{
+  "arms": {
+    "p4": {
+      "version": 2,
+      "status": "open_limit"
+    }
+  },
+  "answers": [
+    {
+      "arm": "p4",
+      "version": 1,
+      "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+      "source": "delegated_policy_card",
+      "questions": [
+        {
+          "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "text": "{\"rules\":[{\"when\":\"has_present(['P2', 'H2'], 'text') and not has_present(['P3'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"P2\",\"H2\"]},{\"when\":\"has_present(['P3'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"P3\"]},{\"when\":\"has_present(['P1'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"P1\"]},{\"when\":\"has_present(['P1', 'P2', 'P3'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"P1\",\"P2\",\"P3\"]},{\"when\":\"has_present(['H1'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H1\"]},{\"when\":\"has_present(['H1', 'H2'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H1\",\"H2\"]},{\"when\":\"has_present(['H1', 'P2', 'P3'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H1\",\"P2\",\"P3\"]},{\"when\":\"has_present(['H1', 'P2'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H1\",\"P2\"]},{\"when\":\"has_present(['H1', 'P1'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H1\",\"P1\"]},{\"when\":\"has_present(['H1', 'P1', 'P2'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H1\",\"P1\",\"P2\"]},{\"when\":\"has_present(['H1', 'P1', 'P2', 'P3'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H1\",\"P1\",\"P2\",\"P3\"]},{\"when\":\"has_present(['H2'], 'text')\",\"action\":\"return\",\"value\":\"text.strip().lower()\",\"sources\":[\"H2\"]}],\"otherwise\":{\"action\":\"return\",\"value\":\"\",\"sources\":[]},\"complete\":true,\"applicable\":false}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 491,
+    "prompt_tokens": 826,
+    "total_tokens": 1317,
+    "prompt_tokens_details": {
+      "cached_tokens": 274
+    }
+  },
+  "server_timings": {
+    "cache_n": 274,
+    "prompt_n": 552,
+    "prompt_ms": 702.159,
+    "prompt_per_token_ms": 1.2720271739130435,
+    "prompt_per_second": 786.1467274506201,
+    "predicted_n": 491,
+    "predicted_ms": 13455.352,
+    "predicted_per_token_ms": 27.459902040816328,
+    "predicted_per_second": 36.41673588323813
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 14.18,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer implementing this decision function. Choose ordered decision rows, first matching row wins. Write short Python expressions using the actual arguments. Each row and the fallback must cite the source IDs that authorize it. The public text and the exact owner replies are authoritative. Your preliminary notes can be mistaken. The previous code supplies no policy. Order exceptions and general conditions so a broad early return cannot erase a more specific confirmed decision. An ambiguous boundary can be its own narrow row; it does not erase facts on either side. Defer only where different policies consistent with the sources would change the result. Never choose a missing priority, duration, default, exception, or label. Use exact identifiers from the literal table in expressions when available. A quantity is already converted to the argument unit. Bind it to the right input. A listed sequence supplies membership only. An ordered sequence also supplies precedence. has_present(sequence, input) tests overlap; first_present(ordered_sequence, input) returns the highest-priority present item. Usual Python boolean expressions, membership, length and sets also work. Quote string results as Python literals. The action defer takes an empty value. Omit comments and explanations. Mark complete false for any unresolved outcome. Set applicable false if this target needs effects, state changes, or other behavior outside a pure decision function."
+      },
+      {
+        "role": "user",
+        "content": "{\"signature\":\"clean_title(text)\",\"public_request\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\\n양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\\n연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"exact_owner_replies\":[\"하이픈은 개수와 위치를 그대로 유지합니다.\",\"내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.\"],\"sources\":{\"P1\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\",\"P2\":\"양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\",\"P3\":\"연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"H1\":\"하이픈은 개수와 위치를 그대로 유지합니다.\",\"H2\":\"내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.\"},\"my_preliminary_notes\":{\"P1\":{\"established\":\"clean_title(text) 함수를 구현해야 함. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백만 포함. 빈 문자열 처리 가능.\",\"input\":\"text\",\"still_open\":\"구현 로직 세부사항\"},\"P2\":{\"established\":\"양끝 공백 제거, 영문자 소문자화, 숫자 유지, 단어 사이 단일 공백 유지.\",\"input\":\"text\",\"still_open\":\"연속된 내부 공백 처리 기준\"},\"P3\":{\"established\":\"연속 내부 공백, 하이픈, 빈 제목 처리는 편집 담당자 기준에 따름. 길이 제한 없음.\",\"input\":\"text\",\"still_open\":\"구체적인 편집 담당자 기준 정의\"},\"H1\":{\"established\":\"하이픈의 개수와 위치는 유지.\",\"input\":\"text\",\"still_open\":\"\"},\"H2\":{\"established\":\"내부 연속 공백은 하나로 줄임.\",\"input\":\"text\",\"still_open\":\"\"}},\"literal_table\":{}}"
+      }
+    ],
+    "seed": 1263,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1650,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "return",
+                      "defer"
+                    ]
+                  },
+                  "value": {
+                    "type": "string",
+                    "maxLength": 550
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P1",
+                        "P2",
+                        "P3",
+                        "H1",
+                        "H2"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 5
+                  }
+                },
+                "required": [
+                  "when",
+                  "action",
+                  "value",
+                  "sources"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 12
+            },
+            "otherwise": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "return",
+                    "defer"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 550
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "H1",
+                      "H2"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 5
+                }
+              },
+              "required": [
+                "action",
+                "value",
+                "sources"
+              ],
+              "additionalProperties": false
+            },
+            "complete": {
+              "type": "boolean"
+            },
+            "applicable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "rules",
+            "otherwise",
+            "complete",
+            "applicable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-program"
+}

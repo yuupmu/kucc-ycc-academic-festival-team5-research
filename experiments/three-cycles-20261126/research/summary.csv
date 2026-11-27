@@ -1,0 +1,8 @@
+﻿condition,arm,cycle,model,seed,reservation,triage,correct,wrong,unanswered,unsupported_returns,policy_probes,questions,owner_windows,new_reply_sentences,repeated_reply_sentences,calls,prompt_tokens,completion_tokens,total_tokens,cumulative_questions,cumulative_windows,cumulative_calls,cumulative_prompt_tokens,cumulative_completion_tokens,cumulative_total_tokens
+① 메인 단독,solo,0,Qwen3.5-4B-Q4_K_M.gguf,263,6,4,10,8,2,5,6,0,0,0,0,2,738,887,1625,0,0,2,738,887,1625
+② 메인 자체 검토,self,1,Qwen3.5-4B-Q4_K_M.gguf,263,5,3,8,5,7,4,6,2,2,3,0,10,5365,3194,8559,2,2,10,5365,3194,8559
+② 메인 자체 검토,self,2,Qwen3.5-4B-Q4_K_M.gguf,263,5,3,8,5,7,4,6,2,2,3,0,8,5315,2976,8291,4,4,18,10680,6170,16850
+② 메인 자체 검토,self,3,Qwen3.5-4B-Q4_K_M.gguf,263,4,8,12,6,2,4,6,2,2,2,1,8,5686,2251,7937,6,6,26,16366,8421,24787
+③ 메인 + 독립 감시자,multi,1,Qwen3.5-4B-Q4_K_M.gguf,263,6,8,14,4,2,2,6,5,2,9,0,18,10512,5805,16317,5,2,18,10512,5805,16317
+③ 메인 + 독립 감시자,multi,2,Qwen3.5-4B-Q4_K_M.gguf,263,6,8,14,4,2,2,6,5,2,1,6,16,13420,6049,19469,10,4,34,23932,11854,35786
+③ 메인 + 독립 감시자,multi,3,Qwen3.5-4B-Q4_K_M.gguf,263,6,8,14,4,2,2,6,6,2,0,8,16,14212,5268,19480,16,6,50,38144,17122,55266

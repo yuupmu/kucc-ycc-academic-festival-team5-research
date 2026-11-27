@@ -1,0 +1,380 @@
+{
+  "protocol": {
+    "tasks": [
+      "title",
+      "suffix",
+      "mask",
+      "upload",
+      "print"
+    ],
+    "arms": [
+      "solo",
+      "self",
+      "abc",
+      "abc-confirmed"
+    ],
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "seed": 263,
+    "cycles": 3,
+    "questions_per_arm_cycle": 3,
+    "responders": "Codex chooses only requested facts from the registered operator cards",
+    "invalid_confirmation": "retain sealed ABC, record failed calls",
+    "grading": "after all 20 submissions sealed"
+  },
+  "by_task": {
+    "title": {
+      "solo": {
+        "correct": 7,
+        "cases": 20,
+        "tokens": 574,
+        "calls": 1,
+        "errors": 0,
+        "prompt_tokens": 202,
+        "completion_tokens": 372
+      },
+      "self": {
+        "correct": 7,
+        "cases": 20,
+        "tokens": 13088,
+        "calls": 11,
+        "errors": 0,
+        "prompt_tokens": 8170,
+        "completion_tokens": 4918
+      },
+      "abc": {
+        "correct": 7,
+        "cases": 20,
+        "tokens": 15857,
+        "calls": 16,
+        "errors": 0,
+        "prompt_tokens": 13106,
+        "completion_tokens": 2751
+      },
+      "abc-confirmed": {
+        "correct": 7,
+        "cases": 20,
+        "tokens": 18754,
+        "calls": 19,
+        "errors": 0,
+        "prompt_tokens": 15775,
+        "completion_tokens": 2979
+      }
+    },
+    "suffix": {
+      "solo": {
+        "correct": 8,
+        "cases": 20,
+        "tokens": 465,
+        "calls": 1,
+        "errors": 0,
+        "prompt_tokens": 202,
+        "completion_tokens": 263
+      },
+      "self": {
+        "correct": 8,
+        "cases": 20,
+        "tokens": 5691,
+        "calls": 8,
+        "errors": 0,
+        "prompt_tokens": 4723,
+        "completion_tokens": 968
+      },
+      "abc": {
+        "correct": 8,
+        "cases": 20,
+        "tokens": 14754,
+        "calls": 15,
+        "errors": 0,
+        "prompt_tokens": 10576,
+        "completion_tokens": 4178
+      },
+      "abc-confirmed": {
+        "correct": 8,
+        "cases": 20,
+        "tokens": 15134,
+        "calls": 16,
+        "errors": 0,
+        "prompt_tokens": 10902,
+        "completion_tokens": 4232
+      }
+    },
+    "mask": {
+      "solo": {
+        "correct": 10,
+        "cases": 20,
+        "tokens": 358,
+        "calls": 1,
+        "errors": 0,
+        "prompt_tokens": 199,
+        "completion_tokens": 159
+      },
+      "self": {
+        "correct": 10,
+        "cases": 20,
+        "tokens": 5184,
+        "calls": 8,
+        "errors": 0,
+        "prompt_tokens": 4258,
+        "completion_tokens": 926
+      },
+      "abc": {
+        "correct": 10,
+        "cases": 20,
+        "tokens": 12648,
+        "calls": 16,
+        "errors": 0,
+        "prompt_tokens": 10783,
+        "completion_tokens": 1865
+      },
+      "abc-confirmed": {
+        "correct": 10,
+        "cases": 20,
+        "tokens": 13165,
+        "calls": 17,
+        "errors": 0,
+        "prompt_tokens": 11103,
+        "completion_tokens": 2062
+      }
+    },
+    "upload": {
+      "solo": {
+        "correct": 4,
+        "cases": 20,
+        "tokens": 370,
+        "calls": 1,
+        "errors": 16,
+        "prompt_tokens": 196,
+        "completion_tokens": 174
+      },
+      "self": {
+        "correct": 20,
+        "cases": 20,
+        "tokens": 2774,
+        "calls": 5,
+        "errors": 0,
+        "prompt_tokens": 2283,
+        "completion_tokens": 491
+      },
+      "abc": {
+        "correct": 20,
+        "cases": 20,
+        "tokens": 9747,
+        "calls": 14,
+        "errors": 0,
+        "prompt_tokens": 8368,
+        "completion_tokens": 1379
+      },
+      "abc-confirmed": {
+        "correct": 20,
+        "cases": 20,
+        "tokens": 12584,
+        "calls": 17,
+        "errors": 0,
+        "prompt_tokens": 10858,
+        "completion_tokens": 1726
+      }
+    },
+    "print": {
+      "solo": {
+        "correct": 14,
+        "cases": 20,
+        "tokens": 1106,
+        "calls": 1,
+        "errors": 0,
+        "prompt_tokens": 234,
+        "completion_tokens": 872
+      },
+      "self": {
+        "correct": 20,
+        "cases": 20,
+        "tokens": 23926,
+        "calls": 11,
+        "errors": 0,
+        "prompt_tokens": 15877,
+        "completion_tokens": 8049
+      },
+      "abc": {
+        "correct": 20,
+        "cases": 20,
+        "tokens": 27696,
+        "calls": 15,
+        "errors": 0,
+        "prompt_tokens": 24213,
+        "completion_tokens": 3483
+      },
+      "abc-confirmed": {
+        "correct": 20,
+        "cases": 20,
+        "tokens": 28181,
+        "calls": 16,
+        "errors": 0,
+        "prompt_tokens": 24613,
+        "completion_tokens": 3568
+      }
+    }
+  },
+  "totals": {
+    "solo": {
+      "correct": 43,
+      "cases": 100,
+      "tokens": 2873,
+      "prompt_tokens": 1033,
+      "completion_tokens": 1840,
+      "calls": 5,
+      "errors": 16
+    },
+    "self": {
+      "correct": 65,
+      "cases": 100,
+      "tokens": 50663,
+      "prompt_tokens": 35311,
+      "completion_tokens": 15352,
+      "calls": 43,
+      "errors": 0
+    },
+    "abc": {
+      "correct": 65,
+      "cases": 100,
+      "tokens": 80702,
+      "prompt_tokens": 67046,
+      "completion_tokens": 13656,
+      "calls": 76,
+      "errors": 0
+    },
+    "abc-confirmed": {
+      "correct": 65,
+      "cases": 100,
+      "tokens": 87818,
+      "prompt_tokens": 73251,
+      "completion_tokens": 14567,
+      "calls": 85,
+      "errors": 0
+    }
+  },
+  "paired": {
+    "solo -> self": {
+      "improved": [
+        "upload-05",
+        "upload-06",
+        "upload-07",
+        "upload-08",
+        "upload-09",
+        "upload-10",
+        "upload-11",
+        "upload-12",
+        "upload-13",
+        "upload-14",
+        "upload-15",
+        "upload-16",
+        "upload-17",
+        "upload-18",
+        "upload-19",
+        "upload-20",
+        "print-15",
+        "print-16",
+        "print-17",
+        "print-18",
+        "print-19",
+        "print-20"
+      ],
+      "lost": []
+    },
+    "solo -> abc": {
+      "improved": [
+        "upload-05",
+        "upload-06",
+        "upload-07",
+        "upload-08",
+        "upload-09",
+        "upload-10",
+        "upload-11",
+        "upload-12",
+        "upload-13",
+        "upload-14",
+        "upload-15",
+        "upload-16",
+        "upload-17",
+        "upload-18",
+        "upload-19",
+        "upload-20",
+        "print-15",
+        "print-16",
+        "print-17",
+        "print-18",
+        "print-19",
+        "print-20"
+      ],
+      "lost": []
+    },
+    "self -> abc": {
+      "improved": [],
+      "lost": []
+    },
+    "abc -> abc-confirmed": {
+      "improved": [],
+      "lost": []
+    },
+    "solo -> abc-confirmed": {
+      "improved": [
+        "upload-05",
+        "upload-06",
+        "upload-07",
+        "upload-08",
+        "upload-09",
+        "upload-10",
+        "upload-11",
+        "upload-12",
+        "upload-13",
+        "upload-14",
+        "upload-15",
+        "upload-16",
+        "upload-17",
+        "upload-18",
+        "upload-19",
+        "upload-20",
+        "print-15",
+        "print-16",
+        "print-17",
+        "print-18",
+        "print-19",
+        "print-20"
+      ],
+      "lost": []
+    },
+    "self -> abc-confirmed": {
+      "improved": [],
+      "lost": []
+    }
+  },
+  "confirmation": {
+    "title": false,
+    "suffix": false,
+    "mask": false,
+    "upload": false,
+    "print": true
+  },
+  "questions": {
+    "title": {
+      "self": 3,
+      "abc": 7
+    },
+    "suffix": {
+      "self": 3,
+      "abc": 6
+    },
+    "mask": {
+      "self": 2,
+      "abc": 7
+    },
+    "upload": {
+      "self": 2,
+      "abc": 8
+    },
+    "print": {
+      "self": 5,
+      "abc": 9
+    }
+  },
+  "unique_calls": 123,
+  "unique_tokens": 135608
+}

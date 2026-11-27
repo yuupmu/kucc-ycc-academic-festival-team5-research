@@ -24,7 +24,7 @@ python3 -B -m experiments.repeated_intervention 새실험폴더 --reply-to 1 --a
 - 새 제출을 모두 고정한 후 연구자만 기존 핵심 20문항을 채점한다. 고장 난 예약 코드를 직접 고치는 비교는 기존 예약 50개로 나머지 분기의 동작까지 확인한다.
 - 자연어를 표현할 수 있는 모든 프로그램에 대한 보장은 아니다. 확인 가능한 입력·출력 규칙을 가진 Python 결정 함수를 대상으로 한다. 모호한 문장, 서로 충돌하는 규칙, 복수 함수에서 위치를 특정할 수 없는 지적, 부작용을 보존할 수 없는 편집은 미해결로 남긴다.
 
-실험 조건 (로컬 보관 자료) · [수정기](../review_patch.py) · [회신에서 조건과 결과를 연결하는 코드](../../backend/review_contracts.py) · [회귀 검사](../../tests/test_review_patch.py)
+[실험 조건](design.json) · [수정기](../review_patch.py) · [회신에서 조건과 결과를 연결하는 코드](../../backend/review_contracts.py) · [회귀 검사](../../tests/test_review_patch.py)
 
 ## 첫 수정 결과
 
@@ -44,6 +44,6 @@ python3 -B -m experiments.repeated_intervention 새실험폴더 --reply-to 1 --a
 
 이 비교는 Qwen3.5-4B의 시드 263 하나와 기존 두 과제의 고정 대화에서 얻은 결과다. 새 파이프라인이 후속 질문까지 다시 생성할 때의 점수는 별도 검증이 필요하다. 재생 중 여러 구간의 근거를 집합 순서로 처리하면서 기록·코드 순서가 달라지는 문제도 확인했다. 첫 수정의 최종본은 확정된 구간을 작성 요청의 입력 목록 순서대로 기록하도록 고쳐 고정했다.
 
-첫 수정의 문항별 전후 반환과 토큰 (로컬 보관 자료) · 고정한 제출 목록 (로컬 보관 자료) · [이전 실제 후속 질문 조건의 비용](../pipeline100/research/scores.json)
+[첫 수정의 문항별 전후 반환과 토큰](results.json) · [고정한 제출 목록](submissions.json) · [이전 실제 후속 질문 조건의 비용](../pipeline100/research/scores.json)
 
 

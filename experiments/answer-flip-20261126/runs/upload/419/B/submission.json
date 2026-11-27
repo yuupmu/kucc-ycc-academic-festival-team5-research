@@ -1,0 +1,31 @@
+{
+  "common_sha256": "5cf42a0286b24799d1a9c7f02f72edfea276d65f8f53096670998bb1174b46fe",
+  "answer_sha256": "693dff9425ec3f3330f2cdbfbebc3767b2806d77c3b67738794b395f3a74b24f",
+  "source_sha256": "5068f3dd72191506d0473c9b8952ed27dbea3c53b172f2f5e8dbd67fe09eceaf",
+  "attempts": [
+    {
+      "call": "2aafcb083969e5b67cd3c411286d5b573f61c51dd8ea3a7f66774e38b74995dd",
+      "limit": 1100,
+      "seed": 419,
+      "decoded": true,
+      "outcome": "applied",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+          "after": "return False"
+        },
+        {
+          "evidence": "abc-1/H1",
+          "before": "raise NotImplementedError(\"빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 합니다.\")",
+          "after": "return False"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 636,
+    "completion_tokens": 82,
+    "total_tokens": 718
+  }
+}

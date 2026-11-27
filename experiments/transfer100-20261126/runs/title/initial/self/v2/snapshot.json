@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "files": {
+    "solution.py": "import re\n\n\ndef clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열을 하나의 공백으로 통일\n    # 정규식: 공백, 하이픈, 빈 문자열 (\\s) 을 하나씩 묶어서 하나의 공백으로 치환\n    # \\s+ 는 하나 이상의 공백을 의미하므로, 이를 하나의 공백으로 줄여줌\n    # 하이픈도 연속된 경우를 하나의 하이픈으로 줄여줌\n    # 빈 문자열 (두 공백 사이) 도 하나의 공백으로 치환됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\n"
+  },
+  "sha256": "b0499d84ac6ff212cdaa3fa8dc3844f3bc360007049613530759eb5398156351",
+  "received": [
+    1
+  ],
+  "author_call": "c2268b6053e7ce706859b9529efe939415f693147f21d06b4b76ed249749716b",
+  "author_complete": true,
+  "syntax": {
+    "before": {
+      "solution.py": "valid"
+    },
+    "proposed_invalid": [],
+    "restored_indent": [],
+    "rejected": [],
+    "verified": {
+      "solution.py": "valid"
+    }
+  }
+}

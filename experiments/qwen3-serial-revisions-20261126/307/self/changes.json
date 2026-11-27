@@ -1,0 +1,397 @@
+[
+  {
+    "role": "plan",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "self/plan.json",
+    "before_sha256": "26e5b4c4a2e8685c6580e25114fdd11c781712f6c2982d33f73356d5f67a604c",
+    "after_sha256": "e9928a18dbb5b9d64f0385a08c8b369c14d16a97cc6d263148093568a788eb33",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 '이용 시작 24시간 전'을 의미하며, until_start_seconds는 '이용 시작까지 남은 시간(단위: 시간)'으로 해석됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          },
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 24
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 '이용이 시작되면 일반 취소는 마감됩니다.'를 의미하며, until_start_seconds < 0은 이미 시작된 경우로 처리됩니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 10
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'를 의미하며, age_seconds는 '예약 생성부터 현재까지 경과한 시간(단위: 초)'으로 해석됩니다."
+      },
+      "otherwise": true
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4,
+        6
+      ],
+      "R3": [
+        8
+      ],
+      "otherwise": [
+        10
+      ]
+    }
+  },
+  {
+    "role": "review1",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review1.json",
+    "before_sha256": "e9928a18dbb5b9d64f0385a08c8b369c14d16a97cc6d263148093568a788eb33",
+    "after_sha256": "d89412fa7074bedfb1cddff256b20203279736f6767c5e6a6b653119114bdd56",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 '이용 시작 24시간 전'을 의미하며, until_start_seconds는 '이용 시작까지 남은 시간(단위: 시간)'으로 해석됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          },
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 24
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 '이용이 시작되면 일반 취소는 마감됩니다.'를 의미하며, until_start_seconds < 0은 이미 시작된 경우로 처리됩니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 10
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'를 의미하며, age_seconds는 '예약 생성부터 현재까지 경과한 시간(단위: 초)'으로 해석됩니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "otherwise": {
+        "status": "rule_edit",
+        "reason": "기본값은 'False'로 설정해야 합니다. 모든 규칙이 적용되지 않을 경우, 취소를 허용하지 않도록 설정합니다.",
+        "before": true,
+        "after": false
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4,
+        6
+      ],
+      "R3": [
+        8
+      ],
+      "otherwise": [
+        10
+      ]
+    }
+  },
+  {
+    "role": "review2",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review2.json",
+    "before_sha256": "d89412fa7074bedfb1cddff256b20203279736f6767c5e6a6b653119114bdd56",
+    "after_sha256": "d89412fa7074bedfb1cddff256b20203279736f6767c5e6a6b653119114bdd56",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 '이용 시작 24시간 전'을 의미하며, until_start_seconds는 '이용 시작까지 남은 시간(단위: 시간)'으로 해석됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          },
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 24
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 '이용이 시작되면 일반 취소는 마감됩니다.'를 의미하며, until_start_seconds < 0은 이미 시작된 경우로 처리됩니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 10
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'를 의미하며, age_seconds는 '예약 생성부터 현재까지 경과한 시간(단위: 초)'으로 해석됩니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "otherwise": {
+        "status": "no_change",
+        "reason": "기본값은 'False'로 설정해야 합니다. 모든 규칙이 적용되지 않을 경우, 취소를 허용하지 않도록 설정합니다.",
+        "before": false,
+        "after": false
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4,
+        6
+      ],
+      "R3": [
+        8
+      ],
+      "otherwise": [
+        10
+      ]
+    }
+  },
+  {
+    "role": "final",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/final.json",
+    "before_sha256": "d89412fa7074bedfb1cddff256b20203279736f6767c5e6a6b653119114bdd56",
+    "after_sha256": "d89412fa7074bedfb1cddff256b20203279736f6767c5e6a6b653119114bdd56",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 '이용 시작 24시간 전'을 의미하며, until_start_seconds는 '이용 시작까지 남은 시간(단위: 시간)'으로 해석됩니다."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          },
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 24
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 '이용이 시작되면 일반 취소는 마감됩니다.'를 의미하며, until_start_seconds < 0은 이미 시작된 경우로 처리됩니다."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "age_seconds",
+                "op": "<",
+                "seconds": 10
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.'를 의미하며, age_seconds는 '예약 생성부터 현재까지 경과한 시간(단위: 초)'으로 해석됩니다."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "otherwise": {
+        "status": "kept",
+        "reason": "기본값은 'False'로 설정해야 합니다. 모든 규칙이 적용되지 않을 경우, 취소를 허용하지 않도록 설정합니다."
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4,
+        6
+      ],
+      "R3": [
+        8
+      ],
+      "otherwise": [
+        10
+      ]
+    }
+  }
+]

@@ -1,0 +1,890 @@
+[
+  {
+    "seed": 131,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 이용 시작 시간이 이미 지났거나, 마감 시간을 넘었으면 취소 불가\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        return False\n\n    # 별도의 정정 시간이 있는 경우 (예: 방금 잘못 예약한 고객)\n    # 안내문에 따르면, 정정 요청은 가능하므로 True를 반환\n    # 그러나 이 함수는 일반 취소 여부만 판단하므로, 별도의 정정 시간은 고려하지 않음\n    # (문제에 명시된 조건에 따라, 일반 마감이 지난 경우는 False)\n\n    return True\n",
+    "sha256": "69f5a2fd6f9c1a7004591ff3933350ba8f02b64a90fd8e26521e70a40d7f26a3",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 131,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R1.1\n            return False\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    if until_start_seconds > 86400:  # R1.2\n        return True\n    return True\n",
+    "sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 131,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R1.1\n            return False\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    if until_start_seconds > 86400:  # R1.2\n        return True\n    return True\n",
+    "sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 131,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R1.1\n            return False\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    if until_start_seconds > 86400:  # R1.2\n        return True\n    return True\n",
+    "sha256": "1852f65469f9a3d720b6994cc82ccbef66732854f189286dfb3da4cf1650594d",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 131,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        if until_start_seconds < 86400:  # R1.1\n            return True\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    return True\n",
+    "sha256": "a0bfea1d28d0294113518f50d51584789bf41fc7f53077066f2d2b94d7a1ba97",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 131,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds <= 0 or until_start_seconds < cancellation_deadline:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    return True\n",
+    "sha256": "4dc79c7445f27fac7127991c66314c19069cdb70d825974d5c8e8ebf40f76745",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 157,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간 이전에 취소가 가능해야 함\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        # 일반 취소 마감 시간 이후에는 취소 불가\n        return False\n    else:\n        # until_start_seconds가 음수인 경우 (이미 시작된 경우)도 취소 불가\n        return False\n",
+    "sha256": "80f09dc5af964107ab56fb700c366ca9f30ba1b88b486bd807e769f620911e06",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 157,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400:  # R1.1\n            return True\n        if until_start_seconds >= 0:  # R2.1\n            return True\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.2\n            return False\n        return False\n",
+    "sha256": "c2376c0e1cb1293553afb75401363f0dae7e3facecb8eb724587f7ebd0b1812f",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 157,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 60:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400:  # R1.1\n            return True\n        if until_start_seconds >= 0:  # R2.1\n            return True\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.2\n            return False\n        return False\n",
+    "sha256": "cc90040fe3939e2b9663caca978333628d5866c16b308368f0927969b1ba27bf",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 157,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds <= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "4454649b8a70ef555e072f16fec75df086870f335a1f56a246038a5e4cb8624c",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 157,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds <= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "4454649b8a70ef555e072f16fec75df086870f335a1f56a246038a5e4cb8624c",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 157,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds <= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "4454649b8a70ef555e072f16fec75df086870f335a1f56a246038a5e4cb8624c",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 191,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 이용이 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n    \n    # 일반 취소 마감 전에 취소 요청이 들어온 경우 허용\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    \n    # 일반 마감이 지난 경우에도 정정 요청을 받을 수 있음\n    # 예: 고객이 방금 잘못 예약한 경우\n    # 이 경우는 정정 요청을 허용하므로 True 반환\n    return True\n",
+    "sha256": "2bb6d58e5e50a04bbc38cd907b4ee007ccf83466117d808da844a45696e15756",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 191,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    return True\n",
+    "sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 191,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    return True\n",
+    "sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 191,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        return False\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    return True\n",
+    "sha256": "bebaa5a1cd2cc4b0b04019f3cf1e5babff58d2ea1b2c1306417aa6a08bbdd43e",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 191,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds <= 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    return True\n",
+    "sha256": "2674673b1868dae05ac455400efbc06a4ee848be3e092a3e36c7241fff450c61",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 191,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds <= 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    return True\n",
+    "sha256": "2674673b1868dae05ac455400efbc06a4ee848be3e092a3e36c7241fff450c61",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 223,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간을 초로 변환\n\n    # 일반 취소 마감 시간 이전에 취소가 가능한가?\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n\n    # 이용이 시작된 경우 (until_start_seconds <= 0)는 취소 불가\n    if until_start_seconds <= 0:\n        return False\n\n    # \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n    # 이 문장은 일반 취소 마감 시간 이전에 취소가 가능하다는 것을 의미하지만,\n    # 구체적인 조건이 명시되지 않았기 때문에, 일반 취소 마감 시간 이전의 예약은 허용\n    # (이미 위에서 처리했으므로, 이 조건은 추가로 처리하지 않음)\n\n    # 특별한 경우가 아닌 이상, 일반 마감 시간 이후에는 취소 불가\n    return False\n",
+    "sha256": "f7ab6f18bee5c3661897e83570255620a5fbc7cf402d73abadbbd16f034d5486",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 223,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 0:  # R2.1\n            return False\n        return False\n    return False\n",
+    "sha256": "6d1470ec22193b815c2581094324e3547e13d05cbce6e584f9eae9f7ba96c71f",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 223,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 0:  # R2.1\n            return False\n        return False\n    return False\n",
+    "sha256": "6d1470ec22193b815c2581094324e3547e13d05cbce6e584f9eae9f7ba96c71f",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 223,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400:  # R1.1\n            return True\n        if until_start_seconds > 86400:  # R1.2\n            return False\n        return True\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        if until_start_seconds > 86400:  # R2.2\n            return True\n        return False\n    return False\n",
+    "sha256": "f2e7a4cb932a814d29484b9102d0548c9c4fa62ccebe940598e7e96093eac0da",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 223,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400:  # R1.1\n            return True\n        if until_start_seconds > 86400:  # R1.2\n            return False\n        return True\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        if until_start_seconds > 86400:  # R2.2\n            return True\n        return False\n    return False\n",
+    "sha256": "f2e7a4cb932a814d29484b9102d0548c9c4fa62ccebe940598e7e96093eac0da",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 223,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400:  # R1.1\n            return True\n        if until_start_seconds > 86400:  # R1.2\n            return False\n        return True\n    if until_start_seconds <= 0:\n        if until_start_seconds <= 86400:  # R2.1\n            return False\n        if until_start_seconds > 86400:  # R2.2\n            return True\n        return False\n    return False\n",
+    "sha256": "f2e7a4cb932a814d29484b9102d0548c9c4fa62ccebe940598e7e96093eac0da",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 257,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간을 기준으로 판단\n    if until_start_seconds >= cancellation_deadline:\n        # 24시간 전까지는 취소 가능\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용 시작한 경우, 취소 불가\n        return False\n    else:\n        # 24시간 전 이후, 이용 시작 전이지만, \"방금 잘못 예약한 고객에게 별도의 정정 시간이 있음\"\n        # => 이 경우도 취소 가능 (사용자 요청에 따라)\n        return True\n",
+    "sha256": "a04ceffbf4a8c82509fece7d94d02405493e9fa3a274435dda26afb56d5ee604",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 257,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return True\n",
+    "sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 257,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return True\n",
+    "sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 257,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return True\n",
+    "sha256": "a18b71f6bec2c1e094a155c1db3297b9b4864e12ba927a723761e399a8b33a83",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 257,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return True\n",
+    "sha256": "bc26528f2f8d931e7f6759419ab87950761fc940b74f05aa24684e682fd3140c",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 257,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n    until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return True\n",
+    "sha256": "bc26528f2f8d931e7f6759419ab87950761fc940b74f05aa24684e682fd3140c",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 293,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_deadline = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간 이전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_deadline:\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용 시작한 경우, 취소 불가\n        return False\n    else:\n        # 이용 시작 전이지만, 일반 마감 시간 이후에는 취소 불가\n        return False\n",
+    "sha256": "a27148659bc1828fc1ffca179aec5a2c59a762ef33570db0ea54ee0602440399",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 293,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "0d9769ad47bb68fc91806a085dcd524083db793d936d9cb0296b15c44bf89715",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 293,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "0d9769ad47bb68fc91806a085dcd524083db793d936d9cb0296b15c44bf89715",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 293,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 60:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "33baeae8a168ccdb3d2d6c825a8495b7c92b39e5cb7102ec5a1b0a78bd926a91",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 293,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 60:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "33baeae8a168ccdb3d2d6c825a8495b7c92b39e5cb7102ec5a1b0a78bd926a91",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 293,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 60:  # R3.1\n        return True\n    cancellation_deadline = 24 * 60 * 60\n    if until_start_seconds >= cancellation_deadline:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "33baeae8a168ccdb3d2d6c825a8495b7c92b39e5cb7102ec5a1b0a78bd926a91",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 307,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간 이전에 취소가 가능해야 함\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    # 이용이 시작된 경우 (until_start_seconds < 0) 또는 마감 시간 이후에는 취소 불가\n    elif until_start_seconds < 0 or until_start_seconds < cancellation_cutoff:\n        return False\n\n    # 특별한 경우: 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있음\n    # 이 경우, age_seconds가 작을수록 (예약이 오래되지 않음) 취소가 가능할 수 있음\n    # 단, 이는 안내문에 명시된 것이 아니므로, 합리적인 가정으로 처리\n    # 예: 10분 이내에 예약한 경우, 정정 가능\n    if age_seconds < 10 * 60:  # 10분 이내\n        return True\n\n    return False\n",
+    "sha256": "26e5b4c4a2e8685c6580e25114fdd11c781712f6c2982d33f73356d5f67a604c",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 307,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0 or until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 0:  # R1.2\n            return False\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    if age_seconds < 10 * 60:\n        if age_seconds < 600:  # R3.1\n            return True\n        return True\n    return False\n",
+    "sha256": "82655a882036bda01d695af9d5c27e50a40e7e9e6cfb82b73323a310794cb9c8",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 307,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0 or until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 0:  # R1.2\n            return False\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    if age_seconds < 10 * 60:\n        if age_seconds < 600:  # R3.1\n            return True\n        return True\n    return False\n",
+    "sha256": "82655a882036bda01d695af9d5c27e50a40e7e9e6cfb82b73323a310794cb9c8",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 307,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0 or until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 0:  # R1.2\n            return False\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    if age_seconds < 10 * 60:\n        if age_seconds < 600:  # R3.1\n            return True\n        return True\n    return False\n",
+    "sha256": "82655a882036bda01d695af9d5c27e50a40e7e9e6cfb82b73323a310794cb9c8",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 307,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0 or until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 0 and until_start_seconds < 86400:  # R1.2\n            return False\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    if age_seconds < 10 * 60:\n        if age_seconds < 600:  # R3.1\n            return True\n        return True\n    return False\n",
+    "sha256": "ea1158d299ecae2d58c23884e79f79f5f62c38fa52b31e2b74f09f723c64b548",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 307,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간 (초)\n        until_start_seconds (int): 이용 시작까지 남은 시간 (초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0 or until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 0 and until_start_seconds < 86400:  # R1.2\n            return False\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    if age_seconds < 10 * 60:\n        if age_seconds < 600:  # R3.1\n            return True\n        return True\n    return False\n",
+    "sha256": "ea1158d299ecae2d58c23884e79f79f5f62c38fa52b31e2b74f09f723c64b548",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 331,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간을 초로 변환\n    \n    # 일반 취소 마감 시간 이전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용이 시작된 경우, 취소 불가\n        return False\n    else:\n        # 이용 시작 직전까지도 정정 요청이 가능하다고 명시됨\n        # 예: \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n        # 이 경우, 정정 요청은 허용\n        return True\n",
+    "sha256": "23d5b059249a1cd35cc1fe53266baa3e8501cb394f26b6d6b2f0c7b7c6a38a1e",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 331,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        if age_seconds < 60:  # R3.1\n            return True\n        return True\n",
+    "sha256": "026e80a557fcc5e37dff389a266de85605ca1ba98a77e6a1547220376d01e56a",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 331,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        if age_seconds <= 60:  # R3.1\n            return True\n        return True\n",
+    "sha256": "14bac176bf2787e47118674ad4f02d5b150fdb101ce8be0c4b6e4e2939e6d1ca",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 331,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and age_seconds >= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R2.1\n            return False\n        return True\n",
+    "sha256": "8c2260434459790bd97e4b052bc30bc96adf61f21d6b1aa4ea4aa31481a167ef",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 331,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and age_seconds >= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R2.1\n            return False\n        return True\n",
+    "sha256": "8c2260434459790bd97e4b052bc30bc96adf61f21d6b1aa4ea4aa31481a167ef",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 331,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n    until_start_seconds (int): 이용 시작까지 남은 시간(초)\n    \n    Returns:\n    bool: 취소를 허용하면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and age_seconds >= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R2.1\n            return False\n        return True\n",
+    "sha256": "8c2260434459790bd97e4b052bc30bc96adf61f21d6b1aa4ea4aa31481a167ef",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 353,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    # 일반 취소 마감: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 이용 시작 전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용 시작한 경우, 취소 불가\n        return False\n    else:\n        # 이용 시작 전이지만, 24시간 전이 아닌 경우 (예: 23시간 전)\n        # 일반 취소 마감이 지났으므로, 취소 불가\n        return False\n",
+    "sha256": "133cf80a36b3bb7b7cfe0b4c9027aa8257cfcc4934339f61ac2bf9d4155d46aa",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 353,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds <= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R2.1\n            return False\n        return False\n",
+    "sha256": "99ccb4b7ab715225a58fa5330d8cd8f2ec30153c3d2970525978f84bf311192a",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 353,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds <= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R2.1\n            return False\n        return False\n",
+    "sha256": "99ccb4b7ab715225a58fa5330d8cd8f2ec30153c3d2970525978f84bf311192a",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 353,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 86400:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds <= 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 86400:  # R2.1\n            return False\n        return False\n",
+    "sha256": "99ccb4b7ab715225a58fa5330d8cd8f2ec30153c3d2970525978f84bf311192a",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 353,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 353,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 379,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n    \n    # 이용 시작 전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용이 시작된 경우, 취소 불가\n        return False\n    else:\n        # 이용 시작 전이지만, 24시간 전이 아닌 경우\n        # 일반 마감이 지난 경우, 취소 불가\n        return False\n",
+    "sha256": "15292aebe67860bda7bd006cf4b6dea460864d74d7e6333bd56a6c0cbe6bad5c",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 379,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 379,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 3600:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds < 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "3c1636daf55b41c4ad4b8906445f86892c1f51b12bb81146071adc747a6d4b8b",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 379,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "a0fb1ddb10706017c77815f2422f91c3ffcea71bada1d92340e62e705a797e6b",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 379,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "a0fb1ddb10706017c77815f2422f91c3ffcea71bada1d92340e62e705a797e6b",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 379,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n    \n    Parameters:\n    - age_seconds: 예약 생성부터 현재까지 경과한 시간 (초)\n    - until_start_seconds: 이용 시작까지 남은 시간 (초)\n    \n    Returns:\n    - True: 취소를 허용\n    - False: 취소를 거부\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "a0fb1ddb10706017c77815f2422f91c3ffcea71bada1d92340e62e705a797e6b",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 401,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    # 일반 취소 마감 시점: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간을 초로 변환\n\n    # 일반 취소 마감 시점 이전에 취소가 가능한지 확인\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    elif until_start_seconds < 0:\n        # 이미 이용이 시작된 경우, 취소 불가\n        return False\n    else:\n        # 이용 시작 시점에 취소가 가능한지 확인\n        # \"방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.\"\n        # => 이 경우, 일반 마감 이후라도 취소가 가능할 수 있음\n        # 하지만 안내문에 별도의 정정 시간이 없으므로, 일반 마감 이후에는 취소 불가\n        return False\n",
+    "sha256": "a845e561d5631a8cab74843c0d3e3663ccbffb3fe2a65cd5626f73ea8b4ed695",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 401,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "67f223d5b271c0f8a8fdac68490e87a9c87850fe1105960de5c956fe04e288d0",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 401,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "75e0a31fdf15b20126a791c79f61a07f650c61acb5df125812bdcee60d158411",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 401,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 300:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        return True\n    elif until_start_seconds < 0:\n        return False\n    else:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n",
+    "sha256": "75e0a31fdf15b20126a791c79f61a07f650c61acb5df125812bdcee60d158411",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  },
+  {
+    "seed": 401,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds < 0:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 0:  # R1.2\n            return False\n        return False\n",
+    "sha256": "d7026557e10b28f327244560f330842568d01e1ac29d45c544cbd502b1a73a0d",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 401,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds):\n    \"\"\"\n    예약 취소를 허용할지 여부를 판단하는 함수.\n\n    Parameters:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부하면 False\n    \"\"\"\n    if age_seconds < 60:  # R3.1\n        return True\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400 and until_start_seconds < 0:  # R1.1\n            return True\n        return True\n    elif until_start_seconds < 0:\n        if until_start_seconds < 0:  # R2.1\n            return False\n        return False\n    else:\n        if until_start_seconds < 86400 and until_start_seconds > 0:  # R1.2\n            return False\n        return False\n",
+    "sha256": "71f55b0bd707da5ef1d7daf0bf0d67e69f4d02a1b22252507376c74a715cb404",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 419,
+    "arm": "direct",
+    "chosen": "direct",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 반환하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    # 일반 취소 마감 시간: 이용 시작 24시간 전\n    cancellation_cutoff = 24 * 60 * 60  # 24시간 = 86400초\n\n    # 일반 취소 마감 시간 이전에 취소가 가능해야 함\n    if until_start_seconds >= cancellation_cutoff:\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        # 이미 마감 시간이 지났거나, 이용이 시작된 경우\n        # 정정 요청이 가능할 수도 있음 (문구에 따르면)\n        # 하지만 일반 취소는 마감되었으므로 False\n        return False\n    else:\n        # 이 경우는 존재하지 않음 (until_start_seconds >= 0)\n        return False\n",
+    "sha256": "541fbeea89c824aad9a1868b3440305e9a506a889a46eeb440445cf087662261",
+    "calls": [
+      "draft.json"
+    ]
+  },
+  {
+    "seed": 419,
+    "arm": "self_plan",
+    "chosen": "self_plan",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 반환하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        if until_start_seconds < 86400:  # R2.2\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "0e6d9cba866e2a8728769b2134bb079e99df50a796a23a0e38a754080b167dac",
+    "calls": [
+      "draft.json",
+      "self/plan.json"
+    ]
+  },
+  {
+    "seed": 419,
+    "arm": "self_final",
+    "chosen": "self_final",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 반환하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds >= 86400 and until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds < 86400:  # R2.1\n            return False\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        if until_start_seconds < 86400:  # R2.2\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "0e6d9cba866e2a8728769b2134bb079e99df50a796a23a0e38a754080b167dac",
+    "calls": [
+      "draft.json",
+      "self/plan.json",
+      "self/review1.json",
+      "self/review2.json",
+      "self/final.json"
+    ]
+  },
+  {
+    "seed": 419,
+    "arm": "B",
+    "chosen": "B",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 반환하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds > 0:  # R2.1\n            return False\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        if until_start_seconds <= 0:  # R2.2\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "c558475860332623c926183e3f1611a187d765a274210487f478e10810858adc",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json"
+    ]
+  },
+  {
+    "seed": 419,
+    "arm": "C",
+    "chosen": "C",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 반환하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds > 0:  # R2.1\n            return False\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        if until_start_seconds <= 0:  # R2.2\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "c558475860332623c926183e3f1611a187d765a274210487f478e10810858adc",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json"
+    ]
+  },
+  {
+    "seed": 419,
+    "arm": "abcd",
+    "chosen": "abcd",
+    "code": "def allow_cancel(age_seconds, until_start_seconds) -> bool:\n    \"\"\"\n    예약 취소를 허용할지 여부를 반환하는 함수.\n\n    Args:\n        age_seconds (int): 예약 생성부터 현재까지 경과한 시간(초)\n        until_start_seconds (int): 이용 시작까지 남은 시간(초)\n\n    Returns:\n        bool: 취소가 허용되면 True, 거부되면 False\n    \"\"\"\n    cancellation_cutoff = 24 * 60 * 60\n    if until_start_seconds >= cancellation_cutoff:\n        if until_start_seconds > 86400:  # R1.1\n            return True\n        if until_start_seconds > 0:  # R2.1\n            return False\n        return True\n    elif until_start_seconds < cancellation_cutoff:\n        if until_start_seconds < 86400:  # R1.2\n            return False\n        if until_start_seconds <= 0:  # R2.2\n            return False\n        return False\n    else:\n        return False\n",
+    "sha256": "c558475860332623c926183e3f1611a187d765a274210487f478e10810858adc",
+    "calls": [
+      "draft.json",
+      "serial/A.json",
+      "serial/B.json",
+      "serial/C.json",
+      "serial/D.json"
+    ]
+  }
+]

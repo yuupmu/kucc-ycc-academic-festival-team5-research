@@ -1,0 +1,59 @@
+{
+  "calls": [
+    "d49204135e3325bfdbdf4fb96cfd23b73ff5fce7c81817f59e05144ffccf8bc3",
+    "d66258fc612dc48a79e881136afcef27f6cf691321ba7e05b1f9933415d8e3dc",
+    "832cecf3541385a0729f90bf91bd6cc23a615239a5b42025ff59634851f56897",
+    "c70f9ba100060b03668df6f773164cad1fdf8652bf80be93453ea071dc4c2645"
+  ],
+  "reviewers": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "점 여러 개가 있는 이름에서 확장자를 어떻게 추출할지 파일 관리 담당자에게 확인이 필요한지 알려주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "file_suffix 함수가 요구사항에 따라 점 뒤 부분을 반환하는 로직을 구현하지 않았습니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "file_suffix 함수가 점으로 시작하거나 점이 여러 개인 경우, 담당자 답변에 따라 마지막 점 뒤 부분을 반환하는 로직이 구현되었는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question": "점 여러 개가 있는 이름에서 확장자를 어떻게 추출할지 파일 관리 담당자에게 확인이 필요한지 알려주세요.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "file_suffix 함수가 요구사항에 따라 점 뒤 부분을 반환하는 로직을 구현하지 않았습니다.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "file_suffix 함수가 점으로 시작하거나 점이 여러 개인 경우, 담당자 답변에 따라 마지막 점 뒤 부분을 반환하는 로직이 구현되었는지 확인해 주세요.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "withheld": [],
+  "status": "open_limit"
+}

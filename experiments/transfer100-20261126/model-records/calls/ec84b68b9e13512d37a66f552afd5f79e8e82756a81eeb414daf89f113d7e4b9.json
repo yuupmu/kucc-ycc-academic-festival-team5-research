@@ -1,0 +1,220 @@
+{
+  "text": "{\"scopes\":\n  [\"T1\", \"T1\"],\n  \"notes\":\n    {\"P1\":\n      {\"established\":\n        \"clean_title(text: str) -> str 함수를 구현한다.\",\n        \"input\":\n          \"text\",\n          \"still_open\":\n            \"입력 문자열의 정확한 형식 (영문 대소문자, 숫자, 하이픈, ASCII 공백) 이나 빈 문자열 처리가 명시되어 있다.\"\n      },\n      \"P2\":\n        {\"established\":\n          \"양끝 공백 제거\",\n          \"input\":\n            \"text\",\n          \"still_open\":\n            \"양끝 공백 제거 후의 처리가 명시되어 있다.\"\n        },\n        \"P3\":\n          {\"established\":\n            \"연속된 내부 공백, 하이픈, 비어 있는 제목은 편집 담당자의 기준을 따른다.\",\n            \"input\":\n              \"text\",\n              \"still_open\":\n                \"편집 담당자의 기준이 명시되어 있다.\"\n          },\n          \"H1\":\n            {\"established\":\n              \"하이픈의 개수와 위치를 그대로 유지한다.\",\n              \"input\":\n                \"text\",\n                \"still_open\":\n                  \"하이픈의 개수와 위치를 그대로 유지한다.\"\n            },\n            \"H2\":\n              {\"established\":\n                \"내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄인다.\",\n                \"input\":\n                  \"text\",\n                  \"still_open\":\n                    \"내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄인다.\"\n              }\n        }\n    }",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 368,
+    "prompt_tokens": 334,
+    "total_tokens": 702,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 334,
+    "prompt_ms": 674.129,
+    "prompt_per_token_ms": 2.0183502994011975,
+    "prompt_per_second": 495.45413414939867,
+    "predicted_n": 368,
+    "predicted_ms": 22114.684,
+    "predicted_per_token_ms": 60.257994550408725,
+    "predicted_per_second": 16.595308348064115
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 22.8,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer planning a revision. For each verbatim source, write separately what it establishes and what it still leaves open. A missing detail never erases a confirmed one. Select the actual input that the established fact governs. Preserve any stated number, units, equality, precedence or invariant. A request for clarification supplies no new decision. Use empty strings where nothing is established or nothing remains open. Keep notes short. Select the smallest editable scopes."
+      },
+      {
+        "role": "user",
+        "content": "{\"editable_scopes\":{\"T1\":{\"path\":\"solution.py\",\"name\":\"clean_title\",\"parameters\":[\"text\"],\"kind\":\"body\",\"signature\":\"text: str\"},\"T2\":{\"path\":\"solution.py\",\"name\":\"solution.py\",\"parameters\":[],\"kind\":\"file\",\"signature\":\"\"}},\"public_and_owner_sources\":{\"P1\":\"표시 제목을 정리하는 clean_title(text) -> str 함수를 구현하세요. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열입니다. 빈 문자열도 가능합니다.\",\"P2\":\"양끝 공백은 제거하고 영문자는 소문자로 바꿉니다. 숫자는 그대로 유지합니다. 내부 공백이 하나인 평범한 단어 사이 공백은 유지합니다.\",\"P3\":\"연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 길이 제한은 없습니다.\",\"H1\":\"하이픈은 개수와 위치를 그대로 유지합니다.\",\"H2\":\"내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.\"}}"
+      }
+    ],
+    "seed": 863,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "T1",
+                  "T2"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2
+            },
+            "notes": {
+              "type": "object",
+              "properties": {
+                "P1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "text"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "text"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P3": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "text"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "text"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "text"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "scopes",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-plan"
+}

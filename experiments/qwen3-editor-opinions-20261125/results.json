@@ -1,0 +1,674 @@
+[
+  {
+    "snapshot": 29,
+    "cycle": 2,
+    "seed": 17,
+    "arm": "hidden",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 25,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 26,
+          "value": true
+        },
+        "stated": {
+          "return_line": 25,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": true
+      },
+      "R": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 18,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "correction_cutoff 조건에 따라 특정 입력에서 True를 반환할 수 있으므로, 이 if 문과 그 본문을 삭제하면 일부 입력에서 반환값이 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 138,
+      "prompt_tokens": 859,
+      "total_tokens": 997,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "seconds": 3.57,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 29,
+    "cycle": 2,
+    "seed": 17,
+    "arm": "shown",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 23,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 26,
+          "value": true
+        },
+        "stated": {
+          "return_line": 26,
+          "value": true
+        },
+        "line_and_value": true,
+        "value_correct": true
+      },
+      "R": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 18,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 별도 정정 시간 조건은 `until_start_seconds`에만 의존하며 `age_seconds`와는 무관합니다. 이 조건을 삭제하면 `age_seconds`가 0이하일 때라도 `until_start_seconds`가 0 이상이고 3600초 미만이라면 True를 반환할 수 있으므로, 일부 입력에서 반환값이 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 189,
+      "prompt_tokens": 1308,
+      "total_tokens": 1497,
+      "prompt_tokens_details": {
+        "cached_tokens": 848
+      }
+    },
+    "seconds": 4.29,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 29,
+    "cycle": 2,
+    "seed": 29,
+    "arm": "hidden",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 25,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 26,
+          "value": true
+        },
+        "stated": {
+          "return_line": 25,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": true
+      },
+      "R": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 18,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "correction_cutoff 조건을 제거하면, 이용 시작 1시간 전까지의 조건이 사라지므로, 일부 입력에서 True가 False로, False가 True로 변할 수 있습니다.",
+    "usage": {
+      "completion_tokens": 141,
+      "prompt_tokens": 859,
+      "total_tokens": 1000,
+      "prompt_tokens_details": {
+        "cached_tokens": 848
+      }
+    },
+    "seconds": 2.84,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 29,
+    "cycle": 2,
+    "seed": 29,
+    "arm": "shown",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 23,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 26,
+          "value": true
+        },
+        "stated": {
+          "return_line": 25,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": true
+      },
+      "R": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 18,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 `correction_cutoff`는 `until_start_seconds`에만 의존하며, `age_seconds`와는 아무런 관계가 없습니다. 따라서 `age_seconds`에 대한 조건이 추가되면, 특정 입력에서 반환값이 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 157,
+      "prompt_tokens": 1308,
+      "total_tokens": 1465,
+      "prompt_tokens_details": {
+        "cached_tokens": 1307
+      }
+    },
+    "seconds": 3.22,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 29,
+    "cycle": 2,
+    "seed": 43,
+    "arm": "hidden",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 25,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 26,
+          "value": true
+        },
+        "stated": {
+          "return_line": 25,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": true
+      },
+      "R": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 18,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "별도 정정 시간 조건의 if 문과 그 본문을 삭제하면, 이용 시작 전이라면 24시간 전까지 취소 가능이라는 조건만 남아, 모든 이용 시작 전의 입력에 대해 True를 반환하게 됩니다.",
+    "usage": {
+      "completion_tokens": 151,
+      "prompt_tokens": 859,
+      "total_tokens": 1010,
+      "prompt_tokens_details": {
+        "cached_tokens": 858
+      }
+    },
+    "seconds": 3.07,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 29,
+    "cycle": 2,
+    "seed": 43,
+    "arm": "shown",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 23,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 26,
+          "value": true
+        },
+        "stated": {
+          "return_line": 26,
+          "value": true
+        },
+        "line_and_value": true,
+        "value_correct": true
+      },
+      "R": {
+        "expected": {
+          "return_line": 15,
+          "value": false
+        },
+        "stated": {
+          "return_line": 18,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 `correction_cutoff`는 `until_start_seconds`에만 의존하며 `age_seconds`와는 무관합니다. `age_seconds`를 조건에 포함하려면 `correction_cutoff` 조건문에 `age_seconds`를 추가해야 하므로, 해당 if 문과 본문을 삭제하면 `age_seconds`에 따라 결과가 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 182,
+      "prompt_tokens": 1308,
+      "total_tokens": 1490,
+      "prompt_tokens_details": {
+        "cached_tokens": 848
+      }
+    },
+    "seconds": 4.19,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 43,
+    "cycle": 3,
+    "seed": 17,
+    "arm": "hidden",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 34,
+          "value": false
+        },
+        "stated": {
+          "return_line": 20,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 21,
+          "value": true
+        },
+        "stated": {
+          "return_line": 34,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "R": {
+        "expected": {
+          "return_line": 17,
+          "value": false
+        },
+        "stated": {
+          "return_line": 16,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 별도 정정용 if 문과 그 본문을 지우면, '방금 잘못 예약한 고객'의 정정 시간 조건이 사라지므로, 이용 시작 24시간 전에 취소 요청이 들어온 경우에도 False를 반환하게 됩니다. 이는 원래의 정책과 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 177,
+      "prompt_tokens": 977,
+      "total_tokens": 1154,
+      "prompt_tokens_details": {
+        "cached_tokens": 966
+      }
+    },
+    "seconds": 3.66,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 43,
+    "cycle": 3,
+    "seed": 17,
+    "arm": "shown",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 34,
+          "value": false
+        },
+        "stated": {
+          "return_line": 20,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 21,
+          "value": true
+        },
+        "stated": {
+          "return_line": 34,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "R": {
+        "expected": {
+          "return_line": 17,
+          "value": false
+        },
+        "stated": {
+          "return_line": 16,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 별도 정정 시간 조건을 처리하는 if 문과 그 본문을 지우면, '이용 시작 24시간 전'보다 1시간 더 늦게 허용된 정정 시간 조건이 사라지므로, 일부 입력에 대해 반환값이 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 171,
+      "prompt_tokens": 1285,
+      "total_tokens": 1456,
+      "prompt_tokens_details": {
+        "cached_tokens": 420
+      }
+    },
+    "seconds": 4.32,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 43,
+    "cycle": 3,
+    "seed": 29,
+    "arm": "hidden",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 34,
+          "value": false
+        },
+        "stated": {
+          "return_line": 20,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 21,
+          "value": true
+        },
+        "stated": {
+          "return_line": 34,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "R": {
+        "expected": {
+          "return_line": 17,
+          "value": false
+        },
+        "stated": {
+          "return_line": 16,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 '3. 방금 잘못 예약한 고객의 정정 시간 조건 처리' 부분의 if 문과 그 본문을 삭제하면, 'until_start_seconds >= correction_cutoff' 조건이 더 이상 검사되지 않아, 일반 취소 마감 시간 이후에도 True를 반환할 수 있는 상황이 발생할 수 있습니다.",
+    "usage": {
+      "completion_tokens": 172,
+      "prompt_tokens": 977,
+      "total_tokens": 1149,
+      "prompt_tokens_details": {
+        "cached_tokens": 976
+      }
+    },
+    "seconds": 3.52,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 43,
+    "cycle": 3,
+    "seed": 29,
+    "arm": "shown",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 34,
+          "value": false
+        },
+        "stated": {
+          "return_line": 20,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 21,
+          "value": true
+        },
+        "stated": {
+          "return_line": 34,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "R": {
+        "expected": {
+          "return_line": 17,
+          "value": false
+        },
+        "stated": {
+          "return_line": 16,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 '정정 시간 조건' 처리를 위한 if 문과 그 본문을 삭제하면, 'until_start_seconds >= correction_cutoff' 조건이 더 이상 검사되지 않기 때문에, 'until_start_seconds'가 25시간 전인 경우에도 False를 반환하게 됩니다. 이는 문서에 명시된 정정 시간 조건을 반영하지 않게 되므로, 유효한 입력에서 반환값이 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 185,
+      "prompt_tokens": 1285,
+      "total_tokens": 1470,
+      "prompt_tokens_details": {
+        "cached_tokens": 966
+      }
+    },
+    "seconds": 4.13,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 43,
+    "cycle": 3,
+    "seed": 43,
+    "arm": "hidden",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 34,
+          "value": false
+        },
+        "stated": {
+          "return_line": 20,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 21,
+          "value": true
+        },
+        "stated": {
+          "return_line": 34,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "R": {
+        "expected": {
+          "return_line": 17,
+          "value": false
+        },
+        "stated": {
+          "return_line": 16,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 별도 정정 시간 조건 처리 부분의 if 문과 그 본문을 삭제하면, 이용 시작 24시간 전에 취소 요청이 들어온 경우에도 True를 반환하지 않게 되므로, 일부 유효한 입력에서 반환값이 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 165,
+      "prompt_tokens": 977,
+      "total_tokens": 1142,
+      "prompt_tokens_details": {
+        "cached_tokens": 966
+      }
+    },
+    "seconds": 3.43,
+    "finish": "stop"
+  },
+  {
+    "snapshot": 43,
+    "cycle": 3,
+    "seed": 43,
+    "arm": "shown",
+    "points": {
+      "P": {
+        "expected": {
+          "return_line": 34,
+          "value": false
+        },
+        "stated": {
+          "return_line": 20,
+          "value": true
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "Q": {
+        "expected": {
+          "return_line": 21,
+          "value": true
+        },
+        "stated": {
+          "return_line": 34,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": false
+      },
+      "R": {
+        "expected": {
+          "return_line": 17,
+          "value": false
+        },
+        "stated": {
+          "return_line": 16,
+          "value": false
+        },
+        "line_and_value": false,
+        "value_correct": true
+      }
+    },
+    "deletion_answer": "없음",
+    "reason": "현재 코드에서 별도 정정 시간 조건을 처리하는 if 문과 그 본문을 지우면, 'until_start_seconds >= correction_cutoff' 조건이 더 이상 실행되지 않아, 'until_start_seconds >= cancellation_cutoff' 조건만 적용되며, 이는 'until_start_seconds'가 24시간 전인 경우에만 True를 반환하게 됩니다. 따라서 별도 정정 시간 조건이 있는 경우와 없는 경우에서 반환값이 달라질 수 있습니다.",
+    "usage": {
+      "completion_tokens": 191,
+      "prompt_tokens": 1285,
+      "total_tokens": 1476,
+      "prompt_tokens_details": {
+        "cached_tokens": 1284
+      }
+    },
+    "seconds": 3.88,
+    "finish": "stop"
+  }
+]

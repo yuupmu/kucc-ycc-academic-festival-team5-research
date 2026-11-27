@@ -1,0 +1,77 @@
+{
+  "route": "request clarification",
+  "calls": [
+    "db58850968ab300dc4ea554c8fef460bb6fc45dc00e2410425154507dfc4eac5",
+    "6cee866571c0010038e58df06a8f43b4500f42439fa37e8f5bfc826f954a8464",
+    "877db7797ee9923be5119e2654e18e57e6306f08178b89402d68c264cac7f3d3",
+    "67c95f09b36bac900d3e1f94ac9c246696e5b1a7eee5b2752af5f82ca4055418"
+  ],
+  "decisions": [
+    {
+      "region": "size_bytes == 0",
+      "site": "@pending:8:8",
+      "behavior_actions": [
+        "False"
+      ],
+      "value": "False"
+    },
+    {
+      "region": "0 < size_bytes < 16",
+      "site": "@pending:12:4",
+      "behavior_actions": [
+        "True"
+      ],
+      "value": "미정"
+    },
+    {
+      "region": "size_bytes == 16",
+      "site": "@pending:12:4",
+      "behavior_actions": [
+        "True"
+      ],
+      "value": "True"
+    },
+    {
+      "region": "size_bytes > 16",
+      "site": "@pending:12:4",
+      "behavior_actions": [
+        "False"
+      ],
+      "value": "False"
+    }
+  ],
+  "unresolved": [
+    "0 < size_bytes < 16"
+  ],
+  "behavior": [
+    {
+      "when": "size_bytes < 0",
+      "then": "False 반환"
+    },
+    {
+      "when": "size_bytes == 0",
+      "then": "False 반환"
+    },
+    {
+      "when": "0 < size_bytes < 16",
+      "then": "True 반환"
+    },
+    {
+      "when": "size_bytes == 16",
+      "then": "True 반환"
+    },
+    {
+      "when": "size_bytes > 16",
+      "then": "False 반환"
+    }
+  ],
+  "predicates": {
+    "true_when": "size_bytes > 0 and size_bytes < 16 or size_bytes == 16",
+    "false_when": "size_bytes < 0 or size_bytes == 0 or size_bytes > 16",
+    "evidence": "abc-1/H1"
+  },
+  "outstanding_policy": {
+    "note": "상한 16 바이트, 0 바이트 거부, 정확히 16 바이트 허용; unresolved_when: size_bytes > 0 and size_bytes < 16",
+    "unresolved_when": "size_bytes > 0 and size_bytes < 16"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "route": "implement",
+  "calls": [
+    "da9ac1a29fcb71c9510bca74c5b480dcadf230b79557db27f940a19d0c1e5dce",
+    "98836c639b5b69f88386717d68537e4df1bb64f93fa6ad6f67ec9c69e4e2b054",
+    "9c9761b1999ae00df0a63ee94b28270c9fba082dd087c9fc180f9b8b952ad3b9"
+  ],
+  "decisions": [
+    {
+      "region": "0 < size_bytes < 16",
+      "site": "@pending:16:4",
+      "behavior_actions": [
+        "True"
+      ],
+      "value": "True"
+    }
+  ],
+  "unresolved": [],
+  "behavior": [
+    {
+      "when": "size_bytes < 0",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes == 0",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes == 16",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes > 16",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "0 < size_bytes < 16",
+      "then": "True 반환 (허용)"
+    }
+  ],
+  "predicates": {
+    "true_when": "size_bytes > 0 and size_bytes < 16",
+    "false_when": "size_bytes < 0 or size_bytes == 0 or size_bytes == 16 or size_bytes > 16",
+    "evidence": "abc-1/H1"
+  },
+  "outstanding_policy": {
+    "note": "상한 16 바이트, 0 바이트 거부, 0 < x < 16 허용 결정 완료",
+    "unresolved_when": "False"
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "writer": {
+    "calls": [
+      "2c57216340f814f4979da11b871e3db8f75f76176dc7a05e8caa6071b569c6d1",
+      "44064264e9a23a38d76c80373d74f55aa9a0291cda80414b50965bee47cc8f99"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "fits_print(width_cm, height_cm) -> bool 함수 구현 필요. width_cm, height_cm 은 정수 센티미터. width_cm=0 또는 height_cm=0 인 경우 거부 (H2, H3).",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의. 상한과 정확히 같거나 0 인 경우의 처리는 인쇄 담당자에게 확인 필요 (P3).",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "한쪽이라도 음수이면 거부. 두 길이 양수이고 각각 자기 상한보다 작으면 허용. 어느 한쪽이라도 자기 상한을 초과하면 거부. 회전이나 교환 없음. True/False 반환.",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "가로/세로 상한, 상한과 같은 길이, 0 인 길이의 처리는 인쇄 담당자에게 확인 필요.",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "각 길이는 자기 상한과 정확히 같아도 허용.",
+        "input": "width_cm",
+        "still_open": "상한 값의 정의.",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "가로 길이 없음 (0) 은 거부.",
+        "input": "width_cm",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "세로 길이 없음 (0) 은 거부.",
+        "input": "height_cm",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def fits_print(width_cm: int, height_cm: int) -> bool:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if width_cm < 0 or height_cm < 0:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if width_cm == 0 or height_cm == 0:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return False",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return True",
+            "sources": [
+              "P1",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ]
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def fits_print(width_cm: int, height_cm: int) -> bool:\n    if width_cm < 0 or height_cm < 0:\n        return False\n    if width_cm == 0 or height_cm == 0:\n        return False\n    return True"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P2": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "P3": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H2": {
+        "status": "rule",
+        "input": "width_cm",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      },
+      "H3": {
+        "status": "rule",
+        "input": "height_cm",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 6,
+            "sources": [
+              "P1",
+              "P2",
+              "H1",
+              "H2",
+              "H3"
+            ],
+            "inputs": [
+              "height_cm",
+              "width_cm"
+            ],
+            "reachable_statement": true,
+            "input_referenced": true
+          }
+        ],
+        "structural_support": true
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": [],
+    "answer_application": [
+      {
+        "mode": "native",
+        "scope": "solution.py",
+        "issues": []
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이 없음 (0) 은 거부해야 하지만, 세로 길이 없음 (0) 은 허용해야 하는 경우",
+            "outcome_a": "가로 길이 없음 (0) 은 거부하고 세로 길이 없음 (0) 은 허용합니다.",
+            "outcome_b": "가로 길이 없음 (0) 은 거부하고 세로 길이 없음 (0) 은 거부합니다.",
+            "question": "가로 길이 없음 (0) 은 거부하고 세로 길이 없음 (0) 은 허용해야 하는 경우입니다."
+          },
+          {
+            "situation": "가로 길이 없음 (0) 은 허용해야 하지만, 세로 길이 없음 (0) 은 거부해야 하는 경우",
+            "outcome_a": "가로 길이 없음 (0) 은 허용하고 세로 길이 없음 (0) 은 거부합니다.",
+            "outcome_b": "가로 길이 없음 (0) 은 거부하고 세로 길이 없음 (0) 은 거부합니다.",
+            "question": "가로 길이 없음 (0) 은 허용하고 세로 길이 없음 (0) 은 거부해야 하는 경우입니다."
+          },
+          {
+            "situation": "가로 길이 없음 (0) 은 허용해야 하지만, 세로 길이 없음 (0) 은 허용해야 하는 경우",
+            "outcome_a": "가로 길이 없음 (0) 은 허용하고 세로 길이 없음 (0) 은 허용합니다.",
+            "outcome_b": "가로 길이 없음 (0) 은 거부하고 세로 길이 없음 (0) 은 거부합니다.",
+            "question": "가로 길이 없음 (0) 은 허용하고 세로 길이 없음 (0) 은 허용해야 하는 경우입니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로와 세로의 상한, 상한과 같은 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.",
+            "outcome_a": "담당자가 상한과 같은 길이를 허용한다고 판단할 때 True를 반환합니다.",
+            "outcome_b": "담당자가 상한과 같은 길이를 거부한다고 판단할 때 False를 반환합니다.",
+            "question": "가로와 세로의 상한과 정확히 같은 길이는 인쇄 담당자에게 확인이 필요한지, 아니면 이미 정해진 규칙에 따라 허용해야 하는지?"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "가로 길이 없음 (0) 에 대한 처리",
+            "outcome_a": "0 인 길이는 거부합니다.",
+            "outcome_b": "0 인 길이는 허용합니다.",
+            "question": "가로 길이 없음 (0) 에 대한 처리가 거부인지 허용인지 명확히 해야 합니다."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "c8a51e6bdaa00b51d9a93a22c084d46e99eb9717e8ee1b8b39e60ea7049e0de7",
+    "cfc55e4bb005a4ae309ed6f215d29f4f803af8e997316f37b7aca671b496271f",
+    "299d353cced96b5c939df3c38721963ad9b5ec263fc068c26fca1d4a62f3d386",
+    "2c57216340f814f4979da11b871e3db8f75f76176dc7a05e8caa6071b569c6d1",
+    "44064264e9a23a38d76c80373d74f55aa9a0291cda80414b50965bee47cc8f99",
+    "af0b230d0c689cfe0227900193ccc67895d07dc62aaa00635c5ba78ba460e41b",
+    "39c187aa2312e6fa396ca170c2068657a80e3c0fb6dfcf05750455a30d93983d",
+    "1197d9c9079dcbb6fcdb64f7d2d3f799815ce94d4a38bfc66d7c5a78e0881f35"
+  ],
+  "files": {
+    "solution.py": "def fits_print(width_cm: int, height_cm: int) -> bool:\n    if width_cm < 0 or height_cm < 0:\n        return False\n    if width_cm == 0 or height_cm == 0:\n        return False\n    return True"
+  },
+  "sha256": "907c4f045b322fc7fd02649cdc5b0768bb62190be82a14dbec7ba17ec79b3226",
+  "status": "open_limit",
+  "cycle": 2,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "8384ced4a84d204d4a507683aa5cf0e51afa32642c34e63117a8fc505354c587",
+      "questions": [
+        {
+          "question": "상한값과 같은 길이 (5) 는 허용해야 하나요? 그리고 0 은 절대 허용하지 않아도 되나요?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "각 길이는 자기 상한과 정확히 같아도 허용합니다.\n가로 길이 없음에는 거부로 처리합니다.\n세로 길이 없음에는 거부로 처리합니다.",
+      "source": "delegated_policy_card"
+    },
+    {
+      "cycle": 2,
+      "ticket": "7f8df3d6e6dad7f067799b4242fedf9b13413d92d91a4c32501dfcec0ae785af",
+      "questions": [
+        {
+          "question": "가로 길이가 상한과 정확히 같아도 허용하는지 확인해 주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "각 길이는 자기 상한과 정확히 같아도 허용합니다.",
+      "source": "delegated_policy_card"
+    }
+  ],
+  "previous_sha256": "82120ef15b8b9760f2d91ca5da7f5c24ac49ad1d26db1b85fdcdb15f697e0b2a",
+  "dialogue": "runs/print/dialogues/multi-fidelity-3/cycle-2"
+}

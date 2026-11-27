@@ -1,0 +1,35 @@
+{
+  "proposed": [
+    "z",
+    "b"
+  ],
+  "selected": [
+    "z",
+    "b"
+  ],
+  "answer": "0바이트 빈 파일은 거부합니다.\n정확히 상한이면 허용합니다.",
+  "record": {
+    "call": "ff5acef46b79e2a5bc35444505d62720b8a64e7df515e3cb637b7a00b06d048d",
+    "tokens": 1044,
+    "estimate": 919,
+    "cap": 1900,
+    "max_output": 720,
+    "prompt_tokens": 919,
+    "completion_tokens": 125,
+    "finish": "stop"
+  },
+  "edits": [
+    {
+      "evidence": "abc-1/H1",
+      "before": "raise NotImplementedError(\"빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 합니다.\")",
+      "after": "return False"
+    },
+    {
+      "evidence": "abc-1/H2",
+      "before": "raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+      "after": "pass"
+    }
+  ],
+  "outcome": "applied",
+  "tokens": 3043
+}

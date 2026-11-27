@@ -1,0 +1,85 @@
+{
+  "text": "{\"cases\":[{\"args\":\"[5, 4]\",\"expected\":\"True\"},{\"args\":\"[6, 4]\",\"expected\":\"True\"},{\"args\":\"[5, 5]\",\"expected\":\"False\"},{\"args\":\"[0, 4]\",\"expected\":\"False\"},{\"args\":\"[-1, 4]\",\"expected\":\"False\"},{\"args\":\"[7, 4]\",\"expected\":\"False\"}]}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 85,
+    "prompt_tokens": 400,
+    "total_tokens": 485,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 400,
+    "prompt_ms": 503.91,
+    "prompt_per_token_ms": 1.259775,
+    "prompt_per_second": 793.7925423190649,
+    "predicted_n": 85,
+    "predicted_ms": 2216.217,
+    "predicted_per_token_ms": 26.383535714285717,
+    "predicted_per_second": 37.90242561987387
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 2.74,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "코드에 접근할 수 없는 독립 검토자입니다. 공개 요구와 담당자 답변에 따라 그 답의 적용과 예외를 구별하는 다양한 입력을 고르세요. 각 답변에 명시된 서로 다른 경계 양쪽과 정확히 경계인 경우, 예외, 조합을 포함하세요. args와 expected는 각각 JSON 배열과 JSON 반환값을 인코딩한 문자열입니다. 확정된 결과만 작성합니다."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\\n가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.\",\"answers\":[\"가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.\",\"가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.\",\"가로는 최대 6센티미터, 세로는 최대 4센티미터입니다. 각각 자기 상한과 정확히 같아도 허용합니다. 가로나 세로 중 하나라도 0이면 거부합니다.\"]}"
+      }
+    ],
+    "seed": 702,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1500,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "args": {
+                    "type": "string"
+                  },
+                  "expected": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "args",
+                  "expected"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 4,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "cases"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "owner-reader"
+}

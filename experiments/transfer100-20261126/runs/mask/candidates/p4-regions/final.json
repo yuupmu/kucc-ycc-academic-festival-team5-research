@@ -1,0 +1,324 @@
+{
+  "writer": {
+    "calls": [
+      "a1b545114f81efd9e14183ba4ac02424474c7dda890aec4bff0f3e6dc6578749",
+      "b5d2271466cf21f1593d723be1a23fd0ba06ac2f56fa15e40e25fe8d3621eccc"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code) 함수를 구현해야 함. 입력은 영문 대소문자 및 숫자 문자열 (빈 문자열 포함).",
+        "input": "code",
+        "still_open": "구체적인 공개 규칙 (H1, H2, H3) 이 충돌하거나 모순될 때의 우선순위.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "공개된 글자는 원래의 대소문자와 순서를 유지해야 함. 비공개 글자는 '*' 로 바뀜. 결과 길이는 입력 길이와 같아야 함.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "입력에 다른 문자나 공백은 존재하지 않음.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "마지막 3 글자를 공개하고 그 앞의 글자는 '*' 로 가림.",
+        "input": "code",
+        "still_open": "길이가 3 이하일 때의 처리는 H2 로 우선시되어야 함 (H2 가 더 구체적임).",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "길이 3 이하인 비어지지 않은 코드는 전부 '*' 로 가림.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "빈 코드는 빈 문자열 반환.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def mask_code(code):",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "",
+            "sources": [
+              "P1",
+              "H3"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "    if not code:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return \"\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "",
+            "sources": [
+              "P1",
+              "H2"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "    if len(code) <= 3:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return \"*\" * len(code)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "",
+            "sources": [
+              "P1",
+              "H1"
+            ]
+          },
+          {
+            "depth": 0,
+            "code": "    return \"*\" * (len(code) - 3) + code[-3:]",
+            "sources": []
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def mask_code(code):\n\n    if not code:\n        return \"\"\n\n    if len(code) <= 3:\n        return \"*\" * len(code)\n\n    return \"*\" * (len(code) - 3) + code[-3:]"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "H3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P1",
+              "H2"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          },
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          }
+        ],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 8,
+            "sources": [
+              "P1",
+              "H1"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          }
+        ],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 5,
+            "sources": [
+              "P1",
+              "H2"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          }
+        ],
+        "structural_support": false
+      },
+      "H3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [
+          {
+            "target": "T2",
+            "file": "solution.py",
+            "line": 2,
+            "sources": [
+              "P1",
+              "H3"
+            ],
+            "inputs": null,
+            "reachable_statement": false,
+            "input_referenced": false
+          }
+        ],
+        "structural_support": false
+      }
+    },
+    "error": null,
+    "complete": false,
+    "regions": [],
+    "format": "native",
+    "issues": []
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 세 글자를 공개하는 규칙이, 길이가 3 이하인 경우를 제외하고는 모든 글자를 가리는 것으로 해석될 수 있으나, 길이가 3 이하인 경우를 별표로 모두 가리는 것으로 해석될 수도 있습니다.",
+            "outcome_a": "길이가 3 이하인 경우를 별표로 모두 가리는 것으로 해석합니다.",
+            "outcome_b": "마지막 세 글자를 공개하는 규칙이, 길이가 3 이하인 경우를 제외하고는 모든 글자를 가리는 것으로 해석합니다.",
+            "question": "길이가 3 이하인 경우를 별표로 모두 가리는 것으로 해석합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 세 글자를 공개하는 규칙과 길이가 세 글자 이하인 코드를 별표로 가리는 규칙이 충돌할 때 (예: 길이가 4 인 코드), 코드에서 허용되는 두 가지 결과 중 하나를 선택해야 합니다.",
+            "outcome_a": "마지막 세 글자를 공개하고 나머지 첫 글자만 별표로 가립니다.",
+            "outcome_b": "길이가 3 이하인 코드를 별표로 가리는 규칙이 우선하여 전체를 별표로 가립니다.",
+            "question": "길이가 4 인 입력 코드를 처리할 때, 마지막 세 글자를 공개하는 규칙과 길이가 3 이하인 코드를 별표로 가리는 규칙 중 우선순위가 무엇인지 확인해주세요."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 세 글자를 공개하는 규칙이 적용되었을 때, 입력 문자열의 길이가 3 이하인 경우 (예: 'abc', 'ab')는 별표로 모두 가리는 규칙과 충돌하여 처리가 불명확합니다.",
+            "outcome_a": "길이가 3 이하인 경우 별표로 모두 가리는 규칙이 우선 적용되어 '***' 또는 '**'가 반환됩니다.",
+            "outcome_b": "마지막 세 글자를 공개하는 규칙이 우선 적용되어 'abc' 또는 'ab'가 그대로 반환됩니다.",
+            "question": "길이가 3 이하인 코드는 별표로 가리는 규칙이 우선 적용되는지, 아니면 마지막 세 글자를 공개하는 규칙이 우선 적용되는지 명확히 해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "4526f3be8d147ef503c4f81be3a5abf2e80ee113f15816b5717cfb9b5a8bcf96",
+    "44726ee8e17094c2ebc8ecb2ab6ab6f308e95079fc83d3d0b882a014b59c645b",
+    "4e8a9622a26115b20de04a471a3cd968f65d97f1da8e07f58c4becb953fa3259",
+    "e20b2f36292b478c4cdb9a6fc9ec5da5de1e1a3e0e7d5890901fd07808413a83",
+    "a1b545114f81efd9e14183ba4ac02424474c7dda890aec4bff0f3e6dc6578749",
+    "b5d2271466cf21f1593d723be1a23fd0ba06ac2f56fa15e40e25fe8d3621eccc",
+    "7a5bf6b666eedd8c6bb1187ba4a87a66d288ff5fa929c61cd867bec0321c5195",
+    "6cb4133c6be0cbf841f7aaa11b770bce735a7298e623ada68af967f917876385",
+    "aae6027c217943f4fb860da56e597a7752357abb656cba22aa4cfe09695674b2"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code):\n\n    if not code:\n        return \"\"\n\n    if len(code) <= 3:\n        return \"*\" * len(code)\n\n    return \"*\" * (len(code) - 3) + code[-3:]"
+  },
+  "sha256": "92fc13f46db8d805eb269354ac2f5c23daf291d9cb635db26f79902c25d5520a",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "a3083902929bda912ec31da5d398f7af218909074bdaaea09f6936b33b2dee18",
+      "questions": [
+        {
+          "question": "어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다.",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "현재 코드는 모든 글자를 가리는 방식으로 구현되어 있으나, 운영 담당자가 앞뒤 일부만 공개하거나 모든 글자를 가리는 기준 중 어떤 것을 정할지 확인하세요.",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "운영 담당자가 특정 규칙 (예: 앞 2 글자 공개, 뒤 2 글자 공개) 을 정의했을 때, 코드는 해당 규칙을 따르지 않고 모든 글자를 가리는 방식으로 동작합니다.",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.\n길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.\n빈 코드는 빈 문자열을 반환합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

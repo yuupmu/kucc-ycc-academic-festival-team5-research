@@ -1,0 +1,85 @@
+{
+  "text": "{\n  \"behavior\": [\n    {\n      \"when\": \"size_bytes < 0\",\n      \"then\": \"False 반환 (음수 입력은 잘못된 크기이므로 거부)\"\n    },\n    {\n      \"when\": \"size_bytes == 0\",\n      \"then\": \"False 반환 (0 바이트 빈 파일은 거부)\"\n    },\n    {\n      \"when\": \"0 < size_bytes < 16\",\n      \"then\": \"True 반환 (상한보다 작은 양수 파일은 허용)\"\n    },\n    {\n      \"when\": \"size_bytes == 16\",\n      \"then\": \"False 반환 (정확히 상한인 파일은 거부)\"\n    },\n    {\n      \"when\": \"size_bytes > 16\",\n      \"then\": \"False 반환 (상한보다 큰 파일은 거부)\"\n    }\n  ]\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 199,
+    "prompt_tokens": 383,
+    "total_tokens": 582,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 383,
+    "prompt_ms": 353.796,
+    "prompt_per_token_ms": 0.9237493472584856,
+    "prompt_per_second": 1082.5447432983979,
+    "predicted_n": 199,
+    "predicted_ms": 5281.706,
+    "predicted_per_token_ms": 26.67528282828283,
+    "predicted_per_second": 37.48788743636999
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 5.64,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "공개 명세와 실제 담당자 회신을 함께 읽고, 작성할 함수의 동작을 입력 조건별로 정리하세요. 답변이 적용되는 경우와 그 옆에서 기존 규칙이 계속 적용되는 경우를 모두 포함하세요. 수치 경계라면 경계 미만·같음·초과, 반복 입력이라면 해당 항목과 그 뒤의 다른 항목을 구분하세요. 각 조건에는 함수가 돌려줄 값이나 계속 수행할 동작을 하나씩 적으세요. 원문만으로 결정할 수 없으면 \"미정\"으로 적으세요. 코드는 쓰지 마세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"brief\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\\n담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\\n상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.\",\"dialogue\":[{\"request_id\":\"abc-1\",\"questions\":[\"파일 크기의 상한 값을 정해달라.\",\"파일 크기의 상한 값과 정확히 상한 크기에 해당하는 파일의 허용 여부는 저장소 담당자에게 확인이 필요하신가요?\",\"파일 크기의 상한 값과 정확히 상한 크기의 파일은 허용하는지, 0 바이트의 빈 파일은 허용하는지 저장소 담당자에게 확인이 필요한지 알려주세요.\"],\"answer\":{\"text\":\"상한은 16바이트입니다. 정확히 상한이면 거부합니다. 0바이트 빈 파일은 거부합니다.\"}}]}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 1100,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "behavior": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "when": {
+                    "type": "string"
+                  },
+                  "then": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "when",
+                  "then"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "behavior"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-behavior"
+}

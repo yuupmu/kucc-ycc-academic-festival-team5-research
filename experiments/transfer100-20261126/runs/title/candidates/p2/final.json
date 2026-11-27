@@ -1,0 +1,98 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "import re\n\n\ndef clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열을 하나의 공백으로 통일\n    # 정규식: 공백, 하이픈, 빈 문자열 (\\s) 을 하나씩 묶어서 하나의 공백으로 치환\n    # \\s+ 는 하나 이상의 공백을 의미하므로, 이를 하나의 공백으로 줄여줌\n    # 하이픈도 연속된 경우를 하나의 하이픈으로 줄여줌\n    # 빈 문자열 (두 공백 사이) 도 하나의 공백으로 치환됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\n"
+  },
+  "sha256": "b0499d84ac6ff212cdaa3fa8dc3844f3bc360007049613530759eb5398156351",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "import re\n\n\ndef clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열을 하나의 공백으로 통일\n    # 정규식: 공백, 하이픈, 빈 문자열 (\\s) 을 하나씩 묶어서 하나의 공백으로 치환\n    # \\s+ 는 하나 이상의 공백을 의미하므로, 이를 하나의 공백으로 줄여줌\n    # 하이픈도 연속된 경우를 하나의 하이픈으로 줄여줌\n    # 빈 문자열 (두 공백 사이) 도 하나의 공백으로 치환됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\n"
+    },
+    "sha256": "b0499d84ac6ff212cdaa3fa8dc3844f3bc360007049613530759eb5398156351",
+    "received": [
+      1
+    ],
+    "author_call": "87acd269152c06880fdc2abae58b21b78a8abef77e2664847648e3fcc42400de",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 줄이는 것이 편집 담당자의 기준에 맞는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "연속된 하이픈을 하나의 하이픈으로 통일하는 규칙이 정해졌는지 확인해주세요."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "연속된 하이픈이 여러 개 있을 때, 정규식 `[\\s-]+` 로 처리하여 하나의 하이픈으로 통일하는 것이 맞는지 확인해 주세요."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "7ace73a50f1129cbc03c91bd9c88ea508c57c432283b3656d132af3b71dc2889",
+    "6bbf449ed3640309bdd4f2234cd2f2fb6bcd65ed688d00975b120d7885eb8fc6",
+    "6d9e3a32d4299088dc56cb48122b9103f8f82ba2572786312864366e841ecfd6",
+    "87acd269152c06880fdc2abae58b21b78a8abef77e2664847648e3fcc42400de",
+    "07832993f09051f1424cb008781d409887b15e9c982c2cf149ff8aeaa002b8f5",
+    "17ed972621bd478897e086abf7221ce6a8cc816551d8aafa70defc289687efd6",
+    "a6e238282d6b8098b7658431e80e469fd5a52b237f3522658606343e8cc3cb9f"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "7832afe00024ba8ea0b2b25a09ab359c03ba381d82d1a2e325f15a7a049ba043",
+      "questions": [
+        {
+          "question": "연속된 하이픈이 여러 개 있을 때, 이를 하나의 하이픈으로 통일하는 규정이 정해져 있나요?",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "연속된 하이픈이 여러 개 있을 때 정규식 [\\s-]+ 로 모두 하나의 하이픈으로 통일하는 구현이 요구사항의 '편집 담당자의 기준'을 올바르게 반영하고 있나요?",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "clean_title 함수에서 정규식 r'[\\s-]+' 을 사용하여 연속된 공백과 하이픈을 하나의 공백으로 통일할 때, 빈 문자열 (두 공백 사이) 이 제거되어 빈 문자열이 아닌 결과로 남는 경우를 방지하기 위해 추가적인 검증이 필요한가?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "하이픈은 개수와 위치를 그대로 유지합니다.\n이 질문만으로는 정할 상황을 특정하기 어렵습니다. 결과가 달라지는 입력이나 처리 기준을 구체적으로 물어봐 주세요.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "seed": 273,
+  "weights": {
+    "A": {
+      "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+      "bytes": 2707513696,
+      "sha256": "25082a7dd3776cc3c741c6347d3bd04523f05796607b3fbc32fa3a25dfa1418c"
+    },
+    "B": {
+      "filename": "google_gemma-3-4b-it-Q4_K_M.gguf",
+      "bytes": 2489758112,
+      "sha256": "4996030242583a40aa151ff93f49ed787ac8c25e4120c3ae4588b2e2a7d1ae94",
+      "revision": "71506238f970075ca85125cd749c28b1b0eee84e"
+    },
+    "C": {
+      "filename": "microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+      "bytes": 2491874688,
+      "sha256": "01999f17c39cc3074afae5e9c539bc82d45f2dd7faa3917c66cbef76fce8c0c2",
+      "revision": "7ff82c2aaa4dde30121698a973765f39be5288c0"
+    }
+  },
+  "original_round1_edit_calls": [
+    "e0f3aaf8b568646301b925f17ad53d129462ed6ec142b1017b6b09e3de8b3d6d",
+    "8367b3687b00546511e5d19a32e7e2cef05abefaabf5af1536cfb8d5c880fd93"
+  ],
+  "controls": "Same archived public brief, draft, three questions, one owner reply, two issues, 273 seed, weights and normal editor limits. Each editor gets one fresh invocation; built-in formatting retries count.",
+  "variant": "Matched scope + existing behavior reader and Boolean predicate editor. Pass original draft, pending sites and verbatim review to the predicate call.",
+  "gate": "Seal both round-1 source files before grading on the official 20. Continue only when gained >= 1 and lost == 0. No scores or evaluator data in any model call. No alternative seed or candidate.",
+  "files": {
+    "experiments/mixed-upload-issue-20261126/input.json": "2cf22c27c9ee387f4918a52414f859e58de5909ed22cd6d1a2c84c5f37d9d970",
+    "experiments/mixed-upload-issue-20261126/scope.json": "18365a8fd2646a70d87eea15c160293e39d5ce1d3631abf80829bb1331c4f528",
+    "experiments/mixed-upload-issue-20261126/trial.py": "ac32f58fe3ac148b93c9c56b3e9d85a17bd452b4c22f01e9e6052dd00d5ee195",
+    "experiments/mixed-upload-issue-20261126/issue_editor.py": "dee8d166397172d75c59d67cd68c561048a5ee8f5b352dd7197c23194484fbd9",
+    "experiments/mixed-upload-issue-20261126/assess.py": "b23c3311f506f05b31ab6f0438a0938e25300900b8b41f50771d2d136930cac0",
+    "experiments/family-reply-delta-20261126/run.py": "2be266de27dae9c94420da1ad0cbaa98aa338f311ab291ba2339664f902ff64a",
+    "experiments/family-reply-delta-20261126/new-labels.json": "f6c76a342d4055cace0c99f7b482e229d2479202f0314751969676687a37f2d0",
+    "var/family-100-v1/runs/mixed/upload/design.json": "025dfe9ad3789b2da44d4d671e7b96f07391aad40cd408e3aa9f4f11f5e6c098",
+    "var/family-100-v1/runs/mixed/upload/abc-1-snapshot.json": "717a53baa856c302ee161c1d5f0edcd0f69de6816cc993c7ee4d501bee565057",
+    "var/family-100-v1/runs/mixed/upload/abc-3-snapshot.json": "2310a10e810d0fbc9c7d58146c28f3d388d8460bd740d26100dfe9ab6da9e4e1",
+    "var/family-100-v1/runs/mixed/upload/sealed.json": "b3faf36ad436ec06105d1353cc657e60bf5116e2add951db522303713f0bacac",
+    "var/family-100-v1/cards.json": "6b8452ae0450702de55343a001dc2f786fb4370ca977ece8ae87b3281c137230",
+    "var/family-100-v1/labels.json": "1b09366156a017381468a3db2107883dc3ccd5e9e803f65c79fc669173aff98c",
+    "var/family-100-v1/study.py": "473ba45a1b7999604cf890b683912f45a4c03fea8fd4e416ae099e80bb112c0e",
+    "var/family-100-v1/weights.json": "458dabc7b39f82d8ba1a93649fe8f3617f2724dc29937011345a93a730d50577",
+    "experiments/transfer100-20261126/evaluator/cases.json": "98e737af001938824e930d61d9bde2748dc0c5c606e3df30183444ce4d0d25b3",
+    "experiments/transfer100_report.py": "f838cca2e38132c81f20266244a2cc97756f768e9a6732aa61504b961da52195",
+    "backend/allocation_repair.py": "bae7eb8807d459d3f6534c1f90b84342a7c746686d5b040739f6b234bfea2f44",
+    "experiments/festival_protocol.py": "bef0db5da639e34b33b5e0776f816267d98365e0c95da1c4cecdc0a5ec95edf2",
+    "experiments/local_transport.py": "20687f9c04c6a312bb610cc29bd4fdba83e21d36d735d955f5536f9c3423210f",
+    "experiments/scoped_transfer_v2.py": "bcf346656100adac8ec635d856aa904727c7d564da6dde4d46b60ae685537afa",
+    "experiments/guarded_reply.py": "fc50fd83d0e59abde77af71bff559d1c77fc536379ce753521cbda6272c89ee9",
+    "experiments/reply_pipeline.py": "a2010a43c1a7a91b57291552b671a2f99ed604ed7418ad74a45c1b714e83452c",
+    "experiments/scoped_reply_writer.py": "55e34e204a1c2fdd081de35d7b5f3448f0e81e7151547a24f4d41c4cac64b1e1",
+    "var/family-100-v1/runs/mixed/upload/calls/e24d897f2105242f8c58c7bc42b69515f6a542e00768e6c61f82a37197b99aae.json": "0fcec554be29504e94badab51e2620c45b9a03137abeab5994880fd5877e9fc2",
+    "var/family-100-v1/runs/mixed/upload/calls/d724aebf966bdc6c97adc45d62feeaf04f8bf14384440fa732dd133e7fc3d70c.json": "b580ce47df3d5609e7556dc2907a8fe70bbe7a92a083702796ca302f2c0dcf37",
+    "var/family-100-v1/runs/mixed/upload/calls/a50e7a464e46ae030da32ebba12716013595c2355f1bc0894550c6a7a9b98977.json": "5efceafbbbb0b1d7774c9dd89412d7f6dc9a4d96ae91822c532717ecced57d83",
+    "var/family-100-v1/runs/mixed/upload/calls/8188510b71a0a259a8c1b48b4c517613f2e9e91b7255b11fc159a38be8e064a0.json": "3e1a59b4604dc63140599ea8d538002bb99c623fb2d36eb4244b372651b98b26",
+    "var/family-100-v1/runs/mixed/upload/calls/e0f3aaf8b568646301b925f17ad53d129462ed6ec142b1017b6b09e3de8b3d6d.json": "4e2414d787467c42103da8761fb695055188a16dd0a80630b2d0eea2afb566e0",
+    "var/family-100-v1/runs/mixed/upload/calls/8367b3687b00546511e5d19a32e7e2cef05abefaabf5af1536cfb8d5c880fd93.json": "aadb12d083d375607a23042abc61dabd30e6c69ae9007bb93ea69dbe9b589a28"
+  }
+}

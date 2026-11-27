@@ -20,44 +20,44 @@
 
 감시자는 연속 공백·하이픈·빈 제목의 기준을 물었고, 담당자는 공백 하나로 축소, 하이픈 보존, 빈 제목은 untitled라고 답했다. 현재 감시자는 15/20이었다. rstrip()만 쓰고 최종 strip()을 생략해 앞 공백이 남았다. title-02의 입력 "  NEWS  "는 " news"가 되어 오답이다. 이전 감시자 3회차의 20/20보다 5개를 잃었다. 정보 확보 이후에도 공개 요구 구현은 실패할 수 있다.
 
-runs/title/dialogues/infer/cycle-1/answer.json (로컬 보관 자료)
-runs/title/candidates/multi-fidelity-3/final.json (로컬 보관 자료)
+[runs/title/dialogues/infer/cycle-1/answer.json](runs/title/dialogues/infer/cycle-1/answer.json)
+[runs/title/candidates/multi-fidelity-3/final.json](runs/title/candidates/multi-fidelity-3/final.json)
 
 ### 확장자: 놓친 정책과 예외 구현 실패가 공존
 
 감시자는 여러 점·숨김 이름·없는 확장자를 물었고, 담당자는 마지막 점을 쓰되 점으로 시작하고 다른 점이 없을 때만 확장자가 없다고 답했다. 대소문자 기준은 묻지 않아 전달하지 않았다. 현재 감시자는 13/20이다. A.TXT를 TXT로 반환한 사례는 정책 미수신 상태의 오답이다. .local.txt를 빈 문자열로 반환한 suffix-15는 받은 예외 규칙을 잘못 구현한 사례다. startswith(".")만으로 모두 빈 문자열을 반환했다.
 
-runs/suffix/dialogues/infer/cycle-1/answer.json (로컬 보관 자료)
-runs/suffix/candidates/multi-fidelity-3/final.json (로컬 보관 자료)
+[runs/suffix/dialogues/infer/cycle-1/answer.json](runs/suffix/dialogues/infer/cycle-1/answer.json)
+[runs/suffix/candidates/multi-fidelity-3/final.json](runs/suffix/candidates/multi-fidelity-3/final.json)
 
 ### 가림: 수정은 성공했지만 적용 단계에서 되돌림
 
 담당자는 마지막 세 글자 공개, 세 글자 이하 전체 가림, 빈 코드는 빈 문자열이라고 답했다. P3는 여전히 전부 가려 10/20이었다. P4 수정안은 20/20이었지만, 답변에 대응한다고 인용한 줄이 실제 코드와 달라 보완 단계가 이전 코드를 유지했고 다시 10/20이 됐다. 현재 감시자는 20/20이다. 현재 자체 검토는 짧은 코드 정책을 묻지 않아 11/20에 그쳤다.
 
-runs/mask/dialogues/p4/cycle-1/answer.json (로컬 보관 자료)
-runs/mask/p4-runtime/guarded/receipt.json (로컬 보관 자료)
+[runs/mask/dialogues/p4/cycle-1/answer.json](runs/mask/dialogues/p4/cycle-1/answer.json)
+[runs/mask/p4-runtime/guarded/receipt.json](runs/mask/p4-runtime/guarded/receipt.json)
 
 ### 업로드: 등호만 확인하고 상한 수치를 놓침
 
 최초 감시자 분석에는 상한을 확인하는 질문이 있었지만 needed=false로 표시되어 전달되지 않았다. 전달된 질문은 상한과 같은 경우와 빈 파일 처리였고, 담당자는 등호 포함과 빈 파일 거부만 답했다. 후속 질문도 이 두 정책을 반복했다. 현재 감시자는 모든 양수를 허용해 13/20이며, 17바이트 등 상한 초과 7문항을 틀렸다. 상한 16바이트까지 물은 자체 검토는 20/20이었다.
 
-runs/upload/dialogues/infer/cycle-1/intake.json (로컬 보관 자료)
-runs/upload/candidates/multi-fidelity-3/final.json (로컬 보관 자료)
+[runs/upload/dialogues/infer/cycle-1/intake.json](runs/upload/dialogues/infer/cycle-1/intake.json)
+[runs/upload/candidates/multi-fidelity-3/final.json](runs/upload/candidates/multi-fidelity-3/final.json)
 
 ### 인쇄: 세 번째 구체적 질문 뒤 6문항 개선
 
 현재 감시자는 1·2회차에 등호와 0 처리를 반복 확인해 각각 14/20이었다. 3회차에는 실제 10cm·10cm 입력의 허용 여부를 물었다. 담당자는 이를 두 축의 실제 기준을 요청한 질문으로 해석해 가로 6cm·세로 4cm와 초과 거부 원칙을 답했다. 최종 코드는 25개 입력 영역을 나누어 20/20이 됐고, 상한 초과 6문항이 개선됐다. 이 회신 범위에 대한 연구자의 판단도 원기록에 남겼다.
 
-runs/print/dialogues/multi-fidelity-3/cycle-3/answer.json (로컬 보관 자료)
-research/dialogue-effects.csv (로컬 보관 자료)
+[runs/print/dialogues/multi-fidelity-3/cycle-3/answer.json](runs/print/dialogues/multi-fidelity-3/cycle-3/answer.json)
+[research/dialogue-effects.csv](research/dialogue-effects.csv)
 
 ### 형식 실패와 현재 보정의 실제 작동 범위
 
 P2는 확장자와 업로드의 정책을 받았지만 제안 코드가 구문 검사에서 거부되어 NotImplementedError를 남겼다. 이 두 과제만 40문항이 보류됐다. 현재 보정 조건의 30개 회차 중 26개는 일반 코드 경로였다. 직접 조건 연결은 1건, 그 연결로 실제 선택을 바꾼 건수는 0건이다. 이전 감시자 79점에서 현재 81점으로 오른 결과를 자동 답변 보정만의 효과로 해석할 수 없다.
 
-runs/suffix/candidates/p2/final.json (로컬 보관 자료)
-runs/upload/candidates/p2/final.json (로컬 보관 자료)
-research/paired-writers.csv (로컬 보관 자료)
+[runs/suffix/candidates/p2/final.json](runs/suffix/candidates/p2/final.json)
+[runs/upload/candidates/p2/final.json](runs/upload/candidates/p2/final.json)
+[research/paired-writers.csv](research/paired-writers.csv)
 
 ## 현재 감시자 3회차의 남은 오답 19개
 
@@ -89,9 +89,9 @@ research/paired-writers.csv (로컬 보관 자료)
 
 1. [100문항 원문](problem-set.md)에서 입력·기대값·정책 의존성을 확인한다.
 2. [질문·답변 전체](research/questions.md)에서 실제 질문과 대리 답변의 선택 이유를 확인한다.
-3. 답변 묶음별 변화 (로컬 보관 자료)에서 140개 조건·회차 기록의 질문·답변, 전후 점수, 개선·퇴행 문항과 유형을 확인한다. 같은 회신 묶음의 효과이며 개별 질문의 독립적인 인과 효과가 아니다.
-4. 최종 2,100개 판정 (로컬 보관 자료)과 회차 사본 및 실행 줄 (로컬 보관 자료)을 코드와 대조한다.
-5. 전달 과정 (로컬 보관 자료)과 이전·현재 작성기 비교 (로컬 보관 자료)에서 질문의 전달 여부와 실제 사용한 작성 경로를 확인한다.
+3. [답변 묶음별 변화](research/dialogue-effects.csv)에서 140개 조건·회차 기록의 질문·답변, 전후 점수, 개선·퇴행 문항과 유형을 확인한다. 같은 회신 묶음의 효과이며 개별 질문의 독립적인 인과 효과가 아니다.
+4. [최종 2,100개 판정](research/items.csv)과 [회차 사본 및 실행 줄](research/observations.json)을 코드와 대조한다.
+5. [전달 과정](research/question-routing.csv)과 [이전·현재 작성기 비교](research/paired-writers.csv)에서 질문의 전달 여부와 실제 사용한 작성 경로를 확인한다.
 
 전체 신규 고유 모델 호출은 523회, 계측 입력 317,539토큰과 출력 94,802토큰을 합쳐 412,341토큰이다. 실제 답변 창구는 공유된 첫 회신을 한 번씩 세면 70회, 전달 질문은 137개였다. 523개 완료 응답의 종료 사유는 모두 stop이었지만, 문장·내용·코드 형식 오류가 없었다는 뜻은 아니다. a+b 자유 조건식 조건의 75개 미답 중 55개는 명시적 보류, 20개는 실행 오류였다.
 

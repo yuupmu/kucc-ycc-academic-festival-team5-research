@@ -1,0 +1,156 @@
+{
+  "cycle": 3,
+  "previous_sha256": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+  "sha256": "ba82e35dd27685ddc72d59f2a667e53e63c4cc6bf6da7f94c19564b09b29d5c2",
+  "files": {
+    "router.py": "def triage(tags):\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) > 1 and not set(tags).difference(('account', 'billing', 'privacy')):\n        return next(v for v in ('privacy', 'billing', 'account') if v in tags)\n    for tag in tags:\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    raise NotImplementedError\n"
+  },
+  "ticket": "fbc305e99598a99abfc3ec57e886d78918ffaca36cbdcf920e2de221c88134c7",
+  "received_cycles": [
+    1,
+    2,
+    3
+  ],
+  "status": "open_limit",
+  "writer": {
+    "files": {
+      "router.py": "def triage(tags):\n    if len(set(tags).intersection(('account', 'billing', 'privacy'))) > 1 and not set(tags).difference(('account', 'billing', 'privacy')):\n        return next(v for v in ('privacy', 'billing', 'account') if v in tags)\n    for tag in tags:\n        if tag in ('account', 'billing', 'privacy'):\n            return tag\n    raise NotImplementedError\n"
+    },
+    "calls": [
+      "2c65a7a626cef3c5c0c64bd7fda7e3896259f132b7c73912b72591b26662b061"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "review_patch",
+    "decisions": {
+      "P1": {
+        "established": "triage(tags) 함수는 소문자 문자열 태그의 리스트를 입력받아 담당 팀 이름 하나를 반환해야 함",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "알려진 태그는 account, billing, privacy이며, 이 태그가 입력에 포함되면 해당 팀을 반환함",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "알려지지 않은 태그는 무시하고, 여러 태그가 겹치거나 정해지지 않은 우선순위가 있는 경우, 'privacy, billing, account' 순서로 가장 앞선 태그를 반환함",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "입력 순서는 영향을 주지 않음",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "",
+        "input": "tags",
+        "still_open": "",
+        "status": "undetermined"
+      },
+      "H3": {
+        "established": "우선순위: privacy > billing > account",
+        "input": "tags",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "bindings": {},
+    "regions": [
+      {
+        "scope": "T1",
+        "kind": "collection",
+        "rows": [
+          {
+            "region": "several distinct declared values, only declared values",
+            "selected": "first present by privacy > billing > account",
+            "sources": [
+              "H3"
+            ],
+            "implemented": true,
+            "issue": null
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "review_findings": [
+      {
+        "reviewer": "main-self",
+        "situation": "",
+        "question": "triage 함수가 여러 태그가 들어올 때 첫 번째 매칭된 태그만 반환하고 나머지는 처리하지 않는다는 점을 고려하여, 미처리된 태그가 오류를 유발하지 않도록 처리하는 로직이 누락되었습니다."
+      },
+      {
+        "reviewer": "main-self",
+        "situation": "",
+        "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다."
+      },
+      {
+        "reviewer": "main-self",
+        "situation": "",
+        "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다."
+      }
+    ],
+    "answer_application": [
+      {
+        "mode": "review_patch",
+        "scope": "triage(tags)",
+        "confirmed": {
+          "several distinct declared values, only declared values": {
+            "result": "first present by privacy > billing > account",
+            "sources": [
+              "H3"
+            ]
+          }
+        },
+        "changes": [
+          "several distinct declared values, only declared values"
+        ],
+        "issues": []
+      }
+    ],
+    "unresolved_findings": [
+      {
+        "reviewer": "main-self",
+        "situation": "",
+        "question": "triage 함수가 여러 태그가 들어올 때 첫 번째 매칭된 태그만 반환하고 나머지는 처리하지 않는다는 점을 고려하여, 미처리된 태그가 오류를 유발하지 않도록 처리하는 로직이 누락되었습니다."
+      },
+      {
+        "reviewer": "main-self",
+        "situation": "",
+        "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다."
+      },
+      {
+        "reviewer": "main-self",
+        "situation": "",
+        "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다."
+      },
+      {
+        "reviewer": "owner-window",
+        "situation": "",
+        "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요."
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "role": "main-self",
+      "response": {
+        "questions": [
+          "여러 태그가 섞여 있을 때, 분류 관행에 따라 '알려지지 않은 태그'가 포함된 경우 어떻게 처리해야 하는지."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "6e7f369a68c6e4bf21e87ace75096c00b8fccbbee19d5d8d8fafacf5221ace2f",
+    "2c65a7a626cef3c5c0c64bd7fda7e3896259f132b7c73912b72591b26662b061",
+    "fd0dd663cfc02af217677d627d04ca92ef26c58b153b6161a9368b338d7e8614"
+  ]
+}

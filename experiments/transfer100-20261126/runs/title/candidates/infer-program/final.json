@@ -1,0 +1,555 @@
+{
+  "writer": {
+    "calls": [
+      "1e37feafac53ab388eac22e6745764ca509fb39f672f3a83cdc358d3c6e15477",
+      "a64ee6318bc7975f6b797ff0e9bd77853af795b2a3e53883b22069e465836e1c",
+      "0a5f29f42219d103679113a1526f170f0c67cbd2f1906726a7564b9eb7d0a3b9"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "clean_title(text) 함수를 구현해야 함. 입력은 영문 대소문자, 숫자, 하이픈, ASCII 공백만 포함. 빈 문자열 입력 가능.",
+        "input": "text",
+        "still_open": "구현 로직",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "양끝 공백 제거. 영문자 소문자 변환. 숫자 유지. 내부 단어 사이 공백 하나 유지.",
+        "input": "text",
+        "still_open": "연속 공백 처리, 하이픈 처리, 빈 결과 처리",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "연속 내부 공백, 하이픈, 빈 제목 표시는 편집 담당자 기준 (현재 명확하지 않음). 길이 제한 없음.",
+        "input": "text",
+        "still_open": "구체적 규칙",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "내부 연속 공백은 하나로 줄임.",
+        "input": "text",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "하이픈은 개수와 위치 그대로 유지.",
+        "input": "text",
+        "still_open": "",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "양끝 공백 제거 후 빈 문자열이면 'untitled' 반환.",
+        "input": "text",
+        "still_open": "",
+        "status": "rule"
+      }
+    },
+    "proposed": [
+      {
+        "target": "T2",
+        "lines": [
+          {
+            "depth": 0,
+            "code": "def clean_title(text: str) -> str:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 1. 양끝 공백 제거",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    text = text.rstrip()",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 2. 영문자 소문자 변환, 숫자 유지",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    text = text.lower()",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 3. 연속된 공백을 하나로 줄임 (하이픈은 유지)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 공백과 빈 문자열을 하나로, 하이픈은 그대로",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    text = re.sub(r'\\s+', ' ', text)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 4. 하이픈이 연속된 경우를 하나로 줄이지 않는지 확인 필요",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # H2: 하이픈은 개수와 위치를 그대로 유지합니다.",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 따라서 위에서 \\s+ 로 처리할 때 하이픈도 포함시키면 안 됨.",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 다시 생각: 공백은 줄임, 하이픈은 유지.",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 연속된 공백 -> 하나",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 연속된 하이픈 -> 유지 (H2)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 공백과 하이픈이 섞여 있을 때?",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a  - b\" -> \"a - b\" (공백 하나, 하이픈 하나)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a  -  b\" -> \"a - b\" (공백 줄임, 하이픈 유지)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a - - b\" -> \"a - - b\" (하이픈 유지)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a   b\" -> \"a b\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 정규식: 공백만 줄이고 하이픈은 untouched.",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \\s+ 는 공백, 탭 등. 하이픈은 \\s 이 아니므로 \\s+ 는 하이픈을 건드리지 않음.",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 하지만 \"a  -\" -> \"a -\" (여러 공백 줄임)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a - -\" -> \"a - -\" (하이픈 유지)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a - - b\" -> \"a - - b\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a   -\" -> \"a -\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # \"a -   b\" -> \"a - b\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 이 로직은 H1 (공백 줄임) 과 H2 (하이픈 유지) 를 모두 만족.",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    text = re.sub(r'\\s+', ' ', text)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 5. 앞뒤 공백 제거 (rstrip 처리 후 다시 strip 필요? rstrip 만 했음. 정규식 후에도 안전성 위해 strip)",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    text = text.strip()",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    # 6. 빈 문자열이면 'untitled' 반환",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    if not text:",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "        return \"untitled\"",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    ",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "    return text",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "",
+            "sources": []
+          },
+          {
+            "depth": 0,
+            "code": "import re",
+            "sources": []
+          }
+        ]
+      }
+    ],
+    "files": {
+      "solution.py": "def clean_title(text: str) -> str:\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 영문자 소문자 변환, 숫자 유지\n    text = text.lower()\n    \n    # 3. 연속된 공백을 하나로 줄임 (하이픈은 유지)\n    # 공백과 빈 문자열을 하나로, 하이픈은 그대로\n    text = re.sub(r'\\s+', ' ', text)\n    \n    # 4. 하이픈이 연속된 경우를 하나로 줄이지 않는지 확인 필요\n    # H2: 하이픈은 개수와 위치를 그대로 유지합니다.\n    # 따라서 위에서 \\s+ 로 처리할 때 하이픈도 포함시키면 안 됨.\n    # 다시 생각: 공백은 줄임, 하이픈은 유지.\n    # 연속된 공백 -> 하나\n    # 연속된 하이픈 -> 유지 (H2)\n    # 공백과 하이픈이 섞여 있을 때?\n    # \"a  - b\" -> \"a - b\" (공백 하나, 하이픈 하나)\n    # \"a  -  b\" -> \"a - b\" (공백 줄임, 하이픈 유지)\n    # \"a - - b\" -> \"a - - b\" (하이픈 유지)\n    # \"a   b\" -> \"a b\"\n    # 정규식: 공백만 줄이고 하이픈은 untouched.\n    # \\s+ 는 공백, 탭 등. 하이픈은 \\s 이 아니므로 \\s+ 는 하이픈을 건드리지 않음.\n    # 하지만 \"a  -\" -> \"a -\" (여러 공백 줄임)\n    # \"a - -\" -> \"a - -\" (하이픈 유지)\n    # \"a - - b\" -> \"a - - b\"\n    # \"a   -\" -> \"a -\"\n    # \"a -   b\" -> \"a - b\"\n    # 이 로직은 H1 (공백 줄임) 과 H2 (하이픈 유지) 를 모두 만족.\n    text = re.sub(r'\\s+', ' ', text)\n    \n    # 5. 앞뒤 공백 제거 (rstrip 처리 후 다시 strip 필요? rstrip 만 했음. 정규식 후에도 안전성 위해 strip)\n    text = text.strip()\n    \n    # 6. 빈 문자열이면 'untitled' 반환\n    if not text:\n        return \"untitled\"\n    \n    return text\n\nimport re"
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      },
+      "H3": {
+        "status": "rule",
+        "input": "text",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "error": null,
+    "complete": false,
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {},
+        "decision": {
+          "rules": [
+            {
+              "when": "has_present(P2, text)",
+              "action": "return",
+              "value": "text.strip().lower()",
+              "sources": [
+                "P2"
+              ]
+            },
+            {
+              "when": "has_present(H1, text)",
+              "action": "return",
+              "value": "text.replace('  ',' ')",
+              "sources": [
+                "H1"
+              ]
+            },
+            {
+              "when": "has_present(H2, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "H2"
+              ]
+            },
+            {
+              "when": "has_present(H3, text)",
+              "action": "return",
+              "value": "untitled",
+              "sources": [
+                "H3"
+              ]
+            },
+            {
+              "when": "has_present(P1, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P1"
+              ]
+            },
+            {
+              "when": "has_present(P3, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P3"
+              ]
+            },
+            {
+              "when": "has_all(P1, P2, P3, H1, H2, H3, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3"
+              ]
+            },
+            {
+              "when": "has_all(P1, P2, P3, H1, H2, H3, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3"
+              ]
+            },
+            {
+              "when": "has_all(P1, P2, P3, H1, H2, H3, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3"
+              ]
+            },
+            {
+              "when": "has_all(P1, P2, P3, H1, H2, H3, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3"
+              ]
+            },
+            {
+              "when": "has_all(P1, P2, P3, H1, H2, H3, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3"
+              ]
+            },
+            {
+              "when": "has_all(P1, P2, P3, H1, H2, H3, text)",
+              "action": "return",
+              "value": "text",
+              "sources": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "text",
+            "sources": [
+              "P1",
+              "P2",
+              "P3",
+              "H1",
+              "H2",
+              "H3"
+            ]
+          },
+          "complete": false,
+          "applicable": false
+        }
+      }
+    ],
+    "issues": [],
+    "format": "native"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: \"a - - b\"), 현재 코드는 하이픈을 그대로 유지하지만, 편집 담당자의 기준이 '연속된 하이픈도 하나로 줄인다'는 것을 의미할 경우, 코드는 하이픈을 유지하고, 편집 담당자의 기준이 '연속된 하이픈도 하나로 줄인다'는 것을 의미할 경우 코드는 하이픈을 유지합니다.",
+            "outcome_a": "연속된 하이픈을 하나로 줄임",
+            "outcome_b": "연속된 하이픈을 그대로 유지합니다.",
+            "question": "연속된 하이픈을 하나로 줄이는지 그대로 유지하는지"
+          },
+          {
+            "situation": "양끝 공백 제거 후 빈 문자열이 된 경우, 현재 코드는 'untitled'를 반환하지만, 편집 담당자의 기준이 '빈 문자열을 빈 문자열로 반환한다'는 것을 의미할 경우, 코드는 'untitled'를 반환하고, 편집 담당자의 기준이 '빈 문자열을 빈 문자열로 반환한다'는 것을 의미할 경우 코드는 'untitled'를 반환합니다.",
+            "outcome_a": "빈 문자열을 빈 문자열로 반환합니다.",
+            "outcome_b": "빈 문자열을 'untitled'로 반환합니다.",
+            "question": "빈 문자열을 빈 문자열로 반환하는지 'untitled'로 반환하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'a - - b') 를 어떻게 처리할지",
+            "outcome_a": "하이픈을 그대로 유지하는 현재 로직 (a - - b)",
+            "outcome_b": "연속된 하이픈도 하나로 줄이는 로직 (a - b)",
+            "question": "연속된 하이픈을 하나로 줄여야 하는지 그대로 유지해야 하는지"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈이 있는 경우 (예: 'a - - b')",
+            "outcome_a": "하이픈이 연속되어 있는 그대로 유지됨",
+            "outcome_b": "연속된 하이픈이 하나로 합쳐짐",
+            "question": "연속된 하이픈을 하나로 합쳐야 하는지 유지해야 하는지 명확히 해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "calls": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "b76942864bb316eafe57aa942479b67619c7ccb7c820398e7fa8b765305a55e0",
+    "85ccf5abce01b7ca16b420379ab3fa780028fef7f6e60b08d869e1b88a5111bf",
+    "cc433d2050c0bee1bcbb2373e0c4b701d71abbd8077fcf382117cd718cf2f043",
+    "1e37feafac53ab388eac22e6745764ca509fb39f672f3a83cdc358d3c6e15477",
+    "a64ee6318bc7975f6b797ff0e9bd77853af795b2a3e53883b22069e465836e1c",
+    "0a5f29f42219d103679113a1526f170f0c67cbd2f1906726a7564b9eb7d0a3b9",
+    "671391e6920181fc8d8806a51156394f8c88da42d26dd387b2f3de3ed302f701",
+    "58c0f57a1a61879e62702edd56062935ee8e8def2393e37578e3abde21c578c5",
+    "df63b092a761b0ce75c58bcd86c99d2f58130a39980a6430463eab86c3777d0a"
+  ],
+  "files": {
+    "solution.py": "def clean_title(text: str) -> str:\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 영문자 소문자 변환, 숫자 유지\n    text = text.lower()\n    \n    # 3. 연속된 공백을 하나로 줄임 (하이픈은 유지)\n    # 공백과 빈 문자열을 하나로, 하이픈은 그대로\n    text = re.sub(r'\\s+', ' ', text)\n    \n    # 4. 하이픈이 연속된 경우를 하나로 줄이지 않는지 확인 필요\n    # H2: 하이픈은 개수와 위치를 그대로 유지합니다.\n    # 따라서 위에서 \\s+ 로 처리할 때 하이픈도 포함시키면 안 됨.\n    # 다시 생각: 공백은 줄임, 하이픈은 유지.\n    # 연속된 공백 -> 하나\n    # 연속된 하이픈 -> 유지 (H2)\n    # 공백과 하이픈이 섞여 있을 때?\n    # \"a  - b\" -> \"a - b\" (공백 하나, 하이픈 하나)\n    # \"a  -  b\" -> \"a - b\" (공백 줄임, 하이픈 유지)\n    # \"a - - b\" -> \"a - - b\" (하이픈 유지)\n    # \"a   b\" -> \"a b\"\n    # 정규식: 공백만 줄이고 하이픈은 untouched.\n    # \\s+ 는 공백, 탭 등. 하이픈은 \\s 이 아니므로 \\s+ 는 하이픈을 건드리지 않음.\n    # 하지만 \"a  -\" -> \"a -\" (여러 공백 줄임)\n    # \"a - -\" -> \"a - -\" (하이픈 유지)\n    # \"a - - b\" -> \"a - - b\"\n    # \"a   -\" -> \"a -\"\n    # \"a -   b\" -> \"a - b\"\n    # 이 로직은 H1 (공백 줄임) 과 H2 (하이픈 유지) 를 모두 만족.\n    text = re.sub(r'\\s+', ' ', text)\n    \n    # 5. 앞뒤 공백 제거 (rstrip 처리 후 다시 strip 필요? rstrip 만 했음. 정규식 후에도 안전성 위해 strip)\n    text = text.strip()\n    \n    # 6. 빈 문자열이면 'untitled' 반환\n    if not text:\n        return \"untitled\"\n    \n    return text\n\nimport re"
+  },
+  "sha256": "4adb30c21b47b127d8edb2a7d22cadbd874bb77fd0a4b3ca4bc4b06f5f237ae6",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "1d10eb37d0a8d9951d30fcad90a012f29adeba983774a74c9a412ee93d0cc14a",
+      "questions": [
+        {
+          "question": "연속된 내부 공백, 하이픈, 비어 있는 제목을 어떻게 표시할지는 편집 담당자의 기준을 따릅니다. 이 기준이 구체적으로 무엇인지 알려주세요. 예를 들어, '연속된 공백과 빈 문자열은 제거하고 하이픈을 유지한다'는 식의 명확한 기준과 그 기준이 적용되는 기준점 (reference point) 및 경계 (boundary) 를 제시해 주십시오. 이 기준이 명확하지 않으면 정책이 불완전합니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "연속된 공백과 하이픈을 어떻게 처리할지 결정해 주세요. 규칙 1 (모두 공백으로) 과 규칙 2 (공백은 공백, 하이픈은 하이픈으로) 중 어떤 것이 적용되나요? 두 규칙이 모두 적용될 경우 우선순위는 무엇인가요?",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "위 상황 (연속된 하이픈이 포함된 경우) 에서 편집 담당자의 기준에 따라 하이픈을 유지해야 할지, 아니면 공백과 마찬가지로 단일 공백으로 치환해야 할지 명확히 해주세요.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.\n하이픈은 개수와 위치를 그대로 유지합니다.\n양끝 공백을 제거한 결과가 빈 문자열이면 untitled를 반환합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

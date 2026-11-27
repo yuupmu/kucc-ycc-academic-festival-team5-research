@@ -1,0 +1,333 @@
+[
+  {
+    "role": "plan",
+    "state": "created",
+    "finish": "stop",
+    "request_file": "self/plan.json",
+    "before_sha256": "23d5b059249a1cd35cc1fe53266baa3e8501cb394f26b6d6b2f0c7b7c6a38a1e",
+    "after_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됨을 의미하며, '24시간'은 24 * 60 * 60 초로 계산됨."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용이 시작된 후에는 취소가 불가능함을 의미하며, '이미 시작'은 until_start_seconds < 0으로 판단됨."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로 이 규칙은 현재 구현에 반영되지 않음."
+      },
+      "otherwise": false
+    },
+    "edits": {},
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "review1",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review1.json",
+    "before_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "after_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됨을 의미하며, '24시간'은 24 * 60 * 60 초로 계산됨."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용이 시작된 후에는 취소가 불가능함을 의미하며, '이미 시작'은 until_start_seconds < 0으로 판단됨."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로 이 규칙은 현재 구현에 반영되지 않음."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "R3은 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음.",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로 이 규칙은 현재 구현에 반영되지 않음."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로 이 규칙은 현재 구현에 반영되지 않음."
+        }
+      },
+      "otherwise": {
+        "status": "no_change",
+        "reason": "기타 경우는 기본적으로 취소를 거부함.",
+        "before": false,
+        "after": false
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "review2",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/review2.json",
+    "before_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "after_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됨을 의미하며, '24시간'은 24 * 60 * 60 초로 계산됨."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용이 시작된 후에는 취소가 불가능함을 의미하며, '이미 시작'은 until_start_seconds < 0으로 판단됨."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "note_only",
+        "reason": "R3은 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음.",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로 이 규칙은 현재 구현에 반영되지 않음."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음."
+        }
+      },
+      "otherwise": {
+        "status": "no_change",
+        "reason": "기타 경우는 기본적으로 취소를 거부함.",
+        "before": false,
+        "after": false
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  },
+  {
+    "role": "final",
+    "state": "reviewed",
+    "finish": "stop",
+    "request_file": "self/final.json",
+    "before_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "after_sha256": "0095e0bfdd970c747d6a751cddb1ae5f310d3a5136625aa40a8472e2d1022eef",
+    "plan": {
+      "R1": {
+        "rank": 1,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": ">=",
+                "seconds": 24
+              }
+            ],
+            "allow": true
+          }
+        ],
+        "assumption": "R1은 이용 시작 24시간 전까지 취소가 허용됨을 의미하며, '24시간'은 24 * 60 * 60 초로 계산됨."
+      },
+      "R2": {
+        "rank": 2,
+        "branches": [
+          {
+            "when": [
+              {
+                "input": "until_start_seconds",
+                "op": "<",
+                "seconds": 0
+              }
+            ],
+            "allow": false
+          }
+        ],
+        "assumption": "R2은 이용이 시작된 후에는 취소가 불가능함을 의미하며, '이미 시작'은 until_start_seconds < 0으로 판단됨."
+      },
+      "R3": {
+        "rank": 3,
+        "branches": [],
+        "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음."
+      },
+      "otherwise": false
+    },
+    "edits": {
+      "R1": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R2": {
+        "status": "kept",
+        "reason": "근거"
+      },
+      "R3": {
+        "status": "no_change",
+        "reason": "R3은 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음.",
+        "before": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음."
+        },
+        "after": {
+          "rank": 3,
+          "branches": [],
+          "assumption": "R3은 '방금 잘못 예약한 고객에게 별도의 정정 시간이 있음'을 나타내지만, 명세에 구체적인 조건이 없으므로, 현재 구현에서는 반영되지 않음."
+        }
+      },
+      "otherwise": {
+        "status": "no_change",
+        "reason": "기타 경우는 기본적으로 취소를 거부함.",
+        "before": false,
+        "after": false
+      }
+    },
+    "source_lines": {
+      "R1": [
+        2
+      ],
+      "R2": [
+        4
+      ],
+      "R3": [],
+      "otherwise": [
+        6
+      ]
+    }
+  }
+]

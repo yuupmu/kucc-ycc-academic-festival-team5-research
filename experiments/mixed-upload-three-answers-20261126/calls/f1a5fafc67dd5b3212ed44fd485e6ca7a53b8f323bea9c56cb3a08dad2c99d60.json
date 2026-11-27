@@ -1,0 +1,71 @@
+{
+  "text": "{\n  \"판정\": \"근거 부족\"\n}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 15,
+    "prompt_tokens": 465,
+    "total_tokens": 480,
+    "prompt_tokens_details": {
+      "cached_tokens": 108
+    }
+  },
+  "server_timings": {
+    "cache_n": 108,
+    "prompt_n": 357,
+    "prompt_ms": 477.126,
+    "prompt_per_token_ms": 1.3364873949579832,
+    "prompt_per_second": 748.2300272883892,
+    "predicted_n": 15,
+    "predicted_ms": 296.93,
+    "predicted_per_token_ms": 21.209285714285716,
+    "predicted_per_second": 47.14915973461759
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 0.78,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "독립적으로 근거의 적용 범위를 점검하세요. 조건에 해당하는 모든 입력에 대해 인용 문장이 제시된 반환값을 실제로 지시하나요?\n다른 문장은 수치의 이름이나 반환값의 뜻을 설명할 수 있습니다. 관행이나 추측, 아직 답하지 않은 질문은 근거로 쓰지 않습니다.\n인용문을 지키면서도 해당 영역에서 다른 반환값을 선택할 수 있다면 '근거 부족', 그렇지 않으면 '근거 충분'을 고르세요."
+      },
+      {
+        "role": "user",
+        "content": "{\"입력영역\":\"0 < size_bytes < 16\",\"명세와회신\":{\"P1\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요.\",\"P2\":\"size_bytes는 정수 바이트 수이며 0은 빈 파일입니다.\",\"P3\":\"음수 입력은 잘못된 크기이므로 거부합니다.\",\"P4\":\"담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다.\",\"P5\":\"허용하면 True, 거부하면 False를 반환합니다.\",\"P6\":\"상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다.\",\"P7\":\"파일 내용이나 확장자는 입력에 없습니다.\",\"H1.1\":\"상한은 16바이트입니다.\",\"H1.2\":\"정확히 상한이면 거부합니다.\",\"H1.3\":\"0바이트 빈 파일은 거부합니다.\"},\"회신별질문\":[[\"파일 크기의 상한 값을 정해달라.\",\"저장소 담당자가 빈 파일(0 바이트)을 허용하는지 확인해주세요. 그리고 파일 크기의 상한 값도 확인해주세요. 상한 값이 정해지지 않았으므로, 모든 양수 파일에 대해 NotImplementedError를 발생시키는 것은 적절하지 않습니다. 상한 값과 빈 파일 허용 여부를 명확히 해야 합니다.\",\"상한 크기 값과 정확히 상한인 파일의 허용 여부는 저장소 담당자에게 확인할 수 있나요?\"]],\"인용문\":\"담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다.\",\"제안\":\"False\"}"
+      }
+    ],
+    "seed": 273,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 70,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "판정": {
+              "type": "string",
+              "enum": [
+                "근거 충분",
+                "근거 부족"
+              ]
+            }
+          },
+          "required": [
+            "판정"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "entailment"
+}

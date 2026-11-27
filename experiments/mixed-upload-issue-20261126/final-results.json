@@ -1,0 +1,389 @@
+{
+  "seal": "5a024b6d710e4c1fba2497248975a6f13f5f431a9d1d307783734908f71a0fbd",
+  "usage": {
+    "old": {
+      "calls": 2,
+      "prompt_tokens": 1555,
+      "completion_tokens": 290,
+      "total_tokens": 1845
+    },
+    "new": {
+      "calls": 2,
+      "prompt_tokens": 1373,
+      "completion_tokens": 289,
+      "total_tokens": 1662
+    },
+    "2": {
+      "calls": 5,
+      "prompt_tokens": 3505,
+      "completion_tokens": 717,
+      "total_tokens": 4222
+    },
+    "3": {
+      "calls": 5,
+      "prompt_tokens": 4694,
+      "completion_tokens": 613,
+      "total_tokens": 5307
+    }
+  },
+  "cases": {
+    "2": {
+      "upload-01": {
+        "input": -1,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-02": {
+        "input": -2,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-03": {
+        "input": -7,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-04": {
+        "input": -16,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-05": {
+        "input": 0,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-06": {
+        "input": 1,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-07": {
+        "input": 2,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-08": {
+        "input": 4,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-09": {
+        "input": 8,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-10": {
+        "input": 12,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-11": {
+        "input": 14,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-12": {
+        "input": 15,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-13": {
+        "input": 16,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-14": {
+        "input": 17,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-15": {
+        "input": 18,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-16": {
+        "input": 20,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-17": {
+        "input": 24,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-18": {
+        "input": 32,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-19": {
+        "input": 64,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-20": {
+        "input": 100,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      }
+    },
+    "3": {
+      "upload-01": {
+        "input": -1,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-02": {
+        "input": -2,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-03": {
+        "input": -7,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-04": {
+        "input": -16,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-05": {
+        "input": 0,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-06": {
+        "input": 1,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-07": {
+        "input": 2,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-08": {
+        "input": 4,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-09": {
+        "input": 8,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-10": {
+        "input": 12,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-11": {
+        "input": 14,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-12": {
+        "input": 15,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-13": {
+        "input": 16,
+        "expected": true,
+        "actual": true,
+        "error": null,
+        "correct": true
+      },
+      "upload-14": {
+        "input": 17,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-15": {
+        "input": 18,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-16": {
+        "input": 20,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-17": {
+        "input": 24,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-18": {
+        "input": 32,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-19": {
+        "input": 64,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      },
+      "upload-20": {
+        "input": 100,
+        "expected": false,
+        "actual": false,
+        "error": null,
+        "correct": true
+      }
+    }
+  },
+  "scores": [
+    20,
+    20,
+    20
+  ],
+  "compared_with_archived_final": {
+    "old": 12,
+    "new": 20,
+    "kept": [
+      "upload-01",
+      "upload-02",
+      "upload-03",
+      "upload-04",
+      "upload-05",
+      "upload-14",
+      "upload-15",
+      "upload-16",
+      "upload-17",
+      "upload-18",
+      "upload-19",
+      "upload-20"
+    ],
+    "gained": [
+      "upload-06",
+      "upload-07",
+      "upload-08",
+      "upload-09",
+      "upload-10",
+      "upload-11",
+      "upload-12",
+      "upload-13"
+    ],
+    "lost": [],
+    "still_wrong": []
+  },
+  "compared_with_new_round1": {
+    "old": 20,
+    "new": 20,
+    "kept": [
+      "upload-01",
+      "upload-02",
+      "upload-03",
+      "upload-04",
+      "upload-05",
+      "upload-06",
+      "upload-07",
+      "upload-08",
+      "upload-09",
+      "upload-10",
+      "upload-11",
+      "upload-12",
+      "upload-13",
+      "upload-14",
+      "upload-15",
+      "upload-16",
+      "upload-17",
+      "upload-18",
+      "upload-19",
+      "upload-20"
+    ],
+    "gained": [],
+    "lost": [],
+    "still_wrong": []
+  },
+  "retained_round1_gains": [
+    "upload-06",
+    "upload-07",
+    "upload-08",
+    "upload-09",
+    "upload-10",
+    "upload-11",
+    "upload-12",
+    "upload-13"
+  ]
+}

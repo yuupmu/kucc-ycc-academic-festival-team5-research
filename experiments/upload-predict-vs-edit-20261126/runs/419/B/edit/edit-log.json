@@ -1,0 +1,21 @@
+[
+  {
+    "call": "2aafcb083969e5b67cd3c411286d5b573f61c51dd8ea3a7f66774e38b74995dd",
+    "limit": 1100,
+    "seed": 419,
+    "decoded": true,
+    "outcome": "applied",
+    "edits": [
+      {
+        "evidence": "abc-1/H1",
+        "before": "raise NotImplementedError(\"파일 크기의 상한 값은 저장소 담당자에게 확인해야 합니다.\")",
+        "after": "return False"
+      },
+      {
+        "evidence": "abc-1/H1",
+        "before": "raise NotImplementedError(\"빈 파일 (0 바이트) 의 허용 여부는 저장소 담당자에게 확인해야 합니다.\")",
+        "after": "return False"
+      }
+    ]
+  }
+]

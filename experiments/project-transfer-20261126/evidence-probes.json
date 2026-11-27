@@ -1,0 +1,129 @@
+{
+  "reservation": [
+    {
+      "choice": "일반 마감과 정확히 같은 순간",
+      "requires": [
+        "deadline"
+      ],
+      "args": [
+        86400,
+        86400
+      ],
+      "expected": true
+    },
+    {
+      "choice": "정정 기간 마지막 순간",
+      "requires": [
+        "clock",
+        "duration",
+        "end",
+        "late"
+      ],
+      "args": [
+        600,
+        300
+      ],
+      "expected": true
+    },
+    {
+      "choice": "이용이 이미 시작된 뒤의 정정",
+      "requires": [
+        "after"
+      ],
+      "args": [
+        120,
+        -1
+      ],
+      "expected": false
+    }
+  ],
+  "triage": [
+    {
+      "choice": "겹치는 두 담당 팀",
+      "requires": [
+        "rank"
+      ],
+      "args": [
+        [
+          "account",
+          "billing"
+        ]
+      ],
+      "expected": "billing"
+    },
+    {
+      "choice": "담당 태그가 없는 요청",
+      "requires": [
+        "empty"
+      ],
+      "args": [
+        []
+      ],
+      "expected": "general"
+    },
+    {
+      "choice": "알려진 태그와 모르는 태그의 혼합",
+      "requires": [
+        "unknown"
+      ],
+      "args": [
+        [
+          "billing",
+          "misc"
+        ]
+      ],
+      "expected": "billing"
+    }
+  ],
+  "labels": [
+    {
+      "choice": "표기가 다른 두 태그의 병합",
+      "requires": [
+        "identity",
+        "spelling"
+      ],
+      "args": [
+        [
+          "x"
+        ],
+        [
+          "X"
+        ]
+      ],
+      "expected": [
+        "X"
+      ]
+    },
+    {
+      "choice": "공백만 있는 태그",
+      "requires": [
+        "empty"
+      ],
+      "args": [
+        [],
+        [
+          " "
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "choice": "유니코드 표기 충돌",
+      "requires": [
+        "unicode",
+        "spelling"
+      ],
+      "args": [
+        [
+          "Straße"
+        ],
+        [
+          "STRASSE"
+        ]
+      ],
+      "expected": [
+        "STRASSE"
+      ]
+    }
+  ]
+}

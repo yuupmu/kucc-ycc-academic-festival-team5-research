@@ -1,0 +1,46 @@
+{
+  "proposed": [
+    "w",
+    "h",
+    "z"
+  ],
+  "selected": [
+    "w",
+    "h"
+  ],
+  "answer": "가로의 상한은 6센티미터입니다.\n세로의 상한은 4센티미터입니다.",
+  "record": {
+    "call": "e532dbc523c99bf1842de0a2a7e3c869fa9bde0bf3323dce64c9a17b9bd83925",
+    "tokens": 1711,
+    "estimate": null,
+    "cap": null,
+    "max_output": 720,
+    "prompt_tokens": 1489,
+    "completion_tokens": 222,
+    "finish": "stop"
+  },
+  "edits": [
+    {
+      "evidence": "abc-1/H1",
+      "before": "MAX_DIMENSION = 100",
+      "after": "MAX_WIDTH = 6"
+    },
+    {
+      "evidence": "abc-1/H2",
+      "before": "MAX_DIMENSION = 100",
+      "after": "MAX_HEIGHT = 4"
+    },
+    {
+      "evidence": "abc-1/H1",
+      "before": "if width_cm >= MAX_DIMENSION or height_cm >= MAX_DIMENSION:",
+      "after": "if width_cm >= MAX_WIDTH or height_cm >= MAX_HEIGHT:"
+    },
+    {
+      "evidence": "abc-1/H1",
+      "before": "if width_cm <= 0 or height_cm <= 0:",
+      "after": "if width_cm <= 0 or height_cm <= 0:"
+    }
+  ],
+  "outcome": "rejected: 서로 겹치는 코드 수정입니다.",
+  "tokens": 5326
+}

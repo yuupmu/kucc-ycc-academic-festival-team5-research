@@ -1,0 +1,4315 @@
+[
+  {
+    "task": "reservation",
+    "arm": "solo",
+    "cycle": 0,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "one_shot",
+    "source": "experiments/festival-mini-20261126/runs/reservation/solo/v1/snapshot.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 424,
+    "completion_tokens": 375,
+    "total_tokens": 799,
+    "calls": 1,
+    "seconds": 11.58,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "self",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/runs/reservation/self/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 2610,
+    "completion_tokens": 893,
+    "total_tokens": 3503,
+    "calls": 4,
+    "seconds": 28.68,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "p2",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/runs/reservation/p2/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-p2-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "직원이 '이용 시작 24 시간 전' 기준을 적용할 때, age_seconds(예약 생성 경과 시간)를 고려하여 정정 시간 (예: 24 시간 이내) 을 적용할 수 있는지 확인이 필요합니다.",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          },
+          {
+            "by": "B",
+            "question": "직원이 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문의 제 3 조항을 '이용 시작 24 시간 전까지'의 범위 내에서 별도의 정정 시간을 적용한다는 의미로 해석하여, `until_start_seconds`가 0 이상 86400 미만의 경우에도 취소를 허용하는 로직을 구현했는지 확인해 주세요.",
+            "facts": [
+              "late"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          },
+          {
+            "by": "C",
+            "question": "현재 코드에서 `age_seconds` (예약 생성부터 경과한 시간) 를 고려하지 않고, `until_start_seconds >= 0` 일 때 무조건 `True` 를 반환하는 로직이, 안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 조건을 제대로 반영하고 있는가?",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5510,
+    "completion_tokens": 1156,
+    "total_tokens": 6666,
+    "calls": 8,
+    "seconds": 38.2,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "p3",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/runs/reservation/p3/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-p3-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "안내문의 문구와 일치하는 운영 기준이 없으므로, 현재 코드가 정정 시간을 고려하지 않고 단순 시간 기준으로만 판단하는 것이 맞습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "B",
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않으며, 현재 코드는 이를 반영하지 않고 0 초 이상의 모든 경우를 취소 허용으로 처리하고 있습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "C",
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5770,
+    "completion_tokens": 1942,
+    "total_tokens": 7712,
+    "calls": 8,
+    "seconds": 59.82,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "p4",
+    "cycle": 1,
+    "final": true,
+    "sha": "60735a194b26890ac81ca32009b420f2f044527924e7aa265c3966b18c665bf3",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/refined-v2/reservation/p4/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "B·C",
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "C",
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 6102,
+    "completion_tokens": 2032,
+    "total_tokens": 8134,
+    "calls": 10,
+    "seconds": 63.93,
+    "counts": {
+      "오답": 22,
+      "정답": 28
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "p1",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/reservation/p1/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/reservation/p1/cycle-1/operator.json",
+        "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n예약 생성 이후를 대상으로 하고, 시간 인자는 정수 초입니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있는지, 그리고 그 시간의 기준 (예: 예약 생성 후 몇 초 이내) 을 명확히 해주세요.",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          },
+          {
+            "by": "B",
+            "question": "방금 잘못 예약한 고객에게 별도의 정정 시간이 있다는 안내문 조항과, 직원이 이를 적용하지 않고 모든 0 초 이상 예약을 허용하는 구현이 맞는지 확인하기 위해, 0 초 이하의 age_seconds (예: -10 초) 와 0 초의 until_start_seconds 조합에 대해 정정 시간이 적용되는지 구체적으로 질문해야 하는지 판단합니다.",
+            "facts": [
+              "inputs",
+              "start"
+            ],
+            "answer": "예약 생성 이후를 대상으로 하고, 시간 인자는 정수 초입니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "'방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문과 직원의 답변에 따라, 이용 시작 24 시간 전 (until_start_seconds >= 86400) 부터 이용 시작 순간 (until_start_seconds = 0) 까지까지의 구간에서 취소를 허용하는 기준은 무엇인가요?",
+            "facts": [
+              "deadline",
+              "late",
+              "start"
+            ],
+            "answer": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5720,
+    "completion_tokens": 1187,
+    "total_tokens": 6907,
+    "calls": 8,
+    "seconds": 64.42,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "current",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/current/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "B·C",
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "C",
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 6102,
+    "completion_tokens": 2032,
+    "total_tokens": 8134,
+    "calls": 10,
+    "seconds": 63.93,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "infer",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/infer/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4502,
+    "completion_tokens": 3025,
+    "total_tokens": 7527,
+    "calls": 9,
+    "seconds": 88.24,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "self-apply",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/self-apply/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3255,
+    "completion_tokens": 3242,
+    "total_tokens": 6497,
+    "calls": 5,
+    "seconds": 93.1,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "apply",
+    "cycle": 1,
+    "final": true,
+    "sha": "dbb6b01b8429ef88600e8153f358c32f683fb855f7a0ab27a32a6965b365eaf7",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/apply/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "B·C",
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "C",
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 9189,
+    "completion_tokens": 2776,
+    "total_tokens": 11965,
+    "calls": 10,
+    "seconds": 86.72,
+    "counts": {
+      "정답": 35,
+      "오답": 15
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "both",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/both/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 6017,
+    "completion_tokens": 4720,
+    "total_tokens": 10737,
+    "calls": 9,
+    "seconds": 135.71,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "self-program",
+    "cycle": 1,
+    "final": true,
+    "sha": "dfe7b226f366f608c1a31c26bcd7ed2f03b4e0f18ff427bfbf496222c46d0c7c",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/self-program/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3102,
+    "completion_tokens": 1124,
+    "total_tokens": 4226,
+    "calls": 5,
+    "seconds": 35.38,
+    "counts": {
+      "보류": 50
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "apply-program",
+    "cycle": 1,
+    "final": true,
+    "sha": "1e3953049c9f93b01e30731cbcb6fa0d18532b33061d4040d531734d09bd1f18",
+    "status": "invalid_output",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/apply-program/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "B·C",
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "C",
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 7463,
+    "completion_tokens": 3687,
+    "total_tokens": 11150,
+    "calls": 10,
+    "seconds": 110.54,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "both-program",
+    "cycle": 1,
+    "final": true,
+    "sha": "dfe7b226f366f608c1a31c26bcd7ed2f03b4e0f18ff427bfbf496222c46d0c7c",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/both-program/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5196,
+    "completion_tokens": 3253,
+    "total_tokens": 8449,
+    "calls": 9,
+    "seconds": 95.74,
+    "counts": {
+      "보류": 50
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "self-regions",
+    "cycle": 1,
+    "final": true,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/self-regions/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3530,
+    "completion_tokens": 2175,
+    "total_tokens": 5705,
+    "calls": 5,
+    "seconds": 64.07,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "apply-regions",
+    "cycle": 1,
+    "final": true,
+    "sha": "7f6da002463d76f083c85b08678efce5e2446cef27c7edc3e6563279647aa8c8",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/apply-regions/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/reservation-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않은 상태입니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "B·C",
+            "question": "안내문의 문구 자체를 그대로 '취소 허용' 조건으로 해석하여 모든 0 초 이상의 경우를 True 로 반환하는 것이 맞습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          },
+          {
+            "by": "C",
+            "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+            "facts": [
+              "clock"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 7126,
+    "completion_tokens": 2669,
+    "total_tokens": 9795,
+    "calls": 10,
+    "seconds": 82.44,
+    "counts": {
+      "오답": 30,
+      "정답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "both-regions",
+    "cycle": 1,
+    "final": true,
+    "sha": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/reservation/candidates/both-regions/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 6512,
+    "completion_tokens": 3516,
+    "total_tokens": 10028,
+    "calls": 9,
+    "seconds": 103.19,
+    "counts": {
+      "오답": 31,
+      "정답": 19
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "old-self",
+    "cycle": 1,
+    "final": false,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3530,
+    "completion_tokens": 2175,
+    "total_tokens": 5705,
+    "calls": 5,
+    "seconds": 64.07,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "old-self",
+    "cycle": 2,
+    "final": false,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+            "facts": [
+              "overlap_allowed",
+              "expired"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 7118,
+    "completion_tokens": 4497,
+    "total_tokens": 11615,
+    "calls": 9,
+    "seconds": 128.9,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "old-self",
+    "cycle": 3,
+    "final": true,
+    "sha": "7dfe1c3b37ad4887bee9a06136591920656d850162127c0d4b8c86bd6ba5fb7b",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+            "facts": [
+              "overlap_allowed",
+              "expired"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 일반 취소 마감이 끝난 후에도 정정 기간이 남아있는 경우와 정정 기간이 끝난 경우를 어떻게 구분하여 처리해야 하는지 명확히 해야 합니다.",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 10820,
+    "completion_tokens": 6061,
+    "total_tokens": 16881,
+    "calls": 13,
+    "seconds": 174.84,
+    "counts": {
+      "오답": 26,
+      "정답": 24
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "old-multi",
+    "cycle": 1,
+    "final": false,
+    "sha": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/intake.json"
+      }
+    ],
+    "prompt_tokens": 6512,
+    "completion_tokens": 3516,
+    "total_tokens": 10028,
+    "calls": 9,
+    "seconds": 103.19,
+    "counts": {
+      "오답": 31,
+      "정답": 19
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "old-multi",
+    "cycle": 2,
+    "final": false,
+    "sha": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "B",
+            "question": "현재 코드와 답변에 따르면, 정정 가능 기간 (10 분) 이 끝난 후 일반 취소 마감 (24 시간 전) 이 지나더라도 정정 요청을 허용하는지, 아니면 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 명확하지 않습니다. 두 규칙 모두 정정 가능 기간 내에서는 허용하고, 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부한다고 해석할 수 있습니다. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나더라도 정정 요청을 허용하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 정정 요청을 허용하는지, 아니면 정",
+            "facts": [
+              "expired"
+            ],
+            "answer": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          },
+          {
+            "by": "C",
+            "question": "정정 가능 기간이 끝나는 순간 (예: 10 분 경과 시점) 에서는 정정이 가능하다고 보시나요? 만약 정정 가능 기간이 일반 마감 (24 시간) 보다 짧은 경우, 정정 가능 기간이 끝나는 순간이 일반 마감보다 먼저 오면 정정이 가능하고, 그 이후에는 정정이 불가능하다고 보시나요? 아니면 정정 가능 기간이 끝나는 순간이 일반 마감보다 늦게 오더라도 정정이 가능하다고 보시나요?",
+            "facts": [
+              "end",
+              "late"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/intake.json"
+      },
+      {
+        "cycle": 2,
+        "by": "A",
+        "question": "정정 가능 기간이 정확히 끝나는 순간 (10 분 경과 시점) 에도 정정이 가능하다고 하셨지만, 정정 가능 기간이 끝난 후에도 이용 시작 시간까지 남은 시간이 0 초가 아닌 경우 (예: 정정 가능 기간이 끝난 후 1 초 더 지난 경우) 에 정정이 가능한지 구체적으로 명시해 주시겠습니까? 즉, 정정 가능 기간 종료 시점과 이용 시작 시점이 겹치거나, 정정 가능 기간 종료 후에도 이용 시작 시점까지 시간이 남은 경우의 운영 기준이 명확히 구분되어 있는지 확인해 주시겠습니까? 정정 가능 기간 종료 시점과 이용 시작 시점의 관계에 따른 구체적인 허용 기준 (예: 정정 가능 기간 종료 후에도 이용 시작 시간까지 1 초라도 남으면,",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/intake.json"
+      }
+    ],
+    "prompt_tokens": 15015,
+    "completion_tokens": 7274,
+    "total_tokens": 22289,
+    "calls": 17,
+    "seconds": 208.84,
+    "counts": {
+      "오답": 31,
+      "정답": 19
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "old-multi",
+    "cycle": 3,
+    "final": true,
+    "sha": "8be73571d629c1e93391e81f9552f5c63c20a2f8d87b98392fcefda31333ab54",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "B",
+            "question": "현재 코드와 답변에 따르면, 정정 가능 기간 (10 분) 이 끝난 후 일반 취소 마감 (24 시간 전) 이 지나더라도 정정 요청을 허용하는지, 아니면 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 명확하지 않습니다. 두 규칙 모두 정정 가능 기간 내에서는 허용하고, 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부한다고 해석할 수 있습니다. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나더라도 정정 요청을 허용하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 정정 요청을 허용하는지, 아니면 정",
+            "facts": [
+              "expired"
+            ],
+            "answer": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          },
+          {
+            "by": "C",
+            "question": "정정 가능 기간이 끝나는 순간 (예: 10 분 경과 시점) 에서는 정정이 가능하다고 보시나요? 만약 정정 가능 기간이 일반 마감 (24 시간) 보다 짧은 경우, 정정 가능 기간이 끝나는 순간이 일반 마감보다 먼저 오면 정정이 가능하고, 그 이후에는 정정이 불가능하다고 보시나요? 아니면 정정 가능 기간이 끝나는 순간이 일반 마감보다 늦게 오더라도 정정이 가능하다고 보시나요?",
+            "facts": [
+              "end",
+              "late"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 예약 생성 후 정확히 10 분 경과 시점) 에 정정이 허용되는지 여부를 명확히 해주세요. 정정 가능 기간의 종료 시점을 포함하는지, 아니면 종료 시점 이후로만 허용하는지 기준을 알려주세요. 정정 가능 기간의 기준점 (예: 예약 생성 시점) 과 허용의 경계 조건 (예: 10 분 경과 시점 포함 여부) 을 알려주세요. 안내문과 기존 답변이 모순되지 않는 실제 운영 기준을 알려주세요. 정정 가능 기간이 끝나는 순간에 정정이 허용되는지 여부를 결정할 수 있는 기준을 알려주세요.",
+            "facts": [
+              "clock",
+              "duration",
+              "end"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다."
+          },
+          {
+            "by": "B",
+            "question": "정정 가능 기간은 예약 생성 후 10 분이며, 이 기간이 정확히 끝나는 순간까지 포함합니다. 정정 기간이 끝난 후에도 일반 취소 마감 (이용 시작 24 시간 전) 을 초과하지 않는 한 정정 요청은 허용됩니다. 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용됩니다. 정정 기간이 정확히 끝나는 순간을 포함하는지, 정정 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청을 허용하는지 명확히 해주세요. 정정 가능 기간이 끝난 순간 (예: 10 분 0 초) 에 일반 마감이 지났더라도 정정 요청은 허용되는지, 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용되는지 명확히 해주세요. 정",
+            "facts": [
+              "end",
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          },
+          {
+            "by": "C",
+            "question": "정정 가능 기간이 정확히 끝나는 순간에 취소를 허용해야 하는지, 아니면 거부해야 하는지 결정해 주세요.",
+            "facts": [
+              "end"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/intake.json"
+      },
+      {
+        "cycle": 2,
+        "by": "A",
+        "question": "정정 가능 기간이 정확히 끝나는 순간 (10 분 경과 시점) 에도 정정이 가능하다고 하셨지만, 정정 가능 기간이 끝난 후에도 이용 시작 시간까지 남은 시간이 0 초가 아닌 경우 (예: 정정 가능 기간이 끝난 후 1 초 더 지난 경우) 에 정정이 가능한지 구체적으로 명시해 주시겠습니까? 즉, 정정 가능 기간 종료 시점과 이용 시작 시점이 겹치거나, 정정 가능 기간 종료 후에도 이용 시작 시점까지 시간이 남은 경우의 운영 기준이 명확히 구분되어 있는지 확인해 주시겠습니까? 정정 가능 기간 종료 시점과 이용 시작 시점의 관계에 따른 구체적인 허용 기준 (예: 정정 가능 기간 종료 후에도 이용 시작 시간까지 1 초라도 남으면,",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/intake.json"
+      }
+    ],
+    "prompt_tokens": 23899,
+    "completion_tokens": 10676,
+    "total_tokens": 34575,
+    "calls": 25,
+    "seconds": 307.78,
+    "counts": {
+      "오답": 31,
+      "정답": 19
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "fixed-self",
+    "cycle": 1,
+    "final": false,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/reservation/self/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3530,
+    "completion_tokens": 2175,
+    "total_tokens": 5705,
+    "calls": 5,
+    "seconds": 64.07,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "fixed-self",
+    "cycle": 2,
+    "final": false,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/reservation/self/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+            "facts": [
+              "overlap_allowed",
+              "expired"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 7118,
+    "completion_tokens": 4497,
+    "total_tokens": 11615,
+    "calls": 9,
+    "seconds": 128.9,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "fixed-self",
+    "cycle": 3,
+    "final": true,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/reservation/self/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+            "facts": [
+              "overlap_allowed",
+              "expired"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/reservation/self/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 일반 취소 마감이 끝난 후에도 정정 기간이 남아있는 경우와 정정 기간이 끝난 경우를 어떻게 구분하여 처리해야 하는지 명확히 해야 합니다.",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 10820,
+    "completion_tokens": 6075,
+    "total_tokens": 16895,
+    "calls": 13,
+    "seconds": 174.67,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "fixed-multi",
+    "cycle": 1,
+    "final": false,
+    "sha": "cf3e9081339f4f535cfcd6bd40c51124bcc317f0c7009ddbc04a90bbc50805e5",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/reservation/multi/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/intake.json"
+      }
+    ],
+    "prompt_tokens": 6512,
+    "completion_tokens": 3464,
+    "total_tokens": 9976,
+    "calls": 9,
+    "seconds": 104.02,
+    "counts": {
+      "오답": 25,
+      "정답": 25
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "fixed-multi",
+    "cycle": 2,
+    "final": false,
+    "sha": "cf3e9081339f4f535cfcd6bd40c51124bcc317f0c7009ddbc04a90bbc50805e5",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/reservation/multi/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "B",
+            "question": "현재 코드와 답변에 따르면, 정정 가능 기간 (10 분) 이 끝난 후 일반 취소 마감 (24 시간 전) 이 지나더라도 정정 요청을 허용하는지, 아니면 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 명확하지 않습니다. 두 규칙 모두 정정 가능 기간 내에서는 허용하고, 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부한다고 해석할 수 있습니다. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나더라도 정정 요청을 허용하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 정정 요청을 허용하는지, 아니면 정",
+            "facts": [
+              "expired"
+            ],
+            "answer": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          },
+          {
+            "by": "C",
+            "question": "정정 가능 기간이 끝나는 순간 (예: 10 분 경과 시점) 에서는 정정이 가능하다고 보시나요? 만약 정정 가능 기간이 일반 마감 (24 시간) 보다 짧은 경우, 정정 가능 기간이 끝나는 순간이 일반 마감보다 먼저 오면 정정이 가능하고, 그 이후에는 정정이 불가능하다고 보시나요? 아니면 정정 가능 기간이 끝나는 순간이 일반 마감보다 늦게 오더라도 정정이 가능하다고 보시나요?",
+            "facts": [
+              "end",
+              "late"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/intake.json"
+      },
+      {
+        "cycle": 2,
+        "by": "A",
+        "question": "정정 가능 기간이 정확히 끝나는 순간 (10 분 경과 시점) 에도 정정이 가능하다고 하셨지만, 정정 가능 기간이 끝난 후에도 이용 시작 시간까지 남은 시간이 0 초가 아닌 경우 (예: 정정 가능 기간이 끝난 후 1 초 더 지난 경우) 에 정정이 가능한지 구체적으로 명시해 주시겠습니까? 즉, 정정 가능 기간 종료 시점과 이용 시작 시점이 겹치거나, 정정 가능 기간 종료 후에도 이용 시작 시점까지 시간이 남은 경우의 운영 기준이 명확히 구분되어 있는지 확인해 주시겠습니까? 정정 가능 기간 종료 시점과 이용 시작 시점의 관계에 따른 구체적인 허용 기준 (예: 정정 가능 기간 종료 후에도 이용 시작 시간까지 1 초라도 남으면,",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/intake.json"
+      }
+    ],
+    "prompt_tokens": 15015,
+    "completion_tokens": 7109,
+    "total_tokens": 22124,
+    "calls": 17,
+    "seconds": 209.96,
+    "counts": {
+      "오답": 25,
+      "정답": 25
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "fixed-multi",
+    "cycle": 3,
+    "final": true,
+    "sha": "cf3e9081339f4f535cfcd6bd40c51124bcc317f0c7009ddbc04a90bbc50805e5",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/reservation/multi/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "B",
+            "question": "현재 코드와 답변에 따르면, 정정 가능 기간 (10 분) 이 끝난 후 일반 취소 마감 (24 시간 전) 이 지나더라도 정정 요청을 허용하는지, 아니면 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 명확하지 않습니다. 두 규칙 모두 정정 가능 기간 내에서는 허용하고, 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부한다고 해석할 수 있습니다. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나더라도 정정 요청을 허용하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 거부하는지 결정해 주세요. 정정 가능 기간이 끝난 후 일반 취소 마감이 지나면 정정 요청을 허용하는지, 아니면 정",
+            "facts": [
+              "expired"
+            ],
+            "answer": "일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          },
+          {
+            "by": "C",
+            "question": "정정 가능 기간이 끝나는 순간 (예: 10 분 경과 시점) 에서는 정정이 가능하다고 보시나요? 만약 정정 가능 기간이 일반 마감 (24 시간) 보다 짧은 경우, 정정 가능 기간이 끝나는 순간이 일반 마감보다 먼저 오면 정정이 가능하고, 그 이후에는 정정이 불가능하다고 보시나요? 아니면 정정 가능 기간이 끝나는 순간이 일반 마감보다 늦게 오더라도 정정이 가능하다고 보시나요?",
+            "facts": [
+              "end",
+              "late"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 예약 생성 후 정확히 10 분 경과 시점) 에 정정이 허용되는지 여부를 명확히 해주세요. 정정 가능 기간의 종료 시점을 포함하는지, 아니면 종료 시점 이후로만 허용하는지 기준을 알려주세요. 정정 가능 기간의 기준점 (예: 예약 생성 시점) 과 허용의 경계 조건 (예: 10 분 경과 시점 포함 여부) 을 알려주세요. 안내문과 기존 답변이 모순되지 않는 실제 운영 기준을 알려주세요. 정정 가능 기간이 끝나는 순간에 정정이 허용되는지 여부를 결정할 수 있는 기준을 알려주세요.",
+            "facts": [
+              "clock",
+              "duration",
+              "end"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다."
+          },
+          {
+            "by": "B",
+            "question": "정정 가능 기간은 예약 생성 후 10 분이며, 이 기간이 정확히 끝나는 순간까지 포함합니다. 정정 기간이 끝난 후에도 일반 취소 마감 (이용 시작 24 시간 전) 을 초과하지 않는 한 정정 요청은 허용됩니다. 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용됩니다. 정정 기간이 정확히 끝나는 순간을 포함하는지, 정정 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청을 허용하는지 명확히 해주세요. 정정 가능 기간이 끝난 순간 (예: 10 분 0 초) 에 일반 마감이 지났더라도 정정 요청은 허용되는지, 정정 가능 기간이 끝난 후에도 일반 마감이 지났더라도 정정 요청은 허용되는지 명확히 해주세요. 정",
+            "facts": [
+              "end",
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          },
+          {
+            "by": "C",
+            "question": "정정 가능 기간이 정확히 끝나는 순간에 취소를 허용해야 하는지, 아니면 거부해야 하는지 결정해 주세요.",
+            "facts": [
+              "end"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-1/intake.json"
+      },
+      {
+        "cycle": 2,
+        "by": "A",
+        "question": "정정 가능 기간이 정확히 끝나는 순간 (10 분 경과 시점) 에도 정정이 가능하다고 하셨지만, 정정 가능 기간이 끝난 후에도 이용 시작 시간까지 남은 시간이 0 초가 아닌 경우 (예: 정정 가능 기간이 끝난 후 1 초 더 지난 경우) 에 정정이 가능한지 구체적으로 명시해 주시겠습니까? 즉, 정정 가능 기간 종료 시점과 이용 시작 시점이 겹치거나, 정정 가능 기간 종료 후에도 이용 시작 시점까지 시간이 남은 경우의 운영 기준이 명확히 구분되어 있는지 확인해 주시겠습니까? 정정 가능 기간 종료 시점과 이용 시작 시점의 관계에 따른 구체적인 허용 기준 (예: 정정 가능 기간 종료 후에도 이용 시작 시간까지 1 초라도 남으면,",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/three-cycles-20261126/runs/reservation/multi/cycle-2/intake.json"
+      }
+    ],
+    "prompt_tokens": 23899,
+    "completion_tokens": 10531,
+    "total_tokens": 34430,
+    "calls": 25,
+    "seconds": 310.53,
+    "counts": {
+      "오답": 25,
+      "정답": 25
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "live-self",
+    "cycle": 1,
+    "final": false,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/reservation/live-self/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/reservation/live-self/cycle-1/operator.json",
+        "origin": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3530,
+    "completion_tokens": 2175,
+    "total_tokens": 5705,
+    "calls": 5,
+    "seconds": 64.07,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "live-self",
+    "cycle": 2,
+    "final": false,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/reservation/live-self/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/reservation/live-self/cycle-1/operator.json",
+        "origin": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/reservation/live-self/cycle-2/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/answer.json",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+            "facts": [
+              "overlap_allowed",
+              "expired"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 7118,
+    "completion_tokens": 4497,
+    "total_tokens": 11615,
+    "calls": 9,
+    "seconds": 128.9,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "live-self",
+    "cycle": 3,
+    "final": true,
+    "sha": "5fd74dc20043f42d4048694defc65b8b4ac1d5345a1f4531019a624e16b53928",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/reservation/live-self/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/reservation/live-self/cycle-1/operator.json",
+        "origin": "experiments/festival-mini-20261126/operator/reservation-self-v1.json",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+            "facts": [
+              "clock",
+              "duration"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/reservation/live-self/cycle-2/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/reservation/self/cycle-2/answer.json",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 600 초를 초과한 예약 (예: age_seconds=601) 에 대해서는 안내문과 담당자 답변에 명시된 운영 기준에 따라 취소를 허용할 수 있는지 확인이 필요합니다.",
+            "facts": [
+              "overlap_allowed",
+              "expired"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/pipeline100/runs/reservation/live-self/cycle-3/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/reservation/self/cycle-3/answer.json",
+        "text": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "정정 가능 기간이 10 분 (600 초) 일 때, 일반 취소 마감이 끝난 후에도 정정 기간이 남아있는 경우와 정정 기간이 끝난 경우를 어떻게 구분하여 처리해야 하는지 명확히 해야 합니다.",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 10820,
+    "completion_tokens": 6075,
+    "total_tokens": 16895,
+    "calls": 13,
+    "seconds": 174.67,
+    "counts": {
+      "정답": 30,
+      "오답": 20
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "live-multi",
+    "cycle": 1,
+    "final": false,
+    "sha": "cf3e9081339f4f535cfcd6bd40c51124bcc317f0c7009ddbc04a90bbc50805e5",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/operator.json",
+        "origin": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/intake.json"
+      }
+    ],
+    "prompt_tokens": 6512,
+    "completion_tokens": 3464,
+    "total_tokens": 9976,
+    "calls": 9,
+    "seconds": 104.02,
+    "counts": {
+      "오답": 25,
+      "정답": 25
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "live-multi",
+    "cycle": 2,
+    "final": false,
+    "sha": "c260796158b45ccae4e28a49250fdab33cc3c3a9fa9aba8453ae50da7b1e161b",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/operator.json",
+        "origin": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-2/operator.json",
+        "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "B",
+            "question": "정정 가능 기간 (10 분) 이 만료된 후에도 일반 취소 마감 (이용 시작 24 시간 전) 이 지나지 않은 경우, 정정 요청을 허용하시나요? (Rule 1 은 허용하지 않고, Rule 2 는 허용합니다.)",
+            "facts": [
+              "overlap_allowed"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다."
+          },
+          {
+            "by": "C",
+            "question": "위 상황 (정정 기간이 정확히 끝난 순간이자 이용 시작 순간) 에서 정정을 허용하는지, 아니면 거부하는지 명확히 해주세요. 정정 기간이 끝난 순간에 정정을 허용하더라도, 일반 마감이 지났을 경우에도 정정을 허용하나요?",
+            "facts": [
+              "start",
+              "end",
+              "late"
+            ],
+            "answer": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/intake.json"
+      },
+      {
+        "cycle": 2,
+        "by": "A",
+        "question": "정정 가능 기간은 예약 생성 시점부터 10 분까지이며, 이 기간이 종료된 순간 (정확히 10 분 경과) 에도 정정이 허용됩니다. 하지만 이용 시작 순간 (0 초) 에 도달하면 정정이 금지됩니다. 정정이 허용된 상태가 되었으나, 동시에 이용 시작 순간이 도달한 경우 (예: 예약 생성 후 10 분 경과 시점에 시작) 에 정정을 허용할 수 있는지, 아니면 정정이 허용된 상태라도 시작 순간에는 절대 거부해야 하는지 명확히 해주세요. 기준은 '정기 종료 순간 포함'과 '시작 순간 거부' 사이에서 어떻게 적용되는지 결정해 주세요. (예: 정정이 허용된 상태라도 시작 순간에는 거부, 또는 정정이 아직 남아있어야만 시작 순간에 거부)",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-2/intake.json"
+      }
+    ],
+    "prompt_tokens": 15108,
+    "completion_tokens": 6562,
+    "total_tokens": 21670,
+    "calls": 17,
+    "seconds": 204.14,
+    "counts": {
+      "오답": 31,
+      "정답": 19
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "live-multi",
+    "cycle": 3,
+    "final": true,
+    "sha": "c260796158b45ccae4e28a49250fdab33cc3c3a9fa9aba8453ae50da7b1e161b",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/operator.json",
+        "origin": "experiments/rule-cycle-20261126/runs/reservation/operator.json",
+        "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객 안내문에서 언급된 '별도의 정정 시간'의 운영 기준을 구체적으로 정해 주십시오. 정정 시간을 적용할 수 있는 '연령 시간' (`age_seconds`)의 최소 기준과 '남은 시간' (`until_start_seconds`)의 최대 기준은 무엇이며, 이 기준이 적용되지 않는 경계선은 어디까지입니까? (예: 이용 시작 1 초 전까지, 또는 예약 생성 후 1 분 이내 등) 이 기준이 명확하지 않으면 직원이 정정 요청을 거절할 수 있는 근거가 없습니다.",
+            "facts": [
+              "clock",
+              "duration",
+              "end",
+              "start"
+            ],
+            "answer": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다."
+          },
+          {
+            "by": "C",
+            "question": "일반 취소 마감 (24 시간 전) 이 지난 예약에 대해 직원이 정정 요청을 받을 때, 해당 예약의 취소를 허용 (True) 하거나 거부 (False) 하려는 운영 기준은 무엇인가요?",
+            "facts": [
+              "late",
+              "expired"
+            ],
+            "answer": "정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-2/operator.json",
+        "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+        "text": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다.\n이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "B",
+            "question": "정정 가능 기간 (10 분) 이 만료된 후에도 일반 취소 마감 (이용 시작 24 시간 전) 이 지나지 않은 경우, 정정 요청을 허용하시나요? (Rule 1 은 허용하지 않고, Rule 2 는 허용합니다.)",
+            "facts": [
+              "overlap_allowed"
+            ],
+            "answer": "일반 취소가 가능한 때에는 정정 기간이 끝났어도 일반 취소할 수 있습니다."
+          },
+          {
+            "by": "C",
+            "question": "위 상황 (정정 기간이 정확히 끝난 순간이자 이용 시작 순간) 에서 정정을 허용하는지, 아니면 거부하는지 명확히 해주세요. 정정 기간이 끝난 순간에 정정을 허용하더라도, 일반 마감이 지났을 경우에도 정정을 허용하나요?",
+            "facts": [
+              "start",
+              "end",
+              "late"
+            ],
+            "answer": "이용이 시작되는 순간에는 정정 기간이 남아 있어도 거부합니다.\n정정 기간이 정확히 끝나는 순간도 포함합니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-3/operator.json",
+        "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+        "text": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "정정 가능 기간의 종료 시점 기준을 명확히 해주세요. '10 분 경과 시점' (정정 불가) 과 '10 분 경과 전까지' (정정 가능) 중 어떤 것이 맞는지, 혹은 '10 분 0 초' 시점에 정정이 허용되는지 여부를 결정해 주세요. 이는 정정 가능 시간의 경계 (boundary) 를 정의하는 데 필요합니다.",
+            "facts": [
+              "end"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다."
+          },
+          {
+            "by": "B",
+            "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 예약 생성 후 10 분 0 초) 에는 정정을 허용하시나요? 정정 가능 기간이 지나간 후 (예: 10 분 1 초) 에는 일반 마감이 지난 예약이라도 정정 가능 기간이 남아 있다면 정정을 허용하시나요? 두 경우 모두 정정 가능 기간이 남아 있다면 허용하시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 정확히 끝나는 순간은 허용하지 않으시나요? 정정 가능 기간이 1",
+            "facts": [
+              "end",
+              "expired",
+              "late"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다.\n일반 취소 마감과 정정 가능 기간을 모두 지났으면 취소할 수 없습니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+          },
+          {
+            "by": "C",
+            "question": "정정 가능 기간이 정확히 끝나는 순간 (예: 10 분 0 초) 에 정정 요청을 받으면 허용해야 하는지, 아니면 그 순간부터는 거부해야 하는지 명확히 해주세요.",
+            "facts": [
+              "end"
+            ],
+            "answer": "정정 기간이 정확히 끝나는 순간도 포함합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [
+      {
+        "cycle": 1,
+        "by": "B",
+        "question": "일반 취소 마감은 이용 시작 24 시간 전입니다. 이 문구를 해석할 때, (1) 예약 생성 후 24 시간 이내且在开始时间前 24 小时内的 예약을 허용하고, (2) 예약 생성 후 24 시간 초과且在开始时间前 24 小时外的 예약을 허용하는 두 가지 규칙 중 어느 것이 실제 운영 기준입니까? 또한, 막 이용이 시작된 예약 (until_start_seconds < 0) 에 대해 정정 요청을 받더라도 취소를 허용하는 별도의 기준이 있는지 확인해 주세요.",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-1/intake.json"
+      },
+      {
+        "cycle": 2,
+        "by": "A",
+        "question": "정정 가능 기간은 예약 생성 시점부터 10 분까지이며, 이 기간이 종료된 순간 (정확히 10 분 경과) 에도 정정이 허용됩니다. 하지만 이용 시작 순간 (0 초) 에 도달하면 정정이 금지됩니다. 정정이 허용된 상태가 되었으나, 동시에 이용 시작 순간이 도달한 경우 (예: 예약 생성 후 10 분 경과 시점에 시작) 에 정정을 허용할 수 있는지, 아니면 정정이 허용된 상태라도 시작 순간에는 절대 거부해야 하는지 명확히 해주세요. 기준은 '정기 종료 순간 포함'과 '시작 순간 거부' 사이에서 어떻게 적용되는지 결정해 주세요. (예: 정정이 허용된 상태라도 시작 순간에는 거부, 또는 정정이 아직 남아있어야만 시작 순간에 거부)",
+        "why": "감시자가 질문 불필요로 표시",
+        "source": "experiments/pipeline100/runs/reservation/live-multi/cycle-2/intake.json"
+      }
+    ],
+    "prompt_tokens": 24058,
+    "completion_tokens": 9472,
+    "total_tokens": 33530,
+    "calls": 25,
+    "seconds": 311.66,
+    "counts": {
+      "오답": 31,
+      "정답": 19
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "short",
+    "cycle": 1,
+    "final": true,
+    "sha": "e3ed05a5c692f3847a84477abc65bbc215cf3660bc75689dbf2f3e15d4694e54",
+    "status": "submitted",
+    "source": "experiments/pipeline100/runs/reservation/choices/final.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 1032,
+    "completion_tokens": 790,
+    "total_tokens": 1822,
+    "calls": 2,
+    "seconds": 23.22,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "independent",
+    "cycle": 1,
+    "final": true,
+    "sha": "602479eb3fe49af3e15cb4f819a45869cf4d90b215a90537a2b0c017181c3766",
+    "status": "submitted",
+    "source": "experiments/pipeline100/runs/reservation/choices/final.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 4171,
+    "completion_tokens": 1743,
+    "total_tokens": 5914,
+    "calls": 5,
+    "seconds": 51.52,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "reservation",
+    "arm": "serial",
+    "cycle": 1,
+    "final": true,
+    "sha": "a6d49ddbc23eb2b99352ae25e0836812f4f07ad866d09794851729bca03c539f",
+    "status": "submitted",
+    "source": "experiments/pipeline100/runs/reservation/choices/final.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 5387,
+    "completion_tokens": 1735,
+    "total_tokens": 7122,
+    "calls": 5,
+    "seconds": 51.71,
+    "counts": {
+      "정답": 38,
+      "오답": 12
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "solo",
+    "cycle": 0,
+    "final": true,
+    "sha": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+    "status": "one_shot",
+    "source": "experiments/festival-mini-20261126/runs/triage/solo/v1/snapshot.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 314,
+    "completion_tokens": 512,
+    "total_tokens": 826,
+    "calls": 1,
+    "seconds": 13.96,
+    "counts": {
+      "정답": 28,
+      "오답": 15,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "self",
+    "cycle": 1,
+    "final": true,
+    "sha": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/runs/triage/self/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 1248,
+    "completion_tokens": 1111,
+    "total_tokens": 2359,
+    "calls": 4,
+    "seconds": 31.24,
+    "counts": {
+      "정답": 28,
+      "오답": 15,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "p2",
+    "cycle": 1,
+    "final": true,
+    "sha": "09ed9f0ccdf17c3ad392957671406c3d5355c2bc5a4d3a803345a9b95f8f1e93",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/runs/triage/p2/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-p2-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "중복된 태그가 입력될 경우, 첫 번째로 발견된 태그를 반환하는 것이 맞나요?",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "B",
+            "question": "triage 함수가 여러 태그가 들어올 경우 첫 번째로 찾은 태그만 반환하는 구현이, '중복 횟수'나 '입력 순서'에 따라 결과가 달라지지 않는지 확인하세요.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "C",
+            "question": "코드에서 여러 태그가 들어올 경우 첫 번째로 발견된 태그만 반환하고 나머지는 무시하며, 알 수 없는 태그가 섞여도 예외를 던지지 않고 첫 번째 유효 태그를 반환하는 로직이 분류 관행과 일치하는지 확인해야 합니다.",
+            "facts": [
+              "invariant",
+              "unknown"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3082,
+    "completion_tokens": 1083,
+    "total_tokens": 4165,
+    "calls": 8,
+    "seconds": 32.63,
+    "counts": {
+      "정답": 28,
+      "오답": 15,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "p3",
+    "cycle": 1,
+    "final": true,
+    "sha": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/runs/triage/p3/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-p3-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "B",
+            "question": "중복 태그가 포함된 입력 시, 코드는 첫 번째로 발견된 태그를 반환하는지 마지막에 발견된 태그를 반환하는지 명확히 해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "C",
+            "question": "중복 태그가 포함된 입력 시, triage 함수는 첫 번째로 발견된 태그를 반환하는 것이 맞나요?",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 2724,
+    "completion_tokens": 2635,
+    "total_tokens": 5359,
+    "calls": 8,
+    "seconds": 74.69,
+    "counts": {
+      "정답": 28,
+      "오답": 15,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "p4",
+    "cycle": 1,
+    "final": true,
+    "sha": "653b25914fdd741a5908eb240cc89d93cff149bf881f8ff83d10940ffe64e6c3",
+    "status": "open_limit",
+    "source": "experiments/festival-mini-20261126/refined-v2/triage/p4/v2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "A·C",
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "facts": [
+              "unknown"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "A·C",
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "facts": [
+              "empty_list"
+            ],
+            "answer": "빈 목록은 general 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4147,
+    "completion_tokens": 2347,
+    "total_tokens": 6494,
+    "calls": 9,
+    "seconds": 67.89,
+    "counts": {
+      "정답": 29,
+      "오답": 15,
+      "보류": 6
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "p1",
+    "cycle": 1,
+    "final": true,
+    "sha": "03532275aea41f65c05ce061f71e9ff7141eeab722f61e7293fc1dd669743215",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/triage/p1/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/triage/p1/cycle-1/operator.json",
+        "origin": "대리 담당자가 이번 질문 원문을 읽고 선택",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "triage 함수는 여러 태그가 들어올 때 첫 번째로 발견된 태그만 반환하는 구현이 맞는지 확인하고, 알 수 없는 태그가 섞여도 전체 입력을 처리해야 하는지 확인하세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "triage 함수가 입력 리스트에 포함된 모든 태그를 처리하여 최종 팀을 결정하는 로직이 구현되어 있거나, 여러 태그가 있을 때 어떻게 분류해야 하는지 명확히 해주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "triage 함수는 입력 리스트의 순서나 중복 횟수에 따라 결과가 달라지지 않도록 해야 하는데, 현재 구현은 첫 번째 매칭된 태그만 반환하고 나머지는 무시하므로 이 요구사항을 충족하지 못합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4739,
+    "completion_tokens": 1675,
+    "total_tokens": 6414,
+    "calls": 8,
+    "seconds": 72.17,
+    "counts": {
+      "오답": 24,
+      "정답": 26
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "current",
+    "cycle": 1,
+    "final": true,
+    "sha": "653b25914fdd741a5908eb240cc89d93cff149bf881f8ff83d10940ffe64e6c3",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/current/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "A·C",
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "facts": [
+              "unknown"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "A·C",
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "facts": [
+              "empty_list"
+            ],
+            "answer": "빈 목록은 general 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4147,
+    "completion_tokens": 2347,
+    "total_tokens": 6494,
+    "calls": 9,
+    "seconds": 67.89,
+    "counts": {
+      "정답": 29,
+      "오답": 15,
+      "보류": 6
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "infer",
+    "cycle": 1,
+    "final": true,
+    "sha": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/infer/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3639,
+    "completion_tokens": 2484,
+    "total_tokens": 6123,
+    "calls": 9,
+    "seconds": 70.96,
+    "counts": {
+      "정답": 28,
+      "오답": 15,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "self-apply",
+    "cycle": 1,
+    "final": true,
+    "sha": "ba79c1972825d077dad7f297b68d84e8a4ce6ba8bc4cbb02ed4b87e37a114428",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/self-apply/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 1925,
+    "completion_tokens": 943,
+    "total_tokens": 2868,
+    "calls": 5,
+    "seconds": 27.14,
+    "counts": {
+      "정답": 22,
+      "오답": 21,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "apply",
+    "cycle": 1,
+    "final": true,
+    "sha": "dbc64f4e844819587653694ffc97b15e1632f4077a57862ffcc5e7442ae6296d",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/apply/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "A·C",
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "facts": [
+              "unknown"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "A·C",
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "facts": [
+              "empty_list"
+            ],
+            "answer": "빈 목록은 general 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4858,
+    "completion_tokens": 2823,
+    "total_tokens": 7681,
+    "calls": 10,
+    "seconds": 82.71,
+    "counts": {
+      "정답": 29,
+      "오답": 15,
+      "보류": 6
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "both",
+    "cycle": 1,
+    "final": true,
+    "sha": "9102550811ef0f803a0b255a25d427ca7a28d648418d3077f7a915ab523a34d5",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/both/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3728,
+    "completion_tokens": 2336,
+    "total_tokens": 6064,
+    "calls": 9,
+    "seconds": 66.51,
+    "counts": {
+      "정답": 28,
+      "오답": 15,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "self-program",
+    "cycle": 1,
+    "final": true,
+    "sha": "ba79c1972825d077dad7f297b68d84e8a4ce6ba8bc4cbb02ed4b87e37a114428",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/self-program/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 2700,
+    "completion_tokens": 1179,
+    "total_tokens": 3879,
+    "calls": 6,
+    "seconds": 34.79,
+    "counts": {
+      "정답": 22,
+      "오답": 21,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "apply-program",
+    "cycle": 1,
+    "final": true,
+    "sha": "dbc64f4e844819587653694ffc97b15e1632f4077a57862ffcc5e7442ae6296d",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/apply-program/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "A·C",
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "facts": [
+              "unknown"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "A·C",
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "facts": [
+              "empty_list"
+            ],
+            "answer": "빈 목록은 general 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5759,
+    "completion_tokens": 3273,
+    "total_tokens": 9032,
+    "calls": 11,
+    "seconds": 96.19,
+    "counts": {
+      "정답": 29,
+      "오답": 15,
+      "보류": 6
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "both-program",
+    "cycle": 1,
+    "final": true,
+    "sha": "864f554418eb3ffb6d490d2a1b799d9162eeb2c412836e0fc53daaceca3bd57a",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/both-program/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3672,
+    "completion_tokens": 2458,
+    "total_tokens": 6130,
+    "calls": 9,
+    "seconds": 70.12,
+    "counts": {
+      "보류": 50
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "self-regions",
+    "cycle": 1,
+    "final": true,
+    "sha": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/self-regions/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 1835,
+    "completion_tokens": 1019,
+    "total_tokens": 2854,
+    "calls": 5,
+    "seconds": 29.31,
+    "counts": {
+      "정답": 15,
+      "보류": 35
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "apply-regions",
+    "cycle": 1,
+    "final": true,
+    "sha": "b0975910c7410491de1e673d06d58070fec046424c984966678036cfc0cf8c61",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/apply-regions/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/festival-mini-20261126/operator/triage-p4-v1.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n빈 목록은 general 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A·C",
+            "question": "중복 태그가 있을 때, 첫 번째로 발견된 태그를 반환하는 것이 올바른지, 아니면 중복을 제거한 후 첫 번째 태그를 반환하는 것이 올바른지.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          },
+          {
+            "by": "A·C",
+            "question": "알려지지 않은 태그가 섞여 있을 때, 이를 무시하고 알려진 태그만 필터링하는 것이 올바른지, 아니면 알 수 없는 태그가 포함된 경우 예외를 던지는 것이 올바른지.",
+            "facts": [
+              "unknown"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "A·C",
+            "question": "입력 리스트가 비어있을 때, 예외를 발생시키고 함수를 종료하는 것이 올바른지, 아니면 None 을 반환하는 것이 올바른지.",
+            "facts": [
+              "empty_list"
+            ],
+            "answer": "빈 목록은 general 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4876,
+    "completion_tokens": 2852,
+    "total_tokens": 7728,
+    "calls": 10,
+    "seconds": 83.09,
+    "counts": {
+      "정답": 16,
+      "보류": 34
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "both-regions",
+    "cycle": 1,
+    "final": true,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/rule-cycle-20261126/runs/triage/candidates/both-regions/final.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4000,
+    "completion_tokens": 2289,
+    "total_tokens": 6289,
+    "calls": 9,
+    "seconds": 65.95,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "old-self",
+    "cycle": 1,
+    "final": false,
+    "sha": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 1835,
+    "completion_tokens": 1019,
+    "total_tokens": 2854,
+    "calls": 5,
+    "seconds": 29.31,
+    "counts": {
+      "정답": 15,
+      "보류": 35
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "old-self",
+    "cycle": 2,
+    "final": false,
+    "sha": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3562,
+    "completion_tokens": 1673,
+    "total_tokens": 5235,
+    "calls": 9,
+    "seconds": 48.44,
+    "counts": {
+      "정답": 15,
+      "보류": 35
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "old-self",
+    "cycle": 3,
+    "final": true,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5546,
+    "completion_tokens": 2360,
+    "total_tokens": 7906,
+    "calls": 13,
+    "seconds": 68.98,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "old-multi",
+    "cycle": 1,
+    "final": false,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4000,
+    "completion_tokens": 2289,
+    "total_tokens": 6289,
+    "calls": 9,
+    "seconds": 65.95,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "old-multi",
+    "cycle": 2,
+    "final": false,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+            "facts": [
+              "ab"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+            "facts": [
+              "rank",
+              "three_known"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          },
+          {
+            "by": "C",
+            "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 8917,
+    "completion_tokens": 4580,
+    "total_tokens": 13497,
+    "calls": 17,
+    "seconds": 130.64,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "old-multi",
+    "cycle": 3,
+    "final": true,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+            "facts": [
+              "ab"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+            "facts": [
+              "rank",
+              "three_known"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          },
+          {
+            "by": "C",
+            "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "현재 triage 로직에서 'billing' 과 'account' 태그가 모두 존재할 때, 알 수 없는 태그가 섞여 있거나 섞이지 않았을 경우 어떻게 처리하시나요? 'billing' 과 'account' 태그가 모두 있는 요청은 'privacy' 팀으로 보내는지, 아니면 'billing' 팀으로 보내시나요? 이 결정의 기준과 경계 조건을 명확히 해주세요.",
+            "facts": [
+              "ab",
+              "unknown"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "현재 triage 함수의 로직은 '모든 태그가 (account, billing, privacy) 에 포함된 경우, 태그 리스트의 순서를 무시하고 고정된 우선순위 (privacy > billing > account) 를 따르나요, 아니면 태그 리스트에서 첫 번째로 등장하는 담당 태그를 반환하나요?",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "입력 태그가 ['account', 'billing', 'unknown_tag'] 인 경우, 알 수 없는 태그는 무시하고 비즈니스 태그가 여러 개일 때 'privacy' 팀으로 보내는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있는 경우를 명시적으로 처리하여 다른 로직을 적용해야 하는지 정해 주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 14245,
+    "completion_tokens": 6446,
+    "total_tokens": 20691,
+    "calls": 25,
+    "seconds": 185.25,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "fixed-self",
+    "cycle": 1,
+    "final": false,
+    "sha": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/triage/self/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 1835,
+    "completion_tokens": 1019,
+    "total_tokens": 2854,
+    "calls": 5,
+    "seconds": 29.31,
+    "counts": {
+      "정답": 15,
+      "보류": 35
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "fixed-self",
+    "cycle": 2,
+    "final": false,
+    "sha": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/triage/self/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3562,
+    "completion_tokens": 1673,
+    "total_tokens": 5235,
+    "calls": 9,
+    "seconds": 48.44,
+    "counts": {
+      "정답": 15,
+      "보류": 35
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "fixed-self",
+    "cycle": 3,
+    "final": true,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/triage/self/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/triage/self/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5546,
+    "completion_tokens": 2360,
+    "total_tokens": 7906,
+    "calls": 13,
+    "seconds": 68.98,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "fixed-multi",
+    "cycle": 1,
+    "final": false,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/triage/multi/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4000,
+    "completion_tokens": 2289,
+    "total_tokens": 6289,
+    "calls": 9,
+    "seconds": 65.95,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "fixed-multi",
+    "cycle": 2,
+    "final": false,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/triage/multi/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+            "facts": [
+              "ab"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+            "facts": [
+              "rank",
+              "three_known"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          },
+          {
+            "by": "C",
+            "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 8917,
+    "completion_tokens": 4580,
+    "total_tokens": 13497,
+    "calls": 17,
+    "seconds": 130.64,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "fixed-multi",
+    "cycle": 3,
+    "final": true,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/answer-fidelity-20261126/runs/triage/multi/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-1/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+            "facts": [
+              "ab"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+            "facts": [
+              "rank",
+              "three_known"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          },
+          {
+            "by": "C",
+            "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/operator.json",
+        "origin": "보존된 실제 회신",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "현재 triage 로직에서 'billing' 과 'account' 태그가 모두 존재할 때, 알 수 없는 태그가 섞여 있거나 섞이지 않았을 경우 어떻게 처리하시나요? 'billing' 과 'account' 태그가 모두 있는 요청은 'privacy' 팀으로 보내는지, 아니면 'billing' 팀으로 보내시나요? 이 결정의 기준과 경계 조건을 명확히 해주세요.",
+            "facts": [
+              "ab",
+              "unknown"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "현재 triage 함수의 로직은 '모든 태그가 (account, billing, privacy) 에 포함된 경우, 태그 리스트의 순서를 무시하고 고정된 우선순위 (privacy > billing > account) 를 따르나요, 아니면 태그 리스트에서 첫 번째로 등장하는 담당 태그를 반환하나요?",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "입력 태그가 ['account', 'billing', 'unknown_tag'] 인 경우, 알 수 없는 태그는 무시하고 비즈니스 태그가 여러 개일 때 'privacy' 팀으로 보내는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있는 경우를 명시적으로 처리하여 다른 로직을 적용해야 하는지 정해 주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 14245,
+    "completion_tokens": 6446,
+    "total_tokens": 20691,
+    "calls": 25,
+    "seconds": 185.25,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "live-self",
+    "cycle": 1,
+    "final": false,
+    "sha": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/triage/live-self/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/triage/live-self/cycle-1/operator.json",
+        "origin": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 1835,
+    "completion_tokens": 1019,
+    "total_tokens": 2854,
+    "calls": 5,
+    "seconds": 29.31,
+    "counts": {
+      "정답": 15,
+      "보류": 35
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "live-self",
+    "cycle": 2,
+    "final": false,
+    "sha": "b3b6f43e95699727013d96235e91ac806f38183dae194964a3426da9bd624a98",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/triage/live-self/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/triage/live-self/cycle-1/operator.json",
+        "origin": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/triage/live-self/cycle-2/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/answer.json",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 3562,
+    "completion_tokens": 1673,
+    "total_tokens": 5235,
+    "calls": 9,
+    "seconds": 48.44,
+    "counts": {
+      "정답": 15,
+      "보류": 35
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "live-self",
+    "cycle": 3,
+    "final": true,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/triage/live-self/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/triage/live-self/cycle-1/operator.json",
+        "origin": "experiments/festival-mini-20261126/operator/triage-self-v1.json",
+        "text": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "trage 함수가 여러 태그를 입력받았을 때, 첫 번째로 발견된 태그만 반환하는 로직이 '중복 제거'와 '입력 순서 무관'이라는 요구사항을 충족하는지 확인해야 합니다.",
+            "facts": [
+              "invariant"
+            ],
+            "answer": "입력 순서와 중복 횟수는 담당 팀에 영향을 주지 않습니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/triage/live-self/cycle-2/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/triage/self/cycle-2/answer.json",
+        "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 여러 개 포함되어 있을 때, 해당 태그가 있는 경우와 없는 경우를 구분하여 처리하는 로직이 누락되어 있습니다.",
+            "facts": [
+              "clarify"
+            ],
+            "answer": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/pipeline100/runs/triage/live-self/cycle-3/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/triage/self/cycle-3/answer.json",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+        "questions": [
+          {
+            "by": "main-self",
+            "question": "중복 태그가 포함된 입력이 여러 팀을 지목할 경우, 우선순위가 정해져 있거나 정해지지 않은 상태입니다. 우선순위가 정해지지 않은 상태라면, 담당자가 정한 분류 관행에 따라 어떻게 처리해야 하는지 확인해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 5546,
+    "completion_tokens": 2360,
+    "total_tokens": 7906,
+    "calls": 13,
+    "seconds": 68.98,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "live-multi",
+    "cycle": 1,
+    "final": false,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-1/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/triage/live-multi/cycle-1/operator.json",
+        "origin": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 4000,
+    "completion_tokens": 2289,
+    "total_tokens": 6289,
+    "calls": 9,
+    "seconds": 65.95,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "live-multi",
+    "cycle": 2,
+    "final": false,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-2/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/triage/live-multi/cycle-1/operator.json",
+        "origin": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/triage/live-multi/cycle-2/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/answer.json",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+            "facts": [
+              "ab"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+            "facts": [
+              "rank",
+              "three_known"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          },
+          {
+            "by": "C",
+            "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 8917,
+    "completion_tokens": 4580,
+    "total_tokens": 13497,
+    "calls": 17,
+    "seconds": 130.64,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "live-multi",
+    "cycle": 3,
+    "final": true,
+    "sha": "59cceaa97c9af9110733bcc5e97e7eca8ac16fdff9d5de43d785dbf0fd65413d",
+    "status": "open_limit",
+    "source": "experiments/pipeline100/runs/triage/live-multi/cycle-3/snapshot.json",
+    "windows": [
+      {
+        "cycle": 1,
+        "source": "experiments/pipeline100/runs/triage/live-multi/cycle-1/operator.json",
+        "origin": "experiments/rule-cycle-20261126/runs/triage/operator.json",
+        "text": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "고객지원 도구의 triage 함수에서 태그가 여러 개 겹치거나 알려지지 않은 태그가 포함된 경우, 최종 담당 팀을 결정하는 실제 기준은 무엇인가요? 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명시해 주세요.",
+            "facts": [
+              "rank",
+              "unknown"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에 대해, 입력 태그 중 하나라도 'account', 'billing', 'privacy' 중 하나에 해당하면 가장 먼저 들어온 태그를 반환해야 하는지, 아니면 고정된 우선순위에 따라 반환해야 하는지 명확히 해주세요. 여러 규칙이 적용될 때 어떤 규칙이 우선시되어야 하는지 결정해 주세요.",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "이 경우 ('billing', 'account', 'privacy' 순서) 에서 어떤 팀으로 보내야 하나요? 첫 번째인 'billing' 팀인지, 아니면 'account' 팀인지, 아니면 'privacy' 팀인지 정해 주세요.",
+            "facts": [
+              "three_known"
+            ],
+            "answer": "말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "source": "experiments/pipeline100/runs/triage/live-multi/cycle-2/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-2/answer.json",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "기존 코드는 두 가지 다른 로직 (우선순위 기반 vs 조건부 우선순위) 을 모두 만족할 수 있습니다. 두 규칙이 모두 요청과 일치하는 상황에서, 'billing' 과 'account' 태그가 모두 포함된 요청 (예: ['billing', 'account']) 이 들어왔을 때, 실제 운영 기준은 어떤 팀을 우선시하는가?\n\n1. 'billing' 과 'account' 가 모두 있을 때, 우선시하는 팀은 무엇인가요?\n2. 해당 기준의 기준점 (reference point) 과 경계 (boundary) 를 명확히 해주세요.",
+            "facts": [
+              "ab"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다."
+          },
+          {
+            "by": "B",
+            "question": "고객지원 도구의 triage 함수에서 여러 태그가 있을 때, 'billing, account, privacy' 순서로 가장 앞선 태그를 선택하는 규칙과, 'billing, account, privacy' 순서로 우선순위를 정하여 가장 높은 우선순위를 가진 태그를 선택하는 규칙 중 어떤 규칙이 적용되나요? 또한, 이 두 규칙이 모두 적용되는 상황 (예: billing, account, privacy 가 모두 포함된 경우) 에 대해 명확히 알려주세요.",
+            "facts": [
+              "rank",
+              "three_known"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.\n말씀하신 billing, account, privacy가 모두 있는 요청은 privacy 팀으로 보냅니다."
+          },
+          {
+            "by": "C",
+            "question": "알 수 없는 태그가 섞인 요청에서, 담당 태그가 여러 개일 때 'billing'과 'account'가 모두 포함된 경우, 담당 팀으로 보낼 팀은 'billing'이어야 하는지, 아니면 'account'여야 하는지 명확히 해주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "source": "experiments/pipeline100/runs/triage/live-multi/cycle-3/operator.json",
+        "origin": "experiments/three-cycles-20261126/runs/triage/multi/cycle-3/answer.json",
+        "text": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\n여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다.",
+        "questions": [
+          {
+            "by": "A",
+            "question": "현재 triage 로직에서 'billing' 과 'account' 태그가 모두 존재할 때, 알 수 없는 태그가 섞여 있거나 섞이지 않았을 경우 어떻게 처리하시나요? 'billing' 과 'account' 태그가 모두 있는 요청은 'privacy' 팀으로 보내는지, 아니면 'billing' 팀으로 보내시나요? 이 결정의 기준과 경계 조건을 명확히 해주세요.",
+            "facts": [
+              "ab",
+              "unknown"
+            ],
+            "answer": "account와 billing만 겹치면 billing 팀으로 보냅니다.\n담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다."
+          },
+          {
+            "by": "B",
+            "question": "현재 triage 함수의 로직은 '모든 태그가 (account, billing, privacy) 에 포함된 경우, 태그 리스트의 순서를 무시하고 고정된 우선순위 (privacy > billing > account) 를 따르나요, 아니면 태그 리스트에서 첫 번째로 등장하는 담당 태그를 반환하나요?",
+            "facts": [
+              "rank"
+            ],
+            "answer": "여러 담당 태그가 있으면 privacy, billing, account 순서로 가장 앞선 팀을 선택합니다."
+          },
+          {
+            "by": "C",
+            "question": "입력 태그가 ['account', 'billing', 'unknown_tag'] 인 경우, 알 수 없는 태그는 무시하고 비즈니스 태그가 여러 개일 때 'privacy' 팀으로 보내는 것이 맞는지, 아니면 알 수 없는 태그가 섞여 있는 경우를 명시적으로 처리하여 다른 로직을 적용해야 하는지 정해 주세요.",
+            "facts": [
+              "unknown",
+              "ab"
+            ],
+            "answer": "담당 태그와 알 수 없는 태그가 섞이면 알 수 없는 태그는 무시합니다.\naccount와 billing만 겹치면 billing 팀으로 보냅니다."
+          }
+        ]
+      }
+    ],
+    "unsent": [],
+    "prompt_tokens": 14245,
+    "completion_tokens": 6446,
+    "total_tokens": 20691,
+    "calls": 25,
+    "seconds": 185.25,
+    "counts": {
+      "정답": 43,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "short",
+    "cycle": 1,
+    "final": true,
+    "sha": "755503c951f5964cdec9c7548cbd08dd867d64ef4b28f352c47e13b35c3cfabc",
+    "status": "submitted",
+    "source": "experiments/pipeline100/runs/triage/choices/final.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 510,
+    "completion_tokens": 940,
+    "total_tokens": 1450,
+    "calls": 2,
+    "seconds": 25.35,
+    "counts": {
+      "정답": 28,
+      "오답": 15,
+      "보류": 7
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "independent",
+    "cycle": 1,
+    "final": true,
+    "sha": "d27bef6b65203b71232690ea1a1d6704f63175be1b214a3693cc0fe23701904e",
+    "status": "submitted",
+    "source": "experiments/pipeline100/runs/triage/choices/final.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 1834,
+    "completion_tokens": 1718,
+    "total_tokens": 3552,
+    "calls": 5,
+    "seconds": 62.64,
+    "counts": {
+      "정답": 23,
+      "반환 형식 오류": 27
+    }
+  },
+  {
+    "task": "triage",
+    "arm": "serial",
+    "cycle": 1,
+    "final": true,
+    "sha": "5112a7dd3784e82b71755ecbc996c8c97f9f363100ad695869ed85dd3d0ab47b",
+    "status": "submitted",
+    "source": "experiments/pipeline100/runs/triage/choices/final.json",
+    "windows": [],
+    "unsent": [],
+    "prompt_tokens": 1934,
+    "completion_tokens": 1530,
+    "total_tokens": 3464,
+    "calls": 5,
+    "seconds": 51.25,
+    "counts": {
+      "오답": 43,
+      "반환 형식 오류": 7
+    }
+  }
+]

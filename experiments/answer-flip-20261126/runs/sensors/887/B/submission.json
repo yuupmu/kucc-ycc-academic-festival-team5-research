@@ -1,0 +1,26 @@
+{
+  "common_sha256": "97ce3dc902a9758db61f58401b4fe0840bf9a8cfab1ed6866e73260121532f99",
+  "answer_sha256": "239800df4db1edc4f34effdc65f1ea0535d43de275471f28921b38e2476ab372",
+  "source_sha256": "42c1f4c17eb8fd9131b99e00f3fd6c91d41278c695a28e73285a7db34330494b",
+  "attempts": [
+    {
+      "call": "8bf3beeb37500c5be5c1b138caaa7dc0a0b786446dcc3a5dbd8de50b82e39292",
+      "limit": 1100,
+      "seed": 887,
+      "decoded": true,
+      "outcome": "applied",
+      "edits": [
+        {
+          "evidence": "abc-1/H1",
+          "before": "raise NotImplementedError",
+          "after": "result[sensor] = value"
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 354,
+    "completion_tokens": 29,
+    "total_tokens": 383
+  }
+}

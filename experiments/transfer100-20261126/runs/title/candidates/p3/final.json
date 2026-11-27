@@ -1,0 +1,113 @@
+{
+  "cycle": 1,
+  "files": {
+    "solution.py": "import re\n\n\ndef clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열 (두 공백 사이) 을 하나의 공백으로 통일\n    # 정규식: \\s+ 는 하나 이상의 공백 (여러 개 연속된 공백) 을 의미\n    # - 는 하이픈을 의미\n    # [\\s-]+ 는 하나 이상의 공백 또는 하이픈을 의미\n    # 이를 하나의 공백 ' ' 으로 치환함\n    # 빈 문자열 (예: \" \" * 3) 의 경우, \\s+ 가 모든 공백을 하나의 공백으로 줄여 \" \" 가 됨\n    # 하이픈과 공백이 섞여 있을 경우 (예: \"a - b  c\") 는 \"a - b c\" 가 됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\n\n"
+  },
+  "sha256": "e60828c489acc09653bcb72bb2fd3c70bc100b7367080b5fb19bd11caf0cc0ff",
+  "status": "open_limit",
+  "writer": {
+    "version": 2,
+    "files": {
+      "solution.py": "import re\n\n\ndef clean_title(text):\n    \"\"\"\n    표시 제목을 정리하는 함수입니다.\n    \n    입력: 영문 대소문자, 숫자, 하이픈, ASCII 공백으로만 된 문자열 (빈 문자열 포함)\n    출력: 정리된 문자열\n    \n    동작:\n    1. 양끝 공백 제거\n    2. 모든 영문자를 소문자로 변환\n    3. 연속된 내부 공백, 하이픈, 빈 제목 (연속된 공백) 을 하나의 공백으로 통일\n    4. 단어 사이 공백은 하나 유지\n    \"\"\"\n    # 1. 양끝 공백 제거\n    text = text.rstrip()\n    \n    # 2. 모든 영문자를 소문자로 변환\n    text = text.lower()\n    \n    # 3. 연속된 공백, 하이픈, 빈 문자열 (두 공백 사이) 을 하나의 공백으로 통일\n    # 정규식: \\s+ 는 하나 이상의 공백 (여러 개 연속된 공백) 을 의미\n    # - 는 하이픈을 의미\n    # [\\s-]+ 는 하나 이상의 공백 또는 하이픈을 의미\n    # 이를 하나의 공백 ' ' 으로 치환함\n    # 빈 문자열 (예: \" \" * 3) 의 경우, \\s+ 가 모든 공백을 하나의 공백으로 줄여 \" \" 가 됨\n    # 하이픈과 공백이 섞여 있을 경우 (예: \"a - b  c\") 는 \"a - b c\" 가 됨\n    text = re.sub(r'[\\s-]+', ' ', text)\n    \n    # 4. 결과에서 앞뒤 공백 제거 (rstrip 처리는 이미 했지만, 정규식 후에도 안전성을 위해)\n    text = text.strip()\n    \n    return text\n\n\n"
+    },
+    "sha256": "e60828c489acc09653bcb72bb2fd3c70bc100b7367080b5fb19bd11caf0cc0ff",
+    "received": [
+      1
+    ],
+    "author_call": "ba167448b830ec74b66e3f436c9dcb52123fceff20e2e4fbdc898b69bed0b8cf",
+    "author_complete": true,
+    "syntax": {
+      "before": {
+        "solution.py": "valid"
+      },
+      "proposed_invalid": [],
+      "restored_indent": [],
+      "rejected": [],
+      "verified": {
+        "solution.py": "valid"
+      }
+    }
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 내부 공백이 하이픈과 함께 있을 때 (예: 'a  -  b'), 현재 코드는 하이픈을 유지하지 않고 'a - b' 로 변환합니다. 편집 담당자의 기준에 따라 하이픈을 유지해야 한다면 'a - b' 가 되고, 하이픈을 제거해야 한다면 'a b' 가 됩니다.",
+            "outcome_a": "하이픈 유지",
+            "outcome_b": "하이픈 제거",
+            "question": "연속된 내부 공백이 하이픈과 함께 있을 때 하이픈을 유지해야 하는가?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈과 공백이 섞여 있을 때 (예: 'a-- b'), 현재 코드는 이를 'a b'로 변환하지만, 담당자 답변에서 '하이픈은 개수와 위치를 그대로 유지합니다'라고 명시되어 있어 하이픈이 제거되어야 합니다.",
+            "outcome_a": "하이픈을 제거하여 단어 사이 공백으로만 통일합니다.",
+            "outcome_b": "하이픈의 개수와 위치를 그대로 유지합니다.",
+            "question": "연속된 하이픈과 공백이 섞여 있을 때 (예: 'a-- b') 하이픈을 제거하여 단어 사이 공백으로만 통일해야 하는지, 아니면 하이픈의 개수와 위치를 그대로 유지해야 하는지?"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "연속된 하이픈과 공백이 섞여 있을 때 (예: 'a - b  c')",
+            "outcome_a": "하이픈과 공백 모두를 하나의 공백으로 치환하여 'a  b c'가 됨 (하이픈이 제거됨)",
+            "outcome_b": "하이픈과 공백을 모두 하나의 공백으로 치환하여 'a - b c'가 됨 (하이픈이 유지됨)",
+            "question": "연속된 내부 공백, 하이픈, 빈 제목을 어떻게 표시할지는 편집 담당자의 기준을 따르지만, 하이픈이 포함된 경우 하이픈을 유지하는 것이 맞는지, 아니면 하이픈도 공백과 함께 하나의 공백으로 통일하는 것이 맞는지"
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "e7bf98b2651c2b12792e447846bddedc99a044a4389afc0224424870ff471528",
+    "a5cf994d724f46504ec82b807db4683f8659b7a2f9825a65cb1d5076f0bd96d9",
+    "baccbc2ff83439ee9f469b080bcc454c44906009d47d1f50ab1f078bb6ae0c09",
+    "24b8f6dcc3132bd1353aa8bdebfd66c0e46ac888c4fd6c1aba7e1bfb59e59117",
+    "ba167448b830ec74b66e3f436c9dcb52123fceff20e2e4fbdc898b69bed0b8cf",
+    "569ae73f196126ceef6d1fa6c8b3d9bf2137f8462cd8a0ce0b3e180915d589ad",
+    "e997f2a03cd53a43b037926b9ead2247ecea92e7de4b150f57539989ee224a88",
+    "5cdef463903cdc0204e8d494a5d6c3407ca871b6f433c249b601e85ca8d48648"
+  ],
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "2e19574ffa2d665b8c4c7dfd326a7628feab497bdf9adfb90f321ff5b5cdce44",
+      "questions": [
+        {
+          "question": "연속된 하이픈을 하나의 하이픈으로 통일하시겠습니까? 아니면 공백으로 치환하시겠습니까?",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "연속된 내부 공백이 하이픈으로 치환되는지 확인",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "연속된 하이픈과 공백이 섞여 있는 경우, 하이픈을 유지하고 공백만 통일해야 하는지, 아니면 하이픈까지 모두 공백으로 통일해야 하는지",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "하이픈은 개수와 위치를 그대로 유지합니다.\n내부에 공백이 여러 개 연속되어 있으면 공백 하나로 줄입니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

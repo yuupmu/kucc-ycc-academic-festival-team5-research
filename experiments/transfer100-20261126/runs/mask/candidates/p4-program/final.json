@@ -1,0 +1,243 @@
+{
+  "writer": {
+    "files": {
+      "solution.py": "def mask_code(code):\n    raise NotImplementedError"
+    },
+    "calls": [
+      "a1b545114f81efd9e14183ba4ac02424474c7dda890aec4bff0f3e6dc6578749",
+      "baba2329bd30d490a07b2c91cc6a4163a32b27f26fb89e7b0a3a9acc832efed4"
+    ],
+    "decisions": {
+      "P1": {
+        "established": "mask_code(code) 함수를 구현해야 함. 입력은 영문 대소문자 및 숫자 문자열 (빈 문자열 포함).",
+        "input": "code",
+        "still_open": "구체적인 공개 규칙 (H1, H2, H3) 이 충돌하거나 모순될 때의 우선순위.",
+        "status": "rule"
+      },
+      "P2": {
+        "established": "공개된 글자는 원래의 대소문자와 순서를 유지해야 함. 비공개 글자는 '*' 로 바뀜. 결과 길이는 입력 길이와 같아야 함.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      },
+      "P3": {
+        "established": "입력에 다른 문자나 공백은 존재하지 않음.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      },
+      "H1": {
+        "established": "마지막 3 글자를 공개하고 그 앞의 글자는 '*' 로 가림.",
+        "input": "code",
+        "still_open": "길이가 3 이하일 때의 처리는 H2 로 우선시되어야 함 (H2 가 더 구체적임).",
+        "status": "rule"
+      },
+      "H2": {
+        "established": "길이 3 이하인 비어지지 않은 코드는 전부 '*' 로 가림.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      },
+      "H3": {
+        "established": "빈 코드는 빈 문자열 반환.",
+        "input": "code",
+        "still_open": "None.",
+        "status": "rule"
+      }
+    },
+    "bindings": {
+      "P1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "P3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "H1": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "H2": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      },
+      "H3": {
+        "status": "rule",
+        "input": "code",
+        "locations": [],
+        "structural_support": false
+      }
+    },
+    "programs": [
+      {
+        "target": "T1",
+        "atoms": {},
+        "decision": {
+          "rules": [
+            {
+              "when": "has_present(['H3'], code) and not has_present(['H2'], code) and not has_present(['H1'], code) and len(code) == 0",
+              "action": "return",
+              "value": "",
+              "sources": [
+                "H3"
+              ]
+            },
+            {
+              "when": "has_present(['H2'], code)",
+              "action": "return",
+              "value": "'*'**len(code)",
+              "sources": [
+                "H2"
+              ]
+            },
+            {
+              "when": "has_present(['H1'], code)",
+              "action": "return",
+              "value": "code[-3:] + '*' * (len(code) - 3)",
+              "sources": [
+                "H1"
+              ]
+            },
+            {
+              "when": "has_present(['P1'], code)",
+              "action": "return",
+              "value": "mask_code(code)",
+              "sources": [
+                "P1"
+              ]
+            }
+          ],
+          "otherwise": {
+            "action": "return",
+            "value": "False",
+            "sources": []
+          },
+          "complete": true,
+          "applicable": true
+        }
+      }
+    ],
+    "issues": [
+      "1번째 조건 · 원문에 없는 문자열 결과 또는 분기값"
+    ],
+    "error": null,
+    "complete": false,
+    "format": "program"
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 3 글자 공개 기준과 길이 3 이하 처리가 충돌하는 경우 (예: 길이가 3 인 코드),",
+            "outcome_a": "마지막 3 글자를 공개하고 나머지 0 글자는 별표로 가립니다.",
+            "outcome_b": "길이 3 이하인 코드는 전체를 별표로 가립니다.",
+            "question": "길이 3 이하인 코드가 마지막 3 글자 공개 규칙과 어떻게 처리되는지 명확히 해야 합니다."
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 세 글자 공개 규칙과 길이가 3 이하인 경우 별표 처리 규칙이 충돌할 때 (예: 입력 ",
+            "outcome_a": "마지막 세 글자 공개 규칙이 우선하여 '***'가 반환되지만, 길이가 3 이하인 경우 별표 처리 규칙이 우선하여 '***'가 반환되는지, 두 규칙이 동시에 적용되어 '***'가 반환되는지 명확하지 않음",
+            "outcome_b": "두 규칙이 동시에 적용되어 '***'가 반환되는지 명확하지 않음",
+            "question": "마지막 세 글자 공개 규칙과 길이가 3 이하인 경우 별표 처리 규칙이 충돌할 때 (예: 입력 "
+          },
+          {
+            "situation": "빈 문자열에 대한 처리가 명시되어 있지 않은 경우",
+            "outcome_a": "빈 문자열에 대한 처리가 명시되어 있지 않은 경우",
+            "outcome_b": "빈 문자열에 대한 처리가 명시되어 있지 않은 경우",
+            "question": "빈 문자열에 대한 처리가 명시되어 있지 않은 경우"
+          }
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          {
+            "situation": "마지막 세 글자 공개 규칙과 길이가 3 이하인 경우 별표 처리 규칙이 충돌할 때 (예: 길이가 4 인 경우 마지막 3 글자 공개 시 1 글자만 남음 vs 길이가 3 인 경우 전체 공개), 현재 코드는 NotImplementedError 를 던지고 있어 두 가지 가능한 동작 (예외 처리 로직 구현 여부) 을 결정해야 합니다.",
+            "outcome_a": "길이가 3 이하인 경우를 우선적으로 별표 처리하고, 길이가 3 초과인 경우에만 마지막 3 글자를 공개하는 로직을 구현합니다.",
+            "outcome_b": "길이가 3 초과인 경우에만 마지막 3 글자를 공개하고, 길이가 3 이하인 경우를 별표 처리하는 로직을 구현합니다.",
+            "question": "길이가 3 이하인 경우를 우선적으로 별표 처리하고, 길이가 3 초과인 경우에만 마지막 3 글자를 공개하는 로직을 구현합니다."
+          }
+        ],
+        "needs_code_fix": true
+      }
+    }
+  ],
+  "calls": [
+    "a2e79ef07d61408adb72a5ae8192dab26bd84d0bf5f06d8c8adadef89b5f03d7",
+    "4526f3be8d147ef503c4f81be3a5abf2e80ee113f15816b5717cfb9b5a8bcf96",
+    "44726ee8e17094c2ebc8ecb2ab6ab6f308e95079fc83d3d0b882a014b59c645b",
+    "4e8a9622a26115b20de04a471a3cd968f65d97f1da8e07f58c4becb953fa3259",
+    "e20b2f36292b478c4cdb9a6fc9ec5da5de1e1a3e0e7d5890901fd07808413a83",
+    "a1b545114f81efd9e14183ba4ac02424474c7dda890aec4bff0f3e6dc6578749",
+    "baba2329bd30d490a07b2c91cc6a4163a32b27f26fb89e7b0a3a9acc832efed4",
+    "f80eb71f1e245f0fcdb6074bccd0c69ae89f6fc0b6c0d71e20ad7e461a8cec05",
+    "5f98da6f691bc0442a876c4a5f722b9890a2dc8ac0cbac25dfe6e951ca06ae66",
+    "0533aab088128e15d1736199c91ddfc4dbf3670d0d0804a3a2c0adad14bc1c08"
+  ],
+  "files": {
+    "solution.py": "def mask_code(code):\n    raise NotImplementedError"
+  },
+  "sha256": "14e535c616bf2a1848c58a76515c338ea5cc9aa550a8016d1f52c3b5081aec34",
+  "status": "open_limit",
+  "cycle": 1,
+  "receipts": [
+    {
+      "cycle": 1,
+      "ticket": "a3083902929bda912ec31da5d398f7af218909074bdaaea09f6936b33b2dee18",
+      "questions": [
+        {
+          "question": "어느 쪽의 몇 글자를 공개할지, 코드가 짧거나 비었을 때의 처리는 운영 담당자의 기준을 따릅니다.",
+          "proposed_by": [
+            "A",
+            "C"
+          ],
+          "basis": "A1"
+        },
+        {
+          "question": "현재 코드는 모든 글자를 가리는 방식으로 구현되어 있으나, 운영 담당자가 앞뒤 일부만 공개하거나 모든 글자를 가리는 기준 중 어떤 것을 정할지 확인하세요.",
+          "proposed_by": [
+            "B",
+            "C"
+          ],
+          "basis": "B1"
+        },
+        {
+          "question": "운영 담당자가 특정 규칙 (예: 앞 2 글자 공개, 뒤 2 글자 공개) 을 정의했을 때, 코드는 해당 규칙을 따르지 않고 모든 글자를 가리는 방식으로 동작합니다.",
+          "proposed_by": [
+            "C"
+          ],
+          "basis": "C1"
+        }
+      ],
+      "text": "마지막 세 글자만 공개하고 그 앞의 글자는 모두 별표로 가립니다.\n길이가 세 글자 이하인 비어 있지 않은 코드는 전부 별표로 가립니다.\n빈 코드는 빈 문자열을 반환합니다.",
+      "source": "delegated_policy_card"
+    }
+  ]
+}

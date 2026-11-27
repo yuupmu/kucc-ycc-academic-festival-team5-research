@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "arm": "multi",
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    # 일반 마감: 이용 시작 24시간 전\n    general_deadline = 24 * 3600\n    # 정정 기간: 이용 시작 전까지\n    correction_period = 0\n\n    # 일반 마감 시점: until_start_seconds >= general_deadline\n    # 정정 기간 시점: until_start_seconds >= 0\n    # 이용 시작 시점: until_start_seconds == 0\n    # 이용 시작 이후: until_start_seconds < 0\n\n    # 일반 마감 전: until_start_seconds >= general_deadline\n    # 정정 기간 전: until_start_seconds >= 0\n    # 이용 시작 시점: until_start_seconds == 0\n    # 이용 시작 이후: until_start_seconds < 0\n\n    # 일반 마감 전에 취소 가능\n    if until_start_seconds >= general_deadline:\n        return True\n    # 이용 시작 전까지 정정 가능\n    elif until_start_seconds >= 0:\n        return True\n    # 이용 시작 시점 이후에는 일반 마감과 정정 기간 모두 마감\n    else:\n        return False",
+  "sha256": "bb1867d25393b67d4d0e175a338b03071a85c153a9224abab03fa786980703e6",
+  "plan": "일반 취소 마감은 이용 시작 24시간 전입니다. 이용이 시작되면 일반 취소는 마감됩니다. 방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다. 일반 마감은 이용 시작 24시간 전, 정정 기간은 이용 시작 전까지입니다. 정정 기간은 일반 마감보다 우선합니다. 이용 시작 시점 이후에는 일반 마감과 정정 기간 모두 마감됩니다.",
+  "human_evidence": {
+    "deadline_edge": "일반 취소 마감은 이용 시작 24시간 전입니다.",
+    "correction_period": "방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다.",
+    "correction_edge": "",
+    "start_priority": ""
+  },
+  "main_complete": false,
+  "answer_batches": []
+}

@@ -1,0 +1,34 @@
+{
+  "behavior": [
+    {
+      "when": "size_bytes 가 음수인 경우",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes 가 0 인 경우",
+      "then": "False 반환 (거부)"
+    },
+    {
+      "when": "size_bytes 가 16 보다 작은 양수인 경우",
+      "then": "True 반환 (허용)"
+    },
+    {
+      "when": "size_bytes 가 16 보다 크거나 같은 경우",
+      "then": "True 반환 (허용)"
+    }
+  ],
+  "calls": [
+    "9c88389cfd2b0efa2d4d1b97505e282a598a62780645eba2ccf9f6d405931cb1",
+    "7f5ac1a8c24bfd498fd5262fb1dabfc9e5e91d50548ae0ef817950481746d5b6"
+  ],
+  "attempts": [
+    {
+      "outcome": "no-edit",
+      "call": "7f5ac1a8c24bfd498fd5262fb1dabfc9e5e91d50548ae0ef817950481746d5b6"
+    }
+  ],
+  "logs": {
+    "9c88389cfd2b0efa2d4d1b97505e282a598a62780645eba2ccf9f6d405931cb1": "19586d71ac93fd2074d4e113ff86abbe657b04a670d411804897f6d646d03ec3",
+    "7f5ac1a8c24bfd498fd5262fb1dabfc9e5e91d50548ae0ef817950481746d5b6": "f60e693b3012e81713c92ee2c0938733be17f63e8173a958fa62d1c52a438378"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "code": "def allow_cancel(age_seconds, until_start_seconds):\n    if age_seconds <= 600 and until_start_seconds > 0:  # [5, 6, 7]\n        return True\n    if age_seconds <= 600 and until_start_seconds == 0:\n        raise NotImplementedError(\"담당자 판단 필요\")\n    if age_seconds > 600 and until_start_seconds >= 0:  # [8, 9]\n        return False\n    if age_seconds == 600 and until_start_seconds >= 0:\n        raise NotImplementedError(\"담당자 판단 필요\")\n    if until_start_seconds >= 86400:  # [1, 3]\n        return True\n    if until_start_seconds < 0:  # [2]\n        return False\n    if until_start_seconds == 0:\n        raise NotImplementedError(\"담당자 판단 필요\")\n    if until_start_seconds > 0 and age_seconds > 600:  # [2]\n        return False\n    if until_start_seconds >= 0 and age_seconds >= 600:\n        raise NotImplementedError(\"담당자 판단 필요\")\n    return False\n",
+  "conditions": [
+    {
+      "row": 1,
+      "limit": "age_seconds · 10분",
+      "side": "작은 쪽",
+      "equality": true,
+      "input": "age_seconds",
+      "seconds": 600,
+      "sources": [
+        {
+          "ref": 5,
+          "text": "정정 기간은 예약 생성 후 10분입니다."
+        }
+      ],
+      "boundary_sources": [
+        {
+          "ref": 6,
+          "text": "정정 기간이 정확히 끝나는 순간도 포함합니다.",
+          "meaning": "smaller"
+        }
+      ]
+    },
+    {
+      "row": 1,
+      "limit": "until_start_seconds · 시작 순간",
+      "side": "큰 쪽",
+      "equality": null,
+      "input": "until_start_seconds",
+      "seconds": 0,
+      "sources": [
+        {
+          "ref": 0,
+          "text": "0은 시작 순간"
+        }
+      ],
+      "boundary_sources": []
+    },
+    {
+      "row": 2,
+      "limit": "age_seconds · 10분",
+      "side": "큰 쪽",
+      "equality": null,
+      "input": "age_seconds",
+      "seconds": 600,
+      "sources": [
+        {
+          "ref": 5,
+          "text": "정정 기간은 예약 생성 후 10분입니다."
+        }
+      ],
+      "boundary_sources": []
+    },
+    {
+      "row": 2,
+      "limit": "until_start_seconds · 시작 순간",
+      "side": "큰 쪽",
+      "equality": true,
+      "input": "until_start_seconds",
+      "seconds": 0,
+      "sources": [
+        {
+          "ref": 0,
+          "text": "0은 시작 순간"
+        }
+      ],
+      "boundary_sources": [
+        {
+          "ref": 8,
+          "text": "현재 시각이 이용 시작 시각과 같으면 정정 기간이 남아 있어도 거부합니다.",
+          "meaning": "거부"
+        }
+      ]
+    },
+    {
+      "row": 3,
+      "limit": "until_start_seconds · 24시간",
+      "side": "큰 쪽",
+      "equality": true,
+      "input": "until_start_seconds",
+      "seconds": 86400,
+      "sources": [
+        {
+          "ref": 0,
+          "text": "일반 취소 마감은 이용 시작 24시간 전입니다."
+        },
+        {
+          "ref": 1,
+          "text": "일반 취소 마감은 이용 시작 24시간 전이며, 시작까지 남은 시간으로는 86,400초입니다."
+        },
+        {
+          "ref": 3,
+          "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다."
+        }
+      ],
+      "boundary_sources": [
+        {
+          "ref": 3,
+          "text": "정확히 이용 시작 24시간 전이면 일반 취소를 허용합니다.",
+          "meaning": "허용"
+        }
+      ]
+    },
+    {
+      "row": 4,
+      "limit": "until_start_seconds · 시작 순간",
+      "side": "작은 쪽",
+      "equality": null,
+      "input": "until_start_seconds",
+      "seconds": 0,
+      "sources": [
+        {
+          "ref": 0,
+          "text": "0은 시작 순간"
+        }
+      ],
+      "boundary_sources": []
+    },
+    {
+      "row": 5,
+      "limit": "until_start_seconds · 시작 순간",
+      "side": "큰 쪽",
+      "equality": null,
+      "input": "until_start_seconds",
+      "seconds": 0,
+      "sources": [
+        {
+          "ref": 0,
+          "text": "0은 시작 순간"
+        }
+      ],
+      "boundary_sources": []
+    },
+    {
+      "row": 5,
+      "limit": "age_seconds · 10분",
+      "side": "큰 쪽",
+      "equality": null,
+      "input": "age_seconds",
+      "seconds": 600,
+      "sources": [
+        {
+          "ref": 5,
+          "text": "정정 기간은 예약 생성 후 10분입니다."
+        }
+      ],
+      "boundary_sources": []
+    }
+  ],
+  "version": 6
+}

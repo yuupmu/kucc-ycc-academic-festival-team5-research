@@ -1,0 +1,1409 @@
+[
+  {
+    "id": "title-01",
+    "task": "title",
+    "category": "공개 기본 변환",
+    "skill": "public",
+    "args": [
+      "Hello"
+    ],
+    "expected": "hello",
+    "required": [],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-02",
+    "task": "title",
+    "category": "공개 기본 변환",
+    "skill": "public",
+    "args": [
+      "  NEWS  "
+    ],
+    "expected": "news",
+    "required": [],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-03",
+    "task": "title",
+    "category": "공개 기본 변환",
+    "skill": "public",
+    "args": [
+      "Release 2"
+    ],
+    "expected": "release 2",
+    "required": [],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-04",
+    "task": "title",
+    "category": "공개 기본 변환",
+    "skill": "public",
+    "args": [
+      "2026"
+    ],
+    "expected": "2026",
+    "required": [],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-05",
+    "task": "title",
+    "category": "연속 내부 공백",
+    "skill": "repetition",
+    "args": [
+      "Blue  Sky"
+    ],
+    "expected": "blue sky",
+    "required": [
+      "spaces"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-06",
+    "task": "title",
+    "category": "연속 내부 공백",
+    "skill": "repetition",
+    "args": [
+      " a   b "
+    ],
+    "expected": "a b",
+    "required": [
+      "spaces"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-07",
+    "task": "title",
+    "category": "연속 내부 공백",
+    "skill": "repetition",
+    "args": [
+      "A    2"
+    ],
+    "expected": "a 2",
+    "required": [
+      "spaces"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-08",
+    "task": "title",
+    "category": "연속 내부 공백",
+    "skill": "repetition",
+    "args": [
+      "One  Two   Three"
+    ],
+    "expected": "one two three",
+    "required": [
+      "spaces"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-09",
+    "task": "title",
+    "category": "빈 제목",
+    "skill": "empty",
+    "args": [
+      ""
+    ],
+    "expected": "untitled",
+    "required": [
+      "empty"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-10",
+    "task": "title",
+    "category": "빈 제목",
+    "skill": "empty",
+    "args": [
+      " "
+    ],
+    "expected": "untitled",
+    "required": [
+      "empty"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-11",
+    "task": "title",
+    "category": "빈 제목",
+    "skill": "empty",
+    "args": [
+      "    "
+    ],
+    "expected": "untitled",
+    "required": [
+      "empty"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-12",
+    "task": "title",
+    "category": "하이픈 보존",
+    "skill": "exception",
+    "args": [
+      "A-B"
+    ],
+    "expected": "a-b",
+    "required": [
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-13",
+    "task": "title",
+    "category": "하이픈 보존",
+    "skill": "exception",
+    "args": [
+      "--X--"
+    ],
+    "expected": "--x--",
+    "required": [
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-14",
+    "task": "title",
+    "category": "하이픈 보존",
+    "skill": "exception",
+    "args": [
+      "A--B"
+    ],
+    "expected": "a--b",
+    "required": [
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-15",
+    "task": "title",
+    "category": "하이픈 보존",
+    "skill": "exception",
+    "args": [
+      " - "
+    ],
+    "expected": "-",
+    "required": [
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-16",
+    "task": "title",
+    "category": "변환 결합",
+    "skill": "interaction",
+    "args": [
+      "  A--B   C  "
+    ],
+    "expected": "a--b c",
+    "required": [
+      "spaces",
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-17",
+    "task": "title",
+    "category": "변환 결합",
+    "skill": "interaction",
+    "args": [
+      "X  -  Y"
+    ],
+    "expected": "x - y",
+    "required": [
+      "spaces",
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-18",
+    "task": "title",
+    "category": "변환 결합",
+    "skill": "interaction",
+    "args": [
+      " --  A  "
+    ],
+    "expected": "-- a",
+    "required": [
+      "spaces",
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-19",
+    "task": "title",
+    "category": "변환 결합",
+    "skill": "interaction",
+    "args": [
+      "9  -Z"
+    ],
+    "expected": "9 -z",
+    "required": [
+      "spaces",
+      "hyphen"
+    ],
+    "function": "clean_title"
+  },
+  {
+    "id": "title-20",
+    "task": "title",
+    "category": "공개 기본 변환",
+    "skill": "public",
+    "args": [
+      "a b c"
+    ],
+    "expected": "a b c",
+    "required": [],
+    "function": "clean_title"
+  },
+  {
+    "id": "suffix-01",
+    "task": "suffix",
+    "category": "공개 기본 추출",
+    "skill": "public",
+    "args": [
+      "a.txt"
+    ],
+    "expected": "txt",
+    "required": [],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-02",
+    "task": "suffix",
+    "category": "공개 기본 추출",
+    "skill": "public",
+    "args": [
+      "report.csv"
+    ],
+    "expected": "csv",
+    "required": [],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-03",
+    "task": "suffix",
+    "category": "공개 기본 추출",
+    "skill": "public",
+    "args": [
+      "file-2.json"
+    ],
+    "expected": "json",
+    "required": [],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-04",
+    "task": "suffix",
+    "category": "공개 기본 추출",
+    "skill": "public",
+    "args": [
+      "x.123"
+    ],
+    "expected": "123",
+    "required": [],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-05",
+    "task": "suffix",
+    "category": "확장자 대소문자",
+    "skill": "normalization",
+    "args": [
+      "A.TXT"
+    ],
+    "expected": "txt",
+    "required": [
+      "case"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-06",
+    "task": "suffix",
+    "category": "확장자 대소문자",
+    "skill": "normalization",
+    "args": [
+      "photo.JpG"
+    ],
+    "expected": "jpg",
+    "required": [
+      "case"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-07",
+    "task": "suffix",
+    "category": "확장자 대소문자",
+    "skill": "normalization",
+    "args": [
+      "r.CSV"
+    ],
+    "expected": "csv",
+    "required": [
+      "case"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-08",
+    "task": "suffix",
+    "category": "확장자 대소문자",
+    "skill": "normalization",
+    "args": [
+      "Data.Json"
+    ],
+    "expected": "json",
+    "required": [
+      "case"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-09",
+    "task": "suffix",
+    "category": "여러 점",
+    "skill": "precedence",
+    "args": [
+      "archive.tar.gz"
+    ],
+    "expected": "gz",
+    "required": [
+      "multi"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-10",
+    "task": "suffix",
+    "category": "여러 점",
+    "skill": "precedence",
+    "args": [
+      "a.b.c"
+    ],
+    "expected": "c",
+    "required": [
+      "multi"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-11",
+    "task": "suffix",
+    "category": "여러 점",
+    "skill": "precedence",
+    "args": [
+      "a..txt"
+    ],
+    "expected": "txt",
+    "required": [
+      "multi"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-12",
+    "task": "suffix",
+    "category": "여러 점",
+    "skill": "precedence",
+    "args": [
+      "x.v2.CSV"
+    ],
+    "expected": "csv",
+    "required": [
+      "multi",
+      "case"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-13",
+    "task": "suffix",
+    "category": "숨김 이름",
+    "skill": "exception",
+    "args": [
+      ".env"
+    ],
+    "expected": "",
+    "required": [
+      "hidden"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-14",
+    "task": "suffix",
+    "category": "숨김 이름",
+    "skill": "exception",
+    "args": [
+      ".profile"
+    ],
+    "expected": "",
+    "required": [
+      "hidden"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-15",
+    "task": "suffix",
+    "category": "숨김 이름",
+    "skill": "exception",
+    "args": [
+      ".local.txt"
+    ],
+    "expected": "txt",
+    "required": [
+      "hidden"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-16",
+    "task": "suffix",
+    "category": "숨김 이름",
+    "skill": "exception",
+    "args": [
+      ".settings.JSON"
+    ],
+    "expected": "json",
+    "required": [
+      "hidden",
+      "case"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-17",
+    "task": "suffix",
+    "category": "확장자 없음",
+    "skill": "empty",
+    "args": [
+      "README"
+    ],
+    "expected": "",
+    "required": [
+      "missing"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-18",
+    "task": "suffix",
+    "category": "확장자 없음",
+    "skill": "empty",
+    "args": [
+      "file."
+    ],
+    "expected": "",
+    "required": [
+      "missing"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-19",
+    "task": "suffix",
+    "category": "확장자 없음",
+    "skill": "empty",
+    "args": [
+      "a.b."
+    ],
+    "expected": "",
+    "required": [
+      "missing"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "suffix-20",
+    "task": "suffix",
+    "category": "확장자 없음",
+    "skill": "empty",
+    "args": [
+      "."
+    ],
+    "expected": "",
+    "required": [
+      "missing"
+    ],
+    "function": "file_suffix"
+  },
+  {
+    "id": "mask-01",
+    "task": "mask",
+    "category": "일반 코드",
+    "skill": "normalization",
+    "args": [
+      "ABCD"
+    ],
+    "expected": "*BCD",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-02",
+    "task": "mask",
+    "category": "일반 코드",
+    "skill": "normalization",
+    "args": [
+      "ABCDE"
+    ],
+    "expected": "**CDE",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-03",
+    "task": "mask",
+    "category": "일반 코드",
+    "skill": "normalization",
+    "args": [
+      "123456"
+    ],
+    "expected": "***456",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-04",
+    "task": "mask",
+    "category": "일반 코드",
+    "skill": "normalization",
+    "args": [
+      "ab12CD"
+    ],
+    "expected": "***2CD",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-05",
+    "task": "mask",
+    "category": "일반 코드",
+    "skill": "normalization",
+    "args": [
+      "Qwerty7"
+    ],
+    "expected": "****ty7",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-06",
+    "task": "mask",
+    "category": "세 글자 경계",
+    "skill": "boundary",
+    "args": [
+      "ABC"
+    ],
+    "expected": "***",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-07",
+    "task": "mask",
+    "category": "세 글자 경계",
+    "skill": "boundary",
+    "args": [
+      "123"
+    ],
+    "expected": "***",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-08",
+    "task": "mask",
+    "category": "세 글자 경계",
+    "skill": "boundary",
+    "args": [
+      "aB9"
+    ],
+    "expected": "***",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-09",
+    "task": "mask",
+    "category": "세 글자 경계",
+    "skill": "boundary",
+    "args": [
+      "z0X"
+    ],
+    "expected": "***",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-10",
+    "task": "mask",
+    "category": "짧은 코드",
+    "skill": "exception",
+    "args": [
+      "A"
+    ],
+    "expected": "*",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-11",
+    "task": "mask",
+    "category": "짧은 코드",
+    "skill": "exception",
+    "args": [
+      "0"
+    ],
+    "expected": "*",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-12",
+    "task": "mask",
+    "category": "짧은 코드",
+    "skill": "exception",
+    "args": [
+      "AB"
+    ],
+    "expected": "**",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-13",
+    "task": "mask",
+    "category": "짧은 코드",
+    "skill": "exception",
+    "args": [
+      "a1"
+    ],
+    "expected": "**",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-14",
+    "task": "mask",
+    "category": "짧은 코드",
+    "skill": "exception",
+    "args": [
+      "9Z"
+    ],
+    "expected": "**",
+    "required": [
+      "short"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-15",
+    "task": "mask",
+    "category": "빈 코드",
+    "skill": "empty",
+    "args": [
+      ""
+    ],
+    "expected": "",
+    "required": [],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-16",
+    "task": "mask",
+    "category": "길이·표기 보존",
+    "skill": "interaction",
+    "args": [
+      "AbCdE"
+    ],
+    "expected": "**CdE",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-17",
+    "task": "mask",
+    "category": "길이·표기 보존",
+    "skill": "interaction",
+    "args": [
+      "00000000"
+    ],
+    "expected": "*****000",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-18",
+    "task": "mask",
+    "category": "길이·표기 보존",
+    "skill": "interaction",
+    "args": [
+      "XyZ9"
+    ],
+    "expected": "*yZ9",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-19",
+    "task": "mask",
+    "category": "길이·표기 보존",
+    "skill": "interaction",
+    "args": [
+      "ABCdefGHI"
+    ],
+    "expected": "******GHI",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "mask-20",
+    "task": "mask",
+    "category": "길이·표기 보존",
+    "skill": "interaction",
+    "args": [
+      "12aB34cD"
+    ],
+    "expected": "*****4cD",
+    "required": [
+      "visible"
+    ],
+    "function": "mask_code"
+  },
+  {
+    "id": "upload-01",
+    "task": "upload",
+    "category": "음수 입력",
+    "skill": "public",
+    "args": [
+      -1
+    ],
+    "expected": false,
+    "required": [],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-02",
+    "task": "upload",
+    "category": "음수 입력",
+    "skill": "public",
+    "args": [
+      -2
+    ],
+    "expected": false,
+    "required": [],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-03",
+    "task": "upload",
+    "category": "음수 입력",
+    "skill": "public",
+    "args": [
+      -7
+    ],
+    "expected": false,
+    "required": [],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-04",
+    "task": "upload",
+    "category": "음수 입력",
+    "skill": "public",
+    "args": [
+      -16
+    ],
+    "expected": false,
+    "required": [],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-05",
+    "task": "upload",
+    "category": "빈 파일",
+    "skill": "empty",
+    "args": [
+      0
+    ],
+    "expected": false,
+    "required": [
+      "empty"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-06",
+    "task": "upload",
+    "category": "상한 아래",
+    "skill": "boundary",
+    "args": [
+      1
+    ],
+    "expected": true,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-07",
+    "task": "upload",
+    "category": "상한 아래",
+    "skill": "boundary",
+    "args": [
+      2
+    ],
+    "expected": true,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-08",
+    "task": "upload",
+    "category": "상한 아래",
+    "skill": "boundary",
+    "args": [
+      4
+    ],
+    "expected": true,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-09",
+    "task": "upload",
+    "category": "상한 아래",
+    "skill": "boundary",
+    "args": [
+      8
+    ],
+    "expected": true,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-10",
+    "task": "upload",
+    "category": "상한 아래",
+    "skill": "boundary",
+    "args": [
+      12
+    ],
+    "expected": true,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-11",
+    "task": "upload",
+    "category": "상한 아래",
+    "skill": "boundary",
+    "args": [
+      14
+    ],
+    "expected": true,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-12",
+    "task": "upload",
+    "category": "상한 아래",
+    "skill": "boundary",
+    "args": [
+      15
+    ],
+    "expected": true,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-13",
+    "task": "upload",
+    "category": "상한 일치",
+    "skill": "equality",
+    "args": [
+      16
+    ],
+    "expected": true,
+    "required": [
+      "limit",
+      "equal"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-14",
+    "task": "upload",
+    "category": "상한 초과",
+    "skill": "boundary",
+    "args": [
+      17
+    ],
+    "expected": false,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-15",
+    "task": "upload",
+    "category": "상한 초과",
+    "skill": "boundary",
+    "args": [
+      18
+    ],
+    "expected": false,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-16",
+    "task": "upload",
+    "category": "상한 초과",
+    "skill": "boundary",
+    "args": [
+      20
+    ],
+    "expected": false,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-17",
+    "task": "upload",
+    "category": "상한 초과",
+    "skill": "boundary",
+    "args": [
+      24
+    ],
+    "expected": false,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-18",
+    "task": "upload",
+    "category": "상한 초과",
+    "skill": "boundary",
+    "args": [
+      32
+    ],
+    "expected": false,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-19",
+    "task": "upload",
+    "category": "상한 초과",
+    "skill": "boundary",
+    "args": [
+      64
+    ],
+    "expected": false,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "upload-20",
+    "task": "upload",
+    "category": "상한 초과",
+    "skill": "boundary",
+    "args": [
+      100
+    ],
+    "expected": false,
+    "required": [
+      "limit"
+    ],
+    "function": "allow_upload"
+  },
+  {
+    "id": "print-01",
+    "task": "print",
+    "category": "공개 음수 거부",
+    "skill": "public",
+    "args": [
+      -1,
+      2
+    ],
+    "expected": false,
+    "required": [],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-02",
+    "task": "print",
+    "category": "공개 음수 거부",
+    "skill": "public",
+    "args": [
+      2,
+      -1
+    ],
+    "expected": false,
+    "required": [],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-03",
+    "task": "print",
+    "category": "공개 음수 거부",
+    "skill": "public",
+    "args": [
+      -2,
+      -3
+    ],
+    "expected": false,
+    "required": [],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-04",
+    "task": "print",
+    "category": "0인 길이",
+    "skill": "empty",
+    "args": [
+      0,
+      2
+    ],
+    "expected": false,
+    "required": [
+      "zero"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-05",
+    "task": "print",
+    "category": "0인 길이",
+    "skill": "empty",
+    "args": [
+      2,
+      0
+    ],
+    "expected": false,
+    "required": [
+      "zero"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-06",
+    "task": "print",
+    "category": "0인 길이",
+    "skill": "empty",
+    "args": [
+      0,
+      0
+    ],
+    "expected": false,
+    "required": [
+      "zero"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-07",
+    "task": "print",
+    "category": "영역 내부",
+    "skill": "boundary",
+    "args": [
+      1,
+      1
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-08",
+    "task": "print",
+    "category": "영역 내부",
+    "skill": "boundary",
+    "args": [
+      3,
+      2
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-09",
+    "task": "print",
+    "category": "영역 내부",
+    "skill": "boundary",
+    "args": [
+      5,
+      3
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-10",
+    "task": "print",
+    "category": "상한 선·모서리",
+    "skill": "equality",
+    "args": [
+      6,
+      2
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height",
+      "equal"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-11",
+    "task": "print",
+    "category": "상한 선·모서리",
+    "skill": "equality",
+    "args": [
+      3,
+      4
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height",
+      "equal"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-12",
+    "task": "print",
+    "category": "상한 선·모서리",
+    "skill": "equality",
+    "args": [
+      6,
+      4
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height",
+      "equal"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-13",
+    "task": "print",
+    "category": "상한 선·모서리",
+    "skill": "equality",
+    "args": [
+      6,
+      1
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height",
+      "equal"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-14",
+    "task": "print",
+    "category": "상한 선·모서리",
+    "skill": "equality",
+    "args": [
+      1,
+      4
+    ],
+    "expected": true,
+    "required": [
+      "width",
+      "height",
+      "equal"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-15",
+    "task": "print",
+    "category": "초과·고정 방향",
+    "skill": "interaction",
+    "args": [
+      7,
+      2
+    ],
+    "expected": false,
+    "required": [
+      "width"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-16",
+    "task": "print",
+    "category": "초과·고정 방향",
+    "skill": "interaction",
+    "args": [
+      3,
+      5
+    ],
+    "expected": false,
+    "required": [
+      "height"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-17",
+    "task": "print",
+    "category": "초과·고정 방향",
+    "skill": "interaction",
+    "args": [
+      7,
+      5
+    ],
+    "expected": false,
+    "required": [
+      "width",
+      "height"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-18",
+    "task": "print",
+    "category": "초과·고정 방향",
+    "skill": "interaction",
+    "args": [
+      4,
+      6
+    ],
+    "expected": false,
+    "required": [
+      "height"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-19",
+    "task": "print",
+    "category": "초과·고정 방향",
+    "skill": "interaction",
+    "args": [
+      9,
+      1
+    ],
+    "expected": false,
+    "required": [
+      "width"
+    ],
+    "function": "fits_print"
+  },
+  {
+    "id": "print-20",
+    "task": "print",
+    "category": "초과·고정 방향",
+    "skill": "interaction",
+    "args": [
+      1,
+      9
+    ],
+    "expected": false,
+    "required": [
+      "height"
+    ],
+    "function": "fits_print"
+  }
+]

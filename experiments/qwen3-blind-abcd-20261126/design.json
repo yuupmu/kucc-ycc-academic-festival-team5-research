@@ -1,0 +1,27 @@
+{
+  "protocol": "blind-candidates-v1",
+  "model": "var/local-models/Qwen3-8B-Q4_K_M.gguf",
+  "seeds": [
+    131,
+    157,
+    191,
+    223,
+    257,
+    293
+  ],
+  "info": "public",
+  "fixed_calls": {
+    "direct": 1,
+    "self_short": 2,
+    "self_serial": 5,
+    "abcd": 5
+  },
+  "retries": 0,
+  "selection": [
+    "draft",
+    "A",
+    "B",
+    "C"
+  ],
+  "grading": "only after every arm and seed is sealed"
+}

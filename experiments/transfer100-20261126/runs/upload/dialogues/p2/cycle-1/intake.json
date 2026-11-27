@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "question": "업로드 허용 상한값과 빈 파일(0 바이트)의 허용 여부는 저장소 담당자에게 확인해야 하는지, 아니면 코드를 작성하는 독립 감시자로서 판단해야 하는지 명확히 해야 합니다.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "상한 파일 크기는 얼마이며, 정확히 이 크기와 0 바이트인 파일은 허용되나요?",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "업로드 상한 파일 크기는 얼마이며, 정확히 그 크기와 0 바이트인 빈 파일은 허용되나요?",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "calls": [
+    "7b50e7cfa5d4c7c4b49fbd1491916aa45be6e6a4a748f04eff320799d4e86b2a",
+    "5c915543c8e1fb76226499044100a24390db98c95da69bd0096eb1049a6fcb74",
+    "0f6c536c6023bac01510ddace4e1a1afa96a935f3f75c2c406d7a962f5f18204",
+    "bbcdb057f6fe99bad7d90be00ccb3a064acc7de9312768780120a41881849115"
+  ],
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "업로드 허용 상한값과 빈 파일(0 바이트)의 허용 여부는 저장소 담당자에게 확인해야 하는지, 아니면 코드를 작성하는 독립 감시자로서 판단해야 하는지 명확히 해야 합니다."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "상한 파일 크기는 얼마이며, 정확히 이 크기와 0 바이트인 파일은 허용되나요?"
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "업로드 상한 파일 크기는 얼마이며, 정확히 그 크기와 0 바이트인 빈 파일은 허용되나요?"
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "withheld": [],
+  "invalid": false
+}

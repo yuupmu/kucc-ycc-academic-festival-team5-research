@@ -1,0 +1,88 @@
+{
+  "arms": {
+    "solo": {
+      "version": 1,
+      "status": "one_shot"
+    },
+    "self": {
+      "version": 2,
+      "status": "open_limit"
+    },
+    "p2": {
+      "version": 2,
+      "status": "open_limit"
+    },
+    "p3": {
+      "version": 2,
+      "status": "open_limit"
+    }
+  },
+  "answers": [
+    {
+      "arm": "self",
+      "version": 1,
+      "source": "delegated_policy_card",
+      "questions": [
+        {
+          "question": "직원이 '방금 잘못 예약한' 고객에게 정정 시간을 부여할 구체적인 기준 (예: 예약 생성 후 1 시간 이내, 또는 이용 시작 1 시간 이내 등) 을 설정할 수 있나요?",
+          "proposed_by": [
+            "main-self"
+          ]
+        }
+      ],
+      "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 가능 기간은 10분입니다."
+    },
+    {
+      "arm": "p2",
+      "version": 1,
+      "source": "delegated_policy_card",
+      "questions": [
+        {
+          "question": "직원이 '이용 시작 24 시간 전' 기준을 적용할 때, age_seconds(예약 생성 경과 시간)를 고려하여 정정 시간 (예: 24 시간 이내) 을 적용할 수 있는지 확인이 필요합니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "직원이 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 안내문의 제 3 조항을 '이용 시작 24 시간 전까지'의 범위 내에서 별도의 정정 시간을 적용한다는 의미로 해석하여, `until_start_seconds`가 0 이상 86400 미만의 경우에도 취소를 허용하는 로직을 구현했는지 확인해 주세요.",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "현재 코드에서 `age_seconds` (예약 생성부터 경과한 시간) 를 고려하지 않고, `until_start_seconds >= 0` 일 때 무조건 `True` 를 반환하는 로직이, 안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 조건을 제대로 반영하고 있는가?",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "정정 시간은 예약을 생성한 때부터 셉니다.\n정정 기간 안이면 일반 마감이 지난 예약도 정정할 수 있습니다."
+    },
+    {
+      "arm": "p3",
+      "version": 1,
+      "source": "delegated_policy_card",
+      "questions": [
+        {
+          "question": "안내문의 문구와 일치하는 운영 기준이 없으므로, 현재 코드가 정정 시간을 고려하지 않고 단순 시간 기준으로만 판단하는 것이 맞습니다.",
+          "proposed_by": [
+            "A"
+          ]
+        },
+        {
+          "question": "안내문에서 언급된 '방금 잘못 예약한 고객에게는 별도의 정정 시간이 있습니다'라는 문구에 대한 구체적인 운영 기준이 정의되어 있지 않으며, 현재 코드는 이를 반영하지 않고 0 초 이상의 모든 경우를 취소 허용으로 처리하고 있습니다.",
+          "proposed_by": [
+            "B"
+          ]
+        },
+        {
+          "question": "코드에서 age_seconds 변수를 활용하여 정정 시간 기준을 정의할 수 있는지 확인하고 싶습니다.",
+          "proposed_by": [
+            "C"
+          ]
+        }
+      ],
+      "text": "어느 경우에 어떤 처리를 할지 조금 더 구체적으로 물어봐 주세요.\n정정 시간은 예약을 생성한 때부터 셉니다."
+    }
+  ]
+}

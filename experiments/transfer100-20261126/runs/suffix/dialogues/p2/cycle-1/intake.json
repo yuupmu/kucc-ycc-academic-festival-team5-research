@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "question": "점과 하이픈이 여러 개 포함된 이름, 점으로 시작하거나 끝나는 이름, 확장자가 없는 이름, 그리고 대소문자 표기에 대한 처리 방식을 정해달라.",
+      "proposed_by": [
+        "A"
+      ]
+    },
+    {
+      "question": "현재 코드에서 NotImplementedError가 발생하므로, 파일 관리 담당자에게 이 함수의 구현 로직을 확인해달라고 요청할 수 있습니다.",
+      "proposed_by": [
+        "B"
+      ]
+    },
+    {
+      "question": "확장자가 여러 개이거나 점이 여러 개인 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지 확인 부탁드립니다.",
+      "proposed_by": [
+        "C"
+      ]
+    }
+  ],
+  "calls": [
+    "3c2d67a570c3aa02842b7acb5e8b6ca2849af68ceb638f892259802626d4d4e7",
+    "20fe1a39473d05f1771985a49145062ecff8ebddfd42699a24fee86a1c3a9cc8",
+    "701c4559d5cbc15d63306dcd20409f5e40fb8fa13d8b50563a1a7263a945d811",
+    "486d9b82423a0e0361c7ae849ad81e71013308406cfa8a8483aa270568b5d2f5"
+  ],
+  "reviews": [
+    {
+      "role": "A",
+      "response": {
+        "questions": [
+          "점과 하이픈이 여러 개 포함된 이름, 점으로 시작하거나 끝나는 이름, 확장자가 없는 이름, 그리고 대소문자 표기에 대한 처리 방식을 정해달라."
+        ],
+        "needs_code_fix": false
+      }
+    },
+    {
+      "role": "B",
+      "response": {
+        "questions": [
+          "현재 코드에서 NotImplementedError가 발생하므로, 파일 관리 담당자에게 이 함수의 구현 로직을 확인해달라고 요청할 수 있습니다."
+        ],
+        "needs_code_fix": true
+      }
+    },
+    {
+      "role": "C",
+      "response": {
+        "questions": [
+          "확장자가 여러 개이거나 점이 여러 개인 경우, 마지막 점 다음 부분을 반환하는 것이 맞는지 확인 부탁드립니다."
+        ],
+        "needs_code_fix": false
+      }
+    }
+  ],
+  "withheld": [],
+  "invalid": false
+}

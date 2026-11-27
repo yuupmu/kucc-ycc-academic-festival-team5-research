@@ -1,0 +1,247 @@
+{
+  "text": "{\"scopes\": [\"T1\", \"T2\"], \"notes\": {\"P1\": {\"established\": \"allow_upload(size_bytes) 함수는 정수 타입의 size_bytes 인수를 받습니다. 0 은 빈 파일로 간주됩니다. 음수 값은 거부합니다.\", \"input\": \"size_bytes\", \"still_open\": \"0 이상의 양수 값에 대한 구체적인 허용/거부 로직은 P2와 P3의 상한값 규칙에 의존합니다.\"}, \"P2\": {\"established\": \"업로드 크기의 상한은 16 바이트입니다 (H2).\", \"input\": \"size_bytes\", \"still_open\": \"상한보다 작은 양수 파일은 허용해야 함 (H2).\"}, \"P3\": {\"established\": \"상한 값은 16 바이트입니다 (H2). 정확히 상한 (16 바이트) 인 파일은 허용합니다 (H3). 빈 파일 (0 바이트) 의 허용 여부는 H1에 의해 거부로 확정됩니다.\", \"input\": \"size_bytes\", \"still_open\": \"빈 파일 (0) 은 거부 (H1). 16 바이트는 허용 (H3). 0 < size_bytes < 16 인 양수 파일은 허용 (P2). 16 < size_bytes 인 경우 거부 (P2).\"}, \"H1\": {\"established\": \"빈 파일 (size_bytes == 0) 은 거부합니다.\", \"input\": \"size_bytes\", \"still_open\": \"없음.\"}, \"H2\": {\"established\": \"업로드 크기의 상한은 16 바이트입니다.\", \"input\": \"size_bytes\", \"still_open\": \"없음.\"}, \"H3\": {\"established\": \"파일 크기가 16 바이트와 정확히 같아도 허용합니다.\", \"input\": \"size_bytes\", \"still_open\": \"없음.\"}}}",
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "usage": {
+    "completion_tokens": 411,
+    "prompt_tokens": 339,
+    "total_tokens": 750,
+    "prompt_tokens_details": {
+      "cached_tokens": 97
+    }
+  },
+  "server_timings": {
+    "cache_n": 97,
+    "prompt_n": 242,
+    "prompt_ms": 325.168,
+    "prompt_per_token_ms": 1.3436694214876033,
+    "prompt_per_second": 744.2306746051272,
+    "predicted_n": 411,
+    "predicted_ms": 10744.994,
+    "predicted_per_token_ms": 26.207302439024392,
+    "predicted_per_second": 38.15730376396674
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 11.09,
+  "request": {
+    "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the main programmer planning a revision. For each verbatim source, write separately what it establishes and what it still leaves open. A missing detail never erases a confirmed one. Select the actual input that the established fact governs. Preserve any stated number, units, equality, precedence or invariant. A request for clarification supplies no new decision. Use empty strings where nothing is established or nothing remains open. Keep notes short. Select the smallest editable scopes."
+      },
+      {
+        "role": "user",
+        "content": "{\"editable_scopes\":{\"T1\":{\"path\":\"solution.py\",\"name\":\"allow_upload\",\"parameters\":[\"size_bytes\"],\"kind\":\"body\",\"signature\":\"size_bytes\"},\"T2\":{\"path\":\"solution.py\",\"name\":\"solution.py\",\"parameters\":[],\"kind\":\"file\",\"signature\":\"\"}},\"public_and_owner_sources\":{\"P1\":\"업로드 파일 크기를 검사하는 allow_upload(size_bytes) -> bool 함수를 구현하세요. size_bytes는 정수 바이트 수이며 0은 빈 파일입니다. 음수 입력은 잘못된 크기이므로 거부합니다.\",\"P2\":\"담당자가 정한 상한보다 작은 양수 파일은 허용하고 상한보다 큰 파일은 거부합니다. 허용하면 True, 거부하면 False를 반환합니다.\",\"P3\":\"상한 값, 정확히 상한인 파일과 빈 파일의 허용 여부는 저장소 담당자에게 확인할 수 있습니다. 파일 내용이나 확장자는 입력에 없습니다.\",\"H1\":\"빈 파일에는 거부로 처리합니다.\",\"H2\":\"업로드 크기의 상한은 16바이트입니다.\",\"H3\":\"파일 크기가 상한과 정확히 같아도 허용합니다.\"}}"
+      }
+    ],
+    "seed": 863,
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": 2000,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "project_response",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "T1",
+                  "T2"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2
+            },
+            "notes": {
+              "type": "object",
+              "properties": {
+                "P1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "size_bytes"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "size_bytes"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "P3": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "size_bytes"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H1": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "size_bytes"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H2": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "size_bytes"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                },
+                "H3": {
+                  "type": "object",
+                  "properties": {
+                    "established": {
+                      "type": "string",
+                      "maxLength": 350
+                    },
+                    "input": {
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "size_bytes"
+                      ]
+                    },
+                    "still_open": {
+                      "type": "string",
+                      "maxLength": 350
+                    }
+                  },
+                  "required": [
+                    "established",
+                    "input",
+                    "still_open"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "P1",
+                "P2",
+                "P3",
+                "H1",
+                "H2",
+                "H3"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "scopes",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "role": "main-rule-plan"
+}

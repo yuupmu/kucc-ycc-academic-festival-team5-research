@@ -1,0 +1,30 @@
+{
+  "model": "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+  "seed": 263,
+  "task": "print",
+  "cycles": 3,
+  "max_questions": 3,
+  "project": {
+    "brief": "고정 방향 인쇄 영역을 검사하는 fits_print(width_cm, height_cm) -> bool 함수를 구현하세요. 두 입력은 정수 센티미터입니다. width_cm는 가로 길이이며 0은 가로 길이 없음, height_cm는 세로 길이이며 0은 세로 길이 없음입니다.\n한쪽이라도 음수이면 거부합니다. 두 길이가 양수이고 각각 자기 상한보다 작으면 허용합니다. 어느 한쪽이라도 자기 상한을 초과하면 거부합니다. 회전이나 가로·세로 교환은 하지 않습니다. 허용하면 True, 거부하면 False를 반환합니다.\n가로와 세로의 상한, 상한과 같은 길이, 0인 길이의 처리는 인쇄 담당자에게 확인할 수 있습니다.",
+    "files": {
+      "solution.py": "def fits_print(width_cm, height_cm):\n    raise NotImplementedError\n"
+    }
+  },
+  "reviewer_schedule": [
+    [
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf"
+    ],
+    [
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf"
+    ],
+    [
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf",
+      "var/local-models/Qwen3.5-4B-Q4_K_M.gguf"
+    ]
+  ]
+}
